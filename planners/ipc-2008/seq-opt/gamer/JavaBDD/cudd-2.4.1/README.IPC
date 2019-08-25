@@ -1,0 +1,5 @@
+NOTE: This is not the original cudd distribution.
+I removed some documentation and test files to make the archive sizes 
+smaller, since unfortunately they need to be copied around a lot.
+
+-- Malte

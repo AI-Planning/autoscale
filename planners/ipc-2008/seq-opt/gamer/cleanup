@@ -1,0 +1,5 @@
+#! /bin/bash
+
+rm -f abstract*
+rm -f *.gdl
+rm -f ground_exec/{domain.pddl,problem.pddl,problem.psas}

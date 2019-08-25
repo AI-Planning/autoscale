@@ -1,0 +1,71 @@
+#!/bin/bash
+
+cd $(dirname "$0")
+export PATH=$(pwd)/jre/bin:$PATH
+
+if [ -f sleepFile ]
+then
+  rm sleepFile
+fi
+if [ -f orig-1Dom.gdl ]
+then
+  rm orig-1Dom.gdl
+fi
+if [ -f abstract0-1Dom.gdl ]
+then
+  rm abstract0-1Dom.gdl
+fi
+if [ -f orig-1Prob.gdl ]
+then
+  rm orig-1Prob.gdl
+fi
+if [ -f abstract0-1Prob.gdl ]
+then
+  rm abstract0-1Prob.gdl
+fi
+if [ -f orig-1Part.gdl ]
+then
+  rm orig-1Part.gdl
+fi
+if [ -f abstract0-1Part.gdl ]
+then
+  rm abstract0-1Part.gdl
+fi
+noPDBs=0
+while [ 1 ]
+do
+  if [ -f "abstract0-1PDB_"$noPDBs ]
+  then
+    rm "abstract0-1PDB_"$noPDBs
+    ((noPDBs += 1))
+  else
+    break
+  fi
+done
+
+
+
+cp $1 ground_exec/domain.pddl
+cp $2 ground_exec/problem.pddl
+cd ground_exec
+sed "s/).*-.*number/)/" domain.pddl > blablub
+mv blablub domain.pddl
+./ground domain.pddl problem.pddl
+sed "s/.*total-cost.*//g" problem.pddl > prob.pddl
+mv prob.pddl problem.pddl
+cd ..
+
+
+
+cp ground_exec/domain.pddl orig-1Dom.gdl
+cp ground_exec/domain.pddl abstract0-1Dom.gdl
+cp ground_exec/problem.pddl orig-1Prob.gdl
+cp ground_exec/problem.pddl abstract0-1Prob.gdl
+cp ground_exec/problem.psas orig-1Part.gdl
+cp ground_exec/problem.psas abstract0-1Part.gdl
+(ulimit -t 900 && java -classpath gamer.jar:javabdd-2.0.jar -Dbdd=cudd pddl2bdd.PDDL2BDD abstract0-1Dom.gdl abstract0-1Prob.gdl abstract0-1Part.gdl cudd)
+echo "done waiting!"
+time java -classpath gamer.jar:javabdd-2.0.jar -Dbdd=cudd pddl2bdd.PDDL2BDD orig-1Dom.gdl orig-1Prob.gdl orig-1Part.gdl cudd
+
+
+mv plan_output $3

@@ -1,0 +1,16 @@
+Gamer
+
+(C) Peter Kissmann - Dortmund University of Technology
+
+Version for IPC-6 (2008) - Sequential Optimal Track
+
+Gamer is licensed under the GNU General Public License. Read the file COPYING for details.
+
+Building should happen via './build'
+Planning is done by './plan <domain-file> <problem-file> <output-file>'
+
+Note, that the directory 'JavaBDD' contains the sources taken from the sourceforge-project (slightly extended to enable CUDD to store BDDs on disk). The original version can be found in the web at 'http://javabdd.sourceforge.net/'. The most recent version, 2.0, is in the subversion-repository, from where we also got the jdd.jar package.
+The sources for the BDD-library 'CUDD', which is used in our planner, can be found at 'http://vlsi.colorado.edu/~fabio/CUDD/'.
+The directory 'ground_src' contains the static analyzer.
+The directory 'gamer' contains the source-code of the planner itself. It is written completely in Java (needs JDK > 1.5) and uses JavaBDD as an interface to CUDD to work with BDDs.
+Rudimentary support for conditional effects has been implemented. I.e., we only support conditional effects that have a single effect (not a formula) and that is not negated.
