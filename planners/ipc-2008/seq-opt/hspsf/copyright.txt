@@ -1,0 +1,12 @@
+
+The source code in this archive is released without copyright (i.e., it
+is public domain). You may use it in any way for any purpose (including
+to make a profit - ha!). Note, however, that you can not copyright it
+(precisely because it has been made _public_ without copyright). You can
+still copyright works derived from it, though it seems most judicial
+systems apply some measure of common sense in interpreting what is a
+"derived work" (in short, you have to put some actual _work_ into making
+it).
+
+cheers,
+   /P@trik
