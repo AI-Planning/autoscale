@@ -166,7 +166,7 @@ template<class T> class auto_expanding_vector : public lvector<T>
   typename std::vector<T>::reference
   operator[](typename std::vector<T>::size_type k)
   {
-    inc_length_to(k + 1, _default);
+    this->inc_length_to(k + 1, _default);
     return lvector<T>::operator[](k);
   };
   typename std::vector<T>::const_reference

@@ -166,7 +166,7 @@ template<class T> class auto_expanding_vector : public lvector<T>
   typename std::vector<T>::reference
   operator[](typename std::vector<T>::size_type k)
   {
-    inc_length_to(k + 1, _default);
+    this->inc_length_to(k + 1, _default);
     return lvector<T>::operator[](k);
   };
   typename std::vector<T>::const_reference
@@ -1300,7 +1300,7 @@ void weighted_vec<T,N>::insert_decreasing(const weighted<T,N>& v)
 template<class T, class N>
 void weighted_vec<T,N>::insert_increasing(const T& v, const N& w)
 {
-  insert_ordered(weighted<T,N>(v, w), increasing);
+  this->insert_ordered(weighted<T,N>(v, w), increasing);
 }
 template<class T, class N>
 void weighted_vec<T,N>::insert_decreasing(const T& v, const N& w)

@@ -166,7 +166,7 @@ template<class T> class auto_expanding_vector : public lvector<T>
   typename std::vector<T>::reference
   operator[](typename std::vector<T>::size_type k)
   {
-    inc_length_to(k + 1, _default);
+    this->inc_length_to(k + 1, _default);
     return lvector<T>::operator[](k);
   };
   typename std::vector<T>::const_reference
@@ -3954,7 +3954,7 @@ class Stopwatch {
   double start_t;
   double current_t;
   double total_t;
-  static const double TIME_OUT_TOLERANCE = 1.1;
+  static constexpr double TIME_OUT_TOLERANCE = 1.1;
   static bool interrupt_signal_trapped;
   static volatile bool interrupt_signal_raised;
   static bool alarm_signal_trapped;
@@ -5446,7 +5446,7 @@ class PlanName : public Name {
   virtual void write(::std::ostream& s, unsigned int c = NC_DEFAULT) const;
 };
 ::std::ostream& operator<<(::std::ostream& s, ExecError::ErrorType t);
-::std::ostream& operator<<(::std::ostream& s, ExecError::ErrorSeverity s);
+::std::ostream& operator<<(::std::ostream& s, ExecError::ErrorSeverity sev);
 }
 #include <list>
 namespace hsps {
