@@ -1,11 +1,11 @@
 #! /bin/bash
 
-export PATH=$(dirname "$0")/py2.5/bin:$PATH
+PLANNERDIR=$(dirname "$0")
 
 # Paths to planner components
-TRANSLATE="./translate/translate.py"
-PREPROCESS="./preprocess/preprocess"
-SEARCH="./search/search"
+TRANSLATE="${PLANNERDIR}/translate/translate.py"
+PREPROCESS="${PLANNERDIR}/preprocess/preprocess"
+SEARCH="${PLANNERDIR}/search/search"
 
 function run_planner {
     echo "1. Running translator"

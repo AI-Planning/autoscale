@@ -1,9 +1,11 @@
 #! /bin/bash
 
 cd preprocess
+mkdir obj
 make || exit 1
 cd ..
 
 cd search
+mkdir obj
 make || exit 1
 cd ..
