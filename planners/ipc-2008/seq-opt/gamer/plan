@@ -1,7 +1,11 @@
 #!/bin/bash
 
-cd $(dirname "$0")
-export PATH=$(pwd)/jre/bin:$PATH
+set -xeuo pipefail
+
+WORKDIR=$(pwd)
+PLANNERDIR=$(dirname "$0")
+
+export PATH=${PLANNERDIR}:${PATH}
 
 if [ -f sleepFile ]
 then
@@ -43,29 +47,29 @@ do
   fi
 done
 
+DOMAIN=$1
+PROBLEM=$2
+PLANFILE=$3
 
+# We copy the input files since the grounding tool modifies them in-place.
+mkdir tmp
+cp "$DOMAIN" tmp/domain.pddl
+cp "$PROBLEM" tmp/problem.pddl
+cd tmp
+sed -i "s/).*-.*number/)/" domain.pddl
+"$PLANNERDIR"/ground_exec/ground domain.pddl problem.pddl
+sed -i "s/.*total-cost.*//g" problem.pddl
+cp domain.pddl ../orig-1Dom.gdl
+cp domain.pddl ../abstract0-1Dom.gdl
+cp problem.pddl ../orig-1Prob.gdl
+cp problem.pddl ../abstract0-1Prob.gdl
+cp problem.psas ../orig-1Part.gdl
+cp problem.psas ../abstract0-1Part.gdl
+cd ../
 
-cp $1 ground_exec/domain.pddl
-cp $2 ground_exec/problem.pddl
-cd ground_exec
-sed "s/).*-.*number/)/" domain.pddl > blablub
-mv blablub domain.pddl
-./ground domain.pddl problem.pddl
-sed "s/.*total-cost.*//g" problem.pddl > prob.pddl
-mv prob.pddl problem.pddl
-cd ..
-
-
-
-cp ground_exec/domain.pddl orig-1Dom.gdl
-cp ground_exec/domain.pddl abstract0-1Dom.gdl
-cp ground_exec/problem.pddl orig-1Prob.gdl
-cp ground_exec/problem.pddl abstract0-1Prob.gdl
-cp ground_exec/problem.psas orig-1Part.gdl
-cp ground_exec/problem.psas abstract0-1Part.gdl
-(ulimit -t 900 && java -classpath gamer.jar:javabdd-2.0.jar -Dbdd=cudd pddl2bdd.PDDL2BDD abstract0-1Dom.gdl abstract0-1Prob.gdl abstract0-1Part.gdl cudd)
+PLANNER_CALL="java -classpath ${PLANNERDIR}/gamer.jar:${PLANNERDIR}/javabdd-2.0.jar -Djava.library.path=${PLANNERDIR} -Dbdd=cudd pddl2bdd.PDDL2BDD"
+(ulimit -t 900 && ${PLANNER_CALL} abstract0-1Dom.gdl abstract0-1Prob.gdl abstract0-1Part.gdl cudd)
 echo "done waiting!"
-time java -classpath gamer.jar:javabdd-2.0.jar -Dbdd=cudd pddl2bdd.PDDL2BDD orig-1Dom.gdl orig-1Prob.gdl orig-1Part.gdl cudd
+time ${PLANNER_CALL} orig-1Dom.gdl orig-1Prob.gdl orig-1Part.gdl cudd
 
-
-mv plan_output $3
+mv plan_output "$PLANFILE"
