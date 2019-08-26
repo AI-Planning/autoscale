@@ -1,4 +1,5 @@
-set -x
+set -xeuo pipefail
+
 g++ -O6 -m32 -c -x c++ hsp_f.ccx
 g++ -O6 -m32 -c -x c++ rational.ccx
 g++ -O6 -m32 -c -x c++ index_type.ccx
@@ -33,4 +34,4 @@ g++ -O6 -m32 -c -x c++ base.ccx
 g++ -O6 -m32 -c -x c++ parser.ccx
 g++ -O6 -m32 -c -x c++ grammar.ccx
 g++ -O6 -m32 -c -x c++ scanner.ccx
-g++ -O6 -m32 -o hsp_f  hsp_f.o  rational.o  index_type.o  name.o  ptr_table.o  char_map.o  string_table.o  numeric_type.o  graph.o  enumerators.o  rng.o  problem.o  soft.o  search.o  heuristic.o  stats.o  exec.o  plans.o  preprocess.o  cost_table.o  additive.o  atomset.o  resource.o  seq_reg.o  forward.o  search_base.o  hashtable.o  ida.o  nodeset.o  bfs.o  base.o  parser.o  grammar.o  scanner.o 
+g++ -O6 -m32 -o hsp_f  hsp_f.o  rational.o  index_type.o  name.o  ptr_table.o  char_map.o  string_table.o  numeric_type.o  graph.o  enumerators.o  rng.o  problem.o  soft.o  search.o  heuristic.o  stats.o  exec.o  plans.o  preprocess.o  cost_table.o  additive.o  atomset.o  resource.o  seq_reg.o  forward.o  search_base.o  hashtable.o  ida.o  nodeset.o  bfs.o  base.o  parser.o  grammar.o  scanner.o

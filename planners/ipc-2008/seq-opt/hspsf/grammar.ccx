@@ -8000,15 +8000,15 @@ static const short yycheck[] = { 117,
     -1, -1, -1, -1, -1, -1, 49, 49, 49
 };
 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
+
+
+
+
+
+
+
+
 
 int
  PDDL_Parser::
@@ -10504,5 +10504,5 @@ yyerrhandle:
   *++yyvsp = yylval;
   yystate = yyn;
   goto yynewstate;
- 
+
 }
