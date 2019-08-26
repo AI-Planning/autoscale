@@ -61,12 +61,12 @@ class ActionDescription {
  public:
   ActionDescription(string& n,
                     LispEntity& p, LispEntity& e,
-                    TypeEngine& te, map<string,int>& p,
-                    TypeMap& actionT, Domain& d, int derived);
-  ActionDescription(string& n, LispEntity& p,   // duration
+                    TypeEngine& te, map<string,int>& params,
+                    TypeMap& actionT, Domain& dom, int derived);
+  ActionDescription(string& n, LispEntity& d,   // duration
                     LispEntity& p, LispEntity& e,
-                    TypeEngine& te, map<string,int>& p,
-                    TypeMap& actionT, Domain& d, int derived);
+                    TypeEngine& te, map<string,int>& params,
+                    TypeMap& actionT, Domain& dom, int derived);
   ActionDescription(const ActionDescription& other);
   ActionDescription(Action* a, Domain& d);
   // void groupADL(Code &code);

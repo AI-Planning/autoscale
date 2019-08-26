@@ -1,12 +1,9 @@
 #! /bin/bash
 
-currentDir=$(pwd)
-javaDir0=$(which java)
-javaDir="${javaDir0%%java}"
-cd $javaDir
-cd ..
-export JAVA_ROOT123=$(pwd)
-cd $currentDir
+set -xeuo pipefail
+
+# See https://www.baeldung.com/find-java-home
+export JAVA_ROOT123=$(dirname $(dirname $(readlink -f $(which javac))))
 cd JavaBDD
 make
 mv javabdd-2.0.jar ..
