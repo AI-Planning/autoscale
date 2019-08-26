@@ -19,13 +19,17 @@ From: i386/ubuntu:18.04
     ## once before the planner runs in this part of the script.
 
     ## Install all dependencies.
-    apt-get update
-    apt-get -y install g++ make openjdk-8-jdk
+    apt update
+    apt install -y --no-install-recommends g++ make openjdk-8-jdk
 
     cd /planner
 
     ## Build the planner.
     ./build
+
+    ## Clean up.
+    apt -y autoremove g++ make
+    rm -rf /var/lib/apt/lists/*
 
 %runscript
     ## The runscript is called whenever the container is used to solve
