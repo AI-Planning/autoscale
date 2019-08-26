@@ -1,3 +1,5 @@
+#! /bin/bash
+
 set -xeuo pipefail
 
 g++ -O6 -m32 -c -x c++ hsp_f.ccx
