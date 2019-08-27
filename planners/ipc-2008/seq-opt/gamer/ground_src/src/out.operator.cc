@@ -1,18 +1,18 @@
 // ***********************************************************
-// 
+//
 //  Book:       Heuristic Search
-// 
+//
 //  Authors:    S.Edelkamp, S.Schroedl
-// 
-//  See file README for information on using and copying 
+//
+//  See file README for information on using and copying
 //  this software.
-// 
+//
 //  Project:    Mips - model checking integrated planning
 //              system
-// 
+//
 //  Module:     mips\src\out.operator.cc
 //  Authors:    S.Edelkamp, M.Helmert
-// 
+//
 // ***********************************************************
 
 #include <vector>
@@ -40,13 +40,13 @@ Operator::Operator(int actnr, int nr, int der, int tim,
 		   vector<int>& EffOp,
 		   vector<Tree *>& EffBody,
 		   vector<Operator *>& whens,
-		   FactMap& fMap): 
+		   FactMap& fMap):
   factMap(fMap),actionNumber(actnr),number(nr),derived(der),
   timed(tim), mark(0) {
 
   mintime = 0;
   maxtime = 10000000;
-  prensize = effnsize = 0; 
+  prensize = effnsize = 0;
   pres = presize = Pre.size();
   pre = new int [presize];
   pre_t = new int [presize];
@@ -66,8 +66,8 @@ Operator::Operator(int actnr, int nr, int der, int tim,
   delsize = Del.size();
   del = new int [delsize];
   del_t = new int [delsize];
-  for (int i=0;i<delsize;i++) del[i] = Del[i].second; 
-  for (int i=0;i<delsize;i++) del_t[i] = Del[i].first; 
+  for (int i=0;i<delsize;i++) del[i] = Del[i].second;
+  for (int i=0;i<delsize;i++) del_t[i] = Del[i].first;
 
 
   prefSize = Pref.size();
@@ -75,9 +75,9 @@ Operator::Operator(int actnr, int nr, int der, int tim,
   pref_s = new string[prefSize];
   pref_t = new int[prefSize];
   for (int i=0;i<prefSize;i++) {
-    pref[i] = Pref[i].second.second; 
-    pref_t[i] = Pref[i].second.first; 
-    pref_s[i] = Pref[i].first; 
+    pref[i] = Pref[i].second.second;
+    pref_t[i] = Pref[i].second.first;
+    pref_s[i] = Pref[i].first;
   }
 
   orSize = Ors.size();
@@ -85,9 +85,9 @@ Operator::Operator(int actnr, int nr, int der, int tim,
   or2 = new Tree*[orSize];
   or_t = new int[orSize];
   for (int i=0;i<orSize;i++) {
-    or1[i] = Ors[i].second.first; 
-    or2[i] = Ors[i].second.second; 
-    or_t[i] = Ors[i].first; 
+    or1[i] = Ors[i].second.first;
+    or2[i] = Ors[i].second.second;
+    or_t[i] = Ors[i].first;
   }
 
   implySize = Implies.size();
@@ -95,50 +95,50 @@ Operator::Operator(int actnr, int nr, int der, int tim,
   imply2 = new Tree*[implySize];
   imply_t = new int[implySize];
   for (int i=0;i<Implies.size();i++) {
-    imply1[i] = Implies[i].second.first; 
-    imply2[i] = Implies[i].second.second; 
+    imply1[i] = Implies[i].second.first;
+    imply2[i] = Implies[i].second.second;
 /*
       cout << "#########implies "<< endl;
       cout << imply1[i]->toFactString(factMap) << endl;
       cout << imply2[i]->toFactString(factMap) << endl;
 */
-    imply_t[i] = Implies[i].first; 
+    imply_t[i] = Implies[i].first;
   }
 
   preNumSize = Pre1.size();
   pre1 = new Tree*[preNumSize];
   pre1_t = new int[preNumSize];
   for (int i=0;i<preNumSize;i++) {
-    pre1[i] = Pre1[i].second; 
-    pre1_t[i] = Pre1[i].first; 
+    pre1[i] = Pre1[i].second;
+    pre1_t[i] = Pre1[i].first;
   }
- 
+
   effNumSize = EffHead.size();
   effHead = new int [effNumSize];
   effHead_t = new int [effNumSize];
   effOp = new int [effNumSize];
   effBody = new Tree*[effNumSize];
-  for (int i=0;i<effNumSize;i++) effHead[i] = EffHead[i].second; 
-  for (int i=0;i<effNumSize;i++) effHead_t[i] = EffHead[i].first; 
-  for (int i=0;i<effNumSize;i++) effOp[i] = EffOp[i]; 
-  for (int i=0;i<effNumSize;i++) effBody[i] = EffBody[i]; 
+  for (int i=0;i<effNumSize;i++) effHead[i] = EffHead[i].second;
+  for (int i=0;i<effNumSize;i++) effHead_t[i] = EffHead[i].first;
+  for (int i=0;i<effNumSize;i++) effOp[i] = EffOp[i];
+  for (int i=0;i<effNumSize;i++) effBody[i] = EffBody[i];
 
   rev = new int [addsize+presize];
   revsize = 0;
-  for(int i = 0; i < presize; i++) { 
-    int j = 0; 
+  for(int i = 0; i < presize; i++) {
+    int j = 0;
     while (j < delsize && del[j] != pre[i]) j++;
     if (j == delsize) // not in delete list
       rev[revsize++] = pre[i];
   }
-  for(int i = 0; i < addsize; i++) 
+  for(int i = 0; i < addsize; i++)
     rev[revsize++] =add[i];
 
   whenClauses = new Operator* [whens.size()];
   whensize = 0;
   for (int i=0;i<whens.size();i++) {
-    if (whens[i]->presize == 0 && 
-	whens[i]->pdelsize == 0 && 
+    if (whens[i]->presize == 0 &&
+	whens[i]->pdelsize == 0 &&
 	whens[i]->preNumSize == 0) {
 
       int atemp[addsize];
@@ -150,84 +150,84 @@ Operator::Operator(int actnr, int nr, int der, int tim,
       int dtemp_t[delsize];
       for (int j=0;j<delsize;j++) dtemp[j] = del[j];
       for (int j=0;j<delsize;j++) dtemp_t[j] = del_t[j];
-        
+
       add = new int[addsize + whens[i]->addsize];
       add_t = new int[addsize + whens[i]->addsize];
-      
+
       del = new int[delsize + whens[i]->delsize];
       del_t = new int[delsize + whens[i]->delsize];
-      
+
       for (int j=0;j<addsize;j++) add[j] = atemp[j];
       for (int j=0;j<addsize;j++) add_t[j] = atemp_t[j];
-      
+
       for (int j=0;j<delsize;j++) del[j] = dtemp[j];
       for (int j=0;j<delsize;j++) del_t[j] = dtemp_t[j];
-      
-      for (int j=0;j<whens[i]->addsize;j++) 
+
+      for (int j=0;j<whens[i]->addsize;j++)
 	add[j+addsize] = whens[i]->add[j];
-      for (int j=0;j<whens[i]->addsize;j++) 
+      for (int j=0;j<whens[i]->addsize;j++)
 	add_t[j+addsize] = whens[i]->add_t[j];
-      
-      for (int j=0;j<whens[i]->delsize;j++) 
+
+      for (int j=0;j<whens[i]->delsize;j++)
 	del[j+delsize] = whens[i]->del[j];
-      for (int j=0;j<whens[i]->delsize;j++) 
+      for (int j=0;j<whens[i]->delsize;j++)
 	del_t[j+delsize] = whens[i]->del_t[j];
-      
+
       int tempHead[effNumSize];
       int tempHead_t[effNumSize];
       int tempOp[effNumSize];
       Tree* tempBody[effNumSize];
-      
+
       for (int j=0;j<effNumSize;j++) tempHead[j] = effHead[j];
       for (int j=0;j<effNumSize;j++) tempHead_t[j] = effHead_t[j];
       for (int j=0;j<effNumSize;j++) tempOp[j] = effOp[j];
       for (int j=0;j<effNumSize;j++) tempBody[j] = effBody[j];
-      
+
       effHead = new int [effNumSize+whens[i]->effNumSize];
       effHead_t = new int [effNumSize+whens[i]->effNumSize];
       effOp = new int [effNumSize+whens[i]->effNumSize];
       effBody = new Tree*[effNumSize+whens[i]->effNumSize];
-      
+
       for (int j=0;j<effNumSize;j++) effHead[j] = tempHead[j];
       for (int j=0;j<effNumSize;j++) effHead_t[j] = tempHead_t[j];
       for (int j=0;j<effNumSize;j++) effOp[j] = tempOp[j];
       for (int j=0;j<effNumSize;j++) effBody[j] = tempBody[j];
-      
-      for (int j=0;j<whens[i]->effNumSize;j++) 
-	effHead[j+effNumSize] = whens[i]->effHead[j]; 
-      for (int j=0;j<whens[i]->effNumSize;j++) 
-	effHead_t[j+effNumSize] = whens[i]->effHead_t[j]; 
-      for (int j=0;j<whens[i]->effNumSize;j++) 
-	effOp[j+effNumSize] = whens[i]->effOp[j]; 
-      for (int j=0;j<whens[i]->effNumSize;j++) 
-	effBody[j+effNumSize] = whens[i]->effBody[j]; 
+
+      for (int j=0;j<whens[i]->effNumSize;j++)
+	effHead[j+effNumSize] = whens[i]->effHead[j];
+      for (int j=0;j<whens[i]->effNumSize;j++)
+	effHead_t[j+effNumSize] = whens[i]->effHead_t[j];
+      for (int j=0;j<whens[i]->effNumSize;j++)
+	effOp[j+effNumSize] = whens[i]->effOp[j];
+      for (int j=0;j<whens[i]->effNumSize;j++)
+	effBody[j+effNumSize] = whens[i]->effBody[j];
 
       effNumSize += whens[i]->effNumSize;
       addsize += whens[i]->addsize;
       delsize += whens[i]->delsize;
     }
-    else 
+    else
       whenClauses[whensize++] = whens[i];
   }
 }
 
 void Operator::initDepthTree() {
   mark = -1;
-  for (int i=0;i<preNumSize;i++) 
+  for (int i=0;i<preNumSize;i++)
     pre1[i]->initDepth();
 }
 
 void Operator::initTrees() {
-  for (int i=0;i<prefSize;i++) 
-    pref[i]->init(factMap.getNoResources()); 
-  for (int i=0;i<effNumSize;i++) 
-    effBody[i]->init(factMap.getNoResources()); 
-  for (int i=0;i<preNumSize;i++) 
-    pre1[i]->init(factMap.getNoResources()); 
-  for (int ops = 0; ops < whensize; ops++) 
+  for (int i=0;i<prefSize;i++)
+    pref[i]->init(factMap.getNoResources());
+  for (int i=0;i<effNumSize;i++)
+    effBody[i]->init(factMap.getNoResources());
+  for (int i=0;i<preNumSize;i++)
+    pre1[i]->init(factMap.getNoResources());
+  for (int ops = 0; ops < whensize; ops++)
     whenClauses[ops]->initTrees();
 }
- 
+
 void Operator::removePrecondition(int p) {
   presize--;
   for(int i=p; i < presize; i++) {
@@ -236,40 +236,40 @@ void Operator::removePrecondition(int p) {
   }
 }
 
-Rational* Operator::getValue() { 
+Rational* Operator::getValue() {
   return new Rational(17); // factMap->getOptimizerValue(resource);
 }
 
-Operator::Operator(const Operator& copy): 
+Operator::Operator(const Operator& copy):
   number(copy.number), factMap(copy.factMap) {
-  
+
   whenClauses = copy.whenClauses;
   derived = copy.derived;
   mark = copy.mark;
   pres = presize = copy.presize;
-  
+
   pdelsize = copy.pdelsize;
-  pdel = new int[pdelsize];  
-  for(int i = 0; i < pdelsize; i++)  
+  pdel = new int[pdelsize];
+  for(int i = 0; i < pdelsize; i++)
     pdel[i] = copy.pdel[i];
 
-  pre = new int[presize];  
-  for(int i = 0; i < presize; i++)  
+  pre = new int[presize];
+  for(int i = 0; i < presize; i++)
     pre[i] = copy.pre[i];
 
   addsize = copy.addsize;
-  add = new int[addsize];  
-  for(int i = 0; i < addsize; i++)  
+  add = new int[addsize];
+  for(int i = 0; i < addsize; i++)
     add[i] = copy.add[i];
 
   delsize = copy.delsize;
-  del = new int[delsize];  
-  for(int i = 0; i < delsize; i++)  
+  del = new int[delsize];
+  for(int i = 0; i < delsize; i++)
     del[i] = copy.del[i];
 
   revsize = copy.revsize;
-  rev = new int[revsize];  
-  for(int i = 0; i < revsize; i++)  
+  rev = new int[revsize];
+  for(int i = 0; i < revsize; i++)
     rev[i] = copy.rev[i];
 }
 
@@ -307,9 +307,9 @@ void Operator::generateIntLists(double** values,int* sizes) {
 	break;
       }
     }
-    if (e != -1) 
+    if (e != -1)
       effn[effnsize++] = e;
-  }  
+  }
   for (int j=0;j<preInt.size();j++) {
     int offset = 0;
     int posn = preInt[j].first;
@@ -324,12 +324,12 @@ void Operator::generateIntLists(double** values,int* sizes) {
     break;
       }
     }
-    if (p != -1) 
+    if (p != -1)
       pren[prensize++] = p;
-  }  
+  }
 }
 
-    
+
 string Operator::flushpre() {
   string back;
   for(int i = 0; i < presize; i++) {
@@ -397,14 +397,14 @@ string Operator::flushwhen() {
   for(int o = 0; o < whensize; o++) {
     back += "      :precondition (and \n";
     back += "                   " + whenClauses[o]->flushpre();
-    back += whenClauses[o]->flushpdel();    
+    back += whenClauses[o]->flushpdel();
     for (int i=0; i<whenClauses[o]->preNumSize;i++) {
       if (whenClauses[o]->pre1_t[i] == 1) back += "(at start ";
       if (whenClauses[o]->pre1_t[i] == 2) back += "(over all ";
       if (whenClauses[o]->pre1_t[i] == 3) back += "(at end ";
       back +=  "      " + whenClauses[o]->pre1[i]->toString(factMap);
       if (whenClauses[o]->pre1_t[i]) back += ")\n";
-    } 
+    }
     back += "               )\n";
 		if (whenClauses[o]->addsize != 1) {::error("Add-Size in When-Clause != 1!\n");}
     back +=  "      :effect\n        (" + factMap.getFactName(whenClauses[o]->add[0]) + ")\n";
@@ -415,7 +415,7 @@ string Operator::flushwhen() {
 
 		if (whenClauses[o]->effNumSize > 0) ::error("Num-Size in When-Clause > 0!\n");
     for (int i=0; i<whenClauses[o]->effNumSize;i++) {
-      if (factMap.getResourceName(whenClauses[o]->effHead[i]) == "total-time") 
+      if (factMap.getResourceName(whenClauses[o]->effHead[i]) == "total-time")
 				continue;
       back += "       ";
       if (whenClauses[o]->effHead_t[i] == 1) back += "(at start ";
@@ -482,8 +482,8 @@ string Operator::flusheffOp(int numCount) {
       back += ::makeString(vector[i]);
     back += ",";
   }
-  if (numCount > 0)  
-    if (vector[numCount-1] == -1) 
+  if (numCount > 0)
+    if (vector[numCount-1] == -1)
       back += "NO_OP";
     else
       back += ::makeString(vector[numCount-1]);
@@ -506,7 +506,7 @@ string Operator::flusheffHead(int numCount) {
     back += ",";
   }
   if (numCount > 0) {
-    if (line[numCount-1] != "") 
+    if (line[numCount-1] != "")
       back += "\"" + line[numCount-1] + "\"";
     else
       back += "\"(0)\"";
@@ -534,53 +534,53 @@ string Operator::flushactRes(int numCount) {
 }
 
 void Operator::insertTree(Tree* metric, int numCount) {
-  cout << "insert Tree " << this->toString() << endl;
+  //cout << "insert Tree " << this->toString() << endl;
 
   int vector[numCount];
   for(int i = 0; i < numCount; i++) vector[i] = -1;
   for(int i = 0; i < effNumSize; i++) {
     vector[effHead[i]] = +1;
   }
-  
-  cout << "building new cost function tree from metric " 
-       << "metric" << metric 
-       << endl;
+
+  //cout << "building new cost function tree from metric "
+  //     << "metric" << metric
+  //     << endl;
   costFunction = new Tree(*metric);
-  cout << "done " << endl;
+  //cout << "done " << endl;
 
   for(int i = 0; i < effNumSize; i++) {
-      cout << i << "/" << flush;
-      cout << effBody[i] <<"/" << effHead[i] << endl;
+      //cout << i << "/" << flush;
+      //cout << effBody[i] <<"/" << effHead[i] << endl;
     costFunction = costFunction->insert(effBody[i],effHead[i]);
   }
-  for(int i = 0; i < numCount; i++) { 
-    if (vector[i] == -1) {  
+  for(int i = 0; i < numCount; i++) {
+    if (vector[i] == -1) {
       Tree* nTree = new Tree((double) 0.0,factMap.getDomain());
       costFunction = costFunction->insert(nTree,i);
     }
   }
-  cout << "before simplifying " << endl;
+  //cout << "before simplifying " << endl;
   costFunction->simplify();
 }
 
 bool Operator::isDurative() {
-  for (int i=0; i<effNumSize;i++) 
-    if (factMap.getResourceName(effHead[i]) == "total-time") 
+  for (int i=0; i<effNumSize;i++)
+    if (factMap.getResourceName(effHead[i]) == "total-time")
       return true;
   return false;
 }
 
 string Operator::getString() {
   string back;
-  
+
   if (derived) {
     back += "(" + substempty(factMap.getActionDescriptionName(number)) + ")\n";
     //    back += flushadd();
 
     back += "    (and \n";
     back += flushpre()  ;
-    back += flushpdel() ;  
-    
+    back += flushpdel() ;
+
 /*
     for (int i=0; i<prefSize;i++) {
 	back += "(preference " ;
@@ -590,7 +590,7 @@ string Operator::getString() {
       back +=  "      " + pref[i]->toFactString(factMap);
       if (pref_t[i]) back += ")\n";
       back += ")" ;
-    } 
+    }
 */
     for (int i=0; i<orSize;i++) {
 			back += "(or " ;
@@ -601,7 +601,7 @@ string Operator::getString() {
       back +=  "      " + or2[i]->toFactString(factMap);
       if (or_t[i]) back += ")\n";
       back += ")" ;
-    } 
+    }
 
     for (int i=0; i<implySize;i++) {
 			if (imply1[i]->getVariable() == -1) { // true
@@ -623,7 +623,7 @@ string Operator::getString() {
 	back +=  "      " + imply2[i]->toFactString(factMap);
 	if (imply_t[i]) back += ")\n";
 	back += ")" ;
-    } 
+    }
 
     back += "    )\n";
 
@@ -634,7 +634,7 @@ string Operator::getString() {
       if (pre1_t[i] == 3) back += "(at end ";
       back +=  "      " + pre1[i]->toString(factMap);
       if (pre1_t[i]) back += ")\n";
-    } 
+    }
     back += "    )\n";
     return back;
   }
@@ -643,7 +643,7 @@ string Operator::getString() {
 		if (effNumSize == 0)
 			back += "-0";
 		for (int j=0; j<effNumSize;j++) {
-			if (factMap.getResourceName(effHead[j]) != "total-cost") 
+			if (factMap.getResourceName(effHead[j]) != "total-cost")
 				::error("Num-Effect != total-cost in multi-action!\n");
 			if (effOp[j] != 13)
 				::error("Num-Effect != increase in multi-action!\n");
@@ -670,10 +670,10 @@ string Operator::getString() {
 			back += "   :parameters ()\n   :global-precondition \n";
 	}
   back += "     (and \n";
-    if (options.temporal()) 
+    if (options.temporal())
 	back += "     (sync-ordinary)\n" ;
   back += flushpre() ;
-  back += flushpdel(); 
+  back += flushpdel();
 
 /*
   for (int i=0; i<prefSize;i++) {
@@ -685,7 +685,7 @@ string Operator::getString() {
       back += pref[i]->makeString();
       if (pref_t[i]) back += ")\n";
       back += ")\n";
-  } 
+  }
 */
     for (int i=0; i<orSize;i++) {
 	back += "(or " ;
@@ -696,7 +696,7 @@ string Operator::getString() {
       back +=  "      " + or2[i]->toFactString(factMap);
       if (or_t[i]) back += ")\n";
       back += ")" ;
-    } 
+    }
 
     for (int i=0; i<implySize;i++) {
 	if (imply1[i]->getVariable() == -1) { // true
@@ -718,7 +718,7 @@ string Operator::getString() {
 	back +=  "      " + imply2[i]->toFactString(factMap);
 	if (imply_t[i]) back += ")\n";
 	back += ")" ;
-    } 
+    }
 
 
   for (int i=0; i<preNumSize;i++) {
@@ -742,7 +742,7 @@ string Operator::getString() {
 		back += flushdel();
 		// back += "\n";
 		for (int i=0; i<effNumSize;i++) {
-			if (factMap.getResourceName(effHead[i]) == "total-time") 
+			if (factMap.getResourceName(effHead[i]) == "total-time")
 				continue;
 			back += "       ";
 			if (effHead_t[i] == 1) back += "(at start ";
@@ -783,7 +783,7 @@ string Operator::toString() {
     back +=  " preNum " + pre1[i]->toString(factMap) + "\n";
   }
   for (int i=0; i<effNumSize;i++) {
-   back +=  " effHead " + factMap.getResourceName(effHead[i]);   
+   back +=  " effHead " + factMap.getResourceName(effHead[i]);
    back +=  " effBody " + effBody[i]->toString(factMap) + "\n";
   }
   */
@@ -813,7 +813,7 @@ bool Operator::operator==(const Operator &other) const {
     if (del[i] < other.del[i]) return false;
     if (del[i] > other.del[i]) return false;
   }
-  //for (int i=0;i<preOpSize;i++) { 
+  //for (int i=0;i<preOpSize;i++) {
   //  if (!pre1Tree[i]->equals(other.pre1Tree[i])) return false;
   //}
   for (int i=0;i<effNumSize;i++) {

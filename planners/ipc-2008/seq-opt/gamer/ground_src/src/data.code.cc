@@ -1,18 +1,18 @@
 // ***********************************************************
-// 
+//
 //  Book:       Heuristic Search
-// 
+//
 //  Authors:    S.Edelkamp, S.Schroedl
-// 
-//  See file README for information on using and copying 
+//
+//  See file README for information on using and copying
 //  this software.
-// 
+//
 //  Project:    Mips - model checking integrated planning
 //              system
-// 
+//
 //  Module:     mips\src\data.code.cc
 //  Authors:    S.Edelkamp, M.Helmert
-// 
+//
 // ***********************************************************
 
 #include <algorithm>
@@ -47,13 +47,13 @@ Code::Code(int factCount, const vector<int> &trueFacts,
 }
 
 void Code::finalize(Domain& domain) {
-      cout << "convert several of-groups into single bit coding" << endl;
+      //cout << "convert several of-groups into single bit coding" << endl;
   vector<FactGroup> oldGroups;
   oldGroups.swap(groups);
   for(int i = 0; i < oldGroups.size(); i++) {
     FactGroup &g = oldGroups[i];
     if(g.initCount <= 1) { // keep this group
-	cout << "less than or equal one init true " << g.toString(domain) << endl;
+	//cout << "less than or equal one init true " << g.toString(domain) << endl;
       for(int j = 0; j < g.facts.size(); j++)
         primaryGroup[g.facts[j]] = groups.size();
       groups.push_back(g);
@@ -65,34 +65,34 @@ void Code::finalize(Domain& domain) {
       }
 
     } else {   // encode as single or pair elements
-     cout << "more than one init true " << g.toString(domain) << endl;
+     //cout << "more than one init true " << g.toString(domain) << endl;
       MergedPredicate* mergedPredicate = g.getMergedPredicate();
-      cout << "associated merged predicate " << mergedPredicate->toString();
+      //cout << "associated merged predicate " << mergedPredicate->toString();
       for(int j = 0; j < g.facts.size(); j++) {
-	cout << "remaining group " << g.toString(domain) << endl;
+	//cout << "remaining group " << g.toString(domain) << endl;
 	bool partner = false;
-	cout << "- candidate " <<  Fact(g.facts[j]).toString(domain) << endl;
+	//cout << "- candidate " <<  Fact(g.facts[j]).toString(domain) << endl;
 	Predicate& p1 = Fact(g.facts[j]).getPredicate(domain);
 //	cout << "  predicate "<<  p1.toString() << endl;
-	cout << " searching for partners " << endl;
+	//cout << " searching for partners " << endl;
 	vector<int> partners;
-	for(int k = j+1; k < g.facts.size(); k++) {	
+	for(int k = j+1; k < g.facts.size(); k++) {
 	  Predicate& p2 = Fact(g.facts[k]).getPredicate(domain);
 	  if (&p1 == &p2) continue;
 	  int value1 = g.facts[j] - p1.getFactLowerBound();
 	  int value2 = g.facts[k] - p2.getFactLowerBound();
 	  if (value1 == value2) {
 	    partner = true;
-	    cout << "-- partner " << Fact(g.facts[k]).toString(domain) << endl;
-	    cout << "    predicate " <<  p2.toString() << endl;
+	    //cout << "-- partner " << Fact(g.facts[k]).toString(domain) << endl;
+	    //cout << "    predicate " <<  p2.toString() << endl;
 
 	    partners.push_back(g.facts[k]);
 
 	  }
 	}
 	if (partners.size() > 0) {
-	    
-	    cout << "partner-size > 0, counting inits "<< endl;
+
+	    //cout << "partner-size > 0, counting inits "<< endl;
 	   int countinit = 0;
 	   if (initFacts[g.facts[j]]) countinit = 1;
 	    for (int k=0; k<partners.size(); k++) {
@@ -104,7 +104,7 @@ void Code::finalize(Domain& domain) {
 	    if (countinit != 1) {
 		primaryGroup[g.facts[j]] = NONE;
 		positionInGroup[g.facts[j]] = NONE;
-		continue; 
+		continue;
 	    }
 
 	    FactGroup newGroup(g);
@@ -129,7 +129,7 @@ void Code::finalize(Domain& domain) {
 
 	    }
 	    groups.push_back(newGroup);
-	    for (int l=j;l<g.facts.size()-1;l++) 
+	    for (int l=j;l<g.facts.size()-1;l++)
 		g.facts[l] = g.facts[l+1];
 	    g.facts.pop_back();
 
@@ -204,7 +204,7 @@ void Code::symmetry(Domain &dom, vector<int>& resources) {
     if (groups[i].getBitSize() > 0) {
       for(int j = i+1; j < groups.size(); j++) {
     //  cout << "test symmetry " << i << "/" << j << endl;
-    if (groups[j].getBitSize() > 0 && 
+    if (groups[j].getBitSize() > 0 &&
         groups[i].symmetric(groups[j],resources,dom)) {
       // cout << "test ok " << i << "/" << j << endl;
       single.push_back(j);
@@ -227,8 +227,8 @@ string Code::toString(Domain &dom) {
   }
   for(int i = 0; i < symm.size(); i++) {
     for(int j=0; j < symm[i].size(); j++) {
-      back += 
-    " symmetry of " + ::makeString(i) + " and " 
+      back +=
+    " symmetry of " + ::makeString(i) + " and "
       + ::makeString(symm[i][j]) + "\n";
     }
   }

@@ -22,60 +22,57 @@ Tree::Tree(int i, Domain& dom) : bvalue(false),boolset(false),valset(false),
   variable(i), op(-1), Left(NULL), Right(NULL), value(0),
   domain(dom) {}
 
-Tree::Tree(int oper, Tree* left, Tree* right, Domain& dom) : 
-  bvalue(false),boolset(false),valset(false), 
+Tree::Tree(int oper, Tree* left, Tree* right, Domain& dom) :
+  bvalue(false),boolset(false),valset(false),
   variable(-1), op(oper), Left(left), Right(right), value(0),
   domain(dom) {}
 
 bool Tree::isDummy() {
     return Left == NULL && Right == NULL && value == 0 && boolset == true
-	&& bvalue == false; 
+	&& bvalue == false;
 }
 
 bool Tree::isTrivialFalse() {
     return Left == NULL && Right == NULL && value == 0 && boolset == false
-	&& bvalue == false && op == -1 && variable == -2; 
+	&& bvalue == false && op == -1 && variable == -2;
 }
 
 bool Tree::isTrivialTrue() {
     return Left == NULL && Right == NULL && value == 0 && boolset == false
-	&& bvalue == false && op == -1 && variable == -1; 
+	&& bvalue == false && op == -1 && variable == -1;
 }
 
-Tree::Tree(const Tree& tree): domain(tree.domain), 
+Tree::Tree(const Tree& tree): domain(tree.domain),
     bvalue(tree.bvalue), value(tree.value),
     boolset(tree.boolset),valset(tree.valset) {
-    cout << "copy constructor" << endl;
   variable = tree.variable;
-    cout << "variable" << endl;
   op = tree.op;
-    cout << "op" << endl;
   if (tree.Left) Left = new Tree(*(tree.Left));
   else Left = NULL;
   if (tree.Right) Right = new Tree(*(tree.Right));
   else Right = NULL;
-  
+
 }
 
 Tree::~Tree() {
    if (Left) delete Left;
    if (Right) delete Right;
-} 
-
-bool Tree::isValue() { 
-  return valset; 
-}
-bool Tree::isBoolean() { 
-  return boolset; 
 }
 
-bool Tree::isEqual() { 
+bool Tree::isValue() {
+  return valset;
+}
+bool Tree::isBoolean() {
+  return boolset;
+}
+
+bool Tree::isEqual() {
   return (op == 11 && count() == 1);
 }
 
 bool Tree::isTrivial() { return valset; }
 
-double Tree::eval() { 
+double Tree::eval() {
   assert (isValue());
   return value;
 }
@@ -89,7 +86,7 @@ int Tree::getVariable() {
     return -1;
   if (Right)
     right = Right->getVariable();
-  if (Left) 
+  if (Left)
     left = Left->getVariable();
   if (left != -1)
     return left;
@@ -101,7 +98,7 @@ int Tree::getVariable() {
 double Tree::getConstant() {
   if (Right && Right->isValue())
     return Right->getValue();
-  if (Left && Left->isValue()) 
+  if (Left && Left->isValue())
     return Left->getValue();
 }
 
@@ -125,7 +122,7 @@ void Tree::restrict(double*& clist1, double*& clist2,
 
 void Tree::restrict(double* list1, double* list2,
             double*& clist1, double*& clist2) {
-  if (isBoolean()) 
+  if (isBoolean())
     return;
   if (op == 7 || op == 8 || op == 9 || op == 10 || op == 11) {
     double leftmin, rightmin, leftmax, rightmax;
@@ -138,7 +135,7 @@ void Tree::restrict(double* list1, double* list2,
       rightmax = Right->eval_max(list1,list2);
     }
     string back;
-    
+
     if (op == 7) back += ">";
     if (op == 8) back += ">=";
     if (op == 9) back += "<";
@@ -147,10 +144,10 @@ void Tree::restrict(double* list1, double* list2,
     if(options.debug(Options::EXPLORE))
       cout << "restricting [" << leftmin << "," << leftmax << "]," << back
        << "[" << rightmin << "," << rightmax << "]";
-    
+
     if (op == 7) {
       if (leftmax > rightmin) {
-    if (leftmin <= rightmin) 
+    if (leftmin <= rightmin)
       Left->restrict(clist1,clist2,false,rightmin-leftmin);
     if (leftmax <= rightmax)
       Right->restrict(clist1,clist2,true,-(rightmax-leftmax));
@@ -158,44 +155,44 @@ void Tree::restrict(double* list1, double* list2,
     }
     if (op == 8) {
       if (leftmax >= rightmin) {
-    if (leftmin <= rightmin) 
+    if (leftmin <= rightmin)
       Left->restrict(clist1,clist2,false,rightmin-leftmin);
     if (leftmax <= rightmax)
       Right->restrict(clist1,clist2,true,-(rightmax-leftmax));
       }
     }
     if (op == 9) {
-      if (leftmin < rightmax) { 
-    if (leftmax >= rightmax) 
+      if (leftmin < rightmax) {
+    if (leftmax >= rightmax)
       Left->restrict(clist1,clist2,true,-(leftmax-rightmax));
     if (leftmin >= rightmin)
       Right->restrict(clist1,clist2,false,leftmin-rightmin);
       }
     }
     if (op == 10) {
-      if (leftmin <= rightmax) { 
-    if (leftmax >= rightmax) 
+      if (leftmin <= rightmax) {
+    if (leftmax >= rightmax)
       Left->restrict(clist1,clist2,true,-(leftmax-rightmax));
     if (leftmin >= rightmin)
       Right->restrict(clist1,clist2,false,leftmin-rightmin);
       }
     }
-    if (op == 11){ 
+    if (op == 11){
       if (leftmax >= rightmin && leftmin <= rightmax) {
     // >=
-    if (leftmin <= rightmin) 
+    if (leftmin <= rightmin)
       Left->restrict(clist1,clist2,false,rightmin-leftmin);
     if (leftmax <= rightmax)
       Right->restrict(clist1,clist2,true,-(rightmax-leftmax));
     // <=
-    if (leftmax >= rightmax) 
+    if (leftmax >= rightmax)
           Left->restrict(clist1,clist2,true,-(leftmax-rightmax));
     if (leftmin >= rightmin)
       Right->restrict(clist1,clist2,false,leftmin-rightmin);
       }
     }
   }
-  if (op == 4) 
+  if (op == 4)
     Left->restrict(list1,list2,clist1,clist2);
   if (op == 5) {
     Left->restrict(list1,list2,clist1,clist2);
@@ -208,7 +205,7 @@ void Tree::restrict(double* list1, double* list2,
   if (op == 6) {
     Left->restrict(list1,list2,clist1,clist2);
     Right->restrict(list1,list2,clist1,clist2);
-  }    
+  }
 }
 
 bool Tree::test(double* list1, double* list2) {
@@ -225,7 +222,7 @@ bool Tree::test(double* list1, double* list2) {
       return (Left->eval_min(list1,list2) <= Right->eval_max(list1,list2));
   }
   if (op == 11){ // =
-    return (Left->eval_min(list1,list2) <= Right->eval_max(list1,list2) && 
+    return (Left->eval_min(list1,list2) <= Right->eval_max(list1,list2) &&
 	    Right->eval_min(list1,list2) <= Left->eval_max(list1,list2));
   }
 }
@@ -235,11 +232,11 @@ Tree* Tree::replace(int effvar, int effop, Tree* effbody) {
     if (effop == 12) { // assign
       return new Tree(*effbody);
     }
-    if (effop == 13) { // increase 
+    if (effop == 13) { // increase
       Tree* change = new Tree(0,this,new Tree(*effbody),domain);
       return change;
     }
-    if (effop == 14) { // decrease 
+    if (effop == 14) { // decrease
       Tree* change = new Tree(1,this,new Tree(*effbody),domain);
       return change;
     }
@@ -267,7 +264,7 @@ bool Tree::test(double* list) {
 bool Tree::isRelaxedSharp() {
   if (op != 9 && op != 7) // >, <
     return false;
-  if (isBoolean()) 
+  if (isBoolean())
     return false;
   //cout << "rt bool " << endl;
   if (!Left || !Right)
@@ -278,9 +275,9 @@ bool Tree::isRelaxedSharp() {
   return true;
 }
 bool Tree::isRelaxedGreater() {
-  if (op != 8 && op != 7) // >=, > 
+  if (op != 8 && op != 7) // >=, >
     return false;
-  if (isBoolean()) 
+  if (isBoolean())
     return false;
   //cout << "rt bool " << endl;
   if (!Left || !Right)
@@ -292,9 +289,9 @@ bool Tree::isRelaxedGreater() {
 }
 
 bool Tree::isRelaxedSmaller() {
-  if (op != 9 && op != 10) // <=, < 
+  if (op != 9 && op != 10) // <=, <
     return false;
-  if (isBoolean()) 
+  if (isBoolean())
     return false;
   //cout << "rt bool " << endl;
   if (!Left || !Right)
@@ -306,13 +303,13 @@ bool Tree::isRelaxedSmaller() {
 }
 
 bool Tree::relaxedTest(double* list) {
-  if (isBoolean()) 
+  if (isBoolean())
     return true;
   //cout << "rt bool " << endl;
   if (!Left || !Right)
     return true;
   //cout << "rt left right " << endl;
-  if (op != 8) 
+  if (op != 8)
     return true;
   //cout << "rt or right " << endl;
   if (Left->variable == -1 || !Right->isValue())
@@ -324,7 +321,7 @@ bool Tree::relaxedTest(double* list) {
 inline double Tree::eval_min(double* list1, double* list2) {
   if (valset)
     return value;
-  if (variable != -1) 
+  if (variable != -1)
     return list1[variable];
 
   if (op == 0)  // +
@@ -353,7 +350,7 @@ inline double Tree::eval_min(double* list1, double* list2) {
     if (leftmin >= 0 && leftmax >= 0) {
       if (rightmin >= 0)
 	return leftmin * rightmin;
-      else 
+      else
 	return leftmax * rightmin;
     }
     if (leftmin < 0 && leftmax >= 0) {
@@ -361,20 +358,20 @@ inline double Tree::eval_min(double* list1, double* list2) {
 	return leftmin * rightmax;
       else {
 	if (rightmax >= 0) {
-	  if (leftmin * rightmax < leftmax * rightmin) 
+	  if (leftmin * rightmax < leftmax * rightmin)
 	    return leftmin * rightmax;
 	  else
 	    return leftmax * rightmin;
 	  }
 	else {
-	  return leftmax * rightmax;        
+	  return leftmax * rightmax;
 	}
       }
-    }    
+    }
     if (leftmin < 0 && leftmax < 0) {
       if (rightmax >= 0)
 	return leftmin * rightmax;
-      else 
+      else
 	return leftmin * rightmin;
     }
   }
@@ -383,7 +380,7 @@ inline double Tree::eval_min(double* list1, double* list2) {
 inline double Tree::eval_max(double* list1, double* list2) {
   if (valset)
     return value;
-  if (variable != -1) 
+  if (variable != -1)
     return list2[variable];
 
   if (op == 0)  // +
@@ -420,48 +417,48 @@ inline double Tree::eval_max(double* list1, double* list2) {
 	    return leftmax * rightmax;
 	else {
 	    if (rightmax >= 0) {
-		if (leftmin * rightmax > leftmax * rightmin) 
+		if (leftmin * rightmax > leftmax * rightmin)
 		    return leftmin * rightmax;
 		else
 		    return leftmax * rightmin;
 	    }
 	    else {
-		return leftmin * rightmin;        
+		return leftmin * rightmin;
 	    }
 	}
-    }    
+    }
     if (leftmin < 0 && leftmax < 0) {
 	if (rightmin >= 0)
 	    return leftmax * rightmin;
-	else 
+	else
 	    return leftmin * rightmin;
     }
   }
 }
 
 
-double Tree::eval(double* list) { 
-  if (variable != -1) 
+double Tree::eval(double* list) {
+  if (variable != -1)
     return list[variable];
   if (isValue())
     return value;
   double left, right;
-  if (Left) 
+  if (Left)
     left = Left->eval(list);
-  if (Right) 
+  if (Right)
     right = Right->eval(list);
 
-  if (op == 0)  
+  if (op == 0)
     return left + right;
-  if (op == 1)   
+  if (op == 1)
     return left - right;
-  if (op == 2) 
+  if (op == 2)
     return left / right;
-  if (op == 3) 
+  if (op == 3)
     return left * right;
 }
 
-Tree* Tree::insert(Tree* subtree, int i) { 
+Tree* Tree::insert(Tree* subtree, int i) {
   if (op == -2) return this;
   if (variable == i) {
     Tree* tree = new Tree(* subtree);
@@ -485,7 +482,7 @@ void Tree::simplify() {
 
   double rval = 0, lval = 0;
   bool rbool = false, lbool = false;
-  
+
   if (Left && Left->isValue()) {
     lval = Left->value;
   }
@@ -536,14 +533,14 @@ void Tree::simplify() {
     op = -1;
     Left = Right = NULL;
   }
-  
+
 
   if (Left && Left->isValue() && Right && Right->isValue()) {
     if (op == 0) value = lval + rval;
     if (op == 1) value = lval - rval;
     if (op == 2) value = lval / rval;
     if (op == 3) value = lval * rval;
-    if (op >= 0 && op <= 3) 
+    if (op >= 0 && op <= 3)
       valset = true;
 
     if (op == 7) bvalue = (lval > rval);
@@ -551,12 +548,12 @@ void Tree::simplify() {
     if (op == 9) bvalue = (lval < rval);
     if (op == 10) bvalue = (lval <= rval);
     if (op == 11) bvalue = (lval == rval);
-    if (op >= 7 && op <= 11) 
+    if (op >= 7 && op <= 11)
       boolset = true;
 
     variable = -1;
     op = -1;
-    Left = Right = NULL;    
+    Left = Right = NULL;
   }
 }
 
@@ -571,13 +568,13 @@ void Tree::init(int nor) {
   }
 }
 
-int Tree::count() { 
+int Tree::count() {
   int left = 0, right = 0;
   if (Left) left = Left->count();
   if (Right) right = Right->count();
   if (variable != -1)
     return 1;
-  return left + right; 
+  return left + right;
 }
 
 bool Tree::contains(int r) {
@@ -587,9 +584,9 @@ bool Tree::contains(int r) {
   if (Right) right = Right->contains(r);
   if (variable != -1)
     return r == variable;
-  return left || right; 
+  return left || right;
 }
- 
+
 bool Tree::smaller(Tree* other) {
   if (variable != -1) {
     return variable < other->variable;
@@ -603,7 +600,7 @@ bool Tree::smaller(Tree* other) {
   if (boolset) {
     return bvalue < other->bvalue;
   }
-  
+
   return (Left < Right);
 }
 
@@ -633,23 +630,23 @@ void Tree::convert(map<int,int>& id) {
       // cout<< " back left " << endl;
       if (op == 4  && Left->variable == -1 && Left->op == -1) {
 	  // cout<< " not true, set node to false " << endl;
-	  variable = -2; op = -1; Left = Right = 0; 
+	  variable = -2; op = -1; Left = Right = 0;
       }
       if (op == 4  && Left->variable == -2 && Left->op == -1) {
 	  // cout<< " not false, set node to true " << endl;
-	  variable = -1; op = -1; Left = Right = 0; 
+	  variable = -1; op = -1; Left = Right = 0;
       }
      if (op == 6 && Left->variable == -1 && Left->op == -1) {
 	  // cout<< " or true, set node to true " << endl;
-	  variable = -1; op = -1; Left = Right = 0; 
+	  variable = -1; op = -1; Left = Right = 0;
       }
       if (op == 12 && Left->variable == -2 && Left->op == -1) {
 	  // cout<< " imply false, set to true " << endl;
-	  variable = -1; op = -1; Left = Right = 0; 
+	  variable = -1; op = -1; Left = Right = 0;
       }
       if (op == 5 && Left->variable == -2 && Left->op == -1) {
 	  // cout<< " and false, set node to false " << endl;
-	  variable = -2; op = -1; Left = Right = 0; 
+	  variable = -2; op = -1; Left = Right = 0;
       }
 
       if (op == 6 && Left->variable == -2 && Left->op == -1) {
@@ -709,11 +706,11 @@ void Tree::convert(map<int,int>& id) {
 
       if (op == 12 && Right->variable == -1 && Right->op == -1) {
 	  // cout<< " imply true, set node to true " << endl;
-	  variable = -1; op = -1; Left = Right = 0; 
+	  variable = -1; op = -1; Left = Right = 0;
       }
       if (op == 5 && Right->variable == -2 && Right->op == -1) {
 	  // cout<< " and false, set node to false " << endl;
-	  variable = -2; op = -1; Left = Right = 0; 
+	  variable = -2; op = -1; Left = Right = 0;
       }
       if (op == 6 && Right->variable == -2 && Right->op == -1) {
 	  // cout<< " or false, set this to left " << endl;
@@ -768,7 +765,7 @@ void Tree::convert(map<int,int>& id) {
 	      variable = -1; // true
 	  else
 	      variable = -2; // false
-	  
+
       }
 //    cout << "    to " << variable << endl;
   }
@@ -778,10 +775,10 @@ void Tree::convert(map<int,int>& id) {
 
 bool Tree::hasConstants() const {
   if (variable != -1) {
-    if (domain.isInitFact(variable)) 
-      return false; 
+    if (domain.isInitFact(variable))
+      return false;
     if (domain.isConstant(variable) || domain.isFluent(variable))
-      return false; 
+      return false;
     return true;
   }
 
@@ -799,10 +796,10 @@ string Tree::getString() {
   if (isValue())
     back += "(" + ::makeString(value) + ")";
   if (variable != -1)
-    back += "[" + ::Fact(variable).toString(domain) + "]"; 
+    back += "[" + ::Fact(variable).toString(domain) + "]";
   if (op == 4) back += "!(";
 
-  if (Left) 
+  if (Left)
     back += Left->getString();
   if (op == 0) back += "+";
   if (op == 1) back += "-";
@@ -819,7 +816,7 @@ string Tree::getString() {
   if (op == 10) back += "<=";
   if (op == 11) back += "=";
 
-  if (Right) 
+  if (Right)
     back += Right->getString();
   if (op == 4) back += ")";
   return back;
@@ -831,20 +828,20 @@ string Tree::makeString() {
   if (isValue())
     back += "(" + ::makeString(value) + ")";
   if (variable != -1 && variable != -2)
-    back += "(" +   substempty(::Fact(variable).toString(domain)) + ")"; 
+    back += "(" +   substempty(::Fact(variable).toString(domain)) + ")";
   if (op == 4) back += "(not ";
   if (op == 5) back += "(and ";
   if (op == 6) back += "(or ";
   if (op == 12) back += "(imply ";
 
-  if (Left) 
+  if (Left)
     back += Left->makeString();
 
   if (op == 5) back += " ";
   if (op == 6) back += " ";
   if (op == 12) back += " ";
 
-  if (Right) 
+  if (Right)
     back += Right->makeString();
 
   if (op == 5) back += ")";
@@ -861,9 +858,9 @@ string Tree::toString(FactMap& fMap) {
   if (valset) {
 //    if (options.preprocess())
 //      back += ::makeString(value)+ " ";
-//    else 
+//    else
       back += "" + ::makeString(value) + " ";
-      return back; 
+      return back;
   }
   if (variable != -1 && variable != -2)
       back += "(" + fMap.getResourceName(variable) + ") ";
@@ -871,7 +868,7 @@ string Tree::toString(FactMap& fMap) {
       back += "(" + ::makeString(variable) +")";
 
   if (op == 4) back += "(not ";
- 
+
   if (op == 0) back += "(+ ";
   if (op == 1) back += "(- ";
   if (op == 2) back += "(/ ";
@@ -885,10 +882,10 @@ string Tree::toString(FactMap& fMap) {
   if (op == 10) back += "(<= ";
   if (op == 11) back += "(= ";
 
-  if (Left) 
+  if (Left)
     back += Left->toString(fMap);
 
-  if (Right) 
+  if (Right)
     back += Right->toString(fMap);
   if (op > -1) back += ") ";
   if (op == 4) back += ") ";
@@ -903,7 +900,7 @@ string Tree::toFactString(FactMap& fMap) {
   if (valset) {
     if (options.preprocess())
       back += ::makeString(value)+ " ";
-    else 
+    else
       back += "(" + ::makeString(value) + ") ";
   }
 */
@@ -919,7 +916,7 @@ string Tree::toFactString(FactMap& fMap) {
   }
 
   if (op == 4) back += "(not ";
- 
+
   if (op == 0) back += "(+ ";
   if (op == 1) back += "(- ";
   if (op == 2) back += "(/ ";
@@ -933,10 +930,10 @@ string Tree::toFactString(FactMap& fMap) {
   if (op == 10) back += "(<= ";
   if (op == 11) back += "(= ";
 
-  if (Left) 
+  if (Left)
     back += Left->toFactString(fMap);
 
-  if (Right) 
+  if (Right)
     back += Right->toFactString(fMap);
   if (op > -1) back += ") ";
   return back;
