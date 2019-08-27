@@ -57,7 +57,7 @@ cp "$DOMAIN" tmp/domain.pddl
 cp "$PROBLEM" tmp/problem.pddl
 cd tmp
 sed -i "s/).*-.*number/)/" domain.pddl
-"$PLANNERDIR"/ground_exec/ground domain.pddl problem.pddl
+"$PLANNERDIR"/ground domain.pddl problem.pddl
 sed -i "s/.*total-cost.*//g" problem.pddl
 cp domain.pddl ../orig-1Dom.gdl
 cp domain.pddl ../abstract0-1Dom.gdl

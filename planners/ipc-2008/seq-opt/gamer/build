@@ -13,7 +13,7 @@ cd ..
 cd ground_src
 export GROUND_TOPDIR=$(pwd)
 make
-mv ground ../ground_exec
+mv ground ../
 
 cd ..
 cd gamer/src
