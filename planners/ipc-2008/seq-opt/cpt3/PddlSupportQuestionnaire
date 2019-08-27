@@ -1,0 +1,30 @@
+== General questions ==
+
+ * Name of planner: CPT3
+ * Names of team members: Vincent Vidal
+ 
+== Tracks ==
+
+The planner is entered in the following '''tracks''' (please remove all options that don't apply; multiple answers possible):
+ * [The planner is entered in the sequential optimal track.]
+ * [The planner is entered in the temporal optimal track.]
+
+== Features ==
+
+The planner supports '''object fluents''' in the following way (please remove all options apart from the one that applies):
+ * [The planner only supports predicate representations, no object fluent representations.]
+
+The planner supports '''PDDL types''' in the following way (please remove all options apart from the one that applies):
+ * [The planner supports both representations, and there is no preference for either.]
+
+The planner supports '''grounded representations''' in the following way (please remove all options apart from the one that applies):
+ * [The planner supports both representations, and there is no preference for either.]
+
+The planner supports the following '''optional features''' (please remove all options that don't apply; multiple answers possible):
+ * [The planner supports none of these features.]
+
+The planner supports '''numeric state variables''' in the following way (please remove the one that doesn't apply):
+ * [Numeric state variables are not supported.]
+
+The planner supports '''temporal planning''' in the following way (please remove all options apart from the one that applies):
+ * [Durative actions are supported, but timed initial literals are not.]

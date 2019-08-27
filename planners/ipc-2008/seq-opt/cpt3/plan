@@ -1,0 +1,6 @@
+#!/bin/bash
+
+RES=$2.solution
+[ -f $RES ] && rm $RES
+./cpt -o $1 -f $2 -seq -G -out $RES
+[ -f $RES ] && mv $RES $3
