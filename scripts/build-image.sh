@@ -24,3 +24,10 @@ DOMAIN="${TMPDIR}/domain.pddl"
 PROBLEM="${TMPDIR}/problem.pddl"
 PLANFILE="${TMPDIR}/sas_plan"
 singularity run -C -H ${TMPDIR} ${IMAGE} ${DOMAIN} ${PROBLEM} ${PLANFILE}
+
+if [[ -e ${PLANFILE} ]]; then
+    echo "Plan found."
+else
+    echo "No plan found."
+    exit 1
+fi
