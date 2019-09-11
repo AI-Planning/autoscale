@@ -36,19 +36,28 @@ From: ubuntu:xenial
     PLANFILE=$3
 
     ## Call your planner.
+    ## Original limits.
+    #/planner/fast-downward.py \
+    #    --build=release64 \
+    #    --plan-file $PLANFILE \
+    #    $DOMAINFILE \
+    #    $PROBLEMFILE \
+    #    --search "astar(cpdbs_symbolic(genetic_ss(use_ucb=true,num_episodes=10000000,num_collections=1,pdb_factory=symbolic(termination_time_ms=30000),genetic_time_limit=900,time_limit=1.0,create_perimeter=true,use_first_goal_vars=true,use_norm_dist=true,perimeter_time_ms=250000)))"
+    ## Short limits.
     /planner/fast-downward.py \
         --build=release64 \
         --plan-file $PLANFILE \
         $DOMAINFILE \
         $PROBLEMFILE \
-        --search "astar(cpdbs_symbolic(genetic_ss(use_ucb=true,num_episodes=10000000,num_collections=1,pdb_factory=symbolic,genetic_time_limit=900,time_limit=1.0,create_perimeter=true,use_first_goal_vars=true,use_norm_dist=true)))"
+        --search "astar(cpdbs_symbolic(genetic_ss(use_ucb=true,num_episodes=10000000,num_collections=1,pdb_factory=symbolic(termination_time_ms=3000),genetic_time_limit=60,time_limit=1.0,create_perimeter=true,use_first_goal_vars=true,use_norm_dist=true,perimeter_time_ms=10000)))"
+
 
 ## Update the following fields with meta data about your submission.
 ## Please use the same field names and use only one line for each value.
 %labels
 Name        Complementary2
 Description PDB heuristic which learns in situ how to adapt its pattern selection parameteres to maximize chance of finding "good" patterns as seach progresses and also complements any input heuristic.  This is an implementation of the complementary heuristic with an input perimeter PDB and symbolic PDBs, as described in the IJCAI paper: https://www.ijcai.org/proceedings/2017/601
-Authors Santiago Franco<santiago.franco@gmail.com>, Levi H S Lelis<levilelis@gmail.com> and Mike W Barley<m.barley@auckland.ac.nz>     
+Authors Santiago Franco<santiago.franco@gmail.com>, Levi H S Lelis<levilelis@gmail.com> and Mike W Barley<m.barley@auckland.ac.nz>
 SupportsDerivedPredicates no
 SupportsQuantifiedPreconditions no
 SupportsQuantifiedEffects yes
