@@ -1,0 +1,82 @@
+#include "merge_strategy_factory_precomputed.h"
+
+#include "merge_strategy_precomputed.h"
+#include "merge_tree_factory.h"
+#include "merge_tree.h"
+
+// HACK! For MIASM to have a fallback merge strategy.
+#include "merge_selector.h"
+#include "merge_strategy_stateless.h"
+#include "merge_tree_factory_miasm.h"
+
+#include "../options/option_parser.h"
+#include "../options/options.h"
+#include "../options/plugin.h"
+
+#include "../utils/memory.h"
+
+using namespace std;
+
+namespace merge_and_shrink {
+MergeStrategyFactoryPrecomputed::MergeStrategyFactoryPrecomputed(
+    options::Options &options)
+    : MergeStrategyFactory(),
+      merge_tree_factory(options.get<shared_ptr<MergeTreeFactory>>("merge_tree")) {
+}
+
+unique_ptr<MergeStrategy> MergeStrategyFactoryPrecomputed::compute_merge_strategy(
+    const TaskProxy &task_proxy,
+    const FactoredTransitionSystem &fts) {
+    unique_ptr<MergeTree> merge_tree =
+        merge_tree_factory->compute_merge_tree(task_proxy);
+    if (merge_tree_factory->get_name() == "miasm") {
+        // HACK! For MIASM to have a fallback merge strategy.
+        MergeTreeFactoryMiasm *miasm_factory = dynamic_cast<MergeTreeFactoryMiasm *>(merge_tree_factory.get());
+        assert(miasm_factory);
+        if (miasm_factory->is_trivial_partitioning() && miasm_factory->has_fallback_merge_selector()) {
+            shared_ptr<MergeSelector> fallback_merge_selector = miasm_factory->get_fallback_merge_selector();
+            fallback_merge_selector->initialize(task_proxy);
+            return utils::make_unique_ptr<MergeStrategyStateless>(fts, fallback_merge_selector);
+        }
+    }
+    return utils::make_unique_ptr<MergeStrategyPrecomputed>(fts, move(merge_tree));
+}
+
+bool MergeStrategyFactoryPrecomputed::requires_init_distances() const {
+    return merge_tree_factory->requires_init_distances();
+}
+
+bool MergeStrategyFactoryPrecomputed::requires_goal_distances() const {
+    return merge_tree_factory->requires_goal_distances();
+}
+
+string MergeStrategyFactoryPrecomputed::name() const {
+    return "precomputed";
+}
+
+void MergeStrategyFactoryPrecomputed::dump_strategy_specific_options() const {
+    merge_tree_factory->dump_options();
+}
+
+static shared_ptr<MergeStrategyFactory>_parse(options::OptionParser &parser) {
+    parser.document_synopsis(
+        "Precomputed merge strategy",
+        "This merge strategy has a precomputed merge tree. Note that this "
+        "merge strategy does not take into account the current state of "
+        "the factored transition system. This also means that this merge "
+        "strategy relies on the factored transition system being synchronized "
+        "with this merge tree, i.e. all merges are performed exactly as given "
+        "by the merge tree.");
+    parser.add_option<shared_ptr<MergeTreeFactory>>(
+        "merge_tree",
+        "The precomputed merge tree");
+
+    options::Options opts = parser.parse();
+    if (parser.dry_run())
+        return nullptr;
+    else
+        return make_shared<MergeStrategyFactoryPrecomputed>(opts);
+}
+
+static options::PluginShared<MergeStrategyFactory> _plugin("merge_precomputed", _parse);
+}

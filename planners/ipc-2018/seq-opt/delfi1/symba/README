@@ -1,0 +1,25 @@
+Note: If you're using the FD-lab scripts to run experiments, there are
+a couple of things that have to be changed (in case that you run the
+planner calling the plan script that we provide you can ignore all
+this). We made change on the translator and preprocessor so you cannot
+re-use the preprocessed files from another planners. Also, the
+preprocessor needs to receive "--opt-ordering" as parameter. Our plan
+script already does that, but using FD-lab will skip that part so a
+workaround is needed (e.g, modify the code of preprocess to put
+opt-ordering to true as default).
+
+
+Note: This version is built based on SymBA*-2 as published by Torralba on
+his website https://fai.cs.uni-saarland.de/torralba/software.html
+
+Differences added by us:
+- polishing (output, braces or similiar)
+- a bugfix from a recent version of the h2-preprocessor
+- add a test that checks if the empty plan is a valid solution
+- add a test that checks if, after computing h2 mutexes, there are no necessary
+variables left, and thus the problem is unsolvable (inspired from a recent
+version of the h2-preprocessor, which is too different to completely adapting
+the test)
+- a bugfix that changes long to double (and to bool in the case of a simple
+true-or-false method), as communicated by Álvaro in the context of the IPC on
+2018-04-20 11:39
