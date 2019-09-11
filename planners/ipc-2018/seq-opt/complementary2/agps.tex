@@ -1,0 +1,199 @@
+%%%% ijcai17.tex
+
+\typeout{IJCAI-17 Instructions for Authors}
+
+% These are the instructions for authors for IJCAI-17.
+% They are the same as the ones for IJCAI-11 with superficical wording
+%  changes only.
+
+\documentclass{article}
+% The file ijcai17.sty is the style file for IJCAI-17 (same as ijcai07.sty).
+\usepackage{ijcai17}
+
+% Use the postscript times font!
+\usepackage{times}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[noend]{algorithmic}
+\usepackage{algorithm}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{multirow}
+
+\DeclareMathOperator*{\argmin}{\arg\!\min}\DeclareMathOperator*{\argmax}{\arg\!\max}
+
+
+% the following package is optional:
+%\usepackage{latexsym} 
+
+% Following comment is from ijcai97-submit.tex:
+% The preparation of these files was supported by Schlumberger Palo Alto
+% Research, AT\&T Bell Laboratories, and Morgan Kaufmann Publishers.
+% Shirley Jowell, of Morgan Kaufmann Publishers, and Peter F.
+% Patel-Schneider, of AT\&T Bell Laboratories collaborated on their
+% preparation.
+
+% These instructions can be modified and used in other conferences as long
+% as credit to the authors and supporting agencies is retained, this notice
+% is not changed, and further modification or reuse is not restricted.
+% Neither Shirley Jowell nor Peter F. Patel-Schneider can be listed as
+% contacts for providing assistance without their prior permission.
+
+% To use for other conferences, change references to files and the
+% conference appropriate and use other authors, contacts, publishers, and
+% organizations.
+% Also change the deadline and address for returning papers and the length and
+% page charge instructions.
+% Put where the files are available in the appropriate places.
+
+\newcommand{\mc}{\mathcal}
+
+
+\title{Adaptable Genetic Pattern Selection}
+%\author{Carles Sierra\\ 
+%Artificial Intelligence Research Institute, IIIA-CSIC, Bellaterra, Catalonia \\
+%pcchair@ijcai-17.org}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+In classical planning, several heuristics, e.g. iPDB,GA-PDBs,CGamer,etc. use pattern databases to estimate the distance to the goal state.  The resulting meta-search space of possible patterns for large problems is simply too large to try them all for most problems.  This paper presents a novel and competitive with the state of the art PDB-based heuristic for optimal planning.  Our algorithm dynamically adjusts itself, depending on how well it is doing. PDBs are added, or even removed, as a function of how well they are complementing each other. 
+
+In this paper we compare our new approach to previous selection approaches like GHS[],GaPDB[], iPDB[], Cgamer[].  We also review the pros and cons of using either a symbolic or explicit representation to build PDBs and even a mixed approach, where which type of PDB is decided on the basis of expected performance.
+\end{abstract}
+
+\section{Introduction}
+\section{Background}
+
+An \emph{SAS$^+$ planning task} {\cite{BN95}} is a 4-tuple $\nabla = \langle\mc{V}, \mc{O}, \mc{I}, \mc{G}\rangle$.  $\mc{V}$ is a set of \emph{state variables}. Each variable $v \in \mc{V}$ has a finite domain $\mc{D}_v$.
+$\mc{O}$ is a set of operators, where each operator $o \in \mc{O}$ is a triple $\langle pre_o, post_o, cost_o\rangle$ specifying the preconditions, postconditions (effects), and non-negative cost of $o$.
+
+Pattern databases are dictionaries for heuristic estimates storing state-to-goal distances in state space abstractions. T
+PDBs can be defined as dictionaries mapping the abstract state space to the associated distances to the abstract goal.  The abstract space is defined by the subset of variables $\mc{V}' \in \mc{V}$.  We call those subsets of variables \emph{patterns} from now on.
+%For this paper we only use zero-one PDB cost partitioning, as in GAs[add cite].  
+Pattern Collections (\emph{PC}) are a combination of a set of \emph{patterns}.  Patterns can be combined in different ways (cite Helmert's AAAI 2017 paper), for this paper we combined them using the zero-one cost partitioning.  Zero-one cost partitions (add cite) assigns full cost to all transitions associated to variables not used by any previous patterns, e.g. the first pattern in the collection has full operator costs, consecutive patterns will have some costs set to 0 if the same variables were used on previous patterns.  When using zero-one cost partitioning, it is admissible to calculate the heuristic value of a PC as simply adding all stored distances over all the collection's patterns.
+
+For all pattern generation methods we are aware of (ipdb,GA, CGAMER), how PDBs are generated is determined by size and time limits which are chosen \emph{a priori}, regardless of the problem.  In this paper we present a new heuristic we called Adaptable Genetic Pattern Selection (\emph{AGPS}).  By adaptable we mean that AGPS adapts its PDB generation parameters as a function of how well the meta-search of PCs is going, e.g. If the current parameters result on complementary patterns being found regularly, no changes are made.  However, if either the PDBs are using too much time or memory, or finding complementary patterns starts taking too long, AGPS will change its PDB's time and size limits.
+
+Through the paper we talk about finding complementary PCs.  A PC is \emph{complementary} to a previously selected PC if when evaluating it using AGPS's fitness function, it is determined that its addition will sufficiently reduce the size of the search space.  The actual threshold is set \emph{a priori}.
+
+AGPS returns the PDB in the canonical form(add citation), this is an optimized PC representation which get rids of any patterns dominated by others.  It also may find new admissible combinations of existing patterns on addition to the ones we have tested.
+
+AGPS has two ways of generating new PCs, which we call a bin packing episode or a mutation episode.  In a Bin packing (cite Edelkamp automatic PDBs paper) distributes state variables into bins in such a way that, given an explicit representation size limit , a minimal number of patterns is used.  The limit is the maximum number of states a pattern can map to.  Furthermore, AGPS has two different forms of bin packing, one that bias selection towards connected variables and one that does not.  Two variables are connected if one of them has an effect with has a direct arc in a the problems's causal graph to the other variable's precondition.  
+
+On a mutation episode, AGPS has an \emph{a priori} fixed probability of adding or removing each variable $var \in \mc{V}$ given an input collection.  AGPS does an \emph{a priori} fixed number of mutation episodes after Algorithm \ref{alg:NAS} determines the result of a bin pack episode to be good enough to add it to the selected list of PCs.  The idea here is to do local searches around known good patterns on the hope that even better PCs can be found.  Furthermore, this bias the search towards whichever version of bin packing most appropiate to the current problem.
+
+\section{Adaptable Automated Pattern Selection}
+\label{sec:algorithm}
+\begin{algorithm}[t]
+\caption{Adaptable Genetic Pattern Selection}
+\label{alg:asp}
+\begin{algorithmic}[1]
+\REQUIRE $\nabla$, T, M
+\ENSURE Canonical heuristic
+%\KwData{PDB type (symbolic or explicit), online PDBs or not, initial average PDB generation time limit, mutation rate, overall time limit,perimeter PDB or not}
+%\KwResult{canonical PDB heuristic }
+\STATE $t \leftarrow 0$
+\STATE $PC^{(t)} \leftarrow Initialize$
+\STATE $SelPCs \leftarrow Initialize$
+\STATE $GenParams \leftarrow Initialize$
+\WHILE{$\mc{K}^{(T,M)}$}
+   \IF{$\mc{C}^{(t)}$}
+     \STATE $PC'^{(t)} \leftarrow Mutation(PC(t))$
+   \ELSE
+     \STATE $PC'^{(t)} \leftarrow BinPack(PC(t))$
+   \ENDIF
+
+   \STATE $EvaluateSSTree(\mc{SS}^{(t)}$)
+   \STATE $Evaluate(PC^{(t)})$
+   \STATE $SelPCs'^{(t)} \leftarrow Selection{PC'^{(t)},SelPCs}$
+   \IF{$|SelPCs'^{(t)}| > |SelPCs^{t}|$}
+     \STATE $SelPCs'^{t+1} \leftarrow DomCheck(SelPCs^{(t)})$
+   \ELSIF{$\mc{D}^{(SelPC)}$}\label{line:agps:TooLong}
+     \STATE Adjust $GenParams$
+   \ENDIF
+\ENDWHILE
+\STATE Return Canonical(SelPCs)
+  %return canonical heuristic and start A* search, we are finished\;
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[t]
+\caption{Bin Packing Algorithm}
+\label{alg:bin}
+\begin{algorithmic}[1]
+\REQUIRE $\mc{V}$, $\mu (max\_target\_size, min\_target\_size)$,rel\_vars
+\ENSURE $PC$
+
+\STATE $ max\_bin\_size \sim \mathcal{N} (\mu,\,\sigma^{2})\,.  $
+\WHILE{$ \mc{V}' \neq \emptyset$ }
+  \IF{$pattern \in \emptyset$}
+    \STATE $\mc{V}' \leftarrow unused variables$
+    \STATE $pattern \leftarrow random (\mc{V}')$
+  \ELSE
+    \IF{rel\_vars}
+      \STATE $\mc{V}'\leftarrow$ list of unused variables causally relevant to pattern
+    \ELSE
+      \STATE $\mc{V}'\leftarrow$ unused variables
+    \ENDIF
+    \STATE $var \leftarrow random (\mc{V}')$
+    \IF{$\prod \mc{D}_v \in pattern \times \mc{D}_{var} \leq max\_bin\_size$}
+      \STATE $pattern \leftarrow var$
+    \ENDIF
+  \ENDIF
+  \IF{$\mc{V}' \in \emptyset$ }
+    \STATE $PC \leftarrow pattern$ 
+    \STATE $pattern \leftarrow \emptyset$
+  \ENDIF
+\ENDWHILE
+\STATE sort PC by number of variables, bigger first.
+\end{algorithmic}
+\end{algorithm}
+
+
+
+\subsection{Adaptable Genetic Pattern Selection}
+\subsubsection{Definitions}
+Algorithm \ref{alg:asp} shows how AGPS receives an input a problem $\nabla$ , a time limit T, a memory limit M and returns a heuristic made off the best complementary patterns it has found.   The combination of patterns is optimized into a canonical combination(cite Malte et al).  We use when possible a similar notation to (cite Edelkamp automatic pattern selection) because it was the first use of genetic selection of pattern databases in planning.  $\mc{K}$ stands for the termination criteria, in this case whether the time or memory limits have been reached.  $\mc{C}$ stands for whether the next PC will be generated using mutations on previously generated PC or bin packed from scratch.  |SelPCs| stand for the number of PCs already selected.$\mc{D}$ stands for the criterion under which AGPS decides to adjust the PDB generation parameters.
+
+\subsubsection{Initializations}
+In each episode $t$ AGPS firstly generates a candidate PC, which may be added to the list of selected pattern combinations \emph{SelPCs} to be returned by Algorithm \ref{alg:asp}.  Note that we have tested two different initial PCs, either a perimeter search or a bin packed PC.  Both these options are discussed at Algorithm \ref{alg;bin}.  GenParams stands for those time and memory limits which AGPS uses to generate then next candidate PC.  These parameters are adapted as a function of how long do they take to generate and how long has it been since we found a new PC to add to SelPCs.  $\mc{SS}$ stands for stratified sampling, a sampling method which estimates number of nodes generated given a heuristic.
+
+\subsubsection{Pattern Generation}
+
+AGPS has two PC generation methods, either bin packing or mutating an existing PC.  AGPS runs a fixed number of mutation episodes if the last bin pack has returned a collection pattern which has been found to be complementary.  The idea here it to explore neighbouring pattern spaces in the hope to find further improvement.  After a fixed number of mutations, AGPS will go back to generating patterns with bin packs.  More details in section \ref{subsec:Algo2}.
+
+AGPS fitness function uses stratified sampling to determine if a pattern collection when added to the existing ones, will result in reducing the number of generated nodes bellow a threshold.  We found on our experiments that running stratified sampling\footnote{Need to explain SS on background section} for each new PC was too computationally expensive.  
+%This is not a problem for GHS[], as it does its sampling only once.  
+\subsubsection{Evaluation}
+AGPS needs to evaluate the fitness of a new PC as soon as it is generated in order to determine if its current PDB generation parameters are working well, otherwise it will adjust them. AGPS uses stratified sampling(cite Levis orig paper and GHS ICAPS).  Stratified sampling ($\mc{SS}$) was shown on (cite IJCAI paper) to be a good method to select complementary PDBs\footnote{Compared to using the average heuristic value or doing a series of random walks like in iPDB, see related section.}.  It grows a series of stochastic trees, called probes, to estimate the number of nodes generated by a a heuristic.  Unfortunately, it is also computationally intensive, hence we needed to speed it up if we wanted to use it as a fitness function for each episode $t$. 
+
+We speeded up $\mc{SS}$ by keeping cached a representative sets of SS states for the currently selected patterns.  For every new pattern collection, we avoid growing a new set of $\mc{SS}$ probes, instead we check if sufficiently cached states are stopped from being expanded by the new pattern collection.  If this is the case, we remove those SS states from the cache and add the new pattern collection to AGPS's selected patterns (SelPCs).  Note that new $\mc{SS}$ probes are grown if adding a new pattern collection results in reducing the number of cached SS states bellow an \emph{a priori} fixed threshold.  The number of stratified sampling states in the cache being bellow the threshold is interpreted as the stratified sampling not being representative enough any more, hence a new stratified sampling search tree is done.  This saves a lot of effort, as growing sufficient probes to have a good problem's representation is only done when sufficiently more accurate complementary PCs are found to justify it, otherwise the cached $\mc{SS}$ states suffice to quickly determine if a new $PC$ is complementary.
+
+Finally, note that line \ref{line:agps:TooLong}.  AGPS will adjust its own parameters if it considers the current pattern meta-search has hit diminished returns, this is if it is taking too long to find new complementary patterns.  Firstly, AGPS has two size limit parameters, max\_target\_size and min\_target\_size, which bound the size of the PDB in terms of the number of states it can map to in an explicit representation.  We call this explicit\_size.  For every bin\_pack operation AGPS limits the explicit\_size as a function of a draw from a gaussian distribution defined by the two target sizes.  There are also two time limits, min\_improv\_time\_limit, which regulates how long does AGPS considers to be too long since an improvement has been found.  The other limit is gen\_time\_limit.  Every time AGPS considers it is taking too long to find a solution, the  gen\_time\_limit is increased  by the same factor as the min\_improv\_time.  We call this factor the improvement\_ratio.  
+
+AGPS will adjust the target sizes in order to respect the time limits, e.g. if the current average computational cost is on average significantly lower than the average pdb computational cost, it will raise the min\_target\_size.  If, on the other hand, the average computational time per PDB is significantly larger, then it will reduce the max\_target\_size.  On all adjustments AGPS keeps a minimum distance between the min\_target\_size and the min\_target\_size of two orders of magnitude.  Also note that for symbolic searches\footnote{discuss symbolic vs explicit representations on the background section}, AGPS does pass a limit on the generation\_costs, resulting on truncated searches once the time limit is passed.
+
+To summarize, AGPS will start with a wide range of PDB generation parameters.  If those patterns result on regularly finding complementary patterns, AGPS will not change anything beyond doing local searches via mutations around newly complementary patterns.  If, on the other hand, we start taking too long to find complementary patterns, AGPS will adjust itself to attempt to find more accurate PDBs albeit the cost of generating less of them.  Finally, AGPS will keep track of those cases where the generation costs are either too small or too large and adjust the target sizes accordingly.  Each problem associated computational costs varies very widely, hence the need to do quick adjustments.
+\subsection{Algorithm \ref{alg:bin} }\label{subsec:Algo2}
+Algorithm \ref{alg:bin} is similar to GA's[bin-packing] algorithm.  GA's bin packing algorithm divides the problem's variables into a set of randomly selected variable patterns, none of them bigger than a fixed maximum domain size.  The domain size of a pattern is the crossproduct of all its variable's domains, and we call it from now on the pattern's domain.  Bin packing is called by the GA's algorithm to seed the process of looking for a good combination of patterns.  Afterwards, mutations are used to vary the selected variables on each pattern.
+
+Our bin packing version is called repeatedly by the AGPS algorithm.  AGPS generates every pattern collection by either bin packing or mutating existing collections, GAs does use bin packing and mutations as well.  However, there are four differences between AGPS's collection generation and the regular GA's algorithm.
+
+The first one is that the maximum pattern's domain size is actually selected stochastically, as a normal distribution draw defined by a median calculated as the average between a maximum target size (max\_target\_size) and a minimum target size (min\_target\_size). AGPS adjusts the target size limits as the search for good patterns progresses, e.g. if a long time has passed since an improving collection has been found, AGPS might increase the min and max target sizes.  The idea here is to use the \emph{in situ} sampled knowledge to adjust pattern selection towards improving the chances of finding good patterns.  
+
+The second important difference is that variable selection can be constricted to choosing only related subsets, as defined by the causal graph (need cite here), this is similar to the way iPDB selects patterns.  The reason we have both options is because in some problems favoring connecting variables by direct effect-precondition links leads to better selections compared to randomness.  On others it might miss many of the important indirect connections, resulting in better patterns if we let the regular random selection of variables. 
+
+Another important difference is that by the time bin packing is finished, it sorts patterns in order of variable length.  The idea here is that in general, it is likelier to get bigger heuristic values if the patterns with thelargest number of variables preserve more of their costs as we are using zero-one cost partition, as explained on the background section.
+
+Finally, note that we only use one collection of patterns at a time, while GAs mantain a set of chosen collections, which are mutated as selected by the GA's fitness function. In our case, AGPS only maintains a collection at a time.  We also do mutations, in our case a fixed number of them per bin packed episode, but only if the collection returned by bin packing complements our selected patterns\footnote{need to define complementary patterns on the background}.  This way we also bias search effort towards those pattern search spaces likeliest to result in improvements.  Also this works as a bias of our meta-search effort \footnote{need to define meta-search as the search in the spaces of possible pattern combinations in the background section as well}, as most search effort will be used on whichever bin packing technique (restricted to related variables or not) is most frequently returning complementary patterns.
+
+
+%% The file named.bst is a bibliography style file for BibTeX 0.99c
+\bibliographystyle{named}
+\bibliography{aaai}
+
+\end{document}
+

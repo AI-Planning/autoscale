@@ -1,0 +1,6 @@
+repo: 875fe8fa322a09154e7c39371c8fc3921e36d73d
+node: 960cdfde05fc1d36471a48d196f7664b30333916
+branch: ipc-2018-seq-opt
+latesttag: issue416-v2
+latesttagdistance: 252
+changessincelatesttag: 296
