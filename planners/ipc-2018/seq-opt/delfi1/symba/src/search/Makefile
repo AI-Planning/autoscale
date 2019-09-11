@@ -219,7 +219,7 @@ CCOPT = -Iext
 #CCOPT += -g
 CCOPT += -m32
 CCOPT += -std=c++11
-CCOPT += -Wall -W -Wno-sign-compare -Wno-deprecated -pedantic -Werror -DSTATE_VAR_BYTES=$(STATE_VAR_BYTES)
+CCOPT += -Wall -W -Wno-sign-compare -Wno-deprecated -pedantic -DSTATE_VAR_BYTES=$(STATE_VAR_BYTES)
 ## The following lines contain workarounds for bugs when
 ## cross-compiling to 64 bit on 32-bit systems using gcc 4.4 or gcc
 ## 4.5 in some Ubuntu releases. (We don't usually cross-compile to
