@@ -1,0 +1,26 @@
+# Some smaller problems
+ztravel -c -u 1000 3 1 2 1000 > pfile1
+ztravel -c -u 1202 3 1 3 1000 > pfile2
+ztravel -c -u 1345 3 2 4 1000 > pfile3
+ztravel -c -u 5637 3 2 5 1000 > pfile4
+ztravel -c -u 1976 4 2 4 1000 > pfile5
+ztravel -c -u 1212 4 2 5 1000 > pfile6
+ztravel -c -u 3000 4 2 6 1000 > pfile7
+
+# Now start to increase complexity a bit
+ztravel -c -u 2222 5 3 6 1000 > pfile8
+ztravel -c -u 3434 5 3 7 1000 > pfile9
+ztravel -c -u 9987 5 3 8 1000 > pfile10
+ztravel -c -u 1653 6 3 7 1000 > pfile11
+ztravel -c -u 1700 6 3 8 1000 > pfile12
+ztravel -c -u 2000 6 3 10 1000 > pfile13
+
+# Are we still playing?
+ztravel -c -u 4312 10 5 10 1000 > pfile14
+ztravel -c -u 3452 12 5 15 1000 > pfile15
+ztravel -c -u 3412 14 5 15 1000 > pfile16
+ztravel -c -u 3152 16 5 20 1000 > pfile17
+ztravel -c -u 1452 18 5 20 1000 > pfile18
+ztravel -c -u 3451 20 5 25 1000 > pfile19
+ztravel -c -u 3222 22 5 25 1000 > pfile20
+

@@ -1,0 +1,25 @@
+# Handcoded problem set
+ztravel -s -u 1245 10 5 20 1000 > pfile1
+ztravel -s -u 1765 10 5 30 1000 > pfile2
+ztravel -s -u 1345 10 5 40 1000 > pfile3
+ztravel -s -u 1145 10 5 50 1000 > pfile4
+ztravel -s -u 1215 10 5 60 1000 > pfile5
+ztravel -s -u 1235 10 5 70 1000 > pfile6
+ztravel -s -u 1275 10 5 80 1000 > pfile7
+ztravel -s -u 1745 10 5 90 1000 > pfile8
+ztravel -s -u 1645 10 5 100 1000 > pfile9
+
+# Now increase places
+ztravel -s -u 1545 15 5 60 1000 > pfile10
+ztravel -s -u 1445 20 5 60 1000 > pfile11
+ztravel -s -u 3145 25 5 60 1000 > pfile12
+ztravel -s -u 4245 30 5 60 1000 > pfile13
+ztravel -s -u 5245 35 5 60 1000 > pfile14
+
+# Now increase planes
+ztravel -s -u 7245 25 10 70 1000 > pfile15
+ztravel -s -u 8245 25 15 70 1000 > pfile16
+ztravel -s -u 1945 25 20 70 1000 > pfile17
+ztravel -s -u 1675 30 25 70 1000 > pfile18
+ztravel -s -u 1435 30 30 70 1000 > pfile19
+ztravel -s -u 1431 30 35 70 1000 > pfile20

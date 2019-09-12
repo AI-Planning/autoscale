@@ -1,0 +1,25 @@
+# Handcoded problem set
+ztravel  1245 10 5 20 1000 > pfile1
+ztravel  1765 10 5 30 1000 > pfile2
+ztravel  1345 10 5 40 1000 > pfile3
+ztravel  1145 10 5 50 1000 > pfile4
+ztravel  1215 10 5 60 1000 > pfile5
+ztravel  1235 10 5 70 1000 > pfile6
+ztravel  1275 10 5 80 1000 > pfile7
+ztravel  1745 10 5 90 1000 > pfile8
+ztravel  1645 10 5 100 1000 > pfile9
+
+# Now increase places
+ztravel  1545 15 5 60 1000 > pfile10
+ztravel  1445 20 5 60 1000 > pfile11
+ztravel  3145 25 5 60 1000 > pfile12
+ztravel  4245 30 5 60 1000 > pfile13
+ztravel  5245 35 5 60 1000 > pfile14
+
+# Now increase planes
+ztravel  7245 25 10 70 1000 > pfile15
+ztravel  8245 25 15 70 1000 > pfile16
+ztravel  1945 25 20 70 1000 > pfile17
+ztravel  1675 30 25 70 1000 > pfile18
+ztravel  1435 30 30 70 1000 > pfile19
+ztravel  1431 30 35 70 1000 > pfile20

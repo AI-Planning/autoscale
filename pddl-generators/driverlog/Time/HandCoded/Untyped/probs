@@ -1,0 +1,30 @@
+# Bigger problems
+dlgen -u -t 7421 30 20 20 20 100 > pfile1
+dlgen -u -t 5425 30 20 30 20 100 > pfile2
+dlgen -u -t 2133 30 20 40 20 100 > pfile3
+dlgen -u -t 1221 30 30 40 20 100 > pfile4
+dlgen -u -t 1243 30 30 50 20 100 > pfile5
+dlgen -u -t 8775 30 30 50 30 100 > pfile6
+dlgen -u -t 6181 30 30 60 30 100 > pfile7
+dlgen -u -t 2321 30 30 70 30 100 > pfile8
+
+# Now more locations
+dlgen -u -t 7333 50 20 60 30 100 > pfile9
+dlgen -u -t 2132 60 20 60 30 100 > pfile10
+dlgen -u -t 2131 70 20 60 30 100 > pfile11
+dlgen -u -t 1121 100 20 60 30 100 > pfile12
+dlgen -u -t 4331 120 20 60 30 100 > pfile13
+
+# Short of trucks
+dlgen -u -t 2232 100 30 60 10 100 > pfile14
+dlgen -u -t 3343 120 40 80 10 100 > pfile15
+
+# Short of drivers
+dlgen -u -t 6551 150 20 100 50 100 > pfile16
+dlgen -u -t 6798 160 20 150 50 100 > pfile17
+
+# Big problems
+dlgen -u -t 6553 200 50 200 50 100 > pfile18
+dlgen -u -t 7664 200 50 250 50 100 > pfile19
+dlgen -u -t 1774 200 80 300 60 100 > pfile20
+
