@@ -1,0 +1,6 @@
+syntax: glob
+.sconsign.dblite
+bin
+src/*.o
+universal-pddl-parser/*.o
+act2ins.txt

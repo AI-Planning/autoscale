@@ -1,0 +1,21 @@
+3. EXCEL/FLASH-FILL
+This domain is located in the domains/excel_variables/ folder.
+We created 5 different problems under the same domain:
+01. Add a right parenthesis at the end of the input string
+e.g.: (BOB => (BOB)
+02. Extract the minutes from a timer
+e.g.: 8:23.65 => 23
+03. The input is 2 strings Name and Surname, and the goal is to copy these strings in the output with the following format => Surname + space + Name
+e.g.: Bob Doe => Doe Bob
+04. The same input as 03 but the aim is to copy the strings in the output with the following format => Name + space + first letter of the surname
+e.g.: Bob Doe => Bob D
+05. Get Name and Surname and output the initials of both strings separated by a space
+e.g. Bob Doe => B D
+
+
+
+
+
+06 Get Name and Surname and output email address
+ Bob Doe => bobdoe@company.com
+
