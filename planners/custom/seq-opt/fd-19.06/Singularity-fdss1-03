@@ -24,4 +24,4 @@ From: i386/ubuntu:18.04
     PROBLEMFILE=$2
     PLANFILE=$3
 
-    /planner/fast-downward.py --plan-file $PLANFILE $DOMAINFILE $PROBLEMFILE --search "astar(lmcount(lm_merged([lm_rhw(),lm_hm(m=1)]),admissible=true),mpd=true)"
+    /planner/fast-downward.py --plan-file $PLANFILE $DOMAINFILE $PROBLEMFILE --evaluator "lmc=lmcount(lm_merged([lm_rhw(),lm_hm(m=1)]),admissible=true)" --search "astar(lmc,lazy_evaluator=lmc)"
