@@ -13,7 +13,7 @@ From: ubuntu:18.04
     cd /planner
 
     ## Build the planner.
-    ./build.py -j4
+    ./build.py
 
     ## Clean up.
     apt -y autoremove cmake g++ make
