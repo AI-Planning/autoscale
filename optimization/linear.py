@@ -52,7 +52,7 @@ def parse_args():
 
 DIR = os.path.abspath(os.path.dirname(__file__))
 PLANNER_TIME_LIMIT = 180
-# TODO: The memory limit seems to have no effect.
+# TODO: The memory limit seems to have no effect. Find out why and fix it or limit memory ourselves.
 PLANNER_MEMORY_LIMIT = 3584  # 3.5 GiB
 MIN_PLANNER_RUNTIME = 0.1
 ARGS = parse_args()
