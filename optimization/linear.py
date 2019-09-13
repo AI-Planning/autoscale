@@ -25,6 +25,7 @@ from ConfigSpace.hyperparameters import UniformIntegerHyperparameter
 from smac.configspace import ConfigurationSpace
 from smac.scenario.scenario import Scenario
 from smac.facade.smac_hpo_facade import SMAC4HPO
+from smac.initial_design.default_configuration_design import DefaultConfiguration
 
 
 def parse_args():
@@ -51,6 +52,7 @@ def parse_args():
 
 DIR = os.path.abspath(os.path.dirname(__file__))
 PLANNER_TIME_LIMIT = 180
+# TODO: The memory limit seems to have no effect.
 PLANNER_MEMORY_LIMIT = 3584  # 3.5 GiB
 MIN_PLANNER_RUNTIME = 0.1
 ARGS = parse_args()
@@ -156,13 +158,9 @@ logging.basicConfig(level=logging.INFO)  # logging.DEBUG for debug output
 # Build Configuration Space which defines all parameters and their ranges.
 cs = ConfigurationSpace()
 
-# Default values are ignored for initial design
-# (see https://github.com/automl/SMAC3/issues/533). SMAC uses
-# (lower+upper)/2 instead. Since the initial design must not crash, we
-# need to select the bounds so that the (lower+upper)/2 is at least 1.
 # TODO: Allow negative values and enlarge domains.
 cs.add_hyperparameters([
-    UniformIntegerHyperparameter("b", lower=0, upper=10, default_value=0, log=False),
+    UniformIntegerHyperparameter("b", lower=-10, upper=10, default_value=0, log=False),
     UniformFloatHyperparameter("m", lower=0.0, upper=2.0, default_value=1.0, log=False),
 ])
 
@@ -186,8 +184,11 @@ print("Default config:", default_cfg)
 #evaluate_cfg(default_cfg)
 
 print("Optimizing...")
+# When using SMAC4HPO, the default configuration has to be requested explicitly
+# as first design (see https://github.com/automl/SMAC3/issues/533).
 smac = SMAC4HPO(
     scenario=scenario,
+    initial_design=DefaultConfiguration,
     rng=np.random.RandomState(42),
     tae_runner=evaluate_cfg)
 print("Output dir:", SMAC_OUTPUT_DIR)
