@@ -8,14 +8,14 @@ From: i386/ubuntu:18.04
 %post
     ## Install all dependencies.
     apt update
-    apt -y install cmake gawk g++ g++-multilib make python
+    apt -y install cmake gawk g++ make python
 
     ## Build the planner.
     cd /planner
     ./build -j4
 
     ## Clean up.
-    apt -y autoremove g++ make
+    apt -y autoremove cmake g++ make
     rm -rf /var/lib/apt/lists/*
 
 %runscript
