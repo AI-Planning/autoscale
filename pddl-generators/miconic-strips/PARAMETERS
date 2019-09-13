@@ -1,0 +1,14 @@
+OPTIONS   DESCRIPTIONS
+
+-f <num>    number of floors (minimal 2)
+-p <num>    number of passengers (minimal 1)
+
+
+
+IPC instances: linear scaling where passengers go from 1 to 30. Number of floors is
+passengers x 2.  5 random instances
+
+
+We can follow a similar schema, where we do a linear scaling of the number of passengers
+and keep floors at passengers x 2. We can also allow to add some parameter c that controls
+the ratio between passengers and floors.
