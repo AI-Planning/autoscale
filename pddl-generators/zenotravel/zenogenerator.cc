@@ -6,11 +6,15 @@
 #include <queue>
 #include <stdlib.h>
 
+#include <iterator>     // std::ostream_iterator
+
 enum domaintype {STRIPS,NUMERIC,SIMPLE,TIME,COMPLEX};
 enum typingStatus {ON,OFF};
 
 domaintype domainType;
 typingStatus typing;
+
+using namespace std;
 
 int rnd(int limit) {
 	return (int) ((((double)((long int)limit)*random()))/(RAND_MAX+1.0));

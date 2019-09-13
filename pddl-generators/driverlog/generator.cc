@@ -5,12 +5,16 @@
 #include <vector>
 #include <queue>
 #include <stdlib.h>
+#include <iterator>     // std::ostream_iterator
 
 enum typeStatus {ON,OFF};
 typeStatus typing;
 
 enum problemTypes {STRIPS,SIMPLETIME,NUMERIC,HARDNUMERIC,TIMED};
 problemTypes probType;
+
+
+using namespace std;
 
 int rnd(int limit) {
 	return (int) ((((double)((long int)limit)*random()))/(RAND_MAX+1.0));
