@@ -121,7 +121,7 @@ def run_planners(y):
 def evaluate_cfg(cfg):
     n = ARGS.tasks
 
-    print(cfg)
+    print("Evaluate", cfg)
     m = cfg.get("m")
     b = cfg.get("b")
 
@@ -129,12 +129,10 @@ def evaluate_cfg(cfg):
 
     print("Y:", Y)
 
-    # TODO: make this a command line parameter.
-    if not all (1 <= y <= 1000 for y in Y):
+    # TODO: check that all values y are valid generator inputs before running planners.
+    if not all(y >= 1 for y in Y):
         print("y must be >= 1, skipping configuration")
         return None
-
-    opt_times = [2**x for x in range(1, n + 1)]
 
     # TODO: pass individual timeout for each y.
     min_times = []
@@ -146,6 +144,8 @@ def evaluate_cfg(cfg):
         else:
             min_times.append(min_time)
     #min_times = [max(1, 2**x + m + 10 + m * b) for x in range(1, n + 1)]  # for testing
+
+    opt_times = [2**x for x in range(1, n + 1)]
 
     opt_times = np.log2(np.array(opt_times))
     min_times = np.log2(np.array(min_times))
