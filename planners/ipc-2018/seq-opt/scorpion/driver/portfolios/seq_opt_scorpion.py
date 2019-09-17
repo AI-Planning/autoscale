@@ -30,5 +30,5 @@ else:
 
 CONFIGS = [
     (1, ["--search",
-        "astar(saturated_cost_partitioning({ABSTRACTIONS}, max_orders=10, max_time=infinity, max_optimization_time=1, diversify=false, random_seed=0, orders=greedy(random_seed=0)), pruning=stubborn_sets_simple(min_pruning_ratio=0.2))".format(**locals())]
+        "astar(saturated_cost_partitioning({ABSTRACTIONS}, max_orders=10, max_time=infinity, max_optimization_time=0, diversify=false, random_seed=0, orders=greedy(random_seed=0)), pruning=stubborn_sets_simple(min_pruning_ratio=0.2))".format(**locals())]
     )]
