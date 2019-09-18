@@ -23,4 +23,4 @@ From: i386/ubuntu:18.04
     PROBLEMFILE=$2
     PLANFILE=$3
 
-    /planner/plan $DOMAINFILE $PROBLEMFILE $PLANFILE
+    /planner/plan seq-opt-symba-1 $DOMAINFILE $PROBLEMFILE $PLANFILE
