@@ -41,10 +41,10 @@ def parse_args():
         help="Maximum total time running planners (default: %(default)ss)")
     parser.add_argument(
         "smac_output_dir", help="Directory where to store logs and temporary files")
+    parser.add_argument("domain", help="Domain name")
     parser.add_argument(
-        "domain_file", help="Path to PDDL domain file")
-    parser.add_argument(
-        "generator_call", help="example: /path/to/gripper -n {y}")
+        "generators_dir", help="path to directory containing the generators")
+
     parser.add_argument(
         "images_dir", help="path to directory containing the Singularity images to run")
     return parser.parse_args()
@@ -67,7 +67,98 @@ if ARGS.tasks > 7:
 if os.path.exists(SMAC_OUTPUT_DIR):
     sys.exit("Error: SMAC output directory already exists")
 
-def run_planners(y):
+
+def get_domain_file(domain_name):
+    return "../pddl-generators/{}/domain.pddl".format(domain_name)
+
+
+def get_linear_configs (cfg, n, atr_names):
+    Y = []
+    for x in range(0, n):
+        y = {}
+        for atr in atr_names:
+            m = cfg.get("{}_m".format(atr))
+            b = cfg.get("{}_b".format(atr))
+            y[atr] = m*x+b
+        Y.append(y)
+    return Y
+
+
+def get_configs_driverlog(cfg, n):
+
+    drivers_b = cfg.get("drivers_b")
+    drivers_m = cfg.get("drivers_m")
+    trucks_diff = cfg.get("trucks_diff")
+    packages_b = cfg.get("packages_b")
+    packages_m = cfg.get("packages_m")
+    locations_b = cfg.get("locations_b")
+    locations_m = cfg.get("locations_m")
+
+    Y = []
+
+    
+    for x in range (0, n):
+        drivers = drivers_b + x*drivers_m
+        trucks = drivers + trucks_diff
+        packages = drivers + packages_b + x*packages_m
+        locations = drivers + locations_b + x*locations_m
+
+        Y.append({"drivers" : drivers, "trucks" : trucks, "packages" : packages, "roadjunctions" : locations, "seed" : 0})
+
+
+    return Y
+    
+PLANNER_SELECTION = {
+    "gripper"    : ["delfi-blind.img"],
+    "blocksworld": ["fdss-mas1.img", "symba1.img", "scorpion-nodiv.img"],
+    "miconic"    : ["bjolp.img"],
+    "driverlog"  : ["bjolp.img", "symba1.img"],
+    "rovers"     : ["symba1.img"],
+    "satellite"  : ["delfi-celmcut.img", "symba1.img"],
+    "zenotravel" : ["scorpion-nodiv.img", "delfi-celmcut.img", "symba2.img"],
+    "trucks"     : ["scorpion-nodiv.img", "symba2.img"],
+} 
+
+
+HYPERPARAMETERS_SELECTION = {
+    "gripper"    : [UniformIntegerHyperparameter("n_b", lower=1, upper=100, default_value=1),
+                    UniformFloatHyperparameter("n_m", lower=0.01, upper=10, default_value=1.0)],
+    "blocksworld"     : [UniformIntegerHyperparameter("n_b", lower=1, upper=100, default_value=1),
+                         UniformFloatHyperparameter("n_m", lower=0.01, upper=10, default_value=1.0)],
+    "miconic"    : [UniformIntegerHyperparameter("passengers_b", lower=1, upper=100, default_value=1),
+                    UniformFloatHyperparameter("passengers_m", lower=0.01, upper=10, default_value=1.0),
+                    UniformIntegerHyperparameter("floors_b", lower=2, upper=100, default_value=2),
+                    UniformFloatHyperparameter("floors_m", lower=0.01, upper=10, default_value=1.0)],
+    "driverlog"  : [UniformIntegerHyperparameter("drivers_b", lower=1, upper=100, default_value=1),
+                    UniformFloatHyperparameter("drivers_m", lower=0.01, upper=10, default_value=1.0),
+                    UniformIntegerHyperparameter("trucks_diff", lower=-2, upper=2, default_value=0),
+                    UniformIntegerHyperparameter("packages_b", lower=0, upper=100, default_value=1),
+                    UniformFloatHyperparameter("packages_m", lower=0, upper=10, default_value=1),
+                    UniformIntegerHyperparameter("locations_b", lower=0, upper=100, default_value=1),
+                    UniformFloatHyperparameter("locations_m", lower=0, upper=10, default_value=1),
+    ],
+    "rovers"     : [],
+    "satellite"  : [],
+    "zenotravel" : [],
+    "trucks"     : [],
+}
+
+GENERATOR_COMMAND = {
+    "gripper"  : ARGS.generators_dir + "/gripper/gripper -n {n}",
+    "blocksworld"  : ARGS.generators_dir + "/blocksworld/blocksworld 4 {n}",
+    "miconic"  : ARGS.generators_dir + "/miconic-strips/miconic -f {floors} -p {passengers}",
+    "driverlog" : ARGS.generators_dir + "/driverlog/dlgen {seed} {roadjunctions} {drivers} {packages} {trucks}"
+}
+
+GET_CONFIGS = {
+    "gripper" : (lambda cfg, n : get_linear_configs(cfg, n, ["n"])),
+    "blocksworld" : (lambda cfg, n : get_linear_configs(cfg, n, ["n"])),
+    "miconic" : (lambda cfg, n : get_linear_configs(cfg, n, ["passengers, floors"])),
+    "driverlog" : get_configs_driverlog,
+}
+
+
+def run_planners(parameters):
     # Exceptions are silently swallowed, so we catch them ourselves.
     try:
         # Write problem file.
@@ -75,40 +166,43 @@ def run_planners(y):
         shutil.rmtree(plan_dir, ignore_errors=True)
         os.mkdir(plan_dir)
         problem_file = os.path.join(plan_dir, "problem.pddl")
-        command = shlex.split(ARGS.generator_call.format(y=y))
+        command = shlex.split(GENERATOR_COMMAND[ARGS.domain].format(**parameters))
         logging.debug(f"Generator command: {command}")
         with open(problem_file, "w") as f:
             subprocess.run(command, stdout=f)
 
         # Call planners.
         runtimes = []
-        for image in sorted(os.listdir(ARGS.images_dir)):
-            if image.endswith((".img", ".simg")):
-                image_path = os.path.join(ARGS.images_dir, image)
-                logging.debug(f"Run image {image}")
-                planner_dir = os.path.join(plan_dir, image)
-                os.mkdir(planner_dir)
+        for image in PLANNER_SELECTION[ARGS.domain]:
+            image_path = os.path.join(ARGS.images_dir, image)
+            if not os.path.exists(image_path):
+                print ("Error, image does not exist: ", image_path)
+                exit(-1)
 
-                # Copy domain and problem into temporary dir.
-                domain_file = os.path.join(planner_dir, "domain.pddl")
-                shutil.copy2(ARGS.domain_file, domain_file)
-                shutil.copy2(problem_file, os.path.join(planner_dir, "problem.pddl"))
-                try:
-                    p = subprocess.run(
-                        [SINGULARITY_SCRIPT, image_path, "domain.pddl", "problem.pddl", "sas_plan"],
-                        cwd=planner_dir,
-                        stdout=subprocess.PIPE,
-                        timeout=PLANNER_TIME_LIMIT)
-                except subprocess.TimeoutExpired:
-                    logging.debug("Timeout occured")
-                else:
-                    # This only has a granularity of 1s, but should be enough.
-                    match = re.search(b"Singularity runtime: (.+)s", p.stdout)
-                    if match:
-                        runtime = float(match.group(1))
-                        runtime = max(MIN_PLANNER_RUNTIME, runtime)  # log(0) is undefined.
-                        runtimes.append(runtime)
-        print(f"Runtimes for y={y}: {runtimes}")
+            logging.debug(f"Run image {image}")
+            planner_dir = os.path.join(plan_dir, image)
+            os.mkdir(planner_dir)
+
+            # Copy domain and problem into temporary dir.
+            domain_file = os.path.join(planner_dir, "domain.pddl")
+            shutil.copy2(get_domain_file(ARGS.domain), domain_file)
+            shutil.copy2(problem_file, os.path.join(planner_dir, "problem.pddl"))
+            try:
+                p = subprocess.run(
+                    [SINGULARITY_SCRIPT, image_path, "domain.pddl", "problem.pddl", "sas_plan"],
+                    cwd=planner_dir,
+                    stdout=subprocess.PIPE,
+                    timeout=PLANNER_TIME_LIMIT)
+            except subprocess.TimeoutExpired:
+                logging.debug("Timeout occured")
+            else:
+            # This only has a granularity of 1s, but should be enough.
+                match = re.search(b"Singularity runtime: (.+)s", p.stdout)
+                if match:
+                    runtime = float(match.group(1))
+                    runtime = max(MIN_PLANNER_RUNTIME, runtime)  # log(0) is undefined.
+                    runtimes.append(runtime)
+        print(f"Runtimes for y={parameters}: {runtimes}")
         if runtimes:
             return min(runtimes)
         else:
@@ -122,17 +216,15 @@ def evaluate_cfg(cfg):
     n = ARGS.tasks
 
     print("Evaluate", cfg)
-    m = cfg.get("m")
-    b = cfg.get("b")
 
-    Y = [int(m * x + b) for x in range(1, n + 1)]
-
+    Y = GET_CONFIGS[ARGS.domain](cfg, n)
+         
     print("Y:", Y)
 
-    # TODO: check that all values y are valid generator inputs before running planners.
-    if not all(y >= 1 for y in Y):
-        print("y must be >= 1, skipping configuration")
-        return None
+    # TODO: check that all values y are valid generator inputs before running planners.    
+    # if not all(y >= 1 for y in Y):
+    #     print("y must be +>= 1, skipping configuration")
+    #     return None
 
     # TODO: pass individual timeout for each y.
     min_times = []
@@ -158,11 +250,7 @@ logging.basicConfig(level=logging.INFO)  # logging.DEBUG for debug output
 # Build Configuration Space which defines all parameters and their ranges.
 cs = ConfigurationSpace()
 
-# TODO: Allow negative values and enlarge domains.
-cs.add_hyperparameters([
-    UniformIntegerHyperparameter("b", lower=-10, upper=10, default_value=0, log=False),
-    UniformFloatHyperparameter("m", lower=0.0, upper=2.0, default_value=1.0, log=False),
-])
+cs.add_hyperparameters(HYPERPARAMETERS_SELECTION[ARGS.domain])
 
 scenario = Scenario({
     "run_obj": "quality",

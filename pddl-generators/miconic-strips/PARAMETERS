@@ -57,7 +57,7 @@ the ratio between passengers and floors.
 
 I suggest to use:
    -f ax+b
-   -p c(ax+b)x
+   -p c(ax+b)
 
 where 1 <= B <= 100 (up to 100 passengers)
 1 <= A <= 10 (up to +10 passengers per instance).

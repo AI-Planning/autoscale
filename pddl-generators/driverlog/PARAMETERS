@@ -39,7 +39,7 @@ last instance has 59 locations
 
 Some rules that we could enforce are:
 
-drivers, trucks <= packages <= locations
+drivers, trucks <= packages, locations
 
 
 drivers = trucks +- 2
