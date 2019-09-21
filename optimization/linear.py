@@ -75,10 +75,19 @@ def get_domain_file(domain_name):
     return "../pddl-generators/{}/domain.pddl".format(domain_name)
 
 
+
+def get_random_seed():
+    GLOBAL_SEED = 0
+    while True:
+        GLOBAL_SEED += 1
+        yield GLOBAL_SEED
+        
+GLOBAL_RANDOM_SEED = get_random_seed()
+
 def get_linear_configs (cfg, n, atr_names):
     Y = []
     for x in range(0, n):
-        y = {}
+        y = {"seed" : next(GLOBAL_RANDOM_SEED)}
         for atr in atr_names:
             m = cfg.get("{}_m".format(atr))
             b = cfg.get("{}_b".format(atr))
@@ -96,27 +105,26 @@ def get_configs_driverlog(cfg, n):
     locations_b = cfg.get("locations_b")
     locations_m = cfg.get("locations_m")
 
-    Y = []
-    
+    Y = []    
     for x in range (0, n):
         drivers = drivers_b + x*drivers_m
         trucks = drivers + trucks_diff
         packages = drivers + packages_b + x*packages_m
         locations = drivers + locations_b + x*locations_m
 
-        Y.append({"drivers" : drivers, "trucks" : trucks, "packages" : packages, "roadjunctions" : locations, "seed" : 0})
+        Y.append({"drivers" : drivers, "trucks" : trucks, "packages" : packages, "roadjunctions" : locations, "seed" : next(GLOBAL_RANDOM_SEED)})
         
     return Y
     
 PLANNER_SELECTION = {
-    "gripper"    : ["delfi-blind.img"],
     "blocksworld": ["fdss-mas1.img", "symba1.img", "scorpion-nodiv.img"],
-    "miconic-strips"    : ["bjolp.img"],
     "driverlog"  : ["bjolp.img", "symba1.img"],
+    "gripper"    : ["delfi-blind.img"],
+    "miconic-strips"    : ["bjolp.img"],
     "rovers"     : ["symba1.img"],
     "satellite"  : ["delfi-celmcut.img", "symba1.img"],
-    "zenotravel" : ["scorpion-nodiv.img", "delfi-celmcut.img", "symba2.img"],
     "trucks"     : ["scorpion-nodiv.img", "symba2.img"],
+    "zenotravel" : ["scorpion-nodiv.img", "delfi-celmcut.img", "symba2.img"],
 } 
 
 
@@ -140,30 +148,35 @@ HYPERPARAMETERS_SELECTION = {
     "rovers"     : [],
     "satellite"  : [],
     "zenotravel" : [],
-    "trucks"     : [],
+    "trucks"     : [UniformIntegerHyperparameter("locations_b", lower=1, upper=100, default_value=1),
+                    UniformFloatHyperparameter("locations_m", lower=0.01, upper=10, default_value=1.0),
+                    UniformIntegerHyperparameter("packages_b", lower=1, upper=100, default_value=1),
+                    UniformFloatHyperparameter("packages_m", lower=0.01, upper=10, default_value=1.0),
+                    UniformIntegerHyperparameter("areas_b", lower=1, upper=100, default_value=1),
+                    UniformFloatHyperparameter("areas_m", lower=0.01, upper=10, default_value=1.0),
+    ],
 }
 
 GENERATOR_COMMAND = {
-    "gripper"  : ARGS.generators_dir + "/gripper/gripper -n {n}",
     "blocksworld"  : ARGS.generators_dir + "/blocksworld/blocksworld 4 {n}",
-    "miconic-strips"  : ARGS.generators_dir + "/miconic-strips/miconic -f {floors} -p {passengers}",
     "driverlog" : ARGS.generators_dir + "/driverlog/dlgen {seed} {roadjunctions} {drivers} {packages} {trucks}",
+    "gripper"  : ARGS.generators_dir + "/gripper/gripper -n {n}",
+    "miconic-strips"  : ARGS.generators_dir + "/miconic-strips/miconic -f {floors} -p {passengers}",
     "rovers"     : ARGS.generators_dir + "/",
     "satellite"  : ARGS.generators_dir + "/",
+    "trucks"     : ARGS.generators_dir + "/trucks/gen-Trucks -seed {seed} -t 1 -l {locations} -p {packages} -a {areas} -n 1",
     "zenotravel" : ARGS.generators_dir + "/",
-    "trucks"     : ARGS.generators_dir + "/",
 }
 
 GET_CONFIGS = {
-    "gripper" : (lambda cfg, n : get_linear_configs(cfg, n, ["n"])),
     "blocksworld" : (lambda cfg, n : get_linear_configs(cfg, n, ["n"])),
-    "miconic-strips" : (lambda cfg, n : get_linear_configs(cfg, n, ["passengers", "floors"])),
     "driverlog" : get_configs_driverlog,
+    "gripper" : (lambda cfg, n : get_linear_configs(cfg, n, ["n"])),
+    "miconic-strips" : (lambda cfg, n : get_linear_configs(cfg, n, ["passengers", "floors"])),
     "rovers"     : [],
     "satellite"  : [],
+    "trucks"     : (lambda cfg, n : get_linear_configs(cfg, n, ["locations", "packages", "areas"])),
     "zenotravel" : [],
-    "trucks"     : [],
-
 }
 
 
