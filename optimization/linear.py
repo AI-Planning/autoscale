@@ -40,13 +40,15 @@ def parse_args():
         "--optimization-time-limit", type=float, default=20 * 60 * 60,
         help="Maximum total time running planners (default: %(default)ss)")
     parser.add_argument(
-        "smac_output_dir", help="Directory where to store logs and temporary files")
-    parser.add_argument("domain", help="Domain name")
-    parser.add_argument(
         "generators_dir", help="path to directory containing the generators")
-
     parser.add_argument(
         "images_dir", help="path to directory containing the Singularity images to run")
+    parser.add_argument("domain", help="Domain name")
+
+    parser.add_argument(
+        "smac_output_dir", help="Directory where to store logs and temporary files")
+    
+
     return parser.parse_args()
 
 
@@ -64,8 +66,9 @@ print("Singularity script:", SINGULARITY_SCRIPT)
 if ARGS.tasks > 7:
     sys.exit("Error: number of tasks must be <= 7")
 
-if os.path.exists(SMAC_OUTPUT_DIR):
-    sys.exit("Error: SMAC output directory already exists")
+# There is no need to  check this, SMAC does a copy of the old directory
+# if os.path.exists(SMAC_OUTPUT_DIR):
+#     sys.exit("Error: SMAC output directory already exists")
 
 
 def get_domain_file(domain_name):
@@ -85,7 +88,6 @@ def get_linear_configs (cfg, n, atr_names):
 
 
 def get_configs_driverlog(cfg, n):
-
     drivers_b = cfg.get("drivers_b")
     drivers_m = cfg.get("drivers_m")
     trucks_diff = cfg.get("trucks_diff")
@@ -95,7 +97,6 @@ def get_configs_driverlog(cfg, n):
     locations_m = cfg.get("locations_m")
 
     Y = []
-
     
     for x in range (0, n):
         drivers = drivers_b + x*drivers_m
@@ -104,14 +105,13 @@ def get_configs_driverlog(cfg, n):
         locations = drivers + locations_b + x*locations_m
 
         Y.append({"drivers" : drivers, "trucks" : trucks, "packages" : packages, "roadjunctions" : locations, "seed" : 0})
-
-
+        
     return Y
     
 PLANNER_SELECTION = {
     "gripper"    : ["delfi-blind.img"],
     "blocksworld": ["fdss-mas1.img", "symba1.img", "scorpion-nodiv.img"],
-    "miconic"    : ["bjolp.img"],
+    "miconic-strips"    : ["bjolp.img"],
     "driverlog"  : ["bjolp.img", "symba1.img"],
     "rovers"     : ["symba1.img"],
     "satellite"  : ["delfi-celmcut.img", "symba1.img"],
@@ -125,10 +125,10 @@ HYPERPARAMETERS_SELECTION = {
                     UniformFloatHyperparameter("n_m", lower=0.01, upper=10, default_value=1.0)],
     "blocksworld"     : [UniformIntegerHyperparameter("n_b", lower=1, upper=100, default_value=1),
                          UniformFloatHyperparameter("n_m", lower=0.01, upper=10, default_value=1.0)],
-    "miconic"    : [UniformIntegerHyperparameter("passengers_b", lower=1, upper=100, default_value=1),
-                    UniformFloatHyperparameter("passengers_m", lower=0.01, upper=10, default_value=1.0),
-                    UniformIntegerHyperparameter("floors_b", lower=2, upper=100, default_value=2),
-                    UniformFloatHyperparameter("floors_m", lower=0.01, upper=10, default_value=1.0)],
+    "miconic-strips"    : [UniformIntegerHyperparameter("passengers_b", lower=1, upper=100, default_value=1),
+                           UniformFloatHyperparameter("passengers_m", lower=0.01, upper=10, default_value=1.0),
+                           UniformIntegerHyperparameter("floors_b", lower=2, upper=100, default_value=2),
+                           UniformFloatHyperparameter("floors_m", lower=0.01, upper=10, default_value=1.0)],
     "driverlog"  : [UniformIntegerHyperparameter("drivers_b", lower=1, upper=100, default_value=1),
                     UniformFloatHyperparameter("drivers_m", lower=0.01, upper=10, default_value=1.0),
                     UniformIntegerHyperparameter("trucks_diff", lower=-2, upper=2, default_value=0),
@@ -146,15 +146,24 @@ HYPERPARAMETERS_SELECTION = {
 GENERATOR_COMMAND = {
     "gripper"  : ARGS.generators_dir + "/gripper/gripper -n {n}",
     "blocksworld"  : ARGS.generators_dir + "/blocksworld/blocksworld 4 {n}",
-    "miconic"  : ARGS.generators_dir + "/miconic-strips/miconic -f {floors} -p {passengers}",
-    "driverlog" : ARGS.generators_dir + "/driverlog/dlgen {seed} {roadjunctions} {drivers} {packages} {trucks}"
+    "miconic-strips"  : ARGS.generators_dir + "/miconic-strips/miconic -f {floors} -p {passengers}",
+    "driverlog" : ARGS.generators_dir + "/driverlog/dlgen {seed} {roadjunctions} {drivers} {packages} {trucks}",
+    "rovers"     : ARGS.generators_dir + "/",
+    "satellite"  : ARGS.generators_dir + "/",
+    "zenotravel" : ARGS.generators_dir + "/",
+    "trucks"     : ARGS.generators_dir + "/",
 }
 
 GET_CONFIGS = {
     "gripper" : (lambda cfg, n : get_linear_configs(cfg, n, ["n"])),
     "blocksworld" : (lambda cfg, n : get_linear_configs(cfg, n, ["n"])),
-    "miconic" : (lambda cfg, n : get_linear_configs(cfg, n, ["passengers, floors"])),
+    "miconic-strips" : (lambda cfg, n : get_linear_configs(cfg, n, ["passengers", "floors"])),
     "driverlog" : get_configs_driverlog,
+    "rovers"     : [],
+    "satellite"  : [],
+    "zenotravel" : [],
+    "trucks"     : [],
+
 }
 
 
@@ -196,7 +205,12 @@ def run_planners(parameters):
             except subprocess.TimeoutExpired:
                 logging.debug("Timeout occured")
             else:
-            # This only has a granularity of 1s, but should be enough.
+                # This only has a granularity of 1s, but should be enough.
+                #print ("\n\n\n\n" + str(p.stdout) + "\n\n\n\n")
+                if re.search(b"No plan file.", p.stdout):
+                    print ("Error, planner failed: ", image_path)
+                    exit(-1)
+
                 match = re.search(b"Singularity runtime: (.+)s", p.stdout)
                 if match:
                     runtime = float(match.group(1))
@@ -245,7 +259,7 @@ def evaluate_cfg(cfg):
     error = (((opt_times - min_times) / opt_times)**2).sum(axis=None)
     return float(error)  # Minimize!
 
-logging.basicConfig(level=logging.INFO)  # logging.DEBUG for debug output
+logging.basicConfig(level=logging.DEBUG)  # logging.DEBUG for debug output
 
 # Build Configuration Space which defines all parameters and their ranges.
 cs = ConfigurationSpace()
