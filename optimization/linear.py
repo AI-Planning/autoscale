@@ -95,8 +95,8 @@ def get_linear_configs (cfg, n, atr_names):
     return Y
 
 
-def default_linear_parameters(atrs):
-    return [UniformIntegerHyperparameter("{}_b".format(atr), lower=1, upper=100, default_value=1) for atr in atrs] +  [UniformFloatHyperparameter("{}_m".format(atr), lower=0.01, upper=10, default_value=1.0) for atr in atrs]
+def default_linear_parameters(atrs, lower_b=1, upper_b=100, lower_m=0.01, upper_m=10.0, default_m=1.0 ):
+    return [UniformIntegerHyperparameter("{}_b".format(atr), lower=lower_b, upper=upper_b, default_value=lower_b) for atr in atrs] +  [UniformFloatHyperparameter("{}_m".format(atr), lower=lower_m, upper=upper_m, default_value=default_m) for atr in atrs]
 
 
 def get_configs_driverlog(cfg, n):
@@ -120,25 +120,27 @@ def get_configs_driverlog(cfg, n):
     return Y
     
 PLANNER_SELECTION = {
-    "blocksworld": ["fdss-mas1.img", "symba1.img", "scorpion-nodiv.img"],
-    "driverlog"  : ["bjolp.img", "symba1.img"],
-    "gripper"    : ["delfi-blind.img"],
-    "miconic-strips"    : ["bjolp.img"],
-    "rover"     : ["symba1.img"],
-    "satellite"  : ["delfi-celmcut.img", "symba1.img"],
-    "trucks"     : ["scorpion-nodiv.img", "symba2.img"],
-    "zenotravel" : ["scorpion-nodiv.img", "delfi-celmcut.img", "symba2.img"],
+    "blocksworld"    : ["fdss-mas1.img", "symba1.img", "scorpion-nodiv.img"],
+    "driverlog"      : ["bjolp.img", "symba1.img"],
+    "gripper"        : ["delfi-blind.img"],
+    "miconic-strips" : ["bjolp.img"],
+    "rover"          : ["symba1.img"],
+    "satellite"      : ["delfi-celmcut.img", "symba1.img"],
+    "trucks"         : ["scorpion-nodiv.img", "symba2.img"],
+    "zenotravel"     : ["scorpion-nodiv.img", "delfi-celmcut.img", "symba2.img"],
 } 
 
 HYPERPARAMETERS_SELECTION = {
-    "gripper"    : default_linear_parameters(["n"]),
-    "blocksworld"     : default_linear_parameters(["n"]),
-    "miconic-strips"    : default_linear_parameters(["passengers", "floors"]),
-    "driverlog"  : default_linear_parameters(["drivers", "packages", "locations"]) + [UniformIntegerHyperparameter("trucks_diff", lower=-2, upper=2, default_value=0),],
-    "rover"     : default_linear_parameters(["rovers", "objectives", "cameras", "goals"]) + [UniformIntegerHyperparameter("waypoints_b", lower=4, upper=100, default_value=4), UniformFloatHyperparameter("waypoints_m", lower=0.01, upper=10, default_value=1.0)],
-    "satellite"  : [],
-    "zenotravel" : [],
-    "trucks"     :  default_linear_parameters(["areas", "packages", "locations"]),
+    "gripper"        : default_linear_parameters(["n"]),
+    "blocksworld"    : default_linear_parameters(["n"]),
+    "miconic-strips" : default_linear_parameters(["passengers", "floors"]),
+    "driverlog"      : default_linear_parameters(["drivers", "packages", "locations"]) + [UniformIntegerHyperparameter("trucks_diff", lower=-2, upper=2, default_value=0),],
+    "rover"          : default_linear_parameters(["rovers", "objectives", "cameras", "goals"]) + default_linear_parameters(["waypoints"], lower_b=4),
+    "satellite"      :
+    default_linear_parameters(["satellites"], upper_b=5, upper_m=1.0, default_m=0.5) +
+    default_linear_parameters(["targets"], lower_b=5, lower_m=1.0, default_m=2.0) + default_linear_parameters(["modes"], upper_b=5, upper_m=1.0, default_m=0.3) + default_linear_parameters(["observations"]),
+    "zenotravel"     : default_linear_parameters(["planes", "people"]) + default_linear_parameters(["cities"], lower_b=3),
+    "trucks"         :  default_linear_parameters(["areas", "packages", "locations"]),
 }
 
 GENERATOR_COMMAND = {
@@ -147,9 +149,9 @@ GENERATOR_COMMAND = {
     "gripper"  : ARGS.generators_dir + "/gripper/gripper -n {n}",
     "miconic-strips"  : ARGS.generators_dir + "/miconic-strips/miconic -f {floors} -p {passengers}",
     "rover"     : ARGS.generators_dir + "/rover/rovgen {seed} {rovers} {waypoints} {objectives} {cameras} {goals}",
-    "satellite"  : ARGS.generators_dir + "/",
+    "satellite"  : ARGS.generators_dir + "/satellite/satgen {seed} {satellites} 3 {modes} {targets} {observations}",
     "trucks"     : ARGS.generators_dir + "/trucks/gen-Trucks -seed {seed} -t 1 -l {locations} -p {packages} -a {areas} -n 1",
-    "zenotravel" : ARGS.generators_dir + "/",
+    "zenotravel" : ARGS.generators_dir + "/zenotravel/ztravel {seed} {cities} {planes} {people}",
 }
 
 GET_CONFIGS = {
@@ -158,9 +160,9 @@ GET_CONFIGS = {
     "gripper" : (lambda cfg, n : get_linear_configs(cfg, n, ["n"])),
     "miconic-strips" : (lambda cfg, n : get_linear_configs(cfg, n, ["passengers", "floors"])),
     "rover"     : (lambda cfg, n : get_linear_configs(cfg, n, ["rovers", "waypoints", "objectives", "cameras", "goals"])),
-    "satellite"  : [],
+    "satellite"  : (lambda cfg, n : get_linear_configs(cfg, n, ["satellites", "modes", "observations", "targets"])),
     "trucks"     : (lambda cfg, n : get_linear_configs(cfg, n, ["locations", "packages", "areas"])),
-    "zenotravel" : [],
+    "zenotravel" : (lambda cfg, n : get_linear_configs(cfg, n, ["cities", "planes", "people"])),
 }
 
 
