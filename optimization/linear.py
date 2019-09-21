@@ -75,7 +75,6 @@ def get_domain_file(domain_name):
     return "../pddl-generators/{}/domain.pddl".format(domain_name)
 
 
-
 def get_random_seed():
     GLOBAL_SEED = 0
     while True:
@@ -94,6 +93,10 @@ def get_linear_configs (cfg, n, atr_names):
             y[atr] = m*x+b
         Y.append(y)
     return Y
+
+
+def default_linear_parameters(atrs):
+    return [UniformIntegerHyperparameter("{}_b".format(atr), lower=1, upper=100, default_value=1) for atr in atrs] +  [UniformFloatHyperparameter("{}_m".format(atr), lower=0.01, upper=10, default_value=1.0) for atr in atrs]
 
 
 def get_configs_driverlog(cfg, n):
@@ -121,40 +124,21 @@ PLANNER_SELECTION = {
     "driverlog"  : ["bjolp.img", "symba1.img"],
     "gripper"    : ["delfi-blind.img"],
     "miconic-strips"    : ["bjolp.img"],
-    "rovers"     : ["symba1.img"],
+    "rover"     : ["symba1.img"],
     "satellite"  : ["delfi-celmcut.img", "symba1.img"],
     "trucks"     : ["scorpion-nodiv.img", "symba2.img"],
     "zenotravel" : ["scorpion-nodiv.img", "delfi-celmcut.img", "symba2.img"],
 } 
 
-
 HYPERPARAMETERS_SELECTION = {
-    "gripper"    : [UniformIntegerHyperparameter("n_b", lower=1, upper=100, default_value=1),
-                    UniformFloatHyperparameter("n_m", lower=0.01, upper=10, default_value=1.0)],
-    "blocksworld"     : [UniformIntegerHyperparameter("n_b", lower=1, upper=100, default_value=1),
-                         UniformFloatHyperparameter("n_m", lower=0.01, upper=10, default_value=1.0)],
-    "miconic-strips"    : [UniformIntegerHyperparameter("passengers_b", lower=1, upper=100, default_value=1),
-                           UniformFloatHyperparameter("passengers_m", lower=0.01, upper=10, default_value=1.0),
-                           UniformIntegerHyperparameter("floors_b", lower=2, upper=100, default_value=2),
-                           UniformFloatHyperparameter("floors_m", lower=0.01, upper=10, default_value=1.0)],
-    "driverlog"  : [UniformIntegerHyperparameter("drivers_b", lower=1, upper=100, default_value=1),
-                    UniformFloatHyperparameter("drivers_m", lower=0.01, upper=10, default_value=1.0),
-                    UniformIntegerHyperparameter("trucks_diff", lower=-2, upper=2, default_value=0),
-                    UniformIntegerHyperparameter("packages_b", lower=0, upper=100, default_value=1),
-                    UniformFloatHyperparameter("packages_m", lower=0, upper=10, default_value=1),
-                    UniformIntegerHyperparameter("locations_b", lower=0, upper=100, default_value=1),
-                    UniformFloatHyperparameter("locations_m", lower=0, upper=10, default_value=1),
-    ],
-    "rovers"     : [],
+    "gripper"    : default_linear_parameters(["n"]),
+    "blocksworld"     : default_linear_parameters(["n"]),
+    "miconic-strips"    : default_linear_parameters(["passengers", "floors"]),
+    "driverlog"  : default_linear_parameters(["drivers", "packages", "locations"]) + [UniformIntegerHyperparameter("trucks_diff", lower=-2, upper=2, default_value=0),],
+    "rover"     : default_linear_parameters(["rovers", "objectives", "cameras", "goals"]) + [UniformIntegerHyperparameter("waypoints_b", lower=4, upper=100, default_value=4), UniformFloatHyperparameter("waypoints_m", lower=0.01, upper=10, default_value=1.0)],
     "satellite"  : [],
     "zenotravel" : [],
-    "trucks"     : [UniformIntegerHyperparameter("locations_b", lower=1, upper=100, default_value=1),
-                    UniformFloatHyperparameter("locations_m", lower=0.01, upper=10, default_value=1.0),
-                    UniformIntegerHyperparameter("packages_b", lower=1, upper=100, default_value=1),
-                    UniformFloatHyperparameter("packages_m", lower=0.01, upper=10, default_value=1.0),
-                    UniformIntegerHyperparameter("areas_b", lower=1, upper=100, default_value=1),
-                    UniformFloatHyperparameter("areas_m", lower=0.01, upper=10, default_value=1.0),
-    ],
+    "trucks"     :  default_linear_parameters(["areas", "packages", "locations"]),
 }
 
 GENERATOR_COMMAND = {
@@ -162,7 +146,7 @@ GENERATOR_COMMAND = {
     "driverlog" : ARGS.generators_dir + "/driverlog/dlgen {seed} {roadjunctions} {drivers} {packages} {trucks}",
     "gripper"  : ARGS.generators_dir + "/gripper/gripper -n {n}",
     "miconic-strips"  : ARGS.generators_dir + "/miconic-strips/miconic -f {floors} -p {passengers}",
-    "rovers"     : ARGS.generators_dir + "/",
+    "rover"     : ARGS.generators_dir + "/rover/rovgen {seed} {rovers} {waypoints} {objectives} {cameras} {goals}",
     "satellite"  : ARGS.generators_dir + "/",
     "trucks"     : ARGS.generators_dir + "/trucks/gen-Trucks -seed {seed} -t 1 -l {locations} -p {packages} -a {areas} -n 1",
     "zenotravel" : ARGS.generators_dir + "/",
@@ -173,7 +157,7 @@ GET_CONFIGS = {
     "driverlog" : get_configs_driverlog,
     "gripper" : (lambda cfg, n : get_linear_configs(cfg, n, ["n"])),
     "miconic-strips" : (lambda cfg, n : get_linear_configs(cfg, n, ["passengers", "floors"])),
-    "rovers"     : [],
+    "rover"     : (lambda cfg, n : get_linear_configs(cfg, n, ["rovers", "waypoints", "objectives", "cameras", "goals"])),
     "satellite"  : [],
     "trucks"     : (lambda cfg, n : get_linear_configs(cfg, n, ["locations", "packages", "areas"])),
     "zenotravel" : [],
