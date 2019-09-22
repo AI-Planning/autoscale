@@ -16,7 +16,7 @@ import shlex
 import shutil
 import subprocess
 import sys
-
+import statistics 
 import numpy as np
 
 from ConfigSpace.hyperparameters import UniformFloatHyperparameter
@@ -36,6 +36,9 @@ def parse_args():
     parser.add_argument(
         "--evaluations", type=int, default=sys.maxsize,
         help="Maximum number of configurations to evaluate (default: %(default)s)")
+    parser.add_argument(
+        "--runs-per-configuration", type=int, default=1,
+        help="Number of runs for each parameter configuration, we take the average runtime among those (default: %(default)s)")
     parser.add_argument(
         "--optimization-time-limit", type=float, default=20 * 60 * 60,
         help="Maximum total time running planners (default: %(default)ss)")
@@ -75,6 +78,7 @@ def get_domain_file(domain_name):
     return "../pddl-generators/{}/domain.pddl".format(domain_name)
 
 
+#TODO: The idea is to use different random seeds for every run. But it looks like this is being reseted 
 def get_random_seed():
     GLOBAL_SEED = 0
     while True:
@@ -86,11 +90,11 @@ GLOBAL_RANDOM_SEED = get_random_seed()
 def get_linear_configs (cfg, n, atr_names):
     Y = []
     for x in range(0, n):
-        y = {"seed" : next(GLOBAL_RANDOM_SEED)}
+        y = {}
         for atr in atr_names:
             m = cfg.get("{}_m".format(atr))
             b = cfg.get("{}_b".format(atr))
-            y[atr] = m*x+b
+            y[atr] = int(m*x+b)
         Y.append(y)
     return Y
 
@@ -115,7 +119,7 @@ def get_configs_driverlog(cfg, n):
         packages = drivers + packages_b + x*packages_m
         locations = drivers + locations_b + x*locations_m
 
-        Y.append({"drivers" : drivers, "trucks" : trucks, "packages" : packages, "roadjunctions" : locations, "seed" : next(GLOBAL_RANDOM_SEED)})
+        Y.append({"drivers" : drivers, "trucks" : trucks, "packages" : packages, "roadjunctions" : locations})
         
     return Y
     
@@ -133,14 +137,14 @@ PLANNER_SELECTION = {
 HYPERPARAMETERS_SELECTION = {
     "gripper"        : default_linear_parameters(["n"]),
     "blocksworld"    : default_linear_parameters(["n"]),
-    "miconic-strips" : default_linear_parameters(["passengers", "floors"]),
-    "driverlog"      : default_linear_parameters(["drivers", "packages", "locations"]) + [UniformIntegerHyperparameter("trucks_diff", lower=-2, upper=2, default_value=0),],
+    "miconic-strips" : default_linear_parameters(["passengers"]) + default_linear_parameters(["floors"], lower_b=2),
+    "driverlog"      : default_linear_parameters(["drivers", "packages"]) + default_linear_parameters(["locations"], lower_b=2) + [UniformIntegerHyperparameter("trucks_diff", lower=-2, upper=2, default_value=0),],
     "rover"          : default_linear_parameters(["rovers", "objectives", "cameras", "goals"]) + default_linear_parameters(["waypoints"], lower_b=4),
     "satellite"      :
     default_linear_parameters(["satellites"], upper_b=5, upper_m=1.0, default_m=0.5) +
     default_linear_parameters(["targets"], lower_b=5, lower_m=1.0, default_m=2.0) + default_linear_parameters(["modes"], upper_b=5, upper_m=1.0, default_m=0.3) + default_linear_parameters(["observations"]),
     "zenotravel"     : default_linear_parameters(["planes", "people"]) + default_linear_parameters(["cities"], lower_b=3),
-    "trucks"         :  default_linear_parameters(["areas", "packages", "locations"]),
+    "trucks"         :  default_linear_parameters(["areas", "packages"])  + default_linear_parameters(["locations"], lower_b=2),
 }
 
 GENERATOR_COMMAND = {
@@ -166,63 +170,81 @@ GET_CONFIGS = {
 }
 
 
+CACHE_RUNS = {}
+
 def run_planners(parameters):
-    # Exceptions are silently swallowed, so we catch them ourselves.
-    try:
-        # Write problem file.
-        plan_dir = os.path.join(SMAC_OUTPUT_DIR, TMP_PLAN_DIR)
-        shutil.rmtree(plan_dir, ignore_errors=True)
-        os.mkdir(plan_dir)
-        problem_file = os.path.join(plan_dir, "problem.pddl")
-        command = shlex.split(GENERATOR_COMMAND[ARGS.domain].format(**parameters))
-        logging.debug(f"Generator command: {command}")
-        with open(problem_file, "w") as f:
-            subprocess.run(command, stdout=f)
+    cache_key = tuple ([parameters[atr] for atr in parameters])
+    if cache_key in CACHE_RUNS:
+        return CACHE_RUNS[cache_key]
 
-        # Call planners.
-        runtimes = []
-        for image in PLANNER_SELECTION[ARGS.domain]:
-            image_path = os.path.join(ARGS.images_dir, image)
-            if not os.path.exists(image_path):
-                print ("Error, image does not exist: ", image_path)
-                exit(-1)
+    results = []
+    for i in range(ARGS.runs_per_configuration):
+        #Ensure that each run uses a different random seed
+        parameters["seed"] = next(GLOBAL_RANDOM_SEED)
+    
+        # Exceptions are silently swallowed, so we catch them ourselves.
+        try:
+            # Write problem file.
+            plan_dir = os.path.join(SMAC_OUTPUT_DIR, TMP_PLAN_DIR)
+            shutil.rmtree(plan_dir, ignore_errors=True)
+            os.mkdir(plan_dir)
+            problem_file = os.path.join(plan_dir, "problem.pddl")
+            command = shlex.split(GENERATOR_COMMAND[ARGS.domain].format(**parameters))
+            logging.debug(f"Generator command: {command}")
+            with open(problem_file, "w") as f:
+                subprocess.run(command, stdout=f)
 
-            logging.debug(f"Run image {image}")
-            planner_dir = os.path.join(plan_dir, image)
-            os.mkdir(planner_dir)
-
-            # Copy domain and problem into temporary dir.
-            domain_file = os.path.join(planner_dir, "domain.pddl")
-            shutil.copy2(get_domain_file(ARGS.domain), domain_file)
-            shutil.copy2(problem_file, os.path.join(planner_dir, "problem.pddl"))
-            try:
-                p = subprocess.run(
-                    [SINGULARITY_SCRIPT, image_path, "domain.pddl", "problem.pddl", "sas_plan"],
-                    cwd=planner_dir,
-                    stdout=subprocess.PIPE,
-                    timeout=PLANNER_TIME_LIMIT)
-            except subprocess.TimeoutExpired:
-                logging.debug("Timeout occured")
-            else:
-                # This only has a granularity of 1s, but should be enough.
-                #print ("\n\n\n\n" + str(p.stdout) + "\n\n\n\n")
-                if re.search(b"No plan file.", p.stdout):
-                    print ("Error, planner failed: ", image_path)
+            # Call planners.
+            runtimes = []
+            for image in PLANNER_SELECTION[ARGS.domain]:
+                image_path = os.path.join(ARGS.images_dir, image)
+                if not os.path.exists(image_path):
+                    print ("Error, image does not exist: ", image_path)
                     exit(-1)
 
-                match = re.search(b"Singularity runtime: (.+)s", p.stdout)
-                if match:
-                    runtime = float(match.group(1))
-                    runtime = max(MIN_PLANNER_RUNTIME, runtime)  # log(0) is undefined.
-                    runtimes.append(runtime)
-        print(f"Runtimes for y={parameters}: {runtimes}")
-        if runtimes:
-            return min(runtimes)
-        else:
-            return None
-    except Exception as err:
-        print(err)
-        raise
+                logging.debug(f"Run image {image}")
+                planner_dir = os.path.join(plan_dir, image)
+                os.mkdir(planner_dir)
+
+                # Copy domain and problem into temporary dir.
+                domain_file = os.path.join(planner_dir, "domain.pddl")
+                shutil.copy2(get_domain_file(ARGS.domain), domain_file)
+                shutil.copy2(problem_file, os.path.join(planner_dir, "problem.pddl"))
+                try:
+                    p = subprocess.run(
+                        [SINGULARITY_SCRIPT, image_path, "domain.pddl", "problem.pddl", "sas_plan"],
+                        cwd=planner_dir,
+                        stdout=subprocess.PIPE,
+                        timeout=PLANNER_TIME_LIMIT)
+                except subprocess.TimeoutExpired:
+                    logging.debug("Timeout occured")
+                else:
+                    # This only has a granularity of 1s, but should be enough.
+                    #print ("\n\n\n\n" + str(p.stdout) + "\n\n\n\n")
+                    if re.search(b"No plan file.", p.stdout):
+                        print ("Error, planner failed: ", image_path)
+                        exit(-1)
+
+                    match = re.search(b"Singularity runtime: (.+)s", p.stdout)
+                    if match:
+                        runtime = float(match.group(1))
+                        runtime = max(MIN_PLANNER_RUNTIME, runtime)  # log(0) is undefined.
+                        runtimes.append(runtime)
+                print(f"Runtimes for y={parameters}: {runtimes}")
+                results.append(min(runtimes) if runtimes else PLANNER_TIME_LIMIT*10)
+
+        except Exception as err:
+            print(err)
+            raise
+
+
+    result = statistics.mean(results)
+        
+    print(f"Average runtime for y={parameters}: {result}")
+    CACHE_RUNS[cache_key] = result
+    
+    return result
+        
 
 
 def evaluate_cfg(cfg):
