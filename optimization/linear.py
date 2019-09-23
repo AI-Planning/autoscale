@@ -14,9 +14,10 @@ import os.path
 import re
 import shlex
 import shutil
+import statistics
 import subprocess
 import sys
-import statistics 
+
 import numpy as np
 
 from ConfigSpace.hyperparameters import UniformFloatHyperparameter
@@ -47,10 +48,8 @@ def parse_args():
     parser.add_argument(
         "images_dir", help="path to directory containing the Singularity images to run")
     parser.add_argument("domain", help="Domain name")
-
     parser.add_argument(
         "smac_output_dir", help="Directory where to store logs and temporary files")
-    
 
     return parser.parse_args()
 
@@ -78,16 +77,16 @@ def get_domain_file(domain_name):
     return "../pddl-generators/{}/domain.pddl".format(domain_name)
 
 
-#TODO: The idea is to use different random seeds for every run. But it looks like this is being reseted 
+#TODO: The idea is to use different random seeds for every run. But it looks like this is being reset.
 def get_random_seed():
     GLOBAL_SEED = 0
     while True:
         GLOBAL_SEED += 1
         yield GLOBAL_SEED
-        
+
 GLOBAL_RANDOM_SEED = get_random_seed()
 
-def get_linear_configs (cfg, n, atr_names):
+def get_linear_configs(cfg, n, atr_names):
     Y = []
     for x in range(0, n):
         y = {}
@@ -99,8 +98,10 @@ def get_linear_configs (cfg, n, atr_names):
     return Y
 
 
-def default_linear_parameters(atrs, lower_b=1, upper_b=100, lower_m=0.01, upper_m=10.0, default_m=1.0 ):
-    return [UniformIntegerHyperparameter("{}_b".format(atr), lower=lower_b, upper=upper_b, default_value=lower_b) for atr in atrs] +  [UniformFloatHyperparameter("{}_m".format(atr), lower=lower_m, upper=upper_m, default_value=default_m) for atr in atrs]
+def default_linear_parameters(atrs, lower_b=1, upper_b=100, lower_m=0.01, upper_m=10.0, default_m=1.0):
+    return (
+        [UniformIntegerHyperparameter("{}_b".format(atr), lower=lower_b, upper=upper_b, default_value=lower_b) for atr in atrs] +
+        [UniformFloatHyperparameter("{}_m".format(atr), lower=lower_m, upper=upper_m, default_value=default_m) for atr in atrs])
 
 
 def get_configs_driverlog(cfg, n):
@@ -112,7 +113,7 @@ def get_configs_driverlog(cfg, n):
     locations_b = cfg.get("locations_b")
     locations_m = cfg.get("locations_m")
 
-    Y = []    
+    Y = []
     for x in range (0, n):
         drivers = drivers_b + x*drivers_m
         trucks = drivers + trucks_diff
@@ -120,9 +121,9 @@ def get_configs_driverlog(cfg, n):
         locations = drivers + locations_b + x*locations_m
 
         Y.append({"drivers" : drivers, "trucks" : trucks, "packages" : packages, "roadjunctions" : locations})
-        
+
     return Y
-    
+
 PLANNER_SELECTION = {
     "blocksworld"    : ["fdss-mas1.img", "symba1.img", "scorpion-nodiv.img"],
     "driverlog"      : ["bjolp.img", "symba1.img"],
@@ -132,7 +133,7 @@ PLANNER_SELECTION = {
     "satellite"      : ["delfi-celmcut.img", "symba1.img"],
     "trucks"         : ["scorpion-nodiv.img", "symba2.img"],
     "zenotravel"     : ["scorpion-nodiv.img", "delfi-celmcut.img", "symba2.img"],
-} 
+}
 
 HYPERPARAMETERS_SELECTION = {
     "gripper"        : default_linear_parameters(["n"]),
@@ -181,7 +182,7 @@ def run_planners(parameters):
     for i in range(ARGS.runs_per_configuration):
         #Ensure that each run uses a different random seed
         parameters["seed"] = next(GLOBAL_RANDOM_SEED)
-    
+
         # Exceptions are silently swallowed, so we catch them ourselves.
         try:
             # Write problem file.
@@ -237,14 +238,12 @@ def run_planners(parameters):
             print(err)
             raise
 
-
     result = statistics.mean(results)
-        
+
     print(f"Average runtime for y={parameters}: {result}")
     CACHE_RUNS[cache_key] = result
-    
+
     return result
-        
 
 
 def evaluate_cfg(cfg):
@@ -253,10 +252,10 @@ def evaluate_cfg(cfg):
     print("Evaluate", cfg)
 
     Y = GET_CONFIGS[ARGS.domain](cfg, n)
-         
+
     print("Y:", Y)
 
-    # TODO: check that all values y are valid generator inputs before running planners.    
+    # TODO: check that all values y are valid generator inputs before running planners.
     # if not all(y >= 1 for y in Y):
     #     print("y must be +>= 1, skipping configuration")
     #     return None
