@@ -86,7 +86,7 @@ if os.path.exists(SMAC_OUTPUT_DIR):
 
 
 def get_domain_file(domain_name):
-    return "../pddl-generators/{}/domain.pddl".format(domain_name)
+    return os.path.join(GENERATORS_DIR, domain_name, "domain.pddl")
 
 
 #TODO: The idea is to use different random seeds for every run. But it looks like this is being reset.
@@ -261,7 +261,7 @@ def run_planners(parameters):
                         logging.debug(f"{image} failed to find a plan in {PLANNER_TIME_LIMIT} seconds.")
 
             logging.info(f"Runtimes for y={parameters}: {runtimes}")
-            results.append(min(runtimes) if runtimes else PLANNER_TIME_LIMIT*10)
+            results.append(min(runtimes) if runtimes else PLANNER_TIME_LIMIT * 10)
 
         except Exception as err:
             print(err)
@@ -283,11 +283,6 @@ def evaluate_cfg(cfg):
     Y = GET_CONFIGS[ARGS.domain](cfg, n)
 
     print("Y:", Y)
-
-    # TODO: check that all values y are valid generator inputs before running planners.
-    # if not all(y >= 1 for y in Y):
-    #     print("y must be +>= 1, skipping configuration")
-    #     return None
 
     # TODO: pass individual timeout for each y.
     min_times = []
