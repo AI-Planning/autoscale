@@ -208,11 +208,11 @@ def run_planners(parameters):
             # Call planners.
             runtimes = []
             for image in PLANNER_SELECTION[ARGS.domain]:
-                image_path = os.path.join(ARGS.images_dir, image)
+                image_path = os.path.abspath(os.path.join(ARGS.images_dir, image))
                 if not os.path.exists(image_path):
                     sys.exit(f"Error, image does not exist: {image_path}")
 
-                logging.debug(f"Run image {image}")
+                logging.debug(f"Run image {image} at {image_path}")
                 planner_dir = os.path.join(plan_dir, image)
                 os.mkdir(planner_dir)
 
