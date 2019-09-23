@@ -46,13 +46,14 @@ def parse_args():
         "--optimization-time-limit", type=float, default=20 * 60 * 60,
         help="Maximum total time running planners (default: %(default)ss)")
     parser.add_argument(
+        "--debug", action="store_true", help="Print debug info")
+    parser.add_argument(
         "generators_dir", help="path to directory containing the generators")
     parser.add_argument(
         "images_dir", help="path to directory containing the Singularity images to run")
     parser.add_argument("domain", help="Domain name")
     parser.add_argument(
         "smac_output_dir", help="Directory where to store logs and temporary files")
-
     return parser.parse_args()
 
 
@@ -67,12 +68,19 @@ TMP_PLAN_DIR = "plan"
 SINGULARITY_SCRIPT = os.path.join(DIR, "run-singularity.sh")
 print("Singularity script:", SINGULARITY_SCRIPT)
 
+# Python adds a default handler if some log is generated before here.
+# Remove all handlers that have been added automatically then set logging level.
+root_logger = logging.getLogger('')
+for handler in root_logger.handlers:
+    root_logger.removeHandler(handler)
+logging.basicConfig(level=logging.DEBUG if ARGS.debug else logging.INFO)
+
 if ARGS.tasks > 7:
     sys.exit("Error: number of tasks must be <= 7")
 
-# There is no need to  check this, SMAC does a copy of the old directory
-# if os.path.exists(SMAC_OUTPUT_DIR):
-#     sys.exit("Error: SMAC output directory already exists")
+# SMAC moves old directories out of the way, but we want a completely pristine directory to safeguard against errors.
+if os.path.exists(SMAC_OUTPUT_DIR):
+    sys.exit("Error: SMAC output directory already exists")
 
 
 def get_domain_file(domain_name):
@@ -202,8 +210,7 @@ def run_planners(parameters):
             for image in PLANNER_SELECTION[ARGS.domain]:
                 image_path = os.path.join(ARGS.images_dir, image)
                 if not os.path.exists(image_path):
-                    print ("Error, image does not exist: ", image_path)
-                    exit(-1)
+                    sys.exit(f"Error, image does not exist: {image_path}")
 
                 logging.debug(f"Run image {image}")
                 planner_dir = os.path.join(plan_dir, image)
@@ -222,12 +229,11 @@ def run_planners(parameters):
                 except subprocess.TimeoutExpired:
                     logging.debug("Timeout occured")
                 else:
-                    # This only has a granularity of 1s, but should be enough.
-                    #print ("\n\n\n\n" + str(p.stdout) + "\n\n\n\n")
+                    logging.debug(f"\n\n\n\n{p.stdout}\n\n\n\n")
                     if re.search(b"No plan file.", p.stdout):
-                        print ("Error, planner failed: ", image_path)
-                        exit(-1)
+                        sys.exit(f"Error, planner failed: {image_path}")
 
+                    # This only has a granularity of 1s, but should be enough.
                     match = re.search(b"Singularity runtime: (.+)s", p.stdout)
                     if match:
                         runtime = float(match.group(1))
@@ -280,8 +286,6 @@ def evaluate_cfg(cfg):
 
     error = (((opt_times - min_times) / opt_times)**2).sum(axis=None)
     return float(error)  # Minimize!
-
-logging.basicConfig(level=logging.DEBUG)  # logging.DEBUG for debug output
 
 # Build Configuration Space which defines all parameters and their ranges.
 cs = ConfigurationSpace()
