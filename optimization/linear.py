@@ -231,16 +231,19 @@ def run_planners(parameters):
                     set_limit(resource.RLIMIT_AS, PLANNER_MEMORY_LIMIT)
                     set_limit(resource.RLIMIT_CORE, 0)
 
+                p = subprocess.Popen(
+                    [SINGULARITY_SCRIPT, image_path, "domain.pddl", "problem.pddl", "sas_plan"],
+                    cwd=planner_dir,
+                    stdout=subprocess.PIPE,
+                    preexec_fn=prepare_call)
                 try:
-                    p = subprocess.Popen(
-                        [SINGULARITY_SCRIPT, image_path, "domain.pddl", "problem.pddl", "sas_plan"],
-                        cwd=planner_dir,
-                        stdout=subprocess.PIPE,
-                        preexec_fn=prepare_call)
+                    output, _ = p.communicate()
                 except subprocess.TimeoutExpired:
                     logging.debug("Timeout occured")
+                except subprocess.SubprocessError as err:
+                    logging.debug("An error occured while running the Singularity script")
+                    raise
                 else:
-                    output = p.stdout.read()
                     logging.debug(f"\n\n\n\n{output}\n\n\n\n")
                     if re.search(b"No plan file.", output):
                         sys.exit(f"Error, planner failed: {image_path}")
@@ -311,7 +314,7 @@ scenario = Scenario({
     "wallclock_limit": ARGS.optimization_time_limit,
     "cs": cs,
     "deterministic": "true",
-    # memory limit for evaluate_cfg
+    # memory limit for evaluate_cfg (we set the limit ourselves)
     "memory_limit": None,
     # time limit for evaluate_cfg (we cut off planner runs ourselves)
     "cutoff": None,
