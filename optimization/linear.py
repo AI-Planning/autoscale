@@ -207,6 +207,9 @@ def run_planners(parameters):
             with open(problem_file, "w") as f:
                 subprocess.run(command, stdout=f)
 
+            # Check domain file. Problem file seems to be ignored.
+            subprocess.run(["validate", get_domain_file(ARGS.domain), problem_file], check=True)
+
             # Call planners.
             runtimes = []
             for image in PLANNER_SELECTION[ARGS.domain]:
