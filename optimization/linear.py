@@ -186,13 +186,13 @@ GET_CONFIGS = {
 CACHE_RUNS = {}
 
 def run_planners(parameters):
-    cache_key = tuple ([parameters[atr] for atr in parameters])
+    cache_key = tuple ([parameters[attr] for attr in parameters])
     if cache_key in CACHE_RUNS:
         return CACHE_RUNS[cache_key]
 
     results = []
     for i in range(ARGS.runs_per_configuration):
-        #Ensure that each run uses a different random seed
+        # Ensure that each run uses a different random seed.
         parameters["seed"] = next(GLOBAL_RANDOM_SEED)
 
         # Exceptions are silently swallowed, so we catch them ourselves.
@@ -231,6 +231,9 @@ def run_planners(parameters):
                     set_limit(resource.RLIMIT_AS, PLANNER_MEMORY_LIMIT)
                     set_limit(resource.RLIMIT_CORE, 0)
 
+                # Outcomes:
+                #  plan found -> append runtime
+                #  out of memory, out of time, unsolvable, planner bug -> skip
                 p = subprocess.Popen(
                     [SINGULARITY_SCRIPT, image_path, "domain.pddl", "problem.pddl", "sas_plan"],
                     cwd=planner_dir,
@@ -238,24 +241,24 @@ def run_planners(parameters):
                     preexec_fn=prepare_call)
                 try:
                     output, _ = p.communicate()
-                except subprocess.TimeoutExpired:
-                    logging.debug("Timeout occured")
                 except subprocess.SubprocessError as err:
-                    logging.debug("An error occured while running the Singularity script")
+                    print(f"Calling the Singularity script (but not the planner) failed: {err}", file=sys.stderr)
                     raise
                 else:
+                    output = output.decode("utf-8")
                     logging.debug(f"\n\n\n\n{output}\n\n\n\n")
-                    if re.search(b"No plan file.", output):
-                        sys.exit(f"Error, planner failed: {image_path}")
-
-                    # This only has a granularity of 1s, but should be enough.
-                    match = re.search(b"Singularity runtime: (.+)s", output)
-                    if match:
+                    if "Found plan file." in output:
+                        # This only has a granularity of 1s, but should be precise enough.
+                        match = re.search("Singularity runtime: (.+)s", output)
                         runtime = float(match.group(1))
                         runtime = max(MIN_PLANNER_RUNTIME, runtime)  # log(0) is undefined.
                         runtimes.append(runtime)
-                print(f"Runtimes for y={parameters}: {runtimes}")
-                results.append(min(runtimes) if runtimes else PLANNER_TIME_LIMIT*10)
+                        logging.debug(f"{image} found plan in {runtime} seconds.")
+                    else:
+                        logging.debug(f"{image} failed to find a plan in {PLANNER_TIME_LIMIT} seconds.")
+
+            logging.info(f"Runtimes for y={parameters}: {runtimes}")
+            results.append(min(runtimes) if runtimes else PLANNER_TIME_LIMIT*10)
 
         except Exception as err:
             print(err)
@@ -263,7 +266,7 @@ def run_planners(parameters):
 
     result = statistics.mean(results)
 
-    print(f"Average runtime for y={parameters}: {result}")
+    logging.info(f"Average runtime for y={parameters}: {result}")
     CACHE_RUNS[cache_key] = result
 
     return result
