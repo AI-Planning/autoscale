@@ -6,6 +6,18 @@ Usage:
 Install SMAC3 in virtualenv (https://automl.github.io/SMAC3/master/installation.html)
 source path-to-smac-venv/bin/activate
 python3 linear.py
+
+Installation on Basel grid:
+
+# Python 3.6.6, GCC 7.3, CMake 3.11.4
+module purge
+module -q load matplotlib/3.0.2-foss-2018b-Python-3.6.6
+module -q load CMake/3.11.4-GCCcore-7.3.0
+module -q load Anaconda3/5.0.1
+conda create -y -n smac-conda
+source activate smac-conda
+conda install gxx_linux-64 gcc_linux-64 swig
+pip install smac
 """
 
 import argparse
