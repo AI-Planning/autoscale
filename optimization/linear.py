@@ -49,7 +49,7 @@ def parse_args():
     parser.add_argument(
         "--debug", action="store_true", help="Print debug info")
     parser.add_argument(
-        "generators_dir", help="path to directory containing the generators")
+        "--generators-dir", help="path to directory containing the generators")
     parser.add_argument(
         "images_dir", help="path to directory containing the Singularity images to run")
     parser.add_argument("domain", help="Domain name")
@@ -59,11 +59,13 @@ def parse_args():
 
 
 DIR = os.path.abspath(os.path.dirname(__file__))
+REPO = os.path.dirname(DIR)
 PLANNER_TIME_LIMIT = 180
 PLANNER_MEMORY_LIMIT = 3 * 1024**3  # 3 GiB in Bytes
 MIN_PLANNER_RUNTIME = 0.1
 ARGS = parse_args()
 SMAC_OUTPUT_DIR = ARGS.smac_output_dir
+GENERATORS_DIR = ARGS.generators_dir or os.path.join(REPO, "pddl-generators")
 TMP_PLAN_DIR = "plan"
 SINGULARITY_SCRIPT = os.path.join(DIR, "run-singularity.sh")
 print("Singularity script:", SINGULARITY_SCRIPT)
@@ -159,14 +161,14 @@ HYPERPARAMETERS_SELECTION = {
 }
 
 GENERATOR_COMMAND = {
-    "blocksworld"  : ARGS.generators_dir + "/blocksworld/blocksworld 4 {n}",
-    "driverlog" : ARGS.generators_dir + "/driverlog/dlgen {seed} {roadjunctions} {drivers} {packages} {trucks}",
-    "gripper"  : ARGS.generators_dir + "/gripper/gripper -n {n}",
-    "miconic-strips"  : ARGS.generators_dir + "/miconic-strips/miconic -f {floors} -p {passengers}",
-    "rover"     : ARGS.generators_dir + "/rover/rovgen {seed} {rovers} {waypoints} {objectives} {cameras} {goals}",
-    "satellite"  : ARGS.generators_dir + "/satellite/satgen {seed} {satellites} 3 {modes} {targets} {observations}",
-    "trucks"     : ARGS.generators_dir + "/trucks/gen-Trucks -seed {seed} -t 1 -l {locations} -p {packages} -a {areas} -n 1",
-    "zenotravel" : ARGS.generators_dir + "/zenotravel/ztravel {seed} {cities} {planes} {people}",
+    "blocksworld"  : GENERATORS_DIR + "/blocksworld/blocksworld 4 {n}",
+    "driverlog" : GENERATORS_DIR + "/driverlog/dlgen {seed} {roadjunctions} {drivers} {packages} {trucks}",
+    "gripper"  : GENERATORS_DIR + "/gripper/gripper -n {n}",
+    "miconic-strips"  : GENERATORS_DIR + "/miconic-strips/miconic -f {floors} -p {passengers}",
+    "rover"     : GENERATORS_DIR + "/rover/rovgen {seed} {rovers} {waypoints} {objectives} {cameras} {goals}",
+    "satellite"  : GENERATORS_DIR + "/satellite/satgen {seed} {satellites} 3 {modes} {targets} {observations}",
+    "trucks"     : GENERATORS_DIR + "/trucks/gen-Trucks -seed {seed} -t 1 -l {locations} -p {packages} -a {areas} -n 1",
+    "zenotravel" : GENERATORS_DIR + "/zenotravel/ztravel {seed} {cities} {planes} {people}",
 }
 
 GET_CONFIGS = {
