@@ -14,6 +14,7 @@ import logging
 import os
 import os.path
 import re
+import resource
 import shlex
 import shutil
 import statistics
@@ -59,8 +60,7 @@ def parse_args():
 
 DIR = os.path.abspath(os.path.dirname(__file__))
 PLANNER_TIME_LIMIT = 180
-# TODO: The memory limit seems to have no effect. Find out why and fix it or limit memory ourselves.
-PLANNER_MEMORY_LIMIT = 3584  # 3.5 GiB
+PLANNER_MEMORY_LIMIT = 3 * 1024**3  # 3 GiB in Bytes
 MIN_PLANNER_RUNTIME = 0.1
 ARGS = parse_args()
 SMAC_OUTPUT_DIR = ARGS.smac_output_dir
@@ -220,21 +220,31 @@ def run_planners(parameters):
                 domain_file = os.path.join(planner_dir, "domain.pddl")
                 shutil.copy2(get_domain_file(ARGS.domain), domain_file)
                 shutil.copy2(problem_file, os.path.join(planner_dir, "problem.pddl"))
+
+                def set_limit(limit_type, limit):
+                    resource.setrlimit(limit_type, (limit, limit))
+
+                def prepare_call():
+                    set_limit(resource.RLIMIT_CPU, PLANNER_TIME_LIMIT)
+                    set_limit(resource.RLIMIT_AS, PLANNER_MEMORY_LIMIT)
+                    set_limit(resource.RLIMIT_CORE, 0)
+
                 try:
-                    p = subprocess.run(
+                    p = subprocess.Popen(
                         [SINGULARITY_SCRIPT, image_path, "domain.pddl", "problem.pddl", "sas_plan"],
                         cwd=planner_dir,
                         stdout=subprocess.PIPE,
-                        timeout=PLANNER_TIME_LIMIT)
+                        preexec_fn=prepare_call)
                 except subprocess.TimeoutExpired:
                     logging.debug("Timeout occured")
                 else:
-                    logging.debug(f"\n\n\n\n{p.stdout}\n\n\n\n")
-                    if re.search(b"No plan file.", p.stdout):
+                    output = p.stdout.read()
+                    logging.debug(f"\n\n\n\n{output}\n\n\n\n")
+                    if re.search(b"No plan file.", output):
                         sys.exit(f"Error, planner failed: {image_path}")
 
                     # This only has a granularity of 1s, but should be enough.
-                    match = re.search(b"Singularity runtime: (.+)s", p.stdout)
+                    match = re.search(b"Singularity runtime: (.+)s", output)
                     if match:
                         runtime = float(match.group(1))
                         runtime = max(MIN_PLANNER_RUNTIME, runtime)  # log(0) is undefined.
@@ -300,7 +310,7 @@ scenario = Scenario({
     "cs": cs,
     "deterministic": "true",
     # memory limit for evaluate_cfg
-    "memory_limit": PLANNER_MEMORY_LIMIT,
+    "memory_limit": None,
     # time limit for evaluate_cfg (we cut off planner runs ourselves)
     "cutoff": None,
     "output_dir": SMAC_OUTPUT_DIR,
