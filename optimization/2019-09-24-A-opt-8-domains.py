@@ -40,8 +40,12 @@ RUN_MEMORY_LIMIT = 3584
 if REMOTE:
     ENV = BaselSlurmEnvironment(
         email="jendrik.seipp@unibas.ch",
-        setup="source activate smac-conda")
-    SMAC_TIME_LIMIT = 1 * 60 * 60
+        setup="\n".join([
+            BaselSlurmEnvironment.DEFAULT_SETUP,
+            "module load Singularity/2.6.1 2> /dev/null",
+            "source activate smac-conda",
+        ])
+    SMAC_TIME_LIMIT = 10 * 60
 else:
     ENV = LocalEnvironment(processes=1)
     SMAC_TIME_LIMIT = 10
