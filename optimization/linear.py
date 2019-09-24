@@ -100,11 +100,16 @@ def setup_logging():
 
     logger.setLevel(logging.DEBUG if ARGS.debug else logging.INFO)
 
+    formatter = logging.Formatter('%(asctime)s %(levelname)-8s %(message)s')
+
     h1 = logging.StreamHandler(sys.stdout)
     h1.setLevel(logging.DEBUG)
     h1.addFilter(InfoFilter())
+    h1.setFormatter(formatter)
+
     h2 = logging.StreamHandler()
     h2.setLevel(logging.WARNING)
+    h2.setFormatter(formatter)
 
     logger.addHandler(h1)
     logger.addHandler(h2)
