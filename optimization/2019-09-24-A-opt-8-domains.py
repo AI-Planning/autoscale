@@ -38,8 +38,10 @@ RUN_TIME_LIMIT = 23 * 60 * 60
 RUN_MEMORY_LIMIT = 3584
 
 if REMOTE:
-    ENV = BaselSlurmEnvironment(email="jendrik.seipp@unibas.ch")
-    SMAC_TIME_LIMIT = 10 * 60 * 60
+    ENV = BaselSlurmEnvironment(
+        email="jendrik.seipp@unibas.ch",
+        setup="source activate smac-conda")
+    SMAC_TIME_LIMIT = 1 * 60 * 60
 else:
     ENV = LocalEnvironment(processes=1)
     SMAC_TIME_LIMIT = 10
@@ -52,7 +54,7 @@ for domain in DOMAINS:
     run = exp.add_run()
     run.add_command(
         'optimize',
-        ['python3', os.path.join(DIR, 'linear.py'), "--opt", str(SMAC_TIME_LIMIT), IMAGES_DIR, domain, "smac"],
+        ['python3', os.path.join(DIR, 'linear.py'), "--opt", str(SMAC_TIME_LIMIT), "--debug", IMAGES_DIR, domain, "smac"],
         time_limit=RUN_TIME_LIMIT,
         memory_limit=RUN_MEMORY_LIMIT)
     run.set_property('run_time_limit', RUN_TIME_LIMIT)
