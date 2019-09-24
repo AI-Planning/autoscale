@@ -298,7 +298,7 @@ def run_planners(parameters):
             results.append(min(runtimes) if runtimes else PLANNER_TIME_LIMIT * 10)
 
         except Exception as err:
-            print(err)
+            print(err, file=sys.stderr)
             raise
 
     result = statistics.mean(results)
