@@ -34,6 +34,9 @@ import shutil
 import statistics
 import subprocess
 import sys
+import warnings
+
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
 import numpy as np
 
