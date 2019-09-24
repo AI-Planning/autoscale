@@ -45,7 +45,7 @@ if REMOTE:
             "module load Singularity/2.6.1 2> /dev/null",
             "source activate smac-conda",
         ]))
-    SMAC_TIME_LIMIT = 10 * 60
+    SMAC_TIME_LIMIT = 10 * 60 * 60
     OPTIONS = []
 else:
     ENV = LocalEnvironment(processes=1)
