@@ -338,7 +338,7 @@ def evaluate_cfg(cfg):
     min_times = np.log2(np.array(min_times))
 
     error = float((((opt_times - min_times) / opt_times)**2).sum(axis=None))
-    logging.info(f"Mean squared error: {error}")
+    logging.info(f"Mean squared error: {error:.2f}")
     return error  # Minimize!
 
 # Build Configuration Space which defines all parameters and their ranges.

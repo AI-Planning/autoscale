@@ -51,7 +51,9 @@ parser.add_pattern(
 parser.add_pattern(
     'optimize_exit_code', r'optimize exit code: (.+)\n', type=int, file='driver.log')
 parser.add_bottom_up_pattern('incumbent_error', r'Mean squared error: (.+)\n', type=float)
+parser.add_repeated_pattern('all_error_values', r'Mean squared error: (.+)\n', type=float)
 parser.add_bottom_up_pattern('incumbent_runtimes', r'Minimum runtimes: (.+)\n', type=str)
+parser.add_repeated_pattern('all_runtimes', r'Minimum runtimes: (.+)\n', type=str)
 parser.add_function(error)
 
 parser.parse()
