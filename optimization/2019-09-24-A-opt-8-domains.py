@@ -60,7 +60,8 @@ for domain in DOMAINS:
         'optimize',
         ['python3', os.path.join(DIR, 'linear.py'), "--opt", str(SMAC_TIME_LIMIT), "--debug", IMAGES_DIR, domain, "smac"],
         time_limit=RUN_TIME_LIMIT,
-        memory_limit=RUN_MEMORY_LIMIT)
+        memory_limit=RUN_MEMORY_LIMIT,
+        hard_stdout_limit=50 * 1024)
     run.set_property('run_time_limit', RUN_TIME_LIMIT)
     run.set_property('run_memory_limit', RUN_MEMORY_LIMIT)
     # Every run has to have a unique id in the form of a list.
