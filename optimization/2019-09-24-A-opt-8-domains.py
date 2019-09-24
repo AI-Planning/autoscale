@@ -32,7 +32,7 @@ DOMAINS = [
     "zenotravel",
 ]
 ATTRIBUTES = [
-    'error',
+    "error", "incumbent_*",
 ]
 RUN_TIME_LIMIT = 23 * 60 * 60
 RUN_MEMORY_LIMIT = 3584
@@ -46,26 +46,34 @@ if REMOTE:
             "source activate smac-conda",
         ]))
     SMAC_TIME_LIMIT = 10 * 60
+    OPTIONS = []
 else:
     ENV = LocalEnvironment(processes=1)
     SMAC_TIME_LIMIT = 10
+    OPTIONS = ["--debug", "--evaluations", "1", "--tasks", "2"]
+    DOMAINS = ["miconic-strips"]
 
 
 exp = Experiment(environment=ENV)
-#exp.add_parser('exp-parser.py')
+exp.add_parser('exp-parser.py')
 
 for domain in DOMAINS:
     run = exp.add_run()
     run.add_command(
         'optimize',
-        ['python3', os.path.join(DIR, 'linear.py'), "--opt", str(SMAC_TIME_LIMIT), "--debug", IMAGES_DIR, domain, "smac"],
+        ['python3', os.path.join(DIR, 'linear.py'), "--opt", str(SMAC_TIME_LIMIT), IMAGES_DIR, domain, "smac"] + OPTIONS,
         time_limit=RUN_TIME_LIMIT,
         memory_limit=RUN_MEMORY_LIMIT,
         hard_stdout_limit=50 * 1024)
+    problem = "optimize"
+    algorithm = "linear"
     run.set_property('run_time_limit', RUN_TIME_LIMIT)
     run.set_property('run_memory_limit', RUN_MEMORY_LIMIT)
+    run.set_property('domain', domain)
+    run.set_property('problem', problem)
+    run.set_property('algorithm', algorithm)
     # Every run has to have a unique id in the form of a list.
-    run.set_property('id', [domain])
+    run.set_property('id', [domain, problem, algorithm])
 
 exp.add_step('build', exp.build)
 exp.add_step('start', exp.start_runs)
