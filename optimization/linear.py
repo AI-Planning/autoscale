@@ -84,12 +84,32 @@ TMP_PLAN_DIR = "plan"
 SINGULARITY_SCRIPT = os.path.join(DIR, "run-singularity.sh")
 print("Singularity script:", SINGULARITY_SCRIPT)
 
-# Python adds a default handler if some log is generated before here.
-# Remove all handlers that have been added automatically then set logging level.
-root_logger = logging.getLogger('')
-for handler in root_logger.handlers:
-    root_logger.removeHandler(handler)
-logging.basicConfig(level=logging.DEBUG if ARGS.debug else logging.INFO)
+def setup_logging():
+    """
+    Print DEBUG and INFO messages to stdout and higher levels to stderr.
+    """
+    # Python adds a default handler if some log is generated before here.
+    # Remove all handlers that have been added automatically.
+    logger = logging.getLogger('')
+    for handler in logger.handlers:
+        logger.removeHandler(handler)
+
+    class InfoFilter(logging.Filter):
+        def filter(self, rec):
+            return rec.levelno in (logging.DEBUG, logging.INFO)
+
+    logger.setLevel(logging.DEBUG if ARGS.debug else logging.INFO)
+
+    h1 = logging.StreamHandler(sys.stdout)
+    h1.setLevel(logging.DEBUG)
+    h1.addFilter(InfoFilter())
+    h2 = logging.StreamHandler()
+    h2.setLevel(logging.WARNING)
+
+    logger.addHandler(h1)
+    logger.addHandler(h2)
+
+setup_logging()
 
 if ARGS.tasks > 7:
     sys.exit("Error: number of tasks must be <= 7")
