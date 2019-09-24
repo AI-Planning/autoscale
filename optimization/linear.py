@@ -290,9 +290,9 @@ def run_planners(parameters):
                         runtime = float(match.group(1))
                         runtime = max(MIN_PLANNER_RUNTIME, runtime)  # log(0) is undefined.
                         runtimes.append(runtime)
-                        logging.debug(f"{image} found plan in {runtime} seconds.")
+                        logging.info(f"{image} found plan in {runtime} seconds.")
                     else:
-                        logging.debug(f"{image} failed to find a plan in {PLANNER_TIME_LIMIT} seconds.")
+                        logging.info(f"{image} failed to find a plan.")
 
             logging.info(f"Runtimes for y={parameters}: {runtimes}")
             results.append(min(runtimes) if runtimes else PLANNER_TIME_LIMIT * 10)
@@ -312,30 +312,29 @@ def run_planners(parameters):
 def evaluate_cfg(cfg):
     n = ARGS.tasks
 
-    print("Evaluate", cfg)
+    logging.info(f"Evaluate {cfg}")
 
     Y = GET_CONFIGS[ARGS.domain](cfg, n)
 
-    print("Y:", Y)
+    logging.info(f"Y: {Y}")
 
     # TODO: pass individual timeout for each y.
     min_times = []
     for y in Y:
         min_time = run_planners(y)
-        if min_time is None:
-            print(f"No planner solved task y={y}")
-            return None
-        else:
-            min_times.append(min_time)
+        assert min_time is not None
+        min_times.append(min_time)
     #min_times = [max(1, 2**x + m + 10 + m * b) for x in range(1, n + 1)]  # for testing
+    logging.info(f"Minimum runtimes: {min_times}")
 
     opt_times = [2**x for x in range(1, n + 1)]
 
     opt_times = np.log2(np.array(opt_times))
     min_times = np.log2(np.array(min_times))
 
-    error = (((opt_times - min_times) / opt_times)**2).sum(axis=None)
-    return float(error)  # Minimize!
+    error = float((((opt_times - min_times) / opt_times)**2).sum(axis=None))
+    logging.info(f"Mean squared error: {error}")
+    return error  # Minimize!
 
 # Build Configuration Space which defines all parameters and their ranges.
 cs = ConfigurationSpace()
