@@ -33,6 +33,7 @@ DOMAINS = [
 ]
 ATTRIBUTES = [
     "error", "incumbent_*", "all_*", "final_configuration",
+    "configurations", "optimization_wallclock_time",
 ]
 RUN_TIME_LIMIT = 23 * 60 * 60
 RUN_MEMORY_LIMIT = 3584
@@ -81,7 +82,7 @@ exp.add_fetcher(name='fetch')
 
 exp.add_report(
     BaseReport(attributes=ATTRIBUTES),
-    outfile='report.html')
+    outfile='{}.html'.format(exp.name))
 
 # Parse the commandline and run the specified steps.
 exp.run_steps()
