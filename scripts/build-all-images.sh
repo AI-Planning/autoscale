@@ -4,6 +4,7 @@ set -euo pipefail
 
 OUTDIR=${1}
 
+./build-image.sh ../planners/custom/seq-opt/fd-19.06/Singularity-blind ${OUTDIR}/blind.img ${DOWNWARD_BENCHMARKS}
 ./build-image.sh ../planners/custom/seq-opt/fd-19.06/Singularity-fdss1-01 ${OUTDIR}/fdss-mas1.img ${DOWNWARD_BENCHMARKS}
 ./build-image.sh ../planners/custom/seq-opt/fd-19.06/Singularity-fdss1-02 ${OUTDIR}/fdss-mas2.img ${DOWNWARD_BENCHMARKS}
 ./build-image.sh ../planners/custom/seq-opt/fd-19.06/Singularity-fdss1-03 ${OUTDIR}/bjolp.img ${DOWNWARD_BENCHMARKS}
