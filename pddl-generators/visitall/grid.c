@@ -77,7 +77,7 @@ int main( int argc, char *argv[] )
   }
 
   /* create a mask with the usable locations */
-  char* mask = malloc (x*x);
+  char* mask = (char *)(malloc (x*x));
 
   /* make them all usable by default */
   for (i=0;i<x*x;mask[i++]=1);
