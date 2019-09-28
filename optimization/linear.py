@@ -462,7 +462,7 @@ def evaluate_cfg(cfg):
 
     if baseline_times[1] <= baseline_times[0]*1.1 or baseline_times[1] < 2: 
         print ("Second instance was solved too quickly by the baseline. We need to scale difficulty faster")
-        #return 10**7 - 2000
+        return 10**7 - 2000
 
     baseline_times += [run_baseline_planner(Y[2])] 
     if not baseline_times[2]:
@@ -473,7 +473,7 @@ def evaluate_cfg(cfg):
     # If runtime does not increase by at least 10%, return a high error right away   
     if baseline_times[2] <= baseline_times[1]*1.1  or baseline_times[2] < 10:
         print ("Third instance was solved too quickly by the baseline. We need to scale difficulty faster")
-        #return 10**6 - 4000
+        return 10**6 - 4000
 
     # Now, we check the entire scaling with respect to the baseline. What is important is
     # the relative time with respect to the previous instance. Ideally, this would be
