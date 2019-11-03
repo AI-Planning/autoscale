@@ -35,6 +35,7 @@ import statistics
 import subprocess
 import sys
 import warnings
+import math
 
 from collections import defaultdict
 warnings.simplefilter(action='ignore', category=FutureWarning)
@@ -189,14 +190,15 @@ class Domain:
                 atr.set_values(cfg, Y, num_tasks_baseline)
             result.append(Y)
         else:
-            num_tasks_per_enum = num_tasks/len(self.enum_attributes)
+            num_tasks_per_enum = math.ceil(num_tasks/len(self.enum_attributes))
+
             num_tasks_baseline_per_enum = num_tasks_baseline/len(self.enum_attributes)
             
             for enum_atr in self.enum_attributes:
                 Y = [enum_atr.values.copy() for i in range(num_tasks_per_enum)] 
 
                 for atr in self.linear_attributes:
-                    atr.set_values(cfg, Y, num_tasks_baseline, enum_name)
+                    atr.set_values(cfg, Y, num_tasks_baseline, enum_atr.name)
 
                 result.append(Y)
         return result
