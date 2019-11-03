@@ -54,7 +54,7 @@ from smac.initial_design.default_configuration_design import DefaultConfiguratio
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--tasks", type=int, default=10,
+        "--tasks", type=int, default=20,
         help="Number of tasks to generate in each round (default: %(default)s, max=7)")
     parser.add_argument(
         "--tasksbaseline", type=int, default=5,
@@ -192,8 +192,6 @@ class Domain:
         else:
             num_tasks_per_enum = math.ceil(num_tasks/len(self.enum_attributes))
 
-            num_tasks_baseline_per_enum = num_tasks_baseline/len(self.enum_attributes)
-            
             for enum_atr in self.enum_attributes:
                 Y = [enum_atr.values.copy() for i in range(num_tasks_per_enum)] 
 
@@ -330,6 +328,7 @@ DOMAIN_LIST = [Domain ("gripper", "gripper -n {n}",
 
 DOMAIN_DICT = {d.name: d for d in DOMAIN_LIST}
 
+print (DOMAIN_DICT.keys())
     
  
     
@@ -440,11 +439,11 @@ class Runner:
                             runtime = float(match.group(1))
                             runtime = max(MIN_PLANNER_RUNTIME, runtime)  # log(0) is undefined.
                             runtimes.append(runtime)
-                            logging.info(f"{image} found plan in {runtime} seconds.")
+                            logging.debug(f"{image} found plan in {runtime} seconds.")
                         else:
-                            logging.info(f"{image} failed to find a plan.")
+                            logging.debug(f"{image} failed to find a plan.")
 
-                logging.info(f"Runtimes for y={parameters}: {runtimes}")
+                logging.debug(f"Runtimes for y={parameters}: {runtimes}")
 
                 results.append(min(runtimes) if runtimes else PLANNER_TIME_LIMIT * 10)
                 if runtimes:
@@ -530,12 +529,18 @@ class InstanceSet:
 
         return lower_bound <= self.sequential_runtimes[i] and self.sequential_runtimes[i] <= time_limit
 
-    def get_runtimes(self, num_instances, time_limit):
-        while len(self.sequential_runtimes) < num_instances:
-            if not self.eval_next(time_limit):
-                return self.sequential_runtimes
 
-        return self.sequential_runtimes[:num_instances]
+    
+    def get_runtimes(self, num_instances, lower_bound, time_limit):
+        
+        selected_runtimes = [t for t in self.sequential_runtimes if t > lower_bound]
+        while len(selected_runtimes) < num_instances:
+            if not self.eval_next(time_limit):
+                return selected_runtimes
+            else:
+                selected_runtimes = [t for t in self.sequential_runtimes if t > lower_bound]                
+
+        selected_runtimes[:num_instances]
 
         
     
@@ -546,13 +551,31 @@ RUNNER_BASELINE = Runner (DOMAIN_DICT[ARGS.domain], [BASELINE_PLANNER])
 RUNNER_SART = Runner(DOMAIN_DICT[ARGS.domain],PLANNER_SELECTION[ARGS.domain])
 
 
+
+def evaluate_runtimes(runtimes, num_expected_runtimes):    
+    penalty = 0
+    # The default scaling only works if all instances are solvable. For each unsolvable instance apply a double penalty.
+
+    if len(runtimes) < num_expected_runtimes:
+        penalty += 2 * (num_expected_runtimes - len(runtimes))    
+    
+    for i in range(1, len(runtimes)):
+        factor = baseline_times[i]/baseline_times[i-1]
+        if factor <= 1: # Runtime is decreasing: maximum penalty of 1
+            penalty += 1
+        elif factor <= 2: # Runtime is increasing, but not very quickly
+            penalty += (2 - factor)
+        else:  # factor > 2: Runtime is increasing two quickly
+            penalty += 1 - (2/factor)
+
+    return penalty
+
 def evaluate_cfg(cfg):
     n = ARGS.tasks
     logging.info(f"Evaluate {cfg}")
     domain = DOMAIN_DICT[ARGS.domain]
     Y = domain.get_configs(cfg)
     baseline_eval = InstanceSet (Y, RUNNER_BASELINE)
-    sart_eval = InstanceSet (Y, RUNNER_SART)
     logging.info(f"Y: {Y}")
 
     # Changed the way to evaluate, to make it consistent with the "design principles" that
@@ -564,15 +587,15 @@ def evaluate_cfg(cfg):
     # 60, and 300s? If not, return a high error right away
 
     if not baseline_eval.is_solvable(0, time_limit=10, lower_bound=0):
-        print ("First instance was not solved by the baseline planner in less than 10 seconds")
+        logging.info ("First instance was not solved by the baseline planner in less than 10 seconds")
         return 10**6
 
     if not baseline_eval.is_solvable(1, time_limit=60, lower_bound=2):
-        print ("Second instance was not solved by the baseline planner in more than 2 or less than 60 seconds")
+        logging.info ("Second instance was not solved by the baseline planner in more than 2 or less than 60 seconds")
         return 10**6 - 10**5
 
     if not baseline_eval.is_solvable(2, time_limit=300, lower_bound=10):
-        print ("Third instance was not solved by the baseline planner in more than 10 or less than 300 seconds")
+        logging.info ("Third instance was not solved by the baseline planner in more than 10 or less than 300 seconds")
         return 10**6 - 2*10**5
 
     # Now, we check the entire scaling with respect to the baseline. What is important is
@@ -582,71 +605,17 @@ def evaluate_cfg(cfg):
     # We compute a penalty, where each solved instance is assigned a score between 0 and 1
     # and unsolved instances are assigned a score of 2
 
-    baseline_times = baseline_eval.get_runtimes(ARGS.tasksbaseline, 300)
-    baseline_scaling_penalty = 0
+    baseline_times = baseline_eval.get_runtimes(ARGS.tasksbaseline, 10, 300)
+    sart_eval = InstanceSet (Y, RUNNER_SART)
+    sart_times = baseline_eval.get_runtimes(ARGS.tasksbaseline, 10, 300)
+    penalty = evaluate_times (baseline_times) + evaluate_times(sart_times)
 
-    # The default scaling only works if all instances are solvable. For each unsolvable instance apply a double penalty.
-    if len(baseline_times) < ARGS.tasksbaseline:
-        baseline_scaling_penalty += 2 * (ARGS.tasksbaseline - len(baseline_times))    
-
-    for i in range(1, len(baseline_times)):
-        factor = baseline_times[i]/baseline_times[i-1]
-        if factor <= 1: # Runtime is decreasing: maximum penalty of 1
-            baseline_scaling_penalty += 1
-        elif factor <= 2: # Runtime is increasing, but not very quickly
-            baseline_scaling_penalty += (2 - factor)
-        else:  # factor > 2: Runtime is increasing two quickly
-            if baseline_times[i] > 30: # but we ignore this on very small instances
-                baseline_scaling_penalty += 1 - (2/factor)
-
-    return baseline_scaling_penalty
-
-    # Third test: Do the state of the art planners solve the large instances quickly?  We
-    # return a high error that depends on the scaling of the entire benchmark set with
-    # respect to the baseline. That way in polynomial domains we get a reasonable scaling
-    # for the baseline even though it is not good to test state of the art planners
-
-    # First, we need to figure out if the set of instances that we are using to evaluate
-    # the baseline is already good to evaluate the state of the art planners Find the
-    # first instance where the state of the art planners take more than 10 seconds
-
-    # first_hard_instance = None
-    # state_art_times = []
-    # for i in range(n):
-    #     time = run_planners(Y[i])
-    #     if time >= 10:
-    #         first_hard_instance = i
-    #         state_art_times.append(time)
-    #         break
-
-    # if not first_hard_instance:
-    #     print ("There is no hard instance for the state of the art: we scale only based on the baseline") 
-    #     return 1000 + baseline_scaling_penalty
+    logging.info("Baseline times: {}, sart times: {}, penalty {}".format(" ".join(baseline_times), " ".join(sart_times), penalty ))
 
 
-    # # We compute a penalty, where each solved instance is assigned a score between 0 and 1
-    # # and unsolved instances are assigned a score of 2
-    # state_art_scaling_penalty = 0
-    # last_instance = first_hard_instance + ARGS.tasks - ARGS.baselinetasks
-    # for i in range(first_hard_instance+1, last_instance):
-    #     state_art_times.append(run_planners[i])
-        
-    #     # The default scaling only works if all instances are solvable. For each unsolvable instance apply a double penalty.
-    #     if not state_art_times[-1]:
-    #         state_art_scaling_penalty += 2*(last_instance - i)
-    #         break
+    return penalty
 
-    #     factor = state_art_times[-1]/state_art_times[-2]
-    #     if factor <= 1: # Runtime is decreasing: maximum penalty of 1
-    #         state_art_scaling_penalty += 1
-    #     elif factor <= 2: # Runtime is increasing, but not very quickly
-    #         state_art_scaling_penalty += (2 - factor)
-    #     else:  # factor > 2: Runtime is increasing two quickly
-    #         if state_art_times[-1] > 30: # but we ignore this on very small instances
-    #             state_art_scaling_penalty += 1 - (2/factor)
 
-    # return baseline_scaling_penalty + state_art_scaling_penalty
-    
 
     
 
