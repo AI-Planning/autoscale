@@ -492,8 +492,12 @@ class InstanceSet:
         self.sequential_runtimes = []
 
     def add_to_sequence(self):
+        runtimes = [x.next_runtime for x in self.sequences if x.next_runtime]
+        if not runtimes:
+            return
+        best_runtime = min(runtimes)
+
         best_lb = min(map(lambda x : x.next_lb_runtime, self.sequences))
-        best_runtime = min(map(lambda x : x.next_runtime, self.sequences))
         if (best_lb == best_runtime):
             for seq in self.sequences:
                 if seq.next_runtime == best_runtime:
