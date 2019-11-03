@@ -288,7 +288,7 @@ DOMAIN_LIST = [Domain ("gripper", "gripper -n {n}",
                                      LinearAtr("observations")]),
                
                Domain("zenotravel", "ztravel {seed} {cities} {planes} {people}",
-                      [LinearAtr("planes"), LinearAtr("people"), LinearAtr(["cities"], lower_b=3)]),
+                      [LinearAtr("planes"), LinearAtr("people"), LinearAtr("cities", lower_b=3)]),
                
                Domain("trucks", "gen-Trucks -seed {seed} -t 1 -l {locations} -p {packages} -a {areas} -n 1",
                       [LinearAtr("areas"), LinearAtr("packages"), LinearAtr("locations", lower_b=2)]),
