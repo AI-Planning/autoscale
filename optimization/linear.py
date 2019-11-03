@@ -157,7 +157,6 @@ class LinearAtr:
         m = float(cfg.get("{}_m".format(atr)))
         m2 = float(cfg.get("{}_m2".format(atr)))
 
-
         for i, Yi in enumerate (Y):
             Yi[self.name] = int(val)
             val += m
@@ -542,9 +541,6 @@ class InstanceSet:
 
         selected_runtimes[:num_instances]
 
-        
-    
-        
     
 RUNNER_BASELINE = Runner (DOMAIN_DICT[ARGS.domain], [BASELINE_PLANNER])
 
@@ -612,49 +608,8 @@ def evaluate_cfg(cfg):
 
     logging.info("Baseline times: {}, sart times: {}, penalty {}".format(" ".join(baseline_times), " ".join(sart_times), penalty ))
 
-
     return penalty
 
-
-
-    
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-    # TODO: pass individual timeout for each y.
-    # min_times = []
-    # for y in Y:
-    #     min_time = run_planners(y)
-    #     assert min_time is not None
-    #     min_times.append(min_time)
-    #min_times = [max(1, 2**x + m + 10 + m * b) for x in range(1, n + 1)]  # for testing
-    # logging.info(f"Minimum runtimes: {min_times}")
-
-    # opt_times = [2**x for x in range(1, n + 1)]
-
-    # opt_times = np.log2(np.array(opt_times))
-    # min_times = np.log2(np.array(min_times))
-
-    # error = float((((opt_times - min_times) / opt_times)**2).sum(axis=None))
-    # logging.info(f"Mean squared error: {error:.2f}")
-    # return error  # Minimize!
 
 # Build Configuration Space which defines all parameters and their ranges.
 cs = ConfigurationSpace()
