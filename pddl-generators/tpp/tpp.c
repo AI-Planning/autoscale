@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -75,6 +76,12 @@ int *pi;        /* elenco nodi visitati */
 int *flag;      /* indica i nodi gia` estratti */
 
 int used_pref[MAX_PREFERENCES];
+
+
+int ceil_div(int x, int y) {
+    assert(x >= 0 && y >= 0);
+    return (x + y - 1) / y;
+}
 
 
 //**********************MAP GENERATION********************\\
@@ -361,8 +368,9 @@ void make_product_dist()
   int max_forsale_level = 0;
 
   if (market > 2)
-    max_forsale_level = (int)ceil((float)product_level / (market / 2)); // divido per 2 perchè un mercato vende un
-                                                                        // prodotto con probabilità del 50%
+    // divido per 2 perchè un mercato vende un prodotto con probabilità del 50%
+    max_forsale_level = ceil_div(product_level, (market / 2));
+
   else
     max_forsale_level = product_level;
 
@@ -746,7 +754,8 @@ void print_simple_preferences(FILE *f)
 
       //num = generate_number(product);
 
-      num = ceil((float)product / 3);
+      num = ceil_div(product, 3);
+
       for (i = 0; i < num; i++)
     {
       A = generate_number(product - 1);
@@ -836,7 +845,7 @@ void print_constraints_preferences(FILE *f)
     {
       fprintf(f, "\n");
 
-      num = generate_number((int)ceil((float)product / 3));
+      num = generate_number(ceil_div(product, 3));
       for (i = 0; i < num; i++)
     {
 
