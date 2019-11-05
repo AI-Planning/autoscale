@@ -332,7 +332,7 @@ DOMAIN_LIST = [
     ),
     Domain(
         "woodworking",
-        "sequential/create_woodworking_instance.py {wood_factor} {size} {num_machines} {seed}",
+        "create_woodworking_instance.py {wood_factor} {size} {num_machines} {seed}",
         [LinearAtr("size")],
         enum_values=[
             EnumAtr("wood1.4", {"wood_factor": "1.4", "num_machines": 1}),
