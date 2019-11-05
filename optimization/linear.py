@@ -81,6 +81,12 @@ def parse_args():
         help="Maximum total time running planners (default: %(default)ss)",
     )
     parser.add_argument("--debug", action="store_true", help="Print debug info")
+    parser.add_argument(
+        "--random-seed",
+        type=int,
+        default=0,
+        help="Initial random seed for SMAC and our internal random seeds (default: %(default)d)",
+    )
     parser.add_argument("--generators-dir", help="path to directory containing the generators")
     parser.add_argument("images_dir", help="path to directory containing the Singularity images to run")
     parser.add_argument("domain", help="Domain name")
@@ -382,7 +388,7 @@ class Runner:
         # Caches configurations that can be solved under the time limit, any harder configuration will take longer (only useful for the quicker tests that run the planner less time)
         self.frontier_cache = defaultdict(list)
 
-        self.random_seed = 0
+        self.random_seed = ARGS.random_seed
         self.linear_attributes_names = [a.name for a in domain.linear_attributes]
         self.planners = planners
 
@@ -684,7 +690,10 @@ print("Optimizing...")
 # When using SMAC4HPO, the default configuration has to be requested explicitly
 # as first design (see https://github.com/automl/SMAC3/issues/533).
 smac = SMAC4HPO(
-    scenario=scenario, initial_design=DefaultConfiguration, rng=np.random.RandomState(42), tae_runner=evaluate_cfg
+    scenario=scenario,
+    initial_design=DefaultConfiguration,
+    rng=np.random.RandomState(ARGS.random_seed),
+    tae_runner=evaluate_cfg
 )
 print("Output dir:", SMAC_OUTPUT_DIR)
 print("SMAC output dir:", smac.output_dir)
