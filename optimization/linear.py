@@ -145,14 +145,14 @@ class LinearAtr:
 
     def get_hyperparameters(self, modifier = None):
         atr = "{}_{}".format(modifier, self.name) if modifier else self.name
-        
+
         return [UniformIntegerHyperparameter("{}_b".format(atr), lower=self.lower_b, upper=self.upper_b, default_value=self.lower_b),
-                UniformFloatHyperparameter("{}_m".format(atr), lower=self.lower_m, upper=self.upper_m, default_value=self.default_m), 
+                UniformFloatHyperparameter("{}_m".format(atr), lower=self.lower_m, upper=self.upper_m, default_value=self.default_m),
                 UniformFloatHyperparameter("{}_m2".format(atr), lower=self.lower_m, upper=self.upper_m, default_value=self.default_m)]
 
     def set_values(self, cfg, Y, num_tasks_baseline, modifier = None):
         atr = "{}_{}".format(modifier, self.name) if modifier else self.name
-        
+
         val = int(cfg.get("{}_b".format(atr)))
         m = float(cfg.get("{}_m".format(atr)))
         m2 = float(cfg.get("{}_m2".format(atr)))
@@ -164,7 +164,7 @@ class LinearAtr:
                 val += m + m2
 
 
-class EnumAtr: 
+class EnumAtr:
     def __init__(self, name, values):
         self.name = name
         self.values = values
@@ -176,8 +176,8 @@ class Domain:
         self.linear_attributes = linear_atrs
         self.enum_attributes = enum_values
         self.gen_command = gen_command
-        
-        
+
+
     def get_domain_file(self):
         return os.path.join(GENERATORS_DIR, self.name, "domain.pddl")
 
@@ -192,23 +192,23 @@ class Domain:
             num_tasks_per_enum = math.ceil(num_tasks/len(self.enum_attributes))
 
             for enum_atr in self.enum_attributes:
-                Y = [enum_atr.values.copy() for i in range(num_tasks_per_enum)] 
+                Y = [enum_atr.values.copy() for i in range(num_tasks_per_enum)]
 
                 for atr in self.linear_attributes:
                     atr.set_values(cfg, Y, num_tasks_baseline, enum_atr.name)
 
                 result.append(Y)
         return result
-        
+
     def get_hyperparameters(self):
         result = []
         if not self.enum_attributes:
-            for atr in self.linear_attributes: 
+            for atr in self.linear_attributes:
                 result += atr.get_hyperparameters()
         else:
             result = []
             for enum_parameter in self.enum_attributes:
-                for atr in self.linear_attributes: 
+                for atr in self.linear_attributes:
                     result += atr.get_hyperparameters(enum_parameter.name)
         return result
 
@@ -271,28 +271,28 @@ PLANNER_SELECTION = {
 
 DOMAIN_LIST = [Domain ("gripper", "gripper -n {n}",
                        [LinearAtr("n")]),
-               
+
                Domain ("blocksworld", "blocksworld 4 {n}",
                        [LinearAtr("n")]),
-               
+
                Domain ("miconic-strips", "miconic -f {floors} -p {passengers}",
                        [LinearAtr("passengers"), LinearAtr("floors", lower_b=2)]),
-               
+
                Domain ("rover", "rovgen {seed} {rovers} {waypoints} {objectives} {cameras} {goals}",
                        [LinearAtr("rovers"), LinearAtr("objectives"), LinearAtr("cameras"), LinearAtr("goals"), LinearAtr("waypoints", lower_b=4)]),
-               
+
                Domain ("satellite", "satgen {seed} {satellites} 3 {modes} {targets} {observations}",
                [LinearAtr("satellites", upper_b=5, upper_m=1.0, default_m=0.5),
                                      LinearAtr("targets", lower_b=5, lower_m=1.0, default_m=2.0),
                                      LinearAtr("modes", upper_b=5, upper_m=1.0, default_m=0.3),
                                      LinearAtr("observations")]),
-               
+
                Domain("zenotravel", "ztravel {seed} {cities} {planes} {people}",
                       [LinearAtr("planes"), LinearAtr("people"), LinearAtr("cities", lower_b=3)]),
-               
+
                Domain("trucks", "gen-Trucks -seed {seed} -t 1 -l {locations} -p {packages} -a {areas} -n 1",
                       [LinearAtr("areas"), LinearAtr("packages"), LinearAtr("locations", lower_b=2)]),
-               
+
                Domain("visitall", "grid -n {n} -r {r} -u 0 -s {seed}",
                       [LinearAtr("n", lower_b=2)],
                       enum_values = [EnumAtr("half", {"r" : "0.5"}),
@@ -302,35 +302,35 @@ DOMAIN_LIST = [Domain ("gripper", "gripper -n {n}",
                        [LinearAtr("size")], enum_values  = [EnumAtr("wood1.4", {"wood_factor" : "1.4", "num_machines" : 1}),
                                                             EnumAtr("wood1.2", {"wood_factor" : "1.2", "num_machines" : 1}),
                                                             EnumAtr("wood1.0", {"wood_factor" : "1.0", "num_machines" : 1})]),
-               
+
                Domain("tpp", "gen-TPP -s {seed} -m {markets} -p {products} -t {trucks} -d {depots} -l {goods} problem.pddl",
                       [LinearAtr("products"),LinearAtr("markets"), LinearAtr("trucks"), LinearAtr("depots"), LinearAtr("goods")]),
 ]
 # "driverlog" : GENERATORS_DIR + "/driverlog/dlgen {seed} {roadjunctions} {drivers} {packages} {trucks}",
 # "driverlog"      : [LinearAtr("drivers"), LinearAtr("packages"), LinearAtr("locations", lower_b=2)]     + [UniformIntegerHyperparameter("trucks_diff", lower=-2, upper=2, default_value=0),],)
 
-# "floortile" : GENERATORS_DIR + "/floortile/floortile-generator.py name {num_rows} {num_columns} {num_robots} seq {seed} ", 
+# "floortile" : GENERATORS_DIR + "/floortile/floortile-generator.py name {num_rows} {num_columns} {num_robots} seq {seed} ",
 # "depots" : GENERATORS_DIR + "/depots/depots -e {depots} -i {distributors} -t {trucks} -p {pallets} -h {hoists} -c {crates} -s {seed}",
-# "storage" : GENERATORS_DIR + "/storage/gen-StorageT -p 1 -n {hoists} -d {depots} -o {containers} -s {store_areas} -c {crates} -e {seed}", 
+# "storage" : GENERATORS_DIR + "/storage/gen-StorageT -p 1 -n {hoists} -d {depots} -o {containers} -s {store_areas} -c {crates} -e {seed}",
 # Domain("depots", [LinearAtr("depots"), LinearAtr("distributors"), LinearAtr("trucks"), LinearAtr("pallets"), LinearAtr("hoists"), LinearAtr("crates")]),
-# "parking"      
-# "pathways"     
-# "storage"      
-# "barman"       
-# "childsnack"   
-# "hiking"       
-# "tetris"       
-# "data-network" 
-# "snake"        
-# "termes"       
-# "maintenance"  
+# "parking"
+# "pathways"
+# "storage"
+# "barman"
+# "childsnack"
+# "hiking"
+# "tetris"
+# "data-network"
+# "snake"
+# "termes"
+# "maintenance"
 
 DOMAIN_DICT = {d.name: d for d in DOMAIN_LIST}
 
 print (DOMAIN_DICT.keys())
-    
- 
-    
+
+
+
 
 
 # This class is in charge of running instances, using a cache to store the results
@@ -340,17 +340,17 @@ class Runner:
     # imply larger runtimes).  Linear parameters are important because we will use them to
     # avoid running planners on very large values that are estimated to be unsolvable.
     def __init__(self, domain, planners, num_runs = ARGS.runs_per_configuration):
-        # We have three types of caches 
+        # We have three types of caches
         self.exact_cache = {}     # Cache the exact runtime so that the same configuration is never run twice
         self.frontier_cache = defaultdict(list)  # Caches configurations that can be solved under the time limit, any harder configuration will take longer (only useful for the quicker tests that run the planner less time)
-        
+
         self.random_seed = 0
 
         self.linear_attributes_names = [a.name for a in domain.linear_attributes]
 
         self.planners = planners
 
-        
+
     def get_next_random_seed(self):
         self.random_seed += 1
         return self.random_seed
@@ -358,7 +358,7 @@ class Runner:
     def run_planners(self, parameters, time_limit=PLANNER_TIME_LIMIT):
 
         domain = DOMAIN_DICT[ARGS.domain]
-        
+
         # Check the cache to see if we already know the runtime for this attribute configuration
         cache_key = tuple ([parameters[attr] for attr in parameters])
         if cache_key in self.exact_cache:
@@ -368,9 +368,9 @@ class Runner:
         non_linear_key = tuple ([parameters[attr] for attr in parameters if not attr in self.linear_attributes_names])
         if non_linear_key in self.frontier_cache:
             for values_linear_attributes, runtime in self.frontier_cache[non_linear_key]:
-                if (runtime == None or time_limit < runtime) and all ([values_linear_attributes[linear_atr] <= parameters[linear_atr] for linear_atr in self.linear_attributes_names]): 
-                    return None       
-        
+                if (runtime == None or time_limit < runtime) and all ([values_linear_attributes[linear_atr] <= parameters[linear_atr] for linear_atr in self.linear_attributes_names]):
+                    return None
+
         results = []
         solved = False
         for i in range(ARGS.runs_per_configuration):
@@ -456,7 +456,7 @@ class Runner:
             result = statistics.mean(results)
         else:
             result = None
-               
+
         logging.info(f"Average runtime for y={parameters}: {result}")
         if result or time_limit == PLANNER_TIME_LIMIT:
             self.exact_cache[cache_key] = result
@@ -466,7 +466,7 @@ class Runner:
 
 
 
-    
+
 # The configurations are a list of lists. Each list corresponds to an individual
 # linear scaling, so we may assume that instances are sorted by difficulty.
 # We got the configurations. They should be sorted from easier to harder.
@@ -502,13 +502,13 @@ class InstanceSet:
                     self.sequential_runtimes.append(seq.next_runtime)
                     seq.next_runtime = None
                     seq.next_index += 1
-                    
-        
+
+
     def eval_next (self, time_limit):
         best_lb = min(map(lambda x : x.next_lb_runtime, self.sequences))
         if time_limit < best_lb:
             return False
-        
+
         for seq in self.sequences:
             if seq.next_lb_runtime == best_lb:
                 runtime = self.runner.run_planners(seq.get_next_parameters(), time_limit)
@@ -517,10 +517,10 @@ class InstanceSet:
                 else:
                     seq.next_runtime = runtime
                     seq.next_lb_runtime = runtime
-                    
+
         self.add_to_sequence()
         return True
-        
+
     def is_solvable (self, i, time_limit = 300, lower_bound = 0):
         while i >= len(self.sequential_runtimes):
             if not self.eval_next(time_limit):
@@ -529,32 +529,32 @@ class InstanceSet:
         return lower_bound <= self.sequential_runtimes[i] and self.sequential_runtimes[i] <= time_limit
 
 
-    
+
     def get_runtimes(self, num_instances, lower_bound, time_limit):
-        
+
         selected_runtimes = [t for t in self.sequential_runtimes if t > lower_bound]
         while len(selected_runtimes) < num_instances:
             if not self.eval_next(time_limit):
                 return selected_runtimes
             else:
-                selected_runtimes = [t for t in self.sequential_runtimes if t > lower_bound]                
+                selected_runtimes = [t for t in self.sequential_runtimes if t > lower_bound]
 
         selected_runtimes[:num_instances]
 
-    
+
 RUNNER_BASELINE = Runner (DOMAIN_DICT[ARGS.domain], [BASELINE_PLANNER])
 
 RUNNER_SART = Runner(DOMAIN_DICT[ARGS.domain],PLANNER_SELECTION[ARGS.domain])
 
 
 
-def evaluate_runtimes(runtimes, num_expected_runtimes):    
+def evaluate_runtimes(runtimes, num_expected_runtimes):
     penalty = 0
     # The default scaling only works if all instances are solvable. For each unsolvable instance apply a double penalty.
 
     if len(runtimes) < num_expected_runtimes:
-        penalty += 2 * (num_expected_runtimes - len(runtimes))    
-    
+        penalty += 2 * (num_expected_runtimes - len(runtimes))
+
     for i in range(1, len(runtimes)):
         factor = baseline_times[i]/baseline_times[i-1]
         if factor <= 1: # Runtime is decreasing: maximum penalty of 1
@@ -597,7 +597,7 @@ def evaluate_cfg(cfg):
     # Now, we check the entire scaling with respect to the baseline. What is important is
     # the relative time with respect to the previous instance. Ideally, this would be
     # around 2. However, ratio larger than two is also fine under 30s
-    
+
     # We compute a penalty, where each solved instance is assigned a score between 0 and 1
     # and unsolved instances are assigned a score of 2
 
