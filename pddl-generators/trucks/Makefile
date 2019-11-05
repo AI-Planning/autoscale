@@ -1,5 +1,5 @@
 main: trucks.c
-	gcc trucks.c -o trucks
+	gcc trucks.c -lm -o trucks
 
 clean:
 	rm -f trucks
