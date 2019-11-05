@@ -34,8 +34,8 @@ DOMAINS = [
     "zenotravel",
 ]
 ATTRIBUTES = [
-    "error", "all_*", "final_configuration*",
-    "configurations", "optimization_wallclock_time",
+    "error", "all_*", "final_*",
+    "evaluated_configurations", "optimization_wallclock_time",
 ]
 RUN_TIME_LIMIT = 23 * 60 * 60
 RUN_MEMORY_LIMIT = 3584

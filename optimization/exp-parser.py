@@ -50,12 +50,11 @@ parser.add_pattern(
     'node', r'node: (.+)\n', type=str, file='driver.log', required=True)
 parser.add_pattern(
     'optimize_exit_code', r'optimize exit code: (.+)\n', type=int, file='driver.log')
-parser.add_repeated_pattern('all_error_values', r'Mean squared error: (.+)\n', type=float)
-parser.add_repeated_pattern('all_runtimes', r'Minimum runtimes: (.+)\n', type=str)
-parser.add_bottom_up_pattern('final_configuration', r'Final configuration: \{(.+)\}\n', type=str)
-parser.add_bottom_up_pattern('final_configuration_runtimes', r'Minimum runtimes: (.+)\n', type=str)
-parser.add_bottom_up_pattern('final_configuration_error', r'Mean squared error: (.+)\n', type=float)
-parser.add_bottom_up_pattern('configurations', r'\#Configurations: (\d+)\n', type=int)
+parser.add_repeated_pattern('all_penalties', r'(Baseline times: .+)\n', type=str)
+parser.add_repeated_pattern('all_average_runtimes', r'Average runtime for y=.*: (.+)\n', type=str)
+parser.add_bottom_up_pattern('final_configuration', r'Final configuration: (\{.+\})\n', type=str)
+parser.add_bottom_up_pattern('final_value', r'Optimized value: (.+)\n', type=float)
+parser.add_bottom_up_pattern('evaluated_configurations', r'\#Configurations: (\d+)\n', type=int)
 parser.add_bottom_up_pattern('optimization_wallclock_time', r'Used wallclock time: (.+) /', type=float)
 parser.add_function(error)
 
