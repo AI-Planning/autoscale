@@ -327,7 +327,7 @@ DOMAIN_LIST = [
     ),
     Domain(
         "trucks",
-        "gen-Trucks -seed {seed} -t 1 -l {locations} -p {packages} -a {areas} -n 1",
+        "trucks -seed {seed} -t 1 -l {locations} -p {packages} -a {areas} -n 1",
         [LinearAtr("areas"), LinearAtr("packages"), LinearAtr("locations", lower_b=2)],
     ),
     Domain(
