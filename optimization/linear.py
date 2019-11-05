@@ -316,7 +316,7 @@ DOMAIN_LIST = [
     ),
     Domain(
         "tpp",
-        "tpp -s {seed} -m {markets} -p {products} -t {trucks} -d {depots} -l {goods} problem.pddl",
+        "tpp -s {seed} -m {markets} -p {products} -t {trucks} -d {depots} -l {goods} tmp.pddl",
         [LinearAtr("products"), LinearAtr("markets"), LinearAtr("trucks"), LinearAtr("depots"), LinearAtr("goods")],
     ),
     Domain(
@@ -422,8 +422,13 @@ class Runner:
                 problem_file = os.path.join(plan_dir, "problem.pddl")
                 command = shlex.split(domain.generator_command().format(**parameters))
                 logging.debug(f"Generator command: {command}")
-                with open(problem_file, "w") as f:
-                    subprocess.run(command, stdout=f)
+                # Some generators print to a file, others print to stdout.
+                if "tmp.pddl" in domain.generator_command():
+                    subprocess.run(command)
+                    shutil.move("tmp.pddl", problem_file)
+                else:
+                    with open(problem_file, "w") as f:
+                        subprocess.run(command, stdout=f)
 
                 # Check domain file. Problem file seems to be ignored.
                 subprocess.run(["validate", domain.get_domain_file(), problem_file], check=True)
