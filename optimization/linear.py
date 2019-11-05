@@ -554,7 +554,7 @@ def evaluate_runtimes(runtimes, num_expected_runtimes):
         penalty += 2 * (num_expected_runtimes - len(runtimes))
 
     for i in range(1, len(runtimes)):
-        factor = baseline_times[i]/baseline_times[i-1]
+        factor = runtimes[i]/runtimes[i-1]
         if factor <= 1: # Runtime is decreasing: maximum penalty of 1
             penalty += 1
         elif factor <= 2: # Runtime is increasing, but not very quickly
