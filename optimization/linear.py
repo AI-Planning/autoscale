@@ -23,7 +23,6 @@ pip install smac
 """
 
 import argparse
-import datetime
 import logging
 import os
 import os.path
@@ -76,7 +75,7 @@ def parse_args():
         "images_dir", help="path to directory containing the Singularity images to run")
     parser.add_argument("domain", help="Domain name")
     parser.add_argument(
-        "smac_output_dir", help="Directory where to store logs and temporary files")
+        "--smac_output_dir", default="smac", help="Directory where to store logs and temporary files")
     return parser.parse_args()
 
 
@@ -482,7 +481,6 @@ class Sequence:
         return self.seq[self.next_index]
 
 class InstanceSet:
-
     def __init__(self, Y, runner):
         self.sequences = [Sequence(y) for y in Y]
         self.runner = runner
