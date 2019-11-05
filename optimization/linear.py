@@ -334,11 +334,11 @@ print (DOMAIN_DICT.keys())
 
 # This class is in charge of running instances, using a cache to store the results
 class Runner:
-    # We need to provide a set of planners, the number of times that the planners must be
-    # run, and which parameters are linear (i.e., we may safely assume that larger values
+    # We need to provide a set of planners and which parameters are linear
+    # (i.e., we may safely assume that larger values
     # imply larger runtimes).  Linear parameters are important because we will use them to
     # avoid running planners on very large values that are estimated to be unsolvable.
-    def __init__(self, domain, planners, num_runs = ARGS.runs_per_configuration):
+    def __init__(self, domain, planners):
         # We have three types of caches
         self.exact_cache = {}     # Cache the exact runtime so that the same configuration is never run twice
         self.frontier_cache = defaultdict(list)  # Caches configurations that can be solved under the time limit, any harder configuration will take longer (only useful for the quicker tests that run the planner less time)
