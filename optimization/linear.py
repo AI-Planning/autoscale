@@ -286,8 +286,8 @@ PLANNER_SELECTION = {
 
 
 DOMAIN_LIST = [
-    Domain("gripper", "gripper -n {n}", [LinearAtr("n")]),
     Domain("blocksworld", "blocksworld 4 {n}", [LinearAtr("n")]),
+    Domain("gripper", "gripper -n {n}", [LinearAtr("n")]),
     Domain(
         "miconic-strips",
         "miconic -f {floors} -p {passengers}",
@@ -315,9 +315,9 @@ DOMAIN_LIST = [
         ],
     ),
     Domain(
-        "zenotravel",
-        "ztravel {seed} {cities} {planes} {people}",
-        [LinearAtr("planes"), LinearAtr("people"), LinearAtr("cities", lower_b=3)],
+        "tpp",
+        "gen-TPP -s {seed} -m {markets} -p {products} -t {trucks} -d {depots} -l {goods} problem.pddl",
+        [LinearAtr("products"), LinearAtr("markets"), LinearAtr("trucks"), LinearAtr("depots"), LinearAtr("goods")],
     ),
     Domain(
         "trucks",
@@ -341,9 +341,9 @@ DOMAIN_LIST = [
         ],
     ),
     Domain(
-        "tpp",
-        "gen-TPP -s {seed} -m {markets} -p {products} -t {trucks} -d {depots} -l {goods} problem.pddl",
-        [LinearAtr("products"), LinearAtr("markets"), LinearAtr("trucks"), LinearAtr("depots"), LinearAtr("goods")],
+        "zenotravel",
+        "ztravel {seed} {cities} {planes} {people}",
+        [LinearAtr("planes"), LinearAtr("people"), LinearAtr("cities", lower_b=3)],
     ),
 ]
 # "driverlog" : GENERATORS_DIR + "/driverlog/dlgen {seed} {roadjunctions} {drivers} {packages} {trucks}",
