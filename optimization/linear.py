@@ -316,7 +316,7 @@ DOMAIN_LIST = [
     ),
     Domain(
         "tpp",
-        "gen-TPP -s {seed} -m {markets} -p {products} -t {trucks} -d {depots} -l {goods} problem.pddl",
+        "tpp -s {seed} -m {markets} -p {products} -t {trucks} -d {depots} -l {goods} problem.pddl",
         [LinearAtr("products"), LinearAtr("markets"), LinearAtr("trucks"), LinearAtr("depots"), LinearAtr("goods")],
     ),
     Domain(
