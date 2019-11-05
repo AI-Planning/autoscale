@@ -2,11 +2,11 @@
 #include <cmath>
 #include <cstring>
 #include <iostream>
-#include "stringConv.h"
 #include <vector>
 #include <fstream>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string>
 #include <unistd.h>
 #include <time.h>
 #include <sys/types.h>
@@ -210,7 +210,7 @@ string preference_symbol(int x)
     {
       r = q % PSYMB_BASE;
       q = q / PSYMB_BASE;
-      res = toString((char)(r + PSYMB_START)) + res;
+      res = to_string((char)(r + PSYMB_START)) + res;
     }
   while (q > 0);
 
@@ -358,11 +358,11 @@ int main(int argc, char *argv[])
     }
   if (((double)totalCrateNumber/(double)(max(totalContainerNumber-1,1)) <= (double)SAPERCONTAINER)&&totalContainerNumber>1)
     {
-      cout << "\nWarning! Number of crates / Number of containers < "+toString(SAPERCONTAINER)+"\n Containers will be filled randomly.\n";
+      cout << "\nWarning! Number of crates / Number of containers < "+to_string(SAPERCONTAINER)+"\n Containers will be filled randomly.\n";
     }
   if ((double)totalCrateNumber/(double)totalContainerNumber > (double)SAPERCONTAINER)
     {
-      cout << "\nWarning! Number of crates / Number of containers > "+toString(SAPERCONTAINER)+"\n One container is bigger than "+toString(SAPERCONTAINER)+".\n";
+      cout << "\nWarning! Number of crates / Number of containers > "+to_string(SAPERCONTAINER)+"\n One container is bigger than "+to_string(SAPERCONTAINER)+".\n";
     }
 
   if(totalCrateNumber > (totalSaNumber/2))
@@ -387,7 +387,7 @@ int main(int argc, char *argv[])
   double probabilita=(double)SADEPOTDEVIATION/100;
   int media=totalSaNumber/totalDepotNumber;
   int saperdepot=max(media-(int)((double)media*probabilita),MINSAPERDEPOT);
-  //cout << toString(saperdepot);
+  //cout << to_string(saperdepot);
 
   int saBound=totalSaNumber-saperdepot*totalDepotNumber;
   int scBound=totalCrateNumber;
@@ -465,9 +465,9 @@ int main(int argc, char *argv[])
   for(int i=0;i<totalContainerNumber;i++)
     {
       int saContainerNumber=saContainerDivision[i];
-      string currentContainer=CONTAINER+toString(i);
+      string currentContainer=CONTAINER+to_string(i);
       globalDefContainer.push_back(currentContainer);
-      //globalNumCrate.push_back("(= (num-crate "+currentContainer+") "+toString(saContainerNumber)+")");
+      //globalNumCrate.push_back("(= (num-crate "+currentContainer+") "+to_string(saContainerNumber)+")");
       if (saContainerNumber>0)
 	{
 	  createContainer(saContainerNumber, currentContainer, i);
@@ -483,7 +483,7 @@ int main(int argc, char *argv[])
     {
       saNumber=saDivision[i];
       hoistNumber=hoistDivision[i];
-      currentDepot=DEPOT+toString((char)DEPOT_SYMBOL(i));
+      currentDepot=DEPOT+to_string((char)DEPOT_SYMBOL(i));
       globalDefDepot.push_back(currentDepot);
 
       if (saNumber>0){
@@ -595,7 +595,7 @@ void createConnections()
       {
 	if (defStorearea.size()<=saNumber)
 	  {
-	    string currentS=currentDepot+"-"+toString(i)+"-"+toString(j);
+	    string currentS=currentDepot+"-"+to_string(i)+"-"+to_string(j);
 	    string connectedS;
 	    if (s[i][j]>0)
 	      {
@@ -638,26 +638,26 @@ void createConnections()
 
 		if(s[i-1][j]>0)
 		  {
-		    connectedS=currentDepot+"-" + toString(i-1) +"-"+ toString(j);
+		    connectedS=currentDepot+"-" + to_string(i-1) +"-"+ to_string(j);
 		    connections.push_back("(connected " + currentS + " "+connectedS+ ")");
 
 		  }
 		if(s[i+1][j]>0)
 		  {
-		    connectedS=currentDepot+"-"+toString(i+1)+"-"+toString(j);
+		    connectedS=currentDepot+"-"+to_string(i+1)+"-"+to_string(j);
 		    connections.push_back("(connected "+currentS+" "+connectedS+")");
 
 		  }
 
 		if(s[i][j+1]>0)
 		  {
-		    connectedS=currentDepot+"-"+toString(i)+"-"+toString(j+1);
+		    connectedS=currentDepot+"-"+to_string(i)+"-"+to_string(j+1);
 		    connections.push_back("(connected "+currentS+" "+connectedS+")");
 
 		  }
 		if(s[i][j-1]>0)
 		  {
-		    connectedS=currentDepot+"-"+toString(i)+"-"+toString(j-1);
+		    connectedS=currentDepot+"-"+to_string(i)+"-"+to_string(j-1);
 		    connections.push_back("(connected "+currentS+" "+connectedS+")");
 		  }
 	      }
@@ -682,7 +682,7 @@ void connectDepots()
     {
       if (rightConnected[i/2]==1)
 	{
-	  string currentCorridor=CORRIDOR+toString(globalDefCorridors.size());
+	  string currentCorridor=CORRIDOR+to_string(globalDefCorridors.size());
 	  globalDefCorridors.push_back(currentCorridor);
 	  globalDepotConnections.push_back("(connected "+currentCorridor+" "+globalExtremes[i]+")\n\t(connected "+currentCorridor+" "+globalExtremes[i+1]+")");
 	}
@@ -742,11 +742,11 @@ void createTils()
 {
   for (int i=0;i<globalDefDepot.size();i++)
     {
-      globalTils.push_back("(at "+toString(0)+"(available "+globalDefDepot[i]+"))");
+      globalTils.push_back("(at "+to_string(0)+"(available "+globalDefDepot[i]+"))");
     }
   for (int i=0;i<globalDefContainer.size();i++)
     {
-      globalTils.push_back("(at "+toString(rand()%MAXTIME)+"(available "+globalDefContainer[i]+"))");
+      globalTils.push_back("(at "+to_string(rand()%MAXTIME)+"(available "+globalDefContainer[i]+"))");
     }
 
 }
@@ -774,7 +774,7 @@ void createLoad()
       if (loads[i] > max_load)
 	max_load = loads[i];
 
-      globalLoads.push_back("(= (max-load " + globalDefHoist[i] + ") " + toString(random) + ")");
+      globalLoads.push_back("(= (max-load " + globalDefHoist[i] + ") " + to_string(random) + ")");
     }
 
 
@@ -792,7 +792,7 @@ void createLoad()
 	  else
 	    random = MINWEIGHT;
 
-	  globalLoads.push_back("(= (weight " + globalDefCrate[i] + ") " + toString(random) + ")");
+	  globalLoads.push_back("(= (weight " + globalDefCrate[i] + ") " + to_string(random) + ")");
 	  crates++;
 	}
     }
@@ -801,7 +801,7 @@ void createLoad()
     {
       random = rand()%(max_load - MINWEIGHT);
       random += MINWEIGHT;
-      globalLoads.push_back("(= (weight "+globalDefCrate[i]+") " + toString(random)+")");
+      globalLoads.push_back("(= (weight "+globalDefCrate[i]+") " + to_string(random)+")");
     }
 }
 
@@ -815,14 +815,14 @@ void computeWeights()
 
       globalWeights.push_back("(= (loaded-weight "+globalDefHoist[i]+") "+"1"+")");
       random=rand()%MAXPOWER;
-      globalWeights.push_back("(= (power "+globalDefHoist[i]+") "+toString(random)+")");
+      globalWeights.push_back("(= (power "+globalDefHoist[i]+") "+to_string(random)+")");
     }
 
   for (int i=0;i<globalDefCrate.size();i++)
     {
       random=rand()%(MAXWEIGHT-MINWEIGHT);
       random+=MINWEIGHT;
-      globalWeights.push_back("(= (weight "+globalDefCrate[i]+") "+toString(random)+")");
+      globalWeights.push_back("(= (weight "+globalDefCrate[i]+") "+to_string(random)+")");
     }
 }
 
@@ -1214,19 +1214,19 @@ void insertInDepotDescription(int depot, int x, int y, int fromDoor, bool as_doo
 
   if (is_door)
     {
-      globalDepots[depot].doors.push_back("depot" + toString((char)DEPOT_SYMBOL(depot)) + "-" + toString(x) + "-" + toString(y));
+      globalDepots[depot].doors.push_back("depot" + to_string((char)DEPOT_SYMBOL(depot)) + "-" + to_string(x) + "-" + to_string(y));
       return;
     }
 
   if (as_door)
     {
-      globalDepots[depot].areas_from_door[0].push_back("depot" + toString((char)DEPOT_SYMBOL(depot)) +
-						       "-" + toString(x) + "-" + toString(y));
+      globalDepots[depot].areas_from_door[0].push_back("depot" + to_string((char)DEPOT_SYMBOL(depot)) +
+						       "-" + to_string(x) + "-" + to_string(y));
     }
   else
     {
-      globalDepots[depot].areas_from_door[fromDoor].push_back("depot" + toString((char)DEPOT_SYMBOL(depot)) +
-							      "-" + toString(x) + "-" + toString(y));
+      globalDepots[depot].areas_from_door[fromDoor].push_back("depot" + to_string((char)DEPOT_SYMBOL(depot)) +
+							      "-" + to_string(x) + "-" + to_string(y));
     }
 }
 
@@ -1367,7 +1367,7 @@ void placeHoists()
   i = 0;
   while (i<hoistNumber)
     {
-      globalDefHoist.push_back(HOIST+toString(globalDefHoist.size()));
+      globalDefHoist.push_back(HOIST+to_string(globalDefHoist.size()));
 
       pos = rand() % size;
 
@@ -1397,9 +1397,9 @@ void createContainer (int saContainerNumber, string currentContainer, int contai
 
   for (int i=0;i<saContainerNumber;i++)
     {
-      string currentCrate=CRATE+toString(i+globalDefCrate.size());
+      string currentCrate=CRATE+to_string(i+globalDefCrate.size());
       defCrate.push_back(currentCrate);
-      string currentSc="container-"+toString(container_number)+"-"+toString(i);
+      string currentSc="container-"+to_string(container_number)+"-"+to_string(i);
       crateOnContainer.push_back("(on "+currentCrate+" "+currentSc+")");
       crateInContainer.push_back("(in "+currentCrate+" "+currentContainer+")");
       defSc.push_back(currentSc);
@@ -1465,7 +1465,7 @@ void create_simple_preferences(ofstream *os)
       for (j = 0; j < globalDepots[i].doors.size(); j++)
 	{
 	  weight = globalDepots[i].size;
-	  p = new_preference(weight, "p" + toString(weight));
+	  p = new_preference(weight, "p" + to_string(weight));
 	  (*os) << "\n\t(preference " + pref_name(p) + " (clear " + globalDepots[i].doors[j] + "))";
 	  if (weight > sequence)
 	    sequence = weight;
@@ -1478,8 +1478,8 @@ void create_simple_preferences(ofstream *os)
 	      if ((globalDepots[i].size - 1) > j)
 		{
 		  weight = (globalDepots[i].size - 1) - j;
-		  p = new_preference(weight, "p" + toString(weight));
-		  //p = new_preference((globalDepots[i].size - 1) - j, "p" + toString((globalDepots[i].size - 1) - j - 1));
+		  p = new_preference(weight, "p" + to_string(weight));
+		  //p = new_preference((globalDepots[i].size - 1) - j, "p" + to_string((globalDepots[i].size - 1) - j - 1));
 		  (*os) << "\n\t(preference " + pref_name(p) + " (clear " + globalDepots[i].areas_from_door[j][m] + "))";
 		  if (weight > sequence)
 		    sequence = weight;
@@ -1509,8 +1509,8 @@ void create_simple_preferences(ofstream *os)
   for (i = 1; i < totalDepotNumber; i++)
     {
       weight = w + gap;
-      p = new_preference(weight, "p" + toString(weight));
-      //p = new_preference(w + gap, "p" + toString(k + sequence));
+      p = new_preference(weight, "p" + to_string(weight));
+      //p = new_preference(w + gap, "p" + to_string(k + sequence));
       (*os) << "\n\t(forall (?c - crate)\n\t   (preference " + pref_name(p);
       (*os) << " (exists (?d - depot) (and (in ?c ?d) (not (= ?d " + globalDefDepot[i] + "))))))";
       //k++;
@@ -1533,8 +1533,8 @@ void create_simple_preferences(ofstream *os)
       for (i = 1; i < totalDepotNumber; i++)
 	{
 	  weight = w + gap;
-	  p = new_preference(weight, "p" + toString(weight));
-	  //p = new_preference(w + gap, "p" + toString(k + sequence));
+	  p = new_preference(weight, "p" + to_string(weight));
+	  //p = new_preference(w + gap, "p" + to_string(k + sequence));
 	  (*os) << "\n\t(forall (?h - hoist)";
 	  (*os) << "\n\t   (preference " + pref_name(p);
 	  (*os) << " (exists (?s - storearea ?d - depot)";
@@ -1546,16 +1546,16 @@ void create_simple_preferences(ofstream *os)
 
       (*os) << "\n";
       weight = (int)ceil((float)weight_middle / 2);
-      p = new_preference(weight, "p" + toString(weight));
-      //p = new_preference((sequence + totalDepotNumber / 2) / 2, "p" + toString((sequence + totalDepotNumber / 2) / 2));
+      p = new_preference(weight, "p" + to_string(weight));
+      //p = new_preference((sequence + totalDepotNumber / 2) / 2, "p" + to_string((sequence + totalDepotNumber / 2) / 2));
       (*os) << "\n\t(forall (?c1 ?c2 - crate ?d - depot)\n\t   (preference " + pref_name(p);
       (*os) << " (imply (and (in ?c1 ?d) (in ?c2 ?d) (not (= ?c1 ?c2)))";
       (*os) << "\n\t\t\t          (compatible ?c1 ?c2))))";
 
       weight = (int)floor((float)weight_last / 2) + 1;
-      p = new_preference(weight, "p" + toString(weight));
+      p = new_preference(weight, "p" + to_string(weight));
       //p = new_preference((int)ceil((float)(pweight[sequence + totalDepotNumber - 1] + 1) / 4),
-      //		 "p" + toString((int)(ceil((float)(sequence + totalDepotNumber) / 4))));
+      //		 "p" + to_string((int)(ceil((float)(sequence + totalDepotNumber) / 4))));
       (*os) << "\n\n\t(forall (?c1 ?c2 - crate ?s1 ?s2 - storearea)\n\t   (preference " + pref_name(p);
       (*os) << " (imply (and (on ?c1 ?s1) (on ?c2 ?s2)";
       (*os) << "\n\t\t\t               (not (= ?c1 ?c2)) (connected ?s1 ?s2))";
@@ -1564,8 +1564,8 @@ void create_simple_preferences(ofstream *os)
 
       (*os) << "\n";
       weight = pweight[sequence + totalDepotNumber - 2] + 1;//-1
-      p = new_preference(weight, "p" + toString(weight));
-      //p = new_preference(pweight[sequence + totalDepotNumber - 1] + 1, "p" + toString(sequence + totalDepotNumber));
+      p = new_preference(weight, "p" + to_string(weight));
+      //p = new_preference(pweight[sequence + totalDepotNumber - 1] + 1, "p" + to_string(sequence + totalDepotNumber));
       (*os) << "\n\t(forall (?d - depot ?s - storearea ?h - hoist)";
       (*os) << "\n\t   (preference " + pref_name(p);
       (*os) << " (imply (and (at ?h ?s) (in ?s ?d))";
@@ -1648,17 +1648,17 @@ void create_constraints_pref(ofstream *os)
   if (totalCrateNumber > 1)
     {
       weight = (int)floor((float)weight_last / 2) + 1;
-      p = new_preference(weight, "p" + toString(weight));
-      //p = new_preference(last_w + 1, "p" + toString(sequence - diff + totalDepotNumber + 3));
+      p = new_preference(weight, "p" + to_string(weight));
+      //p = new_preference(last_w + 1, "p" + to_string(sequence - diff + totalDepotNumber + 3));
       (*os) << "\n\t(forall (?c1 ?c2 - crate ?s1 ?s2 - storearea)";
       (*os) << "\n\t   (preference " + pref_name(p) +" (always (imply (and (on ?c1 ?s1) (on ?c2 ?s2)";
       (*os) << "\n\t\t\t\t\t        (not (= ?c1 ?c2)) (connected ?s1 ?s2))";
       (*os) << "\n\t\t\t\t\t   (compatible ?c1 ?c2)))))";
 
       weight = (int)ceil((float)weight_middle / 2);
-      p = new_preference(weight, "p" + toString(weight));
+      p = new_preference(weight, "p" + to_string(weight));
       //p = new_preference((sequence - diff + 3 + totalDepotNumber / 2) * 2 - sequence + diff - 4, "p" +
-      //		 toString(sequence - diff + 3 + totalDepotNumber / 2 - 1));
+      //		 to_string(sequence - diff + 3 + totalDepotNumber / 2 - 1));
       (*os) << "\n\n\t(forall (?c1 ?c2 - crate ?d - depot)";
       (*os) << "\n\t   (preference " + pref_name(p) + " (always (imply (and (in ?c1 ?d) (in ?c2 ?d) (not (= ?c1 ?c2)))";
       (*os) << "\n\t\t\t\t\t  (compatible ?c1 ?c2)))))";
@@ -1667,8 +1667,8 @@ void create_constraints_pref(ofstream *os)
   if (at_most_once)
     {
       weight = sequence + 2 - diff;
-      p = new_preference(weight, "p" + toString(weight));
-      //p = new_preference(sequence + 2 - diff, "p" + toString(sequence + 1 - diff));
+      p = new_preference(weight, "p" + to_string(weight));
+      //p = new_preference(sequence + 2 - diff, "p" + to_string(sequence + 1 - diff));
       (*os) << "\n\n\t(forall (?c - crate)";
       (*os) << "\n\t   (preference " + pref_name(p);
       (*os) << " (at-most-once (exists (?h - hoist) (lifting ?h ?c)))))";
@@ -1676,8 +1676,8 @@ void create_constraints_pref(ofstream *os)
 
 
   weight = sequence + 3 - diff;
-  p = new_preference(weight, "p" + toString(weight));
-  //p = new_preference(sequence + 3 - diff, "p" + toString(sequence + 2 - diff));
+  p = new_preference(weight, "p" + to_string(weight));
+  //p = new_preference(sequence + 3 - diff, "p" + to_string(sequence + 2 - diff));
   (*os) << "\n\n\t(forall (?h - hoist)";
   (*os) << "\n\t   (preference " + pref_name(p);
   (*os) << " (sometime (exists (?c - crate) (lifting ?h ?c)))))";
@@ -1693,8 +1693,8 @@ void create_constraints_pref(ofstream *os)
 	      for (int j = num; j < totalCrateNumber; j++)
 		{
 		  weight = sequence + 1;
-		  p = new_preference(weight, "p" + toString(weight));
-		  //p = new_preference(sequence + 1, "p" + toString(sequence));
+		  p = new_preference(weight, "p" + to_string(weight));
+		  //p = new_preference(sequence + 1, "p" + to_string(sequence));
 		  (*os) << "\n\t(preference " + pref_name(p) +" (sometime-before (exists (?d1 - depot) (in " + globalDefCrate[i] + " ?d1))";
 		  (*os) << "\n\t\t\t\t\t (exists (?d2 - depot) (in " + globalDefCrate[j] + " ?d2))))";
 		}
@@ -1708,24 +1708,24 @@ void create_constraints_pref(ofstream *os)
       if (within)
 	{
 	  weight = totalDepotNumber + 2;//+3
-	  p = new_preference(weight, "p" + toString(weight));
-	  //p = new_preference(totalDepotNumber + 3, "p" + toString(totalDepotNumber + 3));
+	  p = new_preference(weight, "p" + to_string(weight));
+	  //p = new_preference(totalDepotNumber + 3, "p" + to_string(totalDepotNumber + 3));
 	  (*os) << "\n\n\t(forall (?c - crate)";
 	  (*os) << "\n\t   (preference " + pref_name(p) + " (within " +
-	    toString(time) + " (exists (?d - depot) (in ?c ?d)))))";
+	    to_string(time) + " (exists (?d - depot) (in ?c ?d)))))";
 	}
 
       if (always_within)
 	{
 	  weight = totalDepotNumber + 1;//+2
-	  p = new_preference(weight, "p" + toString(weight));
-	  //p = new_preference(totalDepotNumber + 2, "p" + toString(totalDepotNumber + 2));
+	  p = new_preference(weight, "p" + to_string(weight));
+	  //p = new_preference(totalDepotNumber + 2, "p" + to_string(totalDepotNumber + 2));
 	  (*os) << "\n\n\t(forall (?h - hoist)";
 	  (*os) << "\n\t   (preference " + pref_name(p) + " (always-within 3.5 (at ?h loadarea)";
 	  (*os) << "\n\t\t\t\t (exists (?a - storearea ?d - depot) (and (at ?h ?a) (in ?a ?d))))))";
 	}
       /*
-      p = new_preference(totalDepotNumber / 2, "p" + toString(totalDepotNumber / 2));
+      p = new_preference(totalDepotNumber / 2, "p" + to_string(totalDepotNumber / 2));
       (*os) << "\n\n\t(forall (?c1 ?c2 - crate ?d - depot)";
       (*os) << "\n\t   (preference " + pref_name(p) + " (always-within 2.5 (and (in ?c1 ?d) (in ?c2 ?d) (not (compatible ?c1 ?c2)))";
       (*os) << "\n\t\t\t\t\t     (or (not (in ?c1 ?d)) (not (in ?c2 ?d))))))";
@@ -1780,7 +1780,7 @@ void create_constraints(ofstream *os)
   if (within)
     {
       time = 2 * (maxSaInDepot + 3) * ((int)floor((float)totalCrateNumber / totalHoistNumber) + 1) + 2 * maxSaInDepot;
-      (*os) << "\n\n\t(forall (?c - crate) (within " + toString(time) + " (exists (?d - depot) (in ?c ?d))))";
+      (*os) << "\n\n\t(forall (?c - crate) (within " + to_string(time) + " (exists (?d - depot) (in ?c ?d))))";
     }
 
   if (always_within)
@@ -1798,7 +1798,7 @@ void print_legenda(ofstream *os)
   int d;
 
   for (int i=0;i<globalDefDepot.size();i++)
-    (*os) << "\n; " + toString((char)DEPOT_SYMBOL(i)) + ": " + globalDefDepot[i] + " area";
+    (*os) << "\n; " + to_string((char)DEPOT_SYMBOL(i)) + ": " + globalDefDepot[i] + " area";
   (*os) << "\n; *: Depot access point\n; =: Transit area";
 }
 
@@ -1857,7 +1857,7 @@ void printOutput()
   if (problem_number < 0)
     out <<"\n\n(define (problem " + problem_string + ")";
   else
-    out <<"\n\n(define (problem " + problem_string + "-" + toString(problem_number) + ")";
+    out <<"\n\n(define (problem " + problem_string + "-" + to_string(problem_number) + ")";
 
   out <<"\n(:domain " + domain_string + ")";
   out <<"\n(:objects\n\t";
@@ -2026,8 +2026,8 @@ void printOutput()
 	}
       else if (numeric)
 	{
-	  out<<"\n\n(:metric minimize (+ (* (- (num-lift) "+toString(totalCrateNumber)+") " +
-	    toString(totalCrateNumber) + ") (total-time)))";
+	  out<<"\n\n(:metric minimize (+ (* (- (num-lift) "+to_string(totalCrateNumber)+") " +
+	    to_string(totalCrateNumber) + ") (total-time)))";
 	}
       else if (durative)
 	{
