@@ -238,79 +238,79 @@ int main(int argc, char *argv[])
     {
       i++;
       switch (sw)
-	{
-	case 'p':
-	  problem_number = atoi(argv[optind-1]);
-	  break;
-	  /*
-	case 'T': // durative actions
-	  timed=1;
-	  break;
-	case 'N': // numeric
-	  numeric=1;
-	  break;
-	case 'L': // TIL
-	  til=1;
-	  break;
-	case 'X': // derived predicates
-	  derived=1;
-	  break;
-	case 'D':
-	  durative = 1;
-	  break;
-	case 'R': // random depot
-	  randomDepot=1;
-	  break;
-	case 'J': // goals with predicates "in"
-	  goalStored=0;
-	  break;
-	case 'K': // compatibilities off
-	  compatibilities=0;
-	  break;
-	  */
-	case 'h': /* help option */
-	  usage();
-	  return 1;
-	  break;
-	case 'c': /* crate number*/
-	  totalCrateNumber= atoi(argv[optind-1]);
-	  break;
-	case 'o': /* container number*/
-	  totalContainerNumber= atoi(argv[optind-1]);
-	  break;
-	case 'n': /* hoist number */
-	  totalHoistNumber= atoi(argv[optind-1]);
-	  break;
-	case 'd': /* depot number */
-	  totalDepotNumber= atoi(argv[optind-1]);
+    {
+    case 'p':
+      problem_number = atoi(argv[optind-1]);
+      break;
+      /*
+    case 'T': // durative actions
+      timed=1;
+      break;
+    case 'N': // numeric
+      numeric=1;
+      break;
+    case 'L': // TIL
+      til=1;
+      break;
+    case 'X': // derived predicates
+      derived=1;
+      break;
+    case 'D':
+      durative = 1;
+      break;
+    case 'R': // random depot
+      randomDepot=1;
+      break;
+    case 'J': // goals with predicates "in"
+      goalStored=0;
+      break;
+    case 'K': // compatibilities off
+      compatibilities=0;
+      break;
+      */
+    case 'h': /* help option */
+      usage();
+      return 1;
+      break;
+    case 'c': /* crate number*/
+      totalCrateNumber= atoi(argv[optind-1]);
+      break;
+    case 'o': /* container number*/
+      totalContainerNumber= atoi(argv[optind-1]);
+      break;
+    case 'n': /* hoist number */
+      totalHoistNumber= atoi(argv[optind-1]);
+      break;
+    case 'd': /* depot number */
+      totalDepotNumber= atoi(argv[optind-1]);
 
-	  if (DEPOT_SYMBOL(totalDepotNumber-1) > LAST_DEPOT)
-	    {
-	      printf("\nError. Cannot create %d depots (MAX = %d)\n", totalDepotNumber, MAX_DEPOTS);
-	      exit(0);
-	    }
+      if (DEPOT_SYMBOL(totalDepotNumber-1) > LAST_DEPOT)
+        {
+          printf("\nError. Cannot create %d depots (MAX = %d)\n", totalDepotNumber, MAX_DEPOTS);
+          exit(0);
+        }
 
-	  break;
-	case 's': /* storearea number */
-	  totalSaNumber= atoi(argv[optind-1]);
+      break;
+    case 's': /* storearea number */
+      totalSaNumber= atoi(argv[optind-1]);
 
-	  if (totalSaNumber > (MAX_SA-2))
-	    {
-	      printf("\nError. Number of storeareas must be < %d\n", (MAX_SA-2));
-	      exit(0);
-	    }
+      if (totalSaNumber > (MAX_SA-2))
+        {
+          printf("\nError. Number of storeareas must be < %d\n", (MAX_SA-2));
+          exit(0);
+        }
 
-	  break;
-	case 'e': /* seed of the random generator */
-	  seed=atoi(argv[optind-1]);
-	  break;
-	case '?': /* unrecognized options */
-	  usage();
-	  exit(1);
-	  break;
-	default: /* should not be reached */
-	  break;
-	}
+      break;
+    case 'e': /* seed of the random generator */
+      seed=atoi(argv[optind-1]);
+      break;
+    case '?': /* unrecognized options */
+      usage();
+      exit(1);
+      break;
+    default: /* should not be reached */
+      break;
+    }
     }
 
   if (temporal_constraints)
@@ -368,9 +368,9 @@ int main(int argc, char *argv[])
   if(totalCrateNumber > (totalSaNumber/2))
     {
       if (compatibilities)
-	{
-	  printf("\nWarning! Number of crates > Number of store-areas / 2\nBecause of non-compatibility crates the problem could be unsolvable\n");
-	}
+    {
+      printf("\nWarning! Number of crates > Number of store-areas / 2\nBecause of non-compatibility crates the problem could be unsolvable\n");
+    }
     }
   else compatibilityWarning=0;
 
@@ -406,16 +406,16 @@ int main(int argc, char *argv[])
   for (int i=0;i<totalDepotNumber-1;i++)
     {
       if (saBound>=0)
-	{
-	  int random;
-	  int randomBound;
-	  if ((int) ((double)media*probabilita*2+1)<2) randomBound=2;
-	  else randomBound=(int) ((double)media*probabilita*2+1);
-	  if (saBound!=0) random=rand()%(min(saBound+1,randomBound));
-	  else random=0;
-	  saDivision[i]=saperdepot+random;
-	  saBound-=random;
-	}
+    {
+      int random;
+      int randomBound;
+      if ((int) ((double)media*probabilita*2+1)<2) randomBound=2;
+      else randomBound=(int) ((double)media*probabilita*2+1);
+      if (saBound!=0) random=rand()%(min(saBound+1,randomBound));
+      else random=0;
+      saDivision[i]=saperdepot+random;
+      saBound-=random;
+    }
       else {cout<<"Error: The number of depots is too high!";cin.get();return 1;}
     }
   saDivision[totalDepotNumber-1]=saBound+saperdepot;
@@ -427,35 +427,35 @@ int main(int argc, char *argv[])
   while (hBound>0)
     {
       {
-	j=rand()%(totalDepotNumber+1);
-	if (hBound>0)
-	  {
-	    if (saDivision[j]>0&&hoistDivision[j]<saDivision[j]) {hoistDivision[j]++;hBound--;}
-	  }
+    j=rand()%(totalDepotNumber+1);
+    if (hBound>0)
+      {
+        if (saDivision[j]>0&&hoistDivision[j]<saDivision[j]) {hoistDivision[j]++;hBound--;}
+      }
       }
     }
 
   if ((double)totalCrateNumber/(double)(max(totalContainerNumber-1,1)) > (double)SAPERCONTAINER)
     {
       for (int i=0;i<totalContainerNumber-1;i++)
-	{
-	  if (scBound>=SAPERCONTAINER){
-	    saContainerDivision[i]=SAPERCONTAINER;
-	    scBound-=SAPERCONTAINER;}
-	}
+    {
+      if (scBound>=SAPERCONTAINER){
+        saContainerDivision[i]=SAPERCONTAINER;
+        scBound-=SAPERCONTAINER;}
+    }
       saContainerDivision[totalContainerNumber-1]=scBound;
     }
   else
     {
       for (int i=0;i<totalContainerNumber-1;i++)
-	{
-	  if (scBound>0)
-	    {
-	      saContainerDivision[i]=(rand()%(min(scBound,MINSAPERDEPOT)))+1;
-	      scBound-=saContainerDivision[i];
-	    }
-	  else {saContainerDivision[i]=0;scBound=0;}
-	}
+    {
+      if (scBound>0)
+        {
+          saContainerDivision[i]=(rand()%(min(scBound,MINSAPERDEPOT)))+1;
+          scBound-=saContainerDivision[i];
+        }
+      else {saContainerDivision[i]=0;scBound=0;}
+    }
       saContainerDivision[totalContainerNumber-1]=scBound;
     }
 
@@ -469,14 +469,14 @@ int main(int argc, char *argv[])
       globalDefContainer.push_back(currentContainer);
       //globalNumCrate.push_back("(= (num-crate "+currentContainer+") "+to_string(saContainerNumber)+")");
       if (saContainerNumber>0)
-	{
-	  createContainer(saContainerNumber, currentContainer, i);
-	  globalDefCrate.insert( globalDefCrate.end(), defCrate.begin(), defCrate.end() );
-	  globalDefSc.insert( globalDefSc.end(), defSc.begin(), defSc.end() );
-	  globalCrateOnContainer.insert( globalCrateOnContainer.end(), crateOnContainer.begin(), crateOnContainer.end() );
-	  globalCrateInContainer.insert( globalCrateInContainer.end(), crateInContainer.begin(), crateInContainer.end() );
-	  globalScInContainer.insert( globalScInContainer.end(), scInContainer.begin(), scInContainer.end() );
-	}
+    {
+      createContainer(saContainerNumber, currentContainer, i);
+      globalDefCrate.insert( globalDefCrate.end(), defCrate.begin(), defCrate.end() );
+      globalDefSc.insert( globalDefSc.end(), defSc.begin(), defSc.end() );
+      globalCrateOnContainer.insert( globalCrateOnContainer.end(), crateOnContainer.begin(), crateOnContainer.end() );
+      globalCrateInContainer.insert( globalCrateInContainer.end(), crateInContainer.begin(), crateInContainer.end() );
+      globalScInContainer.insert( globalScInContainer.end(), scInContainer.begin(), scInContainer.end() );
+    }
     }
 
   for(int i=0;i<totalDepotNumber;i++)
@@ -487,18 +487,18 @@ int main(int argc, char *argv[])
       globalDefDepot.push_back(currentDepot);
 
       if (saNumber>0){
-	clearStoreareaArray();
-	if (randomDepot) createRandomDepot();
-	else createSquareDepot(i);
+    clearStoreareaArray();
+    if (randomDepot) createRandomDepot();
+    else createSquareDepot(i);
 
-	drawMatrix(s,0,i);
-	addToGlobalMap();
-	saDone+=saNumber;
+    drawMatrix(s,0,i);
+    addToGlobalMap();
+    saDone+=saNumber;
 
-	globalDefStorearea.insert(globalDefStorearea.end(), defStorearea.begin(), defStorearea.end());
-	globalConnections.insert(globalConnections.end(), connections.begin(), connections.end());
-	globalIns.insert(globalIns.end(), ins.begin(), ins.end());
-	globalConnIndex++;
+    globalDefStorearea.insert(globalDefStorearea.end(), defStorearea.begin(), defStorearea.end());
+    globalConnections.insert(globalConnections.end(), connections.begin(), connections.end());
+    globalIns.insert(globalIns.end(), ins.begin(), ins.end());
+    globalConnIndex++;
       }
     }
 
@@ -512,9 +512,9 @@ int main(int argc, char *argv[])
 
 
 
-  //	if (timed||til) {
+  //    if (timed||til) {
   computeWeights();//}
-  //	if (til)
+  //    if (til)
   createTils();
 
   if (numeric)
@@ -544,16 +544,16 @@ void addToGlobalMap()
       minGlobalY=min(currentY+y-minUp,minGlobalY);
       maxGlobalY=max(currentY+y-minUp,maxGlobalY);
       for (int x=minLeft-1;x<=maxRight+1;x++)
-	{
-	  globalMap[currentY+y-minUp][currentX+x-minLeft]=s[y][x];
-	  if (s[y][x]==3
-	      && max(x,oldX)==x)
-	    {
-	      oldX=x;
-	      oldcorrRY=currentY+y-minUp;
-	    }
-	  maxGlobalX=currentX+x-minLeft;
-	}
+    {
+      globalMap[currentY+y-minUp][currentX+x-minLeft]=s[y][x];
+      if (s[y][x]==3
+          && max(x,oldX)==x)
+        {
+          oldX=x;
+          oldcorrRY=currentY+y-minUp;
+        }
+      maxGlobalX=currentX+x-minLeft;
+    }
     }
 
 
@@ -593,75 +593,75 @@ void createConnections()
   for (int i=1;i<=saNumber*2;i++)
     for (int j=1;j<=saNumber*2;j++)
       {
-	if (defStorearea.size()<=saNumber)
-	  {
-	    string currentS=currentDepot+"-"+to_string(i)+"-"+to_string(j);
-	    string connectedS;
-	    if (s[i][j]>0)
-	      {
-		if (j<minLeft)
-		  {
-		    //printf("\nMinLeft == %i\n", j);
-		    minLeftS=currentS;
-		    minLeft=min(j,minLeft);
-		    corrLX=j-1;
-		    corrLY=i;
-		  }
-		if (j>maxRight)
-		  {
-		    //printf("\nMaxRight == %i\n", j);
-		    maxRightS=currentS;
-		    maxRight=max(j,maxRight);
-		    corrRX=j+1;
-		    corrRY=i;
-		  }
-		if (i<minUp)
-		  {
-		    //printf("\nMinUp == %i\n", i);
-		    minUpS=currentS;
-		    minUp=min(i,minUp);
-		  }
-		if (i>maxDown)
-		  {
-		    //printf("\nMaxDown == %i\n", i);
-		    maxDownS=currentS;
-		    maxDown=max(i,maxDown);
-		  }
+    if (defStorearea.size()<=saNumber)
+      {
+        string currentS=currentDepot+"-"+to_string(i)+"-"+to_string(j);
+        string connectedS;
+        if (s[i][j]>0)
+          {
+        if (j<minLeft)
+          {
+            //printf("\nMinLeft == %i\n", j);
+            minLeftS=currentS;
+            minLeft=min(j,minLeft);
+            corrLX=j-1;
+            corrLY=i;
+          }
+        if (j>maxRight)
+          {
+            //printf("\nMaxRight == %i\n", j);
+            maxRightS=currentS;
+            maxRight=max(j,maxRight);
+            corrRX=j+1;
+            corrRY=i;
+          }
+        if (i<minUp)
+          {
+            //printf("\nMinUp == %i\n", i);
+            minUpS=currentS;
+            minUp=min(i,minUp);
+          }
+        if (i>maxDown)
+          {
+            //printf("\nMaxDown == %i\n", i);
+            maxDownS=currentS;
+            maxDown=max(i,maxDown);
+          }
 
 
-		if (s[i][j]==2)
-		  globalDoors.push_back("(connected "+currentS+" loadarea)"+"\n\t(connected "+"loadarea "+currentS+")");
+        if (s[i][j]==2)
+          globalDoors.push_back("(connected "+currentS+" loadarea)"+"\n\t(connected "+"loadarea "+currentS+")");
 
-		ins.push_back("(in "+currentS+" "+currentDepot+")");
+        ins.push_back("(in "+currentS+" "+currentDepot+")");
 
-		defStorearea.push_back(currentS);
+        defStorearea.push_back(currentS);
 
-		if(s[i-1][j]>0)
-		  {
-		    connectedS=currentDepot+"-" + to_string(i-1) +"-"+ to_string(j);
-		    connections.push_back("(connected " + currentS + " "+connectedS+ ")");
+        if(s[i-1][j]>0)
+          {
+            connectedS=currentDepot+"-" + to_string(i-1) +"-"+ to_string(j);
+            connections.push_back("(connected " + currentS + " "+connectedS+ ")");
 
-		  }
-		if(s[i+1][j]>0)
-		  {
-		    connectedS=currentDepot+"-"+to_string(i+1)+"-"+to_string(j);
-		    connections.push_back("(connected "+currentS+" "+connectedS+")");
+          }
+        if(s[i+1][j]>0)
+          {
+            connectedS=currentDepot+"-"+to_string(i+1)+"-"+to_string(j);
+            connections.push_back("(connected "+currentS+" "+connectedS+")");
 
-		  }
+          }
 
-		if(s[i][j+1]>0)
-		  {
-		    connectedS=currentDepot+"-"+to_string(i)+"-"+to_string(j+1);
-		    connections.push_back("(connected "+currentS+" "+connectedS+")");
+        if(s[i][j+1]>0)
+          {
+            connectedS=currentDepot+"-"+to_string(i)+"-"+to_string(j+1);
+            connections.push_back("(connected "+currentS+" "+connectedS+")");
 
-		  }
-		if(s[i][j-1]>0)
-		  {
-		    connectedS=currentDepot+"-"+to_string(i)+"-"+to_string(j-1);
-		    connections.push_back("(connected "+currentS+" "+connectedS+")");
-		  }
-	      }
-	  }
+          }
+        if(s[i][j-1]>0)
+          {
+            connectedS=currentDepot+"-"+to_string(i)+"-"+to_string(j-1);
+            connections.push_back("(connected "+currentS+" "+connectedS+")");
+          }
+          }
+      }
       }
 
   globalExtremes.push_back(minLeftS);
@@ -681,11 +681,11 @@ void connectDepots()
   for (int i=1;i<globalExtremes.size()-1;i+=2)
     {
       if (rightConnected[i/2]==1)
-	{
-	  string currentCorridor=CORRIDOR+to_string(globalDefCorridors.size());
-	  globalDefCorridors.push_back(currentCorridor);
-	  globalDepotConnections.push_back("(connected "+currentCorridor+" "+globalExtremes[i]+")\n\t(connected "+currentCorridor+" "+globalExtremes[i+1]+")");
-	}
+    {
+      string currentCorridor=CORRIDOR+to_string(globalDefCorridors.size());
+      globalDefCorridors.push_back(currentCorridor);
+      globalDepotConnections.push_back("(connected "+currentCorridor+" "+globalExtremes[i]+")\n\t(connected "+currentCorridor+" "+globalExtremes[i+1]+")");
+    }
     }
 }
 
@@ -702,9 +702,9 @@ void allocateVector()
   for(int i=0; i < MAX_SA; i++)
     {
       for(int j=0; j < MAX_SA; j++)
-	{
-	  s[i][j] = 0;
-	}
+    {
+      s[i][j] = 0;
+    }
     }
 }
 
@@ -730,10 +730,10 @@ void allocateGlobalMap()
   for(int i=-1; i<MAX_SA; i++)
     {
       for(int j=-1; j<MAX_SA; j++)
-	{
-	  globalMap[i][j] = 0;
-	  globalCharArray[i][j]=" ";
-	}
+    {
+      globalMap[i][j] = 0;
+      globalCharArray[i][j]=" ";
+    }
     }
 }
 
@@ -765,14 +765,14 @@ void createLoad()
       random += MINWEIGHT;
 
       if (random == MAXWEIGHT)
-	powerok = 1;
+    powerok = 1;
 
       if (!powerok && (i == (globalDefHoist.size()-1)))
-	random = MAXWEIGHT;
+    random = MAXWEIGHT;
 
       loads[i] = random;
       if (loads[i] > max_load)
-	max_load = loads[i];
+    max_load = loads[i];
 
       globalLoads.push_back("(= (max-load " + globalDefHoist[i] + ") " + to_string(random) + ")");
     }
@@ -782,19 +782,19 @@ void createLoad()
   for (int i = 0; i < totalHoistNumber; i++)
     {
       for (int k = 0; k < CRATES_PER_HOIST; k++)
-	{
+    {
 
-	  if (crates >= totalCrateNumber)
-	    break;
+      if (crates >= totalCrateNumber)
+        break;
 
-	  if (loads[i] > MINWEIGHT)
-	    random = rand() % (loads[i] - MINWEIGHT) + MINWEIGHT;
-	  else
-	    random = MINWEIGHT;
+      if (loads[i] > MINWEIGHT)
+        random = rand() % (loads[i] - MINWEIGHT) + MINWEIGHT;
+      else
+        random = MINWEIGHT;
 
-	  globalLoads.push_back("(= (weight " + globalDefCrate[i] + ") " + to_string(random) + ")");
-	  crates++;
-	}
+      globalLoads.push_back("(= (weight " + globalDefCrate[i] + ") " + to_string(random) + ")");
+      crates++;
+    }
     }
 
   for (int i = crates; i < totalCrateNumber;i++)
@@ -847,89 +847,89 @@ void drawMatrix(int **s,int global, int dep)
 
       /*
       for (int j=0;j<=leglen;j++)
-	{
+    {
 
-	  if (j == 0)
-	    globalCharArray[maxY][j] = "\n;";
-	  else
-	    globalCharArray[maxY][j] = "-";
-	}
+      if (j == 0)
+        globalCharArray[maxY][j] = "\n;";
+      else
+        globalCharArray[maxY][j] = "-";
+    }
       */
 
       for (int j=0; j<=saNumber+spacing;j++)
-	{
+    {
 
-	  globalCharArray[maxY][j] = "-";
+      globalCharArray[maxY][j] = "-";
 
-	  changedDepot=1;
-	  for (int i=minY+1;i<=maxY;i++)
-	    {
+      changedDepot=1;
+      for (int i=minY+1;i<=maxY;i++)
+        {
 
-	      if (j==0) {
-		globalCharArray[i][j]="\n;";
-		changedDepot=0;
-	      }
-	      else
-		{
-		  if (s[i][j-1]==1)
-		    {
-		      globalCharArray[i][j+1] = DEPOT_SYMBOL(nextDepot);
-		      globalCharArray[maxY][j+1] = "-";
-		      changedDepot=0;
-		    }
-		  else if (s[i][j-1]==2)
-		    {
-		      globalCharArray[i][j+1] = "*";
-		      globalCharArray[maxY][j+1] = "-";
-		      changedDepot=0;
-		    }
-		  else if (s[i][j-1]==3)
-		    {
-		      globalCharArray[maxY][j+1] = "-";
-		      globalCharArray[i][j+1] = "=";
-		    }
-		  else
-		    globalCharArray[i][j+2] = " ";
-		}
-	    }
+          if (j==0) {
+        globalCharArray[i][j]="\n;";
+        changedDepot=0;
+          }
+          else
+        {
+          if (s[i][j-1]==1)
+            {
+              globalCharArray[i][j+1] = DEPOT_SYMBOL(nextDepot);
+              globalCharArray[maxY][j+1] = "-";
+              changedDepot=0;
+            }
+          else if (s[i][j-1]==2)
+            {
+              globalCharArray[i][j+1] = "*";
+              globalCharArray[maxY][j+1] = "-";
+              changedDepot=0;
+            }
+          else if (s[i][j-1]==3)
+            {
+              globalCharArray[maxY][j+1] = "-";
+              globalCharArray[i][j+1] = "=";
+            }
+          else
+            globalCharArray[i][j+2] = " ";
+        }
+        }
 
-	  if(changedDepot) {
-	    nextDepot++;
-	    if (nextDepot == totalDepotNumber)
-	      break;
-	    spacing++;
-	  }
-	}
+      if(changedDepot) {
+        nextDepot++;
+        if (nextDepot == totalDepotNumber)
+          break;
+        spacing++;
+      }
+    }
 
       for (int i=minY;i<=maxY;i++)
-	{
-	  for (int j=0;j<=saNumber+spacing+2;j++)
-	    {
-	      /*if (globalCharArray[i][j]==1) mapString.push_back( depotSymbol);
-		else if (globalCharArray[i][j]==2) mapString.push_back( "*");
-		else if (globalCharArray[i][j]==3) mapString.push_back( "=");
-		else mapString.push_back( "-");*/
-	      mapString.push_back( globalCharArray[i][j]);
-	    }
-	}
+    {
+      for (int j=0;j<=saNumber+spacing+2;j++)
+        {
+          /*if (globalCharArray[i][j]==1) mapString.push_back( depotSymbol);
+        else if (globalCharArray[i][j]==2) mapString.push_back( "*");
+        else if (globalCharArray[i][j]==3) mapString.push_back( "=");
+        else mapString.push_back( "-");*/
+          mapString.push_back( globalCharArray[i][j]);
+        }
+    }
 
       globalMapString=mapString;
     }
   else
     for (int i=minY;i<=maxY;i++)
       {
-	mapString.push_back( "\n;");
-	for (int j=0;j<=saNumber;j++)
-	  {
-	    if (s[i][j]==1)
-	      mapString.push_back(""+DEPOT_SYMBOL(dep));
-	    else if (s[i][j]==2)
-	      mapString.push_back( "*");
-	    else if (s[i][j]==3)
-	      mapString.push_back( "=");
-	    else
-	      mapString.push_back( " ");
-	  }
+    mapString.push_back( "\n;");
+    for (int j=0;j<=saNumber;j++)
+      {
+        if (s[i][j]==1)
+          mapString.push_back(""+DEPOT_SYMBOL(dep));
+        else if (s[i][j]==2)
+          mapString.push_back( "*");
+        else if (s[i][j]==3)
+          mapString.push_back( "=");
+        else
+          mapString.push_back( " ");
+      }
       }
 
 
@@ -949,58 +949,58 @@ void createGrid(int i,int j)
       int left=rand()%27;
       int whereNow=rand()%4;
       if(down!=1&&up!=1&&right>=4&&left>=16)
-	{
-	  down=1;
-	  left=1;
-	  right=1;
-	  up=1;
-	}
+    {
+      down=1;
+      left=1;
+      right=1;
+      up=1;
+    }
 
       if(down==1&&s[i+1][j]!=1&&gridDone<saNumber)
-	{
-	  gridDone++;
-	  s[i+1][j]=1;
-	}
+    {
+      gridDone++;
+      s[i+1][j]=1;
+    }
       if(up==1&&s[i-1][j]!=1&&gridDone<saNumber)
-	{
-	  gridDone++;
-	  s[i-1][j]=1;
-	}
+    {
+      gridDone++;
+      s[i-1][j]=1;
+    }
       if(right<4&&s[i][j+1]!=1&&gridDone<saNumber)
-	{
-	  gridDone++;
-	  s[i][j+1]=1;
-	}
+    {
+      gridDone++;
+      s[i][j+1]=1;
+    }
       if(left<16&&s[i][j-1]!=1&&gridDone<saNumber)
-	{
-	  gridDone++;
-	  s[i][j-1]=1;
-	}
+    {
+      gridDone++;
+      s[i][j-1]=1;
+    }
       if(gridDone<saNumber)
-	{
+    {
 
-	  switch( whereNow )
-	    {
+      switch( whereNow )
+        {
 
-	    case 0 :
-	      i++;
+        case 0 :
+          i++;
 
-	      break;
-	    case 1 :
-	      i--;
+          break;
+        case 1 :
+          i--;
 
-	      break;
-	    case 2 :
-	      j++;
+          break;
+        case 2 :
+          j++;
 
-	      break;
-	    case 3 :
-	      j--;
+          break;
+        case 3 :
+          j--;
 
-	      break;
-	    }
-	  if (s[i][j]==0){s[i][j]=1;gridDone++;}
-	}
+          break;
+        }
+      if (s[i][j]==0){s[i][j]=1;gridDone++;}
+    }
     }
 }
 
@@ -1019,10 +1019,10 @@ void placeDoor()
   for (int i = 0; i < saNumber*2; i++)
     {
       if(s[i][saNumber] == 1 && s[i+1][saNumber] == 0)
-	{
-	  s[i][saNumber]=2;
-	  return;
-	}
+    {
+      s[i][saNumber]=2;
+      return;
+    }
     }
 
 }
@@ -1046,10 +1046,10 @@ void createGoal()
       crate_in_depot[i] = (bool *)calloc(totalCrateNumber, sizeof(bool));
 
       if(!compatibilityWarning&&saDivision[i]>1)
-	{
-	  if ((double)saDivision[i]/2>saDivision[i]/2 )saAvailable[i]=saDivision[i]/2+1;
-	  else saAvailable[i]=saDivision[i]/2;
-	}
+    {
+      if ((double)saDivision[i]/2>saDivision[i]/2 )saAvailable[i]=saDivision[i]/2+1;
+      else saAvailable[i]=saDivision[i]/2;
+    }
       else saAvailable[i]=saDivision[i];
     }
 
@@ -1058,24 +1058,24 @@ void createGoal()
     {
 
       if (crateBound>0){
-	int random;
-	if(saAvailable[i]-(MINGOALCRATEPERDEPOT*(totalDepotNumber-i-1))<=0) random=rand()%(saAvailable[i]);
-	else random=rand()%(saAvailable[i]-(MINGOALCRATEPERDEPOT*(totalDepotNumber-i-1)));
-	crateDivision[i]=min(MINGOALCRATEPERDEPOT+random,crateBound);
+    int random;
+    if(saAvailable[i]-(MINGOALCRATEPERDEPOT*(totalDepotNumber-i-1))<=0) random=rand()%(saAvailable[i]);
+    else random=rand()%(saAvailable[i]-(MINGOALCRATEPERDEPOT*(totalDepotNumber-i-1)));
+    crateDivision[i]=min(MINGOALCRATEPERDEPOT+random,crateBound);
 
-	crateBound-=crateDivision[i];
-	saAvailable[i]-=crateDivision[i];}
-      //	else {cout<<"ERRORE: FUNZIONO MALE!";cin.get();}
+    crateBound-=crateDivision[i];
+    saAvailable[i]-=crateDivision[i];}
+      //    else {cout<<"ERRORE: FUNZIONO MALE!";cin.get();}
     }
 
   for (int i=0;i<totalDepotNumber;i++)
     {
       if (crateBound>0){
 
-	crateDivision[i]+=min(saAvailable[i],crateBound);
+    crateDivision[i]+=min(saAvailable[i],crateBound);
 
-	crateBound-=min(saAvailable[i],crateBound);
-	saAvailable[i]-=min(saAvailable[i],crateBound);
+    crateBound-=min(saAvailable[i],crateBound);
+    saAvailable[i]-=min(saAvailable[i],crateBound);
       }
       //else {cin.get();}
     }
@@ -1089,26 +1089,26 @@ void createGoal()
       cratesInSameDepot.clear();
 
       if (crateNumber>0)
-	for (int k=0;k<crateNumber;k++)
-	  {
-	    if (!derived)
-	      {
-		if (!goalStored)
-		  {
-		    globalGoals.push_back("(in "+globalDefCrate[j]+" "+currentDepot+")");
-		    cratesInSameDepot.push_back(globalDefCrate[j]);
-		    crate_in_depot[i][j] = true;
-		  }
-		else globalGoals.push_back("(stored "+globalDefCrate[j]+")");
+    for (int k=0;k<crateNumber;k++)
+      {
+        if (!derived)
+          {
+        if (!goalStored)
+          {
+            globalGoals.push_back("(in "+globalDefCrate[j]+" "+currentDepot+")");
+            cratesInSameDepot.push_back(globalDefCrate[j]);
+            crate_in_depot[i][j] = true;
+          }
+        else globalGoals.push_back("(stored "+globalDefCrate[j]+")");
 
-	      }
-	    else
-	      {
-		globalGoals.push_back("(stored "+globalDefCrate[j]+" "+currentDepot+")");
-		globalGoals.push_back("(loadable "+globalDefCrate[j]+")");
-	      }
-	    j++;
-	  }
+          }
+        else
+          {
+        globalGoals.push_back("(stored "+globalDefCrate[j]+" "+currentDepot+")");
+        globalGoals.push_back("(loadable "+globalDefCrate[j]+")");
+          }
+        j++;
+      }
 
     }
 
@@ -1142,15 +1142,15 @@ void createGoalInCompatibilities()
     {
       //printf("\nNUOVO GRUPPO: %i - %i\n  -- num crates = %i", start, end-1, end - start);
       for (i = start; i < end; i++)
-	for (j = i+1; j < end; j++)
-	  {
-	    globalCompatibilities.push_back("(compatible "+globalDefCrate[i]+" "+globalDefCrate[j]+")\n\t(compatible "+globalDefCrate[j]+" "+globalDefCrate[i]+")");
-	  }
+    for (j = i+1; j < end; j++)
+      {
+        globalCompatibilities.push_back("(compatible "+globalDefCrate[i]+" "+globalDefCrate[j]+")\n\t(compatible "+globalDefCrate[j]+" "+globalDefCrate[i]+")");
+      }
       g++;
       start = end;
       end = MIN((start + n),  totalCrateNumber);
       if ((end < totalCrateNumber) && (g < add))
-	end++;
+    end++;
     }
   //printf("\n");
 
@@ -1159,15 +1159,15 @@ void createGoalInCompatibilities()
     {
       depotSaNumber = saDivision[i];
       for (int i=0;i<cratesInSameDepot.size();i++)
-	for (int j=i+1;j<cratesInSameDepot.size();j++)
-	  {
+    for (int j=i+1;j<cratesInSameDepot.size();j++)
+      {
 
-	    int random=rand()%PBCOMPATIBILITIES;
-	    if (random==1)
-	      {
-		globalCompatibilities.push_back("(compatible "+cratesInSameDepot[i]+" "+cratesInSameDepot[j]+")\n\t(compatible "+cratesInSameDepot[j]+" "+cratesInSameDepot[i]+")");
-	      }
-	  }
+        int random=rand()%PBCOMPATIBILITIES;
+        if (random==1)
+          {
+        globalCompatibilities.push_back("(compatible "+cratesInSameDepot[i]+" "+cratesInSameDepot[j]+")\n\t(compatible "+cratesInSameDepot[j]+" "+cratesInSameDepot[i]+")");
+          }
+      }
     }
   */
 }
@@ -1186,11 +1186,11 @@ void createCompatibilities()
     for (int j=i+1;j<globalDefCrate.size();j++)
       {
 
-	int random=rand()%PBCOMPATIBILITIES;
-	if (random==1)
-	  {
-	    globalCompatibilities.push_back("(compatible "+globalDefCrate[i]+" "+globalDefCrate[j]+")\n\t(compatible "+globalDefCrate[j]+" "+globalDefCrate[i]+")");
-	  }
+    int random=rand()%PBCOMPATIBILITIES;
+    if (random==1)
+      {
+        globalCompatibilities.push_back("(compatible "+globalDefCrate[i]+" "+globalDefCrate[j]+")\n\t(compatible "+globalDefCrate[j]+" "+globalDefCrate[i]+")");
+      }
       }
 }
 
@@ -1221,12 +1221,12 @@ void insertInDepotDescription(int depot, int x, int y, int fromDoor, bool as_doo
   if (as_door)
     {
       globalDepots[depot].areas_from_door[0].push_back("depot" + to_string((char)DEPOT_SYMBOL(depot)) +
-						       "-" + to_string(x) + "-" + to_string(y));
+                               "-" + to_string(x) + "-" + to_string(y));
     }
   else
     {
       globalDepots[depot].areas_from_door[fromDoor].push_back("depot" + to_string((char)DEPOT_SYMBOL(depot)) +
-							      "-" + to_string(x) + "-" + to_string(y));
+                                  "-" + to_string(x) + "-" + to_string(y));
     }
 }
 
@@ -1262,16 +1262,16 @@ void createSquareDepot(int depotNumber)
   for (int i=1;i<=dimX;i++)
     for (int j=1;j<=dimY;j++)
       {
-	if (k < saNumber)
-	  {
-	    if (s[i][j] == 0)
-	      {
-		s[i][j]=1;
-		//distance = abs(i - doorX) + abs(j - doorY);
-		//insertInDepotDescription(depotNumber, i, j, distance);
-		k++;
-	      }
-	  }
+    if (k < saNumber)
+      {
+        if (s[i][j] == 0)
+          {
+        s[i][j]=1;
+        //distance = abs(i - doorX) + abs(j - doorY);
+        //insertInDepotDescription(depotNumber, i, j, distance);
+        k++;
+          }
+      }
       }
 
   createConnections();
@@ -1281,62 +1281,62 @@ void createSquareDepot(int depotNumber)
   for (int i=1;i<=dimX;i++)
     for (int j=1;j<=dimY;j++)
       {
-	if (s[i][j] > 0)
-	  {
+    if (s[i][j] > 0)
+      {
 
-	    if ((i == doorX) && (j == doorY))
-	      {
-		insertInDepotDescription(depotNumber, i, j, 0, true, true);
-		continue;
-	      }
+        if ((i == doorX) && (j == doorY))
+          {
+        insertInDepotDescription(depotNumber, i, j, 0, true, true);
+        continue;
+          }
 
-	    if (i < doorX)
-	      {
-		distance = abs(i - doorX) + abs(j - doorY);
-	      }
-	    else
-	      {
-		hole = false;
-		for (int check = j; check < doorY; check++)
-		  if (s[i][check] <= 0)
-		    {
-		      hole = true;
-		      break;
-		    }
+        if (i < doorX)
+          {
+        distance = abs(i - doorX) + abs(j - doorY);
+          }
+        else
+          {
+        hole = false;
+        for (int check = j; check < doorY; check++)
+          if (s[i][check] <= 0)
+            {
+              hole = true;
+              break;
+            }
 
-		if (!hole)
-		  {
-		    distance = abs(i - doorX) + abs(j - doorY);
-		  }
-		else
-		  {
-		    distance = abs(i - 1 - doorX) + abs(j - doorY) + 1;
-		  }
-	      }
+        if (!hole)
+          {
+            distance = abs(i - doorX) + abs(j - doorY);
+          }
+        else
+          {
+            distance = abs(i - 1 - doorX) + abs(j - doorY) + 1;
+          }
+          }
 
-	    //Check corridoi: stesso peso della porta davanti ai corridoi
-	    if (false && rightConnected[depotNumber])
-	      {
-		if ((i == 1) && (j == dimY))
-		  {
-		    insertInDepotDescription(depotNumber, i, j, distance, true, false);
-		    continue;
-		  }
-	      }
+        //Check corridoi: stesso peso della porta davanti ai corridoi
+        if (false && rightConnected[depotNumber])
+          {
+        if ((i == 1) && (j == dimY))
+          {
+            insertInDepotDescription(depotNumber, i, j, distance, true, false);
+            continue;
+          }
+          }
 
-	    if (false && (depotNumber > 0) && (rightConnected[depotNumber-1]))
-	      {
-		if ((i == 1) && (j == 1))
-		  {
-		    insertInDepotDescription(depotNumber, i, j, distance, true, false);
+        if (false && (depotNumber > 0) && (rightConnected[depotNumber-1]))
+          {
+        if ((i == 1) && (j == 1))
+          {
+            insertInDepotDescription(depotNumber, i, j, distance, true, false);
 
-		    continue;
-		  }
-	      }
-	    //fine check corridoi
+            continue;
+          }
+          }
+        //fine check corridoi
 
-	    insertInDepotDescription(depotNumber, i, j, distance, false, false);
-	  }
+        insertInDepotDescription(depotNumber, i, j, distance, false, false);
+      }
       }
 
 }
@@ -1414,7 +1414,7 @@ int search_in_preferences_table(string name)
   for (i = 0; i < pnames.size(); i++)
     {
       if (pnames[i] == name)
-	return i;
+    return i;
     }
 
   return -1;
@@ -1463,39 +1463,39 @@ void create_simple_preferences(ofstream *os)
   for (i = 0; i < totalDepotNumber; i++)
     {
       for (j = 0; j < globalDepots[i].doors.size(); j++)
-	{
-	  weight = globalDepots[i].size;
-	  p = new_preference(weight, "p" + to_string(weight));
-	  (*os) << "\n\t(preference " + pref_name(p) + " (clear " + globalDepots[i].doors[j] + "))";
-	  if (weight > sequence)
-	    sequence = weight;
-	}
+    {
+      weight = globalDepots[i].size;
+      p = new_preference(weight, "p" + to_string(weight));
+      (*os) << "\n\t(preference " + pref_name(p) + " (clear " + globalDepots[i].doors[j] + "))";
+      if (weight > sequence)
+        sequence = weight;
+    }
 
       for (j = 0; j < globalDepots[i].size; j++)
-	{
-	  for (m = 0; m < globalDepots[i].areas_from_door[j].size(); m++)
-	    {
-	      if ((globalDepots[i].size - 1) > j)
-		{
-		  weight = (globalDepots[i].size - 1) - j;
-		  p = new_preference(weight, "p" + to_string(weight));
-		  //p = new_preference((globalDepots[i].size - 1) - j, "p" + to_string((globalDepots[i].size - 1) - j - 1));
-		  (*os) << "\n\t(preference " + pref_name(p) + " (clear " + globalDepots[i].areas_from_door[j][m] + "))";
-		  if (weight > sequence)
-		    sequence = weight;
-		}
-	    }
-	}
+    {
+      for (m = 0; m < globalDepots[i].areas_from_door[j].size(); m++)
+        {
+          if ((globalDepots[i].size - 1) > j)
+        {
+          weight = (globalDepots[i].size - 1) - j;
+          p = new_preference(weight, "p" + to_string(weight));
+          //p = new_preference((globalDepots[i].size - 1) - j, "p" + to_string((globalDepots[i].size - 1) - j - 1));
+          (*os) << "\n\t(preference " + pref_name(p) + " (clear " + globalDepots[i].areas_from_door[j][m] + "))";
+          if (weight > sequence)
+            sequence = weight;
+        }
+        }
+    }
     }
 
 
   if (constraints_pref)
     {
       if (at_most_once)
-	pdiff++;
+    pdiff++;
 
       if (sometime_before)
-	pdiff++;
+    pdiff++;
     }
 
 
@@ -1517,9 +1517,9 @@ void create_simple_preferences(ofstream *os)
       w += gap;
       gap = globalDepots[i].size + 1;
       if (i == ((totalDepotNumber - 1)/ 2))
-	weight_middle = weight;
+    weight_middle = weight;
       if (i == (totalDepotNumber - 1))
-	weight_last = weight;
+    weight_last = weight;
     }
 
   if (!constraints_pref)
@@ -1531,18 +1531,18 @@ void create_simple_preferences(ofstream *os)
       w = sequence;
       gap = 1;
       for (i = 1; i < totalDepotNumber; i++)
-	{
-	  weight = w + gap;
-	  p = new_preference(weight, "p" + to_string(weight));
-	  //p = new_preference(w + gap, "p" + to_string(k + sequence));
-	  (*os) << "\n\t(forall (?h - hoist)";
-	  (*os) << "\n\t   (preference " + pref_name(p);
-	  (*os) << " (exists (?s - storearea ?d - depot)";
-	  (*os) << "\n\t\t\t      (and (at ?h ?s) (in ?s ?d) (not (= ?d " + globalDefDepot[i] +  "))))))";
-	  //k++;
-	  w += gap;
-	  gap = globalDepots[i].size + 1;
-	}
+    {
+      weight = w + gap;
+      p = new_preference(weight, "p" + to_string(weight));
+      //p = new_preference(w + gap, "p" + to_string(k + sequence));
+      (*os) << "\n\t(forall (?h - hoist)";
+      (*os) << "\n\t   (preference " + pref_name(p);
+      (*os) << " (exists (?s - storearea ?d - depot)";
+      (*os) << "\n\t\t\t      (and (at ?h ?s) (in ?s ?d) (not (= ?d " + globalDefDepot[i] +  "))))))";
+      //k++;
+      w += gap;
+      gap = globalDepots[i].size + 1;
+    }
 
       (*os) << "\n";
       weight = (int)ceil((float)weight_middle / 2);
@@ -1555,7 +1555,7 @@ void create_simple_preferences(ofstream *os)
       weight = (int)floor((float)weight_last / 2) + 1;
       p = new_preference(weight, "p" + to_string(weight));
       //p = new_preference((int)ceil((float)(pweight[sequence + totalDepotNumber - 1] + 1) / 4),
-      //		 "p" + to_string((int)(ceil((float)(sequence + totalDepotNumber) / 4))));
+      //         "p" + to_string((int)(ceil((float)(sequence + totalDepotNumber) / 4))));
       (*os) << "\n\n\t(forall (?c1 ?c2 - crate ?s1 ?s2 - storearea)\n\t   (preference " + pref_name(p);
       (*os) << " (imply (and (on ?c1 ?s1) (on ?c2 ?s2)";
       (*os) << "\n\t\t\t               (not (= ?c1 ?c2)) (connected ?s1 ?s2))";
@@ -1584,10 +1584,10 @@ int find_min_pref()
   for (k = 0; k < pnames.size(); k++)
     {
       if (pweight[k] < min)
-	{
-	  res = k;
-	  min = pweight[k];
-	}
+    {
+      res = k;
+      min = pweight[k];
+    }
     }
 
   return res;
@@ -1606,16 +1606,16 @@ void print_simple_preference_metric(ofstream *os)
       k = find_min_pref();
 
       for (j = 0; j < ptotal[k]; j++)
-	{
-	  if (!first)
-	    (*os) << "\n\t\t     ";
+    {
+      if (!first)
+        (*os) << "\n\t\t     ";
 
-	  (*os) << "(* ";
-	  (*os) << pweight[k];
-	  (*os) << " (is-violated "+ pnames[k] + preference_symbol(j+1) + "))";
+      (*os) << "(* ";
+      (*os) << pweight[k];
+      (*os) << " (is-violated "+ pnames[k] + preference_symbol(j+1) + "))";
 
-	  first = false;
-	}
+      first = false;
+    }
 
       pnames[k] = pnames[pnames.size() - 1];
       pweight[k] = pweight[pnames.size() - 1];
@@ -1658,7 +1658,7 @@ void create_constraints_pref(ofstream *os)
       weight = (int)ceil((float)weight_middle / 2);
       p = new_preference(weight, "p" + to_string(weight));
       //p = new_preference((sequence - diff + 3 + totalDepotNumber / 2) * 2 - sequence + diff - 4, "p" +
-      //		 to_string(sequence - diff + 3 + totalDepotNumber / 2 - 1));
+      //         to_string(sequence - diff + 3 + totalDepotNumber / 2 - 1));
       (*os) << "\n\n\t(forall (?c1 ?c2 - crate ?d - depot)";
       (*os) << "\n\t   (preference " + pref_name(p) + " (always (imply (and (in ?c1 ?d) (in ?c2 ?d) (not (= ?c1 ?c2)))";
       (*os) << "\n\t\t\t\t\t  (compatible ?c1 ?c2)))))";
@@ -1685,45 +1685,45 @@ void create_constraints_pref(ofstream *os)
   if (sometime_before)
     {
       if (totalCrateNumber > 1)
-	{
-	  (*os) << "\n";
-	  num = rand() % (int)ceil((float)totalCrateNumber / 4) + 1;
-	  for (int i = 0; i < num; i++)
-	    {
-	      for (int j = num; j < totalCrateNumber; j++)
-		{
-		  weight = sequence + 1;
-		  p = new_preference(weight, "p" + to_string(weight));
-		  //p = new_preference(sequence + 1, "p" + to_string(sequence));
-		  (*os) << "\n\t(preference " + pref_name(p) +" (sometime-before (exists (?d1 - depot) (in " + globalDefCrate[i] + " ?d1))";
-		  (*os) << "\n\t\t\t\t\t (exists (?d2 - depot) (in " + globalDefCrate[j] + " ?d2))))";
-		}
-	    }
-	}
+    {
+      (*os) << "\n";
+      num = rand() % (int)ceil((float)totalCrateNumber / 4) + 1;
+      for (int i = 0; i < num; i++)
+        {
+          for (int j = num; j < totalCrateNumber; j++)
+        {
+          weight = sequence + 1;
+          p = new_preference(weight, "p" + to_string(weight));
+          //p = new_preference(sequence + 1, "p" + to_string(sequence));
+          (*os) << "\n\t(preference " + pref_name(p) +" (sometime-before (exists (?d1 - depot) (in " + globalDefCrate[i] + " ?d1))";
+          (*os) << "\n\t\t\t\t\t (exists (?d2 - depot) (in " + globalDefCrate[j] + " ?d2))))";
+        }
+        }
+    }
     }
 
   time = 2 * (maxSaInDepot + 3) * ((int)floor((float)totalCrateNumber / totalHoistNumber) + 1)+ 2 * maxSaInDepot;
   if (temporal_constraints)
     {
       if (within)
-	{
-	  weight = totalDepotNumber + 2;//+3
-	  p = new_preference(weight, "p" + to_string(weight));
-	  //p = new_preference(totalDepotNumber + 3, "p" + to_string(totalDepotNumber + 3));
-	  (*os) << "\n\n\t(forall (?c - crate)";
-	  (*os) << "\n\t   (preference " + pref_name(p) + " (within " +
-	    to_string(time) + " (exists (?d - depot) (in ?c ?d)))))";
-	}
+    {
+      weight = totalDepotNumber + 2;//+3
+      p = new_preference(weight, "p" + to_string(weight));
+      //p = new_preference(totalDepotNumber + 3, "p" + to_string(totalDepotNumber + 3));
+      (*os) << "\n\n\t(forall (?c - crate)";
+      (*os) << "\n\t   (preference " + pref_name(p) + " (within " +
+        to_string(time) + " (exists (?d - depot) (in ?c ?d)))))";
+    }
 
       if (always_within)
-	{
-	  weight = totalDepotNumber + 1;//+2
-	  p = new_preference(weight, "p" + to_string(weight));
-	  //p = new_preference(totalDepotNumber + 2, "p" + to_string(totalDepotNumber + 2));
-	  (*os) << "\n\n\t(forall (?h - hoist)";
-	  (*os) << "\n\t   (preference " + pref_name(p) + " (always-within 3.5 (at ?h loadarea)";
-	  (*os) << "\n\t\t\t\t (exists (?a - storearea ?d - depot) (and (at ?h ?a) (in ?a ?d))))))";
-	}
+    {
+      weight = totalDepotNumber + 1;//+2
+      p = new_preference(weight, "p" + to_string(weight));
+      //p = new_preference(totalDepotNumber + 2, "p" + to_string(totalDepotNumber + 2));
+      (*os) << "\n\n\t(forall (?h - hoist)";
+      (*os) << "\n\t   (preference " + pref_name(p) + " (always-within 3.5 (at ?h loadarea)";
+      (*os) << "\n\t\t\t\t (exists (?a - storearea ?d - depot) (and (at ?h ?a) (in ?a ?d))))))";
+    }
       /*
       p = new_preference(totalDepotNumber / 2, "p" + to_string(totalDepotNumber / 2));
       (*os) << "\n\n\t(forall (?c1 ?c2 - crate ?d - depot)";
@@ -1757,23 +1757,23 @@ void create_constraints(ofstream *os)
   if (sometime_before)
     {
       if (totalCrateNumber > 1)
-	{
-	  (*os) << "\n";
-	  if (!derived && !goalStored)
-	    {
+    {
+      (*os) << "\n";
+      if (!derived && !goalStored)
+        {
 
-	      num_crate = rand() % (int)ceil((float)totalCrateNumber / 4) + 1;
+          num_crate = rand() % (int)ceil((float)totalCrateNumber / 4) + 1;
 
-	      for (int i = 0; i < num_crate; i++)
-		{
-		  for (int j = num_crate; j < totalCrateNumber; j++)
-		    {
-		      (*os) << "\n\t(sometime-before (exists (?d1 - depot) (in " + globalDefCrate[i] + " ?d1))";
-		      (*os) << "\n\t\t\t (exists (?d2 - depot) (in " + globalDefCrate[j] + " ?d2)))";
-		    }
-		}
-	    }
-	}
+          for (int i = 0; i < num_crate; i++)
+        {
+          for (int j = num_crate; j < totalCrateNumber; j++)
+            {
+              (*os) << "\n\t(sometime-before (exists (?d1 - depot) (in " + globalDefCrate[i] + " ?d1))";
+              (*os) << "\n\t\t\t (exists (?d2 - depot) (in " + globalDefCrate[j] + " ?d2)))";
+            }
+        }
+        }
+    }
     }
 
 
@@ -1818,9 +1818,9 @@ void printOutput()
   if (constraints)
     {
       if (numeric)
-	domain_string = "Storage-MetricTimeConstraints";
+    domain_string = "Storage-MetricTimeConstraints";
       else if (durative)
-	domain_string = "Storage-TimeConstraints";
+    domain_string = "Storage-TimeConstraints";
     }
   else if (simple_pref && !constraints_pref)
     domain_string = "Storage-PropositionalSimplePreferences";
@@ -1828,20 +1828,20 @@ void printOutput()
     {
       domain_string = "Storage-PropositionalPreferences";
       if (numeric)
-	{
-	  domain_string = "Storage-MetricTimePreferences";
-	}
+    {
+      domain_string = "Storage-MetricTimePreferences";
+    }
       else if (durative)
-	{
-	  domain_string = "Storage-TimePreferences";
-	}
+    {
+      domain_string = "Storage-TimePreferences";
+    }
     }
   else
     {
       if (numeric)
-	domain_string = "Storage-MetricTime";
+    domain_string = "Storage-MetricTime";
       else if (durative)
-	domain_string = "Storage-Time";
+    domain_string = "Storage-Time";
     }
 
 
@@ -1892,9 +1892,9 @@ void printOutput()
   if (globalDefCorridors.size() > 0)
     {
       if (constraints)
-	out << "\n\t";
+    out << "\n\t";
       for (int i=0;i<globalDefCorridors.size();i++)
-	out << globalDefCorridors[i]+" ";
+    out << globalDefCorridors[i]+" ";
       out << "- transitarea";
     }
   else
@@ -1959,7 +1959,7 @@ void printOutput()
     {
       out << "";
       for (int i=0;i<globalCompatibilities.size();i++)
-	out <<"\n\t"+ globalCompatibilities[i];
+    out <<"\n\t"+ globalCompatibilities[i];
     }
 
   if (timed||til)
@@ -1973,7 +1973,7 @@ void printOutput()
       out << "";
       out << "\n\t(= (num-lift) 0)";
       for (int i=0;i<globalLoads.size();i++)
-	out << "\n\t"+globalLoads[i];
+    out << "\n\t"+globalLoads[i];
     }
 
   if(til) {
@@ -2001,7 +2001,7 @@ void printOutput()
   else
     {
       for (int i=0;i<globalGoals.size();i++)
-	out << "\n\t"+globalGoals[i];
+    out << "\n\t"+globalGoals[i];
     }
 
   if (simple_pref || constraints_pref || !constraints)
@@ -2021,18 +2021,18 @@ void printOutput()
   else
     {
       if (timed || til || constraints)
-	{
-	  out<<"\n\n(:metric minimize (total-time))";
-	}
+    {
+      out<<"\n\n(:metric minimize (total-time))";
+    }
       else if (numeric)
-	{
-	  out<<"\n\n(:metric minimize (+ (* (- (num-lift) "+to_string(totalCrateNumber)+") " +
-	    to_string(totalCrateNumber) + ") (total-time)))";
-	}
+    {
+      out<<"\n\n(:metric minimize (+ (* (- (num-lift) "+to_string(totalCrateNumber)+") " +
+        to_string(totalCrateNumber) + ") (total-time)))";
+    }
       else if (durative)
-	{
-	  out<<"\n\n(:metric minimize (total-time))";
-	}
+    {
+      out<<"\n\n(:metric minimize (total-time))";
+    }
     }
   out << "\n)\n";
 
