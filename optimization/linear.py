@@ -197,11 +197,12 @@ class EnumAtr:
 
 
 class Domain:
-    def __init__(self, name, gen_command, linear_atrs, enum_values=[]):
+    def __init__(self, name, gen_command, linear_atrs, adapt_f=None, enum_values=[]):
         self.name = name
         self.linear_attributes = linear_atrs
         self.enum_attributes = enum_values
         self.gen_command = gen_command
+        self.adapt_f = adapt_f
 
     def get_domain_file(self):
         return os.path.join(GENERATORS_DIR, self.name, "domain.pddl")
@@ -223,6 +224,9 @@ class Domain:
                     atr.set_values(cfg, Y, num_tasks_baseline, enum_atr.name)
 
                 result.append(Y)
+
+        if self.adapt_f: 
+            result = [[self.adapt_f(config) for config in y] for y in result ]
         return result
 
     def get_hyperparameters(self):
@@ -241,6 +245,14 @@ class Domain:
         return "{}/{}/{}".format(GENERATORS_DIR, self.name, self.gen_command)
 
 
+
+def adapt_parameters_parking(parameters):
+    print (parameters)
+    curbs = parameters["curbs"]
+    cars = 2*(curbs -1)
+    return {"curbs" : curbs, "cars" : cars}
+
+    
 # def get_configs_driverlog(cfg):
 #     drivers_b = cfg.get("drivers_b")
 #     drivers_m = cfg.get("drivers_m")
@@ -351,25 +363,83 @@ DOMAIN_LIST = [
         "ztravel {seed} {cities} {planes} {people}",
         [LinearAtr("planes"), LinearAtr("people"), LinearAtr("cities", lower_b=3)],
     ),
-]
-# "driverlog" : GENERATORS_DIR + "/driverlog/dlgen {seed} {roadjunctions} {drivers} {packages} {trucks}",
-# "driverlog"      : [LinearAtr("drivers"), LinearAtr("packages"), LinearAtr("locations", lower_b=2)]     + [UniformIntegerHyperparameter("trucks_diff", lower=-2, upper=2, default_value=0),],)
 
-# "floortile" : GENERATORS_DIR + "/floortile/floortile-generator.py name {num_rows} {num_columns} {num_robots} seq {seed} ",
-# "depots" : GENERATORS_DIR + "/depots/depots -e {depots} -i {distributors} -t {trucks} -p {pallets} -h {hoists} -c {crates} -s {seed}",
-# "storage" : GENERATORS_DIR + "/storage/gen-StorageT -p 1 -n {hoists} -d {depots} -o {containers} -s {store_areas} -c {crates} -e {seed}",
-# Domain("depots", [LinearAtr("depots"), LinearAtr("distributors"), LinearAtr("trucks"), LinearAtr("pallets"), LinearAtr("hoists"), LinearAtr("crates")]),
-# "parking"
-# "pathways"
-# "storage"
-# "barman"
-# "childsnack"
-# "hiking"
-# "tetris"
-# "data-network"
-# "snake"
-# "termes"
-# "maintenance"
+    
+    Domain("parking",
+           "./parking-generator.pl prob {curbs} {cars} seq",
+           [LinearAtr("curbs", lower_b=3)],
+           adapt_f = adapt_parameters_parking,            
+    ),
+    
+
+    Domain("barman",
+           "",
+           [] # TODO 
+    ),
+    
+    Domain("childsnack",
+           "",
+           [] # TODO 
+    ),
+    
+    Domain("hiking",
+           "",
+           [] # TODO 
+    ),
+    
+    Domain("tetris",
+           "",
+           [] # TODO 
+    ),
+    
+    Domain("data-network",
+           "",
+           [] # TODO 
+    ),
+    
+    Domain("snake",
+           "",
+           [] # TODO 
+    ),
+    
+    Domain("termes",
+           "",
+           [] # TODO 
+    ),
+    
+    Domain("maintenance",
+           "",
+           [] # TODO 
+    ),
+
+    Domain("floortile",
+           "floortile-generator.py name {num_rows} {num_columns} {num_robots} seq {seed}",
+           [] # TODO
+    ),
+           
+    Domain("depots",
+           "depots -e {depots} -i {distributors} -t {trucks} -p {pallets} -h {hoists} -c {crates} -s {seed}",
+           [LinearAtr("depots"), LinearAtr("distributors"), LinearAtr("trucks"), LinearAtr("pallets"), LinearAtr("hoists"), LinearAtr("crates")]
+    ),
+    
+    Domain("driverlog",
+           "dlgen {seed} {roadjunctions} {drivers} {packages} {trucks}",
+           [] # TODO  [LinearAtr("drivers"), LinearAtr("packages"), LinearAtr("locations", lower_b=2)]     + [UniformIntegerHyperparameter("trucks_diff", lower=-2, upper=2, default_value=0),],)
+    ),
+
+    Domain("pathways",
+           "pathways --seed {seed} -out tmp.pddl -R {reactions} -G {num_goals} -L {substances} -n prob > domain_file_to_concatenate", # TODO: The generator outputs both the problem and the domain file, 
+           [] # TODO 
+    ),
+
+    Domain("storage",
+           "storage -p 01 -o {containers} -e {seed} -c {crates} -n {hoists} -s {store_areas} -d {depots} tmp.pddl",
+           [LinearAtr("containers"), LinearAtr("crates", lower_b=4),  LinearAtr("hoists"),  LinearAtr("store_areas"),  LinearAtr("depots")]
+           # TODO Warning! Number of crates / Number of containers < 4
+           # Error: Number of crates is greater than the number of store-areas
+    ),
+]
+
 
 DOMAIN_DICT = {d.name: d for d in DOMAIN_LIST}
 
