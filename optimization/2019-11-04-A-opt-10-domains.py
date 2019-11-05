@@ -23,7 +23,6 @@ REPO = os.path.dirname(DIR)
 IMAGES_DIR = os.path.join(REPO, "images")
 DOMAINS = [
     "blocksworld",
-    "driverlog",
     "gripper",
     "miconic-strips",
     "rover",
