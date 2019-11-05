@@ -2,7 +2,7 @@ Problem generator for Trucks-Propositional
 Authors: Yannis Dimopoulos, Alfonso Gerevini and Alessandro Saetti
 ==================================================================
 
-gen-Trucks [options] file
+trucks [options] file
 
 Command line options:
  -t <num>       Set the number of trucks
