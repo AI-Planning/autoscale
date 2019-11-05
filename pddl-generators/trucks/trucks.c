@@ -4,7 +4,7 @@
 #include <time.h>
 #include <string.h>
 #include <sys/types.h>
-#include <sys/time.h> 
+#include <sys/time.h>
 #include <sys/types.h>
 #include <sys/timeb.h>
 #include <sys/times.h>
@@ -25,7 +25,7 @@
 #define PREF_BASE ('Z'-'A'+1)
 
 
-/* 
+/*
    define boolean types if not allready defined
  */
 #ifndef Bool
@@ -52,10 +52,10 @@ char *pref_symb(int p, int num)
 {
   char *res;
   int r, q, l;
-  
+
   res = (char *)calloc(10, sizeof(char));
   sprintf(res, "p%d\0", p);
-  
+
   l = strlen(res);
 
   q = num-1;
@@ -66,9 +66,9 @@ char *pref_symb(int p, int num)
       res[l++] = (char)(r + PREF_START);
     }
   while (q > 0);
-  
+
   res[l] = '\0';
-  
+
   return res;
 }
 
@@ -88,98 +88,98 @@ Bool process_command_line (int argc, char *argv[])
   for (i = 1; i < argc; i++)
     {
       if (argv[i][0] != '-')
-	continue;
+    continue;
 
       else if (strcmp (argv[i], "-t") == 0 )
-	{
-	  sscanf (argv[++i], "%d", &num_truck);
-	  lineok++;
-	}
+    {
+      sscanf (argv[++i], "%d", &num_truck);
+      lineok++;
+    }
       else if (strcmp (argv[i], "-l") == 0 )
-	{
-	  sscanf (argv[++i], "%d", &num_loc);
-	  lineok++;
-	}
+    {
+      sscanf (argv[++i], "%d", &num_loc);
+      lineok++;
+    }
       /*
       else if (strcmp (argv[i], "-T") == 0 )
-	{
-	  sscanf (argv[++i], "%d", &num_time);
-	  num_time++;
-	}
+    {
+      sscanf (argv[++i], "%d", &num_time);
+      num_time++;
+    }
       */
       else if (strcmp (argv[i], "-p") == 0 )
-	{
-	  sscanf (argv[++i], "%d", &num_package);
-	  if (num_package > MAX_NUM_PACKAGE)
-	    {
-	      printf("\nError: The number of packages must be lower than %d", MAX_NUM_PACKAGE);
-	      exit(0);
-	    }
-	  lineok++;
-	}
+    {
+      sscanf (argv[++i], "%d", &num_package);
+      if (num_package > MAX_NUM_PACKAGE)
+        {
+          printf("\nError: The number of packages must be lower than %d", MAX_NUM_PACKAGE);
+          exit(0);
+        }
+      lineok++;
+    }
       else if (strcmp (argv[i], "-a") == 0 )
-	{
-	  sscanf (argv[++i], "%d", &num_truckarea);
-	  lineok++;
-	}
+    {
+      sscanf (argv[++i], "%d", &num_truckarea);
+      lineok++;
+    }
       else if (strcmp (argv[i], "-n") == 0 )
-	  sscanf (argv[++i], "%d", &num_problem);
+      sscanf (argv[++i], "%d", &num_problem);
 
       else if (strcmp (argv[i], "-seed") == 0 )
-	  sscanf (argv[++i], "%d", &seed);
+      sscanf (argv[++i], "%d", &seed);
 
       /*
       else if (strcmp (argv[i], "-safe") == 0 )
-	safe_generation = TRUE;	
+    safe_generation = TRUE;
 
       else if (strcmp (argv[i], "-qualitativepreference") == 0 )
-	{
-	  qualitative_preference = TRUE;
-	  strcpy (&domain_name[0], "Trucks-QualitativePreferences");
-	}
+    {
+      qualitative_preference = TRUE;
+      strcpy (&domain_name[0], "Trucks-QualitativePreferences");
+    }
       else if (strcmp (argv[i], "-simplepreference") == 0 )
-	{
-	  simple_preference = TRUE;
-	  strcpy (&domain_name[0], "Trucks-SimplePreferences");
-	}
+    {
+      simple_preference = TRUE;
+      strcpy (&domain_name[0], "Trucks-SimplePreferences");
+    }
       else if (strcmp (argv[i], "-simplepreference2") == 0 )
-	{
-	  simple_preference2 = TRUE;
-	  strcpy (&domain_name[0], "Trucks-SimplePreferences");
-	}
+    {
+      simple_preference2 = TRUE;
+      strcpy (&domain_name[0], "Trucks-SimplePreferences");
+    }
       else if (strcmp (argv[i], "-constraint") == 0 )
-	{
-	  constraint = TRUE; time_version = TRUE;
-	  strcpy (&domain_name[0], "Trucks-Constraints");
-	}
+    {
+      constraint = TRUE; time_version = TRUE;
+      strcpy (&domain_name[0], "Trucks-Constraints");
+    }
       else if (strcmp (argv[i], "-time") == 0 )
-	{
-	  time_version = TRUE;
-	  strcpy (&domain_name[0], "Trucks-Time");
-	}
+    {
+      time_version = TRUE;
+      strcpy (&domain_name[0], "Trucks-Time");
+    }
       else if (strcmp (argv[i], "-timetil") == 0 )
-	{
-	  til_version = TRUE;
-	  strcpy (&domain_name[0], "Trucks-TimeTIL");
-	}
+    {
+      til_version = TRUE;
+      strcpy (&domain_name[0], "Trucks-TimeTIL");
+    }
       else if (strcmp (argv[i], "-complexpreference") == 0 )
-	{
-	  complex_preference = TRUE; time_version = TRUE;
-	  strcpy (&domain_name[0], "Trucks-ComplexPreferences");
-	}
+    {
+      complex_preference = TRUE; time_version = TRUE;
+      strcpy (&domain_name[0], "Trucks-ComplexPreferences");
+    }
       */
       else
-	{
-	  printf ("\nUnknown option: %s entered\n\n", argv[i]);
-	  return FALSE;
-	}
+    {
+      printf ("\nUnknown option: %s entered\n\n", argv[i]);
+      return FALSE;
+    }
     }
 
   if (lineok < 4)
     {
       printf ("\nPlease specify the necessary settings\n\n");
       exit(1);
-    }  
+    }
   return(TRUE);
 }
 
@@ -246,9 +246,9 @@ int main(int argc, char *argv[])
   if (num_time < 0)
     {
       if (safe_generation || simple_preference || simple_preference2 || qualitative_preference || complex_preference)
-	num_time = num_package * 2 + 1;
+    num_time = num_package * 2 + 1;
       else
-	num_time = num_loc * (((num_package - 1) / num_truckarea) + 1) + 1;
+    num_time = num_loc * (((num_package - 1) / num_truckarea) + 1) + 1;
     }
 
   if (safe_generation && num_package * 2 > num_time)
@@ -259,8 +259,8 @@ int main(int argc, char *argv[])
   else
     if (num_loc * (((num_package - 1) / num_truckarea) + 1)  > num_time)
       {
-	printf("The number of available time step could be too low.\n\n");
-	exit(0);
+    printf("The number of available time step could be too low.\n\n");
+    exit(0);
       }
 
 
@@ -268,7 +268,7 @@ int main(int argc, char *argv[])
 
   printf("; Domain designed by Yannis Dimopoulos, Alfonso Gerevini and Alessandro Saetti\n; This file has been automatically generated by the generator available from\n; http://zeus.ing.unibs.it/ipc-5/generators/index.html\n\n");
 
-  if (num_problem > 0) 
+  if (num_problem > 0)
     printf("(define (problem truck-%d)",num_problem);
   else
     printf("\n(define (problem truck-problem)");
@@ -287,11 +287,11 @@ int main(int argc, char *argv[])
 
   for(i=0; i < num_loc; i++)
     printf("\n\tl%d - location", i+1);
-  
-  if (!time_version && !til_version) 
+
+  if (!time_version && !til_version)
     for(i=0; i < num_time; i++)
       printf("\n\tt%d - time", i);
-  
+
   for(i=0; i < num_truckarea; i++)
     printf("\n\ta%d - truckarea", i+1);
 
@@ -324,37 +324,37 @@ int main(int argc, char *argv[])
   if (completely_rnd_pack_distrib)
     {
       for (i=0; i < num_package; i++)
-	{
-	  num = MY_RANDOM % num_loc;
-	  printf("\n\t(at package%d l%d)", i+1, num+1);
-	  package_loc[i] = num + 1;
-	}
+    {
+      num = MY_RANDOM % num_loc;
+      printf("\n\t(at package%d l%d)", i+1, num+1);
+      package_loc[i] = num + 1;
+    }
     }
   else
     {
       i=0;
       while (i < num_package)
-	{
-	  num = MY_RANDOM % num_loc;
-	  
-	  for (j = 0 ; j < num_truckarea; j++)
-	    {
-	      printf("\n\t(at package%d l%d)", i+1, num+1);
-	      package_loc[i] = num + 1;
-	      
-	      i++;
-	      if (i == num_package)
-		break;
-	    }
-	}
+    {
+      num = MY_RANDOM % num_loc;
+
+      for (j = 0 ; j < num_truckarea; j++)
+        {
+          printf("\n\t(at package%d l%d)", i+1, num+1);
+          package_loc[i] = num + 1;
+
+          i++;
+          if (i == num_package)
+        break;
+        }
+    }
     }
 
   if (completely_connected == TRUE)
     {
       for (i=0; i < num_loc; i++)
-	for (j=0; j < num_loc; j++)
-	  if (i != j)
-	    printf("\n\t(connected l%d l%d)", i+1, j+1);
+    for (j=0; j < num_loc; j++)
+      if (i != j)
+        printf("\n\t(connected l%d l%d)", i+1, j+1);
 
     }
   else
@@ -365,39 +365,39 @@ int main(int argc, char *argv[])
 
 
   /* final locations for goal generation */
-  
-  if (!time_version && !til_version) 
+
+  if (!time_version && !til_version)
     {
-    
+
 
     /* time clock */
-    
+
     printf("\n\t(time-now t0)");
-    
+
 #ifndef __NOTLE__
     for (i=0; i < num_time - 1; i++)
       for (j=i; j < num_time - 1; j++)
-	printf("\n\t(le t%d t%d)", i+1, j+1);
+    printf("\n\t(le t%d t%d)", i+1, j+1);
 #endif
-    
+
     for (i = 0; i < num_package; i++)
       {
-	do {
-	  num = MY_RANDOM % num_loc;
-	} while (package_loc[i] == (num + 1));      
-	
+    do {
+      num = MY_RANDOM % num_loc;
+    } while (package_loc[i] == (num + 1));
+
       final_package_loc[i] = num;
       }
-    
+
     for (i = 0; i < num_package; i++)
-      {	  
-	if (MY_RANDOM % num_truckarea)
-	  package_deadline[i] = TRUE;
-	else
-	  package_deadline[i] = FALSE;
+      {
+    if (MY_RANDOM % num_truckarea)
+      package_deadline[i] = TRUE;
+    else
+      package_deadline[i] = FALSE;
       }
-    
-  
+
+
     for (i=0; i < num_time - 1; i++)
       printf("\n\t(next t%d t%d)", i, i+1);
 
@@ -407,94 +407,94 @@ int main(int argc, char *argv[])
   else
     {
       for (i=0; i < num_loc; i++)
-	x[i] = MY_RANDOM % 1000;
+    x[i] = MY_RANDOM % 1000;
       for (i=0; i < num_loc; i++)
-	y[i] = MY_RANDOM % 1000;
+    y[i] = MY_RANDOM % 1000;
 
       for (i = 0; i < num_package; i++)
-	{
-	  do {
-	    num = MY_RANDOM % num_loc;
-	  } while (package_loc[i] == (num + 1));      
-	  
-	  final_package_loc[i] = num;
-	}
-      
+    {
+      do {
+        num = MY_RANDOM % num_loc;
+      } while (package_loc[i] == (num + 1));
+
+      final_package_loc[i] = num;
+    }
+
       for (i = 0; i < num_package; i++)
-	{	  
-	  if (MY_RANDOM % num_truckarea)
-	    package_deadline[i] = TRUE;
-	  else
-	    package_deadline[i] = FALSE;
-	}
-  
+    {
+      if (MY_RANDOM % num_truckarea)
+        package_deadline[i] = TRUE;
+      else
+        package_deadline[i] = FALSE;
+    }
+
 
 
       for (i=0; i < num_loc; i++)
-	for (j=0; j < num_loc; j++)
-	  if (i != j)
-	    drive_time[i][j]= sqrtf((powf((x[i]-x[j]),2) + powf(y[i]-y[j],2)));
+    for (j=0; j < num_loc; j++)
+      if (i != j)
+        drive_time[i][j]= sqrtf((powf((x[i]-x[j]),2) + powf(y[i]-y[j],2)));
 
       if (til_version || constraint || complex_preference)
-	{
+    {
 
-	  if (til_version)
-	    for (i = 0; i < num_package; i ++)
-	      if (package_deadline[i])
-		printf("\n\t(deliverable package%d l%d)", i+1, final_package_loc[i]+1);
+      if (til_version)
+        for (i = 0; i < num_package; i ++)
+          if (package_deadline[i])
+        printf("\n\t(deliverable package%d l%d)", i+1, final_package_loc[i]+1);
 
-	  k=0; i=0; j =0; w=0;
+      k=0; i=0; j =0; w=0;
 
-	  while (i < num_package)
-	    {
-	      
-	      if (w < num_truck)
-		max_drive_time[w % num_truck] = drive_time[truck_location[w]][package_loc[i] - 1] * 1.10;
-	      else
-		max_drive_time[w % num_truck] += drive_time[final_package_loc[num_truckarea * ((w - num_truck) + 1) - 1]][package_loc[i] - 1] * 1.10;
-	      
-	      while (i < num_truckarea * (w + 1))
-		{
-		  /*
-		    if (i > 0)
-		    max_drive_time +=  drive_time[final_package_loc[i - 1]][package_loc[i] - 1] * 1.10;	      
-		  */
-		  
-		  max_drive_time[w % num_truck] +=  drive_time[package_loc[i] - 1][final_package_loc[i]] * 1.10;	      
-		  
-		  //	      if (i < num_package - 1)
-		  for (; (i < (j+1) * num_truckarea - 1) && i < num_package - 1; i++)
-		    max_drive_time[w % num_truck] += drive_time[final_package_loc[i]][final_package_loc[i+1]] * 1.10;
-		  //	      else
-		  i++;
-		  
-		  j++;
-		  
-		  for (; k < num_truckarea * j && k < num_package; k ++)
-		    if (package_deadline[k])
-		      {
-			if (til_version)
-			  printf("\n\t(at %.1f (not (deliverable package%d l%d)))", max_drive_time[w % num_truck], k+1, final_package_loc[k]+1);
-			else
-			  within[k] = max_drive_time[w % num_truck];
-		      } 
-		}
+      while (i < num_package)
+        {
 
-	      w++;
+          if (w < num_truck)
+        max_drive_time[w % num_truck] = drive_time[truck_location[w]][package_loc[i] - 1] * 1.10;
+          else
+        max_drive_time[w % num_truck] += drive_time[final_package_loc[num_truckarea * ((w - num_truck) + 1) - 1]][package_loc[i] - 1] * 1.10;
+
+          while (i < num_truckarea * (w + 1))
+        {
+          /*
+            if (i > 0)
+            max_drive_time +=  drive_time[final_package_loc[i - 1]][package_loc[i] - 1] * 1.10;
+          */
+
+          max_drive_time[w % num_truck] +=  drive_time[package_loc[i] - 1][final_package_loc[i]] * 1.10;
+
+          //          if (i < num_package - 1)
+          for (; (i < (j+1) * num_truckarea - 1) && i < num_package - 1; i++)
+            max_drive_time[w % num_truck] += drive_time[final_package_loc[i]][final_package_loc[i+1]] * 1.10;
+          //          else
+          i++;
+
+          j++;
+
+          for (; k < num_truckarea * j && k < num_package; k ++)
+            if (package_deadline[k])
+              {
+            if (til_version)
+              printf("\n\t(at %.1f (not (deliverable package%d l%d)))", max_drive_time[w % num_truck], k+1, final_package_loc[k]+1);
+            else
+              within[k] = max_drive_time[w % num_truck];
+              }
+        }
+
+          w++;
 
 
-	    }      
-	}
+        }
+    }
 
       for (i=0; i < num_loc; i++)
-	for (j=0; j < num_loc; j++)
-	  if (i != j)
-	    printf("\n\t(= (drive-time l%d l%d) %.1f)", i + 1, j + 1, 
-		   sqrtf((powf((x[i]-x[j]),2) + powf(y[i]-y[j],2))));
+    for (j=0; j < num_loc; j++)
+      if (i != j)
+        printf("\n\t(= (drive-time l%d l%d) %.1f)", i + 1, j + 1,
+           sqrtf((powf((x[i]-x[j]),2) + powf(y[i]-y[j],2))));
 
       printf(")\n");
     }
-  
+
 
   /* goals */
 
@@ -503,131 +503,131 @@ int main(int argc, char *argv[])
   if (safe_generation == TRUE)
     {
       for (i = 0; i < num_package; i++)
-	{
+    {
 
-	  num =final_package_loc[i];
-	  
-	  if (package_deadline[i]) 
-	    printf("\n\t(delivered package%d l%d t%d)", i+1, num+1, num_package * 2);
-	  else
-	    printf("\n\t(at-destination package%d l%d)", i+1, num+1);
-	}
+      num =final_package_loc[i];
+
+      if (package_deadline[i])
+        printf("\n\t(delivered package%d l%d t%d)", i+1, num+1, num_package * 2);
+      else
+        printf("\n\t(at-destination package%d l%d)", i+1, num+1);
+    }
       printf(")\n");
     }
   else
     {
       //      printf("\nA interesting generation of the goals has not been implemented yet\n\n");
       //      exit(0);
-      
-      /* 
-	 The first num_truckarea packages can be delivered within a 
-	 random number between num_locations and num_package * 2 - 1
-	 The second num_truckarea packages can be delivered within a
-	 random number between num_locations * 2 and num_package * 2 - 1
-	 The third num_truckarea packages can be delivered within a
-	 random number between num_locations * 3 and num_package * 2 - 1
-	 ...
+
+      /*
+     The first num_truckarea packages can be delivered within a
+     random number between num_locations and num_package * 2 - 1
+     The second num_truckarea packages can be delivered within a
+     random number between num_locations * 2 and num_package * 2 - 1
+     The third num_truckarea packages can be delivered within a
+     random number between num_locations * 3 and num_package * 2 - 1
+     ...
       */
 
       for (i = 0; i < num_package; i++)
-	{
-	  num = final_package_loc[i];
+    {
+      num = final_package_loc[i];
 
-	  //	  timeidx = num_loc * ((i / num_truckarea) + 1) + (MY_RANDOM % ((num_package * 2 ) - num_loc * ((i / num_truckarea) + 1)));
+      //      timeidx = num_loc * ((i / num_truckarea) + 1) + (MY_RANDOM % ((num_package * 2 ) - num_loc * ((i / num_truckarea) + 1)));
 
-	  if (num_loc <= num_truckarea)
-	    timeidx = num_loc * ((i / num_truckarea) + 1);
-	  else
-	    timeidx = (num_truckarea + 1 ) * ((i / num_truckarea) + 1);
-	    
-	  if (simple_preference)
-	    {
-	      timeidx = (int) floor((float)timeidx * 0.75);
-	    }
+      if (num_loc <= num_truckarea)
+        timeidx = num_loc * ((i / num_truckarea) + 1);
+      else
+        timeidx = (num_truckarea + 1 ) * ((i / num_truckarea) + 1);
+
+      if (simple_preference)
+        {
+          timeidx = (int) floor((float)timeidx * 0.75);
+        }
 
 
-	  //	  printf("i = %d -- timeidx = %d", i, timeidx);
+      //      printf("i = %d -- timeidx = %d", i, timeidx);
 
-	  if (package_deadline[i]) 
-	    {
-	      if (simple_preference)
-		{
+      if (package_deadline[i])
+        {
+          if (simple_preference)
+        {
 
-		  printf("\n\t(at-destination package%d l%d)", i+1, num+1);
-		  for (j = timeidx; j <= num_package * 2 ; j++)
-		    {
-		      used_pref[j - timeidx + 1]++;
-		      symb = pref_symb(j - timeidx + 1,used_pref[j - timeidx + 1]);		      
-		      printf("\n\t(preference %s (exists (?t - time)\n\t\t (and (delivered package%d l%d ?t) (le ?t t%d))))", symb, i+1, num+1, j);
+          printf("\n\t(at-destination package%d l%d)", i+1, num+1);
+          for (j = timeidx; j <= num_package * 2 ; j++)
+            {
+              used_pref[j - timeidx + 1]++;
+              symb = pref_symb(j - timeidx + 1,used_pref[j - timeidx + 1]);
+              printf("\n\t(preference %s (exists (?t - time)\n\t\t (and (delivered package%d l%d ?t) (le ?t t%d))))", symb, i+1, num+1, j);
 
-		    }
-		}
-	      else 
-		{
-		  if (simple_preference2 || qualitative_preference)
-		    {
-		      int tmp;
+            }
+        }
+          else
+        {
+          if (simple_preference2 || qualitative_preference)
+            {
+              int tmp;
 
-		      printf("\n\t(at-destination package%d l%d)", i+1, num+1);
+              printf("\n\t(at-destination package%d l%d)", i+1, num+1);
 
-		      if (simple_preference2)
-			tmp = 1;
-		      else
-			{
-			  if (qualitative_preference) 
-			    tmp = num_truckarea + 2;
-			  else
-			    tmp = num_truckarea;
-			}
+              if (simple_preference2)
+            tmp = 1;
+              else
+            {
+              if (qualitative_preference)
+                tmp = num_truckarea + 2;
+              else
+                tmp = num_truckarea;
+            }
 
-		      used_pref[tmp]++;
-		      symb = pref_symb(tmp,used_pref[tmp]);	
+              used_pref[tmp]++;
+              symb = pref_symb(tmp,used_pref[tmp]);
 
-		      sprintf (String[i], "(delivered package%d l%d t%d)", i+1, num+1, timeidx); 
-		      
-		      if (simple_preference2 || qualitative_preference)
-			printf("\n\t(preference %s (delivered package%d l%d t%d))", symb, i+1, num+1, timeidx);
-		    }
-		  else 
-		    {
-		      if (time_version || til_version)
-			{
-			  if (constraint)
-			    sprintf (String[i], "(delivered package%d l%d)", i+1, num+1); 
-			  else if (complex_preference || time_version)
-			    {
-			      printf("\n\t(delivered package%d l%d)", i+1, num+1);
-			      sprintf (String[i], "(delivered package%d l%d)", i+1, num+1); 
-			    }
-			}
-		      else 
-			printf("\n\t(delivered package%d l%d t%d)", i+1, num+1, timeidx);
-		    }
-		}
-	    }
-	  else
-	    {
-	      if (simple_preference)
-		printf("\n");
+              sprintf (String[i], "(delivered package%d l%d t%d)", i+1, num+1, timeidx);
 
-	      // MODIFICA QUI
+              if (simple_preference2 || qualitative_preference)
+            printf("\n\t(preference %s (delivered package%d l%d t%d))", symb, i+1, num+1, timeidx);
+            }
+          else
+            {
+              if (time_version || til_version)
+            {
+              if (constraint)
+                sprintf (String[i], "(delivered package%d l%d)", i+1, num+1);
+              else if (complex_preference || time_version)
+                {
+                  printf("\n\t(delivered package%d l%d)", i+1, num+1);
+                  sprintf (String[i], "(delivered package%d l%d)", i+1, num+1);
+                }
+            }
+              else
+            printf("\n\t(delivered package%d l%d t%d)", i+1, num+1, timeidx);
+            }
+        }
+        }
+      else
+        {
+          if (simple_preference)
+        printf("\n");
 
-	      if (complex_preference || time_version || constraint)
-		printf("\n\t(delivered package%d l%d)", i+1, num+1);
-	      else
-		printf("\n\t(at-destination package%d l%d)", i+1, num+1);
+          // MODIFICA QUI
 
-	      if (simple_preference)
-		printf("\n");
-	      
-	      if (complex_preference || time_version || constraint)
-		sprintf(String[i], "(delivered package%d l%d)", i+1, num+1);
-	      else
-		sprintf (String[i], "(at-destination package%d l%d)", i+1, num+1); 
+          if (complex_preference || time_version || constraint)
+        printf("\n\t(delivered package%d l%d)", i+1, num+1);
+          else
+        printf("\n\t(at-destination package%d l%d)", i+1, num+1);
 
-	    }
+          if (simple_preference)
+        printf("\n");
 
-	}
+          if (complex_preference || time_version || constraint)
+        sprintf(String[i], "(delivered package%d l%d)", i+1, num+1);
+          else
+        sprintf (String[i], "(at-destination package%d l%d)", i+1, num+1);
+
+        }
+
+    }
 
       printf("))\n\n");
 
@@ -639,9 +639,9 @@ int main(int argc, char *argv[])
       printf("(:constraints (and");
 
       for (i=0; i < MAX_NUM_PACKAGE; i++)
-	if (within[i] > 0)
-	  printf("\n\t(within %.1f (delivered package%d l%d))", within[i], i+1, final_package_loc[i]+1);
-      
+    if (within[i] > 0)
+      printf("\n\t(within %.1f (delivered package%d l%d))", within[i], i+1, final_package_loc[i]+1);
+
       printf("))\n\n");
     }
 
@@ -651,46 +651,46 @@ int main(int argc, char *argv[])
       printf("(:constraints (and\n");
 
       for (i = 0 ; i < num_truckarea - 1; i++)
-	{
-	  used_pref[1]++;
-	  symb = pref_symb(1,used_pref[1]);	
+    {
+      used_pref[1]++;
+      symb = pref_symb(1,used_pref[1]);
 
-	  printf("\n\t(forall (?p - package ?t - truck)");
-	  printf("\n\t   (preference %s (always (forall (?a - truckarea) (imply (in ?p ?t ?a) (closer ?a a%d))))))", symb, i+2);
+      printf("\n\t(forall (?p - package ?t - truck)");
+      printf("\n\t   (preference %s (always (forall (?a - truckarea) (imply (in ?p ?t ?a) (closer ?a a%d))))))", symb, i+2);
 
-	}
-      
+    }
+
       printf("\n");
 
       prev=0;
       for (i=0; i < num_package; prev = i / num_truckarea, i++ )
-	{
-	  //	  printf("%d -- %d\n", prev, (i / num_truckarea));
-	  if ((i / num_truckarea) == prev && i > 0 && !(MY_RANDOM % num_truckarea))
-	    {
-	      used_pref[num_truckarea - 1]++;
-	      symb = pref_symb(num_truckarea - 1,used_pref[num_truckarea - 1]);	
+    {
+      //      printf("%d -- %d\n", prev, (i / num_truckarea));
+      if ((i / num_truckarea) == prev && i > 0 && !(MY_RANDOM % num_truckarea))
+        {
+          used_pref[num_truckarea - 1]++;
+          symb = pref_symb(num_truckarea - 1,used_pref[num_truckarea - 1]);
 
-	      printf("\n\t(preference %s (sometime-before %s\n\t\t\t\t\t %s))", symb, String[i],String[i-1]);
-	    }
-	}
+          printf("\n\t(preference %s (sometime-before %s\n\t\t\t\t\t %s))", symb, String[i],String[i-1]);
+        }
+    }
 
       if (complex_preference)
-	{
-	  printf("\n");
+    {
+      printf("\n");
 
-	  for (i=0; i < MAX_NUM_PACKAGE; i++)
-	    if (within[i] > 0)
-	      {
-		used_pref[num_truckarea + 2]++;
-		symb = pref_symb(num_truckarea + 2,used_pref[num_truckarea + 2]);	
-		
-		printf("\n\t(preference %s (within %.1f (delivered package%d l%d)))", symb, within[i], i+1, final_package_loc[i]+1);
-	      }
-	}
+      for (i=0; i < MAX_NUM_PACKAGE; i++)
+        if (within[i] > 0)
+          {
+        used_pref[num_truckarea + 2]++;
+        symb = pref_symb(num_truckarea + 2,used_pref[num_truckarea + 2]);
+
+        printf("\n\t(preference %s (within %.1f (delivered package%d l%d)))", symb, within[i], i+1, final_package_loc[i]+1);
+          }
+    }
 
       used_pref[num_truckarea]++;
-      symb = pref_symb(num_truckarea,used_pref[num_truckarea]);	
+      symb = pref_symb(num_truckarea,used_pref[num_truckarea]);
 
       printf("\n\n\t(forall (?p - package)");
       printf("\n\t   (preference %s (at-most-once (exists (?t - truck ?a - truckarea)", symb);
@@ -703,19 +703,19 @@ int main(int argc, char *argv[])
       printf("(:metric minimize (+ ");
       first = TRUE;
       for (i = 0; i < MAX_PREFERENCES; i++)
-	{
-	  if (used_pref[i] <= 0)
-	    continue;
-	  
-	  for (j = 0 ; j < used_pref[i]; j++)
-	    {
-	      if (!first)
-	    printf("\n\t\t     ");
-	      printf("(* %d (is-violated %s))", i, pref_symb(i, j + 1));
-	      first = FALSE;
-	    }
+    {
+      if (used_pref[i] <= 0)
+        continue;
 
-	}
+      for (j = 0 ; j < used_pref[i]; j++)
+        {
+          if (!first)
+        printf("\n\t\t     ");
+          printf("(* %d (is-violated %s))", i, pref_symb(i, j + 1));
+          first = FALSE;
+        }
+
+    }
 
       printf("))");
     }
