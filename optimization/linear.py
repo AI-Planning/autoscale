@@ -54,10 +54,10 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--tasks", type=int, default=20,
-        help="Number of tasks to generate in each round (default: %(default)s, max=7)")
+        help="Number of tasks to generate in each round (default: %(default)s)")
     parser.add_argument(
         "--tasksbaseline", type=int, default=5,
-        help="Number of tasks that are used to evaluate the baseline (default: %(default)s, max=7)")
+        help="Number of tasks that are used to evaluate the baseline (default: %(default)s)")
     parser.add_argument(
         "--evaluations", type=int, default=sys.maxsize,
         help="Maximum number of configurations to evaluate (default: %(default)s)")
@@ -75,7 +75,7 @@ def parse_args():
         "images_dir", help="path to directory containing the Singularity images to run")
     parser.add_argument("domain", help="Domain name")
     parser.add_argument(
-        "--smac_output_dir", default="smac", help="Directory where to store logs and temporary files")
+        "--smac_output_dir", default="smac", help="Directory where to store logs and temporary files (default: %(default)s)")
     return parser.parse_args()
 
 
