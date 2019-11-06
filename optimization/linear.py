@@ -660,7 +660,6 @@ class InstanceSet:
         return lower_bound <= self.sequential_runtimes[i] and self.sequential_runtimes[i] <= time_limit
 
     def get_runtimes(self, num_instances, lower_bound, time_limit):
-
         selected_runtimes = [t for t in self.sequential_runtimes if t > lower_bound]
         while len(selected_runtimes) < num_instances:
             if not self.eval_next(time_limit):
@@ -668,7 +667,7 @@ class InstanceSet:
             else:
                 selected_runtimes = [t for t in self.sequential_runtimes if t > lower_bound]
 
-        selected_runtimes[:num_instances]
+        return selected_runtimes[:num_instances]
 
 
 RUNNER_BASELINE = Runner(DOMAIN_DICT[ARGS.domain], [BASELINE_PLANNER])
