@@ -290,10 +290,10 @@ PLANNER_SELECTION = {
     "trucks": ["scorpion-nodiv.img", "symba2.img"],
     "zenotravel": ["scorpion-nodiv.img", "delfi-celmcut.img", "symba2.img"],
     "depots": ["scorpion-nodiv.img", "delfi-ipdb.img"],
-    "visitall": ["ipc_2018_opt_complementary2", "ipc_2014_opt_symba1", "ipc_2018_opt_delfi_ipdb"],
-    "woodworking": ["ipc_2018_opt_scorpion_nodiv", "ipc_2018_opt_delfi_celmcut"],
+    "visitall": ["complementary2.img", "symba1.img", "delfi-ipdb.img"],
+    "woodworking": ["scorpion-nodiv.img", "delfi-celmcut.img"],
     "parking": [],
-    "tpp": ["ipc_2018_opt_complementary2"],
+    "tpp": ["complementary2.img"],
     "pathways": [],
     "storage": [],
     "barman": [],
@@ -306,6 +306,11 @@ PLANNER_SELECTION = {
     "termes": [],
     "maintenance": [],
 }
+
+for domain, images in PLANNER_SELECTION.items():
+    for image in images:
+        path = os.path.join(ARGS.images_dir, image)
+        assert os.path.exists(path), f"image at {path} is missing"
 
 
 DOMAIN_LIST = [
