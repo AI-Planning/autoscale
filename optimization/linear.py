@@ -404,47 +404,53 @@ DOMAIN_LIST = [
            "generator.py {n_couples} {n_cars} {n_places} {seed}",
            [LinearAtr("n_couples"), LinearAtr("n_places"), LinearAtr("n_cars", base_atr="n_couples")] 
     ),
-    
-    Domain("tetris",
-           "",
-           [] # TODO 
-    ),
-    
-    Domain("data-network",
-           "",
-           [] # TODO 
-    ),
-    
-    Domain("snake",
-           "",
-           [] # TODO 
-    ),
-    
-    Domain("termes",
-           "",
-           [] # TODO 
-    ),
-    
-    Domain("maintenance",
-           "",
-           [] # TODO 
-    ),
+  
+    # Domain("floortile",
+    #        "floortile-generator.py name {num_rows} {num_columns} {num_robots} seq {seed}",
+    #        [],
+    #        enum_values=[EnumAtr("square")]
+           
+    # ),    
 
-    Domain("floortile",
-           "floortile-generator.py name {num_rows} {num_columns} {num_robots} seq {seed}",
-           [] # TODO
-    ),    
 
-    Domain("pathways",
-           "pathways --seed {seed} -out tmp.pddl -R {reactions} -G {num_goals} -L {substances} -n prob > domain_file_to_concatenate", # TODO: The generator outputs both the problem and the domain file, 
-           [] # TODO 
-    ),
+    
 
-    Domain("storage",
-           "storage -p 01 -o {containers} -e {seed} -c {crates} -n {hoists} -s {store_areas} -d {depots} tmp.pddl",
-           [LinearAtr("containers"), LinearAtr("crates", lower_b=4),  LinearAtr("hoists"),  LinearAtr("store_areas", base_atr="crates"),  LinearAtr("depots")]
-           # TODO Warning! Number of crates / Number of containers < 4
-    ),
+    # Domain("data-network",
+    #        "",
+    #        [] # TODO 
+    # ),
+    
+    # Domain("snake",
+    #        "",
+    #        [] # TODO 
+    # ),
+    
+    # Domain("termes",
+    #        "",
+    #        [] # TODO 
+    # ),
+    
+    # Domain("maintenance",
+    #        "",
+    #        [] # TODO 
+    # ),
+
+    # Domain("pathways",
+    #        "pathways --seed {seed} -out tmp.pddl -R {reactions} -G {num_goals} -L {substances} -n prob > domain_file_to_concatenate", # TODO: The generator outputs both the problem and the domain file, 
+    #        [] # TODO 
+    # ),
+
+    # Domain("storage",
+    #        "storage -p 01 -o {containers} -e {seed} -c {crates} -n {hoists} -s {store_areas} -d {depots} tmp.pddl",
+    #        [LinearAtr("containers"), LinearAtr("crates", lower_b=4),  LinearAtr("hoists"),  LinearAtr("store_areas", base_atr="crates"),  LinearAtr("depots")]
+    #        # TODO Warning! Number of crates / Number of containers < 4
+    # ),
+
+    # Domain("tetris",
+    #        "generator.py {grid_size} {conf_blocks}",
+    #        [] # TODO ** Take care, generator can return unsolvable instances!! ** 
+    # ),
+    
 ]
 
 
