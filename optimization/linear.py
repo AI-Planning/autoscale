@@ -51,6 +51,10 @@ from smac.facade.smac_hpo_facade import SMAC4HPO
 from smac.initial_design.default_configuration_design import DefaultConfiguration
 
 
+DIR = os.path.abspath(os.path.dirname(__file__))
+REPO = os.path.dirname(DIR)
+
+
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -88,7 +92,10 @@ def parse_args():
         help="Initial random seed for SMAC and our internal random seeds (default: %(default)d)",
     )
     parser.add_argument("--generators-dir", help="path to directory containing the generators")
-    parser.add_argument("images_dir", help="path to directory containing the Singularity images to run")
+    parser.add_argument(
+        "--images_dir",
+        default=os.path.join(REPO, "images"),
+        help="path to directory containing the Singularity images to run")
     parser.add_argument("domain", help="Domain name")
     parser.add_argument(
         "--smac_output_dir",
@@ -98,8 +105,6 @@ def parse_args():
     return parser.parse_args()
 
 
-DIR = os.path.abspath(os.path.dirname(__file__))
-REPO = os.path.dirname(DIR)
 PLANNER_TIME_LIMIT = 180
 PLANNER_MEMORY_LIMIT = 3 * 1024 ** 3  # 3 GiB in Bytes
 MIN_PLANNER_RUNTIME = 0.1
