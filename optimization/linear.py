@@ -91,7 +91,10 @@ def parse_args():
         default=0,
         help="Initial random seed for SMAC and our internal random seeds (default: %(default)d)",
     )
-    parser.add_argument("--generators-dir", help="path to directory containing the generators")
+    parser.add_argument(
+        "--generators-dir",
+        default=os.path.join(REPO, "pddl-generators"),
+        help="path to directory containing the generators")
     parser.add_argument(
         "--images_dir",
         default=os.path.join(REPO, "images"),
@@ -110,7 +113,7 @@ PLANNER_MEMORY_LIMIT = 3 * 1024 ** 3  # 3 GiB in Bytes
 MIN_PLANNER_RUNTIME = 0.1
 ARGS = parse_args()
 SMAC_OUTPUT_DIR = ARGS.smac_output_dir
-GENERATORS_DIR = ARGS.generators_dir or os.path.join(REPO, "pddl-generators")
+GENERATORS_DIR = ARGS.generators_dir
 TMP_PLAN_DIR = "plan"
 SINGULARITY_SCRIPT = os.path.join(DIR, "run-singularity.sh")
 print("Singularity script:", SINGULARITY_SCRIPT)
@@ -463,10 +466,12 @@ DOMAIN_LIST = [
 
 ]
 
-
 DOMAIN_DICT = {d.name: d for d in DOMAIN_LIST}
 
 print(DOMAIN_DICT.keys())
+
+for domain in DOMAIN_DICT:
+    assert os.path.exists(os.path.join(ARGS.generators_dir, domain, "domain.pddl")), f"domain.pddl missing for {domain}"
 
 
 # This class is in charge of running instances, using a cache to store the results
