@@ -295,7 +295,7 @@ PLANNER_SELECTION = {
     "depots": ["scorpion-nodiv.img", "delfi-ipdb.img"],
     "visitall": ["complementary2.img", "symba1.img", "delfi-ipdb.img"],
     "woodworking": ["scorpion-nodiv.img", "delfi-celmcut.img"],
-    "parking": ["fdss-mas1.img"],
+    "parking": ["delfi-ipdb.img"],
     "tpp": ["complementary2.img"],
     "pathways": ["delfi-celmcut.img"],
     "storage": [],
