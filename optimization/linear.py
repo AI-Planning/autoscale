@@ -295,14 +295,14 @@ PLANNER_SELECTION = {
     "depots": ["scorpion-nodiv.img", "delfi-ipdb.img"],
     "visitall": ["complementary2.img", "symba1.img", "delfi-ipdb.img"],
     "woodworking": ["scorpion-nodiv.img", "delfi-celmcut.img"],
-    "parking": [],
+    "parking": ["fdss-mas1.img"],
     "tpp": ["complementary2.img"],
-    "pathways": [],
+    "pathways": ["delfi-celmcut.img"],
     "storage": [],
-    "barman": [],
+    "barman": ["symba1.img"],
     "floortile": [],
-    "childsnack": [],
-    "hiking": [],
+    "childsnack": ["delfi-ipdb.img"],
+    "hiking": ["delfi-mas-miasm.img"],
     "tetris": [],
     "data-network": [],
     "snake": [],
@@ -472,6 +472,7 @@ print(DOMAIN_DICT.keys())
 
 for domain in DOMAIN_DICT:
     assert os.path.exists(os.path.join(ARGS.generators_dir, domain, "domain.pddl")), f"domain.pddl missing for {domain}"
+    assert PLANNER_SELECTION[domain], f"no planners selected for {domain}"
 
 
 # This class is in charge of running instances, using a cache to store the results
