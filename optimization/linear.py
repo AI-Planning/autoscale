@@ -184,12 +184,12 @@ class LinearAtr:
     def set_values(self, cfg, Y, num_tasks_baseline, modifier=None):
         atr = "{}_{}".format(modifier, self.name) if modifier else self.name
 
-        val = self.lower_b if self.lower_b == self.upper_b else int(cfg.get("{}_b".format(atr))) 
+        val = self.lower_b if self.lower_b == self.upper_b else int(cfg.get("{}_b".format(atr)))
         m = self.lower_m if self.lower_m == self.upper_m else float(cfg.get("{}_m".format(atr)))
         m2 = 0 if self.lower_m == self.upper_m else  float(cfg.get("{}_m2".format(atr)))
 
         for i, Yi in enumerate(Y):
-            Yi[self.name] = int(val) 
+            Yi[self.name] = int(val)
             if self.base_atr:
                 Yi[self.name] += Yi[self.base_atr]
             val += m
@@ -207,7 +207,7 @@ class ConstantAtr:
 
     def set_values(self, cfg, Y, num_tasks_baseline, modifier=None):
         for i, Yi in enumerate(Y):
-            Yi[self.name] = self.value 
+            Yi[self.name] = self.value
 
 
 class EnumAtr:
@@ -245,7 +245,7 @@ class Domain:
 
                 result.append(Y)
 
-        if self.adapt_f: 
+        if self.adapt_f:
             result = [[self.adapt_f(config) for config in y] for y in result ]
         return result
 
@@ -272,7 +272,7 @@ def adapt_parameters_parking(parameters):
     cars = 2*(curbs -1)
     return {"curbs" : curbs, "cars" : cars}
 
-    
+
 BASELINE_PLANNER = "blind.img"
 
 PLANNER_SELECTION = {
@@ -364,13 +364,13 @@ DOMAIN_LIST = [
         [LinearAtr("planes"), LinearAtr("people"), LinearAtr("cities", lower_b=3)],
     ),
 
-    
+
     Domain("parking",
            "./parking-generator.pl prob {curbs} {cars} seq",
            [LinearAtr("curbs", lower_b=3)],
-           adapt_f = adapt_parameters_parking,            
+           adapt_f = adapt_parameters_parking,
     ),
-    
+
 
     Domain("driverlog",
            "dlgen {seed} {roadjunctions} {drivers} {packages} {trucks}",
@@ -384,8 +384,8 @@ DOMAIN_LIST = [
            "barman-generator.py {num_cocktails} {num_ingredients} {num_shots} {seed}",
            [LinearAtr("num_cocktails", lower_b=1),
             #TODO Perhaps num ingredients should be an enum attribute
-            LinearAtr("num_ingredients", lower_b=3, default_m=0.2), 
-            LinearAtr("num_shots", base_atr="num_cocktails", lower_b=1)],          
+            LinearAtr("num_ingredients", lower_b=3, default_m=0.2),
+            LinearAtr("num_shots", base_atr="num_cocktails", lower_b=1)],
     ),
 
     Domain("depots",
@@ -393,51 +393,51 @@ DOMAIN_LIST = [
            [LinearAtr("depots"), LinearAtr("distributors"), LinearAtr("trucks"), LinearAtr("pallets"), LinearAtr("hoists"), LinearAtr("crates")]
     ),
 
-    
+
     Domain("childsnack",
            "child-snack-generator.py pool {seed} {num_children} {num_trays} {gluten_factor} {const_ratio}",
            [LinearAtr("num_children", lower_b=3), ConstantAtr("gluten_factor", 0.4), ConstantAtr("const_ratio", 1.3)  ] ,
            enum_values=[EnumAtr("trays2", {"num_trays": "2"}), EnumAtr("trays3", {"num_trays": "3"})],
     ),
-    
+
     Domain("hiking",
            "generator.py {n_couples} {n_cars} {n_places} {seed}",
-           [LinearAtr("n_couples"), LinearAtr("n_places"), LinearAtr("n_cars", base_atr="n_couples")] 
+           [LinearAtr("n_couples"), LinearAtr("n_places"), LinearAtr("n_cars", base_atr="n_couples")]
     ),
-  
+
     # Domain("floortile",
     #        "floortile-generator.py name {num_rows} {num_columns} {num_robots} seq {seed}",
     #        [],
     #        enum_values=[EnumAtr("square")]
-           
-    # ),    
+
+    # ),
 
 
-    
+
 
     # Domain("data-network",
     #        "",
-    #        [] # TODO 
+    #        [] # TODO
     # ),
-    
+
     # Domain("snake",
     #        "",
-    #        [] # TODO 
+    #        [] # TODO
     # ),
-    
+
     # Domain("termes",
     #        "",
-    #        [] # TODO 
+    #        [] # TODO
     # ),
-    
+
     # Domain("maintenance",
     #        "",
-    #        [] # TODO 
+    #        [] # TODO
     # ),
 
     # Domain("pathways",
-    #        "pathways --seed {seed} -out tmp.pddl -R {reactions} -G {num_goals} -L {substances} -n prob > domain_file_to_concatenate", # TODO: The generator outputs both the problem and the domain file, 
-    #        [] # TODO 
+    #        "pathways --seed {seed} -out tmp.pddl -R {reactions} -G {num_goals} -L {substances} -n prob > domain_file_to_concatenate", # TODO: The generator outputs both the problem and the domain file,
+    #        [] # TODO
     # ),
 
     # Domain("storage",
@@ -448,9 +448,9 @@ DOMAIN_LIST = [
 
     # Domain("tetris",
     #        "generator.py {grid_size} {conf_blocks}",
-    #        [] # TODO ** Take care, generator can return unsolvable instances!! ** 
+    #        [] # TODO ** Take care, generator can return unsolvable instances!! **
     # ),
-    
+
 ]
 
 
