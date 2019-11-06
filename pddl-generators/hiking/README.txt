@@ -12,3 +12,7 @@ two points is allowed, but walking must be done with your partner and must start
 place where you left off. As you will be tired when you've walked to the end of a leg, you
 must have your tent up ready there so you can sleep the night before you set off to do the
 next leg the morning.
+
+
+usage: generator.py <n_couples> <n_cars> <n_places> [<seed>]
+         for solvability, cars should be at list n_couples + 1.

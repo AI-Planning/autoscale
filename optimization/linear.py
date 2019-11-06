@@ -401,8 +401,8 @@ DOMAIN_LIST = [
     ),
     
     Domain("hiking",
-           "",
-           [] # TODO 
+           "generator.py {n_couples} {n_cars} {n_places} {seed}",
+           [LinearAtr("n_couples"), LinearAtr("n_places"), LinearAtr("n_cars", base_atr="n_couples")] 
     ),
     
     Domain("tetris",
