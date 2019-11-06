@@ -153,38 +153,45 @@ if os.path.exists(SMAC_OUTPUT_DIR):
 
 
 class LinearAtr:
-    def __init__(self, name, lower_b=1, upper_b=20, lower_m=0.01, upper_m=5.0, default_m=1.0):
+    def __init__(self, name, base_atr=None, lower_b=1, upper_b=20, lower_m=0.01, upper_m=5.0, default_m=1.0):
         self.name = name
         self.lower_b = lower_b
         self.upper_b = upper_b
         self.lower_m = lower_m
         self.upper_m = upper_m
         self.default_m = default_m
+        self.base_atr = base_atr
 
     def get_hyperparameters(self, modifier=None):
         atr = "{}_{}".format(modifier, self.name) if modifier else self.name
 
-        return [
-            UniformIntegerHyperparameter(
-                "{}_b".format(atr), lower=self.lower_b, upper=self.upper_b, default_value=self.lower_b
-            ),
-            UniformFloatHyperparameter(
-                "{}_m".format(atr), lower=self.lower_m, upper=self.upper_m, default_value=self.default_m
-            ),
-            UniformFloatHyperparameter(
-                "{}_m2".format(atr), lower=self.lower_m, upper=self.upper_m, default_value=self.default_m
-            ),
-        ]
+        H = []
+        if self.lower_b != self.upper_b:
+            H.append(UniformIntegerHyperparameter("{}_b".format(atr), lower=self.lower_b, upper=self.upper_b, default_value=self.lower_b))
+
+        if self.lower_m != self.upper_m:
+            H += [
+                UniformFloatHyperparameter(
+                    "{}_m".format(atr), lower=self.lower_m, upper=self.upper_m, default_value=self.default_m
+                ),
+                UniformFloatHyperparameter(
+                    "{}_m2".format(atr), lower=0, upper=self.upper_m, default_value=0
+                ),
+            ]
+
+        return H
 
     def set_values(self, cfg, Y, num_tasks_baseline, modifier=None):
         atr = "{}_{}".format(modifier, self.name) if modifier else self.name
 
-        val = int(cfg.get("{}_b".format(atr)))
-        m = float(cfg.get("{}_m".format(atr)))
-        m2 = float(cfg.get("{}_m2".format(atr)))
+        val = self.lower_b if self.lower_b == self.upper_b else int(cfg.get("{}_b".format(atr))) 
+        m = self.lower_m if self.lower_m == self.upper_m else float(cfg.get("{}_m".format(atr)))
+        m2 = 0 if self.lower_m == self.upper_m else  float(cfg.get("{}_m2".format(atr)))
 
         for i, Yi in enumerate(Y):
-            Yi[self.name] = int(val)
+            Yi[self.name] = int(val) 
+            if self.base_atr:
+                Yi[self.name] += Yi[self.base_atr]
             val += m
             if i >= num_tasks_baseline:
                 val += m + m2
@@ -373,8 +380,10 @@ DOMAIN_LIST = [
     
 
     Domain("barman",
-           "",
-           [] # TODO 
+           "barman-generator.py {num_cocktails} {num_ingredients} {num_shots} {seed}",
+           [LinearAtr("num_cocktails"),
+            LinearAtr("num_ingredients"),
+            LinearAtr("num_shots", lower_b=3)],
     ),
     
     Domain("childsnack",
@@ -424,8 +433,12 @@ DOMAIN_LIST = [
     
     Domain("driverlog",
            "dlgen {seed} {roadjunctions} {drivers} {packages} {trucks}",
-           [] # TODO  [LinearAtr("drivers"), LinearAtr("packages"), LinearAtr("locations", lower_b=2)]     + [UniformIntegerHyperparameter("trucks_diff", lower=-2, upper=2, default_value=0),],)
+           [LinearAtr("drivers"),
+            LinearAtr("packages", base_atr="drivers"),
+            LinearAtr("roadjunctions",base_atr="drivers"),
+            LinearAtr("trucks", base_atr="drivers", lower_m=0, upper_m=0)]
     ),
+
 
     Domain("pathways",
            "pathways --seed {seed} -out tmp.pddl -R {reactions} -G {num_goals} -L {substances} -n prob > domain_file_to_concatenate", # TODO: The generator outputs both the problem and the domain file, 

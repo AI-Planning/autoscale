@@ -13,7 +13,7 @@ Command line options:
  -s      Set the number of store-areas (default 9)
  -c      Set the number of crates (default 5)
  -e      Set seed for random number generator (must be different from 0)
-
+s
 The command lines used to generate the IPC5 problems of
 Storage-Propositional are:
 
