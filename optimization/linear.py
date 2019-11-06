@@ -735,9 +735,7 @@ def evaluate_cfg(cfg):
     sart_times = sart_eval.get_runtimes(ARGS.tasksbaseline, 10, 300)
     penalty = evaluate_runtimes(baseline_times, ARGS.tasksbaseline) + evaluate_runtimes(sart_times, ARGS.tasksbaseline)
 
-    logging.info(
-        "Baseline times: {}, sart times: {}, penalty {}".format(" ".join(baseline_times), " ".join(sart_times), penalty)
-    )
+    logging.info(f"Baseline times: {baseline_times}, sart times: {sart_times}, penalty: {penalty}")
 
     return penalty
 
