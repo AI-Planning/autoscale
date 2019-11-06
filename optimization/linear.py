@@ -197,6 +197,19 @@ class LinearAtr:
                 val += m + m2
 
 
+class ConstantAtr:
+    def __init__(self, name, value):
+        self.name = name
+        self.value = value
+
+    def get_hyperparameters(self, modifier=None):
+        return []
+
+    def set_values(self, cfg, Y, num_tasks_baseline, modifier=None):
+        for i, Yi in enumerate(Y):
+            Yi[self.name] = val 
+
+
 class EnumAtr:
     def __init__(self, name, values):
         self.name = name
@@ -260,26 +273,6 @@ def adapt_parameters_parking(parameters):
     return {"curbs" : curbs, "cars" : cars}
 
     
-# def get_configs_driverlog(cfg):
-#     drivers_b = cfg.get("drivers_b")
-#     drivers_m = cfg.get("drivers_m")
-#     trucks_diff = cfg.get("trucks_diff")
-#     packages_b = cfg.get("packages_b")
-#     packages_m = cfg.get("packages_m")
-#     locations_b = cfg.get("locations_b")
-#     locations_m = cfg.get("locations_m")
-
-#     Y = []
-#     for x in range (0, n):
-#         drivers = drivers_b + x*drivers_m
-#         trucks = drivers + trucks_diff
-#         packages = drivers + packages_b + x*packages_m
-#         locations = drivers + locations_b + x*locations_m
-
-#         Y.append({"drivers" : drivers, "trucks" : trucks, "packages" : packages, "roadjunctions" : locations})
-
-#     return [Y]
-
 BASELINE_PLANNER = "blind.img"
 
 PLANNER_SELECTION = {
@@ -379,11 +372,20 @@ DOMAIN_LIST = [
     ),
     
 
+    Domain("driverlog",
+           "dlgen {seed} {roadjunctions} {drivers} {packages} {trucks}",
+           [LinearAtr("drivers"),
+            LinearAtr("packages", base_atr="drivers"),
+            LinearAtr("roadjunctions",base_atr="drivers"),
+            LinearAtr("trucks", base_atr="drivers", lower_m=0, upper_m=0)]
+    ),
+
     Domain("barman",
            "barman-generator.py {num_cocktails} {num_ingredients} {num_shots} {seed}",
-           [LinearAtr("num_cocktails"),
-            LinearAtr("num_ingredients"),
-            LinearAtr("num_shots", lower_b=3)],
+           [LinearAtr("num_cocktails", lower_b=1),
+            #TODO Perhaps num ingredients should be an enum attribute
+            LinearAtr("num_ingredients", lower_b=3, default_m=0.2), 
+            LinearAtr("num_shots", base_atr="num_cocktails", lower_b=1)],          
     ),
     
     Domain("childsnack",
@@ -431,14 +433,6 @@ DOMAIN_LIST = [
            [LinearAtr("depots"), LinearAtr("distributors"), LinearAtr("trucks"), LinearAtr("pallets"), LinearAtr("hoists"), LinearAtr("crates")]
     ),
     
-    Domain("driverlog",
-           "dlgen {seed} {roadjunctions} {drivers} {packages} {trucks}",
-           [LinearAtr("drivers"),
-            LinearAtr("packages", base_atr="drivers"),
-            LinearAtr("roadjunctions",base_atr="drivers"),
-            LinearAtr("trucks", base_atr="drivers", lower_m=0, upper_m=0)]
-    ),
-
 
     Domain("pathways",
            "pathways --seed {seed} -out tmp.pddl -R {reactions} -G {num_goals} -L {substances} -n prob > domain_file_to_concatenate", # TODO: The generator outputs both the problem and the domain file, 
@@ -447,9 +441,8 @@ DOMAIN_LIST = [
 
     Domain("storage",
            "storage -p 01 -o {containers} -e {seed} -c {crates} -n {hoists} -s {store_areas} -d {depots} tmp.pddl",
-           [LinearAtr("containers"), LinearAtr("crates", lower_b=4),  LinearAtr("hoists"),  LinearAtr("store_areas"),  LinearAtr("depots")]
+           [LinearAtr("containers"), LinearAtr("crates", lower_b=4),  LinearAtr("hoists"),  LinearAtr("store_areas", base_atr="crates"),  LinearAtr("depots")]
            # TODO Warning! Number of crates / Number of containers < 4
-           # Error: Number of crates is greater than the number of store-areas
     ),
 ]
 

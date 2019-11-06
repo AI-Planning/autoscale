@@ -13,7 +13,15 @@ Command line options:
  -s      Set the number of store-areas (default 9)
  -c      Set the number of crates (default 5)
  -e      Set seed for random number generator (must be different from 0)
-s
+
+
+Constraints: 
+   Number of number of crates <= store-areas
+   Number of number of depots <= store-areas
+   Number of number of hoists <= store-areas
+   
+   3 < Number of crates / Number of containers <= 4
+
 The command lines used to generate the IPC5 problems of
 Storage-Propositional are:
 
