@@ -207,7 +207,7 @@ class ConstantAtr:
 
     def set_values(self, cfg, Y, num_tasks_baseline, modifier=None):
         for i, Yi in enumerate(Y):
-            Yi[self.name] = val 
+            Yi[self.name] = self.value 
 
 
 class EnumAtr:
@@ -387,10 +387,17 @@ DOMAIN_LIST = [
             LinearAtr("num_ingredients", lower_b=3, default_m=0.2), 
             LinearAtr("num_shots", base_atr="num_cocktails", lower_b=1)],          
     ),
+
+    Domain("depots",
+           "depots -e {depots} -i {distributors} -t {trucks} -p {pallets} -h {hoists} -c {crates} -s {seed}",
+           [LinearAtr("depots"), LinearAtr("distributors"), LinearAtr("trucks"), LinearAtr("pallets"), LinearAtr("hoists"), LinearAtr("crates")]
+    ),
+
     
     Domain("childsnack",
-           "",
-           [] # TODO 
+           "child-snack-generator.py pool {seed} {num_children} {num_trays} {gluten_factor} {const_ratio}",
+           [LinearAtr("num_children", lower_b=3), ConstantAtr("gluten_factor", 0.4), ConstantAtr("const_ratio", 1.3)  ] ,
+           enum_values=[EnumAtr("trays2", {"num_trays": "2"}), EnumAtr("trays3", {"num_trays": "3"})],
     ),
     
     Domain("hiking",
@@ -426,13 +433,7 @@ DOMAIN_LIST = [
     Domain("floortile",
            "floortile-generator.py name {num_rows} {num_columns} {num_robots} seq {seed}",
            [] # TODO
-    ),
-           
-    Domain("depots",
-           "depots -e {depots} -i {distributors} -t {trucks} -p {pallets} -h {hoists} -c {crates} -s {seed}",
-           [LinearAtr("depots"), LinearAtr("distributors"), LinearAtr("trucks"), LinearAtr("pallets"), LinearAtr("hoists"), LinearAtr("crates")]
-    ),
-    
+    ),    
 
     Domain("pathways",
            "pathways --seed {seed} -out tmp.pddl -R {reactions} -G {num_goals} -L {substances} -n prob > domain_file_to_concatenate", # TODO: The generator outputs both the problem and the domain file, 
