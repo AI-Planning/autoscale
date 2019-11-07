@@ -29,7 +29,8 @@ DOMAINS = [
 ]
 ATTRIBUTES = [
     "error", "all_*", "final_*",
-    "evaluated_configurations", "optimization_wallclock_time", "run_dir",
+    "evaluated_configurations", "optimization_*wallclock_time", "run_dir",
+    "incumbent_changed",
 ]
 RUN_TIME_LIMIT = 23 * 60 * 60
 RUN_MEMORY_LIMIT = 3584
