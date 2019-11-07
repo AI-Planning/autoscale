@@ -1,0 +1,27 @@
+Bootstrap: docker
+From: i386/ubuntu:18.04
+
+%setup
+    REPO_ROOT=`dirname $SINGULARITY_BUILDDEF`
+    cp -r $REPO_ROOT/ $SINGULARITY_ROOTFS/planner
+
+%post
+    ## Install all dependencies.
+    apt update
+    apt -y install bison flex make g++
+
+    ## Build the planner.
+    cd /planner
+    make -j4
+
+    ## Clean up.
+    apt -y autoremove bison flex make g++
+    rm -rf /var/lib/apt/lists/*
+
+%runscript
+    DOMAINFILE=$1
+    PROBLEMFILE=$2
+    PLANFILE=$3
+
+    cd /planner
+    ./plan $DOMAINFILE $PROBLEMFILE $PLANFILE
