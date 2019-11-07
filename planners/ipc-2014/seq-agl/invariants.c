@@ -57,12 +57,12 @@ void showInvariants() {
   printf("\nThere are %i persistent literals (out of total of %i literals).\n",cntpersistent,nOfAtoms);
 
   printf("Invariants:\n");
-  
+
   for(i=0;i<nOfAtoms;i++) {
     printatomi(i); printf(" OR:");
     printlitlist(twolits[fePLIT(i)]);
     printf("\n");
-    
+
     printf("-"); printatomi(i); printf(" OR:");
     printlitlist(twolits[feNLIT(i)]);
     printf("\n");
@@ -77,13 +77,13 @@ void showInvariantsBrief() {
     else if(onelits[i] == 0) { printf(" -"); printatomi(i); }
   }
   printf("\nTrue 2-literal clauses:\n");
-  
+
   for(i=0;i<nOfAtoms;i++) {
-    
+
     printatomi(i); printf(" OR ");
     printlitlist(twolits[fePLIT(i)]);
     printf("\n");
-    
+
     printf("-"); printatomi(i); printf(" OR ");
     printlitlist(twolits[feNLIT(i)]);
     printf("\n");
@@ -131,8 +131,8 @@ void addeffectlitsL(int *lits,eff *current,eff *all,intset s) {
     if(all->condition->t == TRUE && all != current) {
       ptr = all->effectlits;
       while(*ptr != -1) {
-	ISinsert(*ptr,s);
-	ptr = ptr+1;
+  ISinsert(*ptr,s);
+  ptr = ptr+1;
       }
     }
     all = all->tl;
@@ -183,7 +183,7 @@ void preprocess() {
     e = &(actions[i].effects);
 
     effcnt = nofcondeffs(e);
-    
+
     prepros[i] = statmalloc(402,sizeof(llist) * effcnt);
 
 #ifdef DEBUG
@@ -200,7 +200,7 @@ void preprocess() {
     while(e != NULL) { /* Go through the conditional effects */
 
       prepros[i][j].before = IScreateSize(10);
-     
+
       guaranteedtrue(e->condition,prepros[i][j].before);
       ISaddelements(preconlits,prepros[i][j].before);
 
@@ -257,9 +257,9 @@ void preprocess2() {
     while(e != NULL) {
       ptr = e->effectlits;
       while(*ptr != -1) {
-	*fill = *ptr;
-	fill = fill + 1;
-	ptr = ptr + 1;
+  *fill = *ptr;
+  fill = fill + 1;
+  ptr = ptr + 1;
       }
       e = e->tl;
     }
@@ -278,14 +278,14 @@ inline int ctruep(cfma f) {
   case cFALSEtag: return 0;
 
   default:
-    
+
     if(((int)(*f))&1) { /* Conjunction */
 
       int i,cnt;
       cnt = ((int)(f[0])) >> 1;
 
       for(i=0;i<cnt;i++) {
-	if(!ctruep(f[i+1])) return 0;
+  if(!ctruep(f[i+1])) return 0;
       }
       return 1;
 
@@ -295,7 +295,7 @@ inline int ctruep(cfma f) {
       cnt = ((int)(f[0])) >> 1;
 
       for(i=0;i<cnt;i++) {
-	if(ctruep(f[i+1])) return 1;
+  if(ctruep(f[i+1])) return 1;
       }
       return 0;
     }
@@ -304,7 +304,7 @@ inline int ctruep(cfma f) {
 }
 #endif
 
-inline int truep(fma *f) {
+static int truep(fma *f) {
   fmalist *fs;
   switch(f->t) {
   case natom: return (onelits[f->a] != 1);
@@ -346,7 +346,7 @@ int madefalse(int l,int i) {
   int *ptr;
   ptr = alleffectlits[i];
   while(*ptr != -1) {
-    if(*ptr == feNEG(l)) return 1; 
+    if(*ptr == feNEG(l)) return 1;
     ptr = ptr + 1;
   }
   return 0;
@@ -454,7 +454,7 @@ void computeinvariants() {
       printf("\n");
 #endif
 
-	  /* Both the precondition and the cond. eff. antecedents are tested without looking at the mutexes: would not usually make a difference! */
+    /* Both the precondition and the cond. eff. antecedents are tested without looking at the mutexes: would not usually make a difference! */
 
 #ifdef CFMA
       if(!ctruep(actions[i].cprecon)) continue; /* Not applicable (yet) */
@@ -463,10 +463,10 @@ void computeinvariants() {
 #endif
 
       /* Go through all first-time falsified literals:
-	 weaken to all possible 2-literal clauses
+   weaken to all possible 2-literal clauses
 
-	 Go through all 2-literal clauses with one disjunct falsified:
-	 must the other disjunct be true?
+   Go through all 2-literal clauses with one disjunct falsified:
+   must the other disjunct be true?
       */
 
       e = &(actions[i].effects);
@@ -476,110 +476,110 @@ void computeinvariants() {
 
       while(e != NULL) {
 
-	trueonesinitialized = 0;
+  trueonesinitialized = 0;
 
 #ifdef CFMA
-	if(ctruep(e->ccondition)) {
+  if(ctruep(e->ccondition)) {
 #else
-	if(truep(e->condition)) {
+  if(truep(e->condition)) {
 #endif
 
-	  /* In the following:
-	     We have newly true literals in prep->after and
-	     all true literals in trueones.
+    /* In the following:
+       We have newly true literals in prep->after and
+       all true literals in trueones.
 
-	     For every l in prep->after and m in trueones, -l V m
+       For every l in prep->after and m in trueones, -l V m
              is an invariant.
-	     These are all invariants involving -l.
+       These are all invariants involving -l.
 
-	     We want to store all of these such that both -l and m
+       We want to store all of these such that both -l and m
              can have both value true and false.
-	   */
+     */
 
-	  /* Go through effect literals */
+    /* Go through effect literals */
 
-	  il = e->effectlits;
+    il = e->effectlits;
 
-	  while(*il != -1) {
-	    int l;
-	    l = *il;
-	    il = il + 1;
+    while(*il != -1) {
+      int l;
+      l = *il;
+      il = il + 1;
 
-	    /* See whether making literal l true falsifies something. */
+      /* See whether making literal l true falsifies something. */
 
-	    if(onelits[feVAR(l)] == (l&1)) { /* Falsified a 1-literal */
+      if(onelits[feVAR(l)] == (l&1)) { /* Falsified a 1-literal */
 
-	      if(trueonesinitialized == 0) {
+        if(trueonesinitialized == 0) {
 
-		trueonesinitialized = 1;
-		ISmakeempty(trueones);
+    trueonesinitialized = 1;
+    ISmakeempty(trueones);
 
-		/* literals true because they are in the precondition */
-		ISaddelements(prep->before,trueones);
-	  
-		/* literals true because a 2-literal clause is satisfied */
-		iITstart(prep->before);
-		while(iITnext(&j)) ISaddelements(twolits[feNEG(j)],trueones);
+    /* literals true because they are in the precondition */
+    ISaddelements(prep->before,trueones);
 
-		/* Remove literals that are falsified by this conditional effect
-		   or possibly by other conditional effects. */
-		removefalsified(&(actions[i].effects),trueones);
+    /* literals true because a 2-literal clause is satisfied */
+    iITstart(prep->before);
+    while(iITnext(&j)) ISaddelements(twolits[feNEG(j)],trueones);
 
-		/* Add literals that are made true. */
-		ISaddelements(prep->after,trueones);
-	      }
+    /* Remove literals that are falsified by this conditional effect
+       or possibly by other conditional effects. */
+    removefalsified(&(actions[i].effects),trueones);
 
-	      change = 1;
+    /* Add literals that are made true. */
+    ISaddelements(prep->after,trueones);
+        }
 
-	      onelits[feVAR(l)] = -1;
+        change = 1;
 
-	      /* Add 2-literals -a | l */
+        onelits[feVAR(l)] = -1;
 
-	      iITstart(trueones);
-	      while(iITnext(&k)) {
-		if(l != k && (onelits[feVAR(k)] == -1 || (localISmember1(k,prep->after) && onelits[feVAR(k)] == (k&1)))) {
-		  ISinsertNODUP(k,twolits[feNEG(l)]);
-		  ISinsertNODUP(feNEG(l),twolits[k]);
-		}
-	      }
-	    } else if(onelits[feVAR(l)] == -1) { /* Check preservation of 2-literal clauses */
+        /* Add 2-literals -a | l */
 
-	      /* Remove candidate 2-literal invariants which were falsified. */
+        iITstart(trueones);
+        while(iITnext(&k)) {
+    if(l != k && (onelits[feVAR(k)] == -1 || (localISmember1(k,prep->after) && onelits[feVAR(k)] == (k&1)))) {
+      ISinsertNODUP(k,twolits[feNEG(l)]);
+      ISinsertNODUP(feNEG(l),twolits[k]);
+    }
+        }
+      } else if(onelits[feVAR(l)] == -1) { /* Check preservation of 2-literal clauses */
 
-	      IScopyto(twolits[feNEG(l)],ext);
+        /* Remove candidate 2-literal invariants which were falsified. */
 
-	      iITstart(ext);
-	      while(iITnext(&k)) {
-		if(!(localISmember2(k,prep->after)
-		     || (
-			 wastruebefore(k,prep->before)
-			 &&
-			 !madefalse(k,i)
-			 ))) {
-		  change = 1;
-		  ISremove(k,twolits[feNEG(l)]);
-		  ISremove(feNEG(l),twolits[k]);
-		}
-	      }
+        IScopyto(twolits[feNEG(l)],ext);
 
-	      /* If enabled a new state variable value (= invalidated
-		 a candidate one-literal invariant), add new candidate
-		 two-literal invariants that still remain true. */
+        iITstart(ext);
+        while(iITnext(&k)) {
+    if(!(localISmember2(k,prep->after)
+         || (
+       wastruebefore(k,prep->before)
+       &&
+       !madefalse(k,i)
+       ))) {
+      change = 1;
+      ISremove(k,twolits[feNEG(l)]);
+      ISremove(feNEG(l),twolits[k]);
+    }
+        }
 
-	      iITstart(prep->after);
-	      while(iITnext(&k)) {
-		if(l != k && onelits[feVAR(k)] == -1 && localISmember3(k,twolits[feNEG(l)])) {
-		  ISinsert(feNEG(l),twolits[k]);
-		}
-	      }
+        /* If enabled a new state variable value (= invalidated
+     a candidate one-literal invariant), add new candidate
+     two-literal invariants that still remain true. */
 
-	    }
+        iITstart(prep->after);
+        while(iITnext(&k)) {
+    if(l != k && onelits[feVAR(k)] == -1 && localISmember3(k,twolits[feNEG(l)])) {
+      ISinsert(feNEG(l),twolits[k]);
+    }
+        }
 
-	  }
+      }
 
-	}
-	e = e->tl;
-	prep++;
+    }
+
+  }
+  e = e->tl;
+  prep++;
       }
 
       //      showInvariantsBrief();
@@ -601,5 +601,5 @@ void computeinvariants() {
   printf(" ");
 
   if(flagShowInput) showInvariants();
-  
+
 }
