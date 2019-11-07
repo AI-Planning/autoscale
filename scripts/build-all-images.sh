@@ -18,3 +18,13 @@ OUTDIR=${1}
 ./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-04 ${OUTDIR}/delfi-mas-sccdfp.img ${DOWNWARD_BENCHMARKS}
 ./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-05 ${OUTDIR}/delfi-mas-miasm.img ${DOWNWARD_BENCHMARKS}
 ./build-image.sh ../planners/ipc-2018/seq-opt/scorpion/Singularity ${OUTDIR}/scorpion-nodiv.img ${DOWNWARD_BENCHMARKS}
+
+./build-image.sh ../planners/custom/seq-opt/fd-19.06/Singularity-lama-first ${OUTDIR}/lama-first.img ${DOWNWARD_BENCHMARKS}
+./build-image.sh ../planners/sat/cerberus/Singularity ${OUTDIR}/cerberus.img ${DOWNWARD_BENCHMARKS}
+./build-image.sh ../planners/sat/decstar/Singularity ${OUTDIR}/decstar.img ${DOWNWARD_BENCHMARKS}
+./build-image.sh ../planners/sat/ff/Singularity ${OUTDIR}/ff.img ${DOWNWARD_BENCHMARKS}
+./build-image.sh ../planners/sat/lapkt-dual-bfws/Singularity ${OUTDIR}/lapkt-dual-bfws.img ${DOWNWARD_BENCHMARKS}
+./build-image.sh ../planners/sat/lapkt-bfws-pref/Singularity ${OUTDIR}/lapkt-bfws-pref.img ${DOWNWARD_BENCHMARKS}
+./build-image.sh ../planners/sat/madagascar/Singularity-MpC ${OUTDIR}/mpc.img ${DOWNWARD_BENCHMARKS}
+
+
