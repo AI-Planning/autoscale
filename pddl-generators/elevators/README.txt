@@ -1,6 +1,5 @@
-There was not Readme.txt in the generator version I have, so this is
-the way I am using it. I cannot credit the author as I don't know who
-was she/he.
+There was not Readme.txt in the generator version I have, so this is the way I am using
+it. I cannot credit the author as I don't know who was she/he.
 
 - Change the following variables at generate_data.c
   	- FLOORS: number of floors
@@ -19,8 +18,7 @@ was she/he.
 	    -  MinID : the start number of number problems of the same size
 	    -  MaxID : the end number of number problems of the same size
  
-- If you want to change the floors, area size, etc. do again the two
-  previous steps.
+- If you want to change the floors, area size, etc. do again the two previous steps.
 
 - Decide which version you want to create by putting to 1 the value
   of the following variables of file generate_pddl.c:

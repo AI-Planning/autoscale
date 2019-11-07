@@ -418,6 +418,26 @@ DOMAIN_LIST = [
            [LinearAtr("n_couples"), LinearAtr("n_places"), LinearAtr("n_cars", base_atr="n_couples")]
     ),
 
+    # Domain("snake",
+    #     "generate.py {board} {snake_size} {num_initial_apples} {num_spawn_apples} {seed} pddl",
+    #        [ConstantAtr("snake_size", "1"), ConstantAtr("num_initial_apples", 5),
+    #         LinearAtr("x_grid", lower_b=3, upper_b=8, upper_m=1), LinearAtr("y_grid", base_atr="x_grid", lower_b=0, upper_b=2, lower_m=0, upper_m=1), 
+
+    #            enum_values=] 
+    # ),
+
+    
+    # Domain("maintenance",
+    #        "maintenance {days} {planes} {mechanics} {cities} {visits} {instances} {seed}",
+    #        [LinearAtr("days", lower_b = 5),
+    #         LinearAtr("planes", base_atr="days"),
+    #         ConstantAtr("mechanics", 1),
+    #         ConstantAtr("hubs", 3),
+    #         ConstantAtr("visits", 20),
+    #         ConstantAtr("instances", 1),
+    #        ]
+    # ),
+
     # Domain("floortile",
     #        "floortile-generator.py name {num_rows} {num_columns} {num_robots} seq {seed}",
     #        [],
@@ -433,17 +453,8 @@ DOMAIN_LIST = [
     #        [] # TODO
     # ),
 
-    # Domain("snake",
-    #        "",
-    #        [] # TODO
-    # ),
 
     # Domain("termes",
-    #        "",
-    #        [] # TODO
-    # ),
-
-    # Domain("maintenance",
     #        "",
     #        [] # TODO
     # ),
@@ -526,7 +537,7 @@ class Runner:
                 os.mkdir(plan_dir)
                 problem_file = os.path.join(plan_dir, "problem.pddl")
                 command = shlex.split(domain.generator_command().format(**parameters))
-                logging.debug(f"Generator command: {command}")
+                logging.debug("Generator command: {}".format(" ".join(command)))
                 # Some generators print to a file, others print to stdout.
                 if "tmp.pddl" in domain.generator_command():
                     subprocess.run(command)
