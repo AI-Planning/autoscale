@@ -25,4 +25,4 @@ From: ubuntu:18.04
     PLANFILE=$3
 
     ## Originally without time limit.
-    /planner/fast-downward.py --plan-file $PLANFILE $DOMAINFILE $PROBLEMFILE --alias lama-first
+    /planner/fast-downward.py --alias lama-first --plan-file $PLANFILE $DOMAINFILE $PROBLEMFILE
