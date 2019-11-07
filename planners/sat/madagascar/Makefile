@@ -64,7 +64,7 @@ $(PARSERC): parser.y
 $(PARSERH): parser.y
 	$(PARSERGENERATOR) -d parser.y
 
-lex.yy.c: lexer.lex $(PARSERH) $(PARSERH)
+lex.yy.c: lexer.lex $(PARSERH)
 	flex lexer.lex
 
 clean:
