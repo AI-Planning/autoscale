@@ -22,7 +22,7 @@ From: i386/ubuntu:18.04
     make -j4
 
     ## Clean up.
-    apt -y autoremove bison flex
+    apt -y autoremove bison flex make
     rm -rf /var/lib/apt/lists/*
 
 %runscript
