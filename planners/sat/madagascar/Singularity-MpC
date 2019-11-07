@@ -8,7 +8,7 @@ From: i386/ubuntu:18.04
 %post
     ## Install all dependencies.
     apt update
-    apt -y install bison flex make
+    apt -y install bison flex make g++
 
     ## Build the planner.
     ## TODO: without these HACKs taken from the Makefile, the compilation fails
@@ -22,7 +22,7 @@ From: i386/ubuntu:18.04
     make -j4
 
     ## Clean up.
-    apt -y autoremove bison flex make
+    apt -y autoremove bison flex make g++
     rm -rf /var/lib/apt/lists/*
 
 %runscript
