@@ -298,16 +298,16 @@ PLANNER_SELECTION = {
     "parking": ["delfi-ipdb.img"],
     "tpp": ["complementary2.img"],
     "pathways": ["delfi-celmcut.img"],
-    "storage": [],
+    "storage": ["delfi-celmcut.img"],
     "barman": ["symba1.img"],
-    "floortile": [],
+    "floortile": ["symba1.img"],
     "childsnack": ["delfi-ipdb.img"],
     "hiking": ["delfi-mas-miasm.img"],
-    "tetris": [],
-    "data-network": [],
-    "snake": [],
-    "termes": [],
-    "maintenance": [],
+    "tetris": ["scorpion-nodiv.img"],
+    "data-network": ["lmcut.img"],
+    "snake": ["bjolp.img"],
+    "termes": ["symba2.img"],
+    "maintenance": ["delfi-blind.img"],
 }
 
 for domain, images in PLANNER_SELECTION.items():
