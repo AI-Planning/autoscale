@@ -84,7 +84,7 @@ TIME_LIMIT = 180 if is_running_on_cluster else 10
 IMAGES = [
     get_image("cerberus"), # writes several plan files
     get_image("decstar"), # portfolio
-    get_image("ff"), # does not run on caldera, no adl support?
+    get_image("gbfs-ff"),
     get_image("lama-first"),
     get_image("lapkt-bfws-pref"), # writes several plan files
     get_image("lapkt-dual-bfws"), # writes several plan files
