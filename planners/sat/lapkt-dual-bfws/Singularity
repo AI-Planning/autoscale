@@ -19,7 +19,6 @@ From: ubuntu:bionic
     ## and build the planner. Add all commands that have to be executed
     ## once before the planner runs in this part of the script.
 
-
     ## Install all necessary dependencies.
     apt-get update
     apt-get install --no-install-recommends -y \
@@ -52,14 +51,13 @@ From: ubuntu:bionic
     ## Download LAPKT-public
     ## curl -SL $LAPKT_URL | tar -xz
     ## mv LAPKT-* $LAPKT_PATH 
-    cd /planner
+    #cd /planner
     #tar xjf LAPKT-public.tar.bz2
     cd $LAPKT_PATH
     cd external/libff 
     make clean
     make depend
-    make 
-    
+    make
     
     ## Build your planner
     cd /planner/BFWS/ff-version
@@ -68,7 +66,7 @@ From: ubuntu:bionic
     ./build.py
     
     ## Build FD
-    cd /planner
+    #cd /planner
     #tar xjf Fast-Downward-2018-2.tar.bz2
     cd /planner/Fast-Downward-2018-2
     ./build.py release64 -j4
@@ -90,9 +88,9 @@ From: ubuntu:bionic
     PROBLEMFILE=$2
     PLANFILE=$3
 
-    
+
     ## Call your planner using FD-parser.
-    /planner/BFWS/fd-version/bfws_anytime_fd_singularity.py $DOMAINFILE $PROBLEMFILE $PLANFILE
+    /planner/BFWS/fd-version/bfws.py $DOMAINFILE $PROBLEMFILE $PLANFILE
 
 
 ## Update the following fields with meta data about your submission.
