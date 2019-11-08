@@ -5,14 +5,10 @@ set -euo pipefail
 cd "$(dirname "$0")"
 
 # Either 3 or 4.
-OPS=$1
-BLOCKS=$2
+OPS=${1}
+BLOCKS=${2}
 
-BS=./bwstates.1/bwstates
-TR=./${OPS}ops/2pddl/2pddl
-
-
-$BS -s 2 -n ${BLOCKS} > STATES
-$TR -d STATES -n ${BLOCKS}
+./bwstates.1/bwstates -s 2 -n ${BLOCKS} > STATES
+./${OPS}ops/2pddl/2pddl -d STATES -n ${BLOCKS}
 
 rm STATES
