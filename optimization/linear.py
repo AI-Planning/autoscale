@@ -44,6 +44,10 @@ import numpy as np
 
 from ConfigSpace.hyperparameters import UniformFloatHyperparameter
 from ConfigSpace.hyperparameters import UniformIntegerHyperparameter
+from ConfigSpace.hyperparameters import CategoricalHyperparameter
+
+
+
 
 from smac.configspace import ConfigurationSpace
 from smac.scenario.scenario import Scenario
@@ -105,6 +109,12 @@ def parse_args():
         default="smac",
         help="Directory where to store logs and temporary files (default: %(default)s)",
     )
+
+    parser.add_argument(
+        "--only-baseline", action="store_true",
+        help="only consider the baseline planner",
+    )
+
     return parser.parse_args()
 
 
@@ -161,7 +171,7 @@ if os.path.exists(SMAC_OUTPUT_DIR):
 
 
 class LinearAtr:
-    def __init__(self, name, base_atr=None, lower_b=1, upper_b=20, lower_m=0.01, upper_m=5.0, default_m=1.0):
+    def __init__(self, name, base_atr=None, level="false",lower_b=1, upper_b=20, lower_m=0.01, upper_m=5.0, default_m=1.0):
         self.name = name
         self.lower_b = lower_b
         self.upper_b = upper_b
@@ -169,6 +179,9 @@ class LinearAtr:
         self.upper_m = upper_m
         self.default_m = default_m
         self.base_atr = base_atr
+        self.level_enum = level
+
+        assert self.level_enum in ["false", "true", "choose"]
 
     def get_hyperparameters(self, modifier=None):
         atr = "{}_{}".format(modifier, self.name) if modifier else self.name
@@ -177,15 +190,21 @@ class LinearAtr:
         if self.lower_b != self.upper_b:
             H.append(UniformIntegerHyperparameter("{}_b".format(atr), lower=self.lower_b, upper=self.upper_b, default_value=self.lower_b))
 
+        if self.level_enum == "choose":
+            H.append(CategoricalHyperparameter("{}_level".format(atr), ["true", "false"], default_value="false"))
+            
         if self.lower_m != self.upper_m:
             H += [
                 UniformFloatHyperparameter(
                     "{}_m".format(atr), lower=self.lower_m, upper=self.upper_m, default_value=self.default_m
                 ),
-                UniformFloatHyperparameter(
-                    "{}_m2".format(atr), lower=0, upper=self.upper_m, default_value=0
-                ),
-            ]
+                ]
+            if not ARGS.only_baseline:
+                H += [
+                    UniformFloatHyperparameter(
+                        "{}_m2".format(atr), lower=0, upper=self.upper_m, default_value=0
+                    ),
+                ]
 
         return H
 
@@ -194,14 +213,15 @@ class LinearAtr:
 
         val = self.lower_b if self.lower_b == self.upper_b else int(cfg.get("{}_b".format(atr)))
         m = self.lower_m if self.lower_m == self.upper_m else float(cfg.get("{}_m".format(atr)))
-        m2 = 0 if self.lower_m == self.upper_m else  float(cfg.get("{}_m2".format(atr)))
+        if not ARGS.only_baseline:
+            m2 = 0 if self.lower_m == self.upper_m else  float(cfg.get("{}_m2".format(atr)))
 
         for i, Yi in enumerate(Y):
             Yi[self.name] = int(val)
             if self.base_atr:
                 Yi[self.name] += Yi[self.base_atr]
             val += m
-            if i >= num_tasks_baseline:
+            if i >= num_tasks_baseline and not ARGS.only_baseline:
                 val += m + m2
 
 
@@ -217,12 +237,38 @@ class ConstantAtr:
         for i, Yi in enumerate(Y):
             Yi[self.name] = self.value
 
-
 class EnumAtr:
-    def __init__(self, name, values):
+    def __init__(self, name, values, optional=False):
         self.name = name
         self.values = values
+        self.optional = optional
 
+    def get_hyperparameters(self):
+        if optional:
+            return [CategoricalHyperparameter("{}_optional".format(self.name), ["true", "false"], default_value="false")]
+        return []
+
+def eliminate_duplicates(l):
+    seen = set()
+    seen_add = seen.add
+    return [x for x in l if not (tuple(x.items()) in seen or seen_add(tuple(x.items())))]
+    
+# Function that scales linear attributes, ensuring that all instances have different
+# values
+def get_linear_scaling_values(linear_atrs, cfg, num_values, base={}, name_base=None):
+    num_generated = num_values
+
+    while True:
+        result = [base.copy() for i in range(num_generated)]
+        for atr in linear_atrs:
+            atr.set_values(cfg, result, num_values, name_base)
+
+        result = eliminate_duplicates(result)
+    
+        if len(result) >= num_values:
+            return result[:num_values]
+
+        num_generated *= 2
 
 class Domain:
     def __init__(self, name, gen_command, linear_atrs, adapt_f=None, enum_values=[]):
@@ -235,23 +281,36 @@ class Domain:
     def get_domain_file(self):
         return os.path.join(GENERATORS_DIR, self.name, "domain.pddl")
 
+                
     def get_configs(self, cfg, num_tasks_baseline=ARGS.tasksbaseline, num_tasks=ARGS.tasks):
         result = []
-        if not self.enum_attributes:
-            Y = [{} for i in range(num_tasks)]
-            for atr in self.linear_attributes:
-                atr.set_values(cfg, Y, num_tasks_baseline)
-            result.append(Y)
+
+        if self.enum_attributes:
+            num_sequences = len(self.enum_attributes)
         else:
-            num_tasks_per_enum = math.ceil(num_tasks / len(self.enum_attributes))
+            levels = set([atr.level_enum for atr in self.linear_attributes])
+            num_sequences = 1 if len(levels) == 1 else 4 # Generate 4 enums
+            
+        num_tasks_per_sequence = math.ceil(num_tasks / num_sequences)
 
+        # Populate sequences
+        if self.enum_attributes: 
             for enum_atr in self.enum_attributes:
-                Y = [enum_atr.values.copy() for i in range(num_tasks_per_enum)]
-
-                for atr in self.linear_attributes:
-                    atr.set_values(cfg, Y, num_tasks_baseline, enum_atr.name)
-
+                Y = get_linear_scaling_values(self.linear_attributes, cfg, num_tasks_per_sequence, enum_atr.values, enum_atr.name)
                 result.append(Y)
+                
+        elif num_sequences > 1:
+            # Populate sequences with linear attributes on level 0
+            level0_atrs = [atr for atr in self.linear_attributes if atr.level_enum=="true"]
+            level1_atrs = [atr for atr in self.linear_attributes if atr.level_enum=="false"] 
+            linear_to_enum_atrs = get_linear_scaling_values(level0_atrs, cfg, 4)
+
+            for enum_atr in linear_to_enum_atrs:
+                Y = get_linear_scaling_values(level1_atrs, cfg, num_tasks_per_sequence, enum_atr)
+                result.append(Y)
+        else:
+            Y = get_linear_scaling_values(self.linear_attributes, cfg, num_tasks_per_sequence)                            
+            result.append(Y)
 
         if self.adapt_f:
             result = [[self.adapt_f(config) for config in y] for y in result ]
@@ -265,6 +324,7 @@ class Domain:
         else:
             result = []
             for enum_parameter in self.enum_attributes:
+                result += enum_parameter.get_hyperparameters()
                 for atr in self.linear_attributes:
                     result += atr.get_hyperparameters(enum_parameter.name)
         return result
@@ -322,7 +382,8 @@ DOMAIN_LIST = [
     Domain(
         "miconic-strips",
         "miconic -f {floors} -p {passengers}",
-        [LinearAtr("passengers"), LinearAtr("floors", lower_b=2)],
+        [LinearAtr("passengers", lower_b=5, upper_b=15, lower_m=0.01, upper_m=2, level="choose"),
+         LinearAtr("floors", lower_b=5, upper_b=15, lower_m=0.01, upper_m=2, level="choose")],
     ),
     Domain(
         "rover",
@@ -395,10 +456,10 @@ DOMAIN_LIST = [
 
     Domain("barman",
            "barman-generator.py {num_cocktails} {num_ingredients} {num_shots} {seed}",
-           [LinearAtr("num_cocktails", lower_b=1),
-            #TODO Perhaps num ingredients should be an enum attribute
-            LinearAtr("num_ingredients", lower_b=3, default_m=0.2),
+           [LinearAtr("num_cocktails", lower_b=1, upper_b=3),
             LinearAtr("num_shots", base_atr="num_cocktails", lower_b=1)],
+           enum_values=[EnumAtr("ing3", {"num_ingredients": "3"}),
+                        EnumAtr("ing4", {"num_ingredients": "4"}, optional=True)],
     ),
 
     Domain("depots",
@@ -444,9 +505,6 @@ DOMAIN_LIST = [
     #        enum_values=[EnumAtr("square")]
 
     # ),
-
-
-
 
     # Domain("data-network",
     #        "",
@@ -750,7 +808,7 @@ def evaluate_cfg(cfg):
         logging.info("First instance was not solved by the baseline planner in less than 10 seconds")
         return 10 ** 6
 
-    if not baseline_eval.is_solvable(1, time_limit=60, lower_bound=2):
+    if not baseline_eval.is_solvable(1, time_limit=60, lower_bound=1):
         logging.info("Second instance was not solved by the baseline planner in more than 2 or less than 60 seconds")
         return 10 ** 6 - 10 ** 5
 
@@ -766,9 +824,13 @@ def evaluate_cfg(cfg):
     # and unsolved instances are assigned a score of 2
 
     baseline_times = baseline_eval.get_runtimes(ARGS.tasksbaseline, 10, 300)
-    sart_eval = InstanceSet(Y, RUNNER_SART)
-    sart_times = sart_eval.get_runtimes(ARGS.tasksbaseline, 10, 300)
-    penalty = evaluate_runtimes(baseline_times, ARGS.tasksbaseline) + evaluate_runtimes(sart_times, ARGS.tasksbaseline)
+    penalty = evaluate_runtimes(baseline_times, ARGS.tasksbaseline) 
+
+
+    if not ARGS.only_baseline:
+        sart_eval = InstanceSet(Y, RUNNER_SART)
+        sart_times = sart_eval.get_runtimes(ARGS.tasksbaseline, 10, 300)
+        penalty += evaluate_runtimes(sart_times, ARGS.tasksbaseline)
 
     logging.info(f"Baseline times: {baseline_times}, sart times: {sart_times}, penalty: {penalty}")
 
