@@ -114,6 +114,9 @@ def parse_args():
         "--only-baseline", action="store_true",
         help="only consider the baseline planner",
     )
+    parser.add_argument(
+        "--sequences_linear_hierarchy", type=int, default=4, help="Number sequences when there is a hierarchy on the linear attributes (default: %(default)s)"
+    )
 
     return parser.parse_args()
 
@@ -256,9 +259,10 @@ def eliminate_duplicates(l):
 # Function that scales linear attributes, ensuring that all instances have different
 # values
 def get_linear_scaling_values(linear_atrs, cfg, num_values, base={}, name_base=None):
+    assert(len(linear_atrs) > 0)
     num_generated = num_values
 
-    while True:
+    for i in range(20): # Attempt this 20 times
         result = [base.copy() for i in range(num_generated)]
         for atr in linear_atrs:
             atr.set_values(cfg, result, num_values, name_base)
@@ -269,6 +273,16 @@ def get_linear_scaling_values(linear_atrs, cfg, num_values, base={}, name_base=N
             return result[:num_values]
 
         num_generated *= 2
+
+    print ("Warning: we cannot generate different attributes", cfg, linear_atrs)
+
+    result = [base.copy() for i in range(num_values)]
+    for atr in linear_atrs:
+        atr.set_values(cfg, result, num_values, name_base)
+    return result
+
+    
+    
 
 class Domain:
     def __init__(self, name, gen_command, linear_atrs, adapt_f=None, enum_values=[]):
@@ -288,8 +302,9 @@ class Domain:
         if self.enum_attributes:
             num_sequences = len(self.enum_attributes)
         else:
-            levels = set([atr.level_enum for atr in self.linear_attributes])
-            num_sequences = 1 if len(levels) == 1 else 4 # Generate 4 enums
+            level0_atrs = [atr for atr in self.linear_attributes if atr.level_enum=="true"]
+            level1_atrs = [atr for atr in self.linear_attributes if atr.level_enum=="false"]
+            num_sequences = 1 if len(level0_atrs) == 0 or len(level1_atrs) == 0  else ARGS.sequences_linear_hierarchy # Generate enums
             
         num_tasks_per_sequence = math.ceil(num_tasks / num_sequences)
 
@@ -300,10 +315,8 @@ class Domain:
                 result.append(Y)
                 
         elif num_sequences > 1:
-            # Populate sequences with linear attributes on level 0
-            level0_atrs = [atr for atr in self.linear_attributes if atr.level_enum=="true"]
-            level1_atrs = [atr for atr in self.linear_attributes if atr.level_enum=="false"] 
-            linear_to_enum_atrs = get_linear_scaling_values(level0_atrs, cfg, 4)
+            # Populate sequences with linear attributes on level 0            
+            linear_to_enum_atrs = get_linear_scaling_values(level0_atrs, cfg, ARGS.sequences_linear_hierarchy)
 
             for enum_atr in linear_to_enum_atrs:
                 Y = get_linear_scaling_values(level1_atrs, cfg, num_tasks_per_sequence, enum_atr)
@@ -378,7 +391,7 @@ for domain, images in PLANNER_SELECTION.items():
 
 DOMAIN_LIST = [
     Domain("blocksworld", "blocksworld 4 {n}", [LinearAtr("n", lower_b=5, upper_b=10, lower_m=0.1, upper_m=2)]),
-    Domain("gripper", "gripper -n {n}", [LinearAtr("n")]),
+    Domain("gripper", "gripper -n {n}", [LinearAtr("n", lower_b=8, upper_b=15, lower_m=0.1, upper_m=2)]),
     Domain(
         "miconic-strips",
         "miconic -f {floors} -p {passengers}",
@@ -389,11 +402,11 @@ DOMAIN_LIST = [
         "rover",
         "rovgen {seed} {rovers} {waypoints} {objectives} {cameras} {goals}",
         [
-            LinearAtr("rovers"),
-            LinearAtr("objectives"),
-            LinearAtr("cameras"),
-            LinearAtr("goals"),
-            LinearAtr("waypoints", lower_b=4),
+            LinearAtr("rovers", upper_b=5, upper_m=2, level="choose"),
+            LinearAtr("objectives",upper_b=10, level="choose"),
+            LinearAtr("cameras", upper_b=10, level="choose"),
+            LinearAtr("goals", upper_b=5, level="choose"),
+            LinearAtr("waypoints", lower_b=4, upper_b=15),
         ],
     ),
     Domain(
@@ -419,7 +432,7 @@ DOMAIN_LIST = [
     Domain(
         "visitall",
         "grid -n {n} -r {r} -u 0 -s {seed}",
-        [LinearAtr("n", lower_b=2)],
+        [LinearAtr("n", lower_b=2, upper_b=10)],
         enum_values=[EnumAtr("half", {"r": "0.5"}), EnumAtr("full", {"r": "1"})],
     ),
     Domain(
@@ -435,20 +448,20 @@ DOMAIN_LIST = [
     Domain(
         "zenotravel",
         "ztravel {seed} {cities} {planes} {people}",
-        [LinearAtr("planes"), LinearAtr("people"), LinearAtr("cities", lower_b=3)],
+        [LinearAtr("planes", level="choose"), LinearAtr("people", lower_m=1), LinearAtr("cities", level="choose", lower_b=3)],
     ),
 
 
     Domain("parking",
            "./parking-generator.pl prob {curbs} {cars} seq",
-           [LinearAtr("curbs", lower_b=3)],
+           [LinearAtr("curbs", lower_b=3, upper_b=6)],
            adapt_f = adapt_parameters_parking,
     ),
 
 
     Domain("driverlog",
            "dlgen {seed} {roadjunctions} {drivers} {packages} {trucks}",
-           [LinearAtr("drivers"),
+           [LinearAtr("drivers", level="choose"),
             LinearAtr("packages", base_atr="drivers"),
             LinearAtr("roadjunctions",base_atr="drivers"),
             LinearAtr("trucks", base_atr="drivers", lower_m=0, upper_m=0)]
@@ -457,14 +470,14 @@ DOMAIN_LIST = [
     Domain("barman",
            "barman-generator.py {num_cocktails} {num_ingredients} {num_shots} {seed}",
            [LinearAtr("num_cocktails", lower_b=1, upper_b=3),
-            LinearAtr("num_shots", base_atr="num_cocktails", lower_b=1)],
+            LinearAtr("num_shots", base_atr="num_cocktails", lower_b=1, upper_b=3)],
            enum_values=[EnumAtr("ing3", {"num_ingredients": "3"}),
                         EnumAtr("ing4", {"num_ingredients": "4"}, optional=True)],
     ),
 
     Domain("depots",
            "depots -e {depots} -i {distributors} -t {trucks} -p {pallets} -h {hoists} -c {crates} -s {seed}",
-           [LinearAtr("depots"), LinearAtr("distributors"), LinearAtr("trucks"), LinearAtr("pallets"), LinearAtr("hoists"), LinearAtr("crates")]
+           [LinearAtr("depots", level="choose"), LinearAtr("distributors"), LinearAtr("trucks"), LinearAtr("pallets"), LinearAtr("hoists"), LinearAtr("crates")]
     ),
 
 
@@ -476,7 +489,7 @@ DOMAIN_LIST = [
 
     Domain("hiking",
            "generator.py {n_couples} {n_cars} {n_places} {seed}",
-           [LinearAtr("n_couples"), LinearAtr("n_places"), LinearAtr("n_cars", base_atr="n_couples")]
+           [LinearAtr("n_couples", level="choose"), LinearAtr("n_places", level="choose"), LinearAtr("n_cars", base_atr="n_couples")]
     ),
 
     # Domain("snake",
