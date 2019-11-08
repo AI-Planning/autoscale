@@ -86,5 +86,7 @@ exp.add_report(
     BaseReport(attributes=ATTRIBUTES),
     outfile='{}.html'.format(exp.name))
 
+exp.add_parse_again_step()
+
 # Parse the commandline and run the specified steps.
 exp.run_steps()
