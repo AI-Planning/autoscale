@@ -38,16 +38,16 @@ From: ubuntu:xenial
     ## Call your planner.
     /planner/src/fast-downward.py \
         --plan-file $PLANFILE \
-        --portfolio /planner/src/driver/portfolios/seq_sat_ds.py \
+        --portfolio /planner/src/driver/portfolios/seq_agl_ds.py \
         $DOMAINFILE \
         $PROBLEMFILE \
-        --preprocess-options --h2-time-limit 30
+        --preprocess-options --h2-time-limit 10
 
 ## Update the following fields with meta data about your submission.
 ## Please use the same field names and use only one line for each value.
 %labels
 Name        DecStar
-Description portfolio including decoupled search as a main planner
+Description portfolio including decoupled search as a main component
 Authors     Daniel Gnad <gnad@cs.uni-saarland.de> and Alexander Shleyfman <shleyfman.alexander@gmail.com> and Joerg Hoffmann <hoffmann@cs.uni-saarland.de>
 SupportsDerivedPredicates no
 SupportsQuantifiedPreconditions no
