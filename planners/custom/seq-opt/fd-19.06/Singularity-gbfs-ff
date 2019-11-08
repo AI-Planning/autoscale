@@ -25,4 +25,4 @@ From: ubuntu:18.04
     PLANFILE=$3
 
     ## Originally without time limit.
-    /planner/fast-downward.py --plan-file $PLANFILE $DOMAINFILE $PROBLEMFILE ---search "eager_greedy([ff()])"
+    /planner/fast-downward.py --plan-file $PLANFILE $DOMAINFILE $PROBLEMFILE --search "eager_greedy([ff()])"
