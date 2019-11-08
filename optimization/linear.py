@@ -640,12 +640,20 @@ class Sequence:
     def get_next_parameters(self):
         return self.seq[self.next_index]
 
+    def has_next(self):
+        return self.next_index < len(self.seq)
+
+    def reset_next(self):
+        self.next_runtime = None
+        self.next_index += 1
+        if not self.has_next():
+            self.next_lb_runtime = 10000000000 # Arbitrary number greater than time limit
+        
 
 class InstanceSet:
     def __init__(self, Y, runner):
         self.sequences = [Sequence(y) for y in Y]
         self.runner = runner
-
         self.sequential_runtimes = []
 
     def add_to_sequence(self):
@@ -659,8 +667,8 @@ class InstanceSet:
             for seq in self.sequences:
                 if seq.next_runtime == best_runtime:
                     self.sequential_runtimes.append(seq.next_runtime)
-                    seq.next_runtime = None
-                    seq.next_index += 1
+                    seq.reset_next()
+                    
 
     def eval_next(self, time_limit):
         best_lb = min(map(lambda x: x.next_lb_runtime, self.sequences))
@@ -670,6 +678,7 @@ class InstanceSet:
         for seq in self.sequences:
             if seq.next_lb_runtime == best_lb:
                 runtime = self.runner.run_planners(seq.get_next_parameters(), time_limit)
+                
                 if not runtime:
                     seq.next_lb_runtime = time_limit + 0.01
                 else:
