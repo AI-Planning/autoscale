@@ -56,7 +56,7 @@ def main( domain_file, problem_file, output ) :
         #NIR: call FD implementation of Restarting WAstar
 
        
-        fd_cmd =  "/planner/Fast-Downward-2018-2/fast-downward-singularity.py --build release64 --alias lazy-rwastar --plan-file {} --external-bound {} {} {}".format(output, int(task.plan_cost),domain_file, problem_file)
+        fd_cmd =  "/planner/Fast-Downward-2018-2/fast-downward.py --build release32 --alias lazy-rwastar --plan-file {} --external-bound {} {} {}".format(output, int(task.plan_cost),domain_file, problem_file)
         os.system(fd_cmd)
 
 def debug() :

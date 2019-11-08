@@ -19,7 +19,6 @@ From: ubuntu:bionic
     ## and build the planner. Add all commands that have to be executed
     ## once before the planner runs in this part of the script.
 
-
     ## Install all necessary dependencies.
     apt-get update
     apt-get install --no-install-recommends -y \
@@ -58,8 +57,7 @@ From: ubuntu:bionic
     cd external/libff 
     make clean
     make depend
-    make 
-    
+    make
     
     ## Build your planner
     cd /planner/BFWS/ff-version
@@ -71,7 +69,7 @@ From: ubuntu:bionic
     cd /planner
     ## tar xjf Fast-Downward-2018-2.tar.bz2
     cd /planner/Fast-Downward-2018-2
-    ./build.py release64 -j4
+    ./build.py release32 -j4
     
     ## Build h2-preprocessor
     #cd /planner
@@ -95,7 +93,7 @@ From: ubuntu:bionic
     # /planner/BFWS/ff-version/bfws --domain $DOMAINFILE --problem $PROBLEMFILE --output $PLANFILE --Poly-Seq-BFWS 1
     
     ## Call your planner using FD-parser.
-    /planner/BFWS/fd-version/bfws_f5_anytime_fd_singularity.py $DOMAINFILE $PROBLEMFILE $PLANFILE
+    /planner/BFWS/fd-version/bfws_f5.py $DOMAINFILE $PROBLEMFILE $PLANFILE
 
 
 ## Update the following fields with meta data about your submission.
