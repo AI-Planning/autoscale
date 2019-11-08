@@ -377,12 +377,12 @@ for domain, images in PLANNER_SELECTION.items():
 
 
 DOMAIN_LIST = [
-    Domain("blocksworld", "blocksworld 4 {n}", [LinearAtr("n")]),
+    Domain("blocksworld", "blocksworld 4 {n}", [LinearAtr("n", lower_b=5, upper_b=10, lower_m=0.1, upper_m=2)]),
     Domain("gripper", "gripper -n {n}", [LinearAtr("n")]),
     Domain(
         "miconic-strips",
         "miconic -f {floors} -p {passengers}",
-        [LinearAtr("passengers", lower_b=5, upper_b=15, lower_m=0.01, upper_m=2, level="choose"),
+        [LinearAtr("passengers", lower_b=5, upper_b=15, lower_m=0.01, upper_m=2, level="true"),
          LinearAtr("floors", lower_b=5, upper_b=15, lower_m=0.01, upper_m=2, level="choose")],
     ),
     Domain(
@@ -808,11 +808,11 @@ def evaluate_cfg(cfg):
         logging.info("First instance was not solved by the baseline planner in less than 10 seconds")
         return 10 ** 6
 
-    if not baseline_eval.is_solvable(1, time_limit=60, lower_bound=1):
+    if not baseline_eval.is_solvable(1, time_limit=60, lower_bound=0):
         logging.info("Second instance was not solved by the baseline planner in more than 2 or less than 60 seconds")
         return 10 ** 6 - 10 ** 5
 
-    if not baseline_eval.is_solvable(2, time_limit=300, lower_bound=10):
+    if not baseline_eval.is_solvable(2, time_limit=300, lower_bound=2):
         logging.info("Third instance was not solved by the baseline planner in more than 10 or less than 300 seconds")
         return 10 ** 6 - 2 * 10 ** 5
 
