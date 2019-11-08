@@ -822,11 +822,11 @@ def evaluate_cfg(cfg):
         return 10 ** 6
 
     if not baseline_eval.is_solvable(1, time_limit=60, lower_bound=0):
-        logging.info("Second instance was not solved by the baseline planner in more than 2 or less than 60 seconds")
+        logging.info("Second instance was not solved by the baseline planner in less than 60 seconds")
         return 10 ** 6 - 10 ** 5
 
     if not baseline_eval.is_solvable(2, time_limit=300, lower_bound=2):
-        logging.info("Third instance was not solved by the baseline planner in more than 10 or less than 300 seconds")
+        logging.info("Third instance was not solved by the baseline planner in more than 2 or less than 300 seconds")
         return 10 ** 6 - 2 * 10 ** 5
 
     # Now, we check the entire scaling with respect to the baseline. What is important is
