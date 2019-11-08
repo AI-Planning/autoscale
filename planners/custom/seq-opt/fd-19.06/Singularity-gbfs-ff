@@ -1,0 +1,28 @@
+Bootstrap: docker
+From: ubuntu:18.04
+
+%setup
+    REPO_ROOT=`dirname $SINGULARITY_BUILDDEF`
+    cp -r $REPO_ROOT/ $SINGULARITY_ROOTFS/planner
+
+%post
+    ## Install all dependencies.
+    apt update
+    apt install -y --no-install-recommends cmake g++ make python
+
+    cd /planner
+
+    ## Build the planner.
+    ./build.py
+
+    ## Clean up.
+    apt -y autoremove cmake g++ make
+    rm -rf /var/lib/apt/lists/*
+
+%runscript
+    DOMAINFILE=$1
+    PROBLEMFILE=$2
+    PLANFILE=$3
+
+    ## Originally without time limit.
+    /planner/fast-downward.py --plan-file $PLANFILE $DOMAINFILE $PROBLEMFILE ---search "eager_greedy([ff()])"
