@@ -585,10 +585,10 @@ class Runner:
             return self.exact_cache[cache_key]
 
         # Check the unsolvability cache to see if the problem is too hard
-        non_linear_key = tuple([parameters[attr] for attr in parameters if not attr in self.linear_attributes_names])
+        non_linear_key = tuple([parameters[attr] for attr in parameters if attr not in self.linear_attributes_names])
         if non_linear_key in self.frontier_cache:
             for values_linear_attributes, runtime in self.frontier_cache[non_linear_key]:
-                if (runtime == None or time_limit < runtime) and all(
+                if (runtime is None or time_limit < runtime) and all(
                     values_linear_attributes[linear_atr] <= parameters[linear_atr]
                     for linear_atr in self.linear_attributes_names
                 ):
@@ -802,7 +802,6 @@ def evaluate_runtimes(runtimes, num_expected_runtimes):
 
 
 def evaluate_cfg(cfg):
-    n = ARGS.tasks
     logging.info(f"Evaluate {cfg}")
     domain = DOMAIN_DICT[ARGS.domain]
     Y = domain.get_configs(cfg)
