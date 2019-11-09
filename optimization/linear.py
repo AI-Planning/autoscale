@@ -358,7 +358,7 @@ BASELINE_PLANNER = "blind.img"
 
 PLANNER_SELECTION = {
     "barman": ["symba1.img"],
-    "blocksworld": ["fdss-mas1.img", "symba1.img", "scorpion-nodiv.img"],
+    "blocksworld": ["fdss-mas1.img"],
     "childsnack": ["delfi-ipdb.img"],
     "data-network": ["lmcut.img"],
     "depots": ["scorpion-nodiv.img", "delfi-ipdb.img"],
@@ -378,12 +378,13 @@ PLANNER_SELECTION = {
     "tetris": ["scorpion-nodiv.img"],
     "tpp": ["complementary2.img"],
     "trucks": ["scorpion-nodiv.img", "symba2.img"],
-    "visitall": ["complementary2.img", "symba1.img", "delfi-ipdb.img"],
+    "visitall": ["delfi-ipdb.img"],
     "woodworking": ["scorpion-nodiv.img", "delfi-celmcut.img"],
-    "zenotravel": ["scorpion-nodiv.img", "delfi-celmcut.img", "symba2.img"],
+    "zenotravel": ["delfi-celmcut.img"],
 }
 
 for domain, images in PLANNER_SELECTION.items():
+    assert len(images) <= 2, f"too many images for {domain}"
     for image in images:
         path = os.path.join(ARGS.images_dir, image)
         assert os.path.exists(path), f"image at {path} is missing"
