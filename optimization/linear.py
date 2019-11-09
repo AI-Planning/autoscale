@@ -551,7 +551,7 @@ DOMAIN_LIST = [
 
 DOMAIN_DICT = {d.name: d for d in DOMAIN_LIST}
 
-print("Available domains: {}".format(sorted(DOMAIN_DICT)))
+print("{} domains available: {}".format(len(DOMAIN_DICT), sorted(DOMAIN_DICT)))
 
 for domain in DOMAIN_DICT:
     assert os.path.exists(os.path.join(ARGS.generators_dir, domain, "domain.pddl")), f"domain.pddl missing for {domain}"
