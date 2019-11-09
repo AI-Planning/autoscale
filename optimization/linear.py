@@ -44,6 +44,10 @@ import numpy as np
 
 from ConfigSpace.hyperparameters import UniformFloatHyperparameter
 from ConfigSpace.hyperparameters import UniformIntegerHyperparameter
+from ConfigSpace.hyperparameters import CategoricalHyperparameter
+
+
+
 
 from smac.configspace import ConfigurationSpace
 from smac.scenario.scenario import Scenario
@@ -105,6 +109,15 @@ def parse_args():
         default="smac",
         help="Directory where to store logs and temporary files (default: %(default)s)",
     )
+
+    parser.add_argument(
+        "--only-baseline", action="store_true",
+        help="only consider the baseline planner",
+    )
+    parser.add_argument(
+        "--sequences_linear_hierarchy", type=int, default=4, help="Number sequences when there is a hierarchy on the linear attributes (default: %(default)s)"
+    )
+
     return parser.parse_args()
 
 
@@ -161,7 +174,7 @@ if os.path.exists(SMAC_OUTPUT_DIR):
 
 
 class LinearAtr:
-    def __init__(self, name, base_atr=None, lower_b=1, upper_b=20, lower_m=0.01, upper_m=5.0, default_m=1.0):
+    def __init__(self, name, base_atr=None, level="false",lower_b=1, upper_b=20, lower_m=0.01, upper_m=5.0, default_m=1.0):
         self.name = name
         self.lower_b = lower_b
         self.upper_b = upper_b
@@ -169,6 +182,9 @@ class LinearAtr:
         self.upper_m = upper_m
         self.default_m = default_m
         self.base_atr = base_atr
+        self.level_enum = level
+
+        assert self.level_enum in ["false", "true", "choose"]
 
     def get_hyperparameters(self, modifier=None):
         atr = "{}_{}".format(modifier, self.name) if modifier else self.name
@@ -177,15 +193,21 @@ class LinearAtr:
         if self.lower_b != self.upper_b:
             H.append(UniformIntegerHyperparameter("{}_b".format(atr), lower=self.lower_b, upper=self.upper_b, default_value=self.lower_b))
 
+        if self.level_enum == "choose":
+            H.append(CategoricalHyperparameter("{}_level".format(atr), ["true", "false"], default_value="false"))
+
         if self.lower_m != self.upper_m:
             H += [
                 UniformFloatHyperparameter(
                     "{}_m".format(atr), lower=self.lower_m, upper=self.upper_m, default_value=self.default_m
                 ),
-                UniformFloatHyperparameter(
-                    "{}_m2".format(atr), lower=0, upper=self.upper_m, default_value=0
-                ),
-            ]
+                ]
+            if not ARGS.only_baseline:
+                H += [
+                    UniformFloatHyperparameter(
+                        "{}_m2".format(atr), lower=0, upper=self.upper_m, default_value=0
+                    ),
+                ]
 
         return H
 
@@ -194,14 +216,15 @@ class LinearAtr:
 
         val = self.lower_b if self.lower_b == self.upper_b else int(cfg.get("{}_b".format(atr)))
         m = self.lower_m if self.lower_m == self.upper_m else float(cfg.get("{}_m".format(atr)))
-        m2 = 0 if self.lower_m == self.upper_m else  float(cfg.get("{}_m2".format(atr)))
+        if not ARGS.only_baseline:
+            m2 = 0 if self.lower_m == self.upper_m else  float(cfg.get("{}_m2".format(atr)))
 
         for i, Yi in enumerate(Y):
             Yi[self.name] = int(val)
             if self.base_atr:
                 Yi[self.name] += Yi[self.base_atr]
             val += m
-            if i >= num_tasks_baseline:
+            if i >= num_tasks_baseline and not ARGS.only_baseline:
                 val += m + m2
 
 
@@ -217,11 +240,48 @@ class ConstantAtr:
         for i, Yi in enumerate(Y):
             Yi[self.name] = self.value
 
-
 class EnumAtr:
-    def __init__(self, name, values):
+    def __init__(self, name, values, optional=False):
         self.name = name
         self.values = values
+        self.optional = optional
+
+    def get_hyperparameters(self):
+        if self.optional:
+            return [CategoricalHyperparameter("{}_optional".format(self.name), ["true", "false"], default_value="false")]
+        return []
+
+def eliminate_duplicates(l):
+    seen = set()
+    seen_add = seen.add
+    return [x for x in l if not (tuple(x.items()) in seen or seen_add(tuple(x.items())))]
+
+# Function that scales linear attributes, ensuring that all instances have different
+# values
+def get_linear_scaling_values(linear_atrs, cfg, num_values, base={}, name_base=None):
+    assert(len(linear_atrs) > 0)
+    num_generated = num_values
+
+    for i in range(20): # Attempt this 20 times
+        result = [base.copy() for i in range(num_generated)]
+        for atr in linear_atrs:
+            atr.set_values(cfg, result, num_values, name_base)
+
+        result = eliminate_duplicates(result)
+
+        if len(result) >= num_values:
+            return result[:num_values]
+
+        num_generated *= 2
+
+    print ("Warning: we cannot generate different attributes", cfg, linear_atrs)
+
+    result = [base.copy() for i in range(num_values)]
+    for atr in linear_atrs:
+        atr.set_values(cfg, result, num_values, name_base)
+    return result
+
+
 
 
 class Domain:
@@ -235,23 +295,35 @@ class Domain:
     def get_domain_file(self):
         return os.path.join(GENERATORS_DIR, self.name, "domain.pddl")
 
+
     def get_configs(self, cfg, num_tasks_baseline=ARGS.tasksbaseline, num_tasks=ARGS.tasks):
         result = []
-        if not self.enum_attributes:
-            Y = [{} for i in range(num_tasks)]
-            for atr in self.linear_attributes:
-                atr.set_values(cfg, Y, num_tasks_baseline)
-            result.append(Y)
+
+        if self.enum_attributes:
+            num_sequences = len(self.enum_attributes)
         else:
-            num_tasks_per_enum = math.ceil(num_tasks / len(self.enum_attributes))
+            level0_atrs = [atr for atr in self.linear_attributes if atr.level_enum=="true"]
+            level1_atrs = [atr for atr in self.linear_attributes if atr.level_enum=="false"]
+            num_sequences = 1 if len(level0_atrs) == 0 or len(level1_atrs) == 0  else ARGS.sequences_linear_hierarchy # Generate enums
 
+        num_tasks_per_sequence = math.ceil(num_tasks / num_sequences)
+
+        # Populate sequences
+        if self.enum_attributes:
             for enum_atr in self.enum_attributes:
-                Y = [enum_atr.values.copy() for i in range(num_tasks_per_enum)]
-
-                for atr in self.linear_attributes:
-                    atr.set_values(cfg, Y, num_tasks_baseline, enum_atr.name)
-
+                Y = get_linear_scaling_values(self.linear_attributes, cfg, num_tasks_per_sequence, enum_atr.values, enum_atr.name)
                 result.append(Y)
+
+        elif num_sequences > 1:
+            # Populate sequences with linear attributes on level 0
+            linear_to_enum_atrs = get_linear_scaling_values(level0_atrs, cfg, ARGS.sequences_linear_hierarchy)
+
+            for enum_atr in linear_to_enum_atrs:
+                Y = get_linear_scaling_values(level1_atrs, cfg, num_tasks_per_sequence, enum_atr)
+                result.append(Y)
+        else:
+            Y = get_linear_scaling_values(self.linear_attributes, cfg, num_tasks_per_sequence)
+            result.append(Y)
 
         if self.adapt_f:
             result = [[self.adapt_f(config) for config in y] for y in result ]
@@ -265,6 +337,7 @@ class Domain:
         else:
             result = []
             for enum_parameter in self.enum_attributes:
+                result += enum_parameter.get_hyperparameters()
                 for atr in self.linear_attributes:
                     result += atr.get_hyperparameters(enum_parameter.name)
         return result
@@ -284,55 +357,57 @@ def adapt_parameters_parking(parameters):
 BASELINE_PLANNER = "blind.img"
 
 PLANNER_SELECTION = {
-    "blocksworld": ["fdss-mas1.img", "symba1.img", "scorpion-nodiv.img"],
+    "barman": ["symba1.img"],
+    "blocksworld": ["fdss-mas1.img"],
+    "childsnack": ["delfi-ipdb.img"],
+    "data-network": ["lmcut.img"],
+    "depots": ["scorpion-nodiv.img", "delfi-ipdb.img"],
     "driverlog": ["bjolp.img", "symba1.img"],
+    "floortile": ["symba1.img"],
     "gripper": ["delfi-blind.img"],
+    "hiking": ["delfi-mas-miasm.img"],
+    "maintenance": ["delfi-blind.img"],
     "miconic-strips": ["bjolp.img"],
+    "parking": ["delfi-ipdb.img"],
+    "pathways": ["delfi-celmcut.img"],
     "rover": ["symba1.img"],
     "satellite": ["delfi-celmcut.img", "symba1.img"],
-    "trucks": ["scorpion-nodiv.img", "symba2.img"],
-    "zenotravel": ["scorpion-nodiv.img", "delfi-celmcut.img", "symba2.img"],
-    "depots": ["scorpion-nodiv.img", "delfi-ipdb.img"],
-    "visitall": ["complementary2.img", "symba1.img", "delfi-ipdb.img"],
-    "woodworking": ["scorpion-nodiv.img", "delfi-celmcut.img"],
-    "parking": ["delfi-ipdb.img"],
-    "tpp": ["complementary2.img"],
-    "pathways": ["delfi-celmcut.img"],
-    "storage": ["delfi-celmcut.img"],
-    "barman": ["symba1.img"],
-    "floortile": ["symba1.img"],
-    "childsnack": ["delfi-ipdb.img"],
-    "hiking": ["delfi-mas-miasm.img"],
-    "tetris": ["scorpion-nodiv.img"],
-    "data-network": ["lmcut.img"],
     "snake": ["bjolp.img"],
+    "storage": ["delfi-celmcut.img"],
     "termes": ["symba2.img"],
-    "maintenance": ["delfi-blind.img"],
+    "tetris": ["scorpion-nodiv.img"],
+    "tpp": ["complementary2.img"],
+    "trucks": ["scorpion-nodiv.img", "symba2.img"],
+    "visitall": ["delfi-ipdb.img"],
+    "woodworking": ["scorpion-nodiv.img", "delfi-celmcut.img"],
+    "zenotravel": ["delfi-celmcut.img"],
 }
 
 for domain, images in PLANNER_SELECTION.items():
+    assert len(images) <= 2, f"too many images for {domain}"
     for image in images:
         path = os.path.join(ARGS.images_dir, image)
         assert os.path.exists(path), f"image at {path} is missing"
 
 
 DOMAIN_LIST = [
-    Domain("blocksworld", "blocksworld 4 {n}", [LinearAtr("n")]),
-    Domain("gripper", "gripper -n {n}", [LinearAtr("n")]),
+    Domain("blocksworld", "blocksworld 4 {n}", [LinearAtr("n", lower_b=5, upper_b=10, lower_m=0.1, upper_m=2)]),
+    Domain("gripper", "gripper -n {n}", [LinearAtr("n", lower_b=8, upper_b=15, lower_m=0.1, upper_m=2)]),
     Domain(
         "miconic-strips",
         "miconic -f {floors} -p {passengers}",
-        [LinearAtr("passengers"), LinearAtr("floors", lower_b=2)],
+        [LinearAtr("passengers", lower_b=5, upper_b=15, lower_m=0.01, upper_m=2, level="true"),
+         LinearAtr("floors", lower_b=5, upper_b=15, lower_m=0.01, upper_m=2, level="choose")],
     ),
     Domain(
         "rover",
         "rovgen {seed} {rovers} {waypoints} {objectives} {cameras} {goals}",
         [
-            LinearAtr("rovers"),
-            LinearAtr("objectives"),
-            LinearAtr("cameras"),
-            LinearAtr("goals"),
-            LinearAtr("waypoints", lower_b=4),
+            LinearAtr("rovers", upper_b=5, upper_m=2, level="choose"),
+            LinearAtr("objectives",upper_b=10, level="choose"),
+            LinearAtr("cameras", upper_b=10, level="choose"),
+            LinearAtr("goals", upper_b=5, level="choose"),
+            LinearAtr("waypoints", lower_b=4, upper_b=15),
         ],
     ),
     Domain(
@@ -358,7 +433,7 @@ DOMAIN_LIST = [
     Domain(
         "visitall",
         "grid -n {n} -r {r} -u 0 -s {seed}",
-        [LinearAtr("n", lower_b=2)],
+        [LinearAtr("n", lower_b=2, upper_b=10)],
         enum_values=[EnumAtr("half", {"r": "0.5"}), EnumAtr("full", {"r": "1"})],
     ),
     Domain(
@@ -374,20 +449,20 @@ DOMAIN_LIST = [
     Domain(
         "zenotravel",
         "ztravel {seed} {cities} {planes} {people}",
-        [LinearAtr("planes"), LinearAtr("people"), LinearAtr("cities", lower_b=3)],
+        [LinearAtr("planes", level="choose"), LinearAtr("people", lower_m=1), LinearAtr("cities", level="choose", lower_b=3)],
     ),
 
 
     Domain("parking",
            "./parking-generator.pl prob {curbs} {cars} seq",
-           [LinearAtr("curbs", lower_b=3)],
+           [LinearAtr("curbs", lower_b=3, upper_b=6)],
            adapt_f = adapt_parameters_parking,
     ),
 
 
     Domain("driverlog",
            "dlgen {seed} {roadjunctions} {drivers} {packages} {trucks}",
-           [LinearAtr("drivers"),
+           [LinearAtr("drivers", level="choose"),
             LinearAtr("packages", base_atr="drivers"),
             LinearAtr("roadjunctions",base_atr="drivers"),
             LinearAtr("trucks", base_atr="drivers", lower_m=0, upper_m=0)]
@@ -395,15 +470,15 @@ DOMAIN_LIST = [
 
     Domain("barman",
            "barman-generator.py {num_cocktails} {num_ingredients} {num_shots} {seed}",
-           [LinearAtr("num_cocktails", lower_b=1),
-            #TODO Perhaps num ingredients should be an enum attribute
-            LinearAtr("num_ingredients", lower_b=3, default_m=0.2),
-            LinearAtr("num_shots", base_atr="num_cocktails", lower_b=1)],
+           [LinearAtr("num_cocktails", lower_b=1, upper_b=3),
+            LinearAtr("num_shots", base_atr="num_cocktails", lower_b=1, upper_b=3)],
+           enum_values=[EnumAtr("ing3", {"num_ingredients": "3"}),
+                        EnumAtr("ing4", {"num_ingredients": "4"}, optional=True)],
     ),
 
     Domain("depots",
            "depots -e {depots} -i {distributors} -t {trucks} -p {pallets} -h {hoists} -c {crates} -s {seed}",
-           [LinearAtr("depots"), LinearAtr("distributors"), LinearAtr("trucks"), LinearAtr("pallets"), LinearAtr("hoists"), LinearAtr("crates")]
+           [LinearAtr("depots", level="choose"), LinearAtr("distributors"), LinearAtr("trucks"), LinearAtr("pallets"), LinearAtr("hoists"), LinearAtr("crates")]
     ),
 
 
@@ -415,18 +490,18 @@ DOMAIN_LIST = [
 
     Domain("hiking",
            "generator.py {n_couples} {n_cars} {n_places} {seed}",
-           [LinearAtr("n_couples"), LinearAtr("n_places"), LinearAtr("n_cars", base_atr="n_couples")]
+           [LinearAtr("n_couples", level="choose"), LinearAtr("n_places", level="choose"), LinearAtr("n_cars", base_atr="n_couples")]
     ),
 
     # Domain("snake",
     #     "generate.py {board} {snake_size} {num_initial_apples} {num_spawn_apples} {seed} pddl",
     #        [ConstantAtr("snake_size", "1"), ConstantAtr("num_initial_apples", 5),
-    #         LinearAtr("x_grid", lower_b=3, upper_b=8, upper_m=1), LinearAtr("y_grid", base_atr="x_grid", lower_b=0, upper_b=2, lower_m=0, upper_m=1), 
+    #         LinearAtr("x_grid", lower_b=3, upper_b=8, upper_m=1), LinearAtr("y_grid", base_atr="x_grid", lower_b=0, upper_b=2, lower_m=0, upper_m=1),
 
-    #            enum_values=] 
+    #            enum_values=]
     # ),
 
-    
+
     # Domain("maintenance",
     #        "maintenance {days} {planes} {mechanics} {cities} {visits} {instances} {seed}",
     #        [LinearAtr("days", lower_b = 5),
@@ -444,9 +519,6 @@ DOMAIN_LIST = [
     #        enum_values=[EnumAtr("square")]
 
     # ),
-
-
-
 
     # Domain("data-network",
     #        "",
@@ -479,7 +551,7 @@ DOMAIN_LIST = [
 
 DOMAIN_DICT = {d.name: d for d in DOMAIN_LIST}
 
-print("Available domains: {}".format(sorted(DOMAIN_DICT)))
+print("{} domains available: {}".format(len(DOMAIN_DICT), sorted(DOMAIN_DICT)))
 
 for domain in DOMAIN_DICT:
     assert os.path.exists(os.path.join(ARGS.generators_dir, domain, "domain.pddl")), f"domain.pddl missing for {domain}"
@@ -514,10 +586,10 @@ class Runner:
             return self.exact_cache[cache_key]
 
         # Check the unsolvability cache to see if the problem is too hard
-        non_linear_key = tuple([parameters[attr] for attr in parameters if not attr in self.linear_attributes_names])
+        non_linear_key = tuple([parameters[attr] for attr in parameters if attr not in self.linear_attributes_names])
         if non_linear_key in self.frontier_cache:
             for values_linear_attributes, runtime in self.frontier_cache[non_linear_key]:
-                if (runtime == None or time_limit < runtime) and all(
+                if (runtime is None or time_limit < runtime) and all(
                     values_linear_attributes[linear_atr] <= parameters[linear_atr]
                     for linear_atr in self.linear_attributes_names
                 ):
@@ -648,7 +720,7 @@ class Sequence:
         self.next_index += 1
         if not self.has_next():
             self.next_lb_runtime = 10000000000 # Arbitrary number greater than time limit
-        
+
 
 class InstanceSet:
     def __init__(self, Y, runner):
@@ -668,7 +740,7 @@ class InstanceSet:
                 if seq.next_runtime == best_runtime:
                     self.sequential_runtimes.append(seq.next_runtime)
                     seq.reset_next()
-                    
+
 
     def eval_next(self, time_limit):
         best_lb = min(map(lambda x: x.next_lb_runtime, self.sequences))
@@ -678,7 +750,7 @@ class InstanceSet:
         for seq in self.sequences:
             if seq.next_lb_runtime == best_lb:
                 runtime = self.runner.run_planners(seq.get_next_parameters(), time_limit)
-                
+
                 if not runtime:
                     seq.next_lb_runtime = time_limit + 0.01
                 else:
@@ -731,7 +803,6 @@ def evaluate_runtimes(runtimes, num_expected_runtimes):
 
 
 def evaluate_cfg(cfg):
-    n = ARGS.tasks
     logging.info(f"Evaluate {cfg}")
     domain = DOMAIN_DICT[ARGS.domain]
     Y = domain.get_configs(cfg)
@@ -750,12 +821,12 @@ def evaluate_cfg(cfg):
         logging.info("First instance was not solved by the baseline planner in less than 10 seconds")
         return 10 ** 6
 
-    if not baseline_eval.is_solvable(1, time_limit=60, lower_bound=2):
-        logging.info("Second instance was not solved by the baseline planner in more than 2 or less than 60 seconds")
+    if not baseline_eval.is_solvable(1, time_limit=60, lower_bound=0):
+        logging.info("Second instance was not solved by the baseline planner in less than 60 seconds")
         return 10 ** 6 - 10 ** 5
 
-    if not baseline_eval.is_solvable(2, time_limit=300, lower_bound=10):
-        logging.info("Third instance was not solved by the baseline planner in more than 10 or less than 300 seconds")
+    if not baseline_eval.is_solvable(2, time_limit=300, lower_bound=2):
+        logging.info("Third instance was not solved by the baseline planner in more than 2 or less than 300 seconds")
         return 10 ** 6 - 2 * 10 ** 5
 
     # Now, we check the entire scaling with respect to the baseline. What is important is
@@ -766,9 +837,15 @@ def evaluate_cfg(cfg):
     # and unsolved instances are assigned a score of 2
 
     baseline_times = baseline_eval.get_runtimes(ARGS.tasksbaseline, 10, 300)
-    sart_eval = InstanceSet(Y, RUNNER_SART)
-    sart_times = sart_eval.get_runtimes(ARGS.tasksbaseline, 10, 300)
-    penalty = evaluate_runtimes(baseline_times, ARGS.tasksbaseline) + evaluate_runtimes(sart_times, ARGS.tasksbaseline)
+    penalty = evaluate_runtimes(baseline_times, ARGS.tasksbaseline)
+
+
+    if ARGS.only_baseline:
+        sart_times = []
+    else:
+        sart_eval = InstanceSet(Y, RUNNER_SART)
+        sart_times = sart_eval.get_runtimes(ARGS.tasksbaseline, 10, 300)
+        penalty += evaluate_runtimes(sart_times, ARGS.tasksbaseline)
 
     logging.info(f"Baseline times: {baseline_times}, sart times: {sart_times}, penalty: {penalty}")
 
