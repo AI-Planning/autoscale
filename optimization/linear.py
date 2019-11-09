@@ -840,7 +840,9 @@ def evaluate_cfg(cfg):
     penalty = evaluate_runtimes(baseline_times, ARGS.tasksbaseline)
 
 
-    if not ARGS.only_baseline:
+    if ARGS.only_baseline:
+        sart_times = []
+    else:
         sart_eval = InstanceSet(Y, RUNNER_SART)
         sart_times = sart_eval.get_runtimes(ARGS.tasksbaseline, 10, 300)
         penalty += evaluate_runtimes(sart_times, ARGS.tasksbaseline)
