@@ -11,14 +11,7 @@ From: i386/ubuntu:18.04
     apt -y install bison flex make g++
 
     ## Build the planner.
-    ## TODO: without these HACKs taken from the Makefile, the compilation fails
-    ## in the container.
     cd /planner
-    #ls
-    ./makedate
-    flex lexer.lex
-    bison -d parser.y
-    #ls
     make -j4
 
     ## Clean up.
@@ -30,5 +23,4 @@ From: i386/ubuntu:18.04
     PROBLEMFILE=$2
     PLANFILE=$3
 
-    cd /planner
-    ./plan $DOMAINFILE $PROBLEMFILE $PLANFILE
+    /planner/MpC $DOMAINFILE $PROBLEMFILE -o $PLANFILE -Q
