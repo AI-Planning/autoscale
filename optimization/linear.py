@@ -408,6 +408,7 @@ PLANNER_SELECTION = {
     "visitall": ["delfi-ipdb.img"],
     "woodworking": ["scorpion-nodiv.img", "delfi-celmcut.img"],
     "zenotravel": ["delfi-celmcut.img"],
+    "transport" : ["delfi-celmcut.img"],
 }
 
 for domain, images in PLANNER_SELECTION.items():
@@ -528,8 +529,7 @@ DOMAIN_LIST = [
            ]
     ),
 
-
-        Domain("storage",
+    Domain("storage",
            "storage -p 01 -o {containers} -e {seed} -c {crates} -n {hoists} -s {store_areas} -d {depots} tmp.pddl",
            [LinearAtr("crates", lower_b=1, level="false"),
             LinearAtr("hoists", lower_b=1, level="false"),
@@ -538,6 +538,18 @@ DOMAIN_LIST = [
            ], adapt_f = adapt_parameters_storage,
         num_sequences_linear_hierarchy = 3),
 
+    Domain("transport",
+           "{generator} {nodes} {size} {degree} {mindistance} {trucks} {packages} {seed}",
+           [ConstantAtr("size", 1000), ConstantAtr("mindistance", 100),
+            LinearAtr("nodes", lower_b=2, upper_b=10, lower_m=1),
+            LinearAtr("packages", lower_b=2, upper_b=10, lower_m=1),
+            LinearAtr("trucks", lower_b=2, upper_b=3, lower_m=0.01, upper_m=1),
+            LinearAtr("degree", lower_b=2, upper_b=3, lower_m=0.01, upper_m=1), 
+           ],
+           enum_values=[EnumAtr("city1", {"generator" : "city-generator.py"}), 
+                        EnumAtr("city2", {"generator" : "two-cities-generator.py"}),
+                        EnumAtr("city3", {"generator" : "three-cities-generator.py"})]
+    ),
 
     
     # Domain("snake",
