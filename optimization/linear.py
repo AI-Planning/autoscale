@@ -391,7 +391,7 @@ for domain, images in PLANNER_SELECTION.items():
 
 
 DOMAIN_LIST = [
-    Domain("blocksworld", "blocksworld 4 {n}", [LinearAtr("n", lower_b=5, upper_b=10, lower_m=0.1, upper_m=2)]),
+    Domain("blocksworld", "blocksworld 4 {n} {seed}", [LinearAtr("n", lower_b=5, upper_b=10, lower_m=0.1, upper_m=2)]),
     Domain("gripper", "gripper -n {n}", [LinearAtr("n", lower_b=8, upper_b=15, lower_m=0.1, upper_m=2)]),
     Domain(
         "miconic-strips",
