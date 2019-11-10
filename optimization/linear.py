@@ -789,7 +789,7 @@ def evaluate_runtimes(runtimes, num_expected_runtimes):
 
     sorted_runtimes = sorted(runtimes)
     if runtimes != sorted_runtimes:
-        print "Warning: runtimes were not sorted"
+        print ("Warning: runtimes were not sorted")
         
     if len(runtimes) < num_expected_runtimes:
         penalty += 2 * (num_expected_runtimes - len(runtimes))
