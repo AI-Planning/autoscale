@@ -790,7 +790,7 @@ def evaluate_runtimes(runtimes, num_expected_runtimes):
     sorted_runtimes = sorted(runtimes)
     if runtimes != sorted_runtimes:
         print ("Warning: runtimes were not sorted")
-        
+
     if len(runtimes) < num_expected_runtimes:
         penalty += 2 * (num_expected_runtimes - len(runtimes))
 
@@ -896,6 +896,4 @@ smac = SMAC4HPO(
 print("Output dir:", SMAC_OUTPUT_DIR)
 print("SMAC output dir:", smac.output_dir)
 incumbent = smac.optimize()
-inc_value = evaluate_cfg(incumbent)
 print("Final configuration: {}".format(incumbent.get_dictionary()))
-print("Optimized value: %.2f" % (inc_value))

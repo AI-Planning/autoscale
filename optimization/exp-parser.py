@@ -51,14 +51,13 @@ parser.add_pattern(
 parser.add_pattern(
     'optimize_exit_code', r'optimize exit code: (.+)\n', type=int, file='driver.log')
 parser.add_pattern(
-    'optimization_and_evaluation_wallclock_time', r'optimize wall-clock time: (.+)s\n', type=float, file='driver.log')
+    'optimization_wallclock_time', r'optimize wall-clock time: (.+)s\n', type=float, file='driver.log')
 parser.add_repeated_pattern('all_penalties', r'(Baseline times: .+)\n', type=str)
 parser.add_repeated_pattern('all_average_runtimes', r'Average runtime for y=.*: (.+)\n', type=str)
 parser.add_bottom_up_pattern('final_configuration', r'Final configuration: (\{.+\})\n', type=str)
-parser.add_bottom_up_pattern('final_value', r'Optimized value: (.+)\n', type=float)
+parser.add_bottom_up_pattern('final_value', r'Estimated cost of incumbent: (.+)\n', type=float)
 parser.add_bottom_up_pattern('evaluated_configurations', r'\#Configurations: (\d+)\n', type=int)
 parser.add_bottom_up_pattern('incumbent_changed', r'\#Incumbent changed: (\d+)\n', type=int)
-parser.add_bottom_up_pattern('optimization_wallclock_time', r'Used wallclock time: (.+) /', type=float)
 parser.add_function(error)
 
 parser.parse()
