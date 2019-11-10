@@ -786,12 +786,16 @@ def evaluate_runtimes(runtimes, num_expected_runtimes):
     penalty = 0
     # The default scaling only works if all instances are solvable. For each unsolvable instance apply a double penalty.
 
+    sorted_runtimes = sorted(runtimes)
+    if runtimes != sorted_runtimes:
+        print "Warning: runtimes were not sorted"
+        
     if len(runtimes) < num_expected_runtimes:
         penalty += 2 * (num_expected_runtimes - len(runtimes))
 
     for i in range(1, len(runtimes)):
-        factor = runtimes[i] / runtimes[i - 1]
-        if factor <= 1:  # Runtime is decreasing: maximum penalty of 1
+        factor = sorted_runtimes[i] / sorted_runtimes[i - 1]
+        if factor <= 1:  # Runtime is not increasing: maximum penalty of 1
             penalty += 1
         elif factor <= 2:  # Runtime is increasing, but not very quickly
             penalty += 2 - factor
@@ -848,6 +852,7 @@ def evaluate_cfg(cfg):
     logging.info(f"Baseline times: {baseline_times}, sart times: {sart_times}, penalty: {penalty}")
 
     return penalty
+
 
 
 # Build Configuration Space which defines all parameters and their ranges.
