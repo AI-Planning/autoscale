@@ -186,6 +186,12 @@ class LinearAtr:
 
         assert self.level_enum in ["false", "true", "choose"]
 
+    def get_level_enum(self, cfg):
+        if self.level_enum == "choose":
+            return cfg["{}_level".format(self.name)]
+        else:
+            return self.level_enum
+        
     def get_hyperparameters(self, modifier=None):
         atr = "{}_{}".format(modifier, self.name) if modifier else self.name
 
@@ -194,6 +200,7 @@ class LinearAtr:
             H.append(UniformIntegerHyperparameter("{}_b".format(atr), lower=self.lower_b, upper=self.upper_b, default_value=self.lower_b))
 
         if self.level_enum == "choose":
+            assert (modifier is None) # It does not make sense to have enum parameters and hierarchical linear attributes
             H.append(CategoricalHyperparameter("{}_level".format(atr), ["true", "false"], default_value="false"))
 
         if self.lower_m != self.upper_m:
@@ -299,11 +306,16 @@ class Domain:
     def get_configs(self, cfg, num_tasks_baseline=ARGS.tasksbaseline, num_tasks=ARGS.tasks):
         result = []
 
+        print ("Get configs")
         if self.enum_attributes:
             num_sequences = len(self.enum_attributes)
         else:
-            level0_atrs = [atr for atr in self.linear_attributes if atr.level_enum=="true"]
-            level1_atrs = [atr for atr in self.linear_attributes if atr.level_enum=="false"]
+            print ([atr.name for atr in self.linear_attributes])
+                   
+            level0_atrs = [atr for atr in self.linear_attributes if atr.get_level_enum(cfg)=="true"]
+            level1_atrs = [atr for atr in self.linear_attributes if atr.get_level_enum(cfg)=="false"]
+
+            print ("Attribute layers: ", level0_atrs, level1_atrs)
             num_sequences = 1 if len(level0_atrs) == 0 or len(level1_atrs) == 0  else ARGS.sequences_linear_hierarchy # Generate enums
 
         num_tasks_per_sequence = math.ceil(num_tasks / num_sequences)
@@ -854,6 +866,15 @@ def evaluate_cfg(cfg):
     logging.info(f"Baseline times: {baseline_times}, sart times: {sart_times}, penalty: {penalty}")
 
     return penalty
+
+
+# # Commented out, useful for debugging purposes
+# evaluate_cfg({'cameras_b': 5, 'cameras_level': 'true', 'cameras_m': 0.08452823057483608, 'cameras_m2': 2.1947949112424965, 'goals_b': 1, 'goals_level': 'false', 'goals_m': 0.0818673500874456, 'goals_m2': 3.2173136321965656, 'objectives_b': 1, 'objectives_level': 'true', 'objectives_m': 0.32240081894723477, 'objectives_m2': 0.7883673647125511, 'rovers_b': 2, 'rovers_level': 'false', 'rovers_m': 0.06401620592382612, 'rovers_m2': 1.243678808837213, 'waypoints_b': 10, 'waypoints_m': 2.07498794298152, 'waypoints_m2': 1.8863737675644134})
+# exit(0)
+
+
+
+
 
 
 
