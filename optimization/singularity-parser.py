@@ -55,7 +55,7 @@ def coverage(content, props):
 
 
 def main():
-    print "Running singularity parser"
+    print("Running singularity parser")
     parser = CommonParser()
     parser.add_pattern(
         "planner_exit_code",

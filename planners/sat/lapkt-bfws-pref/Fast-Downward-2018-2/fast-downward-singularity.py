@@ -2,5 +2,5 @@
 # -*- coding: utf-8 -*-
 
 if __name__ == "__main__":
-    from driver.main_singularity import main
+    from driver.main-singularity import main
     main()

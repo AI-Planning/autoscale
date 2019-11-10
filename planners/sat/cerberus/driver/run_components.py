@@ -120,7 +120,7 @@ def run_search(args):
         time_limit, memory_limit)
 
     plan_manager = PlanManager(args.plan_file)
-    #plan_manager.delete_existing_plans()
+    plan_manager.delete_existing_plans()
 
     search = get_executable(args.build, REL_SEARCH_PATH)
     logging.info("search executable: %s" % search)

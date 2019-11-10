@@ -4,11 +4,15 @@ set -euo pipefail
 
 cd "$(dirname "$0")"
 
-# Either 3 or 4.
-OPS=${1}
+OPS=${1}  # Must be either 3 or 4.
 BLOCKS=${2}
+SEED=${3}
 
-./bwstates.1/bwstates -s 2 -n ${BLOCKS} > STATES
-./${OPS}ops/2pddl/2pddl -d STATES -n ${BLOCKS}
+# Try to make temporary file unique to allow using the generator concurrently.
+# Ideally, 2pddl would accept stdin input.
+TMPFILE=STATES.${BLOCKS}.${SEED}
 
-rm STATES
+./bwstates.1/bwstates -s 2 -n ${BLOCKS} -r ${SEED} > ${TMPFILE}
+./${OPS}ops/2pddl/2pddl -d ${TMPFILE} -n ${BLOCKS}
+
+rm ${TMPFILE}

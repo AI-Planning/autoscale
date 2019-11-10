@@ -195,7 +195,7 @@ class LinearAtr:
 
         if self.level_enum == "choose":
             H.append(CategoricalHyperparameter("{}_level".format(atr), ["true", "false"], default_value="false"))
-            
+
         if self.lower_m != self.upper_m:
             H += [
                 UniformFloatHyperparameter(
@@ -247,7 +247,7 @@ class EnumAtr:
         self.optional = optional
 
     def get_hyperparameters(self):
-        if optional:
+        if self.optional:
             return [CategoricalHyperparameter("{}_optional".format(self.name), ["true", "false"], default_value="false")]
         return []
 
@@ -255,7 +255,7 @@ def eliminate_duplicates(l):
     seen = set()
     seen_add = seen.add
     return [x for x in l if not (tuple(x.items()) in seen or seen_add(tuple(x.items())))]
-    
+
 # Function that scales linear attributes, ensuring that all instances have different
 # values
 def get_linear_scaling_values(linear_atrs, cfg, num_values, base={}, name_base=None):
@@ -268,7 +268,7 @@ def get_linear_scaling_values(linear_atrs, cfg, num_values, base={}, name_base=N
             atr.set_values(cfg, result, num_values, name_base)
 
         result = eliminate_duplicates(result)
-    
+
         if len(result) >= num_values:
             return result[:num_values]
 
@@ -281,8 +281,8 @@ def get_linear_scaling_values(linear_atrs, cfg, num_values, base={}, name_base=N
         atr.set_values(cfg, result, num_values, name_base)
     return result
 
-    
-    
+
+
 
 class Domain:
     def __init__(self, name, gen_command, linear_atrs, adapt_f=None, enum_values=[]):
@@ -295,7 +295,7 @@ class Domain:
     def get_domain_file(self):
         return os.path.join(GENERATORS_DIR, self.name, "domain.pddl")
 
-                
+
     def get_configs(self, cfg, num_tasks_baseline=ARGS.tasksbaseline, num_tasks=ARGS.tasks):
         result = []
 
@@ -305,24 +305,24 @@ class Domain:
             level0_atrs = [atr for atr in self.linear_attributes if atr.level_enum=="true"]
             level1_atrs = [atr for atr in self.linear_attributes if atr.level_enum=="false"]
             num_sequences = 1 if len(level0_atrs) == 0 or len(level1_atrs) == 0  else ARGS.sequences_linear_hierarchy # Generate enums
-            
+
         num_tasks_per_sequence = math.ceil(num_tasks / num_sequences)
 
         # Populate sequences
-        if self.enum_attributes: 
+        if self.enum_attributes:
             for enum_atr in self.enum_attributes:
                 Y = get_linear_scaling_values(self.linear_attributes, cfg, num_tasks_per_sequence, enum_atr.values, enum_atr.name)
                 result.append(Y)
-                
+
         elif num_sequences > 1:
-            # Populate sequences with linear attributes on level 0            
+            # Populate sequences with linear attributes on level 0
             linear_to_enum_atrs = get_linear_scaling_values(level0_atrs, cfg, ARGS.sequences_linear_hierarchy)
 
             for enum_atr in linear_to_enum_atrs:
                 Y = get_linear_scaling_values(level1_atrs, cfg, num_tasks_per_sequence, enum_atr)
                 result.append(Y)
         else:
-            Y = get_linear_scaling_values(self.linear_attributes, cfg, num_tasks_per_sequence)                            
+            Y = get_linear_scaling_values(self.linear_attributes, cfg, num_tasks_per_sequence)
             result.append(Y)
 
         if self.adapt_f:
@@ -357,40 +357,41 @@ def adapt_parameters_parking(parameters):
 BASELINE_PLANNER = "blind.img"
 
 PLANNER_SELECTION = {
-    "blocksworld": ["fdss-mas1.img", "symba1.img", "scorpion-nodiv.img"],
+    "barman": ["symba1.img"],
+    "blocksworld": ["fdss-mas1.img"],
+    "childsnack": ["delfi-ipdb.img"],
+    "data-network": ["lmcut.img"],
+    "depots": ["scorpion-nodiv.img", "delfi-ipdb.img"],
     "driverlog": ["bjolp.img", "symba1.img"],
+    "floortile": ["symba1.img"],
     "gripper": ["delfi-blind.img"],
+    "hiking": ["delfi-mas-miasm.img"],
+    "maintenance": ["delfi-blind.img"],
     "miconic-strips": ["bjolp.img"],
+    "parking": ["delfi-ipdb.img"],
+    "pathways": ["delfi-celmcut.img"],
     "rover": ["symba1.img"],
     "satellite": ["delfi-celmcut.img", "symba1.img"],
-    "trucks": ["scorpion-nodiv.img", "symba2.img"],
-    "zenotravel": ["scorpion-nodiv.img", "delfi-celmcut.img", "symba2.img"],
-    "depots": ["scorpion-nodiv.img", "delfi-ipdb.img"],
-    "visitall": ["complementary2.img", "symba1.img", "delfi-ipdb.img"],
-    "woodworking": ["scorpion-nodiv.img", "delfi-celmcut.img"],
-    "parking": ["delfi-ipdb.img"],
-    "tpp": ["complementary2.img"],
-    "pathways": ["delfi-celmcut.img"],
-    "storage": ["delfi-celmcut.img"],
-    "barman": ["symba1.img"],
-    "floortile": ["symba1.img"],
-    "childsnack": ["delfi-ipdb.img"],
-    "hiking": ["delfi-mas-miasm.img"],
-    "tetris": ["scorpion-nodiv.img"],
-    "data-network": ["lmcut.img"],
     "snake": ["bjolp.img"],
+    "storage": ["delfi-celmcut.img"],
     "termes": ["symba2.img"],
-    "maintenance": ["delfi-blind.img"],
+    "tetris": ["scorpion-nodiv.img"],
+    "tpp": ["complementary2.img"],
+    "trucks": ["scorpion-nodiv.img", "symba2.img"],
+    "visitall": ["delfi-ipdb.img"],
+    "woodworking": ["scorpion-nodiv.img", "delfi-celmcut.img"],
+    "zenotravel": ["delfi-celmcut.img"],
 }
 
 for domain, images in PLANNER_SELECTION.items():
+    assert len(images) <= 2, f"too many images for {domain}"
     for image in images:
         path = os.path.join(ARGS.images_dir, image)
         assert os.path.exists(path), f"image at {path} is missing"
 
 
 DOMAIN_LIST = [
-    Domain("blocksworld", "blocksworld 4 {n}", [LinearAtr("n", lower_b=5, upper_b=10, lower_m=0.1, upper_m=2)]),
+    Domain("blocksworld", "blocksworld 4 {n} {seed}", [LinearAtr("n", lower_b=5, upper_b=10, lower_m=0.1, upper_m=2)]),
     Domain("gripper", "gripper -n {n}", [LinearAtr("n", lower_b=8, upper_b=15, lower_m=0.1, upper_m=2)]),
     Domain(
         "miconic-strips",
@@ -495,12 +496,12 @@ DOMAIN_LIST = [
     # Domain("snake",
     #     "generate.py {board} {snake_size} {num_initial_apples} {num_spawn_apples} {seed} pddl",
     #        [ConstantAtr("snake_size", "1"), ConstantAtr("num_initial_apples", 5),
-    #         LinearAtr("x_grid", lower_b=3, upper_b=8, upper_m=1), LinearAtr("y_grid", base_atr="x_grid", lower_b=0, upper_b=2, lower_m=0, upper_m=1), 
+    #         LinearAtr("x_grid", lower_b=3, upper_b=8, upper_m=1), LinearAtr("y_grid", base_atr="x_grid", lower_b=0, upper_b=2, lower_m=0, upper_m=1),
 
-    #            enum_values=] 
+    #            enum_values=]
     # ),
 
-    
+
     # Domain("maintenance",
     #        "maintenance {days} {planes} {mechanics} {cities} {visits} {instances} {seed}",
     #        [LinearAtr("days", lower_b = 5),
@@ -550,7 +551,7 @@ DOMAIN_LIST = [
 
 DOMAIN_DICT = {d.name: d for d in DOMAIN_LIST}
 
-print("Available domains: {}".format(sorted(DOMAIN_DICT)))
+print("{} domains available: {}".format(len(DOMAIN_DICT), sorted(DOMAIN_DICT)))
 
 for domain in DOMAIN_DICT:
     assert os.path.exists(os.path.join(ARGS.generators_dir, domain, "domain.pddl")), f"domain.pddl missing for {domain}"
@@ -585,10 +586,10 @@ class Runner:
             return self.exact_cache[cache_key]
 
         # Check the unsolvability cache to see if the problem is too hard
-        non_linear_key = tuple([parameters[attr] for attr in parameters if not attr in self.linear_attributes_names])
+        non_linear_key = tuple([parameters[attr] for attr in parameters if attr not in self.linear_attributes_names])
         if non_linear_key in self.frontier_cache:
             for values_linear_attributes, runtime in self.frontier_cache[non_linear_key]:
-                if (runtime == None or time_limit < runtime) and all(
+                if (runtime is None or time_limit < runtime) and all(
                     values_linear_attributes[linear_atr] <= parameters[linear_atr]
                     for linear_atr in self.linear_attributes_names
                 ):
@@ -611,11 +612,11 @@ class Runner:
                 logging.debug("Generator command: {}".format(" ".join(command)))
                 # Some generators print to a file, others print to stdout.
                 if "tmp.pddl" in domain.generator_command():
-                    subprocess.run(command)
+                    subprocess.run(command, check=True)
                     shutil.move("tmp.pddl", problem_file)
                 else:
                     with open(problem_file, "w") as f:
-                        subprocess.run(command, stdout=f)
+                        subprocess.run(command, stdout=f, check=True)
 
                 # Check domain file. Problem file seems to be ignored.
                 subprocess.run(["validate", domain.get_domain_file(), problem_file], check=True)
@@ -719,7 +720,7 @@ class Sequence:
         self.next_index += 1
         if not self.has_next():
             self.next_lb_runtime = 10000000000 # Arbitrary number greater than time limit
-        
+
 
 class InstanceSet:
     def __init__(self, Y, runner):
@@ -739,7 +740,7 @@ class InstanceSet:
                 if seq.next_runtime == best_runtime:
                     self.sequential_runtimes.append(seq.next_runtime)
                     seq.reset_next()
-                    
+
 
     def eval_next(self, time_limit):
         best_lb = min(map(lambda x: x.next_lb_runtime, self.sequences))
@@ -749,7 +750,7 @@ class InstanceSet:
         for seq in self.sequences:
             if seq.next_lb_runtime == best_lb:
                 runtime = self.runner.run_planners(seq.get_next_parameters(), time_limit)
-                
+
                 if not runtime:
                     seq.next_lb_runtime = time_limit + 0.01
                 else:
@@ -806,7 +807,6 @@ def evaluate_runtimes(runtimes, num_expected_runtimes):
 
 
 def evaluate_cfg(cfg):
-    n = ARGS.tasks
     logging.info(f"Evaluate {cfg}")
     domain = DOMAIN_DICT[ARGS.domain]
     Y = domain.get_configs(cfg)
@@ -841,10 +841,12 @@ def evaluate_cfg(cfg):
     # and unsolved instances are assigned a score of 2
 
     baseline_times = baseline_eval.get_runtimes(ARGS.tasksbaseline, 10, 300)
-    penalty = evaluate_runtimes(baseline_times, ARGS.tasksbaseline) 
+    penalty = evaluate_runtimes(baseline_times, ARGS.tasksbaseline)
 
 
-    if not ARGS.only_baseline:
+    if ARGS.only_baseline:
+        sart_times = []
+    else:
         sart_eval = InstanceSet(Y, RUNNER_SART)
         sart_times = sart_eval.get_runtimes(ARGS.tasksbaseline, 10, 300)
         penalty += evaluate_runtimes(sart_times, ARGS.tasksbaseline)

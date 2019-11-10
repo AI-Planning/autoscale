@@ -60,7 +60,11 @@ ENVIRONMENT = BaselSlurmEnvironment(
     "\nmodule load Singularity/2.6.1 2> /dev/null")
 
 if not is_running_on_cluster():
-    SUITE = ["depot:p01.pddl", "caldera-split-sat18-adl:p01.pddl"]
+    SUITE = [
+        "depot:p01.pddl",
+        "gripper:prob01.pddl",
+        "caldera-split-sat18-adl:p01.pddl",
+    ]
     ENVIRONMENT = LocalEnvironment(processes=4)
 
 ATTRIBUTES = [
@@ -82,13 +86,17 @@ def get_image(name):
 
 TIME_LIMIT = 180 if is_running_on_cluster else 10
 IMAGES = [
-    get_image("cerberus"), # writes several plan files
-    get_image("decstar"), # portfolio
-    get_image("ff"), # does not run on caldera, no adl support?
+    get_image("cerberus"),
+    get_image("decstar-dec"),
+    get_image("decstar-dec-fallback"),
+    get_image("gbfs-ff"),
     get_image("lama-first"),
-    get_image("lapkt-bfws-pref"), # writes several plan files
-    get_image("lapkt-dual-bfws"), # writes several plan files
-    get_image("mpc"), # does not write plan files
+    get_image("lapkt-bfws-pref"),
+    get_image("lapkt-dual-bfws"),
+    get_image("mpc"),
+    get_image("saarplan-dec"),
+    get_image("saarplan-dec-fallback"),
+    get_image("saarplan-grey"),
 ]
 
 for planner, image in IMAGES:
