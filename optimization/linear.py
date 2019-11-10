@@ -243,6 +243,9 @@ class ConstantAtr:
     def get_hyperparameters(self, modifier=None):
         return []
 
+    def get_level_enum(self, cfg):
+        return "false"
+
     def set_values(self, cfg, Y, num_tasks_baseline, modifier=None):
         for i, Yi in enumerate(Y):
             Yi[self.name] = self.value
@@ -306,7 +309,7 @@ class Domain:
     def get_configs(self, cfg, num_tasks_baseline=ARGS.tasksbaseline, num_tasks=ARGS.tasks):
         result = []
 
-        print ("Get configs")
+        #print ("Get configs")
         if self.enum_attributes:
             num_sequences = len(self.enum_attributes)
         else:
@@ -315,7 +318,7 @@ class Domain:
             level0_atrs = [atr for atr in self.linear_attributes if atr.get_level_enum(cfg)=="true"]
             level1_atrs = [atr for atr in self.linear_attributes if atr.get_level_enum(cfg)=="false"]
 
-            print ("Attribute layers: ", level0_atrs, level1_atrs)
+            # print ("Attribute layers: ", level0_atrs, level1_atrs)
             num_sequences = 1 if len(level0_atrs) == 0 or len(level1_atrs) == 0  else ARGS.sequences_linear_hierarchy # Generate enums
 
         num_tasks_per_sequence = math.ceil(num_tasks / num_sequences)
@@ -505,13 +508,21 @@ DOMAIN_LIST = [
            [LinearAtr("n_couples", level="choose"), LinearAtr("n_places", level="choose"), LinearAtr("n_cars", base_atr="n_couples")]
     ),
 
-    Domain("snake",
-           "generate.py {board} {snake_size} {num_initial_apples} {num_spawn_apples} {seed} pddl",
-           [ConstantAtr("snake_size", "1"), ConstantAtr("num_initial_apples", 5),
-            LinearAtr("x_grid", lower_b=3, upper_b=8, upper_m=1),
-            LinearAtr("y_grid", base_atr="x_grid", lower_b=0, upper_b=2, lower_m=0, upper_m=1),
+    Domain("floortile",
+           "floortile-generator.py name {num_rows} {num_columns} {num_robots} seq {seed}",
+           [LinearAtr("num_columns", lower_b=2, upper_b=8, upper_m=1),
+            LinearAtr("num_rows", lower_b=2, upper_b=8, upper_m=1, level = "true"),
+            ConstantAtr("num_robots", 2) #TODO: In sat some instances used three robots
            ]
     ),
+
+    # Domain("snake",
+    #        "generate.py {board} {snake_size} {num_initial_apples} {num_spawn_apples} {seed} pddl",
+    #        [ConstantAtr("snake_size", "1"), ConstantAtr("num_initial_apples", 5),
+    #         LinearAtr("x_grid", lower_b=3, upper_b=8, upper_m=1),
+    #         LinearAtr("y_grid", base_atr="x_grid", lower_b=0, upper_b=2, lower_m=0, upper_m=1),
+    #        ]
+    # ),
 
 
     # Domain("maintenance",
@@ -525,12 +536,6 @@ DOMAIN_LIST = [
     #        ]
     # ),
 
-    # Domain("floortile",
-    #        "floortile-generator.py name {num_rows} {num_columns} {num_robots} seq {seed}",
-    #        [],
-    #        enum_values=[EnumAtr("square")]
-
-    # ),
 
     # Domain("data-network",
     #        "",
