@@ -612,11 +612,11 @@ class Runner:
                 logging.debug("Generator command: {}".format(" ".join(command)))
                 # Some generators print to a file, others print to stdout.
                 if "tmp.pddl" in domain.generator_command():
-                    subprocess.run(command)
+                    subprocess.run(command, check=True)
                     shutil.move("tmp.pddl", problem_file)
                 else:
                     with open(problem_file, "w") as f:
-                        subprocess.run(command, stdout=f)
+                        subprocess.run(command, stdout=f, check=True)
 
                 # Check domain file. Problem file seems to be ignored.
                 subprocess.run(["validate", domain.get_domain_file(), problem_file], check=True)
