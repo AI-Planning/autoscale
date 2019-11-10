@@ -505,13 +505,13 @@ DOMAIN_LIST = [
            [LinearAtr("n_couples", level="choose"), LinearAtr("n_places", level="choose"), LinearAtr("n_cars", base_atr="n_couples")]
     ),
 
-    # Domain("snake",
-    #     "generate.py {board} {snake_size} {num_initial_apples} {num_spawn_apples} {seed} pddl",
-    #        [ConstantAtr("snake_size", "1"), ConstantAtr("num_initial_apples", 5),
-    #         LinearAtr("x_grid", lower_b=3, upper_b=8, upper_m=1), LinearAtr("y_grid", base_atr="x_grid", lower_b=0, upper_b=2, lower_m=0, upper_m=1),
-
-    #            enum_values=]
-    # ),
+    Domain("snake",
+           "generate.py {board} {snake_size} {num_initial_apples} {num_spawn_apples} {seed} pddl",
+           [ConstantAtr("snake_size", "1"), ConstantAtr("num_initial_apples", 5),
+            LinearAtr("x_grid", lower_b=3, upper_b=8, upper_m=1),
+            LinearAtr("y_grid", base_atr="x_grid", lower_b=0, upper_b=2, lower_m=0, upper_m=1),
+           ]
+    ),
 
 
     # Domain("maintenance",
