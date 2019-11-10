@@ -295,12 +295,14 @@ def get_linear_scaling_values(linear_atrs, cfg, num_values, base={}, name_base=N
 
 
 class Domain:
-    def __init__(self, name, gen_command, linear_atrs, adapt_f=None, enum_values=[]):
+    def __init__(self, name, gen_command, linear_atrs, adapt_f=None, enum_values=[], num_sequences_linear_hierarchy = ARGS.sequences_linear_hierarchy):
         self.name = name
         self.linear_attributes = linear_atrs
         self.enum_attributes = enum_values
         self.gen_command = gen_command
         self.adapt_f = adapt_f
+
+        self.num_sequences_linear_hierarchy = num_sequences_linear_hierarchy
 
     def get_domain_file(self):
         return os.path.join(GENERATORS_DIR, self.name, "domain.pddl")
@@ -313,13 +315,13 @@ class Domain:
         if self.enum_attributes:
             num_sequences = len(self.enum_attributes)
         else:
-            print ([atr.name for atr in self.linear_attributes])
+            #print ([atr.name for atr in self.linear_attributes])
                    
             level0_atrs = [atr for atr in self.linear_attributes if atr.get_level_enum(cfg)=="true"]
             level1_atrs = [atr for atr in self.linear_attributes if atr.get_level_enum(cfg)=="false"]
 
             # print ("Attribute layers: ", level0_atrs, level1_atrs)
-            num_sequences = 1 if len(level0_atrs) == 0 or len(level1_atrs) == 0  else ARGS.sequences_linear_hierarchy # Generate enums
+            num_sequences = 1 if len(level0_atrs) == 0 or len(level1_atrs) == 0  else self.num_sequences_linear_hierarchy # Generate enums
 
         num_tasks_per_sequence = math.ceil(num_tasks / num_sequences)
 
@@ -331,7 +333,7 @@ class Domain:
 
         elif num_sequences > 1:
             # Populate sequences with linear attributes on level 0
-            linear_to_enum_atrs = get_linear_scaling_values(level0_atrs, cfg, ARGS.sequences_linear_hierarchy)
+            linear_to_enum_atrs = get_linear_scaling_values(level0_atrs, cfg, self.num_sequences_linear_hierarchy) 
 
             for enum_atr in linear_to_enum_atrs:
                 Y = get_linear_scaling_values(level1_atrs, cfg, num_tasks_per_sequence, enum_atr)
@@ -363,11 +365,21 @@ class Domain:
 
 
 def adapt_parameters_parking(parameters):
-    print (parameters)
     curbs = parameters["curbs"]
     cars = 2*(curbs -1)
     return {"curbs" : curbs, "cars" : cars}
 
+
+def adapt_parameters_storage(parameters):
+    crates, hoists, store_areas, depots = parameters["crates"], parameters["hoists"], parameters["store_areas"], parameters["depots"]
+
+
+    parameters["store_areas"] = store_areas + max(depots, hoists, crates)
+    parameters["containers"] = math.ceil(crates/4)
+    
+    return parameters
+
+    
 
 BASELINE_PLANNER = "blind.img"
 
@@ -512,10 +524,22 @@ DOMAIN_LIST = [
            "floortile-generator.py name {num_rows} {num_columns} {num_robots} seq {seed}",
            [LinearAtr("num_columns", lower_b=2, upper_b=8, upper_m=1),
             LinearAtr("num_rows", lower_b=2, upper_b=8, upper_m=1, level = "true"),
-            ConstantAtr("num_robots", 2) #TODO: In sat some instances used three robots
+            ConstantAtr("num_robots", 2) 
            ]
     ),
 
+
+        Domain("storage",
+           "storage -p 01 -o {containers} -e {seed} -c {crates} -n {hoists} -s {store_areas} -d {depots} tmp.pddl",
+           [LinearAtr("crates", lower_b=1, level="false"),
+            LinearAtr("hoists", lower_b=1, level="false"),
+            LinearAtr("store_areas", lower_b=0, level="false"),
+            LinearAtr("depots", level="true", lower_b=1, upper_b=5, upper_m=1),
+           ], adapt_f = adapt_parameters_storage,
+        num_sequences_linear_hierarchy = 3),
+
+
+    
     # Domain("snake",
     #        "generate.py {board} {snake_size} {num_initial_apples} {num_spawn_apples} {seed} pddl",
     #        [ConstantAtr("snake_size", "1"), ConstantAtr("num_initial_apples", 5),
@@ -553,11 +577,6 @@ DOMAIN_LIST = [
     #        [] # TODO
     # ),
 
-    # Domain("storage",
-    #        "storage -p 01 -o {containers} -e {seed} -c {crates} -n {hoists} -s {store_areas} -d {depots} tmp.pddl",
-    #        [LinearAtr("containers"), LinearAtr("crates", lower_b=4),  LinearAtr("hoists"),  LinearAtr("store_areas", base_atr="crates"),  LinearAtr("depots")]
-    #        # TODO Warning! Number of crates / Number of containers < 4
-    # ),
 
     # Domain("tetris",
     #        "generator.py {grid_size} {conf_blocks}",

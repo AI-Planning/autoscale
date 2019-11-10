@@ -22,8 +22,8 @@ Constraints:
    
    3 < Number of crates / Number of containers <= 4
 
-The command lines used to generate the IPC5 problems of
-Storage-Propositional are:
+
+The command lines used to generate the IPC5 problems of Storage-Propositional are:
 
 storage -p 01 -o 1 -e 2005 -c 1 -n 1 -s 1 -d 1 pfile01
 storage -p 02 -o 1 -e 2005 -c 1 -n 2 -s 2 -d 1 pfile02
@@ -43,15 +43,26 @@ storage -p 15 -o 2 -e 2005 -c 5 -n 3 -s 10 -d 2 pfile15
 storage -p 16 -o 2 -e 2005 -c 06 -n 3 -s 12 -d 2 pfile16
 storage -p 17 -o 2 -e 2005 -c 07 -n 3 -s 14 -d 2 pfile17
 storage -p 18 -o 2 -e 2005 -c 08 -n 3 -s 16 -d 2 pfile18
-storage -p 19 -o 3 -e 2005 -c 09 -n 3 -s 18 -d 3 pfile19
-storage -p 20 -o 3 -e 2005 -c 10 -n 3 -s 20 -d 3 pfile20
-storage -p 21 -o 3 -e 2005 -c 11 -n 4 -s 22 -d 3 pfile21
-storage -p 22 -o 3 -e 2005 -c 12 -n 4 -s 24 -d 3 pfile22
-storage -p 23 -o 4 -e 2005 -c 13 -n 4 -s 26 -d 4 pfile23
-storage -p 24 -o 4 -e 2005 -c 14 -n 4 -s 28 -d 4 pfile24
-storage -p 25 -o 4 -e 2005 -c 15 -n 4 -s 30 -d 4 pfile25
-storage -p 26 -o 4 -e 2005 -c 16 -n 5 -s 32 -d 4 pfile26
-storage -p 27 -o 5 -e 2005 -c 17 -n 5 -s 34 -d 5 pfile27
-storage -p 28 -o 5 -e 2005 -c 18 -n 5 -s 36 -d 5 pfile28
-storage -p 29 -o 5 -e 2005 -c 19 -n 5 -s 38 -d 5 pfile29
-storage -p 30 -o 5 -e 2005 -c 20 -n 5 -s 40 -d 5 pfile30
+storage -p 19 -o 3 -e 2005 -c 09 -n 3 -s 18 -d 
+
+
+
+containers 1 crates 1 hoists 1 store_areas 1 depots 1
+containers 1 crates 1 hoists 2 store_areas 2 depots 1
+containers 1 crates 1 hoists 3 store_areas 3 depots 1
+containers 1 crates 2 hoists 1 store_areas 4 depots 1
+containers 1 crates 2 hoists 2 store_areas 4 depots 1
+containers 1 crates 2 hoists 3 store_areas 4 depots 1
+containers 1 crates 3 hoists 1 store_areas 6 depots 1
+containers 1 crates 3 hoists 2 store_areas 6 depots 1
+containers 1 crates 3 hoists 3 store_areas 6 depots 1
+containers 1 crates 4 hoists 1 store_areas 8 depots 1
+containers 1 crates 4 hoists 2 store_areas 8 depots 1
+containers 1 crates 4 hoists 3 store_areas 8 depots 1
+containers 2 crates 5 hoists 1 store_areas 10 depots 2
+containers 2 crates 5 hoists 2 store_areas 10 depots 2
+containers 2 crates 5 hoists 3 store_areas 10 depots 2
+containers 2 crates 6 hoists 3 store_areas 12 depots 2
+containers 2 crates 7 hoists 3 store_areas 14 depots 2
+containers 2 crates 8 hoists 3 store_areas 16 depots 2
+containers 3 crates 9 hoists 3 store_areas 18 depots 
