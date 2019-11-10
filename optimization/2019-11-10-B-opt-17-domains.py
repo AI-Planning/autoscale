@@ -7,6 +7,7 @@ from lab.environments import LocalEnvironment, BaselSlurmEnvironment
 from lab.experiment import Experiment
 
 from downward.reports.absolute import AbsoluteReport
+from downward.reports.taskwise import TaskwiseReport
 
 
 # Create custom report class with suitable info and error attributes.
@@ -28,7 +29,7 @@ DOMAINS = [
     'zenotravel',
 ]
 ATTRIBUTES = [
-    "error", "all_*", "final_*",
+    "error", "all_penalties", "final_*",
     "evaluated_configurations", "optimization_*wallclock_time", "run_dir",
     "incumbent_changed",
 ]
@@ -89,6 +90,10 @@ exp.add_fetcher(name='fetch')
 exp.add_report(
     BaseReport(attributes=ATTRIBUTES),
     outfile='{}.html'.format(exp.name))
+
+exp.add_report(
+    TaskwiseReport(attributes=ATTRIBUTES),
+    outfile='{}-taskwise.html'.format(exp.name))
 
 exp.add_parse_again_step()
 
