@@ -2,12 +2,15 @@
 
 import os
 import platform
+import subprocess
 
 from lab.environments import LocalEnvironment, BaselSlurmEnvironment
 from lab.experiment import Experiment
 
 from downward.reports.absolute import AbsoluteReport
 from downward.reports.taskwise import TaskwiseReport
+
+import project
 
 
 # Create custom report class with suitable info and error attributes.
@@ -87,13 +90,20 @@ exp.add_step('build', exp.build)
 exp.add_step('start', exp.start_runs)
 exp.add_fetcher(name='fetch')
 
+project.add_scp_steps(exp)
+
+report = os.path.join(exp.eval_dir, '{}.html'.format(exp.name))
 exp.add_report(
     BaseReport(attributes=ATTRIBUTES),
-    outfile='{}.html'.format(exp.name))
+    outfile=report)
+exp.add_step('open-report', subprocess.run, ['xdg-open', report])
+exp.add_step('publish-report', subprocess.run, ['publish', report])
 
+taskwise_report = os.path.join(exp.eval_dir, '{}-taskwise.html'.format(exp.name))
 exp.add_report(
     TaskwiseReport(attributes=ATTRIBUTES),
-    outfile='{}-taskwise.html'.format(exp.name))
+    outfile=taskwise_report)
+exp.add_step('publish-taskwise-report', subprocess.run, ['publish', taskwise_report])
 
 exp.add_parse_again_step()
 
