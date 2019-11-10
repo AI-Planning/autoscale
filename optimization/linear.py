@@ -408,7 +408,7 @@ PLANNER_SELECTION = {
     "visitall": ["delfi-ipdb.img"],
     "woodworking": ["scorpion-nodiv.img", "delfi-celmcut.img"],
     "zenotravel": ["delfi-celmcut.img"],
-    "transport" : ["delfi-celmcut.img"],
+    "transport" : [],
 }
 
 for domain, images in PLANNER_SELECTION.items():
