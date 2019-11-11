@@ -61,6 +61,15 @@ REPO = os.path.dirname(DIR)
 
 def parse_args():
     parser = argparse.ArgumentParser()
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument(
+        '--opt', action="store_true",
+        help="Optimize for optimal planners. You have to specify either of --opt and --sat."
+    )
+    group.add_argument(
+        '--sat', action="store_true",
+        help="Optimize for satisficing planners. You have to specify either of --opt and --sat."
+    )
     parser.add_argument(
         "--tasks", type=int, default=20, help="Number of tasks to generate in each round (default: %(default)s)"
     )
@@ -191,7 +200,7 @@ class LinearAtr:
             return cfg["{}_level".format(self.name)]
         else:
             return self.level_enum
-        
+
     def get_hyperparameters(self, modifier=None):
         atr = "{}_{}".format(modifier, self.name) if modifier else self.name
 
@@ -316,7 +325,7 @@ class Domain:
             num_sequences = len(self.enum_attributes)
         else:
             #print ([atr.name for atr in self.linear_attributes])
-                   
+
             level0_atrs = [atr for atr in self.linear_attributes if atr.get_level_enum(cfg)=="true"]
             level1_atrs = [atr for atr in self.linear_attributes if atr.get_level_enum(cfg)=="false"]
 
@@ -333,7 +342,7 @@ class Domain:
 
         elif num_sequences > 1:
             # Populate sequences with linear attributes on level 0
-            linear_to_enum_atrs = get_linear_scaling_values(level0_atrs, cfg, self.num_sequences_linear_hierarchy) 
+            linear_to_enum_atrs = get_linear_scaling_values(level0_atrs, cfg, self.num_sequences_linear_hierarchy)
 
             for enum_atr in linear_to_enum_atrs:
                 Y = get_linear_scaling_values(level1_atrs, cfg, num_tasks_per_sequence, enum_atr)
@@ -376,40 +385,74 @@ def adapt_parameters_storage(parameters):
 
     parameters["store_areas"] = store_areas + max(depots, hoists, crates)
     parameters["containers"] = math.ceil(crates/4)
-    
+
     return parameters
 
-    
 
-BASELINE_PLANNER = "blind.img"
+if ARGS.opt:
+    BASELINE_PLANNER = "blind.img"
 
-PLANNER_SELECTION = {
-    "barman": ["symba1.img"],
-    "blocksworld": ["fdss-mas1.img"],
-    "childsnack": ["delfi-ipdb.img"],
-    "data-network": ["lmcut.img"],
-    "depots": ["scorpion-nodiv.img", "delfi-ipdb.img"],
-    "driverlog": ["bjolp.img", "symba1.img"],
-    "floortile": ["symba1.img"],
-    "gripper": ["delfi-blind.img"],
-    "hiking": ["delfi-mas-miasm.img"],
-    "maintenance": ["delfi-blind.img"],
-    "miconic-strips": ["bjolp.img"],
-    "parking": ["delfi-ipdb.img"],
-    "pathways": ["delfi-celmcut.img"],
-    "rover": ["symba1.img"],
-    "satellite": ["delfi-celmcut.img", "symba1.img"],
-    "snake": ["bjolp.img"],
-    "storage": ["delfi-celmcut.img"],
-    "termes": ["symba2.img"],
-    "tetris": ["scorpion-nodiv.img"],
-    "tpp": ["complementary2.img"],
-    "trucks": ["scorpion-nodiv.img", "symba2.img"],
-    "visitall": ["delfi-ipdb.img"],
-    "woodworking": ["scorpion-nodiv.img", "delfi-celmcut.img"],
-    "zenotravel": ["delfi-celmcut.img"],
-    "transport" : [],
-}
+    PLANNER_SELECTION = {
+        "barman": ["symba1.img"],
+        "blocksworld": ["fdss-mas1.img"],
+        "childsnack": ["delfi-ipdb.img"],
+        "data-network": ["lmcut.img"],
+        "depots": ["scorpion-nodiv.img", "delfi-ipdb.img"],
+        "driverlog": ["bjolp.img", "symba1.img"],
+        "floortile": ["symba1.img"],
+        "gripper": ["delfi-blind.img"],
+        "hiking": ["delfi-mas-miasm.img"],
+        "maintenance": ["delfi-blind.img"],
+        "miconic-strips": ["bjolp.img"],
+        "parking": ["delfi-ipdb.img"],
+        "pathways": ["delfi-celmcut.img"],
+        "rover": ["symba1.img"],
+        "satellite": ["delfi-celmcut.img", "symba1.img"],
+        "snake": ["bjolp.img"],
+        "storage": ["delfi-celmcut.img"],
+        "termes": ["symba2.img"],
+        "tetris": ["scorpion-nodiv.img"],
+        "tpp": ["complementary2.img"],
+        "trucks": ["scorpion-nodiv.img", "symba2.img"],
+        "visitall": ["delfi-ipdb.img"],
+        "woodworking": ["scorpion-nodiv.img", "delfi-celmcut.img"],
+        "zenotravel": ["delfi-celmcut.img"],
+        "transport" : [],
+    }
+else:
+    assert ARGS.sat
+    BASELINE_PLANNER = "gbfs-ff.img"
+
+    # Decided from https://ai.dmi.unibas.ch/_tmp_files/sieverss/2019-11-10-sat-baselineabs-report.html
+    PLANNER_SELECTION = {
+        "barman": ["lama-first.img"],
+        "blocksworld": ["lama-first.img", "mpc.img"], # 23, 22
+        "childsnack": ["saarplan-dec-fallback.img"],
+        "data-network": ["saarplan-grey.img", "lama-first.img",], # 9, 7
+        "depots": ["mpc.img"],
+        "driverlog": ["mpc.img", "lapkt-bfws-pref.img"], # 15, 14, next: lapkt-dual-bfws with 13
+        "floortile": ["mpc.img"],
+        "gripper": ["mpc.img"], # 15, next: lapkt-dual-bfws and saarplan-dec-fallback with 13
+        "hiking": ["lama-first.img"],
+        "maintenance": ["mpc.img"],
+        "miconic-strips": ["mpc.img"], # 116, next: lapkt-dual-bfws with 94
+        "parking": ["lapkt-bfws-pref.img", "lapkt-dual-bfws.img"], # 13/11, 12/11 (for sat11/sat14)
+        "pathways": ["mpc.img"],
+        "rover": ["lama-first.img"],
+        "satellite": ["mpc.img"],
+        "snake": ["lapkt-bfws-pref.img"],
+        "storage": ["lapkt-dual-bfws.img", "lapkt-bfws-pref.img"], # 18, 16, next: mpc with 15
+        "termes": ["lama-first.img"],
+        "tetris": ["lapkt-bfws-pref.img", "lapkt-dual-bfws.img"], # 10, 9
+        "transport" : ["lapkt-dual-bfws.img", "saarplan-dec-fallback.img"], # 23/9/5, 6/7/13 (for sat08/11/14), next: lapkt-bfws-pref with 22/8/4
+        "tpp": ["mpc.img", "lama-first.img"], # 19, 18
+        "trucks": ["mpc.img"],
+        "visitall": ["lapkt-dual-bfws.img", "lapkt-bfws-pref.img"], # 15/12, 15/11 (for sat11/sat14)
+        "woodworking": ["mpc.img"],
+        "zenotravel": ["mpc.img"],
+    }
+
+
 
 for domain, images in PLANNER_SELECTION.items():
     assert len(images) <= 2, f"too many images for {domain}"
@@ -525,7 +568,7 @@ DOMAIN_LIST = [
            "floortile-generator.py name {num_rows} {num_columns} {num_robots} seq {seed}",
            [LinearAtr("num_columns", lower_b=2, upper_b=8, upper_m=1),
             LinearAtr("num_rows", lower_b=2, upper_b=8, upper_m=1, level = "true"),
-            ConstantAtr("num_robots", 2) 
+            ConstantAtr("num_robots", 2)
            ]
     ),
 
@@ -544,14 +587,14 @@ DOMAIN_LIST = [
             LinearAtr("nodes", lower_b=2, upper_b=10, lower_m=1),
             LinearAtr("packages", lower_b=2, upper_b=10, lower_m=1),
             LinearAtr("trucks", lower_b=2, upper_b=3, lower_m=0.01, upper_m=1),
-            LinearAtr("degree", lower_b=2, upper_b=3, lower_m=0.01, upper_m=1), 
+            LinearAtr("degree", lower_b=2, upper_b=3, lower_m=0.01, upper_m=1),
            ],
-           enum_values=[EnumAtr("city1", {"generator" : "city-generator.py"}), 
+           enum_values=[EnumAtr("city1", {"generator" : "city-generator.py"}),
                         EnumAtr("city2", {"generator" : "two-cities-generator.py"}),
                         EnumAtr("city3", {"generator" : "three-cities-generator.py"})]
     ),
 
-    
+
     # Domain("snake",
     #        "generate.py {board} {snake_size} {num_initial_apples} {num_spawn_apples} {seed} pddl",
     #        [ConstantAtr("snake_size", "1"), ConstantAtr("num_initial_apples", 5),
