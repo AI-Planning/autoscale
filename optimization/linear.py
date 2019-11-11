@@ -61,14 +61,9 @@ REPO = os.path.dirname(DIR)
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument(
-        '--opt', action="store_true",
-        help="Optimize for optimal planners. You have to specify either of --opt and --sat."
-    )
-    group.add_argument(
-        '--sat', action="store_true",
-        help="Optimize for satisficing planners. You have to specify either of --opt and --sat."
+    parser.add_argument(
+        'track', choices=['sat', 'opt'],
+        help="Choose the track to optimize for: satisficing or optimal."
     )
     parser.add_argument(
         "--tasks", type=int, default=20, help="Number of tasks to generate in each round (default: %(default)s)"
@@ -389,7 +384,7 @@ def adapt_parameters_storage(parameters):
     return parameters
 
 
-if ARGS.opt:
+if ARGS.track == "opt":
     BASELINE_PLANNER = "blind.img"
 
     PLANNER_SELECTION = {
@@ -404,6 +399,7 @@ if ARGS.opt:
         "hiking": ["delfi-mas-miasm.img"],
         "maintenance": ["delfi-blind.img"],
         "miconic-strips": ["bjolp.img"],
+        "nomystery" : [],
         "parking": ["delfi-ipdb.img"],
         "pathways": ["delfi-celmcut.img"],
         "rover": ["symba1.img"],
@@ -413,15 +409,14 @@ if ARGS.opt:
         "termes": ["symba2.img"],
         "tetris": ["scorpion-nodiv.img"],
         "tpp": ["complementary2.img"],
+        "transport" : ["delfi-ipdb.img", "scorpion-nodiv.img"],
         "trucks": ["scorpion-nodiv.img", "symba2.img"],
         "visitall": ["delfi-ipdb.img"],
         "woodworking": ["scorpion-nodiv.img", "delfi-celmcut.img"],
         "zenotravel": ["delfi-celmcut.img"],
-	"transport" : ["delfi-ipdb.img", "scorpion-nodiv.img"],
-        "nomystery" : [],
     }
 else:
-    assert ARGS.sat
+    assert ARGS.track == "sat"
     BASELINE_PLANNER = "gbfs-ff.img"
 
     # Decided from https://ai.dmi.unibas.ch/_tmp_files/sieverss/2019-11-10-sat-baselineabs-report.html
@@ -437,6 +432,7 @@ else:
         "hiking": ["lama-first.img"],
         "maintenance": ["mpc.img"],
         "miconic-strips": ["mpc.img"], # 116, next: lapkt-dual-bfws with 94
+        "nomystery" : ["lama-first.img", "saarplan-dec-fallback.img"], # 10, 9
         "parking": ["lapkt-bfws-pref.img", "lapkt-dual-bfws.img"], # 13/11, 12/11 (for sat11/sat14)
         "pathways": ["mpc.img"],
         "rover": ["lama-first.img"],
@@ -600,7 +596,7 @@ DOMAIN_LIST = [
            [LinearAtr("locations", lower_b=2, upper_b=10),
             LinearAtr("packages", lower_b=2, upper_b=10),
             ConstantAtr("edgefactor", "1.5"),
-            ConstantAtr("edgeweight", "25"), 
+            ConstantAtr("edgeweight", "25"),
            ],
            enum_values=[EnumAtr("c11", {"constrainedness" : "1.1"}),
                         EnumAtr("c15", {"constrainedness" : "1.5"}),
