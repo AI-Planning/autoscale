@@ -417,7 +417,8 @@ if ARGS.opt:
         "visitall": ["delfi-ipdb.img"],
         "woodworking": ["scorpion-nodiv.img", "delfi-celmcut.img"],
         "zenotravel": ["delfi-celmcut.img"],
-        "transport" : [],
+	"transport" : ["delfi-ipdb.img", "scorpion-nodiv.img"],
+        "nomystery" : [],
     }
 else:
     assert ARGS.sat
@@ -594,6 +595,18 @@ DOMAIN_LIST = [
                         EnumAtr("city3", {"generator" : "three-cities-generator.py"})]
     ),
 
+    Domain("nomystery",
+           "nomystery -l {locations} -p {packages} -n {edgefactor} -m {edgeweight} -c {constrainedness} -s {seed} -e 0 ",
+           [LinearAtr("locations", lower_b=2, upper_b=10),
+            LinearAtr("packages", lower_b=2, upper_b=10),
+            ConstantAtr("edgefactor", "1.5"),
+            ConstantAtr("edgeweight", "25"), 
+           ],
+           enum_values=[EnumAtr("c11", {"constrainedness" : "1.1"}),
+                        EnumAtr("c15", {"constrainedness" : "1.5"}),
+                        EnumAtr("c20", {"constrainedness" : "2.0"})]
+    ),
+
 
     # Domain("snake",
     #        "generate.py {board} {snake_size} {num_initial_apples} {num_spawn_apples} {seed} pddl",
@@ -680,10 +693,7 @@ class Runner:
         non_linear_key = tuple([parameters[attr] for attr in parameters if attr not in self.linear_attributes_names])
         if non_linear_key in self.frontier_cache:
             for values_linear_attributes, runtime in self.frontier_cache[non_linear_key]:
-                if (runtime is None or time_limit < runtime) and all(
-                    values_linear_attributes[linear_atr] <= parameters[linear_atr]
-                    for linear_atr in self.linear_attributes_names
-                ):
+                if (runtime is None or time_limit < runtime) and all(values_linear_attributes[linear_atr] <= parameters[linear_atr] for linear_atr in self.linear_attributes_names):
                     return None
 
         results = []
@@ -782,7 +792,7 @@ class Runner:
         if result or time_limit == PLANNER_TIME_LIMIT:
             self.exact_cache[cache_key] = result
             self.frontier_cache[non_linear_key].append(
-                ([parameters[linear_atr] for linear_atr in self.linear_attributes_names], result)
+                ({linear_atr : parameters[linear_atr] for linear_atr in self.linear_attributes_names}, result)
             )
 
         return result
