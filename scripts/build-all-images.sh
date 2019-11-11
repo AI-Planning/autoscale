@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+cd $(dirname "$0")
+
 OUTDIR=${1}
 
 ./build-image.sh ../planners/custom/seq-opt/fd-19.06/Singularity-blind ${OUTDIR}/blind.img ${DOWNWARD_BENCHMARKS}
@@ -17,7 +19,8 @@ OUTDIR=${1}
 ./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-03 ${OUTDIR}/delfi-ipdb.img ${DOWNWARD_BENCHMARKS}
 ./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-04 ${OUTDIR}/delfi-mas-sccdfp.img ${DOWNWARD_BENCHMARKS}
 ./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-05 ${OUTDIR}/delfi-mas-miasm.img ${DOWNWARD_BENCHMARKS}
-./build-image.sh ../planners/ipc-2018/seq-opt/scorpion/Singularity ${OUTDIR}/scorpion-nodiv.img ${DOWNWARD_BENCHMARKS}
+./build-image.sh ../planners/ipc-2018/seq-opt/scorpion/Singularity ${OUTDIR}/scorpion.img ${DOWNWARD_BENCHMARKS}
+./build-image.sh ../planners/custom/seq-opt/scorpion-nodiv/Singularity ${OUTDIR}/scorpion-nodiv.img ${DOWNWARD_BENCHMARKS}
 
 ./build-image.sh ../planners/custom/seq-opt/fd-19.06/Singularity-gbfs-ff ${OUTDIR}/gbfs-ff.img ${DOWNWARD_BENCHMARKS}
 ./build-image.sh ../planners/custom/seq-opt/fd-19.06/Singularity-lama-first ${OUTDIR}/lama-first.img ${DOWNWARD_BENCHMARKS}
