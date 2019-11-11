@@ -8,9 +8,8 @@ OPS=${1}  # Must be either 3 or 4.
 BLOCKS=${2}
 SEED=${3}
 
-# Try to make temporary file unique to allow using the generator concurrently.
-# Ideally, 2pddl would accept stdin input.
-TMPFILE=STATES.${BLOCKS}.${SEED}
+# Use a unique temporary file name to allow using the generator concurrently.
+TMPFILE=$(mktemp --tmpdir blocksworld.XXXXXXXXXX)
 
 ./bwstates.1/bwstates -s 2 -n ${BLOCKS} -r ${SEED} > ${TMPFILE}
 ./${OPS}ops/2pddl/2pddl -d ${TMPFILE} -n ${BLOCKS}
