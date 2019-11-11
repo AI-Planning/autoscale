@@ -637,7 +637,7 @@ class Runner:
         non_linear_key = tuple([parameters[attr] for attr in parameters if attr not in self.linear_attributes_names])
         if non_linear_key in self.frontier_cache:
             for values_linear_attributes, runtime in self.frontier_cache[non_linear_key]:
-                if (runtime is None or time_limit < runtime) and all([values_linear_attributes[linear_atr] <= parameters[linear_atr] for linear_atr in self.linear_attributes_names]):
+                if (runtime is None or time_limit < runtime) and all(values_linear_attributes[linear_atr] <= parameters[linear_atr] for linear_atr in self.linear_attributes_names):
                     return None
 
         results = []
@@ -736,7 +736,7 @@ class Runner:
         if result or time_limit == PLANNER_TIME_LIMIT:
             self.exact_cache[cache_key] = result
             self.frontier_cache[non_linear_key].append(
-                ([parameters[linear_atr] for linear_atr in self.linear_attributes_names], result)
+                ({linear_atr : parameters[linear_atr] for linear_atr in self.linear_attributes_names}, result)
             )
 
         return result
