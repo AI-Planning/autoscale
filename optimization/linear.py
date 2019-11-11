@@ -191,7 +191,7 @@ class LinearAtr:
             return cfg["{}_level".format(self.name)]
         else:
             return self.level_enum
-        
+
     def get_hyperparameters(self, modifier=None):
         atr = "{}_{}".format(modifier, self.name) if modifier else self.name
 
@@ -316,7 +316,7 @@ class Domain:
             num_sequences = len(self.enum_attributes)
         else:
             #print ([atr.name for atr in self.linear_attributes])
-                   
+
             level0_atrs = [atr for atr in self.linear_attributes if atr.get_level_enum(cfg)=="true"]
             level1_atrs = [atr for atr in self.linear_attributes if atr.get_level_enum(cfg)=="false"]
 
@@ -333,7 +333,7 @@ class Domain:
 
         elif num_sequences > 1:
             # Populate sequences with linear attributes on level 0
-            linear_to_enum_atrs = get_linear_scaling_values(level0_atrs, cfg, self.num_sequences_linear_hierarchy) 
+            linear_to_enum_atrs = get_linear_scaling_values(level0_atrs, cfg, self.num_sequences_linear_hierarchy)
 
             for enum_atr in linear_to_enum_atrs:
                 Y = get_linear_scaling_values(level1_atrs, cfg, num_tasks_per_sequence, enum_atr)
@@ -376,10 +376,10 @@ def adapt_parameters_storage(parameters):
 
     parameters["store_areas"] = store_areas + max(depots, hoists, crates)
     parameters["containers"] = math.ceil(crates/4)
-    
+
     return parameters
 
-    
+
 
 BASELINE_PLANNER = "blind.img"
 
@@ -408,7 +408,7 @@ PLANNER_SELECTION = {
     "visitall": ["delfi-ipdb.img"],
     "woodworking": ["scorpion-nodiv.img", "delfi-celmcut.img"],
     "zenotravel": ["delfi-celmcut.img"],
-    "transport" : [],
+    "transport" : ["delfi-ipdb.img", "scorpion-nodiv.img"],
 }
 
 for domain, images in PLANNER_SELECTION.items():
@@ -525,7 +525,7 @@ DOMAIN_LIST = [
            "floortile-generator.py name {num_rows} {num_columns} {num_robots} seq {seed}",
            [LinearAtr("num_columns", lower_b=2, upper_b=8, upper_m=1),
             LinearAtr("num_rows", lower_b=2, upper_b=8, upper_m=1, level = "true"),
-            ConstantAtr("num_robots", 2) 
+            ConstantAtr("num_robots", 2)
            ]
     ),
 
@@ -544,14 +544,14 @@ DOMAIN_LIST = [
             LinearAtr("nodes", lower_b=2, upper_b=10, lower_m=1),
             LinearAtr("packages", lower_b=2, upper_b=10, lower_m=1),
             LinearAtr("trucks", lower_b=2, upper_b=3, lower_m=0.01, upper_m=1),
-            LinearAtr("degree", lower_b=2, upper_b=3, lower_m=0.01, upper_m=1), 
+            LinearAtr("degree", lower_b=2, upper_b=3, lower_m=0.01, upper_m=1),
            ],
-           enum_values=[EnumAtr("city1", {"generator" : "city-generator.py"}), 
+           enum_values=[EnumAtr("city1", {"generator" : "city-generator.py"}),
                         EnumAtr("city2", {"generator" : "two-cities-generator.py"}),
                         EnumAtr("city3", {"generator" : "three-cities-generator.py"})]
     ),
 
-    
+
     # Domain("snake",
     #        "generate.py {board} {snake_size} {num_initial_apples} {num_spawn_apples} {seed} pddl",
     #        [ConstantAtr("snake_size", "1"), ConstantAtr("num_initial_apples", 5),
