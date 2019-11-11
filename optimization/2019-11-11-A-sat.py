@@ -40,6 +40,7 @@ RUN_MEMORY_LIMIT = 3584
 if REMOTE:
     ENV = BaselSlurmEnvironment(
         email="silvan.sievers@unibas.ch",
+        partition="infai_1",
         setup="\n".join([
             BaselSlurmEnvironment.DEFAULT_SETUP,
             "module load Singularity/2.6.1 2> /dev/null",
