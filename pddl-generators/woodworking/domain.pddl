@@ -164,7 +164,10 @@
             (surface-condition ?p ?surface)
             (colour ?p natural)
             (treatment ?p untreated)
-            (boardsize ?b ?size_after)))
+            (boardsize ?b ?size_after)
+	    ;; Added line to mark change in size of board
+	    (not (boardsize ?b ?size_before))
+	    ))
 
   (:action cut-board-medium
     :parameters (?b - board ?p - part ?m - highspeed-saw ?w - awood
@@ -187,7 +190,10 @@
             (surface-condition ?p ?surface)
             (colour ?p natural)
             (treatment ?p untreated)
-            (boardsize ?b ?size_after)))
+            (boardsize ?b ?size_after)
+	    ;; Added line to mark change in size of board
+	    (not (boardsize ?b ?size_before))
+))
 
   (:action cut-board-large
     :parameters (?b - board ?p - part ?m - highspeed-saw ?w - awood
@@ -211,7 +217,10 @@
             (surface-condition ?p ?surface)
             (colour ?p natural)
             (treatment ?p untreated)
-            (boardsize ?b ?size_after)))
+            (boardsize ?b ?size_after)
+	    ;; Added line to mark change in size of board
+	    (not (boardsize ?b ?size_before))
+	    ))
 
   (:action do-saw-small
     :parameters (?b - board ?p - part ?m - saw ?w - awood
@@ -232,7 +241,10 @@
             (surface-condition ?p ?surface)
             (colour ?p natural) 
             (treatment ?p untreated)
-            (boardsize ?b ?size_after)))
+            (boardsize ?b ?size_after)
+	    ;; Added line to mark change in size of board	
+	    (not (boardsize ?b ?size_before))
+))
 
   (:action do-saw-medium
     :parameters (?b - board ?p - part ?m - saw ?w - awood
@@ -255,7 +267,10 @@
             (surface-condition ?p ?surface)
             (colour ?p natural) 
             (treatment ?p untreated)
-            (boardsize ?b ?size_after)))
+            (boardsize ?b ?size_after)
+	    ;; Added line to mark change in size of board
+	    (not (boardsize ?b ?size_before))
+	    ))
 
   (:action do-saw-large
     :parameters (?b - board ?p - part ?m - saw ?w - awood
@@ -279,5 +294,8 @@
             (surface-condition ?p ?surface)
             (colour ?p natural) 
             (treatment ?p untreated)
-            (boardsize ?b ?size_after)))
+            (boardsize ?b ?size_after)
+	    ;; Added line to mark change in size of board
+	    (not (boardsize ?b ?size_before))))
 )
+

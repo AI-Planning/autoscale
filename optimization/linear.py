@@ -409,6 +409,7 @@ PLANNER_SELECTION = {
     "woodworking": ["scorpion-nodiv.img", "delfi-celmcut.img"],
     "zenotravel": ["delfi-celmcut.img"],
     "transport" : ["delfi-ipdb.img", "scorpion-nodiv.img"],
+    "nomystery" : [],
 }
 
 for domain, images in PLANNER_SELECTION.items():
@@ -549,6 +550,18 @@ DOMAIN_LIST = [
            enum_values=[EnumAtr("city1", {"generator" : "city-generator.py"}),
                         EnumAtr("city2", {"generator" : "two-cities-generator.py"}),
                         EnumAtr("city3", {"generator" : "three-cities-generator.py"})]
+    ),
+
+    Domain("nomystery",
+           "nomystery -l {locations} -p {packages} -n {edgefactor} -m {edgeweight} -c {constrainedness} -s {seed} -e 0 ",
+           [LinearAtr("locations", lower_b=2, upper_b=10),
+            LinearAtr("packages", lower_b=2, upper_b=10),
+            ConstantAtr("edgefactor", "1.5"),
+            ConstantAtr("edgeweight", "25"), 
+           ],
+           enum_values=[EnumAtr("c11", {"constrainedness" : "1.1"}),
+                        EnumAtr("c15", {"constrainedness" : "1.5"}),
+                        EnumAtr("c20", {"constrainedness" : "2.0"})]
     ),
 
 

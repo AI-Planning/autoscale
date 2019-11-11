@@ -18,7 +18,7 @@
                 (available-color ?c - color)
                 (free-color ?r - robot))
 
-(:functions (total-cost))
+(:functions (total-cost) - number)
 
 (:action change-color
   :parameters (?r - robot ?c - color ?c2 - color)
