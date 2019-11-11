@@ -57,7 +57,9 @@ def parse_args():
     )
 
     parser.add_argument(
-        "--output", default="benchmarks", help="Directory where to store the output"
+        "--output",
+        default=os.path.join(REPO, "benchmarks"),
+        help="Directory where to store the output"
     )
 
     return parser.parse_args()
@@ -408,18 +410,20 @@ if os.path.exists(ARGS.output):
 os.mkdir(ARGS.output)
 
 
-for conf, cfg in FINAL_CONFIGURATIONS.items():
-    os.mkdir(f"{ARGS.output}/{conf}")
-    generator_command = DOMAINS[conf].generator_command(ARGS.generators_dir)
+for domain, cfg in FINAL_CONFIGURATIONS.items():
+    os.mkdir(f"{ARGS.output}/{domain}")
+    generator_command = DOMAINS[domain].generator_command(ARGS.generators_dir)
+    domain_file = f"{ARGS.output}/{domain}/domain.pddl"
+    shutil.copy2(os.path.join(ARGS.generators_dir, domain, "domain.pddl"), domain_file)
     i = 1
     seed = 2019
-    for sequence in DOMAINS[conf].get_configs(cfg, ARGS.tasks, ARGS.tasksbaseline):
+    for sequence in DOMAINS[domain].get_configs(cfg, ARGS.tasks, ARGS.tasksbaseline):
         for task in sequence:
             task["seed"] = seed
             seed += 1
             command = shlex.split(generator_command.format(**task))
 
-            problem_file = f"{ARGS.output}/{conf}/p{i:02d}.pddl".format(i)
+            problem_file = f"{ARGS.output}/{domain}/p{i:02d}.pddl"
             i += 1
             if "tmp.pddl" in generator_command:
                 subprocess.run(command, check=True)
