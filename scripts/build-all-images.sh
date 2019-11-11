@@ -21,13 +21,9 @@ OUTDIR=${1}
 
 ./build-image.sh ../planners/custom/seq-opt/fd-19.06/Singularity-gbfs-ff ${OUTDIR}/gbfs-ff.img ${DOWNWARD_BENCHMARKS}
 ./build-image.sh ../planners/custom/seq-opt/fd-19.06/Singularity-lama-first ${OUTDIR}/lama-first.img ${DOWNWARD_BENCHMARKS}
-./build-image.sh ../planners/sat/cerberus/Singularity ${OUTDIR}/cerberus.img ${DOWNWARD_BENCHMARKS}
-./build-image.sh ../planners/sat/decstar/Singularity-dec ${OUTDIR}/decstar-dec.img ${DOWNWARD_BENCHMARKS}
-./build-image.sh ../planners/sat/decstar/Singularity-dec-fallback ${OUTDIR}/decstar-dec-fallback.img ${DOWNWARD_BENCHMARKS}
 ./build-image.sh ../planners/sat/lapkt-dual-bfws/Singularity ${OUTDIR}/lapkt-dual-bfws.img ${DOWNWARD_BENCHMARKS}
 ./build-image.sh ../planners/sat/lapkt-bfws-pref/Singularity ${OUTDIR}/lapkt-bfws-pref.img ${DOWNWARD_BENCHMARKS}
 ./build-image.sh ../planners/sat/madagascar/Singularity-MpC ${OUTDIR}/mpc.img ${DOWNWARD_BENCHMARKS}
-./build-image.sh ../planners/sat/saarplan/Singularity-dec ${OUTDIR}/saarplan-dec.img ${DOWNWARD_BENCHMARKS}
 ./build-image.sh ../planners/sat/saarplan/Singularity-dec-fallback ${OUTDIR}/saarplan-dec-fallback.img ${DOWNWARD_BENCHMARKS}
 ./build-image.sh ../planners/sat/saarplan/Singularity-grey ${OUTDIR}/saarplan-grey.img ${DOWNWARD_BENCHMARKS}
 
