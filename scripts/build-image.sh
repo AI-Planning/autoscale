@@ -22,12 +22,17 @@ cp ${BENCHMARKS_DIR}/miconic/domain.pddl ${TMPDIR}/domain.pddl
 cp ${BENCHMARKS_DIR}/miconic/s1-0.pddl ${TMPDIR}/problem.pddl
 DOMAIN="${TMPDIR}/domain.pddl"
 PROBLEM="${TMPDIR}/problem.pddl"
-PLANFILE="${TMPDIR}/sas_plan"
-singularity run -C -H ${TMPDIR} ${IMAGE} ${DOMAIN} ${PROBLEM} ${PLANFILE}
+PLANFILE="${TMPDIR}/my_sas_plan"
 
-if [[ -e ${PLANFILE} ]]; then
-    echo "Plan found."
-else
-    echo "No plan found."
-    exit 1
+# Scorpion uses 200s of preprocessing time.
+if [[ ${IMAGE} != *"scorpion.img"* ]]; then
+    ulimit -St 1800
+    singularity run -C -H ${TMPDIR} ${IMAGE} ${DOMAIN} ${PROBLEM} ${PLANFILE}
+
+    if [[ -e ${PLANFILE} ]]; then
+        echo "Plan found."
+    else
+        echo "No plan found."
+        exit 1
+    fi
 fi

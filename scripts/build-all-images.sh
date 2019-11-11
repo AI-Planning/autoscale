@@ -29,5 +29,3 @@ OUTDIR=${1}
 ./build-image.sh ../planners/sat/madagascar/Singularity-MpC ${OUTDIR}/mpc.img ${DOWNWARD_BENCHMARKS}
 ./build-image.sh ../planners/sat/saarplan/Singularity-dec-fallback ${OUTDIR}/saarplan-dec-fallback.img ${DOWNWARD_BENCHMARKS}
 ./build-image.sh ../planners/sat/saarplan/Singularity-grey ${OUTDIR}/saarplan-grey.img ${DOWNWARD_BENCHMARKS}
-
-
