@@ -1,7 +1,8 @@
 \.o$
 \.pyc$
 images$
-optimization/data/
+^optimization/data/
+^optimization/smac/
 
 ^pddl-generators/assembly/assembly$
 ^pddl-generators/blocksworld/3ops/2pddl/2pddl$
@@ -35,12 +36,18 @@ optimization/data/
 ^pddl-generators/npuzzle/n-puzzle-generator$
 ^pddl-generators/openstacks/generate_pddl$
 ^pddl-generators/openstacks/generate_problems$
+^pddl-generators/pathways/pathways$
 ^pddl-generators/rover/rovgen$
 ^pddl-generators/satellite/satgen$
 ^pddl-generators/schedule/schedule$
+^pddl-generators/storage/storage$
 ^pddl-generators/sokoban/random/sokoban-generator-typed$
 ^pddl-generators/sokoban/random/sokoban-generator-untyped$
 ^pddl-generators/tidybot/tidybot-.*-snapshot-standalone.jar$
+^pddl-generators/tpp/tpp$
+^pddl-generators/trucks/trucks$
 ^pddl-generators/tsp/tsp$
 ^pddl-generators/turnandopen/turnandopen$
 ^pddl-generators/tyreworld/tyreworld$
+^pddl-generators/visitall/grid$
+^pddl-generators/zenotravel/ztravel$
