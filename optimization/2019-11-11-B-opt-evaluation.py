@@ -15,6 +15,7 @@ from downward import suites
 from downward.reports.absolute import AbsoluteReport
 
 import project
+from reports.per_domain_comparison import PerDomainComparison
 
 # Create custom report class with suitable info and error attributes.
 class BaseReport(AbsoluteReport):
@@ -121,5 +122,9 @@ exp.add_report(
     outfile=report)
 exp.add_step('open-report', subprocess.call, ['xdg-open', report])
 exp.add_step('publish-report', subprocess.call, ['publish', report])
+
+exp.add_report(
+    PerDomainComparison(),
+    name=f"{exp.name}-per-domain")
 
 exp.run_steps()
