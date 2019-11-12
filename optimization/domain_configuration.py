@@ -233,14 +233,12 @@ def adapt_parameters_snake(parameters):
 DOMAIN_LIST = [
     Domain("blocksworld", "blocksworld 4 {n} {seed}", [LinearAtr("n", lower_b=5, upper_b=10, lower_m=0.1, upper_m=2)]),
     Domain("gripper", "gripper -n {n}", [LinearAtr("n", lower_b=8, upper_b=15, lower_m=0.1, upper_m=2)]),
-    Domain(
-        "miconic-strips",
+    Domain("miconic-strips",
         "miconic -f {floors} -p {passengers}",
         [LinearAtr("passengers", lower_b=5, upper_b=15, lower_m=0.01, upper_m=2, level="true"),
          LinearAtr("floors", lower_b=5, upper_b=15, lower_m=0.01, upper_m=2, level="choose")],
     ),
-    Domain(
-        "rover",
+    Domain("rover",
         "rovgen {seed} {rovers} {waypoints} {objectives} {cameras} {goals}",
         [
             LinearAtr("rovers", upper_b=5, upper_m=2, level="choose"),
@@ -250,8 +248,7 @@ DOMAIN_LIST = [
             LinearAtr("waypoints", lower_b=4, upper_b=15),
         ],
     ),
-    Domain(
-        "satellite",
+    Domain("satellite",
         "satgen {seed} {satellites} 3 {modes} {targets} {observations}",
         [
             LinearAtr("satellites", upper_b=5, upper_m=1.0, default_m=0.5),
@@ -260,24 +257,20 @@ DOMAIN_LIST = [
             LinearAtr("observations"),
         ],
     ),
-    Domain(
-        "tpp",
+    Domain("tpp",
         "tpp -s {seed} -m {markets} -p {products} -t {trucks} -d {depots} -l {goods} tmp.pddl",
         [LinearAtr("products"), LinearAtr("markets"), LinearAtr("trucks"), LinearAtr("depots"), LinearAtr("goods")],
     ),
-    Domain(
-        "trucks",
+    Domain("trucks",
         "trucks -seed {seed} -t 1 -l {locations} -p {packages} -a {areas} -n 1",
         [LinearAtr("areas"), LinearAtr("packages"), LinearAtr("locations", lower_b=2)],
     ),
-    Domain(
-        "visitall",
+    Domain("visitall",
         "grid -n {n} -r {r} -u 0 -s {seed}",
         [LinearAtr("n", lower_b=2, upper_b=10)],
         enum_values=[EnumAtr("half", {"r": "0.5"}), EnumAtr("full", {"r": "1"})],
     ),
-    Domain(
-        "woodworking",
+    Domain("woodworking",
         "create_woodworking_instance.py {wood_factor} {size} {num_machines} {seed}",
         [LinearAtr("size")],
         enum_values=[
@@ -286,8 +279,7 @@ DOMAIN_LIST = [
             EnumAtr("wood1.0", {"wood_factor": "1.0", "num_machines": 1}),
         ],
     ),
-    Domain(
-        "zenotravel",
+    Domain("zenotravel",
         "ztravel {seed} {cities} {planes} {people}",
         [LinearAtr("planes", level="choose"), LinearAtr("people", lower_m=1), LinearAtr("cities", level="choose", lower_b=3)],
     ),
