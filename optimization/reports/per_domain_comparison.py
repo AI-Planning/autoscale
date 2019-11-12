@@ -34,6 +34,7 @@ class PerDomainComparison(PlanningReport):
         num_best = defaultdict(int)
         algorithms = self.algorithms
         domain_groups = sorted(set([group for group, _ in domain_and_algorithm_to_coverage.keys()]))
+        print("{} domains: {}".format(len(domain_groups), domain_groups))
         for domain in domain_groups:
             coverage_values = [
                 domain_and_algorithm_to_coverage[(domain, algo)]
