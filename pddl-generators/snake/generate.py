@@ -221,19 +221,28 @@ def main():
     if '/' in board_name:
         board_name = board_name.split('/')[-1]
 
+    num_initial_apples = args.num_initial_apples
     if '%' in args.num_spawn_apples:
         percentage = int(args.num_spawn_apples[:-1])/100.0
         num_spawn_apples = int(board.num_clear_positions()*percentage) - 1 - args.snake_size - args.num_initial_apples
+        if num_spawn_apples < 0:
+            num_initial_apples += num_spawn_apples
+            num_spawn_apples = 0
+
+        # There must be at least one apple
+        if num_initial_apples < 1:
+            num_initial_apples = 1
     else:
         num_spawn_apples = int(args.num_spawn_apples)
 
     
-    instance_name = "snake-%s-%s-%s-%d-%s" % (board_name, args.snake_size, args.num_initial_apples, num_spawn_apples, args.random_seed)
+    instance_name = "snake-%s-%s-%s-%d-%s" % (board_name, args.snake_size, num_initial_apples, num_spawn_apples, args.random_seed)
 
-    assert (board.num_clear_positions() - args.snake_size - args.num_initial_apples - num_spawn_apples > 0), instance_name
+    print(instance_name)
+    assert (board.num_clear_positions() - args.snake_size - num_initial_apples - num_spawn_apples > 0), instance_name
     
     snake = board.generate_snake(args.snake_size)
-    apples = board.generate_apples(args.num_initial_apples)
+    apples = board.generate_apples(num_initial_apples)
     spawn_apples = board.generate_apples(num_spawn_apples, "B")
 
     
@@ -242,7 +251,7 @@ def main():
     assert (len(spawn_apples) == len(set(spawn_apples)))
     assert (not set(apples) & set(spawn_apples))
 
-    assert (len(apples) == args.num_initial_apples)
+    assert (len(apples) == num_initial_apples)
     assert (len(spawn_apples) == num_spawn_apples), instance_name
     assert (len(snake) == args.snake_size + 1)
     
