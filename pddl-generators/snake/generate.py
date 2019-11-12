@@ -225,9 +225,9 @@ def main():
     if '%' in args.num_spawn_apples:
         percentage = int(args.num_spawn_apples[:-1])/100.0
         num_spawn_apples = int(board.num_clear_positions()*percentage) - 1 - args.snake_size - args.num_initial_apples
-        if num_spawn_apples < 0:
-            num_initial_apples += num_spawn_apples
-            num_spawn_apples = 0
+        if num_spawn_apples < 1: # At least one apple should be spawn
+            num_initial_apples += num_spawn_apples - 1
+            num_spawn_apples = 1
 
         # There must be at least one apple
         if num_initial_apples < 1:
@@ -238,7 +238,6 @@ def main():
     
     instance_name = "snake-%s-%s-%s-%d-%s" % (board_name, args.snake_size, num_initial_apples, num_spawn_apples, args.random_seed)
 
-    print(instance_name)
     assert (board.num_clear_positions() - args.snake_size - num_initial_apples - num_spawn_apples > 0), instance_name
     
     snake = board.generate_snake(args.snake_size)
