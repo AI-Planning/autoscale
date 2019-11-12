@@ -214,6 +214,20 @@ def adapt_parameters_storage(parameters):
 
 
 
+def adapt_parameters_snake(parameters):
+    xgrid = int(parameters["x_grid"])
+    ygrid = xgrid + int(parameters["yinc"])
+
+    percentage = int(parameters["num_spawn_apples"][:-1])/100.0
+    
+    parameters["board"] = "empty-{}x{}".format(xgrid, ygrid)
+
+    if xgrid*ygrid*percentage < int(parameters["num_initial_apples"]):
+        parameters["num_initial_apples"] = int(xgrid*ygrid*percentage)
+        
+    return parameters
+
+
 
 
 DOMAIN_LIST = [
@@ -360,13 +374,23 @@ DOMAIN_LIST = [
                         EnumAtr("c15", {"constrainedness" : "1.5"}),
                         EnumAtr("c20", {"constrainedness" : "2.0"})]
     ),
+    
+    Domain("snake",
+           "generate.py {board} {snake_size} {num_initial_apples} {num_spawn_apples} {seed} pddl",
+           [ConstantAtr("snake_size", "1"), ConstantAtr("num_initial_apples", 5),
+            LinearAtr("x_grid", lower_b=3, upper_b=8, upper_m=1, level="true"),
+           ],
+           enum_values=[EnumAtr(f"yinc{yinc}-sp{sp}", {"num_spawn_apples" : f"{sp}%", "yinc" : yinc}) for sp in [40,55,70,85,100] for yinc in [0,1]],
+           adapt_f=adapt_parameters_snake
+    ),
 
 
-    # Domain("snake",
-    #        "generate.py {board} {snake_size} {num_initial_apples} {num_spawn_apples} {seed} pddl",
-    #        [ConstantAtr("snake_size", "1"), ConstantAtr("num_initial_apples", 5),
-    #         LinearAtr("x_grid", lower_b=3, upper_b=8, upper_m=1),
-    #         LinearAtr("y_grid", base_atr="x_grid", lower_b=0, upper_b=2, lower_m=0, upper_m=1),
+
+    
+    # Domain("mystery",
+    #        "mystery -l {locations} -c {cargos} -v {vehicles} -f {fuel} -s {space}",
+    #        [LinearAtr("locations", lower_b=2, upper_b=10),
+    #         LinearAtr("cargos", lower_b=2, upper_b=10),
     #        ]
     # ),
 

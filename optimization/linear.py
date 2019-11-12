@@ -189,7 +189,7 @@ if ARGS.track == "opt":
         "hiking": ["delfi-mas-miasm.img"],
         "maintenance": ["delfi-blind.img"],
         "miconic-strips": ["bjolp.img"],
-        "nomystery" : [],
+        "nomystery" : [""],
         "parking": ["delfi-ipdb.img"],
         "pathways": ["delfi-celmcut.img"],
         "rover": ["symba1.img"],
