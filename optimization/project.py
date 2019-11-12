@@ -166,7 +166,7 @@ def get_filters_for_renaming_and_ordering_algorithms(renamings):
         renaming_filter, order = \
             get_filters_for_renaming_and_ordering_algorithms(renamings)
         exp.add_report(AbsoluteReport(
-            filter=renaming_filter,
+            filter=[renaming_filter],
             filter_algorithm=order))
     """
     algos = []

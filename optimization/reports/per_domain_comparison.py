@@ -102,7 +102,7 @@ class PerDomainComparison(PlanningReport):
         print(r"\setlength{\tabcolsep}{3pt}")
         print(r"\centering")
         print(r"\begin{tabular}{l" + "r" * len(algorithms) + "cr}")
-        line = [""] + [r"\rot{%s}" % c for c in algorithms] + ["", "Coverage"]
+        line = [""] + [r"\rot{%s}" % c for c in algorithms] + ["", "\\rot{Coverage}"]
         if include_sstddev:
             line.append(r"\rot{Stddev.}")
         print_line(line)

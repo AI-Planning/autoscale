@@ -123,8 +123,27 @@ exp.add_report(
 exp.add_step('open-report', subprocess.call, ['xdg-open', report])
 exp.add_step('publish-report', subprocess.call, ['publish', report])
 
+renamings = [
+    ("bjolp", ""),
+    ("delfi_blind", "blind"),
+    ("delfi_celmcut", "celmcut"),
+    ("complementary2", "comp2"),
+    ("delfi_ipdb", "ipdb"),
+    ("lmcut", ""),
+    ("fdss_mas1", "mas1"),
+    ("fdss_mas2", "mas2"),
+    ("delfi_mas_miasm", "miasm"),
+    ("delfi_mas_sccdfp", "sccdfp"),
+    ("scorpion_nodiv", "scorpion"),
+    ("symba1", ""),
+    ("symba2", ""),
+]
+renaming_filter, order = project.get_filters_for_renaming_and_ordering_algorithms(renamings)
 exp.add_report(
-    PerDomainComparison(),
+    PerDomainComparison(
+        filter=[renaming_filter],
+        filter_algorithm=order,
+        ),
     name=f"{exp.name}-per-domain")
 
 exp.run_steps()
