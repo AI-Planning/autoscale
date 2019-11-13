@@ -45,6 +45,14 @@ class PerDomainComparison(PlanningReport):
                 if coverage == max_coverage:
                     num_best[algo] += 1
 
+        for algo1 in algorithms:
+            for algo2 in algorithms:
+                for domain in domain_groups:
+                    coverage1 = domain_and_algorithm_to_coverage[(domain, algo1)]
+                    coverage2 = domain_and_algorithm_to_coverage[(domain, algo2)]
+                    if coverage1 > coverage2:
+                        print(f"\"{domain}: {algo1} > {algo2}\",")
+
         comparison_table = Table()
         comparison_table.set_row_order(algorithms)
         comparison_table.set_column_order(algorithms + ["Coverage"])
