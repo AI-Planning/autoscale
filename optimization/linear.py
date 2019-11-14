@@ -253,6 +253,10 @@ print("{} domains available: {}".format(len(DOMAINS), sorted(DOMAINS)))
 for domain in DOMAINS:
     assert os.path.exists(os.path.join(ARGS.generators_dir, domain, "domain.pddl")), f"domain.pddl missing for {domain}"
     assert PLANNER_SELECTION[domain], f"no planners selected for {domain}"
+    downward_benchmarks = os.environ.get("DOWNWARD_BENCHMARKS")
+    if downward_benchmarks:
+        if not os.path.isdir(os.path.join(downward_benchmarks, domain)):
+            print(f"{domain} missing in downward-benchmarks repo -> needs to be mapped in evaluation scripts")
 
 
 # This class is in charge of running instances, using a cache to store the results
