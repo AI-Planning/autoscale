@@ -113,9 +113,12 @@ def generate(num_vert, width, height, connect_distance, epsilon):
 
 
 def generate_connected(num_vert, width, height, connect_distance, epsilon):
-    for attempts in itertools.count():
-        if attempts == MAX_CONNECTION_ATTEMPTS:
-            raise ValueError("failed to connect graph: increase CONNECT_DISTANCE")
+    while True:
+        for attempts in itertools.count():
+            if attempts == MAX_CONNECTION_ATTEMPTS:
+                connect_distance += 1
+                break
+                #raise ValueError("failed to connect graph: increase CONNECT_DISTANCE")
         graph = generate(num_vert, width, height, connect_distance, epsilon)
         if graph.is_connected():
             return graph
