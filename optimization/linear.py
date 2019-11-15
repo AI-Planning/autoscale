@@ -418,7 +418,7 @@ class Sequence:
         self.runtimes.append(self.next_runtime)
         self.next_runtime = None
         self.next_index += 1
-        
+
         if not self.has_next():
             self.next_lb_runtime = 10000000000 # Arbitrary number greater than time limit
 
@@ -449,10 +449,10 @@ class InstanceSet:
 
 
         runtimes = [x.next_runtime for x in self.sequences if x.next_runtime]
-        
+
         if not runtimes:
             return True
-        
+
         best_runtime = min(runtimes)
 
         best_lb = min(map(lambda x: x.next_lb_runtime, self.sequences))
@@ -483,7 +483,7 @@ class InstanceSet:
 
     def get_runtime_sequences(self):
         return [seq.runtimes for seq in self.sequences]
-    
+
 
 
 RUNNER_BASELINE = Runner(DOMAINS[ARGS.domain], [BASELINE_PLANNER])
@@ -516,7 +516,7 @@ def evaluate_runtimes(runtimes, num_expected_runtimes):
 
 def evaluate_cfg(cfg):
     return evaluate_cfg_aux(cfg)
-    
+
 def evaluate_cfg_aux(cfg, print_final_configuration=False):
 
     logging.info(f"Evaluate {cfg}")
@@ -557,6 +557,7 @@ def evaluate_cfg_aux(cfg, print_final_configuration=False):
     penalty = evaluate_runtimes(baseline_times, ARGS.tasksbaseline)
 
     if ARGS.only_baseline:
+        sart_eval = None
         sart_times = []
     else:
         sart_eval = InstanceSet(Y, RUNNER_SART)
@@ -573,7 +574,7 @@ def evaluate_cfg_aux(cfg, print_final_configuration=False):
     else:
         logging.info(f"Baseline times: {baseline_times}, sart times: {sart_times}, penalty: {penalty}")
 
-        
+
     return penalty
 
 
