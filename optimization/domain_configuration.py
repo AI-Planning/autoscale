@@ -46,11 +46,14 @@ class LinearAtr:
                     UniformFloatHyperparameter(
                         "{}_m2".format(atr), lower=0, upper=self.upper_m, default_value=0
                     ),
+                    UniformIntegerHyperparameter(
+                        "{}_mb".format(atr), lower=3, upper=7, default_value=5
+                    ),
                 ]
 
         return H
 
-    def set_values(self, cfg, Y, num_tasks_baseline, modifier=None):
+    def set_values(self, cfg, Y, modifier=None):
         atr = "{}_{}".format(modifier, self.name) if modifier else self.name
 
         val = self.lower_b if self.lower_b == self.upper_b else int(cfg.get("{}_b".format(atr)))
@@ -58,13 +61,16 @@ class LinearAtr:
 
         m2 = 0 if self.lower_m == self.upper_m or "{}_m2".format(atr) not in cfg else float(cfg.get("{}_m2".format(atr)))
 
+        if m2:
+            mb = int(cfg.get("{}_mb".format(atr)))
+
         for i, Yi in enumerate(Y):
             Yi[self.name] = int(val)
             if self.base_atr:
                 Yi[self.name] += Yi[self.base_atr]
 
             val += m
-            if i >= num_tasks_baseline:
+            if m2 and i >= mb:
                 val += m2
 
 
@@ -80,7 +86,7 @@ class ConstantAtr:
     def get_level_enum(self, cfg):
         return "false"
 
-    def set_values(self, cfg, Y, num_tasks_baseline, modifier=None):
+    def set_values(self, cfg, Y, modifier=None):
         for i, Yi in enumerate(Y):
             Yi[self.name] = self.value
 
@@ -109,7 +115,7 @@ def get_linear_scaling_values(linear_atrs, cfg, num_values, base={}, name_base=N
     for i in range(20): # Attempt this 20 times
         result = [base.copy() for i in range(num_generated)]
         for atr in linear_atrs:
-            atr.set_values(cfg, result, num_values, name_base)
+            atr.set_values(cfg, result, name_base)
 
         result = eliminate_duplicates(result)
 
@@ -122,11 +128,8 @@ def get_linear_scaling_values(linear_atrs, cfg, num_values, base={}, name_base=N
 
     result = [base.copy() for i in range(num_values)]
     for atr in linear_atrs:
-        atr.set_values(cfg, result, num_values, name_base)
+        atr.set_values(cfg, result, name_base)
     return result
-
-
-
 
 class Domain:
     def __init__(self, name, gen_command, linear_atrs, adapt_f=None, enum_values=[], num_sequences_linear_hierarchy=4):
@@ -142,7 +145,7 @@ class Domain:
         return os.path.join(GENERATORS_DIR, self.name, "domain.pddl")
 
 
-    def get_configs(self, cfg, num_tasks, num_tasks_baseline):
+    def get_configs(self, cfg, num_tasks):
         result = []
 
         #print ("Get configs")
@@ -361,7 +364,7 @@ DOMAIN_LIST = [
 
     Domain("nomystery",
            "nomystery -l {locations} -p {packages} -n {edgefactor} -m {edgeweight} -c {constrainedness} -s {seed} -e 0 ",
-           [LinearAtr("locations", lower_b=2, upper_b=10),
+           [LinearAtr("locations", lower_b=3, upper_b=5, lower_m=0.1, upper_m=1),
             LinearAtr("packages", lower_b=2, upper_b=10),
             ConstantAtr("edgefactor", "1.5"),
             ConstantAtr("edgeweight", "25"), 

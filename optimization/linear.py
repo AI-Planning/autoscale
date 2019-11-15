@@ -62,13 +62,13 @@ def parse_args():
         help="Choose the track to optimize for: satisficing or optimal."
     )
     parser.add_argument(
-        "--tasks", type=int, default=20, help="Number of tasks to generate in each round (default: %(default)s)"
+        "--tasks", type=int, default=30, help="Number of tasks to generate in each round (default: %(default)s)"
     )
     parser.add_argument(
         "--tasksbaseline",
         type=int,
         default=5,
-        help="Number of tasks that are used to evaluate the baseline (default: %(default)s)",
+        help="Number of tasks that are used to evaluate the runtime scaling for baseline and/or state of the art planners (default: %(default)s)",
     )
     parser.add_argument(
         "--evaluations",
@@ -464,7 +464,7 @@ class InstanceSet:
 
         return True
 
-    def is_solvable(self, i, time_limit=300, lower_bound=0):
+    def is_solvable(self, i, time_limit=PLANNER_TIME_LIMIT, lower_bound=0):
         while i >= len(self.sequential_runtimes):
             if not self.eval_next(time_limit):
                 return False
@@ -521,7 +521,7 @@ def evaluate_cfg_aux(cfg, print_final_configuration=False):
 
     logging.info(f"Evaluate {cfg}")
     domain = DOMAINS[ARGS.domain]
-    Y = domain.get_configs(cfg, ARGS.tasks, ARGS.tasksbaseline)
+    Y = domain.get_configs(cfg, ARGS.tasks)
     baseline_eval = InstanceSet(Y, RUNNER_BASELINE)
     logging.info(f"Y: {Y}")
 
@@ -542,7 +542,7 @@ def evaluate_cfg_aux(cfg, print_final_configuration=False):
             logging.info("Second instance was not solved by the baseline planner in less than 60 seconds")
             return 10 ** 6 - 10 ** 5
 
-        if not baseline_eval.is_solvable(2, time_limit=300, lower_bound=2):
+        if not baseline_eval.is_solvable(2, time_limit=PLANNER_TIME_LIMIT, lower_bound=0):
             logging.info("Third instance was not solved by the baseline planner in more than 2 or less than 300 seconds")
             return 10 ** 6 - 2 * 10 ** 5
 
@@ -564,12 +564,12 @@ def evaluate_cfg_aux(cfg, print_final_configuration=False):
         penalty += evaluate_runtimes(sart_times, ARGS.tasksbaseline)
 
     if print_final_configuration:
-        logging.info(f"Final Baseline times: {baseline_times}, sart times: {sart_times}, penalty: {penalty}")
+        logging.info(f"Final baseline times: {baseline_times}, sart times: {sart_times}, penalty: {penalty}")
+
+        logging.info(f"Final baseline runtimes: {baseline_eval.get_runtime_sequences()}")
+
         if sart_eval:
-            final_runtimes = sart_eval.get_runtime_sequences()
-        else:
-            final_runtimes = baseline_eval.get_runtime_sequences()
-        logging.info(f"Final runtimes: {final_runtimes}")
+            logging.info(f"Final sart runtimes: {sart_eval.get_runtime_sequences()}")
     else:
         logging.info(f"Baseline times: {baseline_times}, sart times: {sart_times}, penalty: {penalty}")
 
