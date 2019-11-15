@@ -55,7 +55,7 @@ id = (
     % (nodes, size, degree, epsilon, trucks, packages, seed)
 )
 
-city.dump_tikz(open("%s.tex" % id, "w"))
+#city.dump_tikz(open("%s.tex" % id, "w"))
 
 print("; Transport %s" % id)
 print()
