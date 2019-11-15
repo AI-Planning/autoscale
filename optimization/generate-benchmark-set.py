@@ -44,6 +44,19 @@ def parse_args():
     )
 
     parser.add_argument(
+        "--domain",
+        help="Only generate a domain",
+    )
+
+    
+    parser.add_argument(
+        "--printY",
+        action="store_true",
+        help="print parameters and exit without generating PDDL files",
+    )
+
+
+    parser.add_argument(
         "--tasksbaseline",
         type=int,
         default=5,
@@ -404,21 +417,33 @@ elif ARGS.track == "opt" and ARGS.plannerset == "sart":
     FINAL_CONFIGURATIONS = FINAL_CONFIGURATIONS_SART_OPT
 else:
     sys.exit("Error: set of parameters not available")
-if os.path.exists(ARGS.output):
-    sys.exit("Error: output directory already exists")
 
-os.mkdir(ARGS.output)
+if not ARGS.printY:
+    if os.path.exists(ARGS.output):
+        sys.exit("Error: output directory already exists")
+
+    os.mkdir(ARGS.output)
 
 
 for domain, cfg in FINAL_CONFIGURATIONS.items():
-    os.mkdir(f"{ARGS.output}/{domain}")
-    generator_command = DOMAINS[domain].generator_command(ARGS.generators_dir)
-    domain_file = f"{ARGS.output}/{domain}/domain.pddl"
-    shutil.copy2(os.path.join(ARGS.generators_dir, domain, "domain.pddl"), domain_file)
+    if ARGS.domain and domain != ARGS.domain:
+        continue
+
+    if not ARGS.printY:
+        os.mkdir(f"{ARGS.output}/{domain}")
+        generator_command = DOMAINS[domain].generator_command(ARGS.generators_dir)
+        domain_file = f"{ARGS.output}/{domain}/domain.pddl"
+        shutil.copy2(os.path.join(ARGS.generators_dir, domain, "domain.pddl"), domain_file)
+        
     i = 1
     seed = 2019
     for sequence in DOMAINS[domain].get_configs(cfg, ARGS.tasks, ARGS.tasksbaseline):
         for task in sequence:
+
+            if ARGS.printY:
+                print (task)
+                continue
+
             task["seed"] = seed
             seed += 1
             command = shlex.split(generator_command.format(**task))

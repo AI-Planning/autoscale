@@ -62,9 +62,11 @@ class LinearAtr:
             Yi[self.name] = int(val)
             if self.base_atr:
                 Yi[self.name] += Yi[self.base_atr]
-                val += m
+
+            val += m
             if i >= num_tasks_baseline:
-                val += m + m2
+                val += m2
+
 
 
 class ConstantAtr:
@@ -270,7 +272,7 @@ DOMAIN_LIST = [
     ),
     Domain("visitall",
         "grid -n {n} -r {r} -u 0 -s {seed}",
-        [LinearAtr("n", lower_b=2, upper_b=10)],
+        [LinearAtr("n", lower_b=2, upper_b=10, upper_m=2)],
         enum_values=[EnumAtr("half", {"r": "0.5"}), EnumAtr("full", {"r": "1"})],
     ),
     Domain("woodworking",

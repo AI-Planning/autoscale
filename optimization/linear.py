@@ -406,6 +406,7 @@ class Sequence:
         self.next_runtime = None
         self.next_lb_runtime = 0
         self.next_index = 0
+        self.runtimes = []
 
     def get_next_parameters(self):
         return self.seq[self.next_index]
@@ -414,8 +415,10 @@ class Sequence:
         return self.next_index < len(self.seq)
 
     def reset_next(self):
+        self.runtimes.append(self.next_runtime)
         self.next_runtime = None
         self.next_index += 1
+        
         if not self.has_next():
             self.next_lb_runtime = 10000000000 # Arbitrary number greater than time limit
 
@@ -426,18 +429,7 @@ class InstanceSet:
         self.runner = runner
         self.sequential_runtimes = []
 
-    def add_to_sequence(self):
-        runtimes = [x.next_runtime for x in self.sequences if x.next_runtime]
-        if not runtimes:
-            return
-        best_runtime = min(runtimes)
 
-        best_lb = min(map(lambda x: x.next_lb_runtime, self.sequences))
-        if best_lb == best_runtime:
-            for seq in self.sequences:
-                if seq.next_runtime == best_runtime:
-                    self.sequential_runtimes.append(seq.next_runtime)
-                    seq.reset_next()
 
 
     def eval_next(self, time_limit):
@@ -455,7 +447,21 @@ class InstanceSet:
                     seq.next_runtime = runtime
                     seq.next_lb_runtime = runtime
 
-        self.add_to_sequence()
+
+        runtimes = [x.next_runtime for x in self.sequences if x.next_runtime]
+        
+        if not runtimes:
+            return True
+        
+        best_runtime = min(runtimes)
+
+        best_lb = min(map(lambda x: x.next_lb_runtime, self.sequences))
+        if best_lb == best_runtime:
+            for seq in self.sequences:
+                if seq.next_runtime == best_runtime:
+                    self.sequential_runtimes.append(seq.next_runtime)
+                    seq.reset_next()
+
         return True
 
     def is_solvable(self, i, time_limit=300, lower_bound=0):
@@ -474,6 +480,10 @@ class InstanceSet:
                 selected_runtimes = [t for t in self.sequential_runtimes if t > lower_bound]
 
         return selected_runtimes[:num_instances]
+
+    def get_runtime_sequences(self):
+        return [seq.runtimes for seq in self.sequences]
+    
 
 
 RUNNER_BASELINE = Runner(DOMAINS[ARGS.domain], [BASELINE_PLANNER])
@@ -496,15 +506,19 @@ def evaluate_runtimes(runtimes, num_expected_runtimes):
         factor = sorted_runtimes[i] / sorted_runtimes[i - 1]
         if factor <= 1:  # Runtime is not increasing: maximum penalty of 1
             penalty += 1
-        elif factor <= 2:  # Runtime is increasing, but not very quickly
+        elif factor <= 2: # Runtime is increasing, but not very quickly
             penalty += 2 - factor
-        else:  # factor > 2: Runtime is increasing two quickly
+        elif factor > 2: # Runtime is increasing two quickly
             penalty += 1 - (2 / factor)
 
     return penalty
 
 
 def evaluate_cfg(cfg):
+    return evaluate_cfg_aux(cfg)
+    
+def evaluate_cfg_aux(cfg, print_final_configuration=False):
+
     logging.info(f"Evaluate {cfg}")
     domain = DOMAINS[ARGS.domain]
     Y = domain.get_configs(cfg, ARGS.tasks, ARGS.tasksbaseline)
@@ -519,17 +533,18 @@ def evaluate_cfg(cfg):
     # First test: Does the baseline solve the first three configurations in less than 10,
     # 60, and 300s? If not, return a high error right away
 
-    if not baseline_eval.is_solvable(0, time_limit=10, lower_bound=0):
-        logging.info("First instance was not solved by the baseline planner in less than 10 seconds")
-        return 10 ** 6
+    if not print_final_configuration:
+        if not baseline_eval.is_solvable(0, time_limit=10, lower_bound=0):
+            logging.info("First instance was not solved by the baseline planner in less than 10 seconds")
+            return 10 ** 6
 
-    if not baseline_eval.is_solvable(1, time_limit=60, lower_bound=0):
-        logging.info("Second instance was not solved by the baseline planner in less than 60 seconds")
-        return 10 ** 6 - 10 ** 5
+        if not baseline_eval.is_solvable(1, time_limit=60, lower_bound=0):
+            logging.info("Second instance was not solved by the baseline planner in less than 60 seconds")
+            return 10 ** 6 - 10 ** 5
 
-    if not baseline_eval.is_solvable(2, time_limit=300, lower_bound=2):
-        logging.info("Third instance was not solved by the baseline planner in more than 2 or less than 300 seconds")
-        return 10 ** 6 - 2 * 10 ** 5
+        if not baseline_eval.is_solvable(2, time_limit=300, lower_bound=2):
+            logging.info("Third instance was not solved by the baseline planner in more than 2 or less than 300 seconds")
+            return 10 ** 6 - 2 * 10 ** 5
 
     # Now, we check the entire scaling with respect to the baseline. What is important is
     # the relative time with respect to the previous instance. Ideally, this would be
@@ -541,7 +556,6 @@ def evaluate_cfg(cfg):
     baseline_times = baseline_eval.get_runtimes(ARGS.tasksbaseline, 10, 300)
     penalty = evaluate_runtimes(baseline_times, ARGS.tasksbaseline)
 
-
     if ARGS.only_baseline:
         sart_times = []
     else:
@@ -549,14 +563,25 @@ def evaluate_cfg(cfg):
         sart_times = sart_eval.get_runtimes(ARGS.tasksbaseline, 10, 300)
         penalty += evaluate_runtimes(sart_times, ARGS.tasksbaseline)
 
-    logging.info(f"Baseline times: {baseline_times}, sart times: {sart_times}, penalty: {penalty}")
+    if print_final_configuration:
+        logging.info(f"Final Baseline times: {baseline_times}, sart times: {sart_times}, penalty: {penalty}")
+        if sart_eval:
+            final_runtimes = sart_eval.get_runtime_sequences()
+        else:
+            final_runtimes = baseline_eval.get_runtime_sequences()
+        logging.info(f"Final runtimes: {final_runtimes}")
+    else:
+        logging.info(f"Baseline times: {baseline_times}, sart times: {sart_times}, penalty: {penalty}")
 
+        
     return penalty
 
 
 # # Commented out, useful for debugging purposes
 # evaluate_cfg({'cameras_b': 5, 'cameras_level': 'true', 'cameras_m': 0.08452823057483608, 'cameras_m2': 2.1947949112424965, 'goals_b': 1, 'goals_level': 'false', 'goals_m': 0.0818673500874456, 'goals_m2': 3.2173136321965656, 'objectives_b': 1, 'objectives_level': 'true', 'objectives_m': 0.32240081894723477, 'objectives_m2': 0.7883673647125511, 'rovers_b': 2, 'rovers_level': 'false', 'rovers_m': 0.06401620592382612, 'rovers_m2': 1.243678808837213, 'waypoints_b': 10, 'waypoints_m': 2.07498794298152, 'waypoints_m2': 1.8863737675644134})
 # exit(0)
+
+
 
 
 
@@ -603,4 +628,8 @@ smac = SMAC4HPO(
 print("Output dir:", SMAC_OUTPUT_DIR)
 print("SMAC output dir:", smac.output_dir)
 incumbent = smac.optimize()
+
 print("Final configuration: {}".format(incumbent.get_dictionary()))
+evaluate_cfg_aux(incumbent.get_dictionary(), True)
+
+
