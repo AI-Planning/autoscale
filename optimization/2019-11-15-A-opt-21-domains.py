@@ -28,8 +28,8 @@ IMAGES_DIR = os.path.join(REPO, "images")
 DOMAINS = [
     'barman', 'blocksworld', 'childsnack', 'depots', 'driverlog',
     'floortile', 'gripper', 'hiking', 'miconic-strips', 'nomystery',
-    'parking', 'rover', 'satellite', 'storage', 'tpp', 'transport',
-    'trucks', 'visitall', 'woodworking', 'zenotravel',
+    'parking', 'rover', 'satellite', 'snake', 'storage', 'tpp',
+    'transport', 'trucks', 'visitall', 'woodworking', 'zenotravel',
 ]
 ATTRIBUTES = [
     "error", "all_penalties", "final_*",
