@@ -48,7 +48,7 @@ if REMOTE:
             "source activate smac-conda",
         ]))
     SMAC_TIME_LIMIT = 10 * 60 * 60
-    SMAC_RUNS_PER_DOMAIN = 10
+    SMAC_RUNS_PER_DOMAIN = 8
     OPTIONS = []
 else:
     ENV = LocalEnvironment(processes=1)
@@ -64,7 +64,6 @@ exp.add_parser('exp-parser.py')
 for domain in DOMAINS:
     for seed in range(SMAC_RUNS_PER_DOMAIN):
         for nick, extra_options in [
-            ("baseline", ["--only-baseline"]),
             ("baseline-and-sart", [])]:
             run = exp.add_run()
             run.add_command(
