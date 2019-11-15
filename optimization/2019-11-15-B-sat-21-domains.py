@@ -63,7 +63,7 @@ exp.add_parser('exp-parser.py')
 for domain in DOMAINS:
     for seed in range(SMAC_RUNS_PER_DOMAIN):
         for nick, extra_options in [
-            ("baseline", ["--only-baseline"]),
+            # ("baseline", ["--only-baseline"]),
             ("baseline-and-sart", [])]:
             run = exp.add_run()
             run.add_command(
