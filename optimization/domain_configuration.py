@@ -231,6 +231,9 @@ def adapt_parameters_snake(parameters):
 
 
 DOMAIN_LIST = [
+ #   Domain("agricola", "GenAgricola.py --num_workers {num_workers} --num_ints {num_ints} --num_rounds {num_rounds} {last_stage} {seed}",
+ #          [LinearAtr("n", lower_b=5, upper_b=10, lower_m=0.1, upper_m=2)]),
+
     Domain("blocksworld", "blocksworld 4 {n} {seed}", [LinearAtr("n", lower_b=5, upper_b=10, lower_m=0.1, upper_m=2)]),
     Domain("gripper", "gripper -n {n}", [LinearAtr("n", lower_b=8, upper_b=15, lower_m=0.1, upper_m=2)]),
     Domain("miconic-strips",
@@ -283,8 +286,7 @@ DOMAIN_LIST = [
         "ztravel {seed} {cities} {planes} {people}",
         [LinearAtr("planes", level="choose"), LinearAtr("people", lower_m=1), LinearAtr("cities", level="choose", lower_b=3)],
     ),
-
-
+   
     Domain("parking",
            "./parking-generator.pl prob {curbs} {cars} seq",
            [LinearAtr("curbs", lower_b=3, upper_b=6)],
