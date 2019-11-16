@@ -1,28 +1,28 @@
-; woodworking task with 8 parts and 120% wood
+; woodworking task with 5 parts and 120% wood
 ; Machines:
-;   1 highspeed-saw
-;   1 glazer
 ;   1 grinder
+;   1 glazer
 ;   1 immersion-varnisher
 ;   1 planer
-;   1 saw
+;   1 highspeed-saw
 ;   1 spray-varnisher
+;   1 saw
 
 (define (problem wood-prob)
   (:domain woodworking)
   (:objects
-    highspeed-saw0 - highspeed-saw
-    glazer0 - glazer
     grinder0 - grinder
+    glazer0 - glazer
     immersion-varnisher0 - immersion-varnisher
     planer0 - planer
-    saw0 - saw
+    highspeed-saw0 - highspeed-saw
     spray-varnisher0 - spray-varnisher
-    red green mauve blue black white - acolour
-    beech teak - awood
-    p0 p1 p2 p3 p4 p5 p6 p7 - part
-    b0 b1 b2 - board
-    s0 s1 s2 s3 s4 s5 s6 s7 s8 - aboardsize
+    saw0 - saw
+    white mauve red blue - acolour
+    teak cherry - awood
+    p0 p1 p2 p3 p4 - part
+    b0 b1 - board
+    s0 s1 s2 s3 s4 s5 s6 s7 s8 s9 s10 - aboardsize
   )
   (:init
     (grind-treatment-change varnished colourfragments)
@@ -40,40 +40,38 @@
     (boardsize-successor s5 s6)
     (boardsize-successor s6 s7)
     (boardsize-successor s7 s8)
-    (empty highspeed-saw0)
-    (has-colour glazer0 red)
+    (boardsize-successor s8 s9)
+    (boardsize-successor s9 s10)
+    (has-colour glazer0 mauve)
     (has-colour glazer0 natural)
-    (has-colour immersion-varnisher0 blue)
     (has-colour immersion-varnisher0 mauve)
-    (has-colour spray-varnisher0 blue)
+    (has-colour immersion-varnisher0 natural)
+    (empty highspeed-saw0)
     (has-colour spray-varnisher0 mauve)
-    (available p0)
-    (treatment p0 varnished)
-    (surface-condition p0 smooth)
-    (wood p0 beech)
-    (colour p0 blue)
-    (goalsize p0 medium)
-    (= (spray-varnish-cost p0) 10)
-    (= (glaze-cost p0) 15)
-    (= (grind-cost p0) 30)
-    (= (plane-cost p0) 20)
+    (has-colour spray-varnisher0 natural)
+    (unused p0)
+    (goalsize p0 large)
+    (= (spray-varnish-cost p0) 15)
+    (= (glaze-cost p0) 20)
+    (= (grind-cost p0) 45)
+    (= (plane-cost p0) 30)
     (unused p1)
-    (goalsize p1 small)
-    (= (spray-varnish-cost p1) 5)
-    (= (glaze-cost p1) 10)
-    (= (grind-cost p1) 15)
-    (= (plane-cost p1) 10)
-    (available p2)
-    (treatment p2 glazed)
-    (surface-condition p2 smooth)
-    (wood p2 teak)
-    (colour p2 green)
-    (goalsize p2 large)
-    (= (spray-varnish-cost p2) 15)
-    (= (glaze-cost p2) 20)
-    (= (grind-cost p2) 45)
-    (= (plane-cost p2) 30)
-    (unused p3)
+    (goalsize p1 medium)
+    (= (spray-varnish-cost p1) 10)
+    (= (glaze-cost p1) 15)
+    (= (grind-cost p1) 30)
+    (= (plane-cost p1) 20)
+    (unused p2)
+    (goalsize p2 medium)
+    (= (spray-varnish-cost p2) 10)
+    (= (glaze-cost p2) 15)
+    (= (grind-cost p2) 30)
+    (= (plane-cost p2) 20)
+    (available p3)
+    (colour p3 red)
+    (wood p3 teak)
+    (surface-condition p3 smooth)
+    (treatment p3 colourfragments)
     (goalsize p3 medium)
     (= (spray-varnish-cost p3) 10)
     (= (glaze-cost p3) 15)
@@ -85,71 +83,36 @@
     (= (glaze-cost p4) 20)
     (= (grind-cost p4) 45)
     (= (plane-cost p4) 30)
-    (available p5)
-    (treatment p5 glazed)
-    (surface-condition p5 smooth)
-    (wood p5 beech)
-    (colour p5 blue)
-    (goalsize p5 medium)
-    (= (spray-varnish-cost p5) 10)
-    (= (glaze-cost p5) 15)
-    (= (grind-cost p5) 30)
-    (= (plane-cost p5) 20)
-    (unused p6)
-    (goalsize p6 large)
-    (= (spray-varnish-cost p6) 15)
-    (= (glaze-cost p6) 20)
-    (= (grind-cost p6) 45)
-    (= (plane-cost p6) 30)
-    (unused p7)
-    (goalsize p7 large)
-    (= (spray-varnish-cost p7) 15)
-    (= (glaze-cost p7) 20)
-    (= (grind-cost p7) 45)
-    (= (plane-cost p7) 30)
-    (boardsize b0 s8)
+    (boardsize b0 s10)
     (wood b0 teak)
     (surface-condition b0 rough)
     (available b0)
     (boardsize b1 s3)
-    (wood b1 teak)
+    (wood b1 cherry)
     (surface-condition b1 rough)
     (available b1)
-    (boardsize b2 s4)
-    (wood b2 beech)
-    (surface-condition b2 rough)
-    (available b2)
   )
   (:goal
     (and
     (available p0)
-    (wood p0 beech)
+    (colour p0 mauve)
+    (wood p0 teak)
     (surface-condition p0 verysmooth)
     (treatment p0 glazed)
-    (colour p0 natural)
     (available p1)
+    (colour p1 natural)
     (surface-condition p1 smooth)
-    (wood p1 teak)
     (available p2)
+    (colour p2 natural)
+    (wood p2 cherry)
+    (surface-condition p2 verysmooth)
     (treatment p2 varnished)
-    (colour p2 blue)
     (available p3)
-    (wood p3 teak)
-    (surface-condition p3 smooth)
-    (treatment p3 varnished)
     (colour p3 mauve)
+    (surface-condition p3 smooth)
     (available p4)
-    (surface-condition p4 smooth)
+    (wood p4 teak)
     (treatment p4 varnished)
-    (available p5)
-    (treatment p5 varnished)
-    (wood p5 beech)
-    (available p6)
-    (treatment p6 glazed)
-    (colour p6 red)
-    (available p7)
-    (surface-condition p7 verysmooth)
-    (wood p7 teak)
     )
   )
   (:metric minimize (total-cost))

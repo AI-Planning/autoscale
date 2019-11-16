@@ -7,141 +7,87 @@
 	satellite1 - satellite
 	instrument2 - instrument
 	instrument3 - instrument
-	satellite2 - satellite
-	instrument4 - instrument
-	thermograph5 - mode
 	thermograph3 - mode
-	spectrograph1 - mode
-	image4 - mode
-	spectrograph2 - mode
 	image0 - mode
-	Star0 - direction
-	Star2 - direction
-	Star3 - direction
+	spectrograph2 - mode
+	spectrograph1 - mode
+	infrared6 - mode
+	image4 - mode
+	thermograph5 - mode
+	GroundStation1 - direction
+	GroundStation3 - direction
 	GroundStation4 - direction
 	Star6 - direction
-	GroundStation7 - direction
-	GroundStation8 - direction
-	GroundStation9 - direction
+	Star7 - direction
 	Star11 - direction
 	GroundStation12 - direction
-	GroundStation15 - direction
+	Star13 - direction
+	Star15 - direction
 	GroundStation16 - direction
-	GroundStation19 - direction
-	Star23 - direction
-	GroundStation24 - direction
-	GroundStation25 - direction
-	GroundStation26 - direction
-	GroundStation27 - direction
-	Star28 - direction
-	GroundStation29 - direction
-	GroundStation30 - direction
-	GroundStation33 - direction
-	Star36 - direction
-	Star38 - direction
-	Star40 - direction
-	Star42 - direction
-	Star43 - direction
-	Star10 - direction
-	Star1 - direction
-	GroundStation41 - direction
-	Star31 - direction
-	Star14 - direction
+	GroundStation17 - direction
 	GroundStation18 - direction
-	Star34 - direction
-	GroundStation22 - direction
-	Star5 - direction
-	Star35 - direction
-	Star17 - direction
-	GroundStation37 - direction
-	GroundStation39 - direction
-	GroundStation13 - direction
+	Star19 - direction
 	Star21 - direction
-	GroundStation20 - direction
-	Star32 - direction
-	Planet44 - direction
-	Planet45 - direction
-	Planet46 - direction
-	Phenomenon47 - direction
-	Planet48 - direction
-	Star49 - direction
-	Phenomenon50 - direction
-	Planet51 - direction
-	Star52 - direction
-	Star53 - direction
-	Phenomenon54 - direction
-	Phenomenon55 - direction
-	Phenomenon56 - direction
-	Star57 - direction
+	GroundStation22 - direction
+	Star23 - direction
+	Star9 - direction
+	Star0 - direction
+	Star8 - direction
+	GroundStation10 - direction
+	GroundStation5 - direction
+	Star20 - direction
+	Star14 - direction
+	Star25 - direction
+	Star2 - direction
+	GroundStation24 - direction
+	Planet26 - direction
+	Phenomenon27 - direction
+	Planet28 - direction
+	Planet29 - direction
+	Planet30 - direction
+	Phenomenon31 - direction
+	Planet32 - direction
 )
 (:init
 	(supports instrument0 spectrograph2)
-	(supports instrument0 thermograph3)
-	(supports instrument0 spectrograph1)
-	(calibration_target instrument0 Star5)
-	(calibration_target instrument0 Star14)
-	(calibration_target instrument0 Star31)
-	(calibration_target instrument0 GroundStation41)
-	(calibration_target instrument0 Star1)
-	(calibration_target instrument0 Star10)
-	(supports instrument1 image4)
-	(supports instrument1 thermograph3)
-	(calibration_target instrument1 GroundStation18)
+	(supports instrument0 image0)
+	(supports instrument0 infrared6)
+	(calibration_target instrument0 Star9)
+	(calibration_target instrument0 Star0)
+	(calibration_target instrument0 GroundStation24)
+	(calibration_target instrument0 GroundStation5)
+	(supports instrument1 spectrograph2)
+	(supports instrument1 image0)
+	(calibration_target instrument1 Star8)
+	(calibration_target instrument1 Star0)
+	(calibration_target instrument1 Star9)
 	(on_board instrument0 satellite0)
 	(on_board instrument1 satellite0)
 	(power_avail satellite0)
-	(pointing satellite0 GroundStation37)
-	(supports instrument2 spectrograph2)
-	(supports instrument2 image4)
+	(pointing satellite0 Phenomenon31)
+	(supports instrument2 infrared6)
 	(supports instrument2 spectrograph1)
-	(calibration_target instrument2 Star17)
-	(supports instrument3 image0)
-	(calibration_target instrument3 Star21)
-	(calibration_target instrument3 GroundStation13)
-	(calibration_target instrument3 GroundStation39)
-	(calibration_target instrument3 GroundStation37)
-	(calibration_target instrument3 Star32)
-	(calibration_target instrument3 Star17)
-	(calibration_target instrument3 Star35)
-	(calibration_target instrument3 Star5)
-	(calibration_target instrument3 GroundStation22)
-	(calibration_target instrument3 Star34)
+	(calibration_target instrument2 GroundStation10)
+	(supports instrument3 thermograph5)
+	(supports instrument3 image4)
+	(calibration_target instrument3 GroundStation24)
+	(calibration_target instrument3 Star2)
+	(calibration_target instrument3 Star25)
+	(calibration_target instrument3 Star14)
+	(calibration_target instrument3 Star20)
+	(calibration_target instrument3 GroundStation5)
 	(on_board instrument2 satellite1)
 	(on_board instrument3 satellite1)
 	(power_avail satellite1)
-	(pointing satellite1 GroundStation26)
-	(supports instrument4 image0)
-	(calibration_target instrument4 Star32)
-	(calibration_target instrument4 GroundStation20)
-	(on_board instrument4 satellite2)
-	(power_avail satellite2)
-	(pointing satellite2 Phenomenon56)
+	(pointing satellite1 Star14)
 )
 (:goal (and
-	(pointing satellite1 GroundStation30)
-	(have_image Planet44 thermograph3)
-	(have_image Planet44 spectrograph1)
-	(have_image Planet45 image4)
-	(have_image Planet46 image0)
-	(have_image Planet46 image4)
-	(have_image Phenomenon47 image4)
-	(have_image Phenomenon47 spectrograph2)
-	(have_image Planet48 spectrograph2)
-	(have_image Planet48 spectrograph1)
-	(have_image Star49 thermograph3)
-	(have_image Phenomenon50 spectrograph2)
-	(have_image Phenomenon50 spectrograph1)
-	(have_image Planet51 thermograph3)
-	(have_image Star52 image4)
-	(have_image Star52 thermograph3)
-	(have_image Star53 spectrograph1)
-	(have_image Phenomenon54 spectrograph1)
-	(have_image Phenomenon54 spectrograph2)
-	(have_image Phenomenon55 spectrograph2)
-	(have_image Phenomenon55 image4)
-	(have_image Phenomenon56 image0)
-	(have_image Phenomenon56 spectrograph1)
-	(have_image Star57 thermograph3)
+	(have_image Planet28 thermograph5)
+	(have_image Planet28 image0)
+	(have_image Planet29 spectrograph1)
+	(have_image Planet30 infrared6)
+	(have_image Phenomenon31 image0)
+	(have_image Planet32 spectrograph1)
 ))
 
 )

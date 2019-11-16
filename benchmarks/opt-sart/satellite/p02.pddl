@@ -3,67 +3,55 @@
 (:objects
 	satellite0 - satellite
 	instrument0 - instrument
-	satellite1 - satellite
 	instrument1 - instrument
 	instrument2 - instrument
+	satellite1 - satellite
 	instrument3 - instrument
-	image0 - mode
 	image1 - mode
+	image2 - mode
+	image0 - mode
+	GroundStation0 - direction
 	Star1 - direction
-	GroundStation4 - direction
-	Star11 - direction
 	GroundStation7 - direction
+	GroundStation4 - direction
 	GroundStation6 - direction
-	GroundStation3 - direction
-	Star8 - direction
+	GroundStation5 - direction
+	Star3 - direction
 	GroundStation2 - direction
-	GroundStation10 - direction
-	Star0 - direction
-	Star5 - direction
-	Star9 - direction
-	Planet12 - direction
-	Planet13 - direction
-	Phenomenon14 - direction
-	Star15 - direction
-	Phenomenon16 - direction
-	Planet17 - direction
-	Phenomenon18 - direction
+	Star8 - direction
+	Phenomenon9 - direction
+	Star10 - direction
 )
 (:init
+	(supports instrument0 image2)
 	(supports instrument0 image0)
-	(calibration_target instrument0 GroundStation7)
-	(on_board instrument0 satellite0)
-	(power_avail satellite0)
-	(pointing satellite0 Phenomenon16)
+	(supports instrument0 image1)
+	(calibration_target instrument0 GroundStation4)
+	(calibration_target instrument0 GroundStation2)
 	(supports instrument1 image1)
 	(supports instrument1 image0)
+	(supports instrument1 image2)
+	(calibration_target instrument1 Star3)
+	(calibration_target instrument1 GroundStation5)
 	(calibration_target instrument1 GroundStation6)
-	(supports instrument2 image1)
 	(supports instrument2 image0)
-	(calibration_target instrument2 GroundStation10)
 	(calibration_target instrument2 GroundStation2)
-	(calibration_target instrument2 Star8)
-	(calibration_target instrument2 GroundStation3)
-	(supports instrument3 image1)
+	(on_board instrument0 satellite0)
+	(on_board instrument1 satellite0)
+	(on_board instrument2 satellite0)
+	(power_avail satellite0)
+	(pointing satellite0 GroundStation5)
 	(supports instrument3 image0)
-	(calibration_target instrument3 Star9)
-	(calibration_target instrument3 Star5)
-	(calibration_target instrument3 Star0)
-	(on_board instrument1 satellite1)
-	(on_board instrument2 satellite1)
+	(supports instrument3 image2)
+	(supports instrument3 image1)
+	(calibration_target instrument3 Star8)
 	(on_board instrument3 satellite1)
 	(power_avail satellite1)
-	(pointing satellite1 Star0)
+	(pointing satellite1 Star1)
 )
 (:goal (and
-	(pointing satellite0 Planet17)
-	(have_image Planet12 image1)
-	(have_image Planet13 image1)
-	(have_image Phenomenon14 image0)
-	(have_image Star15 image0)
-	(have_image Phenomenon16 image0)
-	(have_image Planet17 image1)
-	(have_image Phenomenon18 image0)
+	(have_image Phenomenon9 image2)
+	(have_image Star10 image1)
 ))
 
 )

@@ -78,7 +78,11 @@ class Sequence:
 
         sorted_runtimes = sorted(runtimes)
 
-        factors = [sorted_runtimes[i]/sorted_runtimes[i-1] for i in range (1, len(runtimes))]
+        first_index = 0
+        while first_index < len(runtimes) - 2 and runtimes[first_index] < 5:
+            first_index += 1
+        
+        factors = [sorted_runtimes[i]/sorted_runtimes[i-1] for i in range (first_index, len(runtimes))]
         average_factor = float(sum(factors))/float(len(factors))
 
         last_runtime = sorted_runtimes[-1]
@@ -105,7 +109,10 @@ class SelectedConfiguration:
     def get_configs(self, domain, num_tasks):
         # Generate 10 times the tasks needed to ensure that we can discard some sequences and still have enough tasks
         sequence_configs = domain.get_configs(self.cfg, num_tasks*10)
-        sequences = [Sequence(sequence, self.sart_times[i] if self.sart_times else [1,2,4,8]) for i, sequence in enumerate(sequence_configs)]
+        if self.sart_times: 
+            sequences = [Sequence(sequence, self.sart_times[i]) for i, sequence in enumerate(sequence_configs) if len(self.sart_times[i]) > 0]
+        else:
+            sequences = [Sequence(sequence, [1,2,4,8]) for i, sequence in enumerate(sequence_configs)]
         result = []
 
         while len(result) < num_tasks:

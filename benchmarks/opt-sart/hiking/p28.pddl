@@ -1,11 +1,11 @@
-(define (problem Hiking-2-6-9)
+(define (problem Hiking-3-34-2)
 (:domain hiking)
 (:objects 
- car0 car1 car2 car3 car4 car5 - car
- tent0 tent1 - tent
- couple0 couple1 - couple
- place0 place1 place2 place3 place4 place5 place6 place7 place8 - place
- guy0 girl0 guy1 girl1 - person
+ car0 car1 car2 car3 car4 car5 car6 car7 car8 car9 car10 car11 car12 car13 car14 car15 car16 car17 car18 car19 car20 car21 car22 car23 car24 car25 car26 car27 car28 car29 car30 car31 car32 car33 - car
+ tent0 tent1 tent2 - tent
+ couple0 couple1 couple2 - couple
+ place0 place1 - place
+ guy0 girl0 guy1 girl1 guy2 girl2 - person
 )
 (:init
 (partners couple0 guy0 girl0)
@@ -20,25 +20,53 @@
 (walked couple1 place0)
 (at_tent tent1 place0)
 (up tent1)
+(partners couple2 guy2 girl2)
+(at_person guy2 place0)
+(at_person girl2 place0)
+(walked couple2 place0)
+(at_tent tent2 place0)
+(down tent2)
 (at_car car0 place0)
 (at_car car1 place0)
 (at_car car2 place0)
 (at_car car3 place0)
 (at_car car4 place0)
 (at_car car5 place0)
+(at_car car6 place0)
+(at_car car7 place0)
+(at_car car8 place0)
+(at_car car9 place0)
+(at_car car10 place0)
+(at_car car11 place0)
+(at_car car12 place0)
+(at_car car13 place0)
+(at_car car14 place0)
+(at_car car15 place0)
+(at_car car16 place0)
+(at_car car17 place0)
+(at_car car18 place0)
+(at_car car19 place0)
+(at_car car20 place0)
+(at_car car21 place0)
+(at_car car22 place0)
+(at_car car23 place0)
+(at_car car24 place0)
+(at_car car25 place0)
+(at_car car26 place0)
+(at_car car27 place0)
+(at_car car28 place0)
+(at_car car29 place0)
+(at_car car30 place0)
+(at_car car31 place0)
+(at_car car32 place0)
+(at_car car33 place0)
 (next place0 place1)
-(next place1 place2)
-(next place2 place3)
-(next place3 place4)
-(next place4 place5)
-(next place5 place6)
-(next place6 place7)
-(next place7 place8)
 )
 (:goal
 (and
-(walked couple0 place8)
-(walked couple1 place8)
+(walked couple0 place1)
+(walked couple1 place1)
+(walked couple2 place1)
 )
 )
 )

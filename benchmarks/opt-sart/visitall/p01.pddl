@@ -23,6 +23,7 @@
 )
 (:goal
 (and 
+	(visited loc-x0-y0)
 	(visited loc-x0-y1)
 	(visited loc-x1-y0)
 	(visited loc-x1-y1)
