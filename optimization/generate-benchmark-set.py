@@ -55,14 +55,6 @@ def parse_args():
         help="print parameters and exit without generating PDDL files",
     )
 
-
-    parser.add_argument(
-        "--tasksbaseline",
-        type=int,
-        default=5,
-        help="Number of tasks to generate in each round (default: %(default)s)",
-    )
-
     parser.add_argument(
         "--generators-dir",
         default=os.path.join(REPO, "pddl-generators"),
@@ -78,337 +70,380 @@ def parse_args():
     return parser.parse_args()
 
 
+class Sequence:
+    def __init__(self, problems, runtimes):
+        self.problems = problems
+        self.runtimes = runtimes
+        self.i = 0
+
+        sorted_runtimes = sorted(runtimes)
+        
+        factors = [sorted_runtimes[i]/sorted_runtimes[i-1] for i in range (1, len(runtimes))]
+        average_factor = float(sum(factors))/float(len(factors))
+
+        last_runtime = sorted_runtimes[-1]
+        while len(self.runtimes) < len(self.problems):
+            last_runtime *= average_factor
+            self.runtimes.append(last_runtime)
+
+    def time_next_config(self):
+        return self.runtimes[self.i]
+
+    def pop_next_config(self):
+        self.i += 1
+        return self.problems[self.i-1]
+
+
+class SelectedConfiguration:
+
+    def __init__(self, config, baseline_times=None, sart_times=None):
+        self.cfg = config
+        self.baseline_times = baseline_times
+        self.sart_times = sart_times
+                
+
+    def get_configs(self, domain, num_tasks):
+        # Generate 10 times the tasks needed to ensure that we can discard some sequences and still have enough tasks
+        sequence_configs = domain.get_configs(self.cfg, num_tasks*10) 
+        sequences = [Sequence(sequence, self.sart_times[i] if self.sart_times else [1,2,4,8]) for i, sequence in enumerate(sequence_configs)]
+        result = []
+        
+        while len(result) < num_tasks:
+            min_seq = min (map(lambda x : x.time_next_config(), sequences))
+
+            for i, seq in enumerate(sequences): 
+                if min_seq == seq.time_next_config() and len(result) < num_tasks:
+                    print (i, seq.time_next_config())
+                    result.append(seq.pop_next_config())
+            
+            
+        return result
+            
 ARGS = parse_args()
 
 
-FINAL_CONFIGURATIONS_BASELINE_OPT = {
-    "barman": {
-        "ing3_num_cocktails_b": 2,
-        "ing3_num_cocktails_m": 1.0243617472734348,
-        "ing3_num_shots_b": 1,
-        "ing3_num_shots_m": 0.6936718105197833,
-        "ing4_num_cocktails_b": 1,
-        "ing4_num_cocktails_m": 1.0001313314753917,
-        "ing4_num_shots_b": 2,
-        "ing4_num_shots_m": 0.7190146764472417,
-        "ing4_optional": "true",
-    },
-    "blocksworld": {"n_b": 8, "n_m": 1.4982772094130505},
-    "childsnack": {
-        "trays2_num_children_b": 3,
-        "trays2_num_children_m": 0.3395525416564753,
-        "trays3_num_children_b": 4,
-        "trays3_num_children_m": 3.0651324099876427,
-    },
-    "depots": {
-        "crates_b": 3,
-        "crates_m": 0.3435589382019616,
-        "depots_b": 2,
-        "depots_level": "true",
-        "depots_m": 2.6800443486938956,
-        "distributors_b": 6,
-        "distributors_m": 2.0000855476439208,
-        "hoists_b": 1,
-        "hoists_m": 1.246250958313999,
-        "pallets_b": 2,
-        "pallets_m": 0.948028397861872,
-        "trucks_b": 2,
-        "trucks_m": 0.11713786621015651,
-    },
-    "driverlog": {
-        "drivers_b": 1,
-        "drivers_level": "true",
-        "drivers_m": 1.8828272518766382,
-        "packages_b": 1,
-        "packages_m": 1.0807768271245488,
-        "roadjunctions_b": 3,
-        "roadjunctions_m": 1.2399948457669117,
-        "trucks_b": 1,
-    },
-    "floortile": {
-        "num_columns_b": 2,
-        "num_columns_m": 0.9261110503868215,
-        "num_rows_b": 2,
-        "num_rows_m": 0.7687120240473246,
-    },
-    "gripper": {"n_b": 13, "n_m": 0.6126229517128425},
-    "hiking": {
-        "n_cars_b": 2,
-        "n_cars_m": 0.9262876249718353,
-        "n_couples_b": 8,
-        "n_couples_level": "false",
-        "n_couples_m": 2.2489223437848596,
-        "n_places_b": 1,
-        "n_places_level": "false",
-        "n_places_m": 0.015529205307078402,
-    },
-    "miconic-strips": {
-        "floors_b": 10,
-        "floors_level": "false",
-        "floors_m": 1.525804135812396,
-        "passengers_b": 8,
-        "passengers_m": 1.1847310543163057,
-    },
-    "parking": {"curbs_b": 3, "curbs_m": 0.7069005583074067},
-    "rover": {
-        "cameras_b": 7,
-        "cameras_level": "false",
-        "cameras_m": 0.16336178380350216,
-        "goals_b": 1,
-        "goals_level": "false",
-        "goals_m": 0.12753815898167462,
-        "objectives_b": 1,
-        "objectives_level": "true",
-        "objectives_m": 4.876119744958782,
-        "rovers_b": 3,
-        "rovers_level": "true",
-        "rovers_m": 0.11618956664274513,
-        "waypoints_b": 7,
-        "waypoints_m": 2.7318567426355833,
-    },
-    "satellite": {
-        "modes_b": 1,
-        "modes_m": 0.16078265993418023,
-        "observations_b": 3,
-        "observations_m": 0.10646592672765913,
-        "satellites_b": 3,
-        "satellites_m": 0.12650198486938793,
-        "targets_b": 7,
-        "targets_m": 2.7854619742096323,
-    },
-    "tpp": {
-        "depots_b": 14,
-        "depots_m": 1.9029887064169624,
-        "goods_b": 4,
-        "goods_m": 2.758847616436762,
-        "markets_b": 1,
-        "markets_m": 1.966557342866219,
-        "products_b": 1,
-        "products_m": 0.06459597726361672,
-        "trucks_b": 1,
-        "trucks_m": 4.6916283463403605,
-    },
-    "trucks": {
-        "areas_b": 20,
-        "areas_m": 2.7645983941741017,
-        "locations_b": 2,
-        "locations_m": 4.727749061034707,
-        "packages_b": 2,
-        "packages_m": 0.021677208622168626,
-    },
-    "visitall": {
-        "full_n_b": 5,
-        "full_n_m": 4.940509701223316,
-        "half_n_b": 4,
-        "half_n_m": 1.2591468729667927,
-    },
-    "woodworking": {
-        "wood1.0_size_b": 20,
-        "wood1.0_size_m": 0.48537422471738995,
-        "wood1.2_size_b": 3,
-        "wood1.2_size_m": 1.6011078230667226,
-        "wood1.4_size_b": 5,
-        "wood1.4_size_m": 1.9713512310428394,
-    },
-    "zenotravel": {
-        "cities_b": 4,
-        "cities_level": "false",
-        "cities_m": 0.6559829882359683,
-        "people_b": 5,
-        "people_m": 1.0,
-        "planes_b": 1,
-        "planes_level": "true",
-        "planes_m": 0.6992074016759319,
-    },
+FINAL_CONFIGURATIONS_SART_OPT = {
+    "barman" : SelectedConfiguration( {'ing3_num_cocktails_b': 3, 'ing3_num_cocktails_m': 0.37672704936743046, 'ing3_num_cocktails_m2': 0.004994456857780084, 'ing3_num_cocktails_mb': 4, 'ing3_num_shots_b': 1, 'ing3_num_shots_m': 1.5770386001039611, 'ing3_num_shots_m2': 0.12186001869873896, 'ing3_num_shots_mb': 7, 'ing4_num_cocktails_b': 1, 'ing4_num_cocktails_m': 0.03967534769859341, 'ing4_num_cocktails_m2': 0.40873994974664596, 'ing4_num_cocktails_mb': 6, 'ing4_num_shots_b': 3, 'ing4_num_shots_m': 0.8783593129973806, 'ing4_num_shots_m2': 0.011214190981781221, 'ing4_num_shots_mb': 7, 'ing4_optional': 'true'},
+                                                        [[57.0], [4.0, 27.0]],
+                                                        [[4.0, 11.0, 80.0], [3.0, 3.0, 6.0, 31.0, 218.0, 95.0]]),
+    "blocksworld": SelectedConfiguration({
+         "n_b": 6,
+         "n_m": 0.15781378933521534,
+         "n_m2": 0.26558682800480393,
+         "n_mb": 4
+     }),
+     "childsnack": SelectedConfiguration({
+         "trays2_num_children_b": 3,
+         "trays2_num_children_m": 0.03663897525042369,
+         "trays2_num_children_m2": 0.019412794266476154,
+         "trays2_num_children_mb": 5,
+         "trays3_num_children_b": 3,
+         "trays3_num_children_m": 1.058661660834069,
+         "trays3_num_children_m2": 0.008581835353725555,
+         "trays3_num_children_mb": 5
+     }),
+     "depots": SelectedConfiguration({
+         "crates_b": 1,
+         "crates_m": 1.0702202470678392,
+         "crates_m2": 0.024992397215881486,
+         "crates_mb": 4,
+         "depots_b": 2,
+         "depots_level": "true",
+         "depots_m": 0.9999999999999999,
+         "depots_m2": 0.0,
+         "depots_mb": 5,
+         "distributors_b": 4,
+         "distributors_m": 1.087826048902706,
+         "distributors_m2": 0.02246931303478564,
+         "distributors_mb": 4,
+         "hoists_b": 1,
+         "hoists_m": 0.9293558125366601,
+         "hoists_m2": 0.8580459188630313,
+         "hoists_mb": 6,
+         "pallets_b": 1,
+         "pallets_m": 0.9999999999999999,
+         "pallets_m2": 0.033010957165116976,
+         "pallets_mb": 6,
+         "trucks_b": 1,
+         "trucks_m": 1.1606510099457348,
+         "trucks_m2": 0.017997805334970682,
+         "trucks_mb": 5
+     }),
+     "driverlog": SelectedConfiguration({
+         "drivers_b": 1,
+         "drivers_level": "true",
+         "drivers_m": 1.2324936180678159,
+         "drivers_m2": 0.689358780720798,
+         "drivers_mb": 7,
+         "packages_b": 1,
+         "packages_m": 0.2883465737449352,
+         "packages_m2": 0.0,
+         "packages_mb": 5,
+         "roadjunctions_b": 2,
+         "roadjunctions_m": 1.4201621434744616,
+         "roadjunctions_m2": 0.5799326756915759,
+         "roadjunctions_mb": 3,
+         "trucks_b": 1
+     }),
+     "floortile": SelectedConfiguration({
+         "num_columns_b": 2,
+         "num_columns_m": 0.7686912661479239,
+         "num_columns_m2": 0.31175737192201497,
+         "num_columns_mb": 5,
+         "num_rows_b": 2,
+         "num_rows_m": 0.851446158446591,
+         "num_rows_m2": 0.06083158456364638,
+         "num_rows_mb": 4
+     }),
+     "gripper": SelectedConfiguration({
+         "n_b": 13,
+         "n_m": 0.8697628762677266,
+         "n_m2": 5.296167256065021e-06,
+         "n_mb": 5
+     }),
+     "hiking": SelectedConfiguration({
+         "n_cars_b": 1,
+         "n_cars_m": 1.4789850886796791,
+         "n_cars_m2": 0.062454264118284135,
+         "n_cars_mb": 3,
+         "n_couples_b": 2,
+         "n_couples_level": "true",
+         "n_couples_m": 1.3889076774269054,
+         "n_couples_m2": 0.0,
+         "n_couples_mb": 7,
+         "n_places_b": 1,
+         "n_places_level": "true",
+         "n_places_m": 1.3677895880825288,
+         "n_places_m2": 0.07058216272336988,
+         "n_places_mb": 5
+     }),
+     "miconic-strips": SelectedConfiguration({
+         "floors_b": 5,
+         "floors_level": "true",
+         "floors_m": 0.4194038514690266,
+         "floors_m2": 0.0002707241201618596,
+         "floors_mb": 4,
+         "passengers_b": 9,
+         "passengers_m": 0.5028896032124022,
+         "passengers_m2": 0.006243749802442383,
+         "passengers_mb": 6
+     }),
+     "nomystery": SelectedConfiguration({
+         "c11_locations_b": 5,
+         "c11_locations_m": 0.46092466410935795,
+         "c11_locations_m2": 0.4834725054561343,
+         "c11_locations_mb": 5,
+         "c11_packages_b": 4,
+         "c11_packages_m": 1.2438310353147957,
+         "c11_packages_m2": 3.0342368537565747,
+         "c11_packages_mb": 5,
+         "c15_locations_b": 3,
+         "c15_locations_m": 0.11430962249848288,
+         "c15_locations_m2": 0.45343306839785197,
+         "c15_locations_mb": 6,
+         "c15_packages_b": 10,
+         "c15_packages_m": 0.09580735828221346,
+         "c15_packages_m2": 3.2277000344607067,
+         "c15_packages_mb": 5,
+         "c20_locations_b": 4,
+         "c20_locations_m": 0.47024203701102507,
+         "c20_locations_m2": 0.04345426079223417,
+         "c20_locations_mb": 3,
+         "c20_packages_b": 5,
+         "c20_packages_m": 0.9160366731843108,
+         "c20_packages_m2": 4.749801448799682,
+         "c20_packages_mb": 6
+     }),
+     "parking": SelectedConfiguration({
+         "curbs_b": 3,
+         "curbs_m": 0.029784128329660542,
+         "curbs_m2": 0.12978902067750742,
+         "curbs_mb": 4
+     }),
+     "rover": SelectedConfiguration({
+         "cameras_b": 6,
+         "cameras_level": "false",
+         "cameras_m": 0.7538888493207079,
+         "cameras_m2": 0.7267629952897081,
+         "cameras_mb": 7,
+         "goals_b": 1,
+         "goals_level": "false",
+         "goals_m": 0.2696468093759077,
+         "goals_m2": 0.8088844249429595,
+         "goals_mb": 7,
+         "objectives_b": 3,
+         "objectives_level": "true",
+         "objectives_m": 0.024935798287332347,
+         "objectives_m2": 0.1808384110063932,
+         "objectives_mb": 5,
+         "rovers_b": 2,
+         "rovers_level": "true",
+         "rovers_m": 0.6388229183958869,
+         "rovers_m2": 1.1362698527373656,
+         "rovers_mb": 6,
+         "waypoints_b": 5,
+         "waypoints_m": 4.2863236276930445,
+         "waypoints_m2": 2.2275814576231063,
+         "waypoints_mb": 4
+     }),
+     "satellite": SelectedConfiguration({
+         "modes_b": 3,
+         "modes_m": 0.9378040369879951,
+         "modes_m2": 0.5639768832239233,
+         "modes_mb": 7,
+         "observations_b": 2,
+         "observations_m": 0.9731136825944404,
+         "observations_m2": 0.8927247378860531,
+         "observations_mb": 4,
+         "satellites_b": 2,
+         "satellites_m": 0.16126048186044328,
+         "satellites_m2": 0.0928584645551506,
+         "satellites_mb": 7,
+         "targets_b": 5,
+         "targets_m": 4.23210689041686,
+         "targets_m2": 4.702807931737468,
+         "targets_mb": 7
+     }),
+     "snake": SelectedConfiguration({
+         "yinc0-sp100_x_grid_b": 4,
+         "yinc0-sp100_x_grid_m": 0.047613727430515236,
+         "yinc0-sp100_x_grid_m2": 0.14015615169071827,
+         "yinc0-sp100_x_grid_mb": 4,
+         "yinc0-sp40_x_grid_b": 6,
+         "yinc0-sp40_x_grid_m": 0.1849202253890004,
+         "yinc0-sp40_x_grid_m2": 0.5120443020532162,
+         "yinc0-sp40_x_grid_mb": 5,
+         "yinc0-sp55_x_grid_b": 4,
+         "yinc0-sp55_x_grid_m": 0.11656587672682579,
+         "yinc0-sp55_x_grid_m2": 0.02402092370505715,
+         "yinc0-sp55_x_grid_mb": 6,
+         "yinc0-sp70_x_grid_b": 5,
+         "yinc0-sp70_x_grid_m": 0.7149806226644071,
+         "yinc0-sp70_x_grid_m2": 0.03190507741652393,
+         "yinc0-sp70_x_grid_mb": 4,
+         "yinc0-sp85_x_grid_b": 4,
+         "yinc0-sp85_x_grid_m": 0.9529097653074525,
+         "yinc0-sp85_x_grid_m2": 0.6051725917564855,
+         "yinc0-sp85_x_grid_mb": 4,
+         "yinc1-sp100_x_grid_b": 6,
+         "yinc1-sp100_x_grid_m": 0.10220692861914225,
+         "yinc1-sp100_x_grid_m2": 0.3984378808556772,
+         "yinc1-sp100_x_grid_mb": 4,
+         "yinc1-sp40_x_grid_b": 6,
+         "yinc1-sp40_x_grid_m": 0.4117513485472646,
+         "yinc1-sp40_x_grid_m2": 0.3804601521030101,
+         "yinc1-sp40_x_grid_mb": 3,
+         "yinc1-sp55_x_grid_b": 4,
+         "yinc1-sp55_x_grid_m": 0.5736122184834999,
+         "yinc1-sp55_x_grid_m2": 0.0999811214334344,
+         "yinc1-sp55_x_grid_mb": 6,
+         "yinc1-sp70_x_grid_b": 5,
+         "yinc1-sp70_x_grid_m": 0.934413610167267,
+         "yinc1-sp70_x_grid_m2": 0.9852251674540489,
+         "yinc1-sp70_x_grid_mb": 3,
+         "yinc1-sp85_x_grid_b": 3,
+         "yinc1-sp85_x_grid_m": 0.62185739438852,
+         "yinc1-sp85_x_grid_m2": 0.5117816462032874,
+         "yinc1-sp85_x_grid_mb": 7
+     }),
+     "storage": SelectedConfiguration({
+         "crates_b": 4,
+         "crates_m": 0.01592735961161848,
+         "crates_m2": 0.23240671005289523,
+         "crates_mb": 7,
+         "depots_b": 4,
+         "depots_m": 0.9626458360650159,
+         "depots_m2": 0.08601776742971252,
+         "depots_mb": 5,
+         "hoists_b": 3,
+         "hoists_m": 1.149956390558441,
+         "hoists_m2": 0.9389074003108001,
+         "hoists_mb": 7,
+         "store_areas_b": 3,
+         "store_areas_m": 0.3002860560546815,
+         "store_areas_m2": 0.695915369295172,
+         "store_areas_mb": 7
+     }),
+     "tpp": SelectedConfiguration({
+         "depots_b": 3,
+         "depots_m": 0.7494149041628871,
+         "depots_m2": 0.00967786704928579,
+         "depots_mb": 7,
+         "goods_b": 2,
+         "goods_m": 0.06831625161730707,
+         "goods_m2": 0.020789965445933093,
+         "goods_mb": 7,
+         "markets_b": 1,
+         "markets_m": 0.9762687986430809,
+         "markets_m2": 0.3689892058710885,
+         "markets_mb": 3,
+         "products_b": 1,
+         "products_m": 0.11250452371090702,
+         "products_m2": 0.0,
+         "products_mb": 5,
+         "trucks_b": 2,
+         "trucks_m": 0.7474632183261298,
+         "trucks_m2": 0.0014624436153802415,
+         "trucks_mb": 3
+     }),
+     "trucks": SelectedConfiguration({
+         "areas_b": 1,
+         "areas_m": 0.05169043016348521,
+         "areas_m2": 0.016154871457129596,
+         "areas_mb": 5,
+         "locations_b": 5,
+         "locations_m": 2.0344844243373363,
+         "locations_m2": 0.04081200766532711,
+         "locations_mb": 5,
+         "packages_b": 4,
+         "packages_m": 0.299135939168792,
+         "packages_m2": 0.0022927949644751915,
+         "packages_mb": 3
+     }),
+     "visitall": SelectedConfiguration({
+         "full_n_b": 2,
+         "full_n_m": 0.9204361789062611,
+         "full_n_m2": 0.24518008273106873,
+         "full_n_mb": 6,
+         "half_n_b": 5,
+         "half_n_m": 1.0490543105562382,
+         "half_n_m2": 0.2728132664912889,
+         "half_n_mb": 5
+     }),
+     "woodworking": SelectedConfiguration({
+         "wood1.0_size_b": 1,
+         "wood1.0_size_m": 1.3937751624160288,
+         "wood1.0_size_m2": 0.0,
+         "wood1.0_size_mb": 5,
+         "wood1.2_size_b": 1,
+         "wood1.2_size_m": 1.0062056835741413,
+         "wood1.2_size_m2": 0.21212102727132878,
+         "wood1.2_size_mb": 4,
+         "wood1.4_size_b": 4,
+         "wood1.4_size_m": 0.9999999999999999,
+         "wood1.4_size_m2": 0.029329007728364862,
+         "wood1.4_size_mb": 5
+     }),
+     "zenotravel": SelectedConfiguration({
+         "cities_b": 7,
+         "cities_level": "true",
+         "cities_m": 0.849514940731542,
+         "cities_m2": 0.9548015002485005,
+         "cities_mb": 6,
+         "people_b": 2,
+         "people_m": 1.0074763255645538,
+         "people_m2": 0.053822461493070885,
+         "people_mb": 4,
+         "planes_b": 2,
+         "planes_level": "true",
+         "planes_m": 1.3824803904173724,
+         "planes_m2": 0.2613948098336467,
+         "planes_mb": 5
+     })
+
 }
 
-FINAL_CONFIGURATIONS_SART_OPT = {
-    "barman": {
-        "ing3_num_cocktails_b": 1,
-        "ing3_num_cocktails_m": 0.05077027762487095,
-        "ing3_num_cocktails_m2": 0.8065699069896228,
-        "ing3_num_shots_b": 1,
-        "ing3_num_shots_m": 0.0722814037713899,
-        "ing3_num_shots_m2": 0.585246793523671,
-        "ing4_num_cocktails_b": 2,
-        "ing4_num_cocktails_m": 0.15624382342948667,
-        "ing4_num_cocktails_m2": 1.5400544024658225,
-        "ing4_num_shots_b": 2,
-        "ing4_num_shots_m": 1.2548463754380674,
-        "ing4_num_shots_m2": 0.39509438102595273,
-        "ing4_optional": "true",
-    },
-    "blocksworld": {"n_b": 7, "n_m": 0.39735640651366133, "n_m2": 0.7019205863100076},
-    "childsnack": {
-        "trays2_num_children_b": 3,
-        "trays2_num_children_m": 1.0028401449065634,
-        "trays2_num_children_m2": 0.03844189683780161,
-        "trays3_num_children_b": 3,
-        "trays3_num_children_m": 0.9970842603787923,
-        "trays3_num_children_m2": 0.0,
-    },
-    "depots": {
-        "crates_b": 5,
-        "crates_m": 0.9734405367025413,
-        "crates_m2": 0.4831798664254889,
-        "depots_b": 1,
-        "depots_level": "true",
-        "depots_m": 0.9041827501242213,
-        "depots_m2": 0.0,
-        "distributors_b": 1,
-        "distributors_m": 0.030040909842514965,
-        "distributors_m2": 0.06888258021774196,
-        "hoists_b": 5,
-        "hoists_m": 1.0605025749746277,
-        "hoists_m2": 0.4114370178184551,
-        "pallets_b": 1,
-        "pallets_m": 1.5414253492747927,
-        "pallets_m2": 0.4391456442022628,
-        "trucks_b": 2,
-        "trucks_m": 0.5458530307448974,
-        "trucks_m2": 1.424987977049942,
-    },
-    "driverlog": {
-        "drivers_b": 1,
-        "drivers_level": "true",
-        "drivers_m": 0.886353088388769,
-        "drivers_m2": 0.0782062901324497,
-        "packages_b": 3,
-        "packages_m": 1.181857760873709,
-        "packages_m2": 0.4787027087310537,
-        "roadjunctions_b": 1,
-        "roadjunctions_m": 1.9567111063280227,
-        "roadjunctions_m2": 0.0,
-        "trucks_b": 1,
-    },
-    "floortile": {
-        "num_columns_b": 3,
-        "num_columns_m": 0.9985932301398843,
-        "num_columns_m2": 0.00024397577445504334,
-        "num_rows_b": 2,
-        "num_rows_m": 0.9844169010868049,
-        "num_rows_m2": 0.24935117571400628,
-    },
-    "gripper": {"n_b": 11, "n_m": 0.8250801811926468, "n_m2": 0.14516229162378694},
-    "hiking": {
-        "n_cars_b": 1,
-        "n_cars_m": 0.5985637295335384,
-        "n_cars_m2": 0.4230917474874797,
-        "n_couples_b": 1,
-        "n_couples_level": "true",
-        "n_couples_m": 0.054209220675652516,
-        "n_couples_m2": 0.10531368346905626,
-        "n_places_b": 7,
-        "n_places_level": "true",
-        "n_places_m": 0.2914420846822012,
-        "n_places_m2": 0.11829976878033324,
-    },
-    "miconic-strips": {
-        "floors_b": 6,
-        "floors_level": "true",
-        "floors_m": 0.43758681595783466,
-        "floors_m2": 1.1929242371196298,
-        "passengers_b": 7,
-        "passengers_m": 1.5499662929684581,
-        "passengers_m2": 1.278225063641216,
-    },
-    "parking": {"curbs_b": 3, "curbs_m": 0.8201701415541235, "curbs_m2": 0.0},
-    "rover": {
-        "cameras_b": 1,
-        "cameras_level": "false",
-        "cameras_m": 2.957635732623096,
-        "cameras_m2": 1.327379033733795,
-        "goals_b": 1,
-        "goals_level": "true",
-        "goals_m": 1.293856241167802,
-        "goals_m2": 0.7168242827107467,
-        "objectives_b": 5,
-        "objectives_level": "false",
-        "objectives_m": 2.7840863213775213,
-        "objectives_m2": 2.660043941403494,
-        "rovers_b": 4,
-        "rovers_level": "false",
-        "rovers_m": 0.12565708097249104,
-        "rovers_m2": 1.840897751716301,
-        "waypoints_b": 5,
-        "waypoints_m": 1.2827604156545072,
-        "waypoints_m2": 2.014978926197731,
-    },
-    "satellite": {
-        "modes_b": 1,
-        "modes_m": 0.2385187318071157,
-        "modes_m2": 0.9156678385359579,
-        "observations_b": 6,
-        "observations_m": 0.9105163943404457,
-        "observations_m2": 0.8553130492118137,
-        "satellites_b": 2,
-        "satellites_m": 0.37764864027026374,
-        "satellites_m2": 0.0011082592620008103,
-        "targets_b": 5,
-        "targets_m": 4.76400878168938,
-        "targets_m2": 3.1069482084447397,
-    },
-    "tpp": {
-        "depots_b": 2,
-        "depots_m": 0.9207355111496156,
-        "depots_m2": 0.2285958792358966,
-        "goods_b": 2,
-        "goods_m": 0.013864117394200393,
-        "goods_m2": 0.0,
-        "markets_b": 1,
-        "markets_m": 0.6313811604954321,
-        "markets_m2": 0.07525633739479982,
-        "products_b": 4,
-        "products_m": 0.041476972777991276,
-        "products_m2": 0.0,
-        "trucks_b": 1,
-        "trucks_m": 1.318653828629963,
-        "trucks_m2": 1.5666453727751466,
-    },
-    "trucks": {
-        "areas_b": 1,
-        "areas_m": 0.11645130431456917,
-        "areas_m2": 4.6552757852821385,
-        "locations_b": 10,
-        "locations_m": 2.611832532894896,
-        "locations_m2": 4.320935366446115,
-        "packages_b": 3,
-        "packages_m": 0.011911333218709503,
-        "packages_m2": 1.6584122750315258,
-    },
-    "visitall": {
-        "full_n_b": 5,
-        "full_n_m": 3.9790924826363843,
-        "full_n_m2": 0.2183454132564697,
-        "half_n_b": 2,
-        "half_n_m": 2.5307234364356246,
-        "half_n_m2": 2.888119377540255,
-    },
-    "woodworking": {
-        "wood1.0_size_b": 1,
-        "wood1.0_size_m": 4.935312443515885,
-        "wood1.0_size_m2": 3.444112768332798,
-        "wood1.2_size_b": 5,
-        "wood1.2_size_m": 2.3389522603509505,
-        "wood1.2_size_m2": 0.8565711215400984,
-        "wood1.4_size_b": 19,
-        "wood1.4_size_m": 3.535253441941608,
-        "wood1.4_size_m2": 1.947514676607411,
-    },
-    "zenotravel": {
-        "cities_b": 5,
-        "cities_level": "false",
-        "cities_m": 1.0913071438818656,
-        "cities_m2": 0.0,
-        "people_b": 2,
-        "people_m": 1.1128415784982115,
-        "people_m2": 0.5598534020563871,
-        "planes_b": 3,
-        "planes_level": "true",
-        "planes_m": 0.8736887006759412,
-        "planes_m2": 0.712950006368594,
-    },
-}
+
 
 
 if ARGS.track == "opt" and ARGS.plannerset == "baseline":
@@ -425,7 +460,7 @@ if not ARGS.printY:
     os.mkdir(ARGS.output)
 
 
-for domain, cfg in FINAL_CONFIGURATIONS.items():
+for domain, config in FINAL_CONFIGURATIONS.items():
     if ARGS.domain and domain != ARGS.domain:
         continue
 
@@ -437,9 +472,7 @@ for domain, cfg in FINAL_CONFIGURATIONS.items():
         
     i = 1
     seed = 2019
-    for sequence in DOMAINS[domain].get_configs(cfg, ARGS.tasks, ARGS.tasksbaseline):
-        for task in sequence:
-
+    for task in config.get_configs(DOMAINS[domain], ARGS.tasks):
             if ARGS.printY:
                 print (task)
                 continue
