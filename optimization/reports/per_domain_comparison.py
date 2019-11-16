@@ -29,7 +29,7 @@ class PerDomainComparison(PlanningReport):
         domain_and_algorithm_to_coverage = defaultdict(int)
         for (domain, problem), runs in self.problem_runs.items():
             for run in runs:
-                domain_and_algorithm_to_coverage[(run["domain"], run["algorithm"])] += run[self.attribute]
+                domain_and_algorithm_to_coverage[(run["domain"], run["algorithm"])] += run.get(self.attribute, 0)
 
         num_best = defaultdict(int)
         algorithms = self.algorithms
@@ -57,6 +57,15 @@ class PerDomainComparison(PlanningReport):
             for algo in algorithms:
                 coverage = domain_and_algorithm_to_coverage[(domain, algo)]
                 print(f'("{domain}", "{algo}", {coverage}),')
+        print()
+
+        domains_to_unique_coverage_scores = {}
+        for domain in domain_groups:
+            domains_to_unique_coverage_scores[domain] = len(set(domain_and_algorithm_to_coverage[(domain, algo)] for algo in algorithms))
+        for domain in sorted(domain_groups, key=lambda dom: domains_to_unique_coverage_scores[dom]):
+            unique_coverage_scores = domains_to_unique_coverage_scores[domain]
+            print(f"{domain}: {unique_coverage_scores}")
+        print()
 
         comparison_table = Table()
         comparison_table.set_row_order(algorithms)

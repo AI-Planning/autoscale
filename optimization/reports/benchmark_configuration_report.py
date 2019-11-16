@@ -20,7 +20,14 @@ class BenchmarkConfigurationReport(PlanningReport):
             else:
                 best_configuration = ast.literal_eval(best_run["final_configuration"])
                 best_configs[domain] = best_configuration
-                print(f"{domain}: {best_value}")
+                print(f"{domain}:")
+                for attr in [
+                        "final_value", "final_configuration",
+                        "final_baseline_runtimes",
+                        "final_baseline_times", "final_sart_runtimes",
+                        "evaluated_configurations"]:
+                    print(f"  {attr}: {best_run[attr]}")
+                print()
 
         print(json.dumps(best_configs, sort_keys=True, indent=4))
 
