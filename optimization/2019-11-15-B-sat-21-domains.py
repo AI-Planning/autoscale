@@ -10,6 +10,8 @@ from lab.experiment import Experiment
 from downward.reports.absolute import AbsoluteReport
 from downward.reports.taskwise import TaskwiseReport
 
+from reports.benchmark_configuration_report import BenchmarkConfigurationReport
+
 
 # Create custom report class with suitable info and error attributes.
 class BaseReport(AbsoluteReport):
@@ -102,6 +104,8 @@ exp.add_report(
     TaskwiseReport(attributes=ATTRIBUTES),
     outfile=taskwise_report)
 exp.add_step('publish-taskwise-report', subprocess.call, ['publish', taskwise_report])
+
+exp.add_report(BenchmarkConfigurationReport())
 
 exp.add_parse_again_step()
 
