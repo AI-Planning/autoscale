@@ -201,9 +201,11 @@ class Domain:
 
 
 
+        
 def adapt_parameters_parking(parameters):
     curbs = parameters["curbs"]
-    cars = 2*(curbs -1)
+    cars = 2*(curbs -1) + int(parameters["cars_diff"])
+    
     return {"curbs" : curbs, "cars" : cars}
 
 
@@ -274,8 +276,9 @@ DOMAIN_LIST = [
         [LinearAtr("areas"), LinearAtr("packages"), LinearAtr("locations", lower_b=2)],
     ),
     Domain("visitall",
-        "grid -n {n} -r {r} -u 0 -s {seed}",
-        [LinearAtr("n", lower_b=2, upper_b=10, upper_m=2)],
+           "grid -x {x} -y {y} -r {r} -u 0 -s {seed}",
+        [LinearAtr("x", lower_b=2, upper_b=10, upper_m=2),
+         LinearAtr("y", lower_b=0, upper_b=1, upper_m=1, base_atr="x")],
         enum_values=[EnumAtr("half", {"r": "0.5"}), EnumAtr("full", {"r": "1"})],
     ),
     Domain("woodworking",
@@ -295,8 +298,8 @@ DOMAIN_LIST = [
     Domain("parking",
            "./parking-generator.pl prob {curbs} {cars} seq",
            [LinearAtr("curbs", lower_b=3, upper_b=6)],
-           # enum_values=[EnumAtr("ipc", {"cars_diff": "0"}),
-           #              EnumAtr("ipcminus1car", {"cars_diff": "-1"})],
+           enum_values=[EnumAtr("ipc", {"cars_diff": "0"}),
+                        EnumAtr("ipcminus1car", {"cars_diff": "-1"})],
 
            adapt_f = adapt_parameters_parking,
     ),
