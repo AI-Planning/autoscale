@@ -26,42 +26,11 @@ class BaseReport(AbsoluteReport):
 DIR = os.path.abspath(os.path.dirname(__file__))
 REPO = os.path.dirname(DIR)
 IMAGES_DIR = os.path.join(REPO, "images")
-BENCHMARKS_DIR = os.environ["DOWNWARD_BENCHMARKS"]
-SUITE_OPTIMAL = [
-    'agricola-opt18-strips', 'airport', 'assembly',
-    'barman-opt11-strips', 'barman-opt14-strips', 'blocks',
-    'caldera-opt18-adl', 'caldera-split-opt18-adl', 'cavediving-14-adl',
-    'childsnack-opt14-strips', 'citycar-opt14-adl',
-    'data-network-opt18-strips', 'depot', 'driverlog',
-    'elevators-opt08-strips', 'elevators-opt11-strips',
-    'floortile-opt11-strips', 'floortile-opt14-strips', 'freecell',
-    'ged-opt14-strips', 'grid', 'gripper', 'hiking-opt14-strips',
-    'logistics00', 'logistics98', 'maintenance-opt14-adl', 'miconic',
-    'miconic-fulladl', 'miconic-simpleadl', 'movie', 'mprime',
-    'mystery', 'nomystery-opt11-strips', 'nurikabe-opt18-adl',
-    'openstacks', 'openstacks-opt08-adl', 'openstacks-opt08-strips',
-    'openstacks-opt11-strips', 'openstacks-opt14-strips',
-    'openstacks-strips', 'optical-telegraphs',
-    'organic-synthesis-opt18-strips',
-    'organic-synthesis-split-opt18-strips', 'parcprinter-08-strips',
-    'parcprinter-opt11-strips', 'parking-opt11-strips',
-    'parking-opt14-strips', 'pathways', 'pathways-noneg',
-    'pegsol-08-strips', 'pegsol-opt11-strips',
-    'petri-net-alignment-opt18-strips', 'philosophers',
-    'pipesworld-notankage', 'pipesworld-tankage', 'psr-large',
-    'psr-middle', 'psr-small', 'rovers', 'satellite',
-    'scanalyzer-08-strips', 'scanalyzer-opt11-strips', 'schedule',
-    'settlers-opt18-adl', 'snake-opt18-strips', 'sokoban-opt08-strips',
-    'sokoban-opt11-strips', 'spider-opt18-strips', 'storage',
-    'termes-opt18-strips', 'tetris-opt14-strips',
-    'tidybot-opt11-strips', 'tidybot-opt14-strips', 'tpp',
-    'transport-opt08-strips', 'transport-opt11-strips',
-    'transport-opt14-strips', 'trucks', 'trucks-strips',
-    'visitall-opt11-strips', 'visitall-opt14-strips',
-    'woodworking-opt08-strips', 'woodworking-opt11-strips',
-    'zenotravel',
-]
+BENCHMARKS_DIR = os.path.join(REPO, "benchmarks")
 
+BENCHMARKS = [
+    "opt-sart",
+]
 ENVIRONMENT = BaselSlurmEnvironment(
     partition="infai_2",
     email="jendrik.seipp@unibas.ch",
@@ -94,22 +63,22 @@ def get_image(name):
     assert os.path.exists(image), image
     return nick, image
 
-TIME_LIMIT = 180 if project.REMOTE else 5
+TIME_LIMIT = 1800 if project.REMOTE else 5
 IMAGES = [
     get_image("blind"),
-    get_image("fdss-mas1"),
-    get_image("fdss-mas2"),
+    #get_image("fdss-mas1"),
+    #get_image("fdss-mas2"),
     get_image("bjolp"),
     get_image("lmcut"),
     get_image("symba1"),
-    get_image("symba2"),
+    #get_image("symba2"),
     get_image("complementary2"),
-    get_image("delfi-blind"),
+    #get_image("delfi-blind"),
     get_image("delfi-celmcut"),
     get_image("delfi-ipdb"),
     get_image("delfi-mas-sccdfp"),
-    get_image("delfi-mas-miasm"),
-    get_image("scorpion-nodiv"),
+    #get_image("delfi-mas-miasm"),
+    get_image("scorpion"),
 ]
 
 for planner, image in IMAGES:
@@ -118,10 +87,15 @@ for planner, image in IMAGES:
 singularity_script = os.path.join(DIR, 'run-singularity.sh')
 exp.add_resource('run_singularity', singularity_script)
 
-suite = suites.build_suite(BENCHMARKS_DIR, SUITE_OPTIMAL)
+suite = []
+for benchmarks_dir in BENCHMARKS:
+    abs_benchmarks_dir = os.path.join(BENCHMARKS_DIR, benchmarks_dir)
+    domains = os.listdir(abs_benchmarks_dir)
+    for domain in domains:
+        suite.extend(suites.build_suite(abs_benchmarks_dir, [domain]))
 if not project.REMOTE:
     suite = suites.build_suite(
-        BENCHMARKS_DIR,
+        os.environ["DOWNWARD_BENCHMARKS"],
         ["depot:p01.pddl", "caldera-split-opt18-adl:p01.pddl"])
 
 for planner, image in IMAGES:
@@ -150,8 +124,7 @@ exp.add_step('publish-report', subprocess.call, ['publish', report])
 
 renamings = [
     ("bjolp", "bjolp"),
-    ("blind", "blind"),
-    ("delfi_blind", "dblind"),
+    ("delfi_blind", "blind"),
     ("delfi_celmcut", "celmcut"),
     ("complementary2", "comp2"),
     ("delfi_ipdb", "ipdb"),
@@ -165,17 +138,10 @@ renamings = [
     ("symba2", "symba2"),
 ]
 renaming_filter, order = project.get_filters_for_renaming_and_ordering_algorithms(renamings)
-domains = [
-    'barman', 'blocksworld', 'childsnack', 'depot', 'driverlog',
-    'floortile', 'gripper', 'hiking', 'miconic-strips', 'nomystery',
-    'parking', 'rovers', 'satellite', 'snake', 'storage', 'tpp',
-    'transport', 'trucks', 'visitall', 'woodworking', 'zenotravel',
-]
 exp.add_report(
     PerDomainComparison(
-        filter=[renaming_filter, project.group_domains],
+        filter=[renaming_filter],
         filter_algorithm=order,
-        filter_domain=domains,
         ),
     name=f"{exp.name}-per-domain")
 

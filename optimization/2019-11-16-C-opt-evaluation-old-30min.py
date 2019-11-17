@@ -94,22 +94,22 @@ def get_image(name):
     assert os.path.exists(image), image
     return nick, image
 
-TIME_LIMIT = 180 if project.REMOTE else 5
+TIME_LIMIT = 1800 if project.REMOTE else 5
 IMAGES = [
     get_image("blind"),
-    get_image("fdss-mas1"),
-    get_image("fdss-mas2"),
+    #get_image("fdss-mas1"),
+    #get_image("fdss-mas2"),
     get_image("bjolp"),
     get_image("lmcut"),
     get_image("symba1"),
-    get_image("symba2"),
+    #get_image("symba2"),
     get_image("complementary2"),
-    get_image("delfi-blind"),
+    #get_image("delfi-blind"),
     get_image("delfi-celmcut"),
     get_image("delfi-ipdb"),
     get_image("delfi-mas-sccdfp"),
-    get_image("delfi-mas-miasm"),
-    get_image("scorpion-nodiv"),
+    #get_image("delfi-mas-miasm"),
+    get_image("scorpion"),
 ]
 
 for planner, image in IMAGES:
@@ -165,17 +165,10 @@ renamings = [
     ("symba2", "symba2"),
 ]
 renaming_filter, order = project.get_filters_for_renaming_and_ordering_algorithms(renamings)
-domains = [
-    'barman', 'blocksworld', 'childsnack', 'depot', 'driverlog',
-    'floortile', 'gripper', 'hiking', 'miconic-strips', 'nomystery',
-    'parking', 'rovers', 'satellite', 'snake', 'storage', 'tpp',
-    'transport', 'trucks', 'visitall', 'woodworking', 'zenotravel',
-]
 exp.add_report(
     PerDomainComparison(
-        filter=[renaming_filter, project.group_domains],
+        filter=[renaming_filter],
         filter_algorithm=order,
-        filter_domain=domains,
         ),
     name=f"{exp.name}-per-domain")
 
