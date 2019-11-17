@@ -295,9 +295,11 @@ DOMAIN_LIST = [
     Domain("parking",
            "./parking-generator.pl prob {curbs} {cars} seq",
            [LinearAtr("curbs", lower_b=3, upper_b=6)],
+           # enum_values=[EnumAtr("ipc", {"cars_diff": "0"}),
+           #              EnumAtr("ipcminus1car", {"cars_diff": "-1"})],
+
            adapt_f = adapt_parameters_parking,
     ),
-
 
     Domain("driverlog",
            "dlgen {seed} {roadjunctions} {drivers} {packages} {trucks}",
