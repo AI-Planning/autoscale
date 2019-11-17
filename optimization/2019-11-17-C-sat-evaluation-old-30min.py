@@ -26,11 +26,34 @@ class BaseReport(AbsoluteReport):
 DIR = os.path.abspath(os.path.dirname(__file__))
 REPO = os.path.dirname(DIR)
 IMAGES_DIR = os.path.join(REPO, "images")
-BENCHMARKS_DIR = os.path.join(REPO, "benchmarks")
+BENCHMARKS_DIR = os.environ["DOWNWARD_BENCHMARKS"]
+SUITE_SATISFICING = [
+  'agricola-sat18-strips', 'airport', 'assembly', 'barman-sat11-strips',
+  'barman-sat14-strips', 'blocks', 'caldera-sat18-adl',
+  'caldera-split-sat18-adl', 'cavediving-14-adl', 'childsnack-sat14-strips',
+  'citycar-sat14-adl', 'data-network-sat18-strips', 'depot', 'driverlog',
+  'elevators-sat08-strips', 'elevators-sat11-strips', 'flashfill-sat18-adl',
+  'floortile-sat11-strips', 'floortile-sat14-strips', 'freecell',
+  'ged-sat14-strips', 'grid', 'gripper', 'hiking-sat14-strips', 'logistics00',
+  'logistics98', 'maintenance-sat14-adl', 'miconic', 'miconic-fulladl',
+  'miconic-simpleadl', 'movie', 'mprime', 'mystery', 'nomystery-sat11-strips',
+  'nurikabe-sat18-adl', 'openstacks', 'openstacks-sat08-adl',
+  'openstacks-sat08-strips', 'openstacks-sat11-strips',
+  'openstacks-sat14-strips', 'openstacks-strips', 'optical-telegraphs',
+  'organic-synthesis-sat18-strips', 'organic-synthesis-split-sat18-strips',
+  'parcprinter-08-strips', 'parcprinter-sat11-strips', 'parking-sat11-strips',
+  'parking-sat14-strips', 'pathways', 'pathways-noneg', 'pegsol-08-strips',
+  'pegsol-sat11-strips', 'philosophers', 'pipesworld-notankage',
+  'pipesworld-tankage', 'psr-large', 'psr-middle', 'psr-small', 'rovers',
+  'satellite', 'scanalyzer-08-strips', 'scanalyzer-sat11-strips', 'schedule',
+  'settlers-sat18-adl', 'snake-sat18-strips', 'sokoban-sat08-strips',
+  'sokoban-sat11-strips', 'spider-sat18-strips', 'storage',
+  'termes-sat18-strips', 'tetris-sat14-strips', 'thoughtful-sat14-strips',
+  'tidybot-sat11-strips', 'tpp', 'transport-sat08-strips',
+  'transport-sat11-strips', 'transport-sat14-strips', 'trucks',
+  'trucks-strips', 'visitall-sat11-strips', 'visitall-sat14-strips',
+  'woodworking-sat08-strips', 'woodworking-sat11-strips', 'zenotravel']
 
-BENCHMARKS = [
-    "opt-sart",
-]
 ENVIRONMENT = BaselSlurmEnvironment(
     partition="infai_2",
     email="silvan.sievers@unibas.ch",
@@ -80,15 +103,10 @@ for planner, image in IMAGES:
 singularity_script = os.path.join(DIR, 'run-singularity.sh')
 exp.add_resource('run_singularity', singularity_script)
 
-suite = []
-for benchmarks_dir in BENCHMARKS:
-    abs_benchmarks_dir = os.path.join(BENCHMARKS_DIR, benchmarks_dir)
-    domains = os.listdir(abs_benchmarks_dir)
-    for domain in domains:
-        suite.extend(suites.build_suite(abs_benchmarks_dir, [domain]))
+suite = suites.build_suite(BENCHMARKS_DIR, SUITE_SATISFICING)
 if not project.REMOTE:
     suite = suites.build_suite(
-        os.environ["DOWNWARD_BENCHMARKS"],
+        BENCHMARKS_DIR,
         ["depot:p01.pddl", "caldera-split-opt18-adl:p01.pddl"])
 
 for planner, image in IMAGES:
@@ -125,10 +143,18 @@ renamings = [
     ("saarplan-grey", "grey"),
 ]
 renaming_filter, order = project.get_filters_for_renaming_and_ordering_algorithms(renamings)
+domains = [
+    'barman', 'blocksworld', 'childsnack', 'depot', 'driverlog',
+    'floortile', 'gripper', 'hiking', 'miconic-strips', 'nomystery',
+    'parking', 'rovers', 'satellite', 'snake', 'storage', 'tpp',
+    #'transport',
+    'trucks', 'visitall', 'woodworking', 'zenotravel',
+]
 exp.add_report(
     PerDomainComparison(
-        filter=[renaming_filter],
+        filter=[renaming_filter, project.group_domains],
         filter_algorithm=order,
+        filter_domain=domains,
         ),
     name=f"{exp.name}-per-domain")
 
