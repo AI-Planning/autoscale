@@ -20,6 +20,7 @@ conda create --name smac-conda python=3.7 gxx_linux-64 gcc_linux-64 swig
 source activate smac-conda
 curl https://raw.githubusercontent.com/automl/smac3/master/requirements.txt | xargs -n 1 -L 1 pip install
 pip install smac
+pip install lab==4.2
 """
 
 import argparse
