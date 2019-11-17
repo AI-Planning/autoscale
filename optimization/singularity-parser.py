@@ -50,7 +50,7 @@ class CommonParser(Parser):
 
 def coverage(content, props):
     props["coverage"] = int("cost" in props)
-    if not props["coverage"]:
+    if not props["coverage"] and "runtime" in props:
         del props["runtime"]
 
 

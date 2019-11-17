@@ -143,7 +143,7 @@ project.add_scp_steps(exp)
 
 report = os.path.join(exp.eval_dir, '{}.html'.format(exp.name))
 exp.add_report(
-    BaseReport(attributes=ATTRIBUTES),
+    BaseReport(attributes=ATTRIBUTES, filter=[project.group_domains]),
     outfile=report)
 exp.add_step('open-report', subprocess.call, ['xdg-open', report])
 exp.add_step('publish-report', subprocess.call, ['publish', report])
