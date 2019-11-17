@@ -165,10 +165,17 @@ renamings = [
     ("symba2", "symba2"),
 ]
 renaming_filter, order = project.get_filters_for_renaming_and_ordering_algorithms(renamings)
+domains = [
+    'barman', 'blocksworld', 'childsnack', 'depot', 'driverlog',
+    'floortile', 'gripper', 'hiking', 'miconic-strips', 'nomystery',
+    'parking', 'rovers', 'satellite', 'snake', 'storage', 'tpp',
+    'transport', 'trucks', 'visitall', 'woodworking', 'zenotravel',
+]
 exp.add_report(
     PerDomainComparison(
-        filter=[renaming_filter],
+        filter=[renaming_filter, project.group_domains],
         filter_algorithm=order,
+        filter_domain=domains,
         ),
     name=f"{exp.name}-per-domain")
 
