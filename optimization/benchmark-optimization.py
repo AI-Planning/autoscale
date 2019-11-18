@@ -288,10 +288,9 @@ domain = DOMAINS[ARGS.domain]
 
 #     final_configuration.append((incumbent, 0, 30))
 
-enum_parameters = domain.get_enum_parameters()
-        
-assert(len(enum_parameters) == 1) #TODO make the following code more general to accept more than one parameter here.
 
+
+STORED_VALID_SEQUENCES = [(10, {})]
 candidate_sequences= []
 
 K_PER_CATEGORY = 10
@@ -301,17 +300,22 @@ if domain.has_enum_parameter():
     # value, with a given starting point, and a number of instances. We do a second
     # optimization, considering the first 10 good sequences per enum parameter.
 
+    enum_parameters = domain.get_enum_parameters()
+    assert(len(enum_parameters) == 1) #TODO make the following code more general to accept more than one parameter here.
+
+    print (enum_parameters)
     for enum_parameter in enum_parameters:
         for value in enum_parameter.get_values():
             valid_sequences = [(penalty, seq) for penalty, seq in STORED_VALID_SEQUENCES if seq[0][0][enum_parameter] == value]
             bestK = sorted(valid_sequences, key=lambda x : x[0])[:K_PER_CATEGORY]
             candidate_sequences.append(bestK)
             
-logging.info(f"Candidate sequences: {candidate_sequences}")
 else:
     valid_sequences = [(penalty, seq) for penalty, seq in STORED_VALID_SEQUENCES if seq[0][0][enum_parameter] == value]
     bestK  = sorted(valid_sequences, key=lambda x : x[0])[:K_PER_CATEGORY]
     candidate_sequences.append(bestK )
+
+logging.info(f"Candidate sequences: {candidate_sequences}")
 
 
 
@@ -328,7 +332,7 @@ for i in range (K_PER_CATEGORY):
         runtimes_sart = sart_eval.get_runtimes(40, 0, PLANNER_TIME_LIMIT)        
         if runtimes_sart < 3:
             continue # We cannot accept sequences that have less than 3 points to interpolate
-
+        evaluated_sequences[j].append((config, runtimes))
         
 
     
