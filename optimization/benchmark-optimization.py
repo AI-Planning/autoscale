@@ -188,12 +188,33 @@ print("{} domains available: {}".format(len(DOMAINS), sorted(DOMAINS)))
 
 
 class Sequence:
-    def __init__(self, y):
-        self.seq = y
-        self.next_runtime = None
-        self.next_lb_runtime = 0
-        self.next_index = 0
-        self.runtimes = []
+    def __init__(self, config, runtimes):
+        self.config = config
+        self.runtimes = runtimes
+        self.trivial_instances = len([t for t in runtimes if t < 10])
+        self.solved_instances = len(runtimes_sart)
+
+        # Continue the sequence to know how many instances will be added
+        sorted_runtimes = sorted(runtimes_sart)
+        first_index = 0
+        while first_index < len(sorted_runtimes) - 2 and sorted_runtimes[first_index] < 5:
+            first_index += 1
+
+        factors = [sorted_runtimes[i]/sorted_runtimes[i-1] for i in range (first_index, len(sorted_runtimes))]
+        average_factor = float(sum(factors))/float(len(factors))
+
+        last_runtime = sorted_runtimes[-1]
+
+        # Ensure that the runtime of unsolved instances is above the time limit
+        if last_runtime*average_factor < PLANNER_TIME_LIMIT*1.1:
+            average_factor = PLANNER_TIME_LIMIT*1.1/last_runtime
+        
+        while last_runtime < 18000 and len(sorted_runtimes) < sremaining_instances:
+            last_runtime *= average_factor
+            sorted_runtimes.append(last_runtime)
+
+        self.sorted_runtimes = sorted_runtimes
+
 
     def get_next_parameters(self):
         return self.seq[self.next_index]
@@ -209,6 +230,8 @@ class Sequence:
         if not self.has_next():
             self.next_lb_runtime = 10000000000 # Arbitrary number greater than time limit
 
+
+            
 
 
 # From the configurations, we read a list of sequences, each with a
@@ -235,23 +258,6 @@ def evaluate_benchmark(cfg):
         start = 0
             
 
-        trivial_instances += len([t for t in runtimes_sart if t < 10])
-        solved_instances += len(runtimes_sart)
-
-        # Continue the sequence to know how many instances will be added
-        sorted_runtimes = sorted(runtimes_sart)
-        first_index = 0
-        while first_index < len(sorted_runtimes) - 2 and sorted_runtimes[first_index] < 5:
-            first_index += 1
-
-        factors = [sorted_runtimes[i]/sorted_runtimes[i-1] for i in range (first_index, len(sorted_runtimes))]
-        average_factor = float(sum(factors))/float(len(factors))
-
-        last_runtime = sorted_runtimes[-1]
-        while last_runtime < 18000 and len(sorted_runtimes) < sremaining_instances:
-            last_runtime *= average_factor
-            sorted_runtimes.append(last_runtime)
-
         remaining_instances -= len(sorted_runtimes)
 
     penalty = i #Reduce number of sequences whenever possible
@@ -275,20 +281,6 @@ domain = DOMAINS[ARGS.domain]
 
 # Final configuration should consist of a list of sequences, each with a starting point and a number of instances.  Number of instances must add up to 30
 
-# final_configuration = []
-# # We have three different cases:
-
-
-#     pass
-
-# else:
-#     # Option #3: only a single linear parameter. In this case, there are not too many
-#     # options, all we can do is to select the best sequence found by SMAC, start at 0, and put
-#     # 30 sequences.
-
-#     final_configuration.append((incumbent, 0, 30))
-
-
 
 STORED_VALID_SEQUENCES = [(10, {})]
 candidate_sequences= []
@@ -311,12 +303,11 @@ if domain.has_enum_parameter():
             candidate_sequences.append(bestK)
             
 else:
-    valid_sequences = [(penalty, seq) for penalty, seq in STORED_VALID_SEQUENCES if seq[0][0][enum_parameter] == value]
+    valid_sequences = [(penalty, seq) for penalty, seq in STORED_VALID_SEQUENCES]
     bestK  = sorted(valid_sequences, key=lambda x : x[0])[:K_PER_CATEGORY]
     candidate_sequences.append(bestK )
 
 logging.info(f"Candidate sequences: {candidate_sequences}")
-
 
 
 domain = DOMAINS[ARGS.domain]
@@ -332,45 +323,9 @@ for i in range (K_PER_CATEGORY):
         runtimes_sart = sart_eval.get_runtimes(40, 0, PLANNER_TIME_LIMIT)        
         if runtimes_sart < 3:
             continue # We cannot accept sequences that have less than 3 points to interpolate
-        evaluated_sequences[j].append((config, runtimes))
+        evaluated_sequences[j].append(Sequence(config, runtimes))
         
 
-    
-    
-
-# Build Configuration Space which defines all parameters and their ranges.
-cs = ConfigurationSpace()
-
-hyperparameters_select_enum = [CategoricalHyperparameter("config{}".format(i), cfg) for i, cfg in enumerate(best_configurations)]
-cs.add_hyperparameters(hyperparameters_select_enum)
-
-scenario = Scenario(
-    {
-        "run_obj": "quality",
-        # max. number of function evaluations
-            "ta_run_limit": 100000,
-        "wallclock_limit": 60,
-        "cs": cs,
-        "deterministic": "true",
-        "memory_limit": None,
-        "cutoff": None,
-        "output_dir": SMAC_OUTPUT_DIR,
-    }
-)
-    
-print("Optimizing benchmark with multiple sequences...")
-# When using SMAC4HPO, the default configuration has to be requested explicitly
-# as first design (see https://github.com/automl/SMAC3/issues/533).
-smac = SMAC4HPO(
-    scenario=scenario,
-    initial_design=DefaultConfiguration,
-    rng=np.random.RandomState(ARGS.random_seed),
-    tae_runner=evaluate_benchmark
-)
-    
-incumbent = smac.optimize()
-
-# SMAC optimization for sequences has finished
 
 
 
