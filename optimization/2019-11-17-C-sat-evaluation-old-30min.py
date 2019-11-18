@@ -27,44 +27,36 @@ DIR = os.path.abspath(os.path.dirname(__file__))
 REPO = os.path.dirname(DIR)
 IMAGES_DIR = os.path.join(REPO, "images")
 BENCHMARKS_DIR = os.environ["DOWNWARD_BENCHMARKS"]
-SUITE_OPTIMAL = [
-    'agricola-opt18-strips', 'airport', 'assembly',
-    'barman-opt11-strips', 'barman-opt14-strips', 'blocks',
-    'caldera-opt18-adl', 'caldera-split-opt18-adl', 'cavediving-14-adl',
-    'childsnack-opt14-strips', 'citycar-opt14-adl',
-    'data-network-opt18-strips', 'depot', 'driverlog',
-    'elevators-opt08-strips', 'elevators-opt11-strips',
-    'floortile-opt11-strips', 'floortile-opt14-strips', 'freecell',
-    'ged-opt14-strips', 'grid', 'gripper', 'hiking-opt14-strips',
-    'logistics00', 'logistics98', 'maintenance-opt14-adl', 'miconic',
-    'miconic-fulladl', 'miconic-simpleadl', 'movie', 'mprime',
-    'mystery', 'nomystery-opt11-strips', 'nurikabe-opt18-adl',
-    'openstacks', 'openstacks-opt08-adl', 'openstacks-opt08-strips',
-    'openstacks-opt11-strips', 'openstacks-opt14-strips',
-    'openstacks-strips', 'optical-telegraphs',
-    'organic-synthesis-opt18-strips',
-    'organic-synthesis-split-opt18-strips', 'parcprinter-08-strips',
-    'parcprinter-opt11-strips', 'parking-opt11-strips',
-    'parking-opt14-strips', 'pathways', 'pathways-noneg',
-    'pegsol-08-strips', 'pegsol-opt11-strips',
-    'petri-net-alignment-opt18-strips', 'philosophers',
-    'pipesworld-notankage', 'pipesworld-tankage', 'psr-large',
-    'psr-middle', 'psr-small', 'rovers', 'satellite',
-    'scanalyzer-08-strips', 'scanalyzer-opt11-strips', 'schedule',
-    'settlers-opt18-adl', 'snake-opt18-strips', 'sokoban-opt08-strips',
-    'sokoban-opt11-strips', 'spider-opt18-strips', 'storage',
-    'termes-opt18-strips', 'tetris-opt14-strips',
-    'tidybot-opt11-strips', 'tidybot-opt14-strips', 'tpp',
-    'transport-opt08-strips', 'transport-opt11-strips',
-    'transport-opt14-strips', 'trucks', 'trucks-strips',
-    'visitall-opt11-strips', 'visitall-opt14-strips',
-    'woodworking-opt08-strips', 'woodworking-opt11-strips',
-    'zenotravel',
-]
+SUITE_SATISFICING = [
+  'agricola-sat18-strips', 'airport', 'assembly', 'barman-sat11-strips',
+  'barman-sat14-strips', 'blocks', 'caldera-sat18-adl',
+  'caldera-split-sat18-adl', 'cavediving-14-adl', 'childsnack-sat14-strips',
+  'citycar-sat14-adl', 'data-network-sat18-strips', 'depot', 'driverlog',
+  'elevators-sat08-strips', 'elevators-sat11-strips', 'flashfill-sat18-adl',
+  'floortile-sat11-strips', 'floortile-sat14-strips', 'freecell',
+  'ged-sat14-strips', 'grid', 'gripper', 'hiking-sat14-strips', 'logistics00',
+  'logistics98', 'maintenance-sat14-adl', 'miconic', 'miconic-fulladl',
+  'miconic-simpleadl', 'movie', 'mprime', 'mystery', 'nomystery-sat11-strips',
+  'nurikabe-sat18-adl', 'openstacks', 'openstacks-sat08-adl',
+  'openstacks-sat08-strips', 'openstacks-sat11-strips',
+  'openstacks-sat14-strips', 'openstacks-strips', 'optical-telegraphs',
+  'organic-synthesis-sat18-strips', 'organic-synthesis-split-sat18-strips',
+  'parcprinter-08-strips', 'parcprinter-sat11-strips', 'parking-sat11-strips',
+  'parking-sat14-strips', 'pathways', 'pathways-noneg', 'pegsol-08-strips',
+  'pegsol-sat11-strips', 'philosophers', 'pipesworld-notankage',
+  'pipesworld-tankage', 'psr-large', 'psr-middle', 'psr-small', 'rovers',
+  'satellite', 'scanalyzer-08-strips', 'scanalyzer-sat11-strips', 'schedule',
+  'settlers-sat18-adl', 'snake-sat18-strips', 'sokoban-sat08-strips',
+  'sokoban-sat11-strips', 'spider-sat18-strips', 'storage',
+  'termes-sat18-strips', 'tetris-sat14-strips', 'thoughtful-sat14-strips',
+  'tidybot-sat11-strips', 'tpp', 'transport-sat08-strips',
+  'transport-sat11-strips', 'transport-sat14-strips', 'trucks',
+  'trucks-strips', 'visitall-sat11-strips', 'visitall-sat14-strips',
+  'woodworking-sat08-strips', 'woodworking-sat11-strips', 'zenotravel']
 
 ENVIRONMENT = BaselSlurmEnvironment(
     partition="infai_2",
-    email="jendrik.seipp@unibas.ch",
+    email="silvan.sievers@unibas.ch",
     memory_per_cpu='3872M',
     export=["PATH"],
     setup=BaselSlurmEnvironment.DEFAULT_SETUP +
@@ -94,22 +86,15 @@ def get_image(name):
     assert os.path.exists(image), image
     return nick, image
 
-TIME_LIMIT = 180 if project.REMOTE else 5
+TIME_LIMIT = 1800 if project.REMOTE else 5
 IMAGES = [
-    get_image("blind"),
-    get_image("fdss-mas1"),
-    get_image("fdss-mas2"),
-    get_image("bjolp"),
-    get_image("lmcut"),
-    get_image("symba1"),
-    get_image("symba2"),
-    get_image("complementary2"),
-    get_image("delfi-blind"),
-    get_image("delfi-celmcut"),
-    get_image("delfi-ipdb"),
-    get_image("delfi-mas-sccdfp"),
-    get_image("delfi-mas-miasm"),
-    get_image("scorpion-nodiv"),
+    get_image("gbfs-ff"),
+    get_image("lama-first"),
+    get_image("lapkt-bfws-pref"),
+    get_image("lapkt-dual-bfws"),
+    get_image("mpc"),
+    get_image("saarplan-dec-fallback"),
+    get_image("saarplan-grey"),
 ]
 
 for planner, image in IMAGES:
@@ -118,7 +103,7 @@ for planner, image in IMAGES:
 singularity_script = os.path.join(DIR, 'run-singularity.sh')
 exp.add_resource('run_singularity', singularity_script)
 
-suite = suites.build_suite(BENCHMARKS_DIR, SUITE_OPTIMAL)
+suite = suites.build_suite(BENCHMARKS_DIR, SUITE_SATISFICING)
 if not project.REMOTE:
     suite = suites.build_suite(
         BENCHMARKS_DIR,
@@ -143,33 +128,27 @@ project.add_scp_steps(exp)
 
 report = os.path.join(exp.eval_dir, '{}.html'.format(exp.name))
 exp.add_report(
-    BaseReport(attributes=ATTRIBUTES, filter=[project.group_domains]),
+    BaseReport(attributes=ATTRIBUTES),
     outfile=report)
 exp.add_step('open-report', subprocess.call, ['xdg-open', report])
 exp.add_step('publish-report', subprocess.call, ['publish', report])
 
 renamings = [
-    ("bjolp", "bjolp"),
-    ("blind", "blind"),
-    ("delfi_blind", "dblind"),
-    ("delfi_celmcut", "celmcut"),
-    ("complementary2", "comp2"),
-    ("delfi_ipdb", "ipdb"),
-    ("lmcut", "lmcut"),
-    ("fdss_mas1", "mas1"),
-    ("fdss_mas2", "mas2"),
-    ("delfi_mas_miasm", "miasm"),
-    ("delfi_mas_sccdfp", "sccdfp"),
-    ("scorpion_nodiv", "scorpion"),
-    ("symba1", "symba1"),
-    ("symba2", "symba2"),
+    ("gbfs-ff", "gbfs-ff"),
+    ("lama-first", "lama-first"),
+    ("lapkt-bfws-pref", "bfws-pref"),
+    ("lapkt-dual-bfws", "bfws-dual"),
+    ("mpc", "mpc"),
+    ("saarplan-dec-fallback", "dec"),
+    ("saarplan-grey", "grey"),
 ]
 renaming_filter, order = project.get_filters_for_renaming_and_ordering_algorithms(renamings)
 domains = [
     'barman', 'blocksworld', 'childsnack', 'depot', 'driverlog',
     'floortile', 'gripper', 'hiking', 'miconic-strips', 'nomystery',
     'parking', 'rovers', 'satellite', 'snake', 'storage', 'tpp',
-    'transport', 'trucks', 'visitall', 'woodworking', 'zenotravel',
+    #'transport',
+    'trucks', 'visitall', 'woodworking', 'zenotravel',
 ]
 exp.add_report(
     PerDomainComparison(

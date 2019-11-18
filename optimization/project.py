@@ -30,11 +30,21 @@ USERS = {
         scp_login="seipp@login.scicore.unibas.ch",
         remote_user="seipp",
         repos="/home/jendrik/projects/Downward"),
+    "silvan": User(
+        email=None,
+        scp_login="sieverss@login.scicore.unibas.ch",
+        remote_user="sieverss",
+        repos="/home/silvan/repos/fd-dev"),
     "seipp": User(
         email="jendrik.seipp@unibas.ch",
         scp_login=None,
         remote_user=None,
         repos="/infai/seipp/projects"),
+    "sieverss": User(
+        email="silvan.sievers@unibas.ch",
+        scp_login=None,
+        remote_user=None,
+        repos="/infai/sieverss/repos"),
 }
 LOGIN = getpass.getuser()
 USER = USERS[LOGIN]
