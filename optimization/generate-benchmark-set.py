@@ -14,7 +14,7 @@ import subprocess
 import sys
 import warnings
 
-from domain_configuration import DOMAINS
+from domain_configuration import DOMAINS, SelectedConfiguration
 
 warnings.simplefilter(action="ignore", category=FutureWarning)
 
@@ -69,62 +69,6 @@ def parse_args():
 
     return parser.parse_args()
 
-
-class Sequence:
-    def __init__(self, problems, runtimes):
-        self.problems = problems
-        self.runtimes = runtimes
-        self.i = 0
-
-        sorted_runtimes = sorted(runtimes)
-
-        first_index = 0
-        while first_index < len(runtimes) - 2 and runtimes[first_index] < 5:
-            first_index += 1
-        
-        factors = [sorted_runtimes[i]/sorted_runtimes[i-1] for i in range (first_index, len(runtimes))]
-        average_factor = float(sum(factors))/float(len(factors))
-
-        last_runtime = sorted_runtimes[-1]
-        while len(self.runtimes) < len(self.problems):
-            last_runtime *= average_factor
-            self.runtimes.append(last_runtime)
-
-    def time_next_config(self):
-        return self.runtimes[self.i]
-
-    def pop_next_config(self):
-        self.i += 1
-        return self.problems[self.i-1]
-
-
-class SelectedConfiguration:
-
-    def __init__(self, config, baseline_times=None, sart_times=None):
-        self.cfg = config
-        self.baseline_times = baseline_times
-        self.sart_times = sart_times
-
-
-    def get_configs(self, domain, num_tasks):
-        # Generate 10 times the tasks needed to ensure that we can discard some sequences and still have enough tasks
-        sequence_configs = domain.get_configs(self.cfg, num_tasks*10)
-        if self.sart_times: 
-            sequences = [Sequence(sequence, self.sart_times[i]) for i, sequence in enumerate(sequence_configs) if len(self.sart_times[i]) > 0]
-        else:
-            sequences = [Sequence(sequence, [1,2,4,8]) for i, sequence in enumerate(sequence_configs)]
-        result = []
-
-        while len(result) < num_tasks:
-            min_seq = min (map(lambda x : x.time_next_config(), sequences))
-
-            for i, seq in enumerate(sequences):
-                if min_seq == seq.time_next_config() and len(result) < num_tasks:
-                    print (i, seq.time_next_config())
-                    result.append(seq.pop_next_config())
-
-
-        return result
 
 ARGS = parse_args()
 

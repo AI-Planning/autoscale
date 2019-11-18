@@ -5,6 +5,65 @@ from ConfigSpace.hyperparameters import CategoricalHyperparameter
 import math
 import os
 
+
+
+
+class Sequence:
+    def __init__(self, problems, runtimes):
+        self.problems = problems
+        self.runtimes = runtimes
+        self.i = 0
+
+        sorted_runtimes = sorted(runtimes)
+
+        first_index = 0
+        while first_index < len(runtimes) - 2 and sorted_runtimes[first_index] < 5:
+            first_index += 1
+        
+        factors = [sorted_runtimes[i]/sorted_runtimes[i-1] for i in range (first_index, len(runtimes))]
+        average_factor = float(sum(factors))/float(len(factors))
+
+        last_runtime = sorted_runtimes[-1]
+        while len(self.runtimes) < len(self.problems):
+            last_runtime *= average_factor
+            self.runtimes.append(last_runtime)
+
+    def time_next_config(self):
+        return self.runtimes[self.i]
+
+    def pop_next_config(self):
+        self.i += 1
+        return self.problems[self.i-1]
+
+
+class SelectedConfiguration:
+
+    def __init__(self, config, baseline_times=None, sart_times=None):
+        self.cfg = config
+        self.baseline_times = baseline_times
+        self.sart_times = sart_times
+
+
+    def get_configs(self, domain, num_tasks):
+        # Generate 10 times the tasks needed to ensure that we can discard some sequences and still have enough tasks
+        sequence_configs = domain.get_configs(self.cfg, num_tasks*10)
+        if self.sart_times: 
+            sequences = [Sequence(sequence, self.sart_times[i]) for i, sequence in enumerate(sequence_configs) if len(self.sart_times[i]) > 0]
+        else:
+            sequences = [Sequence(sequence, [1,2,4,8]) for i, sequence in enumerate(sequence_configs)]
+        result = []
+
+        while len(result) < num_tasks:
+            min_seq = min (map(lambda x : x.time_next_config(), sequences))
+
+            for i, seq in enumerate(sequences):
+                if min_seq == seq.time_next_config() and len(result) < num_tasks:
+                    print (i, seq.time_next_config())
+                    result.append(seq.pop_next_config())
+
+
+        return result
+
 class LinearAtr:
     def __init__(self, name, base_atr=None, level="false",lower_b=1, upper_b=20, lower_m=0.01, upper_m=5.0, default_m=1.0):
         self.name = name
@@ -74,6 +133,71 @@ class LinearAtr:
                 val += m2
 
 
+class GridAtr:
+    def __init__(self, name, name_x, name_y, lower_x, upper_x, level="false"):
+        self.name = name
+        self.name_x = name_x
+        self.name_y = name_y
+        self.lower_x = lower_x
+        self.upper_x = upper_x
+        self.level_enum = level
+
+        assert self.level_enum in ["false", "true", "choose"]
+
+    def get_level_enum(self, cfg):
+        if self.level_enum == "choose":
+            return cfg["{}_level".format(self.name)]
+        else:
+            return self.level_enum
+
+    def get_hyperparameters(self, only_baseline, modifier=None):
+        atr = "{}_{}".format(modifier, self.name) if modifier else self.name
+        
+        H = []
+        H.append(UniformIntegerHyperparameter("{}_x".format(atr), lower=self.lower_x, upper=self.upper_x, default_value=self.lower_x))
+        H.append(UniformIntegerHyperparameter("{}_maxdiff".format(atr), lower=0, upper=5, default_value=3))
+
+        if self.level_enum == "choose":
+            assert (modifier is None) # It does not make sense to have enum parameters and hierarchical linear attributes
+            H.append(CategoricalHyperparameter("{}_level".format(atr), ["true", "false"], default_value="false"))
+
+        H += [
+            UniformFloatHyperparameter(
+                "{}_m".format(atr), lower=0, upper=1, default_value=1
+            ),
+        ]
+ 
+        return H
+
+    def set_values(self, cfg, Y, modifier=None):
+        atr = "{}_{}".format(modifier, self.name) if modifier else self.name
+
+        val_x = self.lower_x if self.lower_x == self.upper_x else int(cfg.get("{}_x".format(atr)))
+        m =  float(cfg.get("{}_m".format(atr)))
+        maxdiff = self.lower_x if self.lower_x == self.upper_x else int(cfg.get("{}_maxdiff".format(atr)))
+
+
+
+        grid_values = []
+        for i in range(len(Y)):
+            for j in range(maxdiff):
+                x  = val_x + i
+                y = val_x + i + j
+                grid_values.append ( (x, y))
+
+        sorted_values = sorted(grid_values, key=lambda x: x[0]*x[1])
+
+        val = 0.0
+        
+        for i, Yi in enumerate(Y):
+            Yi[self.name_x] = sorted_values[int(val)][0]
+            Yi[self.name_y] = sorted_values[int(val)][1]
+
+            val += m
+
+
+    
+
 
 class ConstantAtr:
     def __init__(self, name, value):
@@ -90,7 +214,7 @@ class ConstantAtr:
         for i, Yi in enumerate(Y):
             Yi[self.name] = self.value
 
-class EnumAtr:
+class MultiSequenceAtr:
     def __init__(self, name, values, optional=False):
         self.name = name
         self.values = values
@@ -100,6 +224,28 @@ class EnumAtr:
         if self.optional:
             return [CategoricalHyperparameter("{}_optional".format(self.name), ["true", "false"], default_value="false")]
         return []
+
+class EnumAtr:
+    def __init__(self, name, values):
+        self.values = values
+        self.name = name
+
+    def get_hyperparameters(self, only_baseline):
+        return [CategoricalHyperparameter(self.name, self.values)]
+        
+    def get_level_enum(self, cfg):
+        return "false"
+
+    def set_values(self, cfg, Y, modifier=None):
+        value = cfg.get(self.name)
+        # config = self.categories[opt]
+        for i, Yi in enumerate(Y):
+            Yi[self.name] = value
+            # for atr in config:
+            #     Yi[atr] = config[atr]
+
+    def get_values(self):
+        return self.values
 
 def eliminate_duplicates(l):
     seen = set()
@@ -201,6 +347,13 @@ class Domain:
 
 
 
+    def get_enum_parameters(self):
+        return [x for x in self.linear_attributes if isinstance(x, EnumAtr)]
+    
+    def has_enum_parameter(self):
+        return len(self.get_enum_parameters()) > 0
+
+
         
 def adapt_parameters_parking(parameters):
     curbs = parameters["curbs"]
@@ -223,8 +376,8 @@ def adapt_parameters_storage(parameters):
 
 def adapt_parameters_snake(parameters):
     xgrid = int(parameters["x_grid"])
-    ygrid = xgrid + int(parameters["yinc"])
-
+    ygrid = int(parameters["y_grid"])
+    
     percentage = int(parameters["num_spawn_apples"][:-1])/100.0
     
     parameters["board"] = "empty-{}x{}".format(xgrid, ygrid)
@@ -277,18 +430,19 @@ DOMAIN_LIST = [
     ),
     Domain("visitall",
            "grid -x {x} -y {y} -r {r} -u 0 -s {seed}",
-        [LinearAtr("x", lower_b=2, upper_b=10, upper_m=2),
-         LinearAtr("y", lower_b=0, upper_b=1, upper_m=1, base_atr="x")],
-        enum_values=[EnumAtr("half", {"r": "0.5"}), EnumAtr("full", {"r": "1"})],
+        [GridAtr("grid", "x", "y", lower_x=3, upper_x=8),
+         EnumAtr ("r", [0.5, 1])],
+        #enum_values=[MultiSequenceAtr("half", {"r": "0.5"}), MultiSequenceAtr("full", {"r": "1"})],
     ),
     Domain("woodworking",
         "create_woodworking_instance.py {wood_factor} {size} {num_machines} {seed}",
-        [LinearAtr("size")],
-        enum_values=[
-            EnumAtr("wood1.4", {"wood_factor": "1.4", "num_machines": 1}),
-            EnumAtr("wood1.2", {"wood_factor": "1.2", "num_machines": 1}),
-            EnumAtr("wood1.0", {"wood_factor": "1.0", "num_machines": 1}),
-        ],
+        [LinearAtr("size"), ConstantAtr("num_machines", 1),
+         EnumAtr("wood_factor", [1.0, 1.2, 1.4])]
+        # enum_values=[
+        #     MultiSequenceAtr("wood1.4", {"wood_factor": "1.4", "num_machines": 1}),
+        #     MultiSequenceAtr("wood1.2", {"wood_factor": "1.2", "num_machines": 1}),
+        #     MultiSequenceAtr("wood1.0", {"wood_factor": "1.0", "num_machines": 1}),
+        # ],
     ),
     Domain("zenotravel",
         "ztravel {seed} {cities} {planes} {people}",
@@ -297,10 +451,10 @@ DOMAIN_LIST = [
    
     Domain("parking",
            "./parking-generator.pl prob {curbs} {cars} seq",
-           [LinearAtr("curbs", lower_b=3, upper_b=6)],
-           enum_values=[EnumAtr("ipc", {"cars_diff": "0"}),
-                        EnumAtr("ipcminus1car", {"cars_diff": "-1"})],
-
+           [LinearAtr("curbs", lower_b=3, upper_b=6),
+            EnumAtr("cars_diff", [0, -1])],
+           # enum_values=[MultiSequenceAtr("ipc", {"cars_diff": "0"}),
+           #              MultiSequenceAtr("ipcminus1car", {"cars_diff": "-1"})],
            adapt_f = adapt_parameters_parking,
     ),
 
@@ -315,9 +469,11 @@ DOMAIN_LIST = [
     Domain("barman",
            "barman-generator.py {num_cocktails} {num_ingredients} {num_shots} {seed}",
            [LinearAtr("num_cocktails", lower_b=1, upper_b=3),
-            LinearAtr("num_shots", base_atr="num_cocktails", lower_b=1, upper_b=3)],
-           enum_values=[EnumAtr("ing3", {"num_ingredients": "3"}),
-                        EnumAtr("ing4", {"num_ingredients": "4"}, optional=True)],
+            LinearAtr("num_shots", base_atr="num_cocktails", lower_b=1, upper_b=3),
+            EnumAtr("num_ingredients", [3,4])
+           ],
+           # enum_values=[MultiSequenceAtr("ing3", {"num_ingredients": "3"}),
+           #              MultiSequenceAtr("ing4", {"num_ingredients": "4"}, optional=True)
     ),
 
     Domain("depots",
@@ -328,8 +484,9 @@ DOMAIN_LIST = [
 
     Domain("childsnack",
            "child-snack-generator.py pool {seed} {num_children} {num_trays} {gluten_factor} {const_ratio}",
-           [LinearAtr("num_children", lower_b=3), ConstantAtr("gluten_factor", 0.4), ConstantAtr("const_ratio", 1.3)  ] ,
-           enum_values=[EnumAtr("trays2", {"num_trays": "2"}), EnumAtr("trays3", {"num_trays": "3"})],
+           [LinearAtr("num_children", lower_b=3), ConstantAtr("gluten_factor", 0.4), ConstantAtr("const_ratio", 1.3),
+            EnumAtr("num_trays", [2,3])] ,
+           #enum_values=[MultiSequenceAtr("trays2", {"num_trays": "2"}), MultiSequenceAtr("trays3", {"num_trays": "3"})],
     ),
 
     Domain("hiking",
@@ -361,10 +518,11 @@ DOMAIN_LIST = [
             LinearAtr("packages", lower_b=2, upper_b=10, lower_m=1),
             LinearAtr("trucks", lower_b=2, upper_b=3, lower_m=0.01, upper_m=1),
             LinearAtr("degree", lower_b=2, upper_b=3, lower_m=0.01, upper_m=1),
+            EnumAtr("generator", ["city-generator.py", "two-cities-generator.py", "three-cities-generator.py"]), 
            ],
-           enum_values=[EnumAtr("city1", {"generator" : "city-generator.py"}),
-                        EnumAtr("city2", {"generator" : "two-cities-generator.py"}),
-                        EnumAtr("city3", {"generator" : "three-cities-generator.py"})]
+           # enum_values=[MultiSequenceAtr("city1", {"generator" : "city-generator.py"}),
+           #              MultiSequenceAtr("city2", {"generator" : "two-cities-generator.py"}),
+           #              MultiSequenceAtr("city3", {"generator" : "three-cities-generator.py"})]
     ),
 
     Domain("nomystery",
@@ -372,19 +530,22 @@ DOMAIN_LIST = [
            [LinearAtr("locations", lower_b=3, upper_b=5, lower_m=0.1, upper_m=1),
             LinearAtr("packages", lower_b=2, upper_b=10),
             ConstantAtr("edgefactor", "1.5"),
-            ConstantAtr("edgeweight", "25"), 
+            ConstantAtr("edgeweight", "25"),
+            EnumAtr("constrainedness", [1.1, 1.5, 2.0]), 
            ],
-           enum_values=[EnumAtr("c11", {"constrainedness" : "1.1"}),
-                        EnumAtr("c15", {"constrainedness" : "1.5"}),
-                        EnumAtr("c20", {"constrainedness" : "2.0"})]
+           # enum_values=[MultiSequenceAtr("c11", {"constrainedness" : "1.1"}),
+           #              MultiSequenceAtr("c15", {"constrainedness" : "1.5"}),
+           #              MultiSequenceAtr("c20", {"constrainedness" : "2.0"})]
     ),
     
     Domain("snake",
            "generate.py {board} {snake_size} {num_initial_apples} {num_spawn_apples} {seed} pddl",
            [ConstantAtr("snake_size", "1"), ConstantAtr("num_initial_apples", 5),
-            LinearAtr("x_grid", lower_b=3, upper_b=8, upper_m=1, level="true"),
+            GridAtr("grid", "x_grid", "y_grid", lower_x=3, upper_x=8),
+            EnumAtr("num_spawn_apples", [f"{sp}%" for sp in [40,55,70,85,100]]),
+            EnumAtr("y_inc", [0, 1, 2])
            ],
-           enum_values=[EnumAtr(f"yinc{yinc}-sp{sp}", {"num_spawn_apples" : f"{sp}%", "yinc" : yinc}) for sp in [40,55,70,85,100] for yinc in [0,1]],
+           # enum_values=[MultiSequenceAtr(f"yinc{yinc}-sp{sp}", {"num_spawn_apples" : f"{sp}%", "yinc" : yinc}) for sp in [40,55,70,85,100] for yinc in [0,1]],
            adapt_f=adapt_parameters_snake
     ),
 
