@@ -453,7 +453,7 @@ DOMAIN_LIST = [
     ),
     Domain("zenotravel",
         "ztravel {seed} {cities} {planes} {people}",
-        [LinearAtr("planes"), LinearAtr("people", lower_m=1), LinearAtr("cities", level="choose", lower_b=3)], # level="choose"
+        [LinearAtr("planes"), LinearAtr("people", lower_m=1), LinearAtr("cities", lower_b=3, optional_m=True)], # level="choose"
     ),
    
     Domain("parking",
