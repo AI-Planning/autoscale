@@ -39,7 +39,7 @@ import math
 
 from collections import defaultdict
 
-from domain_configuration import DOMAINS
+from domain_configuration import DOMAINS_SAT, DOMAINS_OPT
 from domain_configuration import LinearAtr, GridAtr
 
 warnings.simplefilter(action="ignore", category=FutureWarning)
@@ -253,7 +253,12 @@ for domain, images in PLANNER_SELECTION.items():
         path = os.path.join(ARGS.images_dir, image)
         assert os.path.exists(path), f"image at {path} is missing"
 
+if ARGS.track == 'opt':
+    DOMAINS = DOMAINS_OPT
+else:
+    DOMAINS = DOMAINS_SAT
 
+        
 print("{} domains available: {}".format(len(DOMAINS), sorted(DOMAINS)))
 
 for domain in DOMAINS:
