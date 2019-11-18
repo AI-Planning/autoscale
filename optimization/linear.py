@@ -619,7 +619,7 @@ def evaluate_sequence(cfg, print_final_configuration=False):
     # We compute a penalty, where each solved instance is assigned a score between 0 and 1
     # and unsolved instances are assigned a score of 2
 
-    baseline_times = baseline_eval.get_runtimes(ARGS.tasksbaseline, 10, 300)
+    baseline_times = baseline_eval.get_runtimes(ARGS.tasksbaseline, 10, PLANNER_TIME_LIMIT)
     penalty = evaluate_runtimes(baseline_times, ARGS.tasksbaseline)
 
     if ARGS.only_baseline:
@@ -627,7 +627,7 @@ def evaluate_sequence(cfg, print_final_configuration=False):
         sart_times = []
     else:
         sart_eval = InstanceSet(Y, RUNNER_SART)
-        sart_times = sart_eval.get_runtimes(ARGS.tasksbaseline, 10, 300)
+        sart_times = sart_eval.get_runtimes(ARGS.tasksbaseline, 10, PLANNER_TIME_LIMIT)
         penalty += evaluate_runtimes(sart_times, ARGS.tasksbaseline)
 
     results = {

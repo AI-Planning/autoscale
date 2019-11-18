@@ -466,9 +466,9 @@ DOMAIN_LIST_OPT = [
 
     Domain("driverlog",
            "dlgen {seed} {roadjunctions} {drivers} {packages} {trucks}",
-           [LinearAtr("drivers", lower_b=2, upper_b=5, upper_m=2, optional_m=True), # level="choose"
-            LinearAtr("packages", base_atr="drivers", lower_m=1, lower_b=0, upper_b=5),
-            LinearAtr("roadjunctions",base_atr="drivers", lower_b=0, upper_b=5, optional_m=True),
+           [LinearAtr("drivers", lower_b=2, upper_b=5, upper_m=1, default_m=0.1, optional_m=True), # level="choose"
+            LinearAtr("packages", base_atr="drivers", lower_m=1, upper_m=2, lower_b=0, upper_b=5),
+            LinearAtr("roadjunctions",base_atr="drivers", lower_b=1, upper_b=5, lower_m=0.01, upper_m=1, default_m=0.01, optional_m=True),
             LinearAtr("trucks", base_atr="drivers", lower_b=0, upper_b=1, lower_m=0, upper_m=0, optional_m=True)]
     ),
 
