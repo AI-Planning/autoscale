@@ -400,7 +400,7 @@ DOMAIN_LIST_OPT = [
     Domain("gripper", "gripper -n {n}", [LinearAtr("n", lower_b=8, upper_b=15, lower_m=0.1, upper_m=2)]),
     Domain("miconic-strips",
         "miconic -f {floors} -p {passengers}",
-        [LinearAtr("passengers", lower_b=5, upper_b=15, lower_m=0.01, upper_m=2),  #level="true"
+        [LinearAtr("passengers", lower_b=5, upper_b=15, lower_m=0.01, upper_m=5),  #level="true"
          LinearAtr("floors", lower_b=5, upper_b=15, lower_m=0.01, upper_m=2, optional_m=True)], # level="choose"
     ),
     Domain("rover",
@@ -409,37 +409,44 @@ DOMAIN_LIST_OPT = [
             LinearAtr("rovers", upper_b=5, upper_m=2, optional_m=True), # level="choose"
             LinearAtr("objectives",upper_b=10, optional_m=True), # level="choose"
             LinearAtr("cameras", upper_b=10, optional_m=True), # level="choose"
-            LinearAtr("goals", upper_b=5, optional_m=True), # level="choose"
+            LinearAtr("goals", upper_b=5, lower_m=1), # level="choose"
             LinearAtr("waypoints", lower_b=4, upper_b=15),
         ],
     ),
     Domain("satellite",
         "satgen {seed} {satellites} 3 {modes} {targets} {observations}",
         [
-            LinearAtr("satellites", upper_b=5, upper_m=1.0, default_m=0.5),
-            LinearAtr("targets", lower_b=5, lower_m=1.0, default_m=2.0),
-            LinearAtr("modes", upper_b=5, upper_m=1.0, default_m=0.3),
-            LinearAtr("observations"),
+            LinearAtr("satellites", upper_b=5, upper_m=1.0, default_m=0.5, optional_m=True),
+            LinearAtr("targets", lower_b=5, lower_m=0.5, default_m=1.0),
+            LinearAtr("modes", upper_b=5, upper_m=1.0, default_m=0.3, optional_m=True),
+            LinearAtr("observations", lower_b=5, upper_b=20, lower_m=1),
         ],
     ),
     Domain("tpp",
         "tpp -s {seed} -m {markets} -p {products} -t {trucks} -d {depots} -l {goods} tmp.pddl",
-        [LinearAtr("products"), LinearAtr("markets"), LinearAtr("trucks"), LinearAtr("depots"), LinearAtr("goods")],
+        [LinearAtr("products", lower_b=2, upper_b=10, lower_m=1),
+         LinearAtr("markets", lower_b=1, upper_b=5, optional_m=True),
+         LinearAtr("trucks", lower_b=2, upper_b=5, optional_m=True),
+         LinearAtr("depots", lower_b=1, upper_b=5, optional_m=True),
+         LinearAtr("goods", lower_b=3, upper_b=10)],
     ),
     Domain("trucks",
         "trucks -seed {seed} -t 1 -l {locations} -p {packages} -a {areas} -n 1",
-        [LinearAtr("areas"), LinearAtr("packages"), LinearAtr("locations", lower_b=2)],
+        [LinearAtr("areas", lower_b=2, upper_b=10, upper_m=1, optional_m=True),
+         LinearAtr("packages", lower_b=2, upper_b=8, upper_m=2),
+         LinearAtr("locations", lower_b=2, upper_b=10, upper_m=2, optional_m=True)],
     ),
     Domain("visitall",
            "grid -x {x} -y {y} -r {r} -u 0 -s {seed}",
         [GridAtr("grid", "x", "y", lower_x=3, upper_x=8),
-         EnumAtr ("r", [0.5, 1])],
+         EnumAtr ("r", [0.5, 0.75, 1])],
         #enum_values=[MultiSequenceAtr("half", {"r": "0.5"}), MultiSequenceAtr("full", {"r": "1"})],
     ),
     Domain("woodworking",
         "create_woodworking_instance.py {wood_factor} {size} {num_machines} {seed}",
-        [LinearAtr("size"), ConstantAtr("num_machines", 1),
-         EnumAtr("wood_factor", [1.0, 1.2, 1.4])]
+        [LinearAtr("size", lower_b=5, upper_b=20, lower_m=1),
+         EnumAtr("num_machines", [1, 2, 3]),
+         EnumAtr("wood_factor", [1.0, 1.25, 1.5, 2.0])]
         # enum_values=[
         #     MultiSequenceAtr("wood1.4", {"wood_factor": "1.4", "num_machines": 1}),
         #     MultiSequenceAtr("wood1.2", {"wood_factor": "1.2", "num_machines": 1}),
@@ -448,13 +455,15 @@ DOMAIN_LIST_OPT = [
     ),
     Domain("zenotravel",
         "ztravel {seed} {cities} {planes} {people}",
-        [LinearAtr("planes"), LinearAtr("people", lower_m=1), LinearAtr("cities", lower_b=3, optional_m=True)], # level="choose"
+        [LinearAtr("planes", lower_b=1, upper_b=10, optional_m=True),
+         LinearAtr("people", lower_b=5, upper_b=10, lower_m=1),
+         LinearAtr("cities", lower_b=3, upper_b=10, optional_m=True)], # level="choose"
     ),
    
     Domain("parking",
            "./parking-generator.pl prob {curbs} {cars} seq",
-           [LinearAtr("curbs", lower_b=3, upper_b=6),
-            EnumAtr("cars_diff", [0, -1])],
+           [LinearAtr("curbs", lower_b=3, upper_b=6, lower_m=1),
+            EnumAtr("cars_diff", [0, -1, -2])],
            # enum_values=[MultiSequenceAtr("ipc", {"cars_diff": "0"}),
            #              MultiSequenceAtr("ipcminus1car", {"cars_diff": "-1"})],
            adapt_f = adapt_parameters_parking,
@@ -462,17 +471,17 @@ DOMAIN_LIST_OPT = [
 
     Domain("driverlog",
            "dlgen {seed} {roadjunctions} {drivers} {packages} {trucks}",
-           [LinearAtr("drivers", optional_m=True), # level="choose"
-            LinearAtr("packages", base_atr="drivers"),
-            LinearAtr("roadjunctions",base_atr="drivers", optional_m=True),
-            LinearAtr("trucks", base_atr="drivers", lower_b=0, upper_b=1, lower_m=0, upper_m=0)]
+           [LinearAtr("drivers", lower_b=2, upper_b=5, upper_m=2, optional_m=True), # level="choose"
+            LinearAtr("packages", base_atr="drivers", lower_m=1, lower_b=0, upper_b=5),
+            LinearAtr("roadjunctions",base_atr="drivers", lower_b=0, upper_b=5, optional_m=True),
+            LinearAtr("trucks", base_atr="drivers", lower_b=0, upper_b=1, lower_m=0, upper_m=0, optional_m=True)]
     ),
 
     Domain("barman",
            "barman-generator.py {num_cocktails} {num_ingredients} {num_shots} {seed}",
-           [LinearAtr("num_cocktails", lower_b=1, upper_b=3),
-            LinearAtr("num_shots", base_atr="num_cocktails", lower_b=1, upper_b=3),
-            EnumAtr("num_ingredients", [3,4])
+           [LinearAtr("num_cocktails", lower_b=1, upper_b=3, lower_m=1),
+            LinearAtr("num_shots", base_atr="num_cocktails", lower_b=1, upper_b=3, optional_m=True),
+            EnumAtr("num_ingredients", [2,3,4,5])
            ],
            # enum_values=[MultiSequenceAtr("ing3", {"num_ingredients": "3"}),
            #              MultiSequenceAtr("ing4", {"num_ingredients": "4"}, optional=True)
@@ -480,54 +489,55 @@ DOMAIN_LIST_OPT = [
 
     Domain("depots",
            "depots -e {depots} -i {distributors} -t {trucks} -p {pallets} -h {hoists} -c {crates} -s {seed}",
-           [LinearAtr("depots", optional_m=True), # level="choose"
-            LinearAtr("distributors", optional_m=True), LinearAtr("trucks", optional_m=True), LinearAtr("pallets", optional_m=True), LinearAtr("hoists", optional_m=True), LinearAtr("crates")]
+           [LinearAtr("depots", lower_b=3, upper_b=7, optional_m=True), # level="choose"
+            LinearAtr("distributors", lower_b=2, upper_b=6, optional_m=True),
+            LinearAtr("trucks", lower_b=2, upper_b=10, optional_m=True),
+            LinearAtr("pallets", lower_b=2, upper_b=10, optional_m=True),
+            LinearAtr("hoists",lower_b=2, upper_b=10,  optional_m=True),
+            LinearAtr("crates", lower_b=3, upper_b=10, lower_m=1)]
     ),
 
 
     Domain("childsnack",
            "child-snack-generator.py pool {seed} {num_children} {num_trays} {gluten_factor} {const_ratio}",
-           [LinearAtr("num_children", lower_b=3), ConstantAtr("gluten_factor", 0.4), ConstantAtr("const_ratio", 1.3),
-            EnumAtr("num_trays", [2,3])] ,
-           #enum_values=[MultiSequenceAtr("trays2", {"num_trays": "2"}), MultiSequenceAtr("trays3", {"num_trays": "3"})],
+           [LinearAtr("num_children", lower_b=4, upper_b=10, lower_m=1, upper_m=5),
+            EnumAtr("const_ratio", [1, 1.3, 2]),
+            EnumAtr("gluten_factor", [0.4, 0.6, 0.8]),
+            EnumAtr("num_trays", [2,3,4]),
+            EnumAtr("gluten_factor", [0.4, 0.6, 0.8])] 
     ),
 
     Domain("hiking",
            "generator.py {n_couples} {n_cars} {n_places} {seed}",
-           [LinearAtr("n_couples", optional_m=True), # level="choose"
-            LinearAtr("n_places", optional_m=True), # level="choose"
-            LinearAtr("n_cars", base_atr="n_couples")]
+           [LinearAtr("n_couples", lower_b=2, upper_b=6,lower_m=1), 
+            LinearAtr("n_places", lower_b=4, upper_b=10,optional_m=True),
+            LinearAtr("n_cars", base_atr="n_couples", lower_b=1, upper_b=2, optional_m=True)]
     ),
 
     Domain("floortile",
            "floortile-generator.py name {num_rows} {num_columns} {num_robots} seq {seed}",
-           [LinearAtr("num_columns", lower_b=2, upper_b=8, upper_m=1),
-            LinearAtr("num_rows", lower_b=2, upper_b=8, upper_m=1, level = "true"),
-            ConstantAtr("num_robots", 2)
+           [GridAtr("grid", "num_columns", "num_rows", lower_x=2, upper_x=3),
+            EnumAtr("num_robots", [2, 3, 4])
            ]
     ),
 
     Domain("storage",
            "storage -p 01 -o {containers} -e {seed} -c {crates} -n {hoists} -s {store_areas} -d {depots} tmp.pddl",
-           [LinearAtr("crates", lower_b=1),
-            LinearAtr("hoists", lower_b=1),
-            LinearAtr("store_areas", lower_b=0),
-            LinearAtr("depots", lower_b=1, upper_b=5, upper_m=1),   #level="true"
-           ], adapt_f = adapt_parameters_storage,
-           num_sequences_linear_hierarchy = 3),
+           [LinearAtr("crates", lower_b=2, upper_b=10, lower_m=1, upper_m=5),
+            LinearAtr("hoists", lower_b=2, upper_b=5, optional_m=True),
+            LinearAtr("store_areas", lower_b=0, upper_b=5, optional_m=True),
+            LinearAtr("depots", lower_b=1, upper_b=5, upper_m=1, optional_m=True),   #level="true"
+           ], adapt_f = adapt_parameters_storage),
 
     Domain("transport",
            "{generator} {nodes} {size} {degree} {mindistance} {trucks} {packages} {seed}",
            [ConstantAtr("size", 1000), ConstantAtr("mindistance", 100),
-            LinearAtr("nodes", lower_b=2, upper_b=10, lower_m=1),
-            LinearAtr("packages", lower_b=2, upper_b=10, lower_m=1),
-            LinearAtr("trucks", lower_b=2, upper_b=3, lower_m=0.01, upper_m=1),
-            LinearAtr("degree", lower_b=2, upper_b=3, lower_m=0.01, upper_m=1),
+            LinearAtr("nodes", lower_b=5, upper_b=15, lower_m=0.1, upper_m=3, optional_m=True),
+            LinearAtr("packages", lower_b=2, upper_b=5, lower_m=1, upper_m=3),
+            LinearAtr("trucks", lower_b=2, upper_b=5, optional_m=True),
+            EnumAtr("degree", [3, 4, 5]),
             EnumAtr("generator", ["city-generator.py", "two-cities-generator.py", "three-cities-generator.py"]), 
            ],
-           # enum_values=[MultiSequenceAtr("city1", {"generator" : "city-generator.py"}),
-           #              MultiSequenceAtr("city2", {"generator" : "two-cities-generator.py"}),
-           #              MultiSequenceAtr("city3", {"generator" : "three-cities-generator.py"})]
     ),
 
     Domain("nomystery",
@@ -538,17 +548,13 @@ DOMAIN_LIST_OPT = [
             ConstantAtr("edgeweight", "25"),
             EnumAtr("constrainedness", [1.1, 1.5, 2.0]), 
            ],
-           # enum_values=[MultiSequenceAtr("c11", {"constrainedness" : "1.1"}),
-           #              MultiSequenceAtr("c15", {"constrainedness" : "1.5"}),
-           #              MultiSequenceAtr("c20", {"constrainedness" : "2.0"})]
     ),
     
     Domain("snake",
            "generate.py {board} {snake_size} {num_initial_apples} {num_spawn_apples} {seed} pddl",
            [ConstantAtr("snake_size", "1"), ConstantAtr("num_initial_apples", 5),
             GridAtr("grid", "x_grid", "y_grid", lower_x=3, upper_x=8),
-            EnumAtr("num_spawn_apples", [f"{sp}%" for sp in [40,55,70,85,100]]),
-            EnumAtr("y_inc", [0, 1, 2])
+            EnumAtr("num_spawn_apples", [f"{sp}%" for sp in [40,55,70,85,100]])
            ],
            # enum_values=[MultiSequenceAtr(f"yinc{yinc}-sp{sp}", {"num_spawn_apples" : f"{sp}%", "yinc" : yinc}) for sp in [40,55,70,85,100] for yinc in [0,1]],
            adapt_f=adapt_parameters_snake
@@ -619,7 +625,7 @@ DOMAIN_LIST_SAT = [
             LinearAtr("rovers", lower_b=4, upper_b=10, upper_m=2, optional_m=True),
             LinearAtr("objectives", lower_b=4, upper_b=10, optional_m=True), 
             LinearAtr("cameras", lower_b=5, upper_b=15, optional_m=True), 
-            LinearAtr("goals", lower_b=10, upper_b=20, lower_m=0.5, upper_m=5, optional_m=True),
+            LinearAtr("goals", lower_b=10, upper_b=20, lower_m=1, upper_m=5),
             LinearAtr("waypoints", lower_b=5, upper_b=20, lower_m=0.5, upper_m=5),
         ],
     ),
@@ -649,11 +655,12 @@ DOMAIN_LIST_SAT = [
     Domain("visitall",
            "grid -x {x} -y {y} -r {r} -u 0 -s {seed}",
         [GridAtr("grid", "x", "y", lower_x=3, upper_x=8),
-         EnumAtr ("r", [0.5, 1])],
+         EnumAtr ("r", [0.5, 0.75, 1])],
     ),
     Domain("woodworking",
         "create_woodworking_instance.py {wood_factor} {size} {num_machines} {seed}",
-        [LinearAtr("size", lower_b=10, upper_b=30, lower_m=1, upper_m=10, default_m=2), ConstantAtr("num_machines", 1),
+        [LinearAtr("size", lower_b=10, upper_b=30, lower_m=1, upper_m=10, default_m=2),
+         EnumAtr("num_machines", [1, 2, 3]),
          EnumAtr("wood_factor", [1.0, 1.25, 1.5, 2.0])]
     ),
 
@@ -667,7 +674,7 @@ DOMAIN_LIST_SAT = [
     Domain("parking",
            "./parking-generator.pl prob {curbs} {cars} seq",
            [LinearAtr("curbs", lower_b=10, upper_b=20, lower_m=1),
-            EnumAtr("cars_diff", [0, -1])],
+            EnumAtr("cars_diff", [0, -1, -2])],
            adapt_f = adapt_parameters_parking,
     ),
 
@@ -732,7 +739,7 @@ DOMAIN_LIST_SAT = [
     Domain("transport",
            "{generator} {nodes} {size} {degree} {mindistance} {trucks} {packages} {seed}",
            [ConstantAtr("size", 1000), ConstantAtr("mindistance", 100),
-            LinearAtr("nodes", lower_b=10, upper_b=60, lower_m=1, upper_m=10),
+            LinearAtr("nodes", lower_b=10, upper_b=60, upper_m=10, optional_m=True),
             LinearAtr("packages", lower_b=2, upper_b=10, lower_m=1, upper_m=10),
             LinearAtr("trucks", lower_b=2, upper_b=10, optional_m=True),
             EnumAtr("degree", [3, 4, 5]),
