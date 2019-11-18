@@ -528,7 +528,7 @@ def evaluate_cfg(cfg):
 #     # 1) At most 10-15 instances solved by state of the art planner (under the 3m time limit).
 #     # 2) The fewer sequences selected the better => Avoids problems of redundant difficulty
 #     # 3) We need to have 30 instances. Each sequence will estimate the continuation and avoid generating instances that are extremely hard
-#     # 4) Sequences must finish -> they must go beyond the capabilities of the state of the art planners. 
+#     # 4) Sequences must finish -> they must go beyond the capabilities of the state of the art planners.
 #     used_enum_parameters = set()
 
 #     solved_instances = 0
@@ -539,7 +539,7 @@ def evaluate_cfg(cfg):
 #         # The first sequence must start at position 0
 #         config1 = cfg.get("config{}".format(i))
 #         start = 0
-            
+
 #         domain = DOMAINS[ARGS.domain]
 #         Y = domain.get_configs(config1, remaining_instances + start)
 #         sart_eval = InstanceSet(Y, RUNNER_SART)
@@ -575,13 +575,13 @@ def evaluate_cfg(cfg):
 #         penalty += 100*(solved_instances-15)**2
 #     if trivial_instances > 5:
 #         penalty += 100*(trivial_instances-5)**2
-        
-    
+
+
 #     return penalty
 
 def evaluate_sequence(cfg, print_final_configuration=False):
 
-    logging.info(f"Evaluate {cfg}")
+    logging.info(f"Evaluate configuration {cfg.get_dictionary()}")
     domain = DOMAINS[ARGS.domain]
     Y = domain.get_configs(cfg, ARGS.tasks)
     baseline_eval = InstanceSet(Y, RUNNER_BASELINE)
@@ -633,7 +633,7 @@ def evaluate_sequence(cfg, print_final_configuration=False):
         if sart_eval:
             logging.info(f"Final sart runtimes: {sart_eval.get_runtime_sequences()}")
     else:
-        logging.info(f"Baseline times: {baseline_times}, sart times: {sart_times}, penalty: {penalty}")
+        logging.info(f"Baseline times: {baseline_times}, sart times: {sart_times}, penalty: {penalty}, config: {cfg.get_dictionary()}")
 
     # STORED_VALID_SEQUENCES.append((penalty, cfg))
 
@@ -702,7 +702,7 @@ evaluate_seqeuence(incumbent.get_dictionary(), True)
 # # value, with a given starting point, and a number of instances. We do a second
 # # optimization, considering the first 10 good sequences per enum parameter.
 #     enum_parameters = domain.get_enum_parameters()
-        
+
 #     assert(len(enum_parameters) == 1) #TODO make the following code more general to accept more than one parameter here.
 
 #     best_configurations = []
@@ -712,13 +712,13 @@ evaluate_seqeuence(incumbent.get_dictionary(), True)
 #             valid_sequences = [(penalty, seq) for penalty, seq in STORED_VALID_SEQUENCES if seq[0][0][enum_parameter] == value]
 #             best10 = sorted(valid_sequences, key=lambda x : x[0])[:10]
 #             best_configurations.append(best10)
-            
+
 #     logging.info(f"Best configurations: {best_configurations}")
 
 
 #     # Build Configuration Space which defines all parameters and their ranges.
 #     cs = ConfigurationSpace()
-    
+
 #     hyperparameters_select_enum = [CategoricalHyperparameter("config{}".format(i), cfg) for i, cfg in enumerate(best_configurations)]
 #     cs.add_hyperparameters(hyperparameters_select_enum)
 
@@ -735,7 +735,7 @@ evaluate_seqeuence(incumbent.get_dictionary(), True)
 #             "output_dir": SMAC_OUTPUT_DIR,
 #         }
 #     )
-    
+
 #     print("Optimizing benchmark with multiple sequences...")
 #     # When using SMAC4HPO, the default configuration has to be requested explicitly
 #     # as first design (see https://github.com/automl/SMAC3/issues/533).
@@ -745,7 +745,7 @@ evaluate_seqeuence(incumbent.get_dictionary(), True)
 #         rng=np.random.RandomState(ARGS.random_seed),
 #         tae_runner=evaluate_benchmark
 #     )
-    
+
 #     incumbent = smac.optimize()
 
 
@@ -755,7 +755,7 @@ evaluate_seqeuence(incumbent.get_dictionary(), True)
 # # that case, we want to continue each scaling up to the end. Therefore, the only thing
 # # that we may select for each bi-dimensional scaling is the starting point and number of
 # # instances for each level. In this case we perform a separate optimization for each
-# # bi-dimensional scaling and just select the best one at the end. 
+# # bi-dimensional scaling and just select the best one at the end.
 
 #     pass
 
