@@ -29,7 +29,7 @@ IMAGES_DIR = os.path.join(REPO, "images")
 BENCHMARKS_DIR = os.path.join(REPO, "benchmarks")
 
 BENCHMARKS = [
-    "opt-sart",
+    "sat-sart",
 ]
 ENVIRONMENT = BaselSlurmEnvironment(
     partition="infai_2",
