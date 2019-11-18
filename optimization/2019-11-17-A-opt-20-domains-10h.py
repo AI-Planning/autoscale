@@ -33,7 +33,7 @@ DOMAINS = [
     'trucks', 'visitall', 'woodworking', 'zenotravel',
 ]
 ATTRIBUTES = [
-    "error", "all_penalties", "final_*",
+    "error", "sequences", "final_*",
     "evaluated_configurations", "optimization_*wallclock_time", "run_dir",
     "incumbent_changed",
 ]

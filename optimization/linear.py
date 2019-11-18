@@ -625,15 +625,20 @@ def evaluate_sequence(cfg, print_final_configuration=False):
         sart_times = sart_eval.get_runtimes(ARGS.tasksbaseline, 10, 300)
         penalty += evaluate_runtimes(sart_times, ARGS.tasksbaseline)
 
+    results = {
+        "baseline_times": baseline_times,
+        "sart_times": sart_times,
+        "penalty": penalty,
+        "config": cfg.get_dictionary(),
+    }
+
     if print_final_configuration:
-        logging.info(f"Final baseline times: {baseline_times}, sart times: {sart_times}, penalty: {penalty}")
-
+        logging.info(f"Final sequence: {results}")
         logging.info(f"Final baseline runtimes: {baseline_eval.get_runtime_sequences()}")
-
         if sart_eval:
             logging.info(f"Final sart runtimes: {sart_eval.get_runtime_sequences()}")
     else:
-        logging.info(f"Baseline times: {baseline_times}, sart times: {sart_times}, penalty: {penalty}, config: {cfg.get_dictionary()}")
+        logging.info(f"Sequence: {results}")
 
     # STORED_VALID_SEQUENCES.append((penalty, cfg))
 
@@ -687,7 +692,7 @@ print("SMAC output dir:", smac.output_dir)
 incumbent = smac.optimize()
 
 print("Final configuration: {}".format(incumbent.get_dictionary()))
-evaluate_seqeuence(incumbent.get_dictionary(), True)
+evaluate_sequence(incumbent, print_final_configuration=True)
 
 # SMAC optimization for sequences has finished
 
