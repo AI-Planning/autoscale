@@ -65,7 +65,7 @@ class SelectedConfiguration:
         return result
 
 class LinearAtr:
-    def __init__(self, name, base_atr=None, level="false",lower_b=1, upper_b=20, lower_m=0.01, upper_m=5.0, default_m=1.0):
+    def __init__(self, name, base_atr=None, level="false",lower_b=1, upper_b=20, lower_m=0.01, upper_m=5.0, default_m=1.0, optional_m = False):
         self.name = name
         self.lower_b = lower_b
         self.upper_b = upper_b
@@ -74,6 +74,7 @@ class LinearAtr:
         self.default_m = default_m
         self.base_atr = base_atr
         self.level_enum = level
+        self.optional_m = optional_m
 
         assert self.level_enum in ["false", "true", "choose"]
 
@@ -94,6 +95,9 @@ class LinearAtr:
             assert (modifier is None) # It does not make sense to have enum parameters and hierarchical linear attributes
             H.append(CategoricalHyperparameter("{}_level".format(atr), ["true", "false"], default_value="false"))
 
+        if self.optional_m:
+            H.append(CategoricalHyperparameter("{}_optional_m".format(self.name), ["true", "false"], default_value="false"))
+            
         if self.lower_m != self.upper_m:
             H += [
                 UniformFloatHyperparameter(
@@ -116,8 +120,10 @@ class LinearAtr:
         atr = "{}_{}".format(modifier, self.name) if modifier else self.name
 
         val = self.lower_b if self.lower_b == self.upper_b else int(cfg.get("{}_b".format(atr)))
-        m = self.lower_m if self.lower_m == self.upper_m else float(cfg.get("{}_m".format(atr)))
 
+        use_m = cfg.get("{}_optional_m".format(atr)) == "false" if self.optional_m else True
+                        
+        m = self.lower_m if self.lower_m == self.upper_m else float(cfg.get("{}_m".format(atr)))
         m2 = 0 if self.lower_m == self.upper_m or "{}_m2".format(atr) not in cfg else float(cfg.get("{}_m2".format(atr)))
 
         if m2:
@@ -128,9 +134,10 @@ class LinearAtr:
             if self.base_atr:
                 Yi[self.name] += Yi[self.base_atr]
 
-            val += m
-            if m2 and i >= mb:
-                val += m2
+            if use_m:
+                val += m
+                if m2 and i >= mb:
+                    val += m2
 
 
 class GridAtr:
@@ -278,7 +285,7 @@ def get_linear_scaling_values(linear_atrs, cfg, num_values, base={}, name_base=N
     return result
 
 class Domain:
-    def __init__(self, name, gen_command, linear_atrs, adapt_f=None, enum_values=[], num_sequences_linear_hierarchy=4):
+    def __init__(self, name, gen_command, linear_atrs, adapt_f=None, enum_values=[], num_sequences_linear_hierarchy=3):
         self.name = name
         self.linear_attributes = linear_atrs
         self.enum_attributes = enum_values
@@ -398,16 +405,16 @@ DOMAIN_LIST = [
     Domain("gripper", "gripper -n {n}", [LinearAtr("n", lower_b=8, upper_b=15, lower_m=0.1, upper_m=2)]),
     Domain("miconic-strips",
         "miconic -f {floors} -p {passengers}",
-        [LinearAtr("passengers", lower_b=5, upper_b=15, lower_m=0.01, upper_m=2, level="true"),
-         LinearAtr("floors", lower_b=5, upper_b=15, lower_m=0.01, upper_m=2, level="choose")],
+        [LinearAtr("passengers", lower_b=5, upper_b=15, lower_m=0.01, upper_m=2),  #level="true"
+         LinearAtr("floors", lower_b=5, upper_b=15, lower_m=0.01, upper_m=2, optional_m=True)], # level="choose"
     ),
     Domain("rover",
         "rovgen {seed} {rovers} {waypoints} {objectives} {cameras} {goals}",
         [
-            LinearAtr("rovers", upper_b=5, upper_m=2, level="choose"),
-            LinearAtr("objectives",upper_b=10, level="choose"),
-            LinearAtr("cameras", upper_b=10, level="choose"),
-            LinearAtr("goals", upper_b=5, level="choose"),
+            LinearAtr("rovers", upper_b=5, upper_m=2, optional_m=True), # level="choose"
+            LinearAtr("objectives",upper_b=10, optional_m=True), # level="choose"
+            LinearAtr("cameras", upper_b=10, optional_m=True), # level="choose"
+            LinearAtr("goals", upper_b=5, optional_m=True), # level="choose"
             LinearAtr("waypoints", lower_b=4, upper_b=15),
         ],
     ),
@@ -446,7 +453,7 @@ DOMAIN_LIST = [
     ),
     Domain("zenotravel",
         "ztravel {seed} {cities} {planes} {people}",
-        [LinearAtr("planes", level="choose"), LinearAtr("people", lower_m=1), LinearAtr("cities", level="choose", lower_b=3)],
+        [LinearAtr("planes"), LinearAtr("people", lower_m=1), LinearAtr("cities", level="choose", lower_b=3)], # level="choose"
     ),
    
     Domain("parking",
@@ -460,10 +467,10 @@ DOMAIN_LIST = [
 
     Domain("driverlog",
            "dlgen {seed} {roadjunctions} {drivers} {packages} {trucks}",
-           [LinearAtr("drivers", level="choose"),
+           [LinearAtr("drivers", optional_m=True), # level="choose"
             LinearAtr("packages", base_atr="drivers"),
-            LinearAtr("roadjunctions",base_atr="drivers"),
-            LinearAtr("trucks", base_atr="drivers", lower_m=0, upper_m=0)]
+            LinearAtr("roadjunctions",base_atr="drivers", optional_m=True),
+            LinearAtr("trucks", base_atr="drivers", lower_b=0, upper_b=1, lower_m=0, upper_m=0)]
     ),
 
     Domain("barman",
@@ -478,7 +485,8 @@ DOMAIN_LIST = [
 
     Domain("depots",
            "depots -e {depots} -i {distributors} -t {trucks} -p {pallets} -h {hoists} -c {crates} -s {seed}",
-           [LinearAtr("depots", level="choose"), LinearAtr("distributors"), LinearAtr("trucks"), LinearAtr("pallets"), LinearAtr("hoists"), LinearAtr("crates")]
+           [LinearAtr("depots", optional_m=True), # level="choose"
+            LinearAtr("distributors", optional_m=True), LinearAtr("trucks", optional_m=True), LinearAtr("pallets", optional_m=True), LinearAtr("hoists", optional_m=True), LinearAtr("crates")]
     ),
 
 
@@ -491,7 +499,9 @@ DOMAIN_LIST = [
 
     Domain("hiking",
            "generator.py {n_couples} {n_cars} {n_places} {seed}",
-           [LinearAtr("n_couples", level="choose"), LinearAtr("n_places", level="choose"), LinearAtr("n_cars", base_atr="n_couples")]
+           [LinearAtr("n_couples", optional_m=True), # level="choose"
+            LinearAtr("n_places", optional_m=True), # level="choose"
+            LinearAtr("n_cars", base_atr="n_couples")]
     ),
 
     Domain("floortile",
@@ -504,10 +514,10 @@ DOMAIN_LIST = [
 
     Domain("storage",
            "storage -p 01 -o {containers} -e {seed} -c {crates} -n {hoists} -s {store_areas} -d {depots} tmp.pddl",
-           [LinearAtr("crates", lower_b=1, level="false"),
-            LinearAtr("hoists", lower_b=1, level="false"),
-            LinearAtr("store_areas", lower_b=0, level="false"),
-            LinearAtr("depots", level="true", lower_b=1, upper_b=5, upper_m=1),
+           [LinearAtr("crates", lower_b=1),
+            LinearAtr("hoists", lower_b=1),
+            LinearAtr("store_areas", lower_b=0),
+            LinearAtr("depots", lower_b=1, upper_b=5, upper_m=1),   #level="true"
            ], adapt_f = adapt_parameters_storage,
            num_sequences_linear_hierarchy = 3),
 

@@ -750,11 +750,12 @@ evaluate_seqeuence(incumbent.get_dictionary(), True)
 
 
 # elif domain.has_bidimensional_scaling():
-#     # Option #2: We have multiple linear parameters that form a bi-dimensional scaling. In
+
+# Option #2: We have multiple linear parameters that form a bi-dimensional scaling. In
 # # that case, we want to continue each scaling up to the end. Therefore, the only thing
 # # that we may select for each bi-dimensional scaling is the starting point and number of
 # # instances for each level. In this case we perform a separate optimization for each
-# # bi-dimensional scaling and just select the best one at the end.
+# # bi-dimensional scaling and just select the best one at the end. 
 
 #     pass
 
