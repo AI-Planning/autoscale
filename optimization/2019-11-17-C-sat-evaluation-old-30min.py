@@ -147,7 +147,7 @@ domains = [
     'barman', 'blocksworld', 'childsnack', 'depot', 'driverlog',
     'floortile', 'gripper', 'hiking', 'miconic-strips', 'nomystery',
     'parking', 'rovers', 'satellite', 'snake', 'storage', 'tpp',
-    #'transport',
+    'transport',
     'trucks', 'visitall', 'woodworking', 'zenotravel',
 ]
 exp.add_report(
