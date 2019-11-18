@@ -134,13 +134,13 @@ exp.add_step('open-report', subprocess.call, ['xdg-open', report])
 exp.add_step('publish-report', subprocess.call, ['publish', report])
 
 renamings = [
-    ("gbfs-ff", "gbfs-ff"),
-    ("lama-first", "lama-first"),
-    ("lapkt-bfws-pref", "bfws-pref"),
-    ("lapkt-dual-bfws", "bfws-dual"),
+    ("gbfs_ff", "gbfs-ff"),
+    ("lama_first", "lama-first"),
+    ("lapkt_bfws_pref", "bfws-pref"),
+    ("lapkt_dual_bfws", "bfws-dual"),
     ("mpc", "mpc"),
-    ("saarplan-dec-fallback", "dec"),
-    ("saarplan-grey", "grey"),
+    ("saarplan_dec_fallback", "dec"),
+    ("saarplan_grey", "grey"),
 ]
 renaming_filter, order = project.get_filters_for_renaming_and_ordering_algorithms(renamings)
 domains = [
