@@ -32,8 +32,8 @@ DOMAINS = [
     'trucks', 'visitall', 'woodworking', 'zenotravel',
 ]
 ATTRIBUTES = [
-    "error", "all_penalties", "final_*",
-    "evaluated_configurations", "optimization_*wallclock_time", "run_dir",
+    "error", "sequences", "final_*",
+    "evaluated_configurations", "optimization_wallclock_time", "run_dir",
     "incumbent_changed",
 ]
 RUN_TIME_LIMIT = 23 * 60 * 60
@@ -49,7 +49,7 @@ if REMOTE:
             "source activate smac-conda",
         ]))
     SMAC_TIME_LIMIT = 10 * 60 * 60
-    SMAC_RUNS_PER_DOMAIN = 10
+    SMAC_RUNS_PER_DOMAIN = 8
     OPTIONS = []
 else:
     ENV = LocalEnvironment(processes=4)
@@ -64,29 +64,26 @@ exp.add_parser('exp-parser.py')
 
 for domain in DOMAINS:
     for seed in range(SMAC_RUNS_PER_DOMAIN):
-        for nick, extra_options in [
-            # ("baseline", ["--only-baseline"]),
-            ("baseline-and-sart", [])]:
-            run = exp.add_run()
-            run.add_command(
-                'optimize',
-                ['python3', os.path.join(DIR, 'linear.py'),
-                 "--optimization-time-limit", str(SMAC_TIME_LIMIT),
-                 "--random-seed", str(seed)]
-                 + extra_options + ["opt", domain] + OPTIONS,
-                time_limit=RUN_TIME_LIMIT,
-                memory_limit=RUN_MEMORY_LIMIT,
-                hard_stdout_limit=50 * 1024)
-            domain_setting = f"{domain}-{nick}"
-            problem = f"seed-{seed}"
-            algorithm = "linear"
-            run.set_property('run_time_limit', RUN_TIME_LIMIT)
-            run.set_property('run_memory_limit', RUN_MEMORY_LIMIT)
-            run.set_property('domain', domain_setting)
-            run.set_property('problem', problem)
-            run.set_property('algorithm', algorithm)
-            # Every run has to have a unique id in the form of a list.
-            run.set_property('id', [domain_setting, problem, algorithm])
+        run = exp.add_run()
+        run.add_command(
+            'optimize',
+            ['python3', os.path.join(DIR, 'linear.py'),
+             "--optimization-time-limit", str(SMAC_TIME_LIMIT),
+             "--random-seed", str(seed)]
+            + ["sat", domain] + OPTIONS,
+            time_limit=RUN_TIME_LIMIT,
+            memory_limit=RUN_MEMORY_LIMIT,
+            hard_stdout_limit=50 * 1024)
+        domain_setting = f"{domain}-{nick}"
+        problem = f"seed-{seed}"
+        algorithm = "linear"
+        run.set_property('run_time_limit', RUN_TIME_LIMIT)
+        run.set_property('run_memory_limit', RUN_MEMORY_LIMIT)
+        run.set_property('domain', domain_setting)
+        run.set_property('problem', problem)
+        run.set_property('algorithm', algorithm)
+        # Every run has to have a unique id in the form of a list.
+        run.set_property('id', [domain_setting, problem, algorithm])
 
 exp.add_step('build', exp.build)
 exp.add_step('start', exp.start_runs)
