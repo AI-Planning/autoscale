@@ -186,8 +186,8 @@ class GridAtr:
 
 
         grid_values = []
-        for i in range(len(Y)):
-            for j in range(maxdiff):
+        for i in range(len(Y)*int(math.ceil(1 + m) + 2)):
+            for j in range(maxdiff + 1):
                 x  = val_x + i
                 y = val_x + i + j
                 grid_values.append ( (x, y))
@@ -297,6 +297,8 @@ class Domain:
     def get_domain_file(self, GENERATORS_DIR):
         return os.path.join(GENERATORS_DIR, self.name, "domain.pddl")
 
+    def get_linear_attributes_names(self):
+        return [a.name for a in self.linear_attributes if isinstance(a, LinearAtr)] + [a.name_x for a in self.linear_attributes if isinstance(a, GridAtr)] + [a.name_y for a in self.linear_attributes if isinstance(a, GridAtr)]
 
     def get_configs(self, cfg, num_tasks):
         result = []
@@ -447,11 +449,6 @@ DOMAIN_LIST_OPT = [
         [LinearAtr("size", lower_b=5, upper_b=20, lower_m=1),
          EnumAtr("num_machines", [1, 2, 3]),
          EnumAtr("wood_factor", [1.0, 1.25, 1.5, 2.0])]
-        # enum_values=[
-        #     MultiSequenceAtr("wood1.4", {"wood_factor": "1.4", "num_machines": 1}),
-        #     MultiSequenceAtr("wood1.2", {"wood_factor": "1.2", "num_machines": 1}),
-        #     MultiSequenceAtr("wood1.0", {"wood_factor": "1.0", "num_machines": 1}),
-        # ],
     ),
     Domain("zenotravel",
         "ztravel {seed} {cities} {planes} {people}",
@@ -464,8 +461,6 @@ DOMAIN_LIST_OPT = [
            "./parking-generator.pl prob {curbs} {cars} seq",
            [LinearAtr("curbs", lower_b=3, upper_b=6, lower_m=1),
             EnumAtr("cars_diff", [0, -1, -2])],
-           # enum_values=[MultiSequenceAtr("ipc", {"cars_diff": "0"}),
-           #              MultiSequenceAtr("ipcminus1car", {"cars_diff": "-1"})],
            adapt_f = adapt_parameters_parking,
     ),
 
@@ -483,8 +478,6 @@ DOMAIN_LIST_OPT = [
             LinearAtr("num_shots", base_atr="num_cocktails", lower_b=1, upper_b=3, optional_m=True),
             EnumAtr("num_ingredients", [2,3,4,5])
            ],
-           # enum_values=[MultiSequenceAtr("ing3", {"num_ingredients": "3"}),
-           #              MultiSequenceAtr("ing4", {"num_ingredients": "4"}, optional=True)
     ),
 
     Domain("depots",
