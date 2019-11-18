@@ -19,7 +19,7 @@ class Sequence:
         first_index = 0
         while first_index < len(runtimes) - 2 and sorted_runtimes[first_index] < 5:
             first_index += 1
-        
+
         factors = [sorted_runtimes[i]/sorted_runtimes[i-1] for i in range (first_index, len(runtimes))]
         average_factor = float(sum(factors))/float(len(factors))
 
@@ -47,7 +47,7 @@ class SelectedConfiguration:
     def get_configs(self, domain, num_tasks):
         # Generate 10 times the tasks needed to ensure that we can discard some sequences and still have enough tasks
         sequence_configs = domain.get_configs(self.cfg, num_tasks*10)
-        if self.sart_times: 
+        if self.sart_times:
             sequences = [Sequence(sequence, self.sart_times[i]) for i, sequence in enumerate(sequence_configs) if len(self.sart_times[i]) > 0]
         else:
             sequences = [Sequence(sequence, [1,2,4,8]) for i, sequence in enumerate(sequence_configs)]
@@ -86,7 +86,7 @@ class LinearAtr:
 
     def get_hyperparameters(self, only_baseline, modifier=None):
         atr = "{}_{}".format(modifier, self.name) if modifier else self.name
-        
+
         H = []
         if self.lower_b != self.upper_b:
             H.append(UniformIntegerHyperparameter("{}_b".format(atr), lower=self.lower_b, upper=self.upper_b, default_value=self.lower_b))
@@ -97,7 +97,7 @@ class LinearAtr:
 
         if self.optional_m:
             H.append(CategoricalHyperparameter("{}_optional_m".format(self.name), ["true", "false"], default_value="false"))
-            
+
         if self.lower_m != self.upper_m:
             H += [
                 UniformFloatHyperparameter(
@@ -122,7 +122,7 @@ class LinearAtr:
         val = self.lower_b if self.lower_b == self.upper_b else int(cfg.get("{}_b".format(atr)))
 
         use_m = cfg.get("{}_optional_m".format(atr)) == "false" if self.optional_m else True
-                        
+
         m = self.lower_m if self.lower_m == self.upper_m else float(cfg.get("{}_m".format(atr)))
         m2 = 0 if self.lower_m == self.upper_m or "{}_m2".format(atr) not in cfg else float(cfg.get("{}_m2".format(atr)))
 
@@ -159,7 +159,7 @@ class GridAtr:
 
     def get_hyperparameters(self, only_baseline, modifier=None):
         atr = "{}_{}".format(modifier, self.name) if modifier else self.name
-        
+
         H = []
         H.append(UniformIntegerHyperparameter("{}_x".format(atr), lower=self.lower_x, upper=self.upper_x, default_value=self.lower_x))
         H.append(UniformIntegerHyperparameter("{}_maxdiff".format(atr), lower=0, upper=5, default_value=3))
@@ -173,7 +173,7 @@ class GridAtr:
                 "{}_m".format(atr), lower=0, upper=1, default_value=1
             ),
         ]
- 
+
         return H
 
     def set_values(self, cfg, Y, modifier=None):
@@ -195,7 +195,7 @@ class GridAtr:
         sorted_values = sorted(grid_values, key=lambda x: x[0]*x[1])
 
         val = 0.0
-        
+
         for i, Yi in enumerate(Y):
             Yi[self.name_x] = sorted_values[int(val)][0]
             Yi[self.name_y] = sorted_values[int(val)][1]
@@ -203,7 +203,7 @@ class GridAtr:
             val += m
 
 
-    
+
 
 
 class ConstantAtr:
@@ -239,7 +239,7 @@ class EnumAtr:
 
     def get_hyperparameters(self, only_baseline):
         return [CategoricalHyperparameter(self.name, self.values)]
-        
+
     def get_level_enum(self, cfg):
         return "false"
 
@@ -358,16 +358,16 @@ class Domain:
 
     def get_enum_parameters(self):
         return [x for x in self.linear_attributes if isinstance(x, EnumAtr)]
-    
+
     def has_enum_parameter(self):
         return len(self.get_enum_parameters()) > 0
 
 
-        
+
 def adapt_parameters_parking(parameters):
     curbs = parameters["curbs"]
     cars = 2*(curbs -1) + int(parameters["cars_diff"])
-    
+
     return {"curbs" : curbs, "cars" : cars}
 
 
@@ -386,14 +386,14 @@ def adapt_parameters_storage(parameters):
 def adapt_parameters_snake(parameters):
     xgrid = int(parameters["x_grid"])
     ygrid = int(parameters["y_grid"])
-    
+
     percentage = int(parameters["num_spawn_apples"][:-1])/100.0
-    
+
     parameters["board"] = "empty-{}x{}".format(xgrid, ygrid)
 
     if xgrid*ygrid*percentage < int(parameters["num_initial_apples"]):
         parameters["num_initial_apples"] = int(xgrid*ygrid*percentage)
-        
+
     return parameters
 
 
@@ -456,7 +456,7 @@ DOMAIN_LIST_OPT = [
          LinearAtr("people", lower_b=5, upper_b=10, lower_m=1),
          LinearAtr("cities", lower_b=3, upper_b=10, optional_m=True)], # level="choose"
     ),
-   
+
     Domain("parking",
            "./parking-generator.pl prob {curbs} {cars} seq",
            [LinearAtr("curbs", lower_b=3, upper_b=6, lower_m=1),
@@ -497,12 +497,12 @@ DOMAIN_LIST_OPT = [
             EnumAtr("const_ratio", [1, 1.3, 2]),
             EnumAtr("gluten_factor", [0.4, 0.6, 0.8]),
             EnumAtr("num_trays", [2,3,4]),
-            EnumAtr("gluten_factor", [0.4, 0.6, 0.8])] 
+            EnumAtr("gluten_factor", [0.4, 0.6, 0.8])]
     ),
 
     Domain("hiking",
            "generator.py {n_couples} {n_cars} {n_places} {seed}",
-           [LinearAtr("n_couples", lower_b=2, upper_b=6,lower_m=1), 
+           [LinearAtr("n_couples", lower_b=2, upper_b=6,lower_m=1),
             LinearAtr("n_places", lower_b=4, upper_b=10,optional_m=True),
             LinearAtr("n_cars", base_atr="n_couples", lower_b=1, upper_b=2, optional_m=True)]
     ),
@@ -529,7 +529,7 @@ DOMAIN_LIST_OPT = [
             LinearAtr("packages", lower_b=2, upper_b=5, lower_m=1, upper_m=3),
             LinearAtr("trucks", lower_b=2, upper_b=5, optional_m=True),
             EnumAtr("degree", [3, 4, 5]),
-            EnumAtr("generator", ["city-generator.py", "two-cities-generator.py", "three-cities-generator.py"]), 
+            EnumAtr("generator", ["city-generator.py", "two-cities-generator.py", "three-cities-generator.py"]),
            ],
     ),
 
@@ -539,10 +539,10 @@ DOMAIN_LIST_OPT = [
             LinearAtr("packages", lower_b=2, upper_b=10),
             ConstantAtr("edgefactor", "1.5"),
             ConstantAtr("edgeweight", "25"),
-            EnumAtr("constrainedness", [1.1, 1.5, 2.0]), 
+            EnumAtr("constrainedness", [1.1, 1.5, 2.0]),
            ],
     ),
-    
+
     Domain("snake",
            "generate.py {board} {snake_size} {num_initial_apples} {num_spawn_apples} {seed} pddl",
            [ConstantAtr("snake_size", "1"), ConstantAtr("num_initial_apples", 5),
@@ -556,7 +556,7 @@ DOMAIN_LIST_OPT = [
  #   Domain("agricola", "GenAgricola.py --num_workers {num_workers} --num_ints {num_ints} --num_rounds {num_rounds} {last_stage} {seed}",
  #          [LinearAtr("n", lower_b=5, upper_b=10, lower_m=0.1, upper_m=2)]),
 
-    
+
     # Domain("mystery",
     #        "mystery -l {locations} -c {cargos} -v {vehicles} -f {fuel} -s {space}",
     #        [LinearAtr("locations", lower_b=2, upper_b=10),
@@ -604,9 +604,9 @@ DOMAIN_LIST_OPT = [
 
 DOMAIN_LIST_SAT = [
     Domain("blocksworld", "blocksworld 4 {n} {seed}", [LinearAtr("n", lower_b=12, upper_b=20, lower_m=1, upper_m=5)]),
-    
+
     Domain("gripper", "gripper -n {n}", [LinearAtr("n", lower_b=10, upper_b=20)]),
-    
+
     Domain("miconic-strips",
         "miconic -f {floors} -p {passengers}",
         [LinearAtr("passengers", lower_b=10, upper_b=20, lower_m=1, upper_m=5),  #level="true"
@@ -616,8 +616,8 @@ DOMAIN_LIST_SAT = [
         "rovgen {seed} {rovers} {waypoints} {objectives} {cameras} {goals}",
         [
             LinearAtr("rovers", lower_b=4, upper_b=10, upper_m=2, optional_m=True),
-            LinearAtr("objectives", lower_b=4, upper_b=10, optional_m=True), 
-            LinearAtr("cameras", lower_b=5, upper_b=15, optional_m=True), 
+            LinearAtr("objectives", lower_b=4, upper_b=10, optional_m=True),
+            LinearAtr("cameras", lower_b=5, upper_b=15, optional_m=True),
             LinearAtr("goals", lower_b=10, upper_b=20, lower_m=1, upper_m=5),
             LinearAtr("waypoints", lower_b=5, upper_b=20, lower_m=0.5, upper_m=5),
         ],
@@ -663,7 +663,7 @@ DOMAIN_LIST_SAT = [
          LinearAtr("people", lower_b=10, upper_b=20, lower_m=1, upper_m=10),
          LinearAtr("cities", lower_b=3, upper_b=30, optional_m=True)],
     ),
-   
+
     Domain("parking",
            "./parking-generator.pl prob {curbs} {cars} seq",
            [LinearAtr("curbs", lower_b=10, upper_b=20, lower_m=1),
@@ -704,12 +704,12 @@ DOMAIN_LIST_SAT = [
             EnumAtr("const_ratio", [1, 1.3, 2]),
             EnumAtr("gluten_factor", [0.4, 0.6, 0.8]),
             EnumAtr("num_trays", [2,3,4]),
-           EnumAtr("gluten_factor", [0.4, 0.6, 0.8])] 
+           ]
     ),
 
     Domain("hiking",
            "generator.py {n_couples} {n_cars} {n_places} {seed}",
-           [LinearAtr("n_couples", lower_b=5, upper_b=15,lower_m=1), 
+           [LinearAtr("n_couples", lower_b=5, upper_b=15,lower_m=1),
             LinearAtr("n_places", lower_b=5, upper_b=20,optional_m=True),
             LinearAtr("n_cars", base_atr="n_couples", lower_b=1, upper_b=5, optional_m=True)]
     ),
@@ -736,7 +736,7 @@ DOMAIN_LIST_SAT = [
             LinearAtr("packages", lower_b=2, upper_b=10, lower_m=1, upper_m=10),
             LinearAtr("trucks", lower_b=2, upper_b=10, optional_m=True),
             EnumAtr("degree", [3, 4, 5]),
-            EnumAtr("generator", ["city-generator.py", "two-cities-generator.py", "three-cities-generator.py"]), 
+            EnumAtr("generator", ["city-generator.py", "two-cities-generator.py", "three-cities-generator.py"]),
            ],
     ),
 
@@ -746,10 +746,10 @@ DOMAIN_LIST_SAT = [
             LinearAtr("packages", lower_b=10, upper_b=20, lower_m=1),
             ConstantAtr("edgefactor", "1.5"),
             ConstantAtr("edgeweight", "25"),
-            EnumAtr("constrainedness", [1.1, 1.5, 2.0]), 
+            EnumAtr("constrainedness", [1.1, 1.5, 2.0]),
            ],
     ),
-    
+
     Domain("snake",
            "generate.py {board} {snake_size} {num_initial_apples} {num_spawn_apples} {seed} pddl",
            [ConstantAtr("snake_size", "1"), ConstantAtr("num_initial_apples", 5),
