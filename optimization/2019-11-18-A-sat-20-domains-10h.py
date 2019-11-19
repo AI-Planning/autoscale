@@ -10,6 +10,7 @@ from lab.experiment import Experiment
 from downward.reports.absolute import AbsoluteReport
 from downward.reports.taskwise import TaskwiseReport
 
+import project
 from reports.benchmark_configuration_report import BenchmarkConfigurationReport
 
 
@@ -88,6 +89,8 @@ for domain in DOMAINS:
 exp.add_step('build', exp.build)
 exp.add_step('start', exp.start_runs)
 exp.add_fetcher(name='fetch')
+
+project.add_scp_steps(exp)
 
 report = os.path.join(exp.eval_dir, '{}.html'.format(exp.name))
 exp.add_report(
