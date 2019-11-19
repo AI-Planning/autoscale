@@ -53,7 +53,7 @@ parser.add_pattern(
 parser.add_pattern(
     'optimization_wallclock_time', r'optimize wall-clock time: (.+)s\n', type=float, file='driver.log')
 parser.add_repeated_pattern('sequences', r'Sequence: (.+)\n', type=str)
-#parser.add_repeated_pattern('all_average_runtimes', r'Average runtime for y=.*: (.+)\n', type=str)
+parser.add_repeated_pattern('average_runtimes', r'Average runtime for y=(.+)\n', type=str)
 parser.add_bottom_up_pattern('final_sequence', r'Final sequence: (\{.+\})\n', type=str)
 parser.add_bottom_up_pattern('final_value', r'Estimated cost of incumbent: (.+)\n', type=float)
 parser.add_bottom_up_pattern('evaluated_configurations', r'\#Configurations: (\d+)\n', type=int)
