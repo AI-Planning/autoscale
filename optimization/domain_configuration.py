@@ -303,7 +303,7 @@ class Domain:
     def get_configs(self, cfg, num_tasks):
         result = []
 
-        #print ("Get configs")
+        print ("Get configs", cfg)
         if self.enum_attributes:
             num_sequences = len(self.enum_attributes)
         else:

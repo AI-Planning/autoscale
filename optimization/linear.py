@@ -103,6 +103,12 @@ def parse_args():
         "--generators-dir",
         default=os.path.join(REPO, "pddl-generators"),
         help="path to directory containing the generators")
+
+    parser.add_argument(
+        "--log-file",
+        default=os.path.join(REPO, "pddl-generators"),
+        help="path to directory containing the generators")
+    
     parser.add_argument(
         "--images_dir",
         default=os.path.join(REPO, "images"),
