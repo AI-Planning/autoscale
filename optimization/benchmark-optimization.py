@@ -266,10 +266,14 @@ class InstanceSet:
         return [seq.runtimes for seq in self.sequences]
 
 class Sequence:
-    def __init__(self, config, runtimes):
+    def __init__(self, config, runtimes_baseline, rumtimes_sart):
         self.config = config
-        self.runtimes = runtimes
-        self.trivial_instances = len([t for t in runtimes if t < 10])
+        self.runtimes_baseline = runtimes_baseline
+        self.runtimes_sart = runtimes_sart
+
+        
+        
+        self.trivial_instances = len([t for t in runtimes_sart if t < 10])
         self.solved_instances = len(runtimes_sart)
 
         # Continue the sequence to know how many instances will be added
@@ -287,7 +291,7 @@ class Sequence:
         if last_runtime*average_factor < PLANNER_TIME_LIMIT*1.1:
             average_factor = PLANNER_TIME_LIMIT*1.1/last_runtime
         
-        while last_runtime < 18000 and len(sorted_runtimes) < sremaining_instances:
+        while last_runtime < 18000:
             last_runtime *= average_factor
             sorted_runtimes.append(last_runtime)
 
@@ -385,14 +389,20 @@ evaluated_sequences = [[] for c in candidate_sequences]
 
 for i in range (K_PER_CATEGORY):
     for j, config_list in enumerate(candidate_sequences):
+        if i >= len(candidate_sequences[j]):
+            continue
         sequence = candidate_sequences[j][i]
         
         Y = domain.get_configs(sequence['config'], 40)
         sart_eval = InstanceSet(Y, RUNNER_SART)
-        runtimes_sart = sart_eval.get_runtimes(40, 0, PLANNER_TIME_LIMIT)        
-        if runtimes_sart < 3:
+        runtimes_sart = sart_eval.get_runtimes(40, 0, PLANNER_TIME_LIMIT)
+
+        baseline_eval = InstanceSet(Y, RUNNER_BASELINE)
+        runtimes_baseline = sart_eval.get_runtimes(40, 0, PLANNER_TIME_LIMIT)        
+
+        if len(runtimes_sart) < 3:
             continue # We cannot accept sequences that have less than 3 points to interpolate
-        evaluated_sequences[j].append(Sequence(config, runtimes))
+        evaluated_sequences[j].append(Sequence(sequence, runtimes_baseline, runtimes_sart))
         
 
 
