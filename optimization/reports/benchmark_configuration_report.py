@@ -31,24 +31,23 @@ class BenchmarkConfigurationReport(PlanningReport):
 
     def get_text(self):
         sequences = defaultdict(list)
-        runtimes = defaultdict(list)
+        baseline_average_runtimes = defaultdict(list)
+        sart_average_runtimes = defaultdict(list)
         for (domain, algo), runs in sorted(self.domain_algorithm_runs.items()):
             domain = domain.replace("-baseline-and-sart", "")
             for run in runs:
                 for seq in run.get("sequences", []):
                     sequences[domain].append(ast.literal_eval(seq))
             for run in runs:
-                for line in run.get("average_runtimes", []):
-                    config_string, value_string = line.rsplit(": ", maxsplit=1)
-                    config = ast.literal_eval(config_string)
-                    value = ast.literal_eval(value_string)
-                    runtimes[domain].append((config, value))
+                baseline_average_runtimes[domain].extend(run.get("baseline_average_runtimes", []))
+                sart_average_runtimes[domain].extend(run.get("sart_average_runtimes", []))
 
         result = {}
         for domain in sequences:
             result[domain] = {
                 "sequences": sequences[domain],
-                "average_runtimes:": runtimes[domain]}
+                "baseline_average_runtimes:": baseline_average_runtimes[domain],
+                "sart_average_runtimes": sart_average_runtimes[domain]}
 
         return json.dumps(result, sort_keys=True, indent=2)
 
