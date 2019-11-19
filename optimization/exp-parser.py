@@ -52,6 +52,8 @@ def parse_average_runtimes(content, props):
     baseline_average_runtimes = []
     sart_average_runtimes = []
     for line in content.splitlines():
+        if line.startswith("Validator"):
+            continue
         match = re.match(r".*Average runtime for y=(.+): (.+)", line)
         if match:
             config_string, value_string = match.group(1), match.group(2)
