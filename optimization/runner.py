@@ -45,40 +45,55 @@ class Runner:
         self.logging = logging
         self.SINGULARITY_SCRIPT = SINGULARITY_SCRIPT
 
+        self.parameters_cache_key = domain.get_generator_attribute_names()
+
     def get_next_random_seed(self):
         self.random_seed += 1
         return self.random_seed
 
-    def load_cache_from_log_file(self, log_file, use_sart_planners):
-        with open(log_file) as f:
-            reading_sart = False
-            first_baseline_config = None
-            for l in f.readlines():
+    def load_cache_from_log_file(self, runs):
+        for run in runs:
+            parameters = run[0]
+            runtime = run[1]
 
-                if "Average runtime for y=" in l:
-                    parsing = l.split("Average runtime for y=")[1]
-                    dict_data = parsing.split("}")[0].replace("'", "\"") + "}"
-                    parameters = json.loads(dict_data)
-                    runtime = float(parsing.split("}:")[1]) if not "None" in parsing.split("}:")[1] else None
+            cache_key = tuple([parameters[attr] for attr in self.parameters_cache_key])
+            non_linear_key = tuple([parameters[attr] for attr in self.parameters_cache_key if attr not in self.linear_attributes_names])
+            if cache_key not in self.exact_cache:
+                self.exact_cache[cache_key] = runtime
+                self.frontier_cache[non_linear_key].append(
+                    ({linear_atr : parameters[linear_atr] for linear_atr in self.linear_attributes_names}, runtime)
+                )
+
+            
+        # with open(log_file) as f:
+        #     reading_sart = False
+        #     first_baseline_config = None
+        #     for l in f.readlines():
+
+        #         if "Average runtime for y=" in l:
+        #             parsing = l.split("Average runtime for y=")[1]
+        #             dict_data = parsing.split("}")[0].replace("'", "\"") + "}"
+        #             parameters = json.loads(dict_data)
+        #             runtime = float(parsing.split("}:")[1]) if not "None" in parsing.split("}:")[1] else None
                     
-                    if first_baseline_config == None:
-                        first_baseline_config = parameters
-                    elif first_baseline_config ==  parameters:
-                        assert (not reading_sart)
-                        reading_sart = True
+        #             if first_baseline_config == None:
+        #                 first_baseline_config = parameters
+        #             elif first_baseline_config ==  parameters:
+        #                 assert (not reading_sart)
+        #                 reading_sart = True
                         
-                    if use_sart_planners == reading_sart:  
-                        cache_key = tuple([parameters[attr] for attr in parameters if attr != "seed"])
-                        non_linear_key = tuple([parameters[attr] for attr in parameters if attr not in self.linear_attributes_names])
-                        if cache_key not in self.exact_cache:
+        #             if use_sart_planners == reading_sart:  
+        #                 cache_key = tuple([parameters[attr] for attr in parameters if attr != "seed"])
+        #                 non_linear_key = tuple([parameters[attr] for attr in parameters if attr not in self.linear_attributes_names])
+        #                 if cache_key not in self.exact_cache:
 
-                            self.exact_cache[cache_key] = runtime
-                            self.frontier_cache[non_linear_key].append(
-                                ({linear_atr : parameters[linear_atr] for linear_atr in self.linear_attributes_names}, runtime)
-                            )
-                else:
-                    reading_sart = False
-                    first_baseline_config = None
+        #                     self.exact_cache[cache_key] = runtime
+        #                     self.frontier_cache[non_linear_key].append(
+        #                         ({linear_atr : parameters[linear_atr] for linear_atr in self.linear_attributes_names}, runtime)
+        #                     )
+        #         else:
+        #             reading_sart = False
+        #             first_baseline_config = None
 
 
     def run_planners(self, parameters, time_limit=None):
@@ -86,13 +101,13 @@ class Runner:
             time_limit = self.planner_time_limit
 
         # Check the cache to see if we already know the runtime for this attribute configuration
-        cache_key = tuple([parameters[attr] for attr in parameters])
+        cache_key = tuple([parameters[attr] for attr in self.parameters_cache_key])
 
         if cache_key in self.exact_cache:
             return self.exact_cache[cache_key]
 
         # Check the unsolvability cache to see if the problem is too hard
-        non_linear_key = tuple([parameters[attr] for attr in parameters if attr not in self.linear_attributes_names])
+        non_linear_key = tuple([parameters[attr] for attr in self.parameters_cache_key if attr not in self.linear_attributes_names])
         if non_linear_key in self.frontier_cache:
             for values_linear_attributes, runtime in self.frontier_cache[non_linear_key]:
                 if (runtime is None or time_limit < runtime) and all(values_linear_attributes[linear_atr] <= parameters[linear_atr] for linear_atr in self.linear_attributes_names):

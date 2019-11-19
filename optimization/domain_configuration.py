@@ -5,6 +5,8 @@ from ConfigSpace.hyperparameters import CategoricalHyperparameter
 import math
 import os
 
+from string import Formatter
+
 
 
 
@@ -300,10 +302,14 @@ class Domain:
     def get_linear_attributes_names(self):
         return [a.name for a in self.linear_attributes if isinstance(a, LinearAtr)] + [a.name_x for a in self.linear_attributes if isinstance(a, GridAtr)] + [a.name_y for a in self.linear_attributes if isinstance(a, GridAtr)]
 
+    def get_generator_attribute_names(self):
+        names = [fn for _, fn, _, _ in Formatter().parse(self.gen_command) if fn is not None and fn != "seed"]
+        return names
+        
+
+
     def get_configs(self, cfg, num_tasks):
         result = []
-
-        print ("Get configs", cfg)
         if self.enum_attributes:
             num_sequences = len(self.enum_attributes)
         else:

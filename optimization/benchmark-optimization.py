@@ -1,4 +1,34 @@
 #! /usr/bin/env python3
+# def evaluate_benchmark(cfg):
+#     # Now we need to combine the sequences into a good benchmark. The requirements for a good benchmark are:
+#     # 1) At most 10-15 instances solved by state of the art planner (under the 3m time limit).
+#     # 2) The fewer sequences selected the better => Avoids problems of redundant difficulty
+#     # 3) We need to have 30 instances. Each sequence will estimate the continuation and avoid generating instances that are extremely hard
+#     # 4) Sequences must finish -> they must go beyond the capabilities of the state of the art planners. 
+#     used_enum_parameters = set()
+
+#     solved_instances = 0
+#     trivial_instances = 0
+#     i = 1
+
+#     while remaining_instances > 0:
+#         # The first sequence must start at position 0
+#         config1 = cfg.get("config{}".format(i))
+#         start = 0
+            
+#         remaining_instances -= len(sorted_runtimes)
+
+#     penalty = i #Reduce number of sequences whenever possible
+#     if solved_instances < 5:
+#         penalty += 100*(5-solved_instances)**2
+#     elif solved_instances > 15:
+#         penalty += 100*(solved_instances-15)**2
+#     if trivial_instances > 5:
+#         penalty += 100*(trivial_instances-5)**2
+        
+    
+#     return penalty
+
 
 """
 Usage:
@@ -35,6 +65,11 @@ import statistics
 import sys
 import warnings
 import math
+
+import json
+import cplex
+from cplex.exceptions import CplexError
+
 
 from collections import defaultdict
 
@@ -114,7 +149,7 @@ def parse_args():
         help="only consider the baseline planner",
     )
 
-    parser.add_argument("--cache", help="path to logfile to fill the runner cache")
+    parser.add_argument("--database", help="path to json file with the information needed")
 
 
     return parser.parse_args()
@@ -129,9 +164,6 @@ GENERATORS_DIR = ARGS.generators_dir
 TMP_PLAN_DIR = "plan"
 SINGULARITY_SCRIPT = os.path.join(DIR, "run-singularity.sh")
 print("Singularity script:", SINGULARITY_SCRIPT)
-
-
-# STORED_VALID_SEQUENCES = []
 
 def setup_logging():
     """
@@ -265,15 +297,19 @@ class InstanceSet:
     def get_runtime_sequences(self):
         return [seq.runtimes for seq in self.sequences]
 
-class Sequence:
-    def __init__(self, config, runtimes_baseline, rumtimes_sart):
-        self.config = config
-        self.runtimes_baseline = runtimes_baseline
-        self.runtimes_sart = runtimes_sart
 
+SEQ_ID = 1
+class Sequence:
+    def __init__(self, sequence, runtimes_baseline, rumtimes_sart):
+        global SEQ_ID 
+        self.seq_id = SEQ_ID
+        SEQ_ID += 1
+        self.config = sequence['config']
+        self.penalty = sequence['penalty']
+        self.runtimes_baseline = runtimes_baseline
+        self.runtimes_sart = runtimes_sart        
         
-        
-        self.trivial_instances = len([t for t in runtimes_sart if t < 10])
+        self.trivial_instances = len([t for t in runtimes_sart if t < 5])
         self.solved_instances = len(runtimes_sart)
 
         # Continue the sequence to know how many instances will be added
@@ -288,16 +324,39 @@ class Sequence:
         last_runtime = sorted_runtimes[-1]
 
         # Ensure that the runtime of unsolved instances is above the time limit
-        if last_runtime*average_factor < PLANNER_TIME_LIMIT*1.1:
-            average_factor = PLANNER_TIME_LIMIT*1.1/last_runtime
+        if last_runtime*average_factor < PLANNER_TIME_LIMIT:
+            average_factor = PLANNER_TIME_LIMIT/last_runtime
         
-        while last_runtime < 18000:
+        while last_runtime < 180000:
             last_runtime *= average_factor
             sorted_runtimes.append(last_runtime)
-
         self.sorted_runtimes = sorted_runtimes
-           
 
+        self.num_instances = len(self.sorted_runtimes)
+
+
+    def add_cplex_variables(self, cplex_problem):
+        t = cplex_problem.variables.type
+        latest_start = self.num_instances-5 if self.num_instances > 5 else 1 # Include at least 5 instances per run included
+        self.var_names = ["seq-{}-{}".format(self.seq_id, i) for i in range (latest_start)]
+        var_types = [t.binary for v in self.var_names]
+        objective_values = [self.penalty for v in self.var_names] # Add penalty for including this sequence
+
+        
+        self.var_index = {self.var_names[i] : index for i, index in enumerate(cplex_problem.variables.add(obj=objective_values,types=var_types,names=self.var_names))}
+
+
+        cplex_problem.linear_constraints.add(lin_expr=[[[ind for i, ind in self.var_index.items()], [1 for i in self.var_index]]], senses=["L"], rhs=[1])
+
+    def get_cplex_var_index(self):
+        return self.var_index
+
+    def get_info_per_option(self):
+        latest_start = self.num_instances-5 if self.num_instances > 5 else 1 # Include at least 5 instances per run included
+        return [(self.var_index["seq-{}-{}".format(self.seq_id, i)], self.num_instances-i, max(0, self.solved_instances - i), max(0, self.trivial_instances - i))  for i in range (latest_start)]
+
+    def get_runtimes(self, i):
+        return self.sorted_runtimes[i:]
 
 # From the configurations, we read a list of sequences, each with a
 
@@ -305,52 +364,33 @@ RUNNER_BASELINE = Runner(DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)
 
 RUNNER_SART = Runner(DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, ARGS.domain), PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
 
-if ARGS.cache:
-    RUNNER_BASELINE.load_cache_from_log_file(ARGS.cache, use_sart_planners=False)
-    RUNNER_SART.load_cache_from_log_file(ARGS.cache, use_sart_planners=True)
-
-# def evaluate_benchmark(cfg):
-#     # Now we need to combine the sequences into a good benchmark. The requirements for a good benchmark are:
-#     # 1) At most 10-15 instances solved by state of the art planner (under the 3m time limit).
-#     # 2) The fewer sequences selected the better => Avoids problems of redundant difficulty
-#     # 3) We need to have 30 instances. Each sequence will estimate the continuation and avoid generating instances that are extremely hard
-#     # 4) Sequences must finish -> they must go beyond the capabilities of the state of the art planners. 
-#     used_enum_parameters = set()
-
-#     solved_instances = 0
-#     trivial_instances = 0
-#     i = 1
-
-#     while remaining_instances > 0:
-#         # The first sequence must start at position 0
-#         config1 = cfg.get("config{}".format(i))
-#         start = 0
-            
-#         remaining_instances -= len(sorted_runtimes)
-
-#     penalty = i #Reduce number of sequences whenever possible
-#     if solved_instances < 5:
-#         penalty += 100*(5-solved_instances)**2
-#     elif solved_instances > 15:
-#         penalty += 100*(solved_instances-15)**2
-#     if trivial_instances > 5:
-#         penalty += 100*(trivial_instances-5)**2
-        
+# if os.path.exists("./" + ARGS.database):
+#     print ("./" + ARGS.database,  "does not exist")
+#     exit(0)
     
-#     return penalty
+f = open(ARGS.database)
+content = json.loads(f.read())
+
+if "average_runtimes:" in content[ARGS.domain]: 
+    RUNNER_BASELINE.load_cache_from_log_file(content[ARGS.domain]["average_runtimes:"])
+    RUNNER_SART.load_cache_from_log_file(content[ARGS.domain]["average_runtimes:"])
 
 
 
 
+STORED_VALID_SEQUENCES = content[ARGS.domain]["sequences"]
 
-# Build Configuration Space which defines all parameters and their ranges.
+# [{'baseline_times': [], 'sart_times': [], 'penalty': 8, 'config': {'drivers_b': 1, 'drivers_m': 0.2, 'drivers_m2': 0.0, 'drivers_mb': 5, 'drivers_optional_m': 'false', 'packages_b': 2, 'packages_m': 1.0, 'packages_m2': 0.0, 'packages_mb': 5, 'roadjunctions_b': 2, 'roadjunctions_m': 0.01, 'roadjunctions_m2': 0.0, 'roadjunctions_mb': 5, 'roadjunctions_optional_m': 'false', 'trucks_b': 0, 'trucks_optional_m': 'false'}}]
+
+    
+    
+
+
+
 
 domain = DOMAINS[ARGS.domain]
 
 # Final configuration should consist of a list of sequences, each with a starting point and a number of instances.  Number of instances must add up to 30
-
-
-STORED_VALID_SEQUENCES = [{'baseline_times': [], 'sart_times': [], 'penalty': 8, 'config': {'drivers_b': 1, 'drivers_m': 0.2, 'drivers_m2': 0.0, 'drivers_mb': 5, 'drivers_optional_m': 'false', 'packages_b': 2, 'packages_m': 1.0, 'packages_m2': 0.0, 'packages_mb': 5, 'roadjunctions_b': 2, 'roadjunctions_m': 0.01, 'roadjunctions_m2': 0.0, 'roadjunctions_mb': 5, 'roadjunctions_optional_m': 'false', 'trucks_b': 0, 'trucks_optional_m': 'false'}}]
 
 
 
@@ -366,10 +406,10 @@ if domain.has_enum_parameter():
     enum_parameters = domain.get_enum_parameters()
     assert(len(enum_parameters) == 1) #TODO make the following code more general to accept more than one parameter here.
 
-    print (enum_parameters)
+    # print (enum_parameters)
     for enum_parameter in enum_parameters:
         for value in enum_parameter.get_values():
-            valid_sequences = [seq for seq in STORED_VALID_SEQUENCES if seq['config'][enum_parameter] == value]
+            valid_sequences = [seq for seq in STORED_VALID_SEQUENCES if seq['config'][enum_parameter.name] == value]
             bestK = sorted(valid_sequences, key=lambda x : x['penalty'])[:K_PER_CATEGORY]
             candidate_sequences.append(bestK)
             
@@ -379,12 +419,12 @@ else:
     candidate_sequences.append(bestK)
 
 
-logging.info(f"Candidate sequences: {candidate_sequences}")
+logging.info("Candidate sequences: {}".format([len(x) for x in candidate_sequences]))
+logging.debug(f"Candidate sequences: {candidate_sequences}")
 
 
 domain = DOMAINS[ARGS.domain]
-
-
+sequences_by_id = {}
 evaluated_sequences = [[] for c in candidate_sequences]
 
 for i in range (K_PER_CATEGORY):
@@ -402,13 +442,67 @@ for i in range (K_PER_CATEGORY):
 
         if len(runtimes_sart) < 3:
             continue # We cannot accept sequences that have less than 3 points to interpolate
-        evaluated_sequences[j].append(Sequence(sequence, runtimes_baseline, runtimes_sart))
+        new_seq = Sequence(sequence, runtimes_baseline, runtimes_sart)
+        evaluated_sequences[j].append(new_seq)
+        sequences_by_id[new_seq.seq_id] = new_seq
         
+try:
+    cplex_problem = cplex.Cplex()
+    cplex_problem.objective.set_sense(cplex_problem.objective.sense.minimize)
+
+    t = cplex_problem.variables.type
+    # global_var_types = [t.integer, t.integer, t.integer, t.integer]
+    # global_var_names = ["num-instances", "num-instances-solved", "num-instances-baseline", "num-instances-trivial"]
+    # global_var_index = {global_var_names[i] : index for i, index in enumerate(cplex_problem.variables.add (types=global_var_types,names=global_var_names))}
+    #global_var_index = {v : cplex_problem.variables.get_index(v) for v in global_var_names}
+
+    # print(global_var_index)
+
+    all_options_cplex_vars = []
+    all_options_instances = []
+    all_options_solved = []
+    all_options_trivial = []
+    for sequences in evaluated_sequences:
+        for seq in sequences:
+            seq.add_cplex_variables(cplex_problem)
+            for var, instances, solved, trivial in seq.get_info_per_option():
+                all_options_cplex_vars.append(var)
+                all_options_instances.append(instances)
+                all_options_solved.append(solved)
+                all_options_trivial.append(trivial)
+
+    print (all_options_cplex_vars)
+
+    cplex_problem.linear_constraints.add(lin_expr=[[all_options_cplex_vars, all_options_instances]], senses=["E"], rhs=[30])
+    cplex_problem.linear_constraints.add(lin_expr=[[all_options_cplex_vars, all_options_solved]], senses=["G"], rhs=[10])
+    cplex_problem.linear_constraints.add(lin_expr=[[all_options_cplex_vars, all_options_solved]], senses=["L"], rhs=[15])
+    cplex_problem.linear_constraints.add(lin_expr=[[all_options_cplex_vars, all_options_trivial]], senses=["G"], rhs=[2])
+    cplex_problem.linear_constraints.add(lin_expr=[[all_options_cplex_vars, all_options_trivial]], senses=["L"], rhs=[6])
+
+
+    cplex_problem.solve()
+except CplexError as exc:
+    print(exc)
+    exit(0)
 
 
 
+print()
+# solution.get_status() returns an integer code
+print("Solution status = ", cplex_problem.solution.get_status(), ":", end=' ')
+# the following line prints the corresponding string
+print(cplex_problem.solution.status[cplex_problem.solution.get_status()])
+print("Solution value  = ", cplex_problem.solution.get_objective_value())
+    
+x = cplex_problem.solution.get_values()
 
+for sequences in evaluated_sequences:
+    for seq in sequences:
+        for name, idt in seq.get_cplex_var_index().items():
+            if x [idt] == 1:
+                print ("Selected: ", name)
 
-
-
-
+                seq_id, i = map(int, name.split("-")[1:])
+                
+                print(sequences_by_id[seq_id].get_runtimes(i))
+                
