@@ -383,15 +383,9 @@ class Sequence:
     def get_runtimes(self, i):
         return self.sorted_runtimes[i:]
 
-# From the configurations, we read a list of sequences, each with a
-
 RUNNER_BASELINE = Runner(DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
 
 RUNNER_SART = Runner(DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, ARGS.domain), PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
-
-# if os.path.exists("./" + ARGS.database):
-#     print ("./" + ARGS.database,  "does not exist")
-#     exit(0)
     
 f = open(ARGS.database)
 content = json.loads(f.read())
@@ -406,13 +400,6 @@ if "sart_average_runtimes" in content[ARGS.domain]:
 
 
 STORED_VALID_SEQUENCES = content[ARGS.domain]["sequences"]
-
-# [{'baseline_times': [], 'sart_times': [], 'penalty': 8, 'config': {'drivers_b': 1, 'drivers_m': 0.2, 'drivers_m2': 0.0, 'drivers_mb': 5, 'drivers_optional_m': 'false', 'packages_b': 2, 'packages_m': 1.0, 'packages_m2': 0.0, 'packages_mb': 5, 'roadjunctions_b': 2, 'roadjunctions_m': 0.01, 'roadjunctions_m2': 0.0, 'roadjunctions_mb': 5, 'roadjunctions_optional_m': 'false', 'trucks_b': 0, 'trucks_optional_m': 'false'}}]
-
-    
-    
-
-
 
 
 domain = DOMAINS[ARGS.domain]
@@ -436,12 +423,12 @@ if domain.has_enum_parameter():
     # print (enum_parameters)
     for enum_parameter in enum_parameters:
         for value in enum_parameter.get_values():
-            valid_sequences = [seq for seq in STORED_VALID_SEQUENCES if seq['config'][enum_parameter.name] == value]
+            valid_sequences = [seq for seq in STORED_VALID_SEQUENCES if seq['config'][enum_parameter.name] == value if seq['penalty'] < 18]
             bestK = sorted(valid_sequences, key=lambda x : x['penalty'])[:K_PER_CATEGORY]
             candidate_sequences.append(bestK)
             
 else:
-    valid_sequences = STORED_VALID_SEQUENCES
+    valid_sequences = [v for v in STORED_VALID_SEQUENCES if v['penalty'] < 18]
     bestK = sorted(valid_sequences, key=lambda x : x['penalty'])[:K_PER_CATEGORY]
     candidate_sequences.append(bestK)
 
@@ -450,7 +437,6 @@ logging.info("Candidate sequences: {}".format([len(x) for x in candidate_sequenc
 logging.debug(f"Candidate sequences: {candidate_sequences}")
 
 
-domain = DOMAINS[ARGS.domain]
 sequences_by_id = {}
 evaluated_sequences = [[] for c in candidate_sequences]
 
@@ -563,10 +549,10 @@ try:
 
             
     constraint_list += [CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_instances, "E", 30, penalties=[(x, 10000*x**2) for x in range(1, 20)] + [(-x, 10000*x**2) for x in range(1, 20)]), 
-                        CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_solved, "G", 8, penalties=[(x, 10*x**2) for x in range(1, 8)]),
-                        CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_solved, "L", 15, penalties=[(-x, 10*x**2) for x in range(1, 8)]),
-                        CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_trivial, "G", 2, penalties=[(x, 10*x**2) for x in range(1, 8)]),
-                        CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_trivial, "L", 6, penalties=[(-x, 10*x**2) for x in range(1, 8)])]
+                        CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_solved, "G", 8, penalties=[(x, 10*x**2) for x in range(1, 30)]),
+                        CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_solved, "L", 15, penalties=[(-x, 10*x**2) for x in range(1, 30)]),
+                        CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_trivial, "G", 2, penalties=[(-1, 10)]),
+                        CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_trivial, "L", 6, penalties=[(-x, 10*x**2) for x in range(1, 30)])]
 
     for c in constraint_list:
         c.apply()
@@ -614,7 +600,8 @@ if len(final_selection) < 30:
     for i, n in enumerate(num_extra_problems): 
         final_selection += final_sequences[i].get_extra_instances(n)
 
-                
+else:
+    final_selection = final_selection[:30]
 print(final_selection)
 
 if ARGS.output:                 
