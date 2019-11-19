@@ -479,7 +479,6 @@ try:
     cplex_problem.linear_constraints.add(lin_expr=[[all_options_cplex_vars, all_options_trivial]], senses=["G"], rhs=[2])
     cplex_problem.linear_constraints.add(lin_expr=[[all_options_cplex_vars, all_options_trivial]], senses=["L"], rhs=[6])
 
-
     cplex_problem.solve()
 except CplexError as exc:
     print(exc)
