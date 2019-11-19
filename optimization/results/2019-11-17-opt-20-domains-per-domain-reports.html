@@ -1,0 +1,321 @@
+<?xml version="1.0"
+      encoding="UTF-8"
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="generator" content="http://txt2tags.org" />
+<style type="text/css">
+    body {
+        font-family: Ubuntu, Helvetica, Arial, sans-serif;
+    }
+    blockquote {
+        margin: 1em 2em;
+        border-left: 2px solid #999;
+        font-style: oblique;
+        padding-left: 1em;
+    }
+    blockquote:first-letter {
+        margin: .2em .1em .1em 0;
+        font-size: 160%;
+        font-weight: bold;
+    }
+    blockquote:first-line {
+        font-weight: bold;
+    }
+    table {
+        border-collapse: collapse;
+    }
+    td, th {
+        <!--border: 1px solid #888;--> <!--Allow tables without borders-->
+        padding: 3px 7px 2px 7px;
+    }
+    th {
+        text-align: left;
+        padding-top: 5px;
+        padding-bottom: 4px;
+        background-color: #aaa;
+        color: #ffffff;
+    }
+    hr.heavy {
+        height: 2px;
+        background-color: black;
+    }
+</style>
+<script type="text/javascript">
+function toggle_element(element) {
+    if (element.style.display == "none") {
+        element.style.display = "";
+    } else {
+        element.style.display = "none";
+    }
+}
+
+function find_next(element, classname) {
+    element = element.nextSibling;
+    while(element.nodeName != classname)
+        element = element.nextSibling;
+    return element;
+}
+
+function toggle_table(toggle_button) {
+    toggle_element(find_next(toggle_button, "TABLE"));
+    if (toggle_button.innerHTML == "Show table") {
+        toggle_button.innerHTML = "Hide table";
+    } else {
+        toggle_button.innerHTML = "Show table";
+    }
+}
+
+function show_table(link) {
+    var toggle_button = find_next(link, "BUTTON");
+    var table = find_next(toggle_button, "TABLE");
+    table.style.display = "";
+    toggle_button.innerHTML = "Hide table";
+}
+
+function show_overview_tables() {
+    var names = ["unexplained-errors", "info", "summary"];
+    for (var i = 0; i < names.length; i++) {
+        var link = document.getElementById(names[i]);
+        if (link) {
+            show_table(link);
+        }
+    }
+}
+
+document.addEventListener("DOMContentLoaded", show_overview_tables);
+</script>
+</head>
+<body>
+
+<div class="header" id="header">
+<h3>2019-11-17</h3>
+</div>
+
+<div class="body" id="body">
+
+<button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
+
+<table border="1" style="display:none">
+<tr>
+<th>different scores</th>
+<th>old</th>
+<th>new_<wbr>sart</th>
+</tr>
+<tr>
+<td>barman</td>
+<td align="right">6</td>
+<td align="right"><b>7</b></td>
+</tr>
+<tr>
+<td>blocksworld</td>
+<td align="right"><b>7</b></td>
+<td align="right">4</td>
+</tr>
+<tr>
+<td>childsnack</td>
+<td align="right">4</td>
+<td align="right"><b>5</b></td>
+</tr>
+<tr>
+<td>depot</td>
+<td align="right"><b>7</b></td>
+<td align="right"><b>7</b></td>
+</tr>
+<tr>
+<td>driverlog</td>
+<td align="right">5</td>
+<td align="right"><b>8</b></td>
+</tr>
+<tr>
+<td>floortile</td>
+<td align="right">9</td>
+<td align="right"><b>10</b></td>
+</tr>
+<tr>
+<td>gripper</td>
+<td align="right"><b>5</b></td>
+<td align="right"><b>5</b></td>
+</tr>
+<tr>
+<td>hiking</td>
+<td align="right"><b>8</b></td>
+<td align="right"><b>8</b></td>
+</tr>
+<tr>
+<td>miconic-strips</td>
+<td align="right"><b>11</b></td>
+<td align="right"><b>11</b></td>
+</tr>
+<tr>
+<td>nomystery</td>
+<td align="right">4</td>
+<td align="right"><b>8</b></td>
+</tr>
+<tr>
+<td>parking</td>
+<td align="right"><b>7</b></td>
+<td align="right">3</td>
+</tr>
+<tr>
+<td>rovers</td>
+<td align="right"><b>7</b></td>
+<td align="right"><b>7</b></td>
+</tr>
+<tr>
+<td>satellite</td>
+<td align="right"><b>6</b></td>
+<td align="right">4</td>
+</tr>
+<tr>
+<td>snake</td>
+<td align="right"><b>6</b></td>
+<td align="right">2</td>
+</tr>
+<tr>
+<td>storage</td>
+<td align="right">4</td>
+<td align="right"><b>9</b></td>
+</tr>
+<tr>
+<td>tpp</td>
+<td align="right">6</td>
+<td align="right"><b>7</b></td>
+</tr>
+<tr>
+<td>trucks</td>
+<td align="right"><b>6</b></td>
+<td align="right">4</td>
+</tr>
+<tr>
+<td>visitall</td>
+<td align="right"><b>8</b></td>
+<td align="right">5</td>
+</tr>
+<tr>
+<td>woodworking</td>
+<td align="right"><b>10</b></td>
+<td align="right">7</td>
+</tr>
+<tr>
+<td>zenotravel</td>
+<td align="right">5</td>
+<td align="right"><b>8</b></td>
+</tr>
+</table>
+
+<button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
+
+<table border="1" style="display:none">
+<tr>
+<th>old vs. new_<wbr>sart</th>
+<th>only old</th>
+<th>only new_<wbr>sart</th>
+</tr>
+<tr>
+<td>barman</td>
+<td align="right">10</td>
+<td align="right"><b>24</b></td>
+</tr>
+<tr>
+<td>blocksworld</td>
+<td align="right"><b>21</b></td>
+<td align="right">15</td>
+</tr>
+<tr>
+<td>childsnack</td>
+<td align="right">3</td>
+<td align="right"><b>11</b></td>
+</tr>
+<tr>
+<td>depot</td>
+<td align="right">14</td>
+<td align="right"><b>16</b></td>
+</tr>
+<tr>
+<td>driverlog</td>
+<td align="right">15</td>
+<td align="right"><b>20</b></td>
+</tr>
+<tr>
+<td>floortile</td>
+<td align="right">2</td>
+<td align="right"><b>4</b></td>
+</tr>
+<tr>
+<td>gripper</td>
+<td align="right"><b>0</b></td>
+<td align="right"><b>0</b></td>
+</tr>
+<tr>
+<td>hiking</td>
+<td align="right"><b>25</b></td>
+<td align="right">17</td>
+</tr>
+<tr>
+<td>miconic-strips</td>
+<td align="right"><b>2</b></td>
+<td align="right"><b>2</b></td>
+</tr>
+<tr>
+<td>nomystery</td>
+<td align="right">13</td>
+<td align="right"><b>26</b></td>
+</tr>
+<tr>
+<td>parking</td>
+<td align="right"><b>28</b></td>
+<td align="right">3</td>
+</tr>
+<tr>
+<td>rovers</td>
+<td align="right"><b>19</b></td>
+<td align="right">17</td>
+</tr>
+<tr>
+<td>satellite</td>
+<td align="right"><b>18</b></td>
+<td align="right">17</td>
+</tr>
+<tr>
+<td>snake</td>
+<td align="right"><b>52</b></td>
+<td align="right">0</td>
+</tr>
+<tr>
+<td>storage</td>
+<td align="right">21</td>
+<td align="right"><b>44</b></td>
+</tr>
+<tr>
+<td>tpp</td>
+<td align="right">11</td>
+<td align="right"><b>18</b></td>
+</tr>
+<tr>
+<td>trucks</td>
+<td align="right"><b>49</b></td>
+<td align="right">32</td>
+</tr>
+<tr>
+<td>visitall</td>
+<td align="right"><b>16</b></td>
+<td align="right">3</td>
+</tr>
+<tr>
+<td>woodworking</td>
+<td align="right"><b>12</b></td>
+<td align="right">5</td>
+</tr>
+<tr>
+<td>zenotravel</td>
+<td align="right">15</td>
+<td align="right"><b>25</b></td>
+</tr>
+</table>
+
+</div>
+<!-- xhtml code generated by txt2tags 2.6 (http://txt2tags.org) -->
+<!-- cmdline: txt2tags  -->
+</body></html>
