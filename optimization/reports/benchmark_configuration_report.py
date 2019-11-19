@@ -11,7 +11,7 @@ class BenchmarkConfigurationReport(PlanningReport):
     def __init__(self, **kwargs):
         PlanningReport.__init__(self, **kwargs)
 
-    def write(self):
+    def write_only_final_sequences(self):
         final_sequences = {}
         for (domain, algo), runs in sorted(self.domain_algorithm_runs.items()):
             domain = domain.replace("-baseline-and-sart", "")
@@ -28,4 +28,14 @@ class BenchmarkConfigurationReport(PlanningReport):
 
         print(json.dumps(final_sequences, sort_keys=True, indent=1))
         #pprint.pprint(final_sequences, indent=1)
+
+    def get_text(self):
+        sequences = defaultdict(list)
+        for (domain, algo), runs in sorted(self.domain_algorithm_runs.items()):
+            domain = domain.replace("-baseline-and-sart", "")
+            for run in runs:
+                for seq in run.get("sequences", []):
+                    sequences[domain].append(ast.literal_eval(seq))
+
+        return json.dumps(sequences, sort_keys=True, indent=2)
 
