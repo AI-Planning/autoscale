@@ -65,7 +65,7 @@ import statistics
 import sys
 import warnings
 import math
-
+import subprocess
 import json
 import cplex
 from cplex.exceptions import CplexError
@@ -338,9 +338,16 @@ class Sequence:
 
         self.num_instances = len(self.sorted_runtimes)
         
-        self.parameters_of_instances = domain.get_configs(self.config, self.num_instances)
-        assert len (self.parameters_of_instances) ==1
-        self.parameters_of_instances = self.parameters_of_instances[0]
+        parameters_of_instances = domain.get_configs(self.config, self.num_instances + 10) # Generate 10 extra instances in case we need them in the end
+        assert len (parameters_of_instances) ==1
+        self.parameters_of_instances = parameters_of_instances[0]
+
+    def get_instances(self, i):
+        return self.parameters_of_instances[i:self.num_instances]
+
+    def get_extra_instances(self, n):
+        return self.parameters_of_instances[self.num_instances:self.num_instances+n]
+        
 
     def intersection (self, other):
         result = []
@@ -360,7 +367,7 @@ class Sequence:
         self.var_index = {self.var_names[i] : index for i, index in enumerate(cplex_problem.variables.add(obj=objective_values,types=var_types,names=self.var_names))}
 
 
-        cplex_problem.linear_constraints.add(lin_expr=[[[ind for i, ind in self.var_index.items()], [1 for i in self.var_index]]], senses=["L"], rhs=[1])
+        return CPLEXConstraint(cplex_problem, [ind for i, ind in self.var_index.items()], [1 for i in self.var_index],"L", 1)
 
     def get_cplex_var_index(self):
         return self.var_index
@@ -416,7 +423,7 @@ domain = DOMAINS[ARGS.domain]
 
 candidate_sequences= []
 
-K_PER_CATEGORY = 10
+K_PER_CATEGORY = 100
 
 if domain.has_enum_parameter():
     # Option #1: We have an enum parameter. In this case, we may select a sequence for each
@@ -472,11 +479,45 @@ for i in range (K_PER_CATEGORY):
         new_seq = Sequence(sequence, domain, runtimes_baseline, runtimes_sart)
         evaluated_sequences[j].append(new_seq)
         sequences_by_id[new_seq.seq_id] = new_seq
-        
+
+
+
+class CPLEXConstraint:
+    def __init__(self, cplex_problem, variables, coeficients, sense, rhs, penalties=None):
+        self.cplex_problem = cplex_problem
+        self.variables = variables
+        self.coeficients = coeficients
+        self.sense = sense
+        self.rhs = rhs        
+
+        self.penalty_vars = None
+
+        if penalties:
+            if sense == "E":
+                positive_penalty_vars = cplex_problem.variables.add (obj=penalties, types=[cplex_problem.variables.type.binary for p in penalties])
+                negative_penalty_vars = cplex_problem.variables.add (obj=penalties, types=[cplex_problem.variables.type.binary for p in penalties])
+
+                self.penalty_vars = list(positive_penalty_vars) + list(negative_penalty_vars)
+                self.coeficients_penalty_vars = [1+i  for i in range(len(positive_penalty_vars))]   +  [1+i  for i in range(len(negative_penalty_vars))]                
+            else: 
+                self.penalty_vars = cplex_problem.variables.add (obj=penalties, types=[cplex_problem.variables.type.binary for p in penalties])
+                self.coeficients_penalty_vars = [1+i if sense == "G" else -i-1 for i in range(len(self.penalty_vars))]
+                
+            self.variables = list(self.variables) + list(self.penalty_vars)
+            self.coeficients = list(self.coeficients) + self.coeficients_penalty_vars        
+
+            
+    def apply(self):
+        self.cplex_problem.linear_constraints.add(lin_expr=[[self.variables, self.coeficients]], senses=[self.sense], rhs=[self.rhs])
+        if self.penalty_vars: 
+            self.cplex_problem.linear_constraints.add(lin_expr=[[self.penalty_vars, [1 for p in self.penalty_vars]]], senses=["L"], rhs=[1])
+
+
 try:
     cplex_problem = cplex.Cplex()
     cplex_problem.objective.set_sense(cplex_problem.objective.sense.minimize)
 
+    constraint_list = []
     t = cplex_problem.variables.type
     # global_var_types = [t.integer, t.integer, t.integer, t.integer]
     # global_var_names = ["num-instances", "num-instances-solved", "num-instances-baseline", "num-instances-trivial"]
@@ -491,48 +532,54 @@ try:
     all_options_trivial = []
     for sequences in evaluated_sequences:
         for seq in sequences:
-            seq.add_cplex_variables(cplex_problem)
+            constraint_list.append(seq.add_cplex_variables(cplex_problem))
             for var, instances, solved, trivial in seq.get_info_per_option():
                 all_options_cplex_vars.append(var)
                 all_options_instances.append(instances)
                 all_options_solved.append(solved)
                 all_options_trivial.append(trivial)
 
+    for sequences in evaluated_sequences:
         # Check all pairs of sequences. If they have an instance in common, forbid selecting both
         for seq1, seq2 in itertools.combinations(sequences, 2):
             intersection = seq1.intersection(seq2)
             if intersection:
-                logging.info(f"Non-empty intersection between sequences {seq1.seq_id} and {seq2.seq_id}" )
+                #logging.info(f"Non-empty intersection between sequences {seq1.seq_id} and {seq2.seq_id}" )
                 # We must forbid choosing more than one element in both sequences
                 v1 = seq1.get_vars_per_option()
                 v2 = seq2.get_vars_per_option()
-                if len(intersection) > 1:
-                    cp_vars = v1 + v2
-                else:
-                    i1, i2 = intersection[0]
-                    cp_vars = v1[:i1+1] + v2[:i2+1]
+                
+                # if len(intersection) > 1:
+                #     cp_vars = v1 + v2
+                # else:
+                #     i1, i2 = intersection[0]
+                #     cp_vars = v1[:i1+1] + v2[:i2+1]
 
-                print (cp_vars)
-
-                cplex_problem.linear_constraints.add(lin_expr=[[cp_vars, [1 for v in cp_vars]]], senses=["L"], rhs=[1])
+                i1 = max(map(lambda x : x[0], intersection))
+                i2 = max(map(lambda x : x[1], intersection))
+                cp_vars = v1[:i1+1] + v2[:i2+1]
+                
+                constraint_list.append(CPLEXConstraint(cplex_problem, cp_vars, [1 for v in cp_vars], "L", 1))
                     
+
             
+    constraint_list += [CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_instances, "E", 30, penalties=[10000*x**2 for x in range(1, 20)]), 
+                        CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_solved, "G", 8, penalties=[10*x**2 for x in range(1, 8)]),
+                        CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_solved, "L", 15, penalties=[10*x**2 for x in range(1, 8)]),
+                        CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_trivial, "G", 2, penalties=[10*x**2 for x in range(1, 8)]),
+                        CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_trivial, "L", 6, penalties=[10*x**2 for x in range(1, 8)])]
 
-    print (all_options_cplex_vars)
+    for c in constraint_list:
+        c.apply()
 
-    cplex_problem.linear_constraints.add(lin_expr=[[all_options_cplex_vars, all_options_instances]], senses=["E"], rhs=[30])
-    cplex_problem.linear_constraints.add(lin_expr=[[all_options_cplex_vars, all_options_solved]], senses=["G"], rhs=[8])
-    cplex_problem.linear_constraints.add(lin_expr=[[all_options_cplex_vars, all_options_solved]], senses=["L"], rhs=[15])
-    cplex_problem.linear_constraints.add(lin_expr=[[all_options_cplex_vars, all_options_trivial]], senses=["G"], rhs=[2])
-    cplex_problem.linear_constraints.add(lin_expr=[[all_options_cplex_vars, all_options_trivial]], senses=["L"], rhs=[6])
-
+    
     logging.info ("CPLEX solve") 
     cplex_problem.solve()
 except CplexError as exc:
     print(exc)
     exit(0)
 
-
+    
 
 print()
 # solution.get_status() returns an integer code
@@ -544,34 +591,44 @@ print("Solution value  = ", cplex_problem.solution.get_objective_value())
 x = cplex_problem.solution.get_values()
 
 final_selection = []
-
+final_sequences = []
 for sequences in evaluated_sequences:
     for seq in sequences:
         for name, idt in seq.get_cplex_var_index().items():
             if x [idt] == 1:
                 print ("Selected: ", name)
-
                 seq_id, i = map(int, name.split("-")[1:])
                 
+                final_sequences.append(sequences_by_id[seq_id])                
                 print(sequences_by_id[seq_id].get_runtimes(i))
                 print(sequences_by_id[seq_id].config)
-                
-                
+                print(sequences_by_id[seq_id].parameters_of_instances[i:])
+                final_selection += sequences_by_id[seq_id].get_instances(i)
 
+if len(final_selection) < 30:
+    total_extra_problems = 30 - len(final_selection)
+    num_extra_problems = [total_extra_problems//len(final_sequences) for f in final_sequences]
+    for i in range(total_extra_problems%len(final_sequences)):
+        num_extra_problems[i]+=1
+        
+
+    for i, n in enumerate(num_extra_problems): 
+        final_selection += final_sequences[i].get_extra_instances(n)
+
+                
+print(len(final_selection))
 
 if ARGS.output:                 
     i = 1
     seed = 2019
-    for task in config.get_configs(DOMAINS[domain], ARGS.tasks):
-        if ARGS.printY:
-            print (task)
-            continue
-
+    generator_command = domain.generator_command(GENERATORS_DIR)
+    os.mkdir (f"{ARGS.output}/{ARGS.domain}")
+    for task in final_selection:
         task["seed"] = seed
         seed += 1
         command = shlex.split(generator_command.format(**task))
 
-        problem_file = f"{ARGS.output}/{domain}/p{i:02d}.pddl"
+        problem_file = f"{ARGS.output}/{ARGS.domain}/p{i:02d}.pddl"
         i += 1
         if "tmp.pddl" in generator_command:
             subprocess.run(command, check=True)
