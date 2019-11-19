@@ -102,7 +102,7 @@ exp.add_report(
     outfile=taskwise_report)
 exp.add_step('publish-taskwise-report', subprocess.call, ['publish', taskwise_report])
 
-exp.add_report(BenchmarkConfigurationReport())
+exp.add_report(BenchmarkConfigurationReport(), outfile=f"{DIR}/results/{exp.name}.json")
 
 exp.add_parse_again_step()
 
