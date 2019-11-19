@@ -1,5 +1,6 @@
 #! /usr/bin/env python
 
+import ast
 import re
 
 from lab.parser import Parser
@@ -51,8 +52,9 @@ def parse_average_runtimes(content, props):
     baseline_average_runtimes = []
     sart_average_runtimes = []
     for line in content.splitlines():
-        if "Average runtime for y=" in line:
-            config_string, value_string = line.rsplit(": ", maxsplit=1)
+        match = re.match(r".*Average runtime for y=(.+): (.+)", line)
+        if match:
+            config_string, value_string = match.group(1), match.group(2)
             parameters = ast.literal_eval(config_string)
             runtime = ast.literal_eval(value_string)
 
