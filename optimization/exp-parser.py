@@ -45,6 +45,34 @@ def error(content, props):
         props['error'] = 'some-error-occured'
 
 
+def parse_average_runtimes(content, props):
+    reading_sart = False
+    first_baseline_config = None
+    baseline_average_runtimes = []
+    sart_average_runtimes = []
+    for line in content.splitlines():
+        if "Average runtime for y=" in line:
+            config_string, value_string = line.rsplit(": ", maxsplit=1)
+            parameters = ast.literal_eval(config_string)
+            runtime = ast.literal_eval(value_string)
+
+            if first_baseline_config is None:
+                first_baseline_config = parameters
+            elif first_baseline_config == parameters:
+                assert not reading_sart
+                reading_sart = True
+
+            if reading_sart:
+                sart_average_runtimes.append((parameters, runtime))
+            else:
+                baseline_average_runtimes.append((parameters, runtime))
+        else:
+            reading_sart = False
+            first_baseline_config = None
+    props["baseline_average_runtimes"] = baseline_average_runtimes
+    props["sart_average_runtimes"] = sart_average_runtimes
+
+
 parser = CommonParser()
 parser.add_pattern(
     'node', r'node: (.+)\n', type=str, file='driver.log', required=True)
@@ -53,7 +81,6 @@ parser.add_pattern(
 parser.add_pattern(
     'optimization_wallclock_time', r'optimize wall-clock time: (.+)s\n', type=float, file='driver.log')
 parser.add_repeated_pattern('sequences', r'Sequence: (.+)\n', type=str)
-parser.add_repeated_pattern('average_runtimes', r'Average runtime for y=(.+)\n', type=str)
 parser.add_bottom_up_pattern('final_sequence', r'Final sequence: (\{.+\})\n', type=str)
 parser.add_bottom_up_pattern('final_value', r'Estimated cost of incumbent: (.+)\n', type=float)
 parser.add_bottom_up_pattern('evaluated_configurations', r'\#Configurations: (\d+)\n', type=int)
@@ -61,5 +88,6 @@ parser.add_bottom_up_pattern('incumbent_changed', r'\#Incumbent changed: (\d+)\n
 parser.add_bottom_up_pattern('final_baseline_runtimes', r'Final baseline runtimes: (.*)\n', type=str)
 parser.add_bottom_up_pattern('final_sart_runtimes', r'Final sart runtimes: (.*)\n', type=str)
 parser.add_function(error)
+parser.add_function(parse_average_runtimes)
 
 parser.parse()
