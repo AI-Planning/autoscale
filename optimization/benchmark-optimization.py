@@ -70,6 +70,7 @@ import json
 import cplex
 from cplex.exceptions import CplexError
 
+import itertools
 
 from collections import defaultdict
 
@@ -150,6 +151,8 @@ def parse_args():
     )
 
     parser.add_argument("--database", help="path to json file with the information needed")
+
+    parser.add_argument("--output", help="directory to create the new benchmark set")
 
 
     return parser.parse_args()
@@ -300,22 +303,23 @@ class InstanceSet:
 
 SEQ_ID = 1
 class Sequence:
-    def __init__(self, sequence, runtimes_baseline, rumtimes_sart):
+    def __init__(self, sequence, domain, runtimes_baseline, rumtimes_sart):
         global SEQ_ID 
         self.seq_id = SEQ_ID
         SEQ_ID += 1
         self.config = sequence['config']
         self.penalty = sequence['penalty']
+
         self.runtimes_baseline = runtimes_baseline
         self.runtimes_sart = runtimes_sart        
         
-        self.trivial_instances = len([t for t in runtimes_sart if t < 5])
+        self.trivial_instances = len([t for t in runtimes_baseline if t < 30])
         self.solved_instances = len(runtimes_sart)
 
         # Continue the sequence to know how many instances will be added
         sorted_runtimes = sorted(runtimes_sart)
         first_index = 0
-        while first_index < len(sorted_runtimes) - 2 and sorted_runtimes[first_index] < 5:
+        while first_index < len(sorted_runtimes) - 2 and sorted_runtimes[first_index] < 10:
             first_index += 1
 
         factors = [sorted_runtimes[i]/sorted_runtimes[i-1] for i in range (first_index, len(sorted_runtimes))]
@@ -333,7 +337,17 @@ class Sequence:
         self.sorted_runtimes = sorted_runtimes
 
         self.num_instances = len(self.sorted_runtimes)
+        
+        self.parameters_of_instances = domain.get_configs(self.config, self.num_instances)
+        assert len (self.parameters_of_instances) ==1
+        self.parameters_of_instances = self.parameters_of_instances[0]
 
+    def intersection (self, other):
+        result = []
+        for c in self.parameters_of_instances:
+            if c in other.parameters_of_instances:
+                result.append((self.parameters_of_instances.index(c), other.parameters_of_instances.index(c))) 
+        return result
 
     def add_cplex_variables(self, cplex_problem):
         t = cplex_problem.variables.type
@@ -355,6 +369,10 @@ class Sequence:
         latest_start = self.num_instances-5 if self.num_instances > 5 else 1 # Include at least 5 instances per run included
         return [(self.var_index["seq-{}-{}".format(self.seq_id, i)], self.num_instances-i, max(0, self.solved_instances - i), max(0, self.trivial_instances - i))  for i in range (latest_start)]
 
+    def get_vars_per_option(self):
+        latest_start = self.num_instances-5 if self.num_instances > 5 else 1 # Include at least 5 instances per run included
+        return [self.var_index["seq-{}-{}".format(self.seq_id, i)] for i in range (latest_start)]
+        
     def get_runtimes(self, i):
         return self.sorted_runtimes[i:]
 
@@ -371,11 +389,13 @@ RUNNER_SART = Runner(DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, ARGS.do
 f = open(ARGS.database)
 content = json.loads(f.read())
 
-if "average_runtimes:" in content[ARGS.domain]: 
-    RUNNER_BASELINE.load_cache_from_log_file(content[ARGS.domain]["average_runtimes:"])
-    RUNNER_SART.load_cache_from_log_file(content[ARGS.domain]["average_runtimes:"])
-
-
+if "baseline_average_runtimes:" in content[ARGS.domain]:
+    logging.info (f"Loading cache data for baseline planners: {len(content[ARGS.domain]['baseline_average_runtimes:'])}" )
+    RUNNER_BASELINE.load_cache_from_log_file(content[ARGS.domain]["baseline_average_runtimes:"])
+    
+if "sart_average_runtimes" in content[ARGS.domain]:
+    logging.info (f"Loading cache data for sart planners: {len(content[ARGS.domain]['sart_average_runtimes'])}" )
+    RUNNER_SART.load_cache_from_log_file(content[ARGS.domain]["sart_average_runtimes"])
 
 
 STORED_VALID_SEQUENCES = content[ARGS.domain]["sequences"]
@@ -432,17 +452,24 @@ for i in range (K_PER_CATEGORY):
         if i >= len(candidate_sequences[j]):
             continue
         sequence = candidate_sequences[j][i]
+
+        logging.info(f"Evaluate sequence with penalty {sequence['penalty']}")
         
         Y = domain.get_configs(sequence['config'], 40)
+        logging.info("Configurations in sequence {}".format(Y))
+        
+        
+        baseline_eval = InstanceSet(Y, RUNNER_BASELINE)
+        runtimes_baseline = baseline_eval.get_runtimes(40, 0, PLANNER_TIME_LIMIT)        
+        logging.info(f"Baseline runtimes {runtimes_baseline}")
+        
         sart_eval = InstanceSet(Y, RUNNER_SART)
         runtimes_sart = sart_eval.get_runtimes(40, 0, PLANNER_TIME_LIMIT)
-
-        baseline_eval = InstanceSet(Y, RUNNER_BASELINE)
-        runtimes_baseline = sart_eval.get_runtimes(40, 0, PLANNER_TIME_LIMIT)        
+        logging.info(f"Sart runtimes {runtimes_sart}")
 
         if len(runtimes_sart) < 3:
             continue # We cannot accept sequences that have less than 3 points to interpolate
-        new_seq = Sequence(sequence, runtimes_baseline, runtimes_sart)
+        new_seq = Sequence(sequence, domain, runtimes_baseline, runtimes_sart)
         evaluated_sequences[j].append(new_seq)
         sequences_by_id[new_seq.seq_id] = new_seq
         
@@ -471,14 +498,35 @@ try:
                 all_options_solved.append(solved)
                 all_options_trivial.append(trivial)
 
+        # Check all pairs of sequences. If they have an instance in common, forbid selecting both
+        for seq1, seq2 in itertools.combinations(sequences, 2):
+            intersection = seq1.intersection(seq2)
+            if intersection:
+                logging.info(f"Non-empty intersection between sequences {seq1.seq_id} and {seq2.seq_id}" )
+                # We must forbid choosing more than one element in both sequences
+                v1 = seq1.get_vars_per_option()
+                v2 = seq2.get_vars_per_option()
+                if len(intersection) > 1:
+                    cp_vars = v1 + v2
+                else:
+                    i1, i2 = intersection[0]
+                    cp_vars = v1[:i1+1] + v2[:i2+1]
+
+                print (cp_vars)
+
+                cplex_problem.linear_constraints.add(lin_expr=[[cp_vars, [1 for v in cp_vars]]], senses=["L"], rhs=[1])
+                    
+            
+
     print (all_options_cplex_vars)
 
     cplex_problem.linear_constraints.add(lin_expr=[[all_options_cplex_vars, all_options_instances]], senses=["E"], rhs=[30])
-    cplex_problem.linear_constraints.add(lin_expr=[[all_options_cplex_vars, all_options_solved]], senses=["G"], rhs=[10])
+    cplex_problem.linear_constraints.add(lin_expr=[[all_options_cplex_vars, all_options_solved]], senses=["G"], rhs=[8])
     cplex_problem.linear_constraints.add(lin_expr=[[all_options_cplex_vars, all_options_solved]], senses=["L"], rhs=[15])
     cplex_problem.linear_constraints.add(lin_expr=[[all_options_cplex_vars, all_options_trivial]], senses=["G"], rhs=[2])
     cplex_problem.linear_constraints.add(lin_expr=[[all_options_cplex_vars, all_options_trivial]], senses=["L"], rhs=[6])
 
+    logging.info ("CPLEX solve") 
     cplex_problem.solve()
 except CplexError as exc:
     print(exc)
@@ -495,6 +543,8 @@ print("Solution value  = ", cplex_problem.solution.get_objective_value())
     
 x = cplex_problem.solution.get_values()
 
+final_selection = []
+
 for sequences in evaluated_sequences:
     for seq in sequences:
         for name, idt in seq.get_cplex_var_index().items():
@@ -504,4 +554,28 @@ for sequences in evaluated_sequences:
                 seq_id, i = map(int, name.split("-")[1:])
                 
                 print(sequences_by_id[seq_id].get_runtimes(i))
+                print(sequences_by_id[seq_id].config)
                 
+                
+
+
+if ARGS.output:                 
+    i = 1
+    seed = 2019
+    for task in config.get_configs(DOMAINS[domain], ARGS.tasks):
+        if ARGS.printY:
+            print (task)
+            continue
+
+        task["seed"] = seed
+        seed += 1
+        command = shlex.split(generator_command.format(**task))
+
+        problem_file = f"{ARGS.output}/{domain}/p{i:02d}.pddl"
+        i += 1
+        if "tmp.pddl" in generator_command:
+            subprocess.run(command, check=True)
+            shutil.move("tmp.pddl", problem_file)
+        else:
+            with open(problem_file, "w") as f:
+                subprocess.run(command, stdout=f, check=True)
