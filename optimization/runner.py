@@ -144,6 +144,7 @@ class Runner:
                 for image in self.planners:
                     image_path = os.path.abspath(os.path.join(self.images_dir, image))
                     if not os.path.exists(image_path):
+                        return None
                         sys.exit(f"Error, image does not exist: {image_path}")
 
                     self.logging.debug(f"Run image {image} at {image_path} with time limit of {time_limit}")
