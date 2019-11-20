@@ -243,8 +243,8 @@ else:
         "storage": ["lapkt-dual-bfws.img", "lapkt-bfws-pref.img"], # 18, 16, next: mpc with 15
         "termes": ["lama-first.img"],
         "tetris": ["lapkt-bfws-pref.img", "lapkt-dual-bfws.img"], # 10, 9
-        "transport" : ["lapkt-dual-bfws.img", "saarplan-dec-fallback.img"], # 23/9/5, 6/7/13 (for sat08/11/14), next: lapkt-bfws-pref with 22/8/4
         "tpp": ["mpc.img", "lama-first.img"], # 19, 18
+        "transport" : ["lapkt-dual-bfws.img", "saarplan-dec-fallback.img"], # 23/9/5, 6/7/13 (for sat08/11/14), next: lapkt-bfws-pref with 22/8/4
         "trucks": ["mpc.img"],
         "visitall": ["lapkt-dual-bfws.img", "lapkt-bfws-pref.img"], # 15/12, 15/11 (for sat11/sat14)
         "woodworking": ["mpc.img"],
