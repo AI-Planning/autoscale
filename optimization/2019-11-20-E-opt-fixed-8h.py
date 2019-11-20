@@ -71,6 +71,7 @@ for domain in DOMAINS:
              + ["opt", domain] + OPTIONS,
             time_limit=RUN_TIME_LIMIT,
             memory_limit=RUN_MEMORY_LIMIT,
+            soft_stdout_limit=5 * 1024,
             hard_stdout_limit=50 * 1024)
         domain_setting = f"{domain}"
         problem = f"seed-{seed}"
