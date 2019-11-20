@@ -52,7 +52,7 @@ def parse_average_runtimes(content, props):
     baseline_average_runtimes = []
     sart_average_runtimes = []
     for line in content.splitlines():
-        if "Validator time:" in line or "Validator peak memory:" in line:
+        if "Validator time:" in line or "Validator peak memory:" in line or not line.strip():
             continue
         match = re.match(r".*Average runtime for y=(.+): (.+)", line)
         if match:
