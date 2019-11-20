@@ -1,6 +1,7 @@
 #! /usr/bin/env python3
 
 import argparse
+import ast
 import json
 
 from collections import defaultdict
@@ -23,14 +24,14 @@ with open(ARGS.database) as f:
 
 with open(ARGS.properties_file) as f:
     props = json.load(f)
-    for run in props.values():
-        domain = run["domain"]
-        print(domain)
-        database[domain]["baseline_average_runtimes:"].extend(run["baseline_average_runtimes"])
-        database[domain]["sart_average_runtimes"].extend(run["sart_average_runtimes"])
+    #for run in props.values():
+    #    domain = run["domain"]
+    #    print(domain)
+    #    database[domain]["baseline_average_runtimes:"].extend(run["baseline_average_runtimes"])
+    #    database[domain]["sart_average_runtimes"].extend(run["sart_average_runtimes"])
 
     for run in props.values():
-        domain = domain.replace("-baseline-and-sart", "")
+        domain = run["domain"]
         for seq in run.get("sequences", []):
             database[domain]["sequences"].append(ast.literal_eval(seq))
         database[domain]["baseline_average_runtimes:"].extend(run["baseline_average_runtimes"])
