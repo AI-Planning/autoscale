@@ -27,7 +27,8 @@ class Runner:
     # (i.e., we may safely assume that larger values
     # imply larger runtimes).  Linear parameters are important because we will use them to
     # avoid running planners on very large values that are estimated to be unsolvable.
-    def __init__(self, domain, planners, planner_time_limit, random_seed, images_dir, runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT):
+    def __init__(self, name, domain, planners, planner_time_limit, random_seed, images_dir, runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT):
+        self.name = name
         # We have three types of caches
         self.exact_cache = {}  # Cache the exact runtime so that the same configuration is never run twice
         # Caches configurations that can be solved under the time limit, any harder configuration will take longer (only useful for the quicker tests that run the planner less time)
@@ -206,7 +207,7 @@ class Runner:
         else:
             result = None
 
-        self.logging.info(f"Average runtime for y={parameters}: {result}")
+        self.logging.info(f"Average {self.name} runtime for y={parameters}: {result}")
         if result or time_limit == self.planner_time_limit:
             self.exact_cache[cache_key] = result
             self.frontier_cache[non_linear_key].append(
