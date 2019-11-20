@@ -54,6 +54,8 @@ pip install lab==4.2
 """
 
 import argparse
+from collections import defaultdict
+import itertools
 import logging
 import os
 import os.path
@@ -67,12 +69,12 @@ import warnings
 import math
 import subprocess
 import json
-import cplex
-from cplex.exceptions import CplexError
 
-import itertools
-
-from collections import defaultdict
+try:
+    import cplex
+    from cplex.exceptions import CplexError
+except ImportError:
+    cplex = None
 
 from domain_configuration import DOMAINS_SAT, DOMAINS_OPT
 from domain_configuration import LinearAtr, GridAtr
@@ -155,7 +157,6 @@ def parse_args():
 
     parser.add_argument(
         "--no-cplex",  action="store_true",
-        help="Directory where to store the output"
     )
 
     return parser.parse_args()
