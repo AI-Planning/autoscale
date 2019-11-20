@@ -385,6 +385,8 @@ def adapt_parameters_storage(parameters):
     crates, hoists, store_areas, depots = parameters["crates"], parameters["hoists"], parameters["store_areas"], parameters["depots"]
 
 
+    depots = min(depots, 36)
+    parameters["depots"] = depots
     parameters["store_areas"] = store_areas + max(depots, hoists, crates)
     parameters["containers"] = math.ceil(crates/4)
 
