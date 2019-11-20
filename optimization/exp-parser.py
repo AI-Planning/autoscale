@@ -49,8 +49,8 @@ def error(content, props):
 def parse_average_runtimes(content, props):
     reading_sart = False
     first_baseline_config = None
-    baseline_average_runtimes = []
-    sart_average_runtimes = []
+    baseline_average_runtimes = props.get("baseline_average_runtimes", [])
+    sart_average_runtimes = props.get("sart_average_runtimes", [])
     for line in content.splitlines():
         if "Validator time:" in line or "Validator peak memory:" in line or not line.strip():
             continue
@@ -76,6 +76,25 @@ def parse_average_runtimes(content, props):
     props["baseline_average_runtimes"] = baseline_average_runtimes
     props["sart_average_runtimes"] = sart_average_runtimes
 
+def parse_additional_average_runtimes(content, props):
+    baseline_average_runtimes = props.get("baseline_average_runtimes", [])
+    sart_average_runtimes = props.get("sart_average_runtimes", [])
+    for line in content.splitlines():
+        if "Validator time:" in line or "Validator peak memory:" in line or not line.strip():
+            continue
+        match = re.match(r".*Average (sart|baseline) runtime for y=(.+): (.+)", line)
+        if match:
+            name, config_string, value_string = match.group(1), match.group(2), match.group(3)
+            parameters = ast.literal_eval(config_string)
+            runtime = ast.literal_eval(value_string)
+
+            if name == "sart":
+                sart_average_runtimes.append((parameters, runtime))
+            else:
+                baseline_average_runtimes.append((parameters, runtime))
+    props["baseline_average_runtimes"] = baseline_average_runtimes
+    props["sart_average_runtimes"] = sart_average_runtimes
+
 
 parser = CommonParser()
 parser.add_pattern(
@@ -93,5 +112,6 @@ parser.add_bottom_up_pattern('final_baseline_runtimes', r'Final baseline runtime
 parser.add_bottom_up_pattern('final_sart_runtimes', r'Final sart runtimes: (.*)\n', type=str)
 parser.add_function(error)
 parser.add_function(parse_average_runtimes)
+parser.add_function(parse_additional_average_runtimes)
 
 parser.parse()
