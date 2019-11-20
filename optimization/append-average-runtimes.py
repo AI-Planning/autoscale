@@ -29,5 +29,12 @@ with open(ARGS.properties_file) as f:
         database[domain]["baseline_average_runtimes:"].extend(run["baseline_average_runtimes"])
         database[domain]["sart_average_runtimes"].extend(run["sart_average_runtimes"])
 
+    for run in props.values():
+        domain = domain.replace("-baseline-and-sart", "")
+        for seq in run.get("sequences", []):
+            database[domain]["sequences"].append(ast.literal_eval(seq))
+        database[domain]["baseline_average_runtimes:"].extend(run["baseline_average_runtimes"])
+        database[domain]["sart_average_runtimes"].extend(run["sart_average_runtimes"])
+
 with open(ARGS.database, "w") as f:
     json.dump(database, f, sort_keys=True, indent=2)
