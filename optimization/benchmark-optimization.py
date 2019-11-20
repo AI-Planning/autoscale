@@ -320,8 +320,6 @@ class Sequence:
         self.trivial_instances = len([t for t in runtimes_baseline if t < 30])
         self.solved_instances = len(runtimes_sart)
 
-
-
         if self.solved_instances < 30:
             # Continue the sequence to know how many instances will be added
             self.sorted_runtimes = sorted(runtimes_sart)
@@ -424,7 +422,7 @@ f = open(ARGS.database)
 content = json.loads(f.read())
 
 if "baseline_average_runtimes:" in content[ARGS.domain]:
-    logging.info (f"Loading cache data for baseline planners: {len(content[ARGS.domain]['baseline_average_runtimes:'])}" )
+    logging.info (f"Loading cache data for baseline planners: {len(content[ARGS.domain]['baseline_average_runtimes:'])}")
     RUNNER_BASELINE.load_cache_from_log_file(content[ARGS.domain]["baseline_average_runtimes:"])
 
 if "sart_average_runtimes" in content[ARGS.domain]:
@@ -444,7 +442,7 @@ domain = DOMAINS[ARGS.domain]
 candidate_sequences= []
 
 K_PER_CATEGORY = 30
-MINIMUM_QUALITY = 15
+MINIMUM_QUALITY = 1000000000
 if domain.has_enum_parameter():
     # Option #1: We have an enum parameter. In this case, we may select a sequence for each
     # value, with a given starting point, and a number of instances. We do a second
@@ -512,12 +510,17 @@ for i in range (K_PER_CATEGORY):
 
 #Remove sequences that use baseline if there are any of them, and not all of them are like that
 using_baseline = [seq.use_baseline_instead_of_sart  for sequences in evaluated_sequences for seq in sequences]
+
+if len(using_baseline) == 0:
+    print ("Error: no valid sequences")
+    exit(0)
+    
 if any (using_baseline) and not all (using_baseline):
     # Right now printing and error because I don't think this will ever happen
-    logging.info("Error: some sequences use the state of the art and some the baseline runtimes.")
-    exit(0)
+    logging.info("Warning: some sequences use the state of the art and some the baseline runtimes: {} {}".format(using_baseline.count(True), using_baseline.count(False) ))
 
-
+    evaluated_sequences = [[seq for seq in sequences if not seq.use_baseline_instead_of_sart]  for sequences in evaluated_sequences]
+    evaluated_sequences = [sequences  for sequences in evaluated_sequences if len(sequences) > 0]
 
 
 if ARGS.no_cplex:
