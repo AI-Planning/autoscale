@@ -108,7 +108,7 @@ def parse_args():
         "--log-file",
         default=os.path.join(REPO, "pddl-generators"),
         help="path to directory containing the generators")
-    
+
     parser.add_argument(
         "--images_dir",
         default=os.path.join(REPO, "images"),
@@ -264,7 +264,7 @@ if ARGS.track == 'opt':
 else:
     DOMAINS = DOMAINS_SAT
 
-        
+
 print("{} domains available: {}".format(len(DOMAINS), sorted(DOMAINS)))
 
 for domain in DOMAINS:
@@ -681,6 +681,7 @@ scenario = Scenario(
         # time limit for evaluate_cfg (we cut off planner runs ourselves)
         "cutoff": None,
         "output_dir": SMAC_OUTPUT_DIR,
+        "acq_opt_challengers": 1000,
     }
 )
 

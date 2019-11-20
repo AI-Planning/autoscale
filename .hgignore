@@ -12,6 +12,7 @@ images$
 ^pddl-generators/blocksworld/matching/2pddl-untyped$
 ^pddl-generators/briefcaseworld/briefcaseworld$
 ^pddl-generators/depots/depots$
+^pddl-generators/driverlog/dlgen$
 ^pddl-generators/elevators/generate_data$
 ^pddl-generators/elevators/generate_pddl$
 ^pddl-generators/ferry/ferry$
