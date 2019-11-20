@@ -431,7 +431,7 @@ if "sart_average_runtimes" in content[ARGS.domain]:
 
 
 STORED_VALID_SEQUENCES = content[ARGS.domain]["sequences"]
-
+    
 
 domain = DOMAINS[ARGS.domain]
 
@@ -442,7 +442,7 @@ domain = DOMAINS[ARGS.domain]
 candidate_sequences= []
 
 K_PER_CATEGORY = 30
-MINIMUM_QUALITY = 1000000000
+MINIMUM_QUALITY = 20
 if domain.has_enum_parameter():
     # Option #1: We have an enum parameter. In this case, we may select a sequence for each
     # value, with a given starting point, and a number of instances. We do a second
@@ -458,10 +458,10 @@ if domain.has_enum_parameter():
 
     already_selected = set()
 
-    # print (enum_parameters)
+    print (enum_parameters)
     for enum_parameter in enum_parameters:
         for value in enum_parameter.get_values():
-            valid_sequences = [seq for seq in STORED_VALID_SEQUENCES if seq['config'][enum_parameter.name] == value if seq['penalty'] < 15 and not seq['unique_id'] in already_selected]
+            valid_sequences = [seq for seq in STORED_VALID_SEQUENCES if seq['config'][enum_parameter.name] == value if seq['penalty'] < MINIMUM_QUALITY and not seq['unique_id'] in already_selected]
             bestK = sorted(valid_sequences, key=lambda x : x['penalty'])[:K_PER_CATEGORY]
 
             if len(enum_parameters) > 1:
@@ -470,14 +470,14 @@ if domain.has_enum_parameter():
             candidate_sequences.append(bestK)
 
 else:
-    valid_sequences = [v for v in STORED_VALID_SEQUENCES if v['penalty'] < 15]
+
+    valid_sequences = [v for v in STORED_VALID_SEQUENCES if v['penalty'] < MINIMUM_QUALITY]
     bestK = sorted(valid_sequences, key=lambda x : x['penalty'])[:K_PER_CATEGORY]
     candidate_sequences.append(bestK)
 
 
 logging.info("Candidate sequences: {}".format([len(x) for x in candidate_sequences]))
 logging.debug(f"Candidate sequences: {candidate_sequences}")
-
 
 sequences_by_id = {}
 evaluated_sequences = [[] for c in candidate_sequences]
@@ -663,7 +663,7 @@ if ARGS.output:
     i = 1
     seed = 2019
     generator_command = domain.generator_command(GENERATORS_DIR)
-    os.mkdir (f"{ARGS.output}/{ARGS.domain}")
+    # os.mkdir (f"{ARGS.output}/{ARGS.domain}")
     for task in final_selection:
         task["seed"] = seed
         seed += 1
@@ -671,6 +671,9 @@ if ARGS.output:
 
         problem_file = f"{ARGS.output}/{ARGS.domain}/p{i:02d}.pddl"
         i += 1
+
+        print (generator_command.format(**task) + "> {}".format(problem_file))
+        continue 
         if "tmp.pddl" in generator_command:
             subprocess.run(command, check=True)
             shutil.move("tmp.pddl", problem_file)
