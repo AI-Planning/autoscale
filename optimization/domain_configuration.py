@@ -503,7 +503,7 @@ DOMAIN_LIST_OPT = [
 
     Domain("childsnack",
            "child-snack-generator.py pool {seed} {num_children} {num_trays} {gluten_factor} {const_ratio}",
-           [LinearAtr("num_children", lower_b=3, upper_b=10, lower_m=1, upper_m=5),
+           [LinearAtr("num_children", lower_b=2, upper_b=5, lower_m=1, upper_m=2),
             EnumAtr("const_ratio", [1, 1.3, 2]),
             EnumAtr("num_trays", [2,3,4]),
             EnumAtr("gluten_factor", [0.4, 0.6, 0.8])]
