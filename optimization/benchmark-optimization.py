@@ -4,7 +4,7 @@
 #     # 1) At most 10-15 instances solved by state of the art planner (under the 3m time limit).
 #     # 2) The fewer sequences selected the better => Avoids problems of redundant difficulty
 #     # 3) We need to have 30 instances. Each sequence will estimate the continuation and avoid generating instances that are extremely hard
-#     # 4) Sequences must finish -> they must go beyond the capabilities of the state of the art planners. 
+#     # 4) Sequences must finish -> they must go beyond the capabilities of the state of the art planners.
 #     used_enum_parameters = set()
 
 #     solved_instances = 0
@@ -15,7 +15,7 @@
 #         # The first sequence must start at position 0
 #         config1 = cfg.get("config{}".format(i))
 #         start = 0
-            
+
 #         remaining_instances -= len(sorted_runtimes)
 
 #     penalty = i #Reduce number of sequences whenever possible
@@ -25,8 +25,8 @@
 #         penalty += 100*(solved_instances-15)**2
 #     if trivial_instances > 5:
 #         penalty += 100*(trivial_instances-5)**2
-        
-    
+
+
 #     return penalty
 
 
@@ -124,19 +124,19 @@ def parse_args():
         default=0,
         help="Initial random seed for SMAC and our internal random seeds (default: %(default)d)",
     )
-    
+
     parser.add_argument(
         "--generators-dir",
         default=os.path.join(REPO, "pddl-generators"),
         help="path to directory containing the generators")
-    
+
     parser.add_argument(
         "--images_dir",
         default=os.path.join(REPO, "images"),
         help="path to directory containing the Singularity images to run")
-    
+
     parser.add_argument("domain", help="Domain name")
-    
+
     parser.add_argument(
         "--smac_output_dir",
         default="smac",
@@ -307,15 +307,15 @@ class InstanceSet:
 SEQ_ID = 1
 class Sequence:
     def __init__(self, sequence, domain, runtimes_baseline, rumtimes_sart):
-        global SEQ_ID 
+        global SEQ_ID
         self.seq_id = SEQ_ID
         SEQ_ID += 1
         self.config = sequence['config']
         self.penalty = sequence['penalty']
 
         self.runtimes_baseline = runtimes_baseline
-        self.runtimes_sart = runtimes_sart        
-        
+        self.runtimes_sart = runtimes_sart
+
         self.trivial_instances = len([t for t in runtimes_baseline if t < 30])
         self.solved_instances = len(runtimes_sart)
 
@@ -329,13 +329,13 @@ class Sequence:
             self.solved_instances = len(runtimes_baseline)
             self.sorted_runtimes = sorted(runtimes_baseline)
             self.use_baseline_instead_of_sart = True
-            
+
         first_index = 0
         while first_index < len(self.sorted_runtimes) - 2 and self.sorted_runtimes[first_index] < 10:
             first_index += 1
 
         factors = [self.sorted_runtimes[i]/self.sorted_runtimes[i-1] for i in range (first_index, len(self.sorted_runtimes))]
-        average_factor = float(sum(factors))/float(len(factors))       
+        average_factor = float(sum(factors))/float(len(factors))
 
         # Ensure that the runtime of unsolved instances is above the time limit
         if self.sorted_runtimes[-1]*average_factor < PLANNER_TIME_LIMIT:
@@ -348,10 +348,10 @@ class Sequence:
         # We may start up until the point where the state of the art takes 300 seconds
         self.latest_start = next(i for i,v in enumerate(self.sorted_runtimes) if v > 300) if self.sorted_runtimes[-1] > 300 else len(self.sorted_runtimes)
         # We may stop right after the state of the art
-        self.earliest_end = max(next(i for i,v in enumerate(self.sorted_runtimes) if v > 2000) if self.sorted_runtimes[-1] > 2000 else len(self.sorted_runtimes), self.latest_start + 1)       
+        self.earliest_end = max(next(i for i,v in enumerate(self.sorted_runtimes) if v > 2000) if self.sorted_runtimes[-1] > 2000 else len(self.sorted_runtimes), self.latest_start + 1)
         self.latest_end = len(self.sorted_runtimes)
 
-        parameters_of_instances = domain.get_configs(self.config, len(self.sorted_runtimes)) 
+        parameters_of_instances = domain.get_configs(self.config, len(self.sorted_runtimes))
         assert len (parameters_of_instances) ==1
         self.parameters_of_instances = parameters_of_instances[0]
 
@@ -360,15 +360,15 @@ class Sequence:
 
     # def get_extra_instances(self, n):
     #     return self.parameters_of_instances[self.num_instances:self.num_instances+n]
-        
+
 
     def intersection (self, other):
         result = []
         for c in self.parameters_of_instances:
             if c in other.parameters_of_instances:
-                result.append((self.parameters_of_instances.index(c), other.parameters_of_instances.index(c))) 
+                result.append((self.parameters_of_instances.index(c), other.parameters_of_instances.index(c)))
         return result
-        
+
 
     def add_cplex_variables(self, cplex_problem):
         t = cplex_problem.variables.type
@@ -377,8 +377,8 @@ class Sequence:
         var_types = [t.binary for v in self.start_var_names]
         objective_values = [self.penalty for v in self.start_var_names] # Add penalty for including this sequence
         self.start_var_index = {self.start_var_names[i] : index for i, index in enumerate(cplex_problem.variables.add(obj=objective_values,types=var_types,names=self.start_var_names))}
-       
-        
+
+
         self.end_var_names = ["end-{}-{}".format(self.seq_id, i) for i in range (self.earliest_end, self.latest_end)]
         var_types = [t.binary for v in self.end_var_names]
 
@@ -389,12 +389,12 @@ class Sequence:
                 return 100*(18000/time)
             else:
                 return 0
-        
-        objective_values = [penalty_termination(self.sorted_runtimes[t]) for t in range(self.earliest_end, self.latest_end)] # Add penalty for terminating sequence at the wrong point
-        
-        self.end_var_index = {self.end_var_names[i] : index for i, index in enumerate(cplex_problem.variables.add(obj=objective_values,types=var_types,names=self.end_var_names))}        
 
-        
+        objective_values = [penalty_termination(self.sorted_runtimes[t]) for t in range(self.earliest_end, self.latest_end)] # Add penalty for terminating sequence at the wrong point
+
+        self.end_var_index = {self.end_var_names[i] : index for i, index in enumerate(cplex_problem.variables.add(obj=objective_values,types=var_types,names=self.end_var_names))}
+
+
         return [CPLEXConstraint(cplex_problem, [ind for i, ind in self.start_var_index.items()], [1 for i in self.start_var_index],"L", 1),
                 CPLEXConstraint(cplex_problem, [ind for i, ind in self.start_var_index.items()] + [ind for i, ind in self.end_var_index.items()],
                                 [1 for i in self.start_var_index] + [-1 for i in self.end_var_index],"E", 0)
@@ -411,21 +411,21 @@ class Sequence:
 
     def get_start_vars_per_option(self):
         return [self.start_var_index["seq-{}-{}".format(self.seq_id, i)] for i in range (self.latest_start)]
-        
+
     def get_runtimes(self, i, endi):
         return self.sorted_runtimes[i:]
 
 RUNNER_BASELINE = Runner("baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
 
 RUNNER_SART = Runner("sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, ARGS.domain), PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
-    
+
 f = open(ARGS.database)
 content = json.loads(f.read())
 
 if "baseline_average_runtimes:" in content[ARGS.domain]:
     logging.info (f"Loading cache data for baseline planners: {len(content[ARGS.domain]['baseline_average_runtimes:'])}" )
     RUNNER_BASELINE.load_cache_from_log_file(content[ARGS.domain]["baseline_average_runtimes:"])
-    
+
 if "sart_average_runtimes" in content[ARGS.domain]:
     logging.info (f"Loading cache data for sart planners: {len(content[ARGS.domain]['sart_average_runtimes'])}" )
     RUNNER_SART.load_cache_from_log_file(content[ARGS.domain]["sart_average_runtimes"])
@@ -458,7 +458,7 @@ if domain.has_enum_parameter():
             valid_sequences = [seq for seq in STORED_VALID_SEQUENCES if seq['config'][enum_parameter.name] == value if seq['penalty'] < 15]
             bestK = sorted(valid_sequences, key=lambda x : x['penalty'])[:K_PER_CATEGORY]
             candidate_sequences.append(bestK)
-            
+
 else:
     valid_sequences = [v for v in STORED_VALID_SEQUENCES if v['penalty'] < 15]
     bestK = sorted(valid_sequences, key=lambda x : x['penalty'])[:K_PER_CATEGORY]
@@ -479,14 +479,14 @@ for i in range (K_PER_CATEGORY):
         sequence = candidate_sequences[j][i]
 
         logging.info(f"Evaluate sequence with penalty {sequence['penalty']}")
-        
+
         Y = domain.get_configs(sequence['config'], 40)
         logging.info("Configurations in sequence {}".format(Y))
-        
+
         baseline_eval = InstanceSet(Y, RUNNER_BASELINE)
-        runtimes_baseline = baseline_eval.get_runtimes(40, 0, PLANNER_TIME_LIMIT)        
+        runtimes_baseline = baseline_eval.get_runtimes(40, 0, PLANNER_TIME_LIMIT)
         logging.info(f"Baseline runtimes {runtimes_baseline}")
-        
+
         sart_eval = InstanceSet(Y, RUNNER_SART)
         runtimes_sart = sart_eval.get_runtimes(40, 0, PLANNER_TIME_LIMIT)
         logging.info(f"Sart runtimes {runtimes_sart}")
@@ -504,9 +504,9 @@ if any (using_baseline) and not all (using_baseline):
     # Right now printing and error because I don't think this will ever happen
     logging.info("Error: some sequences use the state of the art and some the baseline runtimes.")
     exit(0)
-    
-    
-        
+
+
+
 
 if ARGS.no_cplex:
     exit(0)
@@ -518,21 +518,21 @@ class CPLEXConstraint:
         self.variables = variables
         self.coeficients = coeficients
         self.sense = sense
-        self.rhs = rhs        
+        self.rhs = rhs
 
         self.penalty_vars = None
 
         if penalties:
             self.penalty_vars = cplex_problem.variables.add (obj=[p[1] for p in penalties], types=[cplex_problem.variables.type.binary for p in penalties])
-                
+
             self.variables = list(self.variables) + list(self.penalty_vars)
             self.coeficients = list(self.coeficients) + [p[0] for p in penalties]
-            
 
-            
+
+
     def apply(self):
         self.cplex_problem.linear_constraints.add(lin_expr=[[self.variables, self.coeficients]], senses=[self.sense], rhs=[self.rhs])
-        if self.penalty_vars: 
+        if self.penalty_vars:
             self.cplex_problem.linear_constraints.add(lin_expr=[[self.penalty_vars, [1 for p in self.penalty_vars]]], senses=["L"], rhs=[1])
 
 
@@ -573,20 +573,20 @@ try:
                 # We must forbid choosing more than one element in both sequences
                 v1 = seq1.get_start_vars_per_option()
                 v2 = seq2.get_start_vars_per_option()
-                
+
                 intersection_penalty_variable = cplex_problem.variables.add (obj=[PENALTY_INTERSECTION], types=[cplex_problem.variables.type.binary])[0]
-                    
+
                 i1 = max(map(lambda x : x[0], intersection))
                 i2 = max(map(lambda x : x[1], intersection))
-                cp_vars = v1[:i1+1] + v2[:i2+1] 
-                
+                cp_vars = v1[:i1+1] + v2[:i2+1]
+
                 constraint_list.append(CPLEXConstraint(cplex_problem, cp_vars + [intersection_penalty_variable], [1 for v in cp_vars] + [-1], "L", 1))
                 intersection_penalty_variables.append(intersection_penalty_variable)
 
-    if intersection_penalty_variables: 
+    if intersection_penalty_variables:
         constraint_list.append(CPLEXConstraint(cplex_problem, intersection_penalty_variables, [1 for v in intersection_penalty_variables], "L", 1))
 
-    constraint_list += [CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_instances, "E", 30), 
+    constraint_list += [CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_instances, "E", 30),
                         CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_solved, "G", 8, penalties=[(x, 2*x**2) for x in range(1, 20)]),
                         CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_solved, "L", 15, penalties=[(-x, 2*x**2) for x in range(1, 16)]),
                         CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_trivial, "G", 2, penalties=[(1, 2)]),
@@ -595,14 +595,14 @@ try:
     for c in constraint_list:
         c.apply()
 
-    
-    logging.info ("CPLEX solve") 
+
+    logging.info ("CPLEX solve")
     cplex_problem.solve()
 except CplexError as exc:
     print(exc)
     exit(0)
 
-    
+
 
 print()
 # solution.get_status() returns an integer code
@@ -610,7 +610,7 @@ print("Solution status = ", cplex_problem.solution.get_status(), ":", end=' ')
 # the following line prints the corresponding string
 print(cplex_problem.solution.status[cplex_problem.solution.get_status()])
 print("Solution value  = ", cplex_problem.solution.get_objective_value())
-    
+
 x = cplex_problem.solution.get_values()
 
 final_selection = []
@@ -620,13 +620,13 @@ for sequences in evaluated_sequences:
         for name, idt in seq.get_cplex_start_index().items():
             if x [idt] == 1:
                 for nameend, idtend in seq.get_cplex_end_index().items():
-                    if x [idtend] == 1:                    
+                    if x [idtend] == 1:
 
-                
+
                         seq_id, i = map(int, name.split("-")[1:])
                         seq_id, endi = map(int, nameend.split("-")[1:])
-                        
-                        logging.info (f"Selected: sequence {seq_id}, {endi-i} instances from {i} to {endi}: {sequences_by_id[seq_id].get_runtimes(i, endi)}")                
+
+                        logging.info (f"Selected: sequence {seq_id}, {endi-i} instances from {i} to {endi}: {sequences_by_id[seq_id].get_runtimes(i, endi)}")
                         final_selection += sequences_by_id[seq_id].get_instances(i, endi)
 
 
@@ -635,16 +635,16 @@ for sequences in evaluated_sequences:
 #     num_extra_problems = [total_extra_problems//len(final_sequences) for f in final_sequences]
 #     for i in range(total_extra_problems%len(final_sequences)):
 #         num_extra_problems[i]+=1
-        
 
-#     for i, n in enumerate(num_extra_problems): 
+
+#     for i, n in enumerate(num_extra_problems):
 #         final_selection += final_sequences[i].get_extra_instances(n)
 
 # else:
 #     final_selection = final_selection[:30]
 print(final_selection)
 
-if ARGS.output:                 
+if ARGS.output:
     i = 1
     seed = 2019
     generator_command = domain.generator_command(GENERATORS_DIR)
