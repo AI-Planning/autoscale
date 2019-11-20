@@ -369,7 +369,11 @@ class Domain:
         return len(self.get_enum_parameters()) > 0
 
 
+def adapt_parameters_floortile(parameters):
+    parameters ["num_robots"] = min(parameters ["num_robots"], parameters ["num_columns"])
+    return parameters
 
+    
 def adapt_parameters_parking(parameters):
     curbs = parameters["curbs"]
     cars = 2*(curbs -1) + int(parameters["cars_diff"])
@@ -516,7 +520,7 @@ DOMAIN_LIST_OPT = [
            "floortile-generator.py name {num_rows} {num_columns} {num_robots} seq {seed}",
            [GridAtr("grid", "num_columns", "num_rows", lower_x=2, upper_x=3),
             EnumAtr("num_robots", [2, 3, 4])
-           ]
+           ], adapt_f=adapt_parameters_floortile
     ),
 
     Domain("storage",
@@ -723,7 +727,7 @@ DOMAIN_LIST_SAT = [
            "floortile-generator.py name {num_rows} {num_columns} {num_robots} seq {seed}",
            [GridAtr("grid", "num_columns", "num_rows", lower_x=5, upper_x=10),
             EnumAtr("num_robots", [2, 3, 4, 5])
-           ]
+           ], adapt_f=adapt_parameters_floortile
     ),
 
     Domain("storage",
