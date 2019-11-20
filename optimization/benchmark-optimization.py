@@ -451,13 +451,24 @@ if domain.has_enum_parameter():
     # optimization, considering the first 10 good sequences per enum parameter.
 
     enum_parameters = domain.get_enum_parameters()
-    assert(len(enum_parameters) == 1) #TODO make the following code more general to accept more than one parameter here.
+    #assert(len(enum_parameters) == 1) #TODO make the following code more general to accept more than one parameter here.
+
+    i = 0
+    for seq in STORED_VALID_SEQUENCES:
+        seq['unique_id'] = i
+        i += 1
+
+    already_selected = set()
 
     # print (enum_parameters)
     for enum_parameter in enum_parameters:
         for value in enum_parameter.get_values():
-            valid_sequences = [seq for seq in STORED_VALID_SEQUENCES if seq['config'][enum_parameter.name] == value if seq['penalty'] < 15]
+            valid_sequences = [seq for seq in STORED_VALID_SEQUENCES if seq['config'][enum_parameter.name] == value if seq['penalty'] < 15 and not seq['unique_id'] in already_selected]
             bestK = sorted(valid_sequences, key=lambda x : x['penalty'])[:K_PER_CATEGORY]
+
+            if len(enum_parameters) > 1:
+                for seq in bestK:
+                    already_selected.add(seq['unique_id'])
             candidate_sequences.append(bestK)
 
 else:
