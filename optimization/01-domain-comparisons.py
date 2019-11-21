@@ -7,7 +7,7 @@ from lab.reports import Report, Table
 
 from project import DOMAIN_RENAMINGS
 
-from results.coverage_scores import OPT_OLD, OPT_NEW
+from results.coverage_scores_opt import OPT_OLD_DOMAIN_SIZES, OPT_OLD, OPT_NEW
 
 names = ["opt_old", "opt_new"]
 
@@ -38,7 +38,7 @@ for name in names:
 
 
 table = Table(title="comparison", min_wins=None)
-#table.set_column_order(names)
+table.set_column_order(["old size", "opt_old-unique", "opt_new-unique", "opt_old-only", "opt_new-only"])
 for name in names:
     different_coverage_scores = defaultdict(set)
     for domain, algo, coverage in sets[name]:
@@ -54,9 +54,10 @@ for name1, name2 in itertools.combinations(names, 2):
 
     #table = Table(title=f"{name1} vs. {name2}", min_wins=False)
     outcomes = [f"{name1}", f"{name2}"]
-    table.set_column_order(outcomes)
+    #table.set_column_order(outcomes)
 
     for domain in domains:
+        table.add_cell(domain, "old size", OPT_OLD_DOMAIN_SIZES[domain])
         result = {outcome: 0 for outcome in outcomes}
         for planner1, planner2 in itertools.permutations(planners, 2):
             coverage11 = dicts[name1][domain][planner1]

@@ -1,3 +1,27 @@
+OPT_OLD_DOMAIN_SIZES = {
+    "barman": 34,
+    "blocksworld": 35,
+    "childsnack": 20,
+    "depot": 22,
+    "driverlog": 20,
+    "floortile": 40,
+    "gripper": 20,
+    "hiking": 20,
+    "miconic-strips": 150,
+    "nomystery": 20,
+    "parking": 40,
+    "rovers": 40,
+    "satellite": 36,
+    "snake": 20,
+    "storage": 30,
+    "tpp": 30,
+    "transport": 70,
+    "trucks": 60,
+    "visitall": 40,
+    "woodworking": 50,
+    "zenotravel": 20
+}
+
 OPT_OLD = [
 ("barman", "bjolp", 4),
 ("barman", "blind", 4),

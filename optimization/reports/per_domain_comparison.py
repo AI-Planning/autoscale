@@ -67,6 +67,12 @@ class PerDomainComparison(PlanningReport):
             print(f"{domain}: {unique_coverage_scores}")
         print()
 
+        import json
+        domain_sizes = {}
+        for domain, problems in sorted(self.domains.items()):
+            domain_sizes[domain] = len(problems)
+        print(json.dumps(domain_sizes, sort_keys=True, indent=4))
+
         comparison_table = Table()
         comparison_table.set_row_order(algorithms)
         comparison_table.set_column_order(algorithms + ["Coverage"])
