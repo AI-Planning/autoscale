@@ -22,8 +22,10 @@ for name in names:
     sets[name] = new_set
 
     new_domains = sorted({domain for domain, _, _ in sanitized})
-    assert domains is None or domains == new_domains
-    domains = new_domains
+    if domains is None:
+        domains = set(new_domains)
+    else:
+        domains &= set(new_domains)
 
     new_planners = sorted({planner for _, planner, _ in sanitized})
     assert planners is None or planners == new_planners
@@ -34,7 +36,6 @@ for name in names:
         dic[domain][algo] = coverage
     dicts[name] = dic
 
-assert len({len(s) for s in sets.values()}) == 1
 
 table = Table(title="comparison", min_wins=None)
 #table.set_column_order(names)
