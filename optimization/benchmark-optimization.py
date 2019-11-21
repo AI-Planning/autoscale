@@ -393,11 +393,12 @@ class Sequence:
 
         self.end_var_index = {self.end_var_names[i] : index for i, index in enumerate(cplex_problem.variables.add(obj=objective_values,types=var_types,names=self.end_var_names))}
 
+        print ([i for i, ind in self.start_var_index.items()] + [i for i, ind in self.end_var_index.items()], [1 for i in self.start_var_index] + [-1 for i in self.end_var_index], "E", 0)
 
         return [CPLEXConstraint(cplex_problem, [ind for i, ind in self.start_var_index.items()], [1 for i in self.start_var_index],"L", 1),
-                CPLEXConstraint(cplex_problem, [ind for i, ind in self.start_var_index.items()] + [ind for i, ind in self.end_var_index.items()],
-                                [1 for i in self.start_var_index] + [-1 for i in self.end_var_index],"E", 0),
                 CPLEXConstraint(cplex_problem, [ind for i, ind in self.end_var_index.items()], [1 for i in self.end_var_index],"L", 1),
+                CPLEXConstraint(cplex_problem, [i for i, ind in self.start_var_index.items()] + [i for i, ind in self.end_var_index.items()], [1 for i in self.start_var_index] + [-1 for i in self.end_var_index], "E", 0),
+
                 ]
 
     def get_cplex_start_index(self):
@@ -630,24 +631,26 @@ print("Solution value  = ", cplex_problem.solution.get_objective_value())
 
 x = cplex_problem.solution.get_values()
 
+print (x) 
 final_selection = []
 # final_sequences = []
 for sequences in evaluated_sequences:
     for seq in sequences:
         for name, idt in seq.get_cplex_start_index().items():
-            if x [idt] == 1:
+            if x [idt] > 0.9:
+                print ("START: ", name, idt)                
                 for nameend, idtend in seq.get_cplex_end_index().items():
-                    if x [idtend] == 1:
+                    if x [idtend] > 0.9 :
                         seq_id, i = map(int, name.split("-")[1:])
                         seq_id, endi = map(int, nameend.split("-")[1:])
 
                         logging.info (f"Selected: sequence {seq_id}, {endi-i} instances from {i} to {endi}: {sequences_by_id[seq_id].get_runtimes(i, endi)}")
                         final_selection += sequences_by_id[seq_id].get_instances(i, endi)
 
-
+            
         for name, idt in seq.get_cplex_end_index().items():
-            if x [idt] == 1:
-                print ("END: ", idt)
+            if x [idt] > 0.9:
+                print ("END: ", name, idt)
 
                         
 
