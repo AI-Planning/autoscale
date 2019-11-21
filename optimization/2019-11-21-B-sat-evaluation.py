@@ -120,7 +120,7 @@ renamings = [
     ("lapkt_dual_bfws", "bfws-dual"),
     ("mpc", "mpc"),
     ("saarplan_dec_fallback", "dec"),
-    ("saarplan_grey", "grey"),
+    #("saarplan_grey", "grey"),
 ]
 renaming_filter, order = project.get_filters_for_renaming_and_ordering_algorithms(renamings)
 exp.add_report(
