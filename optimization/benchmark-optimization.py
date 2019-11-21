@@ -396,7 +396,8 @@ class Sequence:
 
         return [CPLEXConstraint(cplex_problem, [ind for i, ind in self.start_var_index.items()], [1 for i in self.start_var_index],"L", 1),
                 CPLEXConstraint(cplex_problem, [ind for i, ind in self.start_var_index.items()] + [ind for i, ind in self.end_var_index.items()],
-                                [1 for i in self.start_var_index] + [-1 for i in self.end_var_index],"E", 0)
+                                [1 for i in self.start_var_index] + [-1 for i in self.end_var_index],"E", 0),
+                CPLEXConstraint(cplex_problem, [ind for i, ind in self.end_var_index.items()], [1 for i in self.end_var_index],"L", 1),
                 ]
 
     def get_cplex_start_index(self):
@@ -406,6 +407,7 @@ class Sequence:
         return self.end_var_index
 
     def get_info_per_option(self):
+        print ( [("seq-{}-{}".format(self.seq_id, i), self.earliest_end-i, max(0, self.solved_instances - i), max(0, self.trivial_instances - i))  for i in range (self.latest_start)] + [("end-{}-{}".format(self.seq_id, i), i - self.earliest_end, 0, 0)  for i in range (self.earliest_end, self.latest_end)])
         return [(self.start_var_index["seq-{}-{}".format(self.seq_id, i)], self.earliest_end-i, max(0, self.solved_instances - i), max(0, self.trivial_instances - i))  for i in range (self.latest_start)] + [(self.end_var_index["end-{}-{}".format(self.seq_id, i)], i - self.earliest_end, 0, 0)  for i in range (self.earliest_end, self.latest_end)]
 
     def get_start_vars_per_option(self):
@@ -636,14 +638,18 @@ for sequences in evaluated_sequences:
             if x [idt] == 1:
                 for nameend, idtend in seq.get_cplex_end_index().items():
                     if x [idtend] == 1:
-
-
                         seq_id, i = map(int, name.split("-")[1:])
                         seq_id, endi = map(int, nameend.split("-")[1:])
 
                         logging.info (f"Selected: sequence {seq_id}, {endi-i} instances from {i} to {endi}: {sequences_by_id[seq_id].get_runtimes(i, endi)}")
                         final_selection += sequences_by_id[seq_id].get_instances(i, endi)
 
+
+        for name, idt in seq.get_cplex_end_index().items():
+            if x [idt] == 1:
+                print ("END: ", idt)
+
+                        
 
 # if len(final_selection) < 30:
 #     total_extra_problems = 30 - len(final_selection)
@@ -672,8 +678,8 @@ if ARGS.output:
         problem_file = f"{ARGS.output}/{ARGS.domain}/p{i:02d}.pddl"
         i += 1
 
-        print (generator_command.format(**task) + "> {}".format(problem_file))
-        continue 
+        # print (generator_command.format(**task) + "> {}".format(problem_file))
+        # continue 
         if "tmp.pddl" in generator_command:
             subprocess.run(command, check=True)
             shutil.move("tmp.pddl", problem_file)

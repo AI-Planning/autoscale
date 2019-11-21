@@ -1,7 +1,7 @@
 
 
 
-(define (problem mixed-f191-p196-u0-v0-d0-a0-n0-A0-B0-N0-F0)
+(define (problem mixed-f194-p174-u0-v0-d0-a0-n0-A0-B0-N0-F0)
    (:domain miconic)
    (:objects p0 p1 p2 p3 p4 p5 p6 p7 p8 p9 
              p10 p11 p12 p13 p14 p15 p16 p17 p18 p19 
@@ -20,9 +20,7 @@
              p140 p141 p142 p143 p144 p145 p146 p147 p148 p149 
              p150 p151 p152 p153 p154 p155 p156 p157 p158 p159 
              p160 p161 p162 p163 p164 p165 p166 p167 p168 p169 
-             p170 p171 p172 p173 p174 p175 p176 p177 p178 p179 
-             p180 p181 p182 p183 p184 p185 p186 p187 p188 p189 
-             p190 p191 p192 p193 p194 p195 - passenger
+             p170 p171 p172 p173 - passenger
              f0 f1 f2 f3 f4 f5 f6 f7 f8 f9 
              f10 f11 f12 f13 f14 f15 f16 f17 f18 f19 
              f20 f21 f22 f23 f24 f25 f26 f27 f28 f29 
@@ -42,7 +40,7 @@
              f160 f161 f162 f163 f164 f165 f166 f167 f168 f169 
              f170 f171 f172 f173 f174 f175 f176 f177 f178 f179 
              f180 f181 f182 f183 f184 f185 f186 f187 f188 f189 
-             f190 - floor)
+             f190 f191 f192 f193 - floor)
 
 
 (:init
@@ -236,6 +234,9 @@
 (above f0 f188)
 (above f0 f189)
 (above f0 f190)
+(above f0 f191)
+(above f0 f192)
+(above f0 f193)
 
 (above f1 f2)
 (above f1 f3)
@@ -426,6 +427,9 @@
 (above f1 f188)
 (above f1 f189)
 (above f1 f190)
+(above f1 f191)
+(above f1 f192)
+(above f1 f193)
 
 (above f2 f3)
 (above f2 f4)
@@ -615,6 +619,9 @@
 (above f2 f188)
 (above f2 f189)
 (above f2 f190)
+(above f2 f191)
+(above f2 f192)
+(above f2 f193)
 
 (above f3 f4)
 (above f3 f5)
@@ -803,6 +810,9 @@
 (above f3 f188)
 (above f3 f189)
 (above f3 f190)
+(above f3 f191)
+(above f3 f192)
+(above f3 f193)
 
 (above f4 f5)
 (above f4 f6)
@@ -990,6 +1000,9 @@
 (above f4 f188)
 (above f4 f189)
 (above f4 f190)
+(above f4 f191)
+(above f4 f192)
+(above f4 f193)
 
 (above f5 f6)
 (above f5 f7)
@@ -1176,6 +1189,9 @@
 (above f5 f188)
 (above f5 f189)
 (above f5 f190)
+(above f5 f191)
+(above f5 f192)
+(above f5 f193)
 
 (above f6 f7)
 (above f6 f8)
@@ -1361,6 +1377,9 @@
 (above f6 f188)
 (above f6 f189)
 (above f6 f190)
+(above f6 f191)
+(above f6 f192)
+(above f6 f193)
 
 (above f7 f8)
 (above f7 f9)
@@ -1545,6 +1564,9 @@
 (above f7 f188)
 (above f7 f189)
 (above f7 f190)
+(above f7 f191)
+(above f7 f192)
+(above f7 f193)
 
 (above f8 f9)
 (above f8 f10)
@@ -1728,6 +1750,9 @@
 (above f8 f188)
 (above f8 f189)
 (above f8 f190)
+(above f8 f191)
+(above f8 f192)
+(above f8 f193)
 
 (above f9 f10)
 (above f9 f11)
@@ -1910,6 +1935,9 @@
 (above f9 f188)
 (above f9 f189)
 (above f9 f190)
+(above f9 f191)
+(above f9 f192)
+(above f9 f193)
 
 (above f10 f11)
 (above f10 f12)
@@ -2091,6 +2119,9 @@
 (above f10 f188)
 (above f10 f189)
 (above f10 f190)
+(above f10 f191)
+(above f10 f192)
+(above f10 f193)
 
 (above f11 f12)
 (above f11 f13)
@@ -2271,6 +2302,9 @@
 (above f11 f188)
 (above f11 f189)
 (above f11 f190)
+(above f11 f191)
+(above f11 f192)
+(above f11 f193)
 
 (above f12 f13)
 (above f12 f14)
@@ -2450,6 +2484,9 @@
 (above f12 f188)
 (above f12 f189)
 (above f12 f190)
+(above f12 f191)
+(above f12 f192)
+(above f12 f193)
 
 (above f13 f14)
 (above f13 f15)
@@ -2628,6 +2665,9 @@
 (above f13 f188)
 (above f13 f189)
 (above f13 f190)
+(above f13 f191)
+(above f13 f192)
+(above f13 f193)
 
 (above f14 f15)
 (above f14 f16)
@@ -2805,6 +2845,9 @@
 (above f14 f188)
 (above f14 f189)
 (above f14 f190)
+(above f14 f191)
+(above f14 f192)
+(above f14 f193)
 
 (above f15 f16)
 (above f15 f17)
@@ -2981,6 +3024,9 @@
 (above f15 f188)
 (above f15 f189)
 (above f15 f190)
+(above f15 f191)
+(above f15 f192)
+(above f15 f193)
 
 (above f16 f17)
 (above f16 f18)
@@ -3156,6 +3202,9 @@
 (above f16 f188)
 (above f16 f189)
 (above f16 f190)
+(above f16 f191)
+(above f16 f192)
+(above f16 f193)
 
 (above f17 f18)
 (above f17 f19)
@@ -3330,6 +3379,9 @@
 (above f17 f188)
 (above f17 f189)
 (above f17 f190)
+(above f17 f191)
+(above f17 f192)
+(above f17 f193)
 
 (above f18 f19)
 (above f18 f20)
@@ -3503,6 +3555,9 @@
 (above f18 f188)
 (above f18 f189)
 (above f18 f190)
+(above f18 f191)
+(above f18 f192)
+(above f18 f193)
 
 (above f19 f20)
 (above f19 f21)
@@ -3675,6 +3730,9 @@
 (above f19 f188)
 (above f19 f189)
 (above f19 f190)
+(above f19 f191)
+(above f19 f192)
+(above f19 f193)
 
 (above f20 f21)
 (above f20 f22)
@@ -3846,6 +3904,9 @@
 (above f20 f188)
 (above f20 f189)
 (above f20 f190)
+(above f20 f191)
+(above f20 f192)
+(above f20 f193)
 
 (above f21 f22)
 (above f21 f23)
@@ -4016,6 +4077,9 @@
 (above f21 f188)
 (above f21 f189)
 (above f21 f190)
+(above f21 f191)
+(above f21 f192)
+(above f21 f193)
 
 (above f22 f23)
 (above f22 f24)
@@ -4185,6 +4249,9 @@
 (above f22 f188)
 (above f22 f189)
 (above f22 f190)
+(above f22 f191)
+(above f22 f192)
+(above f22 f193)
 
 (above f23 f24)
 (above f23 f25)
@@ -4353,6 +4420,9 @@
 (above f23 f188)
 (above f23 f189)
 (above f23 f190)
+(above f23 f191)
+(above f23 f192)
+(above f23 f193)
 
 (above f24 f25)
 (above f24 f26)
@@ -4520,6 +4590,9 @@
 (above f24 f188)
 (above f24 f189)
 (above f24 f190)
+(above f24 f191)
+(above f24 f192)
+(above f24 f193)
 
 (above f25 f26)
 (above f25 f27)
@@ -4686,6 +4759,9 @@
 (above f25 f188)
 (above f25 f189)
 (above f25 f190)
+(above f25 f191)
+(above f25 f192)
+(above f25 f193)
 
 (above f26 f27)
 (above f26 f28)
@@ -4851,6 +4927,9 @@
 (above f26 f188)
 (above f26 f189)
 (above f26 f190)
+(above f26 f191)
+(above f26 f192)
+(above f26 f193)
 
 (above f27 f28)
 (above f27 f29)
@@ -5015,6 +5094,9 @@
 (above f27 f188)
 (above f27 f189)
 (above f27 f190)
+(above f27 f191)
+(above f27 f192)
+(above f27 f193)
 
 (above f28 f29)
 (above f28 f30)
@@ -5178,6 +5260,9 @@
 (above f28 f188)
 (above f28 f189)
 (above f28 f190)
+(above f28 f191)
+(above f28 f192)
+(above f28 f193)
 
 (above f29 f30)
 (above f29 f31)
@@ -5340,6 +5425,9 @@
 (above f29 f188)
 (above f29 f189)
 (above f29 f190)
+(above f29 f191)
+(above f29 f192)
+(above f29 f193)
 
 (above f30 f31)
 (above f30 f32)
@@ -5501,6 +5589,9 @@
 (above f30 f188)
 (above f30 f189)
 (above f30 f190)
+(above f30 f191)
+(above f30 f192)
+(above f30 f193)
 
 (above f31 f32)
 (above f31 f33)
@@ -5661,6 +5752,9 @@
 (above f31 f188)
 (above f31 f189)
 (above f31 f190)
+(above f31 f191)
+(above f31 f192)
+(above f31 f193)
 
 (above f32 f33)
 (above f32 f34)
@@ -5820,6 +5914,9 @@
 (above f32 f188)
 (above f32 f189)
 (above f32 f190)
+(above f32 f191)
+(above f32 f192)
+(above f32 f193)
 
 (above f33 f34)
 (above f33 f35)
@@ -5978,6 +6075,9 @@
 (above f33 f188)
 (above f33 f189)
 (above f33 f190)
+(above f33 f191)
+(above f33 f192)
+(above f33 f193)
 
 (above f34 f35)
 (above f34 f36)
@@ -6135,6 +6235,9 @@
 (above f34 f188)
 (above f34 f189)
 (above f34 f190)
+(above f34 f191)
+(above f34 f192)
+(above f34 f193)
 
 (above f35 f36)
 (above f35 f37)
@@ -6291,6 +6394,9 @@
 (above f35 f188)
 (above f35 f189)
 (above f35 f190)
+(above f35 f191)
+(above f35 f192)
+(above f35 f193)
 
 (above f36 f37)
 (above f36 f38)
@@ -6446,6 +6552,9 @@
 (above f36 f188)
 (above f36 f189)
 (above f36 f190)
+(above f36 f191)
+(above f36 f192)
+(above f36 f193)
 
 (above f37 f38)
 (above f37 f39)
@@ -6600,6 +6709,9 @@
 (above f37 f188)
 (above f37 f189)
 (above f37 f190)
+(above f37 f191)
+(above f37 f192)
+(above f37 f193)
 
 (above f38 f39)
 (above f38 f40)
@@ -6753,6 +6865,9 @@
 (above f38 f188)
 (above f38 f189)
 (above f38 f190)
+(above f38 f191)
+(above f38 f192)
+(above f38 f193)
 
 (above f39 f40)
 (above f39 f41)
@@ -6905,6 +7020,9 @@
 (above f39 f188)
 (above f39 f189)
 (above f39 f190)
+(above f39 f191)
+(above f39 f192)
+(above f39 f193)
 
 (above f40 f41)
 (above f40 f42)
@@ -7056,6 +7174,9 @@
 (above f40 f188)
 (above f40 f189)
 (above f40 f190)
+(above f40 f191)
+(above f40 f192)
+(above f40 f193)
 
 (above f41 f42)
 (above f41 f43)
@@ -7206,6 +7327,9 @@
 (above f41 f188)
 (above f41 f189)
 (above f41 f190)
+(above f41 f191)
+(above f41 f192)
+(above f41 f193)
 
 (above f42 f43)
 (above f42 f44)
@@ -7355,6 +7479,9 @@
 (above f42 f188)
 (above f42 f189)
 (above f42 f190)
+(above f42 f191)
+(above f42 f192)
+(above f42 f193)
 
 (above f43 f44)
 (above f43 f45)
@@ -7503,6 +7630,9 @@
 (above f43 f188)
 (above f43 f189)
 (above f43 f190)
+(above f43 f191)
+(above f43 f192)
+(above f43 f193)
 
 (above f44 f45)
 (above f44 f46)
@@ -7650,6 +7780,9 @@
 (above f44 f188)
 (above f44 f189)
 (above f44 f190)
+(above f44 f191)
+(above f44 f192)
+(above f44 f193)
 
 (above f45 f46)
 (above f45 f47)
@@ -7796,6 +7929,9 @@
 (above f45 f188)
 (above f45 f189)
 (above f45 f190)
+(above f45 f191)
+(above f45 f192)
+(above f45 f193)
 
 (above f46 f47)
 (above f46 f48)
@@ -7941,6 +8077,9 @@
 (above f46 f188)
 (above f46 f189)
 (above f46 f190)
+(above f46 f191)
+(above f46 f192)
+(above f46 f193)
 
 (above f47 f48)
 (above f47 f49)
@@ -8085,6 +8224,9 @@
 (above f47 f188)
 (above f47 f189)
 (above f47 f190)
+(above f47 f191)
+(above f47 f192)
+(above f47 f193)
 
 (above f48 f49)
 (above f48 f50)
@@ -8228,6 +8370,9 @@
 (above f48 f188)
 (above f48 f189)
 (above f48 f190)
+(above f48 f191)
+(above f48 f192)
+(above f48 f193)
 
 (above f49 f50)
 (above f49 f51)
@@ -8370,6 +8515,9 @@
 (above f49 f188)
 (above f49 f189)
 (above f49 f190)
+(above f49 f191)
+(above f49 f192)
+(above f49 f193)
 
 (above f50 f51)
 (above f50 f52)
@@ -8511,6 +8659,9 @@
 (above f50 f188)
 (above f50 f189)
 (above f50 f190)
+(above f50 f191)
+(above f50 f192)
+(above f50 f193)
 
 (above f51 f52)
 (above f51 f53)
@@ -8651,6 +8802,9 @@
 (above f51 f188)
 (above f51 f189)
 (above f51 f190)
+(above f51 f191)
+(above f51 f192)
+(above f51 f193)
 
 (above f52 f53)
 (above f52 f54)
@@ -8790,6 +8944,9 @@
 (above f52 f188)
 (above f52 f189)
 (above f52 f190)
+(above f52 f191)
+(above f52 f192)
+(above f52 f193)
 
 (above f53 f54)
 (above f53 f55)
@@ -8928,6 +9085,9 @@
 (above f53 f188)
 (above f53 f189)
 (above f53 f190)
+(above f53 f191)
+(above f53 f192)
+(above f53 f193)
 
 (above f54 f55)
 (above f54 f56)
@@ -9065,6 +9225,9 @@
 (above f54 f188)
 (above f54 f189)
 (above f54 f190)
+(above f54 f191)
+(above f54 f192)
+(above f54 f193)
 
 (above f55 f56)
 (above f55 f57)
@@ -9201,6 +9364,9 @@
 (above f55 f188)
 (above f55 f189)
 (above f55 f190)
+(above f55 f191)
+(above f55 f192)
+(above f55 f193)
 
 (above f56 f57)
 (above f56 f58)
@@ -9336,6 +9502,9 @@
 (above f56 f188)
 (above f56 f189)
 (above f56 f190)
+(above f56 f191)
+(above f56 f192)
+(above f56 f193)
 
 (above f57 f58)
 (above f57 f59)
@@ -9470,6 +9639,9 @@
 (above f57 f188)
 (above f57 f189)
 (above f57 f190)
+(above f57 f191)
+(above f57 f192)
+(above f57 f193)
 
 (above f58 f59)
 (above f58 f60)
@@ -9603,6 +9775,9 @@
 (above f58 f188)
 (above f58 f189)
 (above f58 f190)
+(above f58 f191)
+(above f58 f192)
+(above f58 f193)
 
 (above f59 f60)
 (above f59 f61)
@@ -9735,6 +9910,9 @@
 (above f59 f188)
 (above f59 f189)
 (above f59 f190)
+(above f59 f191)
+(above f59 f192)
+(above f59 f193)
 
 (above f60 f61)
 (above f60 f62)
@@ -9866,6 +10044,9 @@
 (above f60 f188)
 (above f60 f189)
 (above f60 f190)
+(above f60 f191)
+(above f60 f192)
+(above f60 f193)
 
 (above f61 f62)
 (above f61 f63)
@@ -9996,6 +10177,9 @@
 (above f61 f188)
 (above f61 f189)
 (above f61 f190)
+(above f61 f191)
+(above f61 f192)
+(above f61 f193)
 
 (above f62 f63)
 (above f62 f64)
@@ -10125,6 +10309,9 @@
 (above f62 f188)
 (above f62 f189)
 (above f62 f190)
+(above f62 f191)
+(above f62 f192)
+(above f62 f193)
 
 (above f63 f64)
 (above f63 f65)
@@ -10253,6 +10440,9 @@
 (above f63 f188)
 (above f63 f189)
 (above f63 f190)
+(above f63 f191)
+(above f63 f192)
+(above f63 f193)
 
 (above f64 f65)
 (above f64 f66)
@@ -10380,6 +10570,9 @@
 (above f64 f188)
 (above f64 f189)
 (above f64 f190)
+(above f64 f191)
+(above f64 f192)
+(above f64 f193)
 
 (above f65 f66)
 (above f65 f67)
@@ -10506,6 +10699,9 @@
 (above f65 f188)
 (above f65 f189)
 (above f65 f190)
+(above f65 f191)
+(above f65 f192)
+(above f65 f193)
 
 (above f66 f67)
 (above f66 f68)
@@ -10631,6 +10827,9 @@
 (above f66 f188)
 (above f66 f189)
 (above f66 f190)
+(above f66 f191)
+(above f66 f192)
+(above f66 f193)
 
 (above f67 f68)
 (above f67 f69)
@@ -10755,6 +10954,9 @@
 (above f67 f188)
 (above f67 f189)
 (above f67 f190)
+(above f67 f191)
+(above f67 f192)
+(above f67 f193)
 
 (above f68 f69)
 (above f68 f70)
@@ -10878,6 +11080,9 @@
 (above f68 f188)
 (above f68 f189)
 (above f68 f190)
+(above f68 f191)
+(above f68 f192)
+(above f68 f193)
 
 (above f69 f70)
 (above f69 f71)
@@ -11000,6 +11205,9 @@
 (above f69 f188)
 (above f69 f189)
 (above f69 f190)
+(above f69 f191)
+(above f69 f192)
+(above f69 f193)
 
 (above f70 f71)
 (above f70 f72)
@@ -11121,6 +11329,9 @@
 (above f70 f188)
 (above f70 f189)
 (above f70 f190)
+(above f70 f191)
+(above f70 f192)
+(above f70 f193)
 
 (above f71 f72)
 (above f71 f73)
@@ -11241,6 +11452,9 @@
 (above f71 f188)
 (above f71 f189)
 (above f71 f190)
+(above f71 f191)
+(above f71 f192)
+(above f71 f193)
 
 (above f72 f73)
 (above f72 f74)
@@ -11360,6 +11574,9 @@
 (above f72 f188)
 (above f72 f189)
 (above f72 f190)
+(above f72 f191)
+(above f72 f192)
+(above f72 f193)
 
 (above f73 f74)
 (above f73 f75)
@@ -11478,6 +11695,9 @@
 (above f73 f188)
 (above f73 f189)
 (above f73 f190)
+(above f73 f191)
+(above f73 f192)
+(above f73 f193)
 
 (above f74 f75)
 (above f74 f76)
@@ -11595,6 +11815,9 @@
 (above f74 f188)
 (above f74 f189)
 (above f74 f190)
+(above f74 f191)
+(above f74 f192)
+(above f74 f193)
 
 (above f75 f76)
 (above f75 f77)
@@ -11711,6 +11934,9 @@
 (above f75 f188)
 (above f75 f189)
 (above f75 f190)
+(above f75 f191)
+(above f75 f192)
+(above f75 f193)
 
 (above f76 f77)
 (above f76 f78)
@@ -11826,6 +12052,9 @@
 (above f76 f188)
 (above f76 f189)
 (above f76 f190)
+(above f76 f191)
+(above f76 f192)
+(above f76 f193)
 
 (above f77 f78)
 (above f77 f79)
@@ -11940,6 +12169,9 @@
 (above f77 f188)
 (above f77 f189)
 (above f77 f190)
+(above f77 f191)
+(above f77 f192)
+(above f77 f193)
 
 (above f78 f79)
 (above f78 f80)
@@ -12053,6 +12285,9 @@
 (above f78 f188)
 (above f78 f189)
 (above f78 f190)
+(above f78 f191)
+(above f78 f192)
+(above f78 f193)
 
 (above f79 f80)
 (above f79 f81)
@@ -12165,6 +12400,9 @@
 (above f79 f188)
 (above f79 f189)
 (above f79 f190)
+(above f79 f191)
+(above f79 f192)
+(above f79 f193)
 
 (above f80 f81)
 (above f80 f82)
@@ -12276,6 +12514,9 @@
 (above f80 f188)
 (above f80 f189)
 (above f80 f190)
+(above f80 f191)
+(above f80 f192)
+(above f80 f193)
 
 (above f81 f82)
 (above f81 f83)
@@ -12386,6 +12627,9 @@
 (above f81 f188)
 (above f81 f189)
 (above f81 f190)
+(above f81 f191)
+(above f81 f192)
+(above f81 f193)
 
 (above f82 f83)
 (above f82 f84)
@@ -12495,6 +12739,9 @@
 (above f82 f188)
 (above f82 f189)
 (above f82 f190)
+(above f82 f191)
+(above f82 f192)
+(above f82 f193)
 
 (above f83 f84)
 (above f83 f85)
@@ -12603,6 +12850,9 @@
 (above f83 f188)
 (above f83 f189)
 (above f83 f190)
+(above f83 f191)
+(above f83 f192)
+(above f83 f193)
 
 (above f84 f85)
 (above f84 f86)
@@ -12710,6 +12960,9 @@
 (above f84 f188)
 (above f84 f189)
 (above f84 f190)
+(above f84 f191)
+(above f84 f192)
+(above f84 f193)
 
 (above f85 f86)
 (above f85 f87)
@@ -12816,6 +13069,9 @@
 (above f85 f188)
 (above f85 f189)
 (above f85 f190)
+(above f85 f191)
+(above f85 f192)
+(above f85 f193)
 
 (above f86 f87)
 (above f86 f88)
@@ -12921,6 +13177,9 @@
 (above f86 f188)
 (above f86 f189)
 (above f86 f190)
+(above f86 f191)
+(above f86 f192)
+(above f86 f193)
 
 (above f87 f88)
 (above f87 f89)
@@ -13025,6 +13284,9 @@
 (above f87 f188)
 (above f87 f189)
 (above f87 f190)
+(above f87 f191)
+(above f87 f192)
+(above f87 f193)
 
 (above f88 f89)
 (above f88 f90)
@@ -13128,6 +13390,9 @@
 (above f88 f188)
 (above f88 f189)
 (above f88 f190)
+(above f88 f191)
+(above f88 f192)
+(above f88 f193)
 
 (above f89 f90)
 (above f89 f91)
@@ -13230,6 +13495,9 @@
 (above f89 f188)
 (above f89 f189)
 (above f89 f190)
+(above f89 f191)
+(above f89 f192)
+(above f89 f193)
 
 (above f90 f91)
 (above f90 f92)
@@ -13331,6 +13599,9 @@
 (above f90 f188)
 (above f90 f189)
 (above f90 f190)
+(above f90 f191)
+(above f90 f192)
+(above f90 f193)
 
 (above f91 f92)
 (above f91 f93)
@@ -13431,6 +13702,9 @@
 (above f91 f188)
 (above f91 f189)
 (above f91 f190)
+(above f91 f191)
+(above f91 f192)
+(above f91 f193)
 
 (above f92 f93)
 (above f92 f94)
@@ -13530,6 +13804,9 @@
 (above f92 f188)
 (above f92 f189)
 (above f92 f190)
+(above f92 f191)
+(above f92 f192)
+(above f92 f193)
 
 (above f93 f94)
 (above f93 f95)
@@ -13628,6 +13905,9 @@
 (above f93 f188)
 (above f93 f189)
 (above f93 f190)
+(above f93 f191)
+(above f93 f192)
+(above f93 f193)
 
 (above f94 f95)
 (above f94 f96)
@@ -13725,6 +14005,9 @@
 (above f94 f188)
 (above f94 f189)
 (above f94 f190)
+(above f94 f191)
+(above f94 f192)
+(above f94 f193)
 
 (above f95 f96)
 (above f95 f97)
@@ -13821,6 +14104,9 @@
 (above f95 f188)
 (above f95 f189)
 (above f95 f190)
+(above f95 f191)
+(above f95 f192)
+(above f95 f193)
 
 (above f96 f97)
 (above f96 f98)
@@ -13916,6 +14202,9 @@
 (above f96 f188)
 (above f96 f189)
 (above f96 f190)
+(above f96 f191)
+(above f96 f192)
+(above f96 f193)
 
 (above f97 f98)
 (above f97 f99)
@@ -14010,6 +14299,9 @@
 (above f97 f188)
 (above f97 f189)
 (above f97 f190)
+(above f97 f191)
+(above f97 f192)
+(above f97 f193)
 
 (above f98 f99)
 (above f98 f100)
@@ -14103,6 +14395,9 @@
 (above f98 f188)
 (above f98 f189)
 (above f98 f190)
+(above f98 f191)
+(above f98 f192)
+(above f98 f193)
 
 (above f99 f100)
 (above f99 f101)
@@ -14195,6 +14490,9 @@
 (above f99 f188)
 (above f99 f189)
 (above f99 f190)
+(above f99 f191)
+(above f99 f192)
+(above f99 f193)
 
 (above f100 f101)
 (above f100 f102)
@@ -14286,6 +14584,9 @@
 (above f100 f188)
 (above f100 f189)
 (above f100 f190)
+(above f100 f191)
+(above f100 f192)
+(above f100 f193)
 
 (above f101 f102)
 (above f101 f103)
@@ -14376,6 +14677,9 @@
 (above f101 f188)
 (above f101 f189)
 (above f101 f190)
+(above f101 f191)
+(above f101 f192)
+(above f101 f193)
 
 (above f102 f103)
 (above f102 f104)
@@ -14465,6 +14769,9 @@
 (above f102 f188)
 (above f102 f189)
 (above f102 f190)
+(above f102 f191)
+(above f102 f192)
+(above f102 f193)
 
 (above f103 f104)
 (above f103 f105)
@@ -14553,6 +14860,9 @@
 (above f103 f188)
 (above f103 f189)
 (above f103 f190)
+(above f103 f191)
+(above f103 f192)
+(above f103 f193)
 
 (above f104 f105)
 (above f104 f106)
@@ -14640,6 +14950,9 @@
 (above f104 f188)
 (above f104 f189)
 (above f104 f190)
+(above f104 f191)
+(above f104 f192)
+(above f104 f193)
 
 (above f105 f106)
 (above f105 f107)
@@ -14726,6 +15039,9 @@
 (above f105 f188)
 (above f105 f189)
 (above f105 f190)
+(above f105 f191)
+(above f105 f192)
+(above f105 f193)
 
 (above f106 f107)
 (above f106 f108)
@@ -14811,6 +15127,9 @@
 (above f106 f188)
 (above f106 f189)
 (above f106 f190)
+(above f106 f191)
+(above f106 f192)
+(above f106 f193)
 
 (above f107 f108)
 (above f107 f109)
@@ -14895,6 +15214,9 @@
 (above f107 f188)
 (above f107 f189)
 (above f107 f190)
+(above f107 f191)
+(above f107 f192)
+(above f107 f193)
 
 (above f108 f109)
 (above f108 f110)
@@ -14978,6 +15300,9 @@
 (above f108 f188)
 (above f108 f189)
 (above f108 f190)
+(above f108 f191)
+(above f108 f192)
+(above f108 f193)
 
 (above f109 f110)
 (above f109 f111)
@@ -15060,6 +15385,9 @@
 (above f109 f188)
 (above f109 f189)
 (above f109 f190)
+(above f109 f191)
+(above f109 f192)
+(above f109 f193)
 
 (above f110 f111)
 (above f110 f112)
@@ -15141,6 +15469,9 @@
 (above f110 f188)
 (above f110 f189)
 (above f110 f190)
+(above f110 f191)
+(above f110 f192)
+(above f110 f193)
 
 (above f111 f112)
 (above f111 f113)
@@ -15221,6 +15552,9 @@
 (above f111 f188)
 (above f111 f189)
 (above f111 f190)
+(above f111 f191)
+(above f111 f192)
+(above f111 f193)
 
 (above f112 f113)
 (above f112 f114)
@@ -15300,6 +15634,9 @@
 (above f112 f188)
 (above f112 f189)
 (above f112 f190)
+(above f112 f191)
+(above f112 f192)
+(above f112 f193)
 
 (above f113 f114)
 (above f113 f115)
@@ -15378,6 +15715,9 @@
 (above f113 f188)
 (above f113 f189)
 (above f113 f190)
+(above f113 f191)
+(above f113 f192)
+(above f113 f193)
 
 (above f114 f115)
 (above f114 f116)
@@ -15455,6 +15795,9 @@
 (above f114 f188)
 (above f114 f189)
 (above f114 f190)
+(above f114 f191)
+(above f114 f192)
+(above f114 f193)
 
 (above f115 f116)
 (above f115 f117)
@@ -15531,6 +15874,9 @@
 (above f115 f188)
 (above f115 f189)
 (above f115 f190)
+(above f115 f191)
+(above f115 f192)
+(above f115 f193)
 
 (above f116 f117)
 (above f116 f118)
@@ -15606,6 +15952,9 @@
 (above f116 f188)
 (above f116 f189)
 (above f116 f190)
+(above f116 f191)
+(above f116 f192)
+(above f116 f193)
 
 (above f117 f118)
 (above f117 f119)
@@ -15680,6 +16029,9 @@
 (above f117 f188)
 (above f117 f189)
 (above f117 f190)
+(above f117 f191)
+(above f117 f192)
+(above f117 f193)
 
 (above f118 f119)
 (above f118 f120)
@@ -15753,6 +16105,9 @@
 (above f118 f188)
 (above f118 f189)
 (above f118 f190)
+(above f118 f191)
+(above f118 f192)
+(above f118 f193)
 
 (above f119 f120)
 (above f119 f121)
@@ -15825,6 +16180,9 @@
 (above f119 f188)
 (above f119 f189)
 (above f119 f190)
+(above f119 f191)
+(above f119 f192)
+(above f119 f193)
 
 (above f120 f121)
 (above f120 f122)
@@ -15896,6 +16254,9 @@
 (above f120 f188)
 (above f120 f189)
 (above f120 f190)
+(above f120 f191)
+(above f120 f192)
+(above f120 f193)
 
 (above f121 f122)
 (above f121 f123)
@@ -15966,6 +16327,9 @@
 (above f121 f188)
 (above f121 f189)
 (above f121 f190)
+(above f121 f191)
+(above f121 f192)
+(above f121 f193)
 
 (above f122 f123)
 (above f122 f124)
@@ -16035,6 +16399,9 @@
 (above f122 f188)
 (above f122 f189)
 (above f122 f190)
+(above f122 f191)
+(above f122 f192)
+(above f122 f193)
 
 (above f123 f124)
 (above f123 f125)
@@ -16103,6 +16470,9 @@
 (above f123 f188)
 (above f123 f189)
 (above f123 f190)
+(above f123 f191)
+(above f123 f192)
+(above f123 f193)
 
 (above f124 f125)
 (above f124 f126)
@@ -16170,6 +16540,9 @@
 (above f124 f188)
 (above f124 f189)
 (above f124 f190)
+(above f124 f191)
+(above f124 f192)
+(above f124 f193)
 
 (above f125 f126)
 (above f125 f127)
@@ -16236,6 +16609,9 @@
 (above f125 f188)
 (above f125 f189)
 (above f125 f190)
+(above f125 f191)
+(above f125 f192)
+(above f125 f193)
 
 (above f126 f127)
 (above f126 f128)
@@ -16301,6 +16677,9 @@
 (above f126 f188)
 (above f126 f189)
 (above f126 f190)
+(above f126 f191)
+(above f126 f192)
+(above f126 f193)
 
 (above f127 f128)
 (above f127 f129)
@@ -16365,6 +16744,9 @@
 (above f127 f188)
 (above f127 f189)
 (above f127 f190)
+(above f127 f191)
+(above f127 f192)
+(above f127 f193)
 
 (above f128 f129)
 (above f128 f130)
@@ -16428,6 +16810,9 @@
 (above f128 f188)
 (above f128 f189)
 (above f128 f190)
+(above f128 f191)
+(above f128 f192)
+(above f128 f193)
 
 (above f129 f130)
 (above f129 f131)
@@ -16490,6 +16875,9 @@
 (above f129 f188)
 (above f129 f189)
 (above f129 f190)
+(above f129 f191)
+(above f129 f192)
+(above f129 f193)
 
 (above f130 f131)
 (above f130 f132)
@@ -16551,6 +16939,9 @@
 (above f130 f188)
 (above f130 f189)
 (above f130 f190)
+(above f130 f191)
+(above f130 f192)
+(above f130 f193)
 
 (above f131 f132)
 (above f131 f133)
@@ -16611,6 +17002,9 @@
 (above f131 f188)
 (above f131 f189)
 (above f131 f190)
+(above f131 f191)
+(above f131 f192)
+(above f131 f193)
 
 (above f132 f133)
 (above f132 f134)
@@ -16670,6 +17064,9 @@
 (above f132 f188)
 (above f132 f189)
 (above f132 f190)
+(above f132 f191)
+(above f132 f192)
+(above f132 f193)
 
 (above f133 f134)
 (above f133 f135)
@@ -16728,6 +17125,9 @@
 (above f133 f188)
 (above f133 f189)
 (above f133 f190)
+(above f133 f191)
+(above f133 f192)
+(above f133 f193)
 
 (above f134 f135)
 (above f134 f136)
@@ -16785,6 +17185,9 @@
 (above f134 f188)
 (above f134 f189)
 (above f134 f190)
+(above f134 f191)
+(above f134 f192)
+(above f134 f193)
 
 (above f135 f136)
 (above f135 f137)
@@ -16841,6 +17244,9 @@
 (above f135 f188)
 (above f135 f189)
 (above f135 f190)
+(above f135 f191)
+(above f135 f192)
+(above f135 f193)
 
 (above f136 f137)
 (above f136 f138)
@@ -16896,6 +17302,9 @@
 (above f136 f188)
 (above f136 f189)
 (above f136 f190)
+(above f136 f191)
+(above f136 f192)
+(above f136 f193)
 
 (above f137 f138)
 (above f137 f139)
@@ -16950,6 +17359,9 @@
 (above f137 f188)
 (above f137 f189)
 (above f137 f190)
+(above f137 f191)
+(above f137 f192)
+(above f137 f193)
 
 (above f138 f139)
 (above f138 f140)
@@ -17003,6 +17415,9 @@
 (above f138 f188)
 (above f138 f189)
 (above f138 f190)
+(above f138 f191)
+(above f138 f192)
+(above f138 f193)
 
 (above f139 f140)
 (above f139 f141)
@@ -17055,6 +17470,9 @@
 (above f139 f188)
 (above f139 f189)
 (above f139 f190)
+(above f139 f191)
+(above f139 f192)
+(above f139 f193)
 
 (above f140 f141)
 (above f140 f142)
@@ -17106,6 +17524,9 @@
 (above f140 f188)
 (above f140 f189)
 (above f140 f190)
+(above f140 f191)
+(above f140 f192)
+(above f140 f193)
 
 (above f141 f142)
 (above f141 f143)
@@ -17156,6 +17577,9 @@
 (above f141 f188)
 (above f141 f189)
 (above f141 f190)
+(above f141 f191)
+(above f141 f192)
+(above f141 f193)
 
 (above f142 f143)
 (above f142 f144)
@@ -17205,6 +17629,9 @@
 (above f142 f188)
 (above f142 f189)
 (above f142 f190)
+(above f142 f191)
+(above f142 f192)
+(above f142 f193)
 
 (above f143 f144)
 (above f143 f145)
@@ -17253,6 +17680,9 @@
 (above f143 f188)
 (above f143 f189)
 (above f143 f190)
+(above f143 f191)
+(above f143 f192)
+(above f143 f193)
 
 (above f144 f145)
 (above f144 f146)
@@ -17300,6 +17730,9 @@
 (above f144 f188)
 (above f144 f189)
 (above f144 f190)
+(above f144 f191)
+(above f144 f192)
+(above f144 f193)
 
 (above f145 f146)
 (above f145 f147)
@@ -17346,6 +17779,9 @@
 (above f145 f188)
 (above f145 f189)
 (above f145 f190)
+(above f145 f191)
+(above f145 f192)
+(above f145 f193)
 
 (above f146 f147)
 (above f146 f148)
@@ -17391,6 +17827,9 @@
 (above f146 f188)
 (above f146 f189)
 (above f146 f190)
+(above f146 f191)
+(above f146 f192)
+(above f146 f193)
 
 (above f147 f148)
 (above f147 f149)
@@ -17435,6 +17874,9 @@
 (above f147 f188)
 (above f147 f189)
 (above f147 f190)
+(above f147 f191)
+(above f147 f192)
+(above f147 f193)
 
 (above f148 f149)
 (above f148 f150)
@@ -17478,6 +17920,9 @@
 (above f148 f188)
 (above f148 f189)
 (above f148 f190)
+(above f148 f191)
+(above f148 f192)
+(above f148 f193)
 
 (above f149 f150)
 (above f149 f151)
@@ -17520,6 +17965,9 @@
 (above f149 f188)
 (above f149 f189)
 (above f149 f190)
+(above f149 f191)
+(above f149 f192)
+(above f149 f193)
 
 (above f150 f151)
 (above f150 f152)
@@ -17561,6 +18009,9 @@
 (above f150 f188)
 (above f150 f189)
 (above f150 f190)
+(above f150 f191)
+(above f150 f192)
+(above f150 f193)
 
 (above f151 f152)
 (above f151 f153)
@@ -17601,6 +18052,9 @@
 (above f151 f188)
 (above f151 f189)
 (above f151 f190)
+(above f151 f191)
+(above f151 f192)
+(above f151 f193)
 
 (above f152 f153)
 (above f152 f154)
@@ -17640,6 +18094,9 @@
 (above f152 f188)
 (above f152 f189)
 (above f152 f190)
+(above f152 f191)
+(above f152 f192)
+(above f152 f193)
 
 (above f153 f154)
 (above f153 f155)
@@ -17678,6 +18135,9 @@
 (above f153 f188)
 (above f153 f189)
 (above f153 f190)
+(above f153 f191)
+(above f153 f192)
+(above f153 f193)
 
 (above f154 f155)
 (above f154 f156)
@@ -17715,6 +18175,9 @@
 (above f154 f188)
 (above f154 f189)
 (above f154 f190)
+(above f154 f191)
+(above f154 f192)
+(above f154 f193)
 
 (above f155 f156)
 (above f155 f157)
@@ -17751,6 +18214,9 @@
 (above f155 f188)
 (above f155 f189)
 (above f155 f190)
+(above f155 f191)
+(above f155 f192)
+(above f155 f193)
 
 (above f156 f157)
 (above f156 f158)
@@ -17786,6 +18252,9 @@
 (above f156 f188)
 (above f156 f189)
 (above f156 f190)
+(above f156 f191)
+(above f156 f192)
+(above f156 f193)
 
 (above f157 f158)
 (above f157 f159)
@@ -17820,6 +18289,9 @@
 (above f157 f188)
 (above f157 f189)
 (above f157 f190)
+(above f157 f191)
+(above f157 f192)
+(above f157 f193)
 
 (above f158 f159)
 (above f158 f160)
@@ -17853,6 +18325,9 @@
 (above f158 f188)
 (above f158 f189)
 (above f158 f190)
+(above f158 f191)
+(above f158 f192)
+(above f158 f193)
 
 (above f159 f160)
 (above f159 f161)
@@ -17885,6 +18360,9 @@
 (above f159 f188)
 (above f159 f189)
 (above f159 f190)
+(above f159 f191)
+(above f159 f192)
+(above f159 f193)
 
 (above f160 f161)
 (above f160 f162)
@@ -17916,6 +18394,9 @@
 (above f160 f188)
 (above f160 f189)
 (above f160 f190)
+(above f160 f191)
+(above f160 f192)
+(above f160 f193)
 
 (above f161 f162)
 (above f161 f163)
@@ -17946,6 +18427,9 @@
 (above f161 f188)
 (above f161 f189)
 (above f161 f190)
+(above f161 f191)
+(above f161 f192)
+(above f161 f193)
 
 (above f162 f163)
 (above f162 f164)
@@ -17975,6 +18459,9 @@
 (above f162 f188)
 (above f162 f189)
 (above f162 f190)
+(above f162 f191)
+(above f162 f192)
+(above f162 f193)
 
 (above f163 f164)
 (above f163 f165)
@@ -18003,6 +18490,9 @@
 (above f163 f188)
 (above f163 f189)
 (above f163 f190)
+(above f163 f191)
+(above f163 f192)
+(above f163 f193)
 
 (above f164 f165)
 (above f164 f166)
@@ -18030,6 +18520,9 @@
 (above f164 f188)
 (above f164 f189)
 (above f164 f190)
+(above f164 f191)
+(above f164 f192)
+(above f164 f193)
 
 (above f165 f166)
 (above f165 f167)
@@ -18056,6 +18549,9 @@
 (above f165 f188)
 (above f165 f189)
 (above f165 f190)
+(above f165 f191)
+(above f165 f192)
+(above f165 f193)
 
 (above f166 f167)
 (above f166 f168)
@@ -18081,6 +18577,9 @@
 (above f166 f188)
 (above f166 f189)
 (above f166 f190)
+(above f166 f191)
+(above f166 f192)
+(above f166 f193)
 
 (above f167 f168)
 (above f167 f169)
@@ -18105,6 +18604,9 @@
 (above f167 f188)
 (above f167 f189)
 (above f167 f190)
+(above f167 f191)
+(above f167 f192)
+(above f167 f193)
 
 (above f168 f169)
 (above f168 f170)
@@ -18128,6 +18630,9 @@
 (above f168 f188)
 (above f168 f189)
 (above f168 f190)
+(above f168 f191)
+(above f168 f192)
+(above f168 f193)
 
 (above f169 f170)
 (above f169 f171)
@@ -18150,6 +18655,9 @@
 (above f169 f188)
 (above f169 f189)
 (above f169 f190)
+(above f169 f191)
+(above f169 f192)
+(above f169 f193)
 
 (above f170 f171)
 (above f170 f172)
@@ -18171,6 +18679,9 @@
 (above f170 f188)
 (above f170 f189)
 (above f170 f190)
+(above f170 f191)
+(above f170 f192)
+(above f170 f193)
 
 (above f171 f172)
 (above f171 f173)
@@ -18191,6 +18702,9 @@
 (above f171 f188)
 (above f171 f189)
 (above f171 f190)
+(above f171 f191)
+(above f171 f192)
+(above f171 f193)
 
 (above f172 f173)
 (above f172 f174)
@@ -18210,6 +18724,9 @@
 (above f172 f188)
 (above f172 f189)
 (above f172 f190)
+(above f172 f191)
+(above f172 f192)
+(above f172 f193)
 
 (above f173 f174)
 (above f173 f175)
@@ -18228,6 +18745,9 @@
 (above f173 f188)
 (above f173 f189)
 (above f173 f190)
+(above f173 f191)
+(above f173 f192)
+(above f173 f193)
 
 (above f174 f175)
 (above f174 f176)
@@ -18245,6 +18765,9 @@
 (above f174 f188)
 (above f174 f189)
 (above f174 f190)
+(above f174 f191)
+(above f174 f192)
+(above f174 f193)
 
 (above f175 f176)
 (above f175 f177)
@@ -18261,6 +18784,9 @@
 (above f175 f188)
 (above f175 f189)
 (above f175 f190)
+(above f175 f191)
+(above f175 f192)
+(above f175 f193)
 
 (above f176 f177)
 (above f176 f178)
@@ -18276,6 +18802,9 @@
 (above f176 f188)
 (above f176 f189)
 (above f176 f190)
+(above f176 f191)
+(above f176 f192)
+(above f176 f193)
 
 (above f177 f178)
 (above f177 f179)
@@ -18290,6 +18819,9 @@
 (above f177 f188)
 (above f177 f189)
 (above f177 f190)
+(above f177 f191)
+(above f177 f192)
+(above f177 f193)
 
 (above f178 f179)
 (above f178 f180)
@@ -18303,6 +18835,9 @@
 (above f178 f188)
 (above f178 f189)
 (above f178 f190)
+(above f178 f191)
+(above f178 f192)
+(above f178 f193)
 
 (above f179 f180)
 (above f179 f181)
@@ -18315,6 +18850,9 @@
 (above f179 f188)
 (above f179 f189)
 (above f179 f190)
+(above f179 f191)
+(above f179 f192)
+(above f179 f193)
 
 (above f180 f181)
 (above f180 f182)
@@ -18326,6 +18864,9 @@
 (above f180 f188)
 (above f180 f189)
 (above f180 f190)
+(above f180 f191)
+(above f180 f192)
+(above f180 f193)
 
 (above f181 f182)
 (above f181 f183)
@@ -18336,6 +18877,9 @@
 (above f181 f188)
 (above f181 f189)
 (above f181 f190)
+(above f181 f191)
+(above f181 f192)
+(above f181 f193)
 
 (above f182 f183)
 (above f182 f184)
@@ -18345,6 +18889,9 @@
 (above f182 f188)
 (above f182 f189)
 (above f182 f190)
+(above f182 f191)
+(above f182 f192)
+(above f182 f193)
 
 (above f183 f184)
 (above f183 f185)
@@ -18353,6 +18900,9 @@
 (above f183 f188)
 (above f183 f189)
 (above f183 f190)
+(above f183 f191)
+(above f183 f192)
+(above f183 f193)
 
 (above f184 f185)
 (above f184 f186)
@@ -18360,616 +18910,577 @@
 (above f184 f188)
 (above f184 f189)
 (above f184 f190)
+(above f184 f191)
+(above f184 f192)
+(above f184 f193)
 
 (above f185 f186)
 (above f185 f187)
 (above f185 f188)
 (above f185 f189)
 (above f185 f190)
+(above f185 f191)
+(above f185 f192)
+(above f185 f193)
 
 (above f186 f187)
 (above f186 f188)
 (above f186 f189)
 (above f186 f190)
+(above f186 f191)
+(above f186 f192)
+(above f186 f193)
 
 (above f187 f188)
 (above f187 f189)
 (above f187 f190)
+(above f187 f191)
+(above f187 f192)
+(above f187 f193)
 
 (above f188 f189)
 (above f188 f190)
+(above f188 f191)
+(above f188 f192)
+(above f188 f193)
 
 (above f189 f190)
+(above f189 f191)
+(above f189 f192)
+(above f189 f193)
 
+(above f190 f191)
+(above f190 f192)
+(above f190 f193)
 
+(above f191 f192)
+(above f191 f193)
 
-(origin p0 f124)
-(destin p0 f67)
+(above f192 f193)
 
-(origin p1 f10)
-(destin p1 f19)
 
-(origin p2 f151)
-(destin p2 f95)
 
-(origin p3 f167)
-(destin p3 f85)
+(origin p0 f173)
+(destin p0 f114)
 
-(origin p4 f172)
-(destin p4 f72)
+(origin p1 f28)
+(destin p1 f178)
 
-(origin p5 f111)
-(destin p5 f78)
+(origin p2 f119)
+(destin p2 f42)
 
-(origin p6 f52)
-(destin p6 f129)
+(origin p3 f59)
+(destin p3 f62)
 
-(origin p7 f37)
-(destin p7 f70)
+(origin p4 f34)
+(destin p4 f193)
 
-(origin p8 f82)
-(destin p8 f12)
+(origin p5 f128)
+(destin p5 f185)
 
-(origin p9 f154)
-(destin p9 f10)
+(origin p6 f8)
+(destin p6 f88)
 
-(origin p10 f189)
-(destin p10 f45)
+(origin p7 f44)
+(destin p7 f128)
 
-(origin p11 f180)
-(destin p11 f130)
+(origin p8 f109)
+(destin p8 f148)
 
-(origin p12 f24)
-(destin p12 f28)
+(origin p9 f179)
+(destin p9 f177)
 
-(origin p13 f152)
-(destin p13 f110)
+(origin p10 f147)
+(destin p10 f85)
 
-(origin p14 f21)
-(destin p14 f128)
+(origin p11 f66)
+(destin p11 f159)
 
-(origin p15 f90)
-(destin p15 f167)
+(origin p12 f36)
+(destin p12 f25)
 
-(origin p16 f26)
-(destin p16 f100)
+(origin p13 f18)
+(destin p13 f17)
 
-(origin p17 f186)
-(destin p17 f9)
+(origin p14 f127)
+(destin p14 f131)
 
-(origin p18 f27)
-(destin p18 f162)
+(origin p15 f128)
+(destin p15 f107)
 
-(origin p19 f94)
-(destin p19 f8)
+(origin p16 f51)
+(destin p16 f90)
 
-(origin p20 f66)
-(destin p20 f36)
+(origin p17 f91)
+(destin p17 f104)
 
-(origin p21 f86)
-(destin p21 f140)
+(origin p18 f66)
+(destin p18 f150)
 
-(origin p22 f165)
-(destin p22 f124)
+(origin p19 f100)
+(destin p19 f83)
 
-(origin p23 f20)
-(destin p23 f57)
+(origin p20 f34)
+(destin p20 f25)
 
-(origin p24 f136)
-(destin p24 f5)
+(origin p21 f25)
+(destin p21 f56)
 
-(origin p25 f89)
-(destin p25 f156)
+(origin p22 f69)
+(destin p22 f88)
 
-(origin p26 f73)
-(destin p26 f78)
+(origin p23 f166)
+(destin p23 f152)
 
-(origin p27 f118)
-(destin p27 f97)
+(origin p24 f73)
+(destin p24 f83)
 
-(origin p28 f106)
-(destin p28 f79)
+(origin p25 f105)
+(destin p25 f158)
 
-(origin p29 f16)
-(destin p29 f127)
+(origin p26 f149)
+(destin p26 f4)
 
-(origin p30 f39)
-(destin p30 f128)
+(origin p27 f1)
+(destin p27 f174)
 
-(origin p31 f125)
-(destin p31 f65)
+(origin p28 f22)
+(destin p28 f18)
 
-(origin p32 f59)
-(destin p32 f121)
+(origin p29 f42)
+(destin p29 f154)
 
-(origin p33 f74)
-(destin p33 f86)
+(origin p30 f80)
+(destin p30 f149)
 
-(origin p34 f114)
-(destin p34 f190)
+(origin p31 f139)
+(destin p31 f170)
 
-(origin p35 f94)
-(destin p35 f180)
+(origin p32 f174)
+(destin p32 f50)
 
-(origin p36 f36)
-(destin p36 f181)
+(origin p33 f42)
+(destin p33 f65)
 
-(origin p37 f130)
-(destin p37 f10)
+(origin p34 f84)
+(destin p34 f76)
 
-(origin p38 f136)
-(destin p38 f172)
+(origin p35 f82)
+(destin p35 f119)
 
-(origin p39 f89)
-(destin p39 f103)
+(origin p36 f102)
+(destin p36 f42)
 
-(origin p40 f177)
-(destin p40 f179)
+(origin p37 f109)
+(destin p37 f171)
 
-(origin p41 f68)
-(destin p41 f59)
+(origin p38 f130)
+(destin p38 f81)
 
-(origin p42 f88)
-(destin p42 f186)
+(origin p39 f63)
+(destin p39 f137)
 
-(origin p43 f156)
-(destin p43 f4)
+(origin p40 f165)
+(destin p40 f169)
 
-(origin p44 f75)
-(destin p44 f3)
+(origin p41 f101)
+(destin p41 f54)
 
-(origin p45 f153)
-(destin p45 f136)
+(origin p42 f107)
+(destin p42 f36)
 
-(origin p46 f131)
-(destin p46 f88)
+(origin p43 f163)
+(destin p43 f64)
 
-(origin p47 f10)
-(destin p47 f22)
+(origin p44 f182)
+(destin p44 f11)
 
-(origin p48 f40)
-(destin p48 f107)
+(origin p45 f24)
+(destin p45 f68)
 
-(origin p49 f108)
-(destin p49 f154)
+(origin p46 f94)
+(destin p46 f97)
 
-(origin p50 f128)
-(destin p50 f34)
+(origin p47 f172)
+(destin p47 f8)
 
-(origin p51 f144)
-(destin p51 f186)
+(origin p48 f81)
+(destin p48 f148)
 
-(origin p52 f46)
-(destin p52 f105)
+(origin p49 f7)
+(destin p49 f166)
 
-(origin p53 f6)
-(destin p53 f182)
+(origin p50 f31)
+(destin p50 f90)
 
-(origin p54 f86)
-(destin p54 f117)
+(origin p51 f25)
+(destin p51 f67)
 
-(origin p55 f94)
-(destin p55 f72)
+(origin p52 f132)
+(destin p52 f134)
 
-(origin p56 f127)
-(destin p56 f162)
+(origin p53 f172)
+(destin p53 f2)
 
-(origin p57 f132)
-(destin p57 f47)
+(origin p54 f150)
+(destin p54 f42)
 
-(origin p58 f180)
-(destin p58 f119)
+(origin p55 f139)
+(destin p55 f121)
 
-(origin p59 f73)
-(destin p59 f86)
+(origin p56 f145)
+(destin p56 f174)
 
-(origin p60 f123)
-(destin p60 f35)
+(origin p57 f109)
+(destin p57 f58)
 
-(origin p61 f31)
-(destin p61 f85)
+(origin p58 f17)
+(destin p58 f78)
 
-(origin p62 f145)
-(destin p62 f63)
+(origin p59 f122)
+(destin p59 f5)
 
-(origin p63 f129)
-(destin p63 f16)
+(origin p60 f23)
+(destin p60 f80)
 
-(origin p64 f1)
-(destin p64 f47)
+(origin p61 f8)
+(destin p61 f117)
 
-(origin p65 f171)
-(destin p65 f130)
+(origin p62 f178)
+(destin p62 f114)
 
-(origin p66 f103)
-(destin p66 f146)
+(origin p63 f60)
+(destin p63 f65)
 
-(origin p67 f125)
-(destin p67 f149)
+(origin p64 f69)
+(destin p64 f67)
 
-(origin p68 f60)
-(destin p68 f153)
+(origin p65 f165)
+(destin p65 f34)
 
-(origin p69 f140)
-(destin p69 f168)
+(origin p66 f157)
+(destin p66 f124)
 
-(origin p70 f102)
-(destin p70 f65)
+(origin p67 f101)
+(destin p67 f29)
 
-(origin p71 f71)
-(destin p71 f60)
+(origin p68 f65)
+(destin p68 f79)
 
-(origin p72 f58)
-(destin p72 f12)
+(origin p69 f31)
+(destin p69 f21)
 
-(origin p73 f107)
-(destin p73 f47)
+(origin p70 f55)
+(destin p70 f170)
 
-(origin p74 f154)
-(destin p74 f180)
+(origin p71 f76)
+(destin p71 f6)
 
-(origin p75 f155)
-(destin p75 f108)
+(origin p72 f151)
+(destin p72 f185)
 
-(origin p76 f47)
-(destin p76 f186)
+(origin p73 f65)
+(destin p73 f102)
 
-(origin p77 f2)
-(destin p77 f23)
+(origin p74 f4)
+(destin p74 f121)
 
-(origin p78 f81)
-(destin p78 f154)
+(origin p75 f41)
+(destin p75 f27)
 
-(origin p79 f40)
-(destin p79 f82)
+(origin p76 f8)
+(destin p76 f177)
 
-(origin p80 f10)
-(destin p80 f20)
+(origin p77 f145)
+(destin p77 f120)
 
-(origin p81 f43)
-(destin p81 f113)
+(origin p78 f98)
+(destin p78 f139)
 
-(origin p82 f166)
-(destin p82 f0)
+(origin p79 f119)
+(destin p79 f101)
 
-(origin p83 f93)
-(destin p83 f57)
+(origin p80 f12)
+(destin p80 f91)
 
-(origin p84 f175)
-(destin p84 f42)
+(origin p81 f135)
+(destin p81 f104)
 
-(origin p85 f56)
-(destin p85 f86)
+(origin p82 f21)
+(destin p82 f170)
 
-(origin p86 f107)
-(destin p86 f127)
+(origin p83 f133)
+(destin p83 f20)
 
-(origin p87 f169)
-(destin p87 f165)
+(origin p84 f183)
+(destin p84 f99)
 
-(origin p88 f162)
-(destin p88 f85)
+(origin p85 f169)
+(destin p85 f45)
 
-(origin p89 f44)
-(destin p89 f125)
+(origin p86 f9)
+(destin p86 f51)
 
-(origin p90 f97)
-(destin p90 f8)
+(origin p87 f51)
+(destin p87 f94)
 
-(origin p91 f42)
-(destin p91 f144)
+(origin p88 f43)
+(destin p88 f50)
 
-(origin p92 f26)
-(destin p92 f66)
+(origin p89 f2)
+(destin p89 f47)
 
-(origin p93 f167)
-(destin p93 f107)
+(origin p90 f172)
+(destin p90 f44)
 
-(origin p94 f29)
-(destin p94 f38)
+(origin p91 f8)
+(destin p91 f114)
 
-(origin p95 f20)
-(destin p95 f61)
+(origin p92 f155)
+(destin p92 f87)
 
-(origin p96 f58)
-(destin p96 f86)
+(origin p93 f40)
+(destin p93 f59)
 
-(origin p97 f5)
-(destin p97 f55)
+(origin p94 f32)
+(destin p94 f93)
 
-(origin p98 f86)
-(destin p98 f98)
+(origin p95 f94)
+(destin p95 f45)
 
-(origin p99 f134)
-(destin p99 f70)
+(origin p96 f118)
+(destin p96 f35)
 
-(origin p100 f162)
-(destin p100 f190)
+(origin p97 f149)
+(destin p97 f74)
 
-(origin p101 f179)
-(destin p101 f78)
+(origin p98 f139)
+(destin p98 f22)
 
-(origin p102 f127)
-(destin p102 f157)
+(origin p99 f94)
+(destin p99 f129)
 
-(origin p103 f75)
-(destin p103 f98)
+(origin p100 f121)
+(destin p100 f70)
 
-(origin p104 f73)
-(destin p104 f141)
+(origin p101 f108)
+(destin p101 f131)
 
-(origin p105 f54)
-(destin p105 f170)
+(origin p102 f55)
+(destin p102 f159)
 
-(origin p106 f149)
-(destin p106 f96)
+(origin p103 f31)
+(destin p103 f32)
 
-(origin p107 f145)
-(destin p107 f6)
+(origin p104 f144)
+(destin p104 f162)
 
-(origin p108 f184)
+(origin p105 f13)
+(destin p105 f56)
+
+(origin p106 f140)
+(destin p106 f22)
+
+(origin p107 f170)
+(destin p107 f101)
+
+(origin p108 f109)
 (destin p108 f144)
 
-(origin p109 f113)
-(destin p109 f45)
+(origin p109 f95)
+(destin p109 f142)
 
-(origin p110 f182)
-(destin p110 f156)
+(origin p110 f43)
+(destin p110 f189)
 
-(origin p111 f128)
-(destin p111 f50)
+(origin p111 f121)
+(destin p111 f162)
 
-(origin p112 f73)
-(destin p112 f134)
+(origin p112 f159)
+(destin p112 f76)
 
-(origin p113 f127)
-(destin p113 f181)
+(origin p113 f42)
+(destin p113 f104)
 
-(origin p114 f63)
-(destin p114 f71)
+(origin p114 f98)
+(destin p114 f70)
 
-(origin p115 f60)
-(destin p115 f35)
+(origin p115 f39)
+(destin p115 f154)
 
-(origin p116 f92)
-(destin p116 f70)
+(origin p116 f74)
+(destin p116 f81)
 
-(origin p117 f135)
-(destin p117 f28)
+(origin p117 f91)
+(destin p117 f130)
 
-(origin p118 f36)
-(destin p118 f41)
+(origin p118 f47)
+(destin p118 f122)
 
-(origin p119 f148)
-(destin p119 f132)
+(origin p119 f162)
+(destin p119 f125)
 
-(origin p120 f182)
-(destin p120 f11)
+(origin p120 f24)
+(destin p120 f176)
 
-(origin p121 f111)
-(destin p121 f163)
+(origin p121 f181)
+(destin p121 f164)
 
-(origin p122 f129)
-(destin p122 f88)
+(origin p122 f4)
+(destin p122 f157)
 
-(origin p123 f169)
-(destin p123 f145)
+(origin p123 f72)
+(destin p123 f47)
 
 (origin p124 f41)
-(destin p124 f114)
+(destin p124 f167)
 
-(origin p125 f190)
-(destin p125 f32)
+(origin p125 f189)
+(destin p125 f84)
 
-(origin p126 f101)
-(destin p126 f149)
+(origin p126 f162)
+(destin p126 f50)
 
-(origin p127 f104)
-(destin p127 f174)
+(origin p127 f180)
+(destin p127 f127)
 
-(origin p128 f114)
-(destin p128 f63)
+(origin p128 f126)
+(destin p128 f156)
 
-(origin p129 f164)
-(destin p129 f178)
+(origin p129 f166)
+(destin p129 f159)
 
-(origin p130 f156)
-(destin p130 f55)
+(origin p130 f33)
+(destin p130 f139)
 
-(origin p131 f44)
-(destin p131 f57)
+(origin p131 f119)
+(destin p131 f41)
 
-(origin p132 f126)
-(destin p132 f179)
+(origin p132 f27)
+(destin p132 f144)
 
-(origin p133 f108)
-(destin p133 f184)
+(origin p133 f171)
+(destin p133 f8)
 
-(origin p134 f30)
-(destin p134 f65)
+(origin p134 f72)
+(destin p134 f140)
 
-(origin p135 f125)
-(destin p135 f43)
+(origin p135 f133)
+(destin p135 f31)
 
-(origin p136 f77)
-(destin p136 f68)
+(origin p136 f56)
+(destin p136 f120)
 
-(origin p137 f15)
-(destin p137 f37)
+(origin p137 f1)
+(destin p137 f188)
 
-(origin p138 f156)
-(destin p138 f185)
+(origin p138 f17)
+(destin p138 f73)
 
-(origin p139 f182)
-(destin p139 f28)
+(origin p139 f41)
+(destin p139 f58)
 
-(origin p140 f108)
-(destin p140 f12)
+(origin p140 f174)
+(destin p140 f165)
 
-(origin p141 f82)
-(destin p141 f40)
+(origin p141 f76)
+(destin p141 f143)
 
-(origin p142 f184)
-(destin p142 f18)
+(origin p142 f21)
+(destin p142 f63)
 
-(origin p143 f23)
-(destin p143 f107)
+(origin p143 f10)
+(destin p143 f82)
 
-(origin p144 f81)
-(destin p144 f187)
+(origin p144 f153)
+(destin p144 f176)
 
-(origin p145 f94)
-(destin p145 f46)
+(origin p145 f47)
+(destin p145 f120)
 
-(origin p146 f73)
-(destin p146 f138)
+(origin p146 f122)
+(destin p146 f100)
 
-(origin p147 f125)
-(destin p147 f8)
+(origin p147 f162)
+(destin p147 f149)
 
-(origin p148 f149)
-(destin p148 f42)
+(origin p148 f50)
+(destin p148 f139)
 
-(origin p149 f24)
-(destin p149 f10)
+(origin p149 f157)
+(destin p149 f56)
 
-(origin p150 f108)
-(destin p150 f171)
+(origin p150 f19)
+(destin p150 f30)
 
-(origin p151 f53)
-(destin p151 f16)
+(origin p151 f87)
+(destin p151 f9)
 
-(origin p152 f70)
-(destin p152 f69)
+(origin p152 f84)
+(destin p152 f89)
 
-(origin p153 f75)
-(destin p153 f57)
+(origin p153 f3)
+(destin p153 f101)
 
-(origin p154 f85)
-(destin p154 f89)
+(origin p154 f96)
+(destin p154 f45)
 
-(origin p155 f85)
-(destin p155 f24)
+(origin p155 f93)
+(destin p155 f77)
 
-(origin p156 f101)
-(destin p156 f168)
+(origin p156 f144)
+(destin p156 f169)
 
-(origin p157 f64)
-(destin p157 f94)
+(origin p157 f154)
+(destin p157 f165)
 
-(origin p158 f17)
-(destin p158 f87)
+(origin p158 f166)
+(destin p158 f164)
 
-(origin p159 f33)
-(destin p159 f98)
+(origin p159 f53)
+(destin p159 f60)
 
-(origin p160 f105)
-(destin p160 f127)
+(origin p160 f81)
+(destin p160 f34)
 
-(origin p161 f166)
-(destin p161 f178)
+(origin p161 f180)
+(destin p161 f9)
 
-(origin p162 f97)
-(destin p162 f100)
+(origin p162 f68)
+(destin p162 f148)
 
-(origin p163 f18)
-(destin p163 f55)
+(origin p163 f92)
+(destin p163 f118)
 
-(origin p164 f143)
-(destin p164 f64)
+(origin p164 f28)
+(destin p164 f183)
 
-(origin p165 f65)
-(destin p165 f82)
+(origin p165 f109)
+(destin p165 f47)
 
-(origin p166 f66)
-(destin p166 f140)
+(origin p166 f19)
+(destin p166 f130)
 
-(origin p167 f120)
-(destin p167 f137)
+(origin p167 f185)
+(destin p167 f103)
 
-(origin p168 f18)
-(destin p168 f4)
+(origin p168 f153)
+(destin p168 f188)
 
-(origin p169 f3)
-(destin p169 f103)
+(origin p169 f138)
+(destin p169 f56)
 
-(origin p170 f93)
-(destin p170 f111)
+(origin p170 f167)
+(destin p170 f165)
 
-(origin p171 f149)
-(destin p171 f26)
+(origin p171 f67)
+(destin p171 f117)
 
-(origin p172 f110)
-(destin p172 f22)
+(origin p172 f140)
+(destin p172 f27)
 
-(origin p173 f142)
-(destin p173 f127)
-
-(origin p174 f109)
-(destin p174 f175)
-
-(origin p175 f34)
-(destin p175 f45)
-
-(origin p176 f134)
-(destin p176 f31)
-
-(origin p177 f33)
-(destin p177 f40)
-
-(origin p178 f131)
-(destin p178 f73)
-
-(origin p179 f117)
-(destin p179 f105)
-
-(origin p180 f137)
-(destin p180 f13)
-
-(origin p181 f187)
-(destin p181 f12)
-
-(origin p182 f153)
-(destin p182 f116)
-
-(origin p183 f171)
-(destin p183 f3)
-
-(origin p184 f121)
-(destin p184 f175)
-
-(origin p185 f128)
-(destin p185 f45)
-
-(origin p186 f117)
-(destin p186 f87)
-
-(origin p187 f71)
-(destin p187 f36)
-
-(origin p188 f109)
-(destin p188 f23)
-
-(origin p189 f163)
-(destin p189 f50)
-
-(origin p190 f7)
-(destin p190 f28)
-
-(origin p191 f95)
-(destin p191 f141)
-
-(origin p192 f59)
-(destin p192 f150)
-
-(origin p193 f12)
-(destin p193 f21)
-
-(origin p194 f32)
-(destin p194 f151)
-
-(origin p195 f127)
-(destin p195 f0)
+(origin p173 f89)
+(destin p173 f47)
 
 
 
@@ -19158,28 +19669,6 @@
 (served p171)
 (served p172)
 (served p173)
-(served p174)
-(served p175)
-(served p176)
-(served p177)
-(served p178)
-(served p179)
-(served p180)
-(served p181)
-(served p182)
-(served p183)
-(served p184)
-(served p185)
-(served p186)
-(served p187)
-(served p188)
-(served p189)
-(served p190)
-(served p191)
-(served p192)
-(served p193)
-(served p194)
-(served p195)
 ))
 )
 
