@@ -54,6 +54,13 @@ def coverage(content, props):
         del props["runtime"]
 
 
+def error(content, props):
+    if props.get('planner_exit_code') == 0:
+        props['error'] = 'none'
+    else:
+        props['error'] = 'some-error-occured'
+
+
 def main():
     print("Running singularity parser")
     parser = CommonParser()
@@ -82,6 +89,7 @@ def main():
     parser.add_pattern("cost", r"\nFinal value: (.+)\n", type=int)
     parser.add_pattern("delfi_planner", r"Chose (.+)\n", type=str)
     parser.add_function(coverage)
+    parser.add_function(error)
     parser.parse()
 
 
