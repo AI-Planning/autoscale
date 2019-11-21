@@ -38,12 +38,13 @@ for name in names:
 
 
 table = Table(title="comparison", min_wins=None)
-table.set_column_order(["old size", "opt_old-unique", "opt_new-unique", "opt_old-only", "opt_new-only"])
+table.set_column_order(["old size", "opt_old min/max coverage", "opt_new min/max coverage", "opt_old-unique", "opt_new-unique", "opt_old-only", "opt_new-only"])
 for name in names:
     different_coverage_scores = defaultdict(set)
     for domain, algo, coverage in sets[name]:
         different_coverage_scores[domain].add(coverage)
-    for domain, different_scores in different_coverage_scores.items():
+    for domain in domains:
+        different_scores = different_coverage_scores[domain]
         table.add_cell(domain, name + "-unique", len(different_scores))
 
 tables = [table]
@@ -56,8 +57,11 @@ for name1, name2 in itertools.combinations(names, 2):
     outcomes = [f"{name1}", f"{name2}"]
     #table.set_column_order(outcomes)
 
-    for domain in domains:
+    for domain in sorted(domains):
         table.add_cell(domain, "old size", OPT_OLD_DOMAIN_SIZES[domain])
+        table.add_cell(domain, "opt_old min/max coverage", " ''{}--{}''".format(min(dicts[name1][domain].values()), max(dicts[name1][domain].values())))
+        table.add_cell(domain, "opt_new min/max coverage", " ''{}--{}''".format(min(dicts[name2][domain].values()), max(dicts[name2][domain].values())))
+        #table.add_cell(domain, "opt_new min coverage", min(dicts[name1][domain].values()))
         result = {outcome: 0 for outcome in outcomes}
         for planner1, planner2 in itertools.permutations(planners, 2):
             coverage11 = dicts[name1][domain][planner1]
@@ -73,10 +77,10 @@ for name1, name2 in itertools.combinations(names, 2):
 
 
 def render_txt2tags(text, target="xhtml"):
-    return text
+    #return text
     from lab.reports import markup
     doc = markup.Document()
     doc.add_text(text)
     return doc.render(target=target)
 
-print(render_txt2tags("\n\n\n".join(str(table) for table in tables)))
+print(render_txt2tags("\n\n\n".join(str(table) for table in tables), target="tex"))
