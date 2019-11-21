@@ -36,14 +36,14 @@ for name in names:
 
 assert len({len(s) for s in sets.values()}) == 1
 
-table = Table(title="different scores", min_wins=False)
-table.set_column_order(names)
+table = Table(title="comparison", min_wins=None)
+#table.set_column_order(names)
 for name in names:
     different_coverage_scores = defaultdict(set)
     for domain, algo, coverage in sets[name]:
         different_coverage_scores[domain].add(coverage)
     for domain, different_scores in different_coverage_scores.items():
-        table.add_cell(domain, name, len(different_scores))
+        table.add_cell(domain, name + "-unique", len(different_scores))
 
 tables = [table]
 
@@ -51,8 +51,8 @@ for name1, name2 in itertools.combinations(names, 2):
     set1 = sets[name1]
     set2 = sets[name2]
 
-    table = Table(title=f"{name1} vs. {name2}", min_wins=False)
-    outcomes = [f"only {name1}", f"only {name2}"]
+    #table = Table(title=f"{name1} vs. {name2}", min_wins=False)
+    outcomes = [f"{name1}", f"{name2}"]
     table.set_column_order(outcomes)
 
     for domain in domains:
@@ -63,15 +63,15 @@ for name1, name2 in itertools.combinations(names, 2):
             coverage21 = dicts[name2][domain][planner1]
             coverage22 = dicts[name2][domain][planner2]
             if coverage11 > coverage12 and coverage21 <= coverage22:
-                result[f"only {name1}"] += 1
+                result[f"{name1}"] += 1
             elif coverage21 > coverage22 and coverage11 <= coverage12:
-                result[f"only {name2}"] += 1
+                result[f"{name2}"] += 1
         for key, value in result.items():
-            table.add_cell(domain, key, value)
+            table.add_cell(domain, key + "-only", value)
 
-    tables.append(table)
 
 def render_txt2tags(text, target="xhtml"):
+    return text
     from lab.reports import markup
     doc = markup.Document()
     doc.add_text(text)
