@@ -42,10 +42,13 @@ from collections import defaultdict
 from domain_configuration import DOMAINS_SAT, DOMAINS_OPT
 from domain_configuration import LinearAtr, GridAtr
 
+from runner import Runner
+
+from planner_selection import get_baseline_planner, get_sart_planners, verify_planner_selection
+
 warnings.simplefilter(action="ignore", category=FutureWarning)
 
 import numpy as np
-
 
 from smac.configspace import ConfigurationSpace
 from smac.scenario.scenario import Scenario
@@ -185,79 +188,7 @@ if os.path.exists(SMAC_OUTPUT_DIR):
     sys.exit("Error: SMAC output directory already exists")
 
 
-
-if ARGS.track == "opt":
-    BASELINE_PLANNER = "blind.img"
-
-    PLANNER_SELECTION = {
-        "barman": ["symba1.img"],
-        "blocksworld": ["fdss-mas1.img"],
-        "childsnack": ["delfi-ipdb.img"],
-        "data-network": ["lmcut.img"],
-        "depots": ["scorpion-nodiv.img", "delfi-ipdb.img"],
-        "driverlog": ["bjolp.img", "symba1.img"],
-        "floortile": ["symba1.img"],
-        "gripper": ["delfi-blind.img"],
-        "hiking": ["delfi-mas-miasm.img"],
-        "maintenance": ["delfi-blind.img"],
-        "miconic-strips": ["bjolp.img"],
-        "nomystery" : ["bjolp.img"],
-        "parking": ["delfi-ipdb.img"],
-        "pathways": ["delfi-celmcut.img"],
-        "rover": ["symba1.img"],
-        "satellite": ["delfi-celmcut.img", "symba1.img"],
-        "snake": ["bjolp.img"],
-        "storage": ["delfi-celmcut.img"],
-        "termes": ["symba2.img"],
-        "tetris": ["scorpion-nodiv.img"],
-        "tpp": ["complementary2.img"],
-        "transport" : ["delfi-ipdb.img", "scorpion-nodiv.img"],
-        "trucks": ["scorpion-nodiv.img", "symba2.img"],
-        "visitall": ["delfi-ipdb.img"],
-        "woodworking": ["scorpion-nodiv.img", "delfi-celmcut.img"],
-        "zenotravel": ["delfi-celmcut.img"],
-    }
-else:
-    assert ARGS.track == "sat"
-    BASELINE_PLANNER = "gbfs-ff.img"
-
-    # Decided from https://ai.dmi.unibas.ch/_tmp_files/sieverss/2019-11-10-sat-baselineabs-report.html
-    PLANNER_SELECTION = {
-        "barman": ["lama-first.img"],
-        "blocksworld": ["lama-first.img", "mpc.img"], # 23, 22
-        "childsnack": ["saarplan-dec-fallback.img"],
-        "data-network": ["saarplan-grey.img", "lama-first.img",], # 9, 7
-        "depots": ["mpc.img"],
-        "driverlog": ["mpc.img", "lapkt-bfws-pref.img"], # 15, 14, next: lapkt-dual-bfws with 13
-        "floortile": ["mpc.img"],
-        "gripper": ["mpc.img"], # 15, next: lapkt-dual-bfws and saarplan-dec-fallback with 13
-        "hiking": ["lama-first.img"],
-        "maintenance": ["mpc.img"],
-        "miconic-strips": ["mpc.img"], # 116, next: lapkt-dual-bfws with 94
-        "nomystery" : ["lama-first.img", "saarplan-dec-fallback.img"], # 10, 9
-        "parking": ["lapkt-bfws-pref.img", "lapkt-dual-bfws.img"], # 13/11, 12/11 (for sat11/sat14)
-        "pathways": ["mpc.img"],
-        "rover": ["lama-first.img"],
-        "satellite": ["mpc.img"],
-        "snake": ["lapkt-bfws-pref.img"],
-        "storage": ["lapkt-dual-bfws.img", "lapkt-bfws-pref.img"], # 18, 16, next: mpc with 15
-        "termes": ["lama-first.img"],
-        "tetris": ["lapkt-bfws-pref.img", "lapkt-dual-bfws.img"], # 10, 9
-        "tpp": ["mpc.img", "lama-first.img"], # 19, 18
-        "transport" : ["lapkt-dual-bfws.img", "saarplan-dec-fallback.img"], # 23/9/5, 6/7/13 (for sat08/11/14), next: lapkt-bfws-pref with 22/8/4
-        "trucks": ["mpc.img"],
-        "visitall": ["lapkt-dual-bfws.img", "lapkt-bfws-pref.img"], # 15/12, 15/11 (for sat11/sat14)
-        "woodworking": ["mpc.img"],
-        "zenotravel": ["mpc.img"],
-    }
-
-
-
-for domain, images in PLANNER_SELECTION.items():
-    assert len(images) <= 2, f"too many images for {domain}"
-    for image in images:
-        path = os.path.join(ARGS.images_dir, image)
-        assert os.path.exists(path), f"image at {path} is missing"
+verify_planner_selection(ARGS.track, ARGS.images_dir, ARGS.domain)
 
 if ARGS.track == 'opt':
     DOMAINS = DOMAINS_OPT
@@ -269,147 +200,12 @@ print("{} domains available: {}".format(len(DOMAINS), sorted(DOMAINS)))
 
 for domain in DOMAINS:
     assert os.path.exists(os.path.join(ARGS.generators_dir, domain, "domain.pddl")), f"domain.pddl missing for {domain}"
-    assert PLANNER_SELECTION[domain], f"no planners selected for {domain}"
+
     downward_benchmarks = os.environ.get("DOWNWARD_BENCHMARKS")
     if downward_benchmarks:
         if not os.path.isdir(os.path.join(downward_benchmarks, domain)):
             print(f"{domain} missing in downward-benchmarks repo -> needs to be mapped in evaluation scripts")
 
-
-# This class is in charge of running instances, using a cache to store the results
-class Runner:
-    # We need to provide a set of planners and which parameters are linear
-    # (i.e., we may safely assume that larger values
-    # imply larger runtimes).  Linear parameters are important because we will use them to
-    # avoid running planners on very large values that are estimated to be unsolvable.
-    def __init__(self, domain, planners):
-        # We have three types of caches
-        self.exact_cache = {}  # Cache the exact runtime so that the same configuration is never run twice
-        # Caches configurations that can be solved under the time limit, any harder configuration will take longer (only useful for the quicker tests that run the planner less time)
-        self.frontier_cache = defaultdict(list)
-
-        self.random_seed = ARGS.random_seed
-        self.linear_attributes_names = [a.name for a in domain.linear_attributes if isinstance(a, LinearAtr)] + [a.name_x for a in domain.linear_attributes if isinstance(a, GridAtr)] + [a.name_y for a in domain.linear_attributes if isinstance(a, GridAtr)]
-        self.planners = planners
-
-    def get_next_random_seed(self):
-        self.random_seed += 1
-        return self.random_seed
-
-    def run_planners(self, parameters, time_limit=PLANNER_TIME_LIMIT):
-        domain = DOMAINS[ARGS.domain]
-        # Check the cache to see if we already know the runtime for this attribute configuration
-        cache_key = tuple([parameters[attr] for attr in parameters])
-        if cache_key in self.exact_cache:
-            return self.exact_cache[cache_key]
-
-        # Check the unsolvability cache to see if the problem is too hard
-        non_linear_key = tuple([parameters[attr] for attr in parameters if attr not in self.linear_attributes_names])
-        if non_linear_key in self.frontier_cache:
-            for values_linear_attributes, runtime in self.frontier_cache[non_linear_key]:
-                if (runtime is None or time_limit < runtime) and all(values_linear_attributes[linear_atr] <= parameters[linear_atr] for linear_atr in self.linear_attributes_names):
-                    return None
-
-        results = []
-        solved = False
-        for i in range(ARGS.runs_per_configuration):
-            # Ensure that each run uses a different random seed.
-            parameters["seed"] = self.get_next_random_seed()
-
-            # Exceptions are silently swallowed, so we catch them ourselves.
-            try:
-                # Write problem file.
-                plan_dir = os.path.join(SMAC_OUTPUT_DIR, TMP_PLAN_DIR)
-                shutil.rmtree(plan_dir, ignore_errors=True)
-                os.mkdir(plan_dir)
-                problem_file = os.path.join(plan_dir, "problem.pddl")
-                command = shlex.split(domain.generator_command(GENERATORS_DIR).format(**parameters))
-                logging.debug("Generator command: {}".format(" ".join(command)))
-                # Some generators print to a file, others print to stdout.
-                if "tmp.pddl" in domain.generator_command(GENERATORS_DIR):
-                    subprocess.run(command, check=True)
-                    shutil.move("tmp.pddl", problem_file)
-                else:
-                    with open(problem_file, "w") as f:
-                        subprocess.run(command, stdout=f, check=True)
-
-                # Check domain file. Problem file seems to be ignored.
-                subprocess.run(["validate", domain.get_domain_file(GENERATORS_DIR), problem_file], check=True)
-
-                # Call planners.
-                runtimes = []
-                for image in self.planners:
-                    image_path = os.path.abspath(os.path.join(ARGS.images_dir, image))
-                    if not os.path.exists(image_path):
-                        sys.exit(f"Error, image does not exist: {image_path}")
-
-                    logging.debug(f"Run image {image} at {image_path}")
-                    planner_dir = os.path.join(plan_dir, image)
-                    os.mkdir(planner_dir)
-
-                    # Copy domain and problem into temporary dir.
-                    domain_file = os.path.join(planner_dir, "domain.pddl")
-                    shutil.copy2(domain.get_domain_file(GENERATORS_DIR), domain_file)
-                    shutil.copy2(problem_file, os.path.join(planner_dir, "problem.pddl"))
-
-                    def set_limit(limit_type, limit):
-                        resource.setrlimit(limit_type, (limit, limit))
-
-                    def prepare_call():
-                        set_limit(resource.RLIMIT_CPU, time_limit)
-                        set_limit(resource.RLIMIT_AS, PLANNER_MEMORY_LIMIT)
-                        set_limit(resource.RLIMIT_CORE, 0)
-
-                    # Outcomes:
-                    #  plan found -> append runtime
-                    #  out of memory, out of time, unsolvable, planner bug -> skip
-                    p = subprocess.Popen(
-                        [SINGULARITY_SCRIPT, image_path, "domain.pddl", "problem.pddl", "sas_plan"],
-                        cwd=planner_dir,
-                        stdout=subprocess.PIPE,
-                        preexec_fn=prepare_call,
-                    )
-                    try:
-                        output, _ = p.communicate()
-                    except subprocess.SubprocessError as err:
-                        print(f"Calling the Singularity script (but not the planner) failed: {err}", file=sys.stderr)
-                        raise
-                    else:
-                        output = output.decode("utf-8")
-                        logging.debug(f"\n\n\n\n{output}\n\n\n\n")
-                        if "Found plan file." in output:
-                            # This only has a granularity of 1s, but should be precise enough.
-                            match = re.search("Singularity runtime: (.+)s", output)
-                            runtime = float(match.group(1))
-                            runtime = max(MIN_PLANNER_RUNTIME, runtime)  # log(0) is undefined.
-                            runtimes.append(runtime)
-                            logging.debug(f"{image} found plan in {runtime} seconds.")
-                        else:
-                            logging.debug(f"{image} failed to find a plan.")
-
-                logging.debug(f"Runtimes for y={parameters}: {runtimes}")
-
-                results.append(min(runtimes) if runtimes else PLANNER_TIME_LIMIT * 10)
-                if runtimes:
-                    solved = True
-
-            except Exception as err:
-                print(err, file=sys.stderr)
-                raise
-
-        if solved:
-            result = statistics.mean(results)
-        else:
-            result = None
-
-        logging.info(f"Average runtime for y={parameters}: {result}")
-        if result or time_limit == PLANNER_TIME_LIMIT:
-            self.exact_cache[cache_key] = result
-            self.frontier_cache[non_linear_key].append(
-                ({linear_atr : parameters[linear_atr] for linear_atr in self.linear_attributes_names}, result)
-            )
-
-        return result
 
 
 # The configurations are a list of lists. Each list corresponds to an individual
@@ -500,9 +296,9 @@ class InstanceSet:
 
 
 
-RUNNER_BASELINE = Runner(DOMAINS[ARGS.domain], [BASELINE_PLANNER])
+RUNNER_BASELINE = Runner("baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
 
-RUNNER_SART = Runner(DOMAINS[ARGS.domain], PLANNER_SELECTION[ARGS.domain])
+RUNNER_SART = Runner("sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, ARGS.domain), PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
 
 
 def evaluate_runtimes(runtimes, num_expected_runtimes):
