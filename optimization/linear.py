@@ -68,40 +68,48 @@ def parse_args():
         'track', choices=['sat', 'opt'],
         help="Choose the track to optimize for: satisficing or optimal."
     )
+    
     parser.add_argument(
         "--tasks", type=int, default=30, help="Number of tasks to generate in each round (default: %(default)s)"
     )
+    
     parser.add_argument(
         "--tasksbaseline",
         type=int,
         default=5,
         help="Number of tasks that are used to evaluate the runtime scaling for baseline and/or state of the art planners (default: %(default)s)",
     )
+    
     parser.add_argument(
         "--evaluations",
         type=int,
         default=sys.maxsize,
         help="Maximum number of configurations to evaluate (default: %(default)s)",
     )
+    
     parser.add_argument(
         "--runs-per-configuration",
         type=int,
         default=1,
         help="Number of runs for each parameter configuration, we take the average runtime among those (default: %(default)s)",
     )
+    
     parser.add_argument(
         "--optimization-time-limit",
         type=float,
         default=20 * 60 * 60,
         help="Maximum total time running planners (default: %(default)ss)",
     )
+    
     parser.add_argument("--debug", action="store_true", help="Print debug info")
+    
     parser.add_argument(
         "--random-seed",
         type=int,
         default=0,
         help="Initial random seed for SMAC and our internal random seeds (default: %(default)d)",
     )
+    
     parser.add_argument(
         "--generators-dir",
         default=os.path.join(REPO, "pddl-generators"),
@@ -116,7 +124,9 @@ def parse_args():
         "--images_dir",
         default=os.path.join(REPO, "images"),
         help="path to directory containing the Singularity images to run")
+    
     parser.add_argument("domain", help="Domain name")
+    
     parser.add_argument(
         "--smac_output_dir",
         default="smac",
@@ -128,7 +138,9 @@ def parse_args():
         help="only consider the baseline planner",
     )
     parser.add_argument(
-        "--sequences_linear_hierarchy", type=int, default=4, help="Number sequences when there is a hierarchy on the linear attributes (default: %(default)s)"
+        "--sequences_linear_hierarchy",
+        type=int, default=4,
+        help="Number sequences when there is a hierarchy on the linear attributes (default: %(default)s)"
     )
 
     return parser.parse_args()
@@ -327,65 +339,6 @@ def evaluate_runtimes(runtimes, num_expected_runtimes):
 def evaluate_cfg(cfg):
     return evaluate_sequence(cfg)
 
-
-
-
-# def evaluate_benchmark(cfg):
-#     # Now we need to combine the sequences into a good benchmark. The requirements for a good benchmark are:
-#     # 1) At most 10-15 instances solved by state of the art planner (under the 3m time limit).
-#     # 2) The fewer sequences selected the better => Avoids problems of redundant difficulty
-#     # 3) We need to have 30 instances. Each sequence will estimate the continuation and avoid generating instances that are extremely hard
-#     # 4) Sequences must finish -> they must go beyond the capabilities of the state of the art planners.
-#     used_enum_parameters = set()
-
-#     solved_instances = 0
-#     trivial_instances = 0
-#     i = 1
-
-#     while remaining_instances > 0:
-#         # The first sequence must start at position 0
-#         config1 = cfg.get("config{}".format(i))
-#         start = 0
-
-#         domain = DOMAINS[ARGS.domain]
-#         Y = domain.get_configs(config1, remaining_instances + start)
-#         sart_eval = InstanceSet(Y, RUNNER_SART)
-
-#         runtimes_sart = sart_eval.get_runtimes(30, 0, 300)
-
-#         if runtimes_sart < 3:
-#             continue # We cannot accept sequences that have less than 3 points to interpolate
-
-#         trivial_instances += len([t for t in runtimes_sart if t < 10])
-#         solved_instances += len(runtimes_sart)
-
-#         # Continue the sequence to know how many instances will be added
-#         sorted_runtimes = sorted(runtimes_sart)
-#         first_index = 0
-#         while first_index < len(sorted_runtimes) - 2 and sorted_runtimes[first_index] < 5:
-#             first_index += 1
-
-#         factors = [sorted_runtimes[i]/sorted_runtimes[i-1] for i in range (first_index, len(sorted_runtimes))]
-#         average_factor = float(sum(factors))/float(len(factors))
-
-#         last_runtime = sorted_runtimes[-1]
-#         while last_runtime < 18000 and len(sorted_runtimes) < sremaining_instances:
-#             last_runtime *= average_factor
-#             sorted_runtimes.append(last_runtime)
-
-#         remaining_instances -= len(sorted_runtimes)
-
-#     penalty = i #Reduce number of sequences whenever possible
-#     if solved_instances < 5:
-#         penalty += 100*(5-solved_instances)**2
-#     elif solved_instances > 15:
-#         penalty += 100*(solved_instances-15)**2
-#     if trivial_instances > 5:
-#         penalty += 100*(trivial_instances-5)**2
-
-
-#     return penalty
-
 def evaluate_sequence(cfg, print_final_configuration=False):
 
     logging.info(f"Evaluate configuration {cfg.get_dictionary()}")
@@ -501,85 +454,6 @@ incumbent = smac.optimize()
 
 print("Final configuration: {}".format(incumbent.get_dictionary()))
 evaluate_sequence(incumbent, print_final_configuration=True)
-
-# SMAC optimization for sequences has finished
-
-
-# Final configuration should consist of a list of sequences, each with a starting point
-# and a number of instances.  Number of instances must add up to 30
-
-# final_configuration = []
-# # We have three different cases:
-# if domain.has_enum_parameter():
-# # Option #1: We have an enum parameter. In this case, we may select a sequence for each
-# # value, with a given starting point, and a number of instances. We do a second
-# # optimization, considering the first 10 good sequences per enum parameter.
-#     enum_parameters = domain.get_enum_parameters()
-
-#     assert(len(enum_parameters) == 1) #TODO make the following code more general to accept more than one parameter here.
-
-#     best_configurations = []
-#     possible_configs = []
-#     for enum_parameter in enum_parameters:
-#         for value in enum_parameter.get_values():
-#             valid_sequences = [(penalty, seq) for penalty, seq in STORED_VALID_SEQUENCES if seq[0][0][enum_parameter] == value]
-#             best10 = sorted(valid_sequences, key=lambda x : x[0])[:10]
-#             best_configurations.append(best10)
-
-#     logging.info(f"Best configurations: {best_configurations}")
-
-
-#     # Build Configuration Space which defines all parameters and their ranges.
-#     cs = ConfigurationSpace()
-
-#     hyperparameters_select_enum = [CategoricalHyperparameter("config{}".format(i), cfg) for i, cfg in enumerate(best_configurations)]
-#     cs.add_hyperparameters(hyperparameters_select_enum)
-
-#     scenario = Scenario(
-#         {
-#             "run_obj": "quality",
-#             # max. number of function evaluations
-#             "ta_run_limit": 100000,
-#             "wallclock_limit": 60,
-#             "cs": cs,
-#             "deterministic": "true",
-#             "memory_limit": None,
-#             "cutoff": None,
-#             "output_dir": SMAC_OUTPUT_DIR,
-#         }
-#     )
-
-#     print("Optimizing benchmark with multiple sequences...")
-#     # When using SMAC4HPO, the default configuration has to be requested explicitly
-#     # as first design (see https://github.com/automl/SMAC3/issues/533).
-#     smac = SMAC4HPO(
-#         scenario=scenario,
-#         initial_design=DefaultConfiguration,
-#         rng=np.random.RandomState(ARGS.random_seed),
-#         tae_runner=evaluate_benchmark
-#     )
-
-#     incumbent = smac.optimize()
-
-
-# elif domain.has_bidimensional_scaling():
-
-# Option #2: We have multiple linear parameters that form a bi-dimensional scaling. In
-# # that case, we want to continue each scaling up to the end. Therefore, the only thing
-# # that we may select for each bi-dimensional scaling is the starting point and number of
-# # instances for each level. In this case we perform a separate optimization for each
-# # bi-dimensional scaling and just select the best one at the end.
-
-#     pass
-
-
-
-# else:
-#     # Option #3: only a single linear parameter. In this case, there are not too many
-#     # options, all we can do is to select the best sequence found by SMAC, start at 0, and put
-#     # 30 sequences.
-
-#     final_configuration.append((incumbent, 0, 30))
 
 
 

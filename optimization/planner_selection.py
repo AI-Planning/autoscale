@@ -84,3 +84,4 @@ def verify_planner_selection(track, images_dir, domain):
         for image in images:
             path = os.path.join(images_dir, image)
             assert os.path.exists(path), f"image at {path} is missing"
+            

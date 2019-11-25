@@ -107,7 +107,6 @@ class Runner:
         if cache_key in self.exact_cache:
             return self.exact_cache[cache_key]
 
-        return None
         # Check the unsolvability cache to see if the problem is too hard
         non_linear_key = tuple([parameters[attr] for attr in self.parameters_cache_key if attr not in self.linear_attributes_names])
         if non_linear_key in self.frontier_cache:
