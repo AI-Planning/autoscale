@@ -7,294 +7,11 @@ from lab.reports import Report, Table
 
 from project import DOMAIN_RENAMINGS
 
+from results.coverage_scores_opt import OPT_OLD_DOMAIN_SIZES, OPT_OLD, OPT_NEW
+from results.coverage_scores_sat import SAT_OLD_DOMAIN_SIZES, SAT_OLD, SAT_NEW
 
-OLD = [
-("barman", "bjolp", 4),
-("barman", "celmcut", 11),
-("barman", "comp2", 8),
-("barman", "ipdb", 11),
-("barman", "lmcut", 4),
-("barman", "sccdfp", 11),
-("barman", "symba1", 16),
-("blocksworld", "bjolp", 28),
-("blocksworld", "celmcut", 28),
-("blocksworld", "comp2", 30),
-("blocksworld", "ipdb", 28),
-("blocksworld", "lmcut", 28),
-("blocksworld", "sccdfp", 28),
-("blocksworld", "symba1", 33),
-("childsnack", "bjolp", 0),
-("childsnack", "celmcut", 6),
-("childsnack", "comp2", 0),
-("childsnack", "ipdb", 6),
-("childsnack", "lmcut", 0),
-("childsnack", "sccdfp", 6),
-("childsnack", "symba1", 4),
-("depot", "bjolp", 9),
-("depot", "celmcut", 9),
-("depot", "comp2", 7),
-("depot", "ipdb", 11),
-("depot", "lmcut", 7),
-("depot", "sccdfp", 9),
-("depot", "symba1", 7),
-("driverlog", "bjolp", 14),
-("driverlog", "celmcut", 14),
-("driverlog", "comp2", 14),
-("driverlog", "ipdb", 13),
-("driverlog", "lmcut", 14),
-("driverlog", "sccdfp", 13),
-("driverlog", "symba1", 14),
-("floortile", "bjolp", 2),
-("floortile", "celmcut", 34),
-("floortile", "comp2", 32),
-("floortile", "ipdb", 16),
-("floortile", "lmcut", 14),
-("floortile", "sccdfp", 16),
-("floortile", "symba1", 34),
-("gripper", "bjolp", 8),
-("gripper", "celmcut", 20),
-("gripper", "comp2", 18),
-("gripper", "ipdb", 20),
-("gripper", "lmcut", 7),
-("gripper", "sccdfp", 20),
-("gripper", "symba1", 20),
-("hiking", "bjolp", 11),
-("hiking", "celmcut", 14),
-("hiking", "comp2", 16),
-("hiking", "ipdb", 17),
-("hiking", "lmcut", 9),
-("hiking", "sccdfp", 18),
-("hiking", "symba1", 19),
-("miconic-strips", "bjolp", 144),
-("miconic-strips", "celmcut", 143),
-("miconic-strips", "comp2", 87),
-("miconic-strips", "ipdb", 60),
-("miconic-strips", "lmcut", 141),
-("miconic-strips", "sccdfp", 83),
-("miconic-strips", "symba1", 108),
-("nomystery", "bjolp", 20),
-("nomystery", "celmcut", 17),
-("nomystery", "comp2", 19),
-("nomystery", "ipdb", 20),
-("nomystery", "lmcut", 15),
-("nomystery", "sccdfp", 20),
-("nomystery", "symba1", 16),
-("parking", "bjolp", 6),
-("parking", "celmcut", 7),
-("parking", "comp2", 1),
-("parking", "ipdb", 13),
-("parking", "lmcut", 7),
-("parking", "sccdfp", 6),
-("parking", "symba1", 4),
-("rovers", "bjolp", 9),
-("rovers", "celmcut", 12),
-("rovers", "comp2", 11),
-("rovers", "ipdb", 10),
-("rovers", "lmcut", 9),
-("rovers", "sccdfp", 9),
-("rovers", "symba1", 14),
-("satellite", "bjolp", 7),
-("satellite", "celmcut", 14),
-("satellite", "comp2", 7),
-("satellite", "ipdb", 9),
-("satellite", "lmcut", 8),
-("satellite", "sccdfp", 9),
-("satellite", "symba1", 10),
-("snake", "bjolp", 12),
-("snake", "celmcut", 7),
-("snake", "comp2", 11),
-("snake", "ipdb", 11),
-("snake", "lmcut", 7),
-("snake", "sccdfp", 11),
-("snake", "symba1", 4),
-("storage", "bjolp", 16),
-("storage", "celmcut", 17),
-("storage", "comp2", 15),
-("storage", "ipdb", 19),
-("storage", "lmcut", 15),
-("storage", "sccdfp", 18),
-("storage", "symba1", 15),
-("tpp", "bjolp", 6),
-("tpp", "celmcut", 8),
-("tpp", "comp2", 13),
-("tpp", "ipdb", 7),
-("tpp", "lmcut", 7),
-("tpp", "sccdfp", 9),
-("tpp", "symba1", 8),
-("trucks", "bjolp", 9),
-("trucks", "celmcut", 13),
-("trucks", "comp2", 10),
-("trucks", "ipdb", 10),
-("trucks", "lmcut", 10),
-("trucks", "sccdfp", 9),
-("trucks", "symba1", 12),
-("visitall", "bjolp", 15),
-("visitall", "celmcut", 18),
-("visitall", "comp2", 25),
-("visitall", "ipdb", 28),
-("visitall", "lmcut", 16),
-("visitall", "sccdfp", 13),
-("visitall", "symba1", 19),
-("woodworking", "bjolp", 23),
-("woodworking", "celmcut", 50),
-("woodworking", "comp2", 38),
-("woodworking", "ipdb", 38),
-("woodworking", "lmcut", 30),
-("woodworking", "sccdfp", 50),
-("woodworking", "symba1", 48),
-("zenotravel", "bjolp", 11),
-("zenotravel", "celmcut", 13),
-("zenotravel", "comp2", 10),
-("zenotravel", "ipdb", 12),
-("zenotravel", "lmcut", 13),
-("zenotravel", "sccdfp", 11),
-("zenotravel", "symba1", 11),
-]
-
-NEW_SART = [
-("barman", "bjolp", 5),
-("barman", "celmcut", 6),
-("barman", "comp2", 6),
-("barman", "ipdb", 6),
-("barman", "lmcut", 3),
-("barman", "sccdfp", 6),
-("barman", "symba1", 8),
-("blocksworld", "bjolp", 8),
-("blocksworld", "celmcut", 10),
-("blocksworld", "comp2", 9),
-("blocksworld", "ipdb", 9),
-("blocksworld", "lmcut", 10),
-("blocksworld", "sccdfp", 9),
-("blocksworld", "symba1", 10),
-("childsnack", "bjolp", 4),
-("childsnack", "celmcut", 13),
-("childsnack", "comp2", 4),
-("childsnack", "ipdb", 14),
-("childsnack", "lmcut", 4),
-("childsnack", "sccdfp", 13),
-("childsnack", "symba1", 9),
-("depots", "bjolp", 16),
-("depots", "celmcut", 18),
-("depots", "comp2", 15),
-("depots", "ipdb", 18),
-("depots", "lmcut", 18),
-("depots", "sccdfp", 18),
-("depots", "symba1", 17),
-("driverlog", "bjolp", 22),
-("driverlog", "celmcut", 21),
-("driverlog", "comp2", 26),
-("driverlog", "ipdb", 21),
-("driverlog", "lmcut", 21),
-("driverlog", "sccdfp", 20),
-("driverlog", "symba1", 21),
-("floortile", "bjolp", 11),
-("floortile", "celmcut", 25),
-("floortile", "comp2", 21),
-("floortile", "ipdb", 15),
-("floortile", "lmcut", 16),
-("floortile", "sccdfp", 16),
-("floortile", "symba1", 25),
-("gripper", "bjolp", 6),
-("gripper", "celmcut", 30),
-("gripper", "comp2", 27),
-("gripper", "ipdb", 30),
-("gripper", "lmcut", 5),
-("gripper", "sccdfp", 30),
-("gripper", "symba1", 30),
-("hiking", "bjolp", 21),
-("hiking", "celmcut", 30),
-("hiking", "comp2", 21),
-("hiking", "ipdb", 30),
-("hiking", "lmcut", 21),
-("hiking", "sccdfp", 28),
-("hiking", "symba1", 27),
-("miconic-strips", "bjolp", 30),
-("miconic-strips", "celmcut", 28),
-("miconic-strips", "comp2", 14),
-("miconic-strips", "ipdb", 7),
-("miconic-strips", "lmcut", 28),
-("miconic-strips", "sccdfp", 13),
-("miconic-strips", "symba1", 18),
-("nomystery", "bjolp", 20),
-("nomystery", "celmcut", 19),
-("nomystery", "comp2", 18),
-("nomystery", "ipdb", 17),
-("nomystery", "lmcut", 17),
-("nomystery", "sccdfp", 19),
-("nomystery", "symba1", 17),
-("parking", "bjolp", 5),
-("parking", "celmcut", 5),
-("parking", "comp2", 4),
-("parking", "ipdb", 5),
-("parking", "lmcut", 5),
-("parking", "sccdfp", 5),
-("parking", "symba1", 5),
-("rover", "bjolp", 24),
-("rover", "celmcut", 24),
-("rover", "comp2", 25),
-("rover", "ipdb", 23),
-("rover", "lmcut", 24),
-("rover", "sccdfp", 22),
-("rover", "symba1", 24),
-("satellite", "bjolp", 9),
-("satellite", "celmcut", 11),
-("satellite", "comp2", 11),
-("satellite", "ipdb", 10),
-("satellite", "lmcut", 9),
-("satellite", "sccdfp", 11),
-("satellite", "symba1", 13),
-("snake", "bjolp", 11),
-("snake", "celmcut", 9),
-("snake", "comp2", 9),
-("snake", "ipdb", 10),
-("snake", "lmcut", 9),
-("snake", "sccdfp", 9),
-("snake", "symba1", 9),
-("storage", "bjolp", 24),
-("storage", "celmcut", 25),
-("storage", "comp2", 19),
-("storage", "ipdb", 27),
-("storage", "lmcut", 24),
-("storage", "sccdfp", 24),
-("storage", "symba1", 17),
-("tpp", "bjolp", 9),
-("tpp", "celmcut", 13),
-("tpp", "comp2", 17),
-("tpp", "ipdb", 12),
-("tpp", "lmcut", 13),
-("tpp", "sccdfp", 20),
-("tpp", "symba1", 12),
-("trucks", "bjolp", 7),
-("trucks", "celmcut", 4),
-("trucks", "comp2", 7),
-("trucks", "ipdb", 4),
-("trucks", "lmcut", 4),
-("trucks", "sccdfp", 4),
-("trucks", "symba1", 9),
-("visitall", "bjolp", 7),
-("visitall", "celmcut", 7),
-("visitall", "comp2", 11),
-("visitall", "ipdb", 10),
-("visitall", "lmcut", 7),
-("visitall", "sccdfp", 7),
-("visitall", "symba1", 10),
-("woodworking", "bjolp", 16),
-("woodworking", "celmcut", 29),
-("woodworking", "comp2", 22),
-("woodworking", "ipdb", 26),
-("woodworking", "lmcut", 17),
-("woodworking", "sccdfp", 29),
-("woodworking", "symba1", 25),
-("zenotravel", "bjolp", 20),
-("zenotravel", "celmcut", 24),
-("zenotravel", "comp2", 20),
-("zenotravel", "ipdb", 20),
-("zenotravel", "lmcut", 23),
-("zenotravel", "sccdfp", 19),
-("zenotravel", "symba1", 22),
-]
-
-names = ["old", "new_sart"]
+#names = ["opt_old", "opt_new"]
+names = ["sat_old", "sat_new"]
 
 sets = {}
 dicts = {}
@@ -307,8 +24,10 @@ for name in names:
     sets[name] = new_set
 
     new_domains = sorted({domain for domain, _, _ in sanitized})
-    assert domains is None or domains == new_domains
-    domains = new_domains
+    if domains is None:
+        domains = set(new_domains)
+    else:
+        domains &= set(new_domains)
 
     new_planners = sorted({planner for _, planner, _ in sanitized})
     assert planners is None or planners == new_planners
@@ -319,16 +38,24 @@ for name in names:
         dic[domain][algo] = coverage
     dicts[name] = dic
 
-assert len({len(s) for s in sets.values()}) == 1
 
-table = Table(title="different scores", min_wins=False)
-table.set_column_order(names)
+def bc(s):
+    return f" ''\\bc{{{s}}}''"
+
+
+def version(s):
+    return s.replace("sat_", "").replace("old_", "")
+
+
+table = Table(title="comparison", min_wins=None)
+table.set_column_order(["old size", "old min/max coverage", "new min/max coverage", "old unique", "new unique", "old only", "new only"])
 for name in names:
     different_coverage_scores = defaultdict(set)
     for domain, algo, coverage in sets[name]:
         different_coverage_scores[domain].add(coverage)
-    for domain, different_scores in different_coverage_scores.items():
-        table.add_cell(domain, name, len(different_scores))
+    for domain in domains:
+        different_scores = different_coverage_scores[domain]
+        table.add_cell(domain, version(name) + " unique", len(different_scores))
 
 tables = [table]
 
@@ -336,11 +63,14 @@ for name1, name2 in itertools.combinations(names, 2):
     set1 = sets[name1]
     set2 = sets[name2]
 
-    table = Table(title=f"{name1} vs. {name2}", min_wins=False)
-    outcomes = [f"only {name1}", f"only {name2}"]
-    table.set_column_order(outcomes)
+    #table = Table(title=f"{name1} vs. {name2}", min_wins=False)
+    outcomes = [f"{name1}", f"{name2}"]
+    #table.set_column_order(outcomes)
 
-    for domain in domains:
+    for domain in sorted(domains):
+        table.add_cell(domain, "old size", OPT_OLD_DOMAIN_SIZES[domain])
+        table.add_cell(domain, "old min/max coverage", " ''{}--{}''".format(min(dicts[name1][domain].values()), max(dicts[name1][domain].values())))
+        table.add_cell(domain, "new min/max coverage", " ''{}--{}''".format(min(dicts[name2][domain].values()), max(dicts[name2][domain].values())))
         result = {outcome: 0 for outcome in outcomes}
         for planner1, planner2 in itertools.permutations(planners, 2):
             coverage11 = dicts[name1][domain][planner1]
@@ -348,18 +78,18 @@ for name1, name2 in itertools.combinations(names, 2):
             coverage21 = dicts[name2][domain][planner1]
             coverage22 = dicts[name2][domain][planner2]
             if coverage11 > coverage12 and coverage21 <= coverage22:
-                result[f"only {name1}"] += 1
+                result[f"{name1}"] += 1
             elif coverage21 > coverage22 and coverage11 <= coverage12:
-                result[f"only {name2}"] += 1
+                result[f"{name2}"] += 1
         for key, value in result.items():
-            table.add_cell(domain, key, value)
+            table.add_cell(domain, version(key) + " only", value)
 
-    tables.append(table)
 
 def render_txt2tags(text, target="xhtml"):
+    #return text
     from lab.reports import markup
     doc = markup.Document()
     doc.add_text(text)
     return doc.render(target=target)
 
-print(render_txt2tags("\n\n\n".join(str(table) for table in tables)))
+print(render_txt2tags("\n\n\n".join(str(table) for table in tables), target="tex"))

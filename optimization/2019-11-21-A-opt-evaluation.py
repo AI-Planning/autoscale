@@ -121,7 +121,8 @@ exp.add_step('publish-report', subprocess.call, ['publish', report])
 
 renamings = [
     ("bjolp", "bjolp"),
-    ("delfi_blind", "blind"),
+    ("blind", "blind"),
+    ("delfi_blind", "dblind"),
     ("delfi_celmcut", "celmcut"),
     ("complementary2", "comp2"),
     ("delfi_ipdb", "ipdb"),
@@ -130,7 +131,8 @@ renamings = [
     ("fdss_mas2", "mas2"),
     ("delfi_mas_miasm", "miasm"),
     ("delfi_mas_sccdfp", "sccdfp"),
-    ("scorpion_nodiv", "scorpion"),
+    #("scorpion_nodiv", "scorpion"),
+    ("scorpion", "scorpion"),
     ("symba1", "symba1"),
     ("symba2", "symba2"),
 ]

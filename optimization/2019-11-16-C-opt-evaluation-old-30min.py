@@ -150,9 +150,9 @@ exp.add_step('publish-report', subprocess.call, ['publish', report])
 
 renamings = [
     ("bjolp", "bjolp"),
-    #("blind", "blind"),
+    ("blind", "blind"),
     ("delfi_blind", "dblind"),
-    ("delfi_celmcut", "celmcut"),
+    #("delfi_celmcut", "celmcut"),
     ("complementary2", "comp2"),
     ("delfi_ipdb", "ipdb"),
     ("lmcut", "lmcut"),
@@ -160,7 +160,8 @@ renamings = [
     ("fdss_mas2", "mas2"),
     ("delfi_mas_miasm", "miasm"),
     ("delfi_mas_sccdfp", "sccdfp"),
-    ("scorpion_nodiv", "scorpion"),
+    ("scorpion", "scorpion"),
+    #("scorpion_nodiv", "scorpion"),
     ("symba1", "symba1"),
     ("symba2", "symba2"),
 ]
@@ -169,7 +170,7 @@ domains = [
     'barman', 'blocksworld', 'childsnack', 'depot', 'driverlog',
     'floortile', 'gripper', 'hiking', 'miconic-strips', 'nomystery',
     'parking', 'rovers', 'satellite', 'snake', 'storage', 'tpp',
-    #'transport',
+    'transport',
     'trucks', 'visitall', 'woodworking', 'zenotravel',
 ]
 exp.add_report(
