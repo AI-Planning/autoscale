@@ -118,15 +118,15 @@ class LinearAtr:
                     "{}_m".format(atr), lower=self.lower_m, upper=self.upper_m, default_value=self.default_m
                 ),
             ]
-            if not only_baseline:
-                H += [
-                    UniformFloatHyperparameter(
-                        "{}_m2".format(atr), lower=0, upper=self.upper_m, default_value=0
-                    ),
-                    UniformIntegerHyperparameter(
-                        "{}_mb".format(atr), lower=3, upper=7, default_value=5
-                    ),
-                ]
+            # if not only_baseline:
+            #     H += [
+            #         UniformFloatHyperparameter(
+            #             "{}_m2".format(atr), lower=0, upper=self.upper_m, default_value=0
+            #         ),
+            #         UniformIntegerHyperparameter(
+            #             "{}_mb".format(atr), lower=3, upper=7, default_value=5
+            #         ),
+            #     ]
 
         return H
 
@@ -155,10 +155,15 @@ class LinearAtr:
 
 
 class GridAtr:
-    def __init__(self, name, name_x, name_y, lower_x, upper_x, level="false"):
+    def __init__(self, name, name_x, name_y, lower_x, upper_x, lower_m=0.1, upper_m=3.0, default_m=1.0, level="false"):
         self.name = name
         self.name_x = name_x
         self.name_y = name_y
+
+        self.lower_m = lower_m
+        self.upper_m = upper_m
+        self.default_m = default_m
+
         self.lower_x = lower_x
         self.upper_x = upper_x
         self.level_enum = level
@@ -174,19 +179,25 @@ class GridAtr:
     def get_hyperparameters(self, only_baseline, modifier=None):
         atr = "{}_{}".format(modifier, self.name) if modifier else self.name
 
-        H = []
-        H.append(UniformIntegerHyperparameter("{}_x".format(atr), lower=self.lower_x, upper=self.upper_x, default_value=self.lower_x))
-        H.append(UniformIntegerHyperparameter("{}_maxdiff".format(atr), lower=0, upper=5, default_value=3))
+        H = [UniformIntegerHyperparameter("{}_x".format(atr), lower=self.lower_x, upper=self.upper_x, default_value=self.lower_x),
+             UniformIntegerHyperparameter("{}_maxdiff".format(atr), lower=0, upper=5, default_value=3),
+             UniformFloatHyperparameter("{}_m".format(atr), lower=self.lower_m, upper=self.upper_m, default_value=self.default_m)
+        ]
+
+        # if not only_baseline += [
+        #         UniformFloatHyperparameter(
+        #             "{}_m2".format(atr), lower=0, upper=self.upper_m, default_value=0
+        #         ),
+        #         UniformIntegerHyperparameter(
+        #             "{}_mb".format(atr), lower=3, upper=7, default_value=5
+        #         ),
+        # ]
+
+                
 
         if self.level_enum == "choose":
             assert (modifier is None) # It does not make sense to have enum parameters and hierarchical linear attributes
             H.append(CategoricalHyperparameter("{}_level".format(atr), ["true", "false"], default_value="false"))
-
-        H += [
-            UniformFloatHyperparameter(
-                "{}_m".format(atr), lower=0, upper=1, default_value=1
-            ),
-        ]
 
         return H
 
@@ -196,8 +207,6 @@ class GridAtr:
         val_x = self.lower_x if self.lower_x == self.upper_x else int(cfg.get("{}_x".format(atr)))
         m =  float(cfg.get("{}_m".format(atr)))
         maxdiff = self.lower_x if self.lower_x == self.upper_x else int(cfg.get("{}_maxdiff".format(atr)))
-
-
 
         grid_values = []
         for i in range(len(Y)*int(math.ceil(1 + m) + 2)):
@@ -476,7 +485,7 @@ DOMAIN_LIST_OPT = [
 
     Domain("floortile",
            "floortile-generator.py name {num_rows} {num_columns} {num_robots} seq {seed}",
-           [GridAtr("grid", "num_columns", "num_rows", lower_x=2, upper_x=3),
+           [GridAtr("grid", "num_columns", "num_rows", lower_x=2, upper_x=3, upper_m=8),
             EnumAtr("num_robots", [2, 3, 4])
            ], adapt_f=adapt_parameters_floortile
     ),

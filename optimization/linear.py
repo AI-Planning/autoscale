@@ -274,6 +274,8 @@ def evaluate_sequence(cfg, print_final_configuration=False):
     domain = DOMAINS[ARGS.domain]
     sequence = domain.get_configs(cfg, ARGS.tasks)
 
+    logging.debug(f"Y: {sequence}")
+
     # First test: Does the baseline solve the first three configurations in less than 10,
     # 60, and 300s? If not, return a high error right away
     if not print_final_configuration:                        
@@ -290,8 +292,6 @@ def evaluate_sequence(cfg, print_final_configuration=False):
             return 10 ** 6 - 2 * 10 ** 5
 
     
-    logging.info(f"Y: {sequence}")
-
     # Changed the way to evaluate, to make it consistent with the "design principles" that
     # describe how a good benchmark selection is. This is organized in tests, sorted by
     # how hard are they to compute. As soon as a test fails, we return a high penalty and
