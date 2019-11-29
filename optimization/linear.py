@@ -256,8 +256,10 @@ def evaluate_runtimes(runtimes, num_expected_runtimes):
         factor = sorted_runtimes[i] / sorted_runtimes[i - 1]
         if factor <= 1:  # Runtime is not increasing: maximum penalty of 1
             penalty += 1
+        elif factor <= 1.5:
+            penalty += 3 - 2*factor
         elif factor <= 2: # Runtime is increasing, but not very quickly
-            penalty += 2 - factor
+            return 0
         elif factor > 2: # Runtime is increasing two quickly
             penalty += 1 - (2 / factor)
 
