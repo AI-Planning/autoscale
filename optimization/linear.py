@@ -40,7 +40,7 @@ import math
 from collections import defaultdict
 
 from domain_configuration import DOMAINS_SAT, DOMAINS_OPT
-from domain_configuration import LinearAtr, GridAtr
+from domain_configuration import EvaluatedSequence
 
 from runner import Runner
 
@@ -223,91 +223,6 @@ for domain in DOMAINS:
 # The configurations are a list of lists. Each list corresponds to an individual
 # linear scaling, so we may assume that instances are sorted by difficulty.
 # We got the configurations. They should be sorted from easier to harder.
-
-
-class Sequence:
-    def __init__(self, y):
-        self.seq = y
-        self.next_runtime = None
-        self.next_lb_runtime = 0
-        self.next_index = 0
-        self.runtimes = []
-
-    def get_next_parameters(self):
-        return self.seq[self.next_index]
-
-    def has_next(self):
-        return self.next_index < len(self.seq)
-
-    def reset_next(self):
-        self.runtimes.append(self.next_runtime)
-        self.next_runtime = None
-        self.next_index += 1
-
-        if not self.has_next():
-            self.next_lb_runtime = 10000000000 # Arbitrary number greater than time limit
-
-
-class InstanceSet:
-    def __init__(self, Y, runner):
-        self.sequences = [Sequence(y) for y in Y]
-        self.runner = runner
-        self.sequential_runtimes = []
-
-    def eval_next(self, time_limit):
-        best_lb = min(map(lambda x: x.next_lb_runtime, self.sequences))
-        if time_limit < best_lb:
-            return False
-
-        for seq in self.sequences:
-            if seq.next_lb_runtime == best_lb:
-                runtime = self.runner.run_planners(seq.get_next_parameters(), time_limit)
-
-                if not runtime:
-                    seq.next_lb_runtime = time_limit + 0.01
-                else:
-                    seq.next_runtime = runtime
-                    seq.next_lb_runtime = runtime
-
-
-        runtimes = [x.next_runtime for x in self.sequences if x.next_runtime]
-
-        if not runtimes:
-            return True
-
-        best_runtime = min(runtimes)
-
-        best_lb = min(map(lambda x: x.next_lb_runtime, self.sequences))
-        if best_lb == best_runtime:
-            for seq in self.sequences:
-                if seq.next_runtime == best_runtime:
-                    self.sequential_runtimes.append(seq.next_runtime)
-                    seq.reset_next()
-
-        return True
-
-    def is_solvable(self, i, time_limit=PLANNER_TIME_LIMIT, lower_bound=0):
-        while i >= len(self.sequential_runtimes):
-            if not self.eval_next(time_limit):
-                return False
-
-        return lower_bound <= self.sequential_runtimes[i] and self.sequential_runtimes[i] <= time_limit
-
-    def get_runtimes(self, num_instances, lower_bound, time_limit):
-        selected_runtimes = [t for t in self.sequential_runtimes if t > lower_bound]
-        while len(selected_runtimes) < num_instances:
-            if not self.eval_next(time_limit):
-                return selected_runtimes
-            else:
-                selected_runtimes = [t for t in self.sequential_runtimes if t > lower_bound]
-
-        return selected_runtimes[:num_instances]
-
-    def get_runtime_sequences(self):
-        return [seq.runtimes for seq in self.sequences]
-
-
-
 RUNNER_BASELINE = Runner("baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
 
 RUNNER_SART = Runner("sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, ARGS.domain), PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
@@ -340,32 +255,32 @@ def evaluate_cfg(cfg):
     return evaluate_sequence(cfg)
 
 def evaluate_sequence(cfg, print_final_configuration=False):
-
     logging.info(f"Evaluate configuration {cfg.get_dictionary()}")
     domain = DOMAINS[ARGS.domain]
-    Y = domain.get_configs(cfg, ARGS.tasks)
-    baseline_eval = InstanceSet(Y, RUNNER_BASELINE)
-    logging.info(f"Y: {Y}")
+    sequence = domain.get_configs(cfg, ARGS.tasks)
+
+    # First test: Does the baseline solve the first three configurations in less than 10,
+    # 60, and 300s? If not, return a high error right away
+    if not print_final_configuration:                        
+        if not RUNNER_BASELINE.is_solvable(sequence[0], time_limit=10, lower_bound=0):
+            logging.info("First instance was not solved by the baseline planner in less than 10 seconds")
+            return 10 ** 6
+
+        if not RUNNER_BASELINE.is_solvable(sequence[1], time_limit=60, lower_bound=0):
+            logging.info("Second instance was not solved by the baseline planner in less than 60 seconds")
+            return 10 ** 6 - 10 ** 5
+
+        if not RUNNER_BASELINE.is_solvable(sequence[2], time_limit=PLANNER_TIME_LIMIT, lower_bound=0):
+            logging.info("Third instance was not solved by the baseline planner in more than 2 or less than 300 seconds")
+            return 10 ** 6 - 2 * 10 ** 5
+
+    
+    logging.info(f"Y: {sequence}")
 
     # Changed the way to evaluate, to make it consistent with the "design principles" that
     # describe how a good benchmark selection is. This is organized in tests, sorted by
     # how hard are they to compute. As soon as a test fails, we return a high penalty and
     # the rest of the tests are not evaluated.
-
-    # First test: Does the baseline solve the first three configurations in less than 10,
-    # 60, and 300s? If not, return a high error right away
-    if not print_final_configuration:
-        if not baseline_eval.is_solvable(0, time_limit=10, lower_bound=0):
-            logging.info("First instance was not solved by the baseline planner in less than 10 seconds")
-            return 10 ** 6
-
-        if not baseline_eval.is_solvable(1, time_limit=60, lower_bound=0):
-            logging.info("Second instance was not solved by the baseline planner in less than 60 seconds")
-            return 10 ** 6 - 10 ** 5
-
-        if not baseline_eval.is_solvable(2, time_limit=PLANNER_TIME_LIMIT, lower_bound=0):
-            logging.info("Third instance was not solved by the baseline planner in more than 2 or less than 300 seconds")
-            return 10 ** 6 - 2 * 10 ** 5
 
     # Now, we check the entire scaling with respect to the baseline. What is important is
     # the relative time with respect to the previous instance. Ideally, this would be
@@ -373,7 +288,8 @@ def evaluate_sequence(cfg, print_final_configuration=False):
 
     # We compute a penalty, where each solved instance is assigned a score between 0 and 1
     # and unsolved instances are assigned a score of 2
-
+    
+    baseline_eval = EvaluatedSequence(sequence, RUNNER_BASELINE, PLANNER_TIME_LIMIT)
     baseline_times = baseline_eval.get_runtimes(ARGS.tasksbaseline, 10, PLANNER_TIME_LIMIT)
     penalty = evaluate_runtimes(baseline_times, ARGS.tasksbaseline)
 
@@ -381,7 +297,7 @@ def evaluate_sequence(cfg, print_final_configuration=False):
         sart_eval = None
         sart_times = []
     else:
-        sart_eval = InstanceSet(Y, RUNNER_SART)
+        sart_eval = EvaluatedSequence(sequence, RUNNER_SART, PLANNER_TIME_LIMIT)
         sart_times = sart_eval.get_runtimes(ARGS.tasksbaseline, 10, PLANNER_TIME_LIMIT)
         penalty += evaluate_runtimes(sart_times, ARGS.tasksbaseline)
 
@@ -403,12 +319,6 @@ def evaluate_sequence(cfg, print_final_configuration=False):
     # STORED_VALID_SEQUENCES.append((penalty, cfg))
 
     return penalty
-
-
-# # Commented out, useful for debugging purposes
-# evaluate_cfg({'cameras_b': 5, 'cameras_level': 'true', 'cameras_m': 0.08452823057483608, 'cameras_m2': 2.1947949112424965, 'goals_b': 1, 'goals_level': 'false', 'goals_m': 0.0818673500874456, 'goals_m2': 3.2173136321965656, 'objectives_b': 1, 'objectives_level': 'true', 'objectives_m': 0.32240081894723477, 'objectives_m2': 0.7883673647125511, 'rovers_b': 2, 'rovers_level': 'false', 'rovers_m': 0.06401620592382612, 'rovers_m2': 1.243678808837213, 'waypoints_b': 10, 'waypoints_m': 2.07498794298152, 'waypoints_m2': 1.8863737675644134})
-# exit(0)
-
 
 
 # Build Configuration Space which defines all parameters and their ranges.

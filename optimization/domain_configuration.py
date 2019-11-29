@@ -7,28 +7,42 @@ import os
 
 from string import Formatter
 
+class EvaluatedSequence:
+    def __init__(self, sequence, runner, time_limit):
+        self.seq = sequence
+        self.runtimes = []
+        self.next_lb_runtime = 0
 
+        while self.next_lb_runtime < time_limit and len(self.runtimes) < len(self.seq):
+            self.next_lb_runtime = runner.run_planners(self.seq[len(self.runtimes)])
+            if self.next_lb_runtime and self.next_lb_runtime < time_limit:
+                self.runtimes.append(self.next_lb_runtime)
+                
 
+    def get_next_parameters(self):
+        return self.seq[self.next_index]
 
-class Sequence:
-    def __init__(self, problems, runtimes):
-        self.problems = problems
-        self.runtimes = runtimes
-        self.i = 0
+    def get_runtimes(self, n, larger_than, lower_than):
+        return sorted([t for t in self.runtimes if t <= lower_than and t >= larger_than]) [:n]
 
-        sorted_runtimes = sorted(runtimes)
-
+class EstimatedSequence:
+    def __init__(self, evaluated_sequence):
+        assert evaluated_sequence.is_evaluated()
+        self.problems = evaluated_sequence.seq
+        self.sorted_runtimes  = sorted(evaluated_sequence.runtimes)
+    
         first_index = 0
-        while first_index < len(runtimes) - 2 and sorted_runtimes[first_index] < 5:
+        while first_index < len(self.sorted_runtimes) - 2 and self.sorted_runtimes[first_index] < 5:
             first_index += 1
 
-        factors = [sorted_runtimes[i]/sorted_runtimes[i-1] for i in range (first_index, len(runtimes))]
+        factors = [self.sorted_runtimes[i]/self.sorted_runtimes[i-1] for i in range (first_index, len(self.sorted_runtimes))]
         average_factor = float(sum(factors))/float(len(factors))
 
-        last_runtime = sorted_runtimes[-1]
-        while len(self.runtimes) < len(self.problems):
-            last_runtime *= average_factor
-            self.runtimes.append(last_runtime)
+        while len(self.sorted_runtimes) < len(self.problems):
+            self.sorted_runtimes.append(self.sorted_runtimes[-1]*average_factor)
+
+        self.i = 0
+
 
     def time_next_config(self):
         return self.runtimes[self.i]
@@ -204,10 +218,6 @@ class GridAtr:
 
             val += m
 
-
-
-
-
 class ConstantAtr:
     def __init__(self, name, value):
         self.name = name
@@ -222,17 +232,6 @@ class ConstantAtr:
     def set_values(self, cfg, Y, modifier=None):
         for i, Yi in enumerate(Y):
             Yi[self.name] = self.value
-
-class MultiSequenceAtr:
-    def __init__(self, name, values, optional=False):
-        self.name = name
-        self.values = values
-        self.optional = optional
-
-    def get_hyperparameters(self, only_baseline):
-        if self.optional:
-            return [CategoricalHyperparameter("{}_optional".format(self.name), ["true", "false"], default_value="false")]
-        return []
 
 class EnumAtr:
     def __init__(self, name, values):
@@ -287,10 +286,9 @@ def get_linear_scaling_values(linear_atrs, cfg, num_values, base={}, name_base=N
     return result
 
 class Domain:
-    def __init__(self, name, gen_command, linear_atrs, adapt_f=None, enum_values=[], num_sequences_linear_hierarchy=3):
+    def __init__(self, name, gen_command, linear_atrs, adapt_f=None,  num_sequences_linear_hierarchy=3):
         self.name = name
         self.linear_attributes = linear_atrs
-        self.enum_attributes = enum_values
         self.gen_command = gen_command
         self.adapt_f = adapt_f
 
@@ -305,61 +303,21 @@ class Domain:
     def get_generator_attribute_names(self):
         names = [fn for _, fn, _, _ in Formatter().parse(self.gen_command) if fn is not None and fn != "seed"]
         return names
-        
 
-
+    
     def get_configs(self, cfg, num_tasks):
-        result = []
-        if self.enum_attributes:
-            num_sequences = len(self.enum_attributes)
-        else:
-            #print ([atr.name for atr in self.linear_attributes])
-
-            level0_atrs = [atr for atr in self.linear_attributes if atr.get_level_enum(cfg)=="true"]
-            level1_atrs = [atr for atr in self.linear_attributes if atr.get_level_enum(cfg)=="false"]
-
-            # print ("Attribute layers: ", level0_atrs, level1_atrs)
-            num_sequences = 1 if len(level0_atrs) == 0 or len(level1_atrs) == 0  else self.num_sequences_linear_hierarchy # Generate enums
-
-        num_tasks_per_sequence = math.ceil(num_tasks / num_sequences)
-
-        # Populate sequences
-        if self.enum_attributes:
-            for enum_atr in self.enum_attributes:
-                Y = get_linear_scaling_values(self.linear_attributes, cfg, num_tasks_per_sequence, enum_atr.values, enum_atr.name)
-                result.append(Y)
-
-        elif num_sequences > 1:
-            # Populate sequences with linear attributes on level 0
-            linear_to_enum_atrs = get_linear_scaling_values(level0_atrs, cfg, self.num_sequences_linear_hierarchy)
-
-            for enum_atr in linear_to_enum_atrs:
-                Y = get_linear_scaling_values(level1_atrs, cfg, num_tasks_per_sequence, enum_atr)
-                result.append(Y)
-        else:
-            Y = get_linear_scaling_values(self.linear_attributes, cfg, num_tasks_per_sequence)
-            result.append(Y)
+        result = get_linear_scaling_values(self.linear_attributes, cfg, num_tasks)
 
         if self.adapt_f:
-            result = [[self.adapt_f(config) for config in y] for y in result ]
+            result = [self.adapt_f(config) for config in result ]
+            
         return result
 
     def get_hyperparameters(self, only_baseline):
-        result = []
-        if not self.enum_attributes:
-            for atr in self.linear_attributes:
-                result += atr.get_hyperparameters(only_baseline)
-        else:
-            result = []
-            for enum_parameter in self.enum_attributes:
-                result += enum_parameter.get_hyperparameters(only_baseline)
-                for atr in self.linear_attributes:
-                    result += atr.get_hyperparameters(only_baseline, enum_parameter.name)
-        return result
+        return [a for atr in self.linear_attributes for a in atr.get_hyperparameters(only_baseline)]
 
     def generator_command(self, GENERATORS_DIR):
         return "{}/{}/{}".format(GENERATORS_DIR, self.name, self.gen_command)
-
 
 
     def get_enum_parameters(self):

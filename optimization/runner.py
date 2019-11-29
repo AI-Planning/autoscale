@@ -65,37 +65,10 @@ class Runner:
                     ({linear_atr : parameters[linear_atr] for linear_atr in self.linear_attributes_names}, runtime)
                 )
 
-            
-        # with open(log_file) as f:
-        #     reading_sart = False
-        #     first_baseline_config = None
-        #     for l in f.readlines():
-
-        #         if "Average runtime for y=" in l:
-        #             parsing = l.split("Average runtime for y=")[1]
-        #             dict_data = parsing.split("}")[0].replace("'", "\"") + "}"
-        #             parameters = json.loads(dict_data)
-        #             runtime = float(parsing.split("}:")[1]) if not "None" in parsing.split("}:")[1] else None
-                    
-        #             if first_baseline_config == None:
-        #                 first_baseline_config = parameters
-        #             elif first_baseline_config ==  parameters:
-        #                 assert (not reading_sart)
-        #                 reading_sart = True
-                        
-        #             if use_sart_planners == reading_sart:  
-        #                 cache_key = tuple([parameters[attr] for attr in parameters if attr != "seed"])
-        #                 non_linear_key = tuple([parameters[attr] for attr in parameters if attr not in self.linear_attributes_names])
-        #                 if cache_key not in self.exact_cache:
-
-        #                     self.exact_cache[cache_key] = runtime
-        #                     self.frontier_cache[non_linear_key].append(
-        #                         ({linear_atr : parameters[linear_atr] for linear_atr in self.linear_attributes_names}, runtime)
-        #                     )
-        #         else:
-        #             reading_sart = False
-        #             first_baseline_config = None
-
+    def is_solvable(self, parameters, time_limit, lower_bound):
+        runtime = self.run_planners(parameters, time_limit)
+        return runtime and runtime <= time_limit and runtime >= lower_bound
+    
 
     def run_planners(self, parameters, time_limit=None):
         if not time_limit:
