@@ -7,27 +7,27 @@ PLANNER_SELECTION_SAT = {
     "childsnack": ["saarplan-dec-fallback.img"],
     "data-network": ["saarplan-grey.img", "lama-first.img",], # 9, 7
     "depots": ["mpc.img"],
-    "driverlog": ["mpc.img", "lapkt-bfws-pref.img"], # 15, 14, next: lapkt-dual-bfws with 13
+    "driverlog": ["mpc.img", "lapkt-bfws-pref.img", "saarplan-dec-fallback.img"], # 15, 14, next: lapkt-dual-bfws with 13
     "floortile": ["mpc.img"],
-    "gripper": ["mpc.img"], # 15, next: lapkt-dual-bfws and saarplan-dec-fallback with 13
+    "gripper": ["mpc.img","lama-first.img"], # 15, next: lapkt-dual-bfws and saarplan-dec-fallback with 13
     "hiking": ["lama-first.img"],
     "maintenance": ["mpc.img"],
-    "miconic-strips": ["mpc.img"], # 116, next: lapkt-dual-bfws with 94
+    "miconic-strips": ["mpc.img", "saarplan-dec-fallback.img"], # 116, next: lapkt-dual-bfws with 94
     "nomystery" : ["lama-first.img", "saarplan-dec-fallback.img"], # 10, 9
     "parking": ["lapkt-bfws-pref.img", "lapkt-dual-bfws.img"], # 13/11, 12/11 (for sat11/sat14)
     "pathways": ["mpc.img"],
     "rover": ["lama-first.img"],
-    "satellite": ["mpc.img"],
+    "satellite": ["mpc.img", "saarplan-dec-fallback.img"],
     "snake": ["lapkt-bfws-pref.img"],
     "storage": ["lapkt-dual-bfws.img", "lapkt-bfws-pref.img"], # 18, 16, next: mpc with 15
     "termes": ["lama-first.img"],
     "tetris": ["lapkt-bfws-pref.img", "lapkt-dual-bfws.img"], # 10, 9
     "transport" : ["lapkt-dual-bfws.img", "saarplan-dec-fallback.img"], # 23/9/5, 6/7/13 (for sat08/11/14), next: lapkt-bfws-pref with 22/8/4
     "tpp": ["mpc.img", "lama-first.img"], # 19, 18
-    "trucks": ["mpc.img"],
+    "trucks": ["mpc.img", "lama-first.img"],
     "visitall": ["lapkt-dual-bfws.img", "lapkt-bfws-pref.img"], # 15/12, 15/11 (for sat11/sat14)
     "woodworking": ["mpc.img"],
-    "zenotravel": ["mpc.img"],
+    "zenotravel": ["mpc.img", "lama-first.img", "saarplan-dec-fallback.img"],
 }
 
 PLANNER_SELECTION_OPT = {
@@ -80,7 +80,7 @@ def verify_planner_selection(track, images_dir, domain):
 
     assert selection[domain], f"no planners selected for {domain}"
     for domain, images in selection.items():
-        assert len(images) <= 2, f"too many images for {domain}"
+        assert len(images) <= 3, f"too many images for {domain}"
         for image in images:
             path = os.path.join(images_dir, image)
             assert os.path.exists(path), f"image at {path} is missing"
