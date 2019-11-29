@@ -13,7 +13,7 @@ class EvaluatedSequence:
         self.runtimes = []
         self.next_lb_runtime = 0
 
-        while self.next_lb_runtime < time_limit and len(self.runtimes) < len(self.seq):
+        while self.next_lb_runtime and self.next_lb_runtime < time_limit and len(self.runtimes) < len(self.seq):
             self.next_lb_runtime = runner.run_planners(self.seq[len(self.runtimes)])
             if self.next_lb_runtime and self.next_lb_runtime < time_limit:
                 self.runtimes.append(self.next_lb_runtime)
@@ -53,12 +53,10 @@ class EstimatedSequence:
 
 
 class SelectedConfiguration:
-
     def __init__(self, config, baseline_times=None, sart_times=None):
         self.cfg = config
         self.baseline_times = baseline_times
         self.sart_times = sart_times
-
 
     def get_configs(self, domain, num_tasks):
         # Generate 10 times the tasks needed to ensure that we can discard some sequences and still have enough tasks

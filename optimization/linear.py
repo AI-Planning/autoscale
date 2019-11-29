@@ -36,6 +36,7 @@ import subprocess
 import sys
 import warnings
 import math
+import json
 
 from collections import defaultdict
 
@@ -101,6 +102,7 @@ def parse_args():
         help="Maximum total time running planners (default: %(default)ss)",
     )
     
+    
     parser.add_argument("--debug", action="store_true", help="Print debug info")
     
     parser.add_argument(
@@ -137,11 +139,8 @@ def parse_args():
         "--only-baseline", action="store_true",
         help="only consider the baseline planner",
     )
-    parser.add_argument(
-        "--sequences_linear_hierarchy",
-        type=int, default=4,
-        help="Number sequences when there is a hierarchy on the linear attributes (default: %(default)s)"
-    )
+
+    parser.add_argument("--database", default=None, help="path to json file with the information needed")
 
     return parser.parse_args()
 
@@ -226,6 +225,20 @@ for domain in DOMAINS:
 RUNNER_BASELINE = Runner("baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
 
 RUNNER_SART = Runner("sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, ARGS.domain), PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
+
+
+
+if ARGS.database:
+    f = open(ARGS.database)
+    content = json.loads(f.read())
+
+    if "baseline_average_runtimes:" in content[ARGS.domain]:
+        logging.info (f"Loading cache data for baseline planners: {len(content[ARGS.domain]['baseline_average_runtimes:'])}")
+        RUNNER_BASELINE.load_cache_from_log_file(content[ARGS.domain]["baseline_average_runtimes:"])
+
+    if "sart_average_runtimes" in content[ARGS.domain]:
+        logging.info (f"Loading cache data for sart planners: {len(content[ARGS.domain]['sart_average_runtimes'])}" )
+        RUNNER_SART.load_cache_from_log_file(content[ARGS.domain]["sart_average_runtimes"])
 
 
 def evaluate_runtimes(runtimes, num_expected_runtimes):
