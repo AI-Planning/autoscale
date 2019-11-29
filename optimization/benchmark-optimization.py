@@ -77,7 +77,7 @@ except ImportError:
     cplex = None
 
 from domain_configuration import DOMAINS_SAT, DOMAINS_OPT
-from domain_configuration import LinearAtr, GridAtr
+from domain_configuration import EvaluatedSequence, EstimatedSequence
 from planner_selection import get_baseline_planner, get_sart_planners
 
 from runner import Runner
@@ -264,9 +264,7 @@ class Sequence:
         self.earliest_end = max(next(i for i,v in enumerate(self.sorted_runtimes) if v > 2000) if self.sorted_runtimes[-1] > 2000 else len(self.sorted_runtimes), self.latest_start + 1)
         self.latest_end = len(self.sorted_runtimes)
 
-        parameters_of_instances = domain.get_configs(self.config, len(self.sorted_runtimes))
-        assert len (parameters_of_instances) ==1
-        self.parameters_of_instances = parameters_of_instances[0]
+        self.parameters_of_instances = domain.get_configs(self.config, len(self.sorted_runtimes))
 
     def get_instances(self, i, endi):
         return self.parameters_of_instances[i:endi]
@@ -410,16 +408,16 @@ for i in range (K_PER_CATEGORY):
         Y = domain.get_configs(sequence['config'], 40)
         logging.info("Configurations in sequence {}".format(Y))
 
-        baseline_eval = InstanceSet(Y, RUNNER_BASELINE)
+        baseline_eval = EvaluatedSequence(Y, RUNNER_BASELINE, PLANNER_TIME_LIMIT)
         runtimes_baseline = baseline_eval.get_runtimes(40, 0, PLANNER_TIME_LIMIT)
         logging.info(f"Baseline runtimes {runtimes_baseline}")
 
-        sart_eval = InstanceSet(Y, RUNNER_SART)
+        sart_eval = EvaluatedSequence(Y, RUNNER_SART, PLANNER_TIME_LIMIT)
         runtimes_sart = sart_eval.get_runtimes(40, 0, PLANNER_TIME_LIMIT)
         logging.info(f"Sart runtimes {runtimes_sart}")
 
         if len(runtimes_sart) < 3:
-            continue # We cannot accept sequences that have less than 3 points to interpolate
+            continue # We cannot accept sequences tha-t have less than 3 points to interpolate
         new_seq = Sequence(sequence, domain, runtimes_baseline, runtimes_sart)
         evaluated_sequences[j].append(new_seq)
         sequences_by_id[new_seq.seq_id] = new_seq

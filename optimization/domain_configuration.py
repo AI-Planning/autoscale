@@ -13,7 +13,7 @@ class EvaluatedSequence:
         self.runtimes = []
         self.next_lb_runtime = 0
 
-        while self.next_lb_runtime and self.next_lb_runtime < time_limit and len(self.runtimes) < len(self.seq):
+        while self.next_lb_runtime is not None and self.next_lb_runtime < time_limit and len(self.runtimes) < len(self.seq):
             self.next_lb_runtime = runner.run_planners(self.seq[len(self.runtimes)])
             if self.next_lb_runtime and self.next_lb_runtime < time_limit:
                 self.runtimes.append(self.next_lb_runtime)
