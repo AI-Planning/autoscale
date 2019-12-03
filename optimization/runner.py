@@ -180,8 +180,8 @@ class Runner:
         else:
             result = None
 
-        self.logging.info(f"Average {self.name} runtime for y={parameters}: {result}")
         if result or time_limit == self.planner_time_limit:
+            self.logging.info(f"Average {self.name} runtime for y={parameters}: {result}")
             self.exact_cache[cache_key] = result
             self.frontier_cache[non_linear_key].append(
                 ({linear_atr : parameters[linear_atr] for linear_atr in self.linear_attributes_names}, result)
