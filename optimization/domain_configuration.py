@@ -692,7 +692,7 @@ DOMAIN_LIST_SAT = [
 
     Domain("floortile",
            "floortile-generator.py name {num_rows} {num_columns} {num_robots} seq {seed}",
-           [GridAtr("grid", "num_columns", "num_rows", lower_x=5, upper_x=10),
+           [GridAtr("grid", "num_columns", "num_rows", lower_x=5, upper_x=10, upper_m=10),
             EnumAtr("num_robots", [2, 3, 4, 5])
            ], adapt_f=adapt_parameters_floortile
     ),
