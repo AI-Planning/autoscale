@@ -92,4 +92,4 @@ def render_txt2tags(text, target="xhtml"):
     doc.add_text(text)
     return doc.render(target=target)
 
-print(render_txt2tags("\n\n\n".join(str(table) for table in tables), target="tex"))
+print(render_txt2tags("\n\n\n".join(str(table) for table in tables)))
