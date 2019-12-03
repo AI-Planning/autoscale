@@ -14,7 +14,7 @@
 
     (:action jump-new-move
      :parameters (?from - location ?over - location ?to - location)
-     :precondition (and 
+     :precondition (and
                        (move-ended)
                        (IN-LINE ?from ?over ?to)
                        (occupied ?from)
@@ -36,7 +36,7 @@
 
     (:action jump-continue-move
      :parameters (?from - location ?over - location ?to - location)
-     :precondition (and 
+     :precondition (and
                        (last-visited ?from)
                        (IN-LINE ?from ?over ?to)
                        (occupied ?from)

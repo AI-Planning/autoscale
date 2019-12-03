@@ -1,50 +1,50 @@
 ;; The following problem is taken from the problem library of Solipeg 2.2:
-;; 
+;;
 ;; Solipeg, a Classic Marble Puzzle Game for the
 ;; Psion Series 3a, 3c and Siena
 ;; Version 2.2 (and 2.2 Lite)
 ;; Copyright (C) 1993, 1994, 1995, 1996 J Cade Roux
-;; 
+;;
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation; either version 2 of the License, or
 ;; (at your option) any later version.
-;; 
+;;
 ;; This program is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
-;; 
+;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program; if not, write to the Free Software
 ;; Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-;; 
+;;
 ;; (see http://ourworld.compuserve.com/homepages/cade/psionsof.htm,
 ;; http://ourworld.compuserve.com/homepages/cade/solsrc22.zip)
-;; 
+;;
 ;; The Solipeg problem library in turn is derived from the booklet
 ;; "Problems in Puzzle-Peg" included in the game Puzzle-Peg (Third
 ;; Edition, 1924, Lubbers & Bell Mfg. Co.,Clinton, Iowa, USA).
-;; 
+;;
 ;; Original problem number and name: "71 One unusual"
-;; 
+;;
 ;; Number of pegs:                  19
 ;; Number of diagonal moves needed: 0
-;; 
+;;
 ;; Problem description:
 ;; "*" denotes "occupied"
 ;; "o" denotes "free"
-;; 
-;;     * * o     
-;;     * * o     
-;; o o * * o o o 
-;; * * * * * * * 
-;; o o * * o o o 
-;;     * * o     
-;;     * * o     
-;; 
+;;
+;;     * * o
+;;     * * o
+;; o o * * o o o
+;; * * * * * * *
+;; o o * * o o o
+;;     * * o
+;;     * * o
+;;
 ;; Target position = (3,3)
-;; 
+;;
 (define (problem pegsolitaire-sequential-071)
     (:domain pegsolitaire-sequential)
     (:objects
