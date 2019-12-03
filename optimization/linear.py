@@ -69,49 +69,49 @@ def parse_args():
         'track', choices=['sat', 'opt'],
         help="Choose the track to optimize for: satisficing or optimal."
     )
-    
+
     parser.add_argument(
         "--tasks", type=int, default=30, help="Number of tasks to generate in each round (default: %(default)s)"
     )
-    
+
     parser.add_argument(
         "--tasksbaseline",
         type=int,
         default=5,
         help="Number of tasks that are used to evaluate the runtime scaling for baseline and/or state of the art planners (default: %(default)s)",
     )
-    
+
     parser.add_argument(
         "--evaluations",
         type=int,
         default=sys.maxsize,
         help="Maximum number of configurations to evaluate (default: %(default)s)",
     )
-    
+
     parser.add_argument(
         "--runs-per-configuration",
         type=int,
         default=1,
         help="Number of runs for each parameter configuration, we take the average runtime among those (default: %(default)s)",
     )
-    
+
     parser.add_argument(
         "--optimization-time-limit",
         type=float,
         default=20 * 60 * 60,
         help="Maximum total time running planners (default: %(default)ss)",
     )
-    
-    
+
+
     parser.add_argument("--debug", action="store_true", help="Print debug info")
-    
+
     parser.add_argument(
         "--random-seed",
         type=int,
         default=0,
         help="Initial random seed for SMAC and our internal random seeds (default: %(default)d)",
     )
-    
+
     parser.add_argument(
         "--generators-dir",
         default=os.path.join(REPO, "pddl-generators"),
@@ -126,9 +126,9 @@ def parse_args():
         "--images_dir",
         default=os.path.join(REPO, "images"),
         help="path to directory containing the Singularity images to run")
-    
+
     parser.add_argument("domain", help="Domain name")
-    
+
     parser.add_argument(
         "--smac_output_dir",
         default="smac",
@@ -274,7 +274,7 @@ def evaluate_sequence(cfg, print_final_configuration=False):
 
     # First test: Does the baseline solve the first three configurations in less than 10,
     # 60, and 300s? If not, return a high error right away
-    if not print_final_configuration:                        
+    if not print_final_configuration:
         if not RUNNER_BASELINE.is_solvable(sequence[0], time_limit=10, lower_bound=0):
             logging.info("First instance was not solved by the baseline planner in less than 10 seconds")
             return 10 ** 6
@@ -287,7 +287,7 @@ def evaluate_sequence(cfg, print_final_configuration=False):
             logging.info("Third instance was not solved by the baseline planner in more than 2 or less than 300 seconds")
             return 10 ** 6 - 2 * 10 ** 5
 
-    
+
     logging.info(f"Y: {sequence}")
 
     # Changed the way to evaluate, to make it consistent with the "design principles" that
@@ -301,7 +301,7 @@ def evaluate_sequence(cfg, print_final_configuration=False):
 
     # We compute a penalty, where each solved instance is assigned a score between 0 and 1
     # and unsolved instances are assigned a score of 2
-    
+
     baseline_eval = EvaluatedSequence(sequence, RUNNER_BASELINE, PLANNER_TIME_LIMIT)
     baseline_times = baseline_eval.get_runtimes(ARGS.tasksbaseline, 10, PLANNER_TIME_LIMIT)
     penalty = evaluate_runtimes(baseline_times, ARGS.tasksbaseline)
@@ -369,7 +369,8 @@ smac = SMAC4HPO(
     scenario=scenario,
     initial_design=DefaultConfiguration,
     rng=np.random.RandomState(ARGS.random_seed),
-    tae_runner=evaluate_cfg
+    tae_runner=evaluate_cfg,
+    tae_runner_kwargs={"use_pynisher": False},
 )
 print("Output dir:", SMAC_OUTPUT_DIR)
 print("SMAC output dir:", smac.output_dir)
@@ -377,10 +378,3 @@ incumbent = smac.optimize()
 
 print("Final configuration: {}".format(incumbent.get_dictionary()))
 evaluate_sequence(incumbent, print_final_configuration=True)
-
-
-
-
-
-
-
