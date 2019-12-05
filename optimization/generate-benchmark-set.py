@@ -1072,7 +1072,7 @@ for domain, (config_dict, baseline_times, sart_times) in FINAL_CONFIGURATIONS.it
         os.mkdir(f"{ARGS.output}/{domain}")
         generator_command = DOMAINS[domain].generator_command(ARGS.generators_dir)
         domain_file = f"{ARGS.output}/{domain}/domain.pddl"
-        shutil.copy2(os.path.join(ARGS.generators_dir, domain, "domain.pddl"), domain_file)
+        shutil.copy2(DOMAINS[domain].get_domain_file(), domain_file)
 
     config = SelectedConfiguration(config_dict, baseline_times=baseline_times, sart_times=sart_times)
 
