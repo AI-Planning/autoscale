@@ -410,7 +410,7 @@ DOMAIN_LIST_OPT = [
          LinearAtr("goods", lower_b=3, upper_b=10)],
     ),
     Domain("trucks",
-        "trucks -seed {seed} -t 1 -l {locations} -p {packages} -a {areas} -n 1",
+        "trucks-strips.sh -seed {seed} -t 1 -l {locations} -p {packages} -a {areas} -n 1",
         [LinearAtr("areas", lower_b=2, upper_b=10, upper_m=1, optional_m=True),
          LinearAtr("packages", lower_b=2, upper_b=8, upper_m=2),
          LinearAtr("locations", lower_b=2, upper_b=10, upper_m=2, optional_m=True)],
