@@ -110,6 +110,10 @@ class Runner:
                     with open(problem_file, "w") as f:
                         subprocess.run(command, stdout=f, check=True)
 
+                if "domain-tmp.pddl" in self.domain.generator_command(self.GENERATORS_DIR):
+                    shutil.move("domain-tmp.pddl", os.path.join(plan_dir, "domain.pddl"))
+
+
                 # Check domain file. Problem file seems to be ignored.
                 subprocess.run(["validate", self.domain.get_domain_file(self.GENERATORS_DIR), problem_file], check=True)
 
@@ -126,7 +130,11 @@ class Runner:
 
                     # Copy domain and problem into temporary dir.
                     domain_file = os.path.join(planner_dir, "domain.pddl")
-                    shutil.copy2(self.domain.get_domain_file(self.GENERATORS_DIR), domain_file)
+
+                    if os.path.exists(os.path.join(plan_dir, "domain.pddl")):
+                        shutil.copy2(os.path.join(plan_dir, "domain.pddl"), domain_file)
+                    else:
+                        shutil.copy2(self.domain.get_domain_file(self.GENERATORS_DIR), domain_file)
                     shutil.copy2(problem_file, os.path.join(planner_dir, "problem.pddl"))
 
                     def set_limit(limit_type, limit):

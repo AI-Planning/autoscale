@@ -545,7 +545,7 @@ int main( int argc, char *argv[] )
   /* domain file (ops)
    */
   if ( gcmd_line.display_info >= 1 ) {
-    printf("\nff: parsing domain file");
+      printf("\nff: parsing domain file");
   } 
   /* it is important for the pddl language to define the domain before 
    * reading the problem 
@@ -704,22 +704,22 @@ int main( int argc, char *argv[] )
   
 
   if ( gcmd_line.strips ) {
-    printf("\n\nputting out grounded STRIPS task, %d facts\ninto ``domain-strips.pddl'' and ``problem-strips.pddl''", gnum_ft_conn);
+      /*printf("\n\nputting out grounded STRIPS task, %d facts\ninto ``domain-strips.pddl'' and ``problem-strips.pddl''", gnum_ft_conn);
     if ( gcmd_line.bernhard ) {
       printf("\nencoding of conditional effects:\naccording to Bernhard Nebel, polynomial, increase in plan length");
     } else {
       printf("\nencoding of conditional effects:\naccording to Gazen/Knoblock, exponential, NO increase in plan length");
-    }
+      }*/
     fflush( stdout );
     output_grounded_STRIPS_task();
   } else {
-    printf("\n\nputting out grounded SIMPLE-ADL task\ninto ``domain-strips.pddl'' and ``problem-strips.pddl''\n\n");
+      /*printf("\n\nputting out grounded SIMPLE-ADL task\ninto ``domain-strips.pddl'' and ``problem-strips.pddl''\n\n");*/
     fflush( stdout );
     output_grounded_SIMPLEADL_task();
   }
 
 
-  printf("\n\n");
+/*  printf("\n\n");*/
   exit( 0 );
 
 }
@@ -1589,7 +1589,7 @@ Bool process_command_line( int argc, char *argv[] )
 
   char option;
 
-  gcmd_line.display_info = 1;
+  gcmd_line.display_info = 0;
   gcmd_line.debug = 0;
 
   gcmd_line.strips = TRUE;
