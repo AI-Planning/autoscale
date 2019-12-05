@@ -17,20 +17,19 @@ class EvaluatedSequence:
             self.next_lb_runtime = runner.run_planners(self.seq[len(self.runtimes)])
             if self.next_lb_runtime and self.next_lb_runtime < time_limit:
                 self.runtimes.append(self.next_lb_runtime)
-                
 
     def get_next_parameters(self):
         return self.seq[self.next_index]
 
     def get_runtimes(self, n, larger_than, lower_than):
-        return sorted([t for t in self.runtimes if t <= lower_than and t >= larger_than]) [:n]
+        return sorted([t for t in self.runtimes if t <= lower_than and t >= larger_than])[:n]
 
 class EstimatedSequence:
     def __init__(self, evaluated_sequence):
         assert evaluated_sequence.is_evaluated()
         self.problems = evaluated_sequence.seq
         self.sorted_runtimes  = sorted(evaluated_sequence.runtimes)
-    
+
         first_index = 0
         while first_index < len(self.sorted_runtimes) - 2 and self.sorted_runtimes[first_index] < 5:
             first_index += 1
@@ -42,7 +41,6 @@ class EstimatedSequence:
             self.sorted_runtimes.append(self.sorted_runtimes[-1]*average_factor)
 
         self.i = 0
-
 
     def time_next_config(self):
         return self.runtimes[self.i]
@@ -74,7 +72,6 @@ class SelectedConfiguration:
                 if min_seq == seq.time_next_config() and len(result) < num_tasks:
                     print (i, seq.time_next_config())
                     result.append(seq.pop_next_config())
-
 
         return result
 
@@ -193,7 +190,7 @@ class GridAtr:
         #         ),
         # ]
 
-                
+
 
         if self.level_enum == "choose":
             assert (modifier is None) # It does not make sense to have enum parameters and hierarchical linear attributes
@@ -311,13 +308,13 @@ class Domain:
         names = [fn for _, fn, _, _ in Formatter().parse(self.gen_command) if fn is not None and fn != "seed"]
         return names
 
-    
+
     def get_configs(self, cfg, num_tasks):
         result = get_linear_scaling_values(self.linear_attributes, cfg, num_tasks)
 
         if self.adapt_f:
             result = [self.adapt_f(config) for config in result ]
-            
+
         return result
 
     def get_hyperparameters(self, only_baseline):
@@ -338,7 +335,7 @@ def adapt_parameters_floortile(parameters):
     parameters ["num_robots"] = min(parameters ["num_robots"], parameters ["num_columns"])
     return parameters
 
-    
+
 def adapt_parameters_parking(parameters):
     curbs = parameters["curbs"]
     cars = 2*(curbs -1) + int(parameters["cars_diff"])
