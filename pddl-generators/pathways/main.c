@@ -146,6 +146,12 @@ FILE *open_file(string name, string mode) {
 
 
 void parse_command_line(int argc, char *argv[]) {
+    // Change into the directory that contains the executable.
+    char *dir;
+    dir = strdup(argv[0]);
+    dirname(dir);
+    chdir(dir);
+
     int i;
     int mandatory = 1;
     char *out_name = NULL, *dw_out_name = NULL;
