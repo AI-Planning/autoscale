@@ -1,5 +1,11 @@
 #! /usr/bin/python3
 
+"""
+Wrapper for Pathways.
+
+Creates domain.pddl and problem.pddl files in the current directory.
+"""
+
 import argparse
 import os.path
 from pathlib import Path
@@ -10,8 +16,10 @@ DIR = Path(__file__).parent.resolve()
 
 
 def parse_args():
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--goals", type=int, default=1)
+    parser.add_argument("--reactions", type=int, default=1)
+    parser.add_argument("--initial-substances", type=int, default=1)
     return parser.parse_args()
 
 
@@ -32,8 +40,14 @@ def remove_constants(problem_file, constants):
 def main():
     args = parse_args()
 
-    p = subprocess.run(
-        [os.path.join(DIR, "pathways"), "--seed", "2004", "-out", os.path.abspath("problem.pddl"), "-R", "12", "-G", str(args.goals), "-L", "3", "-n", "Pathways-Problem"],
+    p = subprocess.run([
+            os.path.join(DIR, "pathways"),
+            "--seed", "2004",
+            "-out", os.path.abspath("problem.pddl"),
+            "-R", str(args.reactions),
+            "-G", str(args.goals),
+            "-L", str(args.initial_substances),
+            "-n", "Pathways-Problem"],
         stdout=subprocess.PIPE,
         universal_newlines=True,
         check=True)
