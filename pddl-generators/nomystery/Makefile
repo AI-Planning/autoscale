@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named nomystery_opt
+# Target rules for targets named nomystery
 
 # Build rule for target.
-nomystery_opt: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 nomystery_opt
-.PHONY : nomystery_opt
+nomystery: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 nomystery
+.PHONY : nomystery
 
 # fast build rule for target.
-nomystery_opt/fast:
-	$(MAKE) -f CMakeFiles/nomystery_opt.dir/build.make CMakeFiles/nomystery_opt.dir/build
-.PHONY : nomystery_opt/fast
+nomystery/fast:
+	$(MAKE) -f CMakeFiles/nomystery.dir/build.make CMakeFiles/nomystery.dir/build
+.PHONY : nomystery/fast
 
 src/globals.o: src/globals.cpp.o
 
@@ -129,7 +129,7 @@ src/globals.o: src/globals.cpp.o
 
 # target to build an object file
 src/globals.cpp.o:
-	$(MAKE) -f CMakeFiles/nomystery_opt.dir/build.make CMakeFiles/nomystery_opt.dir/src/globals.cpp.o
+	$(MAKE) -f CMakeFiles/nomystery.dir/build.make CMakeFiles/nomystery.dir/src/globals.cpp.o
 .PHONY : src/globals.cpp.o
 
 src/globals.i: src/globals.cpp.i
@@ -138,7 +138,7 @@ src/globals.i: src/globals.cpp.i
 
 # target to preprocess a source file
 src/globals.cpp.i:
-	$(MAKE) -f CMakeFiles/nomystery_opt.dir/build.make CMakeFiles/nomystery_opt.dir/src/globals.cpp.i
+	$(MAKE) -f CMakeFiles/nomystery.dir/build.make CMakeFiles/nomystery.dir/src/globals.cpp.i
 .PHONY : src/globals.cpp.i
 
 src/globals.s: src/globals.cpp.s
@@ -147,7 +147,7 @@ src/globals.s: src/globals.cpp.s
 
 # target to generate assembly for a file
 src/globals.cpp.s:
-	$(MAKE) -f CMakeFiles/nomystery_opt.dir/build.make CMakeFiles/nomystery_opt.dir/src/globals.cpp.s
+	$(MAKE) -f CMakeFiles/nomystery.dir/build.make CMakeFiles/nomystery.dir/src/globals.cpp.s
 .PHONY : src/globals.cpp.s
 
 src/heuristic.o: src/heuristic.cpp.o
@@ -156,7 +156,7 @@ src/heuristic.o: src/heuristic.cpp.o
 
 # target to build an object file
 src/heuristic.cpp.o:
-	$(MAKE) -f CMakeFiles/nomystery_opt.dir/build.make CMakeFiles/nomystery_opt.dir/src/heuristic.cpp.o
+	$(MAKE) -f CMakeFiles/nomystery.dir/build.make CMakeFiles/nomystery.dir/src/heuristic.cpp.o
 .PHONY : src/heuristic.cpp.o
 
 src/heuristic.i: src/heuristic.cpp.i
@@ -165,7 +165,7 @@ src/heuristic.i: src/heuristic.cpp.i
 
 # target to preprocess a source file
 src/heuristic.cpp.i:
-	$(MAKE) -f CMakeFiles/nomystery_opt.dir/build.make CMakeFiles/nomystery_opt.dir/src/heuristic.cpp.i
+	$(MAKE) -f CMakeFiles/nomystery.dir/build.make CMakeFiles/nomystery.dir/src/heuristic.cpp.i
 .PHONY : src/heuristic.cpp.i
 
 src/heuristic.s: src/heuristic.cpp.s
@@ -174,7 +174,7 @@ src/heuristic.s: src/heuristic.cpp.s
 
 # target to generate assembly for a file
 src/heuristic.cpp.s:
-	$(MAKE) -f CMakeFiles/nomystery_opt.dir/build.make CMakeFiles/nomystery_opt.dir/src/heuristic.cpp.s
+	$(MAKE) -f CMakeFiles/nomystery.dir/build.make CMakeFiles/nomystery.dir/src/heuristic.cpp.s
 .PHONY : src/heuristic.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -183,7 +183,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) -f CMakeFiles/nomystery_opt.dir/build.make CMakeFiles/nomystery_opt.dir/src/main.cpp.o
+	$(MAKE) -f CMakeFiles/nomystery.dir/build.make CMakeFiles/nomystery.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -192,7 +192,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) -f CMakeFiles/nomystery_opt.dir/build.make CMakeFiles/nomystery_opt.dir/src/main.cpp.i
+	$(MAKE) -f CMakeFiles/nomystery.dir/build.make CMakeFiles/nomystery.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -201,7 +201,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) -f CMakeFiles/nomystery_opt.dir/build.make CMakeFiles/nomystery_opt.dir/src/main.cpp.s
+	$(MAKE) -f CMakeFiles/nomystery.dir/build.make CMakeFiles/nomystery.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 src/open_list.o: src/open_list.cpp.o
@@ -210,7 +210,7 @@ src/open_list.o: src/open_list.cpp.o
 
 # target to build an object file
 src/open_list.cpp.o:
-	$(MAKE) -f CMakeFiles/nomystery_opt.dir/build.make CMakeFiles/nomystery_opt.dir/src/open_list.cpp.o
+	$(MAKE) -f CMakeFiles/nomystery.dir/build.make CMakeFiles/nomystery.dir/src/open_list.cpp.o
 .PHONY : src/open_list.cpp.o
 
 src/open_list.i: src/open_list.cpp.i
@@ -219,7 +219,7 @@ src/open_list.i: src/open_list.cpp.i
 
 # target to preprocess a source file
 src/open_list.cpp.i:
-	$(MAKE) -f CMakeFiles/nomystery_opt.dir/build.make CMakeFiles/nomystery_opt.dir/src/open_list.cpp.i
+	$(MAKE) -f CMakeFiles/nomystery.dir/build.make CMakeFiles/nomystery.dir/src/open_list.cpp.i
 .PHONY : src/open_list.cpp.i
 
 src/open_list.s: src/open_list.cpp.s
@@ -228,7 +228,7 @@ src/open_list.s: src/open_list.cpp.s
 
 # target to generate assembly for a file
 src/open_list.cpp.s:
-	$(MAKE) -f CMakeFiles/nomystery_opt.dir/build.make CMakeFiles/nomystery_opt.dir/src/open_list.cpp.s
+	$(MAKE) -f CMakeFiles/nomystery.dir/build.make CMakeFiles/nomystery.dir/src/open_list.cpp.s
 .PHONY : src/open_list.cpp.s
 
 src/search.o: src/search.cpp.o
@@ -237,7 +237,7 @@ src/search.o: src/search.cpp.o
 
 # target to build an object file
 src/search.cpp.o:
-	$(MAKE) -f CMakeFiles/nomystery_opt.dir/build.make CMakeFiles/nomystery_opt.dir/src/search.cpp.o
+	$(MAKE) -f CMakeFiles/nomystery.dir/build.make CMakeFiles/nomystery.dir/src/search.cpp.o
 .PHONY : src/search.cpp.o
 
 src/search.i: src/search.cpp.i
@@ -246,7 +246,7 @@ src/search.i: src/search.cpp.i
 
 # target to preprocess a source file
 src/search.cpp.i:
-	$(MAKE) -f CMakeFiles/nomystery_opt.dir/build.make CMakeFiles/nomystery_opt.dir/src/search.cpp.i
+	$(MAKE) -f CMakeFiles/nomystery.dir/build.make CMakeFiles/nomystery.dir/src/search.cpp.i
 .PHONY : src/search.cpp.i
 
 src/search.s: src/search.cpp.s
@@ -255,7 +255,7 @@ src/search.s: src/search.cpp.s
 
 # target to generate assembly for a file
 src/search.cpp.s:
-	$(MAKE) -f CMakeFiles/nomystery_opt.dir/build.make CMakeFiles/nomystery_opt.dir/src/search.cpp.s
+	$(MAKE) -f CMakeFiles/nomystery.dir/build.make CMakeFiles/nomystery.dir/src/search.cpp.s
 .PHONY : src/search.cpp.s
 
 src/state.o: src/state.cpp.o
@@ -264,7 +264,7 @@ src/state.o: src/state.cpp.o
 
 # target to build an object file
 src/state.cpp.o:
-	$(MAKE) -f CMakeFiles/nomystery_opt.dir/build.make CMakeFiles/nomystery_opt.dir/src/state.cpp.o
+	$(MAKE) -f CMakeFiles/nomystery.dir/build.make CMakeFiles/nomystery.dir/src/state.cpp.o
 .PHONY : src/state.cpp.o
 
 src/state.i: src/state.cpp.i
@@ -273,7 +273,7 @@ src/state.i: src/state.cpp.i
 
 # target to preprocess a source file
 src/state.cpp.i:
-	$(MAKE) -f CMakeFiles/nomystery_opt.dir/build.make CMakeFiles/nomystery_opt.dir/src/state.cpp.i
+	$(MAKE) -f CMakeFiles/nomystery.dir/build.make CMakeFiles/nomystery.dir/src/state.cpp.i
 .PHONY : src/state.cpp.i
 
 src/state.s: src/state.cpp.s
@@ -282,7 +282,7 @@ src/state.s: src/state.cpp.s
 
 # target to generate assembly for a file
 src/state.cpp.s:
-	$(MAKE) -f CMakeFiles/nomystery_opt.dir/build.make CMakeFiles/nomystery_opt.dir/src/state.cpp.s
+	$(MAKE) -f CMakeFiles/nomystery.dir/build.make CMakeFiles/nomystery.dir/src/state.cpp.s
 .PHONY : src/state.cpp.s
 
 src/state_registry.o: src/state_registry.cpp.o
@@ -291,7 +291,7 @@ src/state_registry.o: src/state_registry.cpp.o
 
 # target to build an object file
 src/state_registry.cpp.o:
-	$(MAKE) -f CMakeFiles/nomystery_opt.dir/build.make CMakeFiles/nomystery_opt.dir/src/state_registry.cpp.o
+	$(MAKE) -f CMakeFiles/nomystery.dir/build.make CMakeFiles/nomystery.dir/src/state_registry.cpp.o
 .PHONY : src/state_registry.cpp.o
 
 src/state_registry.i: src/state_registry.cpp.i
@@ -300,7 +300,7 @@ src/state_registry.i: src/state_registry.cpp.i
 
 # target to preprocess a source file
 src/state_registry.cpp.i:
-	$(MAKE) -f CMakeFiles/nomystery_opt.dir/build.make CMakeFiles/nomystery_opt.dir/src/state_registry.cpp.i
+	$(MAKE) -f CMakeFiles/nomystery.dir/build.make CMakeFiles/nomystery.dir/src/state_registry.cpp.i
 .PHONY : src/state_registry.cpp.i
 
 src/state_registry.s: src/state_registry.cpp.s
@@ -309,7 +309,7 @@ src/state_registry.s: src/state_registry.cpp.s
 
 # target to generate assembly for a file
 src/state_registry.cpp.s:
-	$(MAKE) -f CMakeFiles/nomystery_opt.dir/build.make CMakeFiles/nomystery_opt.dir/src/state_registry.cpp.s
+	$(MAKE) -f CMakeFiles/nomystery.dir/build.make CMakeFiles/nomystery.dir/src/state_registry.cpp.s
 .PHONY : src/state_registry.cpp.s
 
 src/utils.o: src/utils.cpp.o
@@ -318,7 +318,7 @@ src/utils.o: src/utils.cpp.o
 
 # target to build an object file
 src/utils.cpp.o:
-	$(MAKE) -f CMakeFiles/nomystery_opt.dir/build.make CMakeFiles/nomystery_opt.dir/src/utils.cpp.o
+	$(MAKE) -f CMakeFiles/nomystery.dir/build.make CMakeFiles/nomystery.dir/src/utils.cpp.o
 .PHONY : src/utils.cpp.o
 
 src/utils.i: src/utils.cpp.i
@@ -327,7 +327,7 @@ src/utils.i: src/utils.cpp.i
 
 # target to preprocess a source file
 src/utils.cpp.i:
-	$(MAKE) -f CMakeFiles/nomystery_opt.dir/build.make CMakeFiles/nomystery_opt.dir/src/utils.cpp.i
+	$(MAKE) -f CMakeFiles/nomystery.dir/build.make CMakeFiles/nomystery.dir/src/utils.cpp.i
 .PHONY : src/utils.cpp.i
 
 src/utils.s: src/utils.cpp.s
@@ -336,7 +336,7 @@ src/utils.s: src/utils.cpp.s
 
 # target to generate assembly for a file
 src/utils.cpp.s:
-	$(MAKE) -f CMakeFiles/nomystery_opt.dir/build.make CMakeFiles/nomystery_opt.dir/src/utils.cpp.s
+	$(MAKE) -f CMakeFiles/nomystery.dir/build.make CMakeFiles/nomystery.dir/src/utils.cpp.s
 .PHONY : src/utils.cpp.s
 
 # Help Target
@@ -346,7 +346,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... nomystery_opt"
+	@echo "... nomystery"
 	@echo "... edit_cache"
 	@echo "... src/globals.o"
 	@echo "... src/globals.i"
