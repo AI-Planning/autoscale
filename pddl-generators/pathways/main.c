@@ -138,7 +138,7 @@ FILE *open_file(string name, string mode) {
     FILE *f;
     f = fopen(name, mode);
     if (f == NULL) {
-        printf("\nERROR opening file %s\n", name);
+        fprintf(stderr, "ERROR opening file %s\n", name);
         exit(1);
     }
     return f;
