@@ -32,8 +32,9 @@ images$
 ^pddl-generators/mprime/mprime$
 ^pddl-generators/mystery/mystery$
 ^pddl-generators/nomystery/build/
-^pddl-generators/nomystery/Makefile.depend$
 ^pddl-generators/nomystery/nomystery$
+^pddl-generators/nomystery/old/Makefile.depend$
+^pddl-generators/nomystery/old/nomystery$
 ^pddl-generators/nomystery/release-search$
 ^pddl-generators/npuzzle/n-puzzle-generator$
 ^pddl-generators/openstacks/generate_pddl$
