@@ -12,7 +12,7 @@ template <typename T, typename H>
 SearchEngine<T, H>::SearchEngine () {
 }
 template <typename T, typename H> 
-int SearchEngine<T, H>::search(int bound, int weight) {
+int SearchEngine<T, H>::search(int bound, double weight, int remaining_time) {
     State initial_state = get_initial_state();
     
     int initial_state_id = registry.get_state_id(initial_state);
@@ -22,7 +22,13 @@ int SearchEngine<T, H>::search(int bound, int weight) {
     node.g = 0;
     node.status = SearchNodeStatus::OPEN;
 
+    int expansions = 0;
+    time_t current_time = time(NULL);
     while (!open.empty()) {
+        if (remaining_time && expansions ++ % 1000 == 0
+            && time(NULL) - current_time > remaining_time) {
+            return bound +1;
+        }
         StateID s_id = open.pop_min();
         SearchNode &node = search_space[s_id];
 
@@ -83,9 +89,7 @@ int SearchEngine<T, H>::search(int bound, int weight) {
             }
         }
     }
-    cerr << "ERROR: Unsolvable instance." << endl;
-    exit(-1);
-    return 0;
+    return bound + 1 ;
 }
 
 

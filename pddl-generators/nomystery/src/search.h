@@ -10,6 +10,7 @@
 
 #include <deque>
 #include <vector>
+#include <limits>
 
 enum class SearchNodeStatus {
     NEW, OPEN, CLOSED
@@ -37,7 +38,7 @@ class SearchEngine {
   public:
     SearchEngine ();
 
-    int search(int bound = 100000, int weight = 1);
+    int search(int bound = std::numeric_limits<int>::max(), double weight = 1, int seconds = 0);
 
 };
 

@@ -23,4 +23,4 @@ set(SOURCE_FILES
     src/heuristic.h
     src/heuristic.cpp)
 
-add_executable(nomystery_opt src/main.cpp ${SOURCE_FILES})
+add_executable(nomystery src/main.cpp ${SOURCE_FILES})

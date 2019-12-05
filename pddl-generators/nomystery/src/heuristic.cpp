@@ -11,7 +11,6 @@
 using namespace std;
 
 int AdmissibleHeuristic::compute(const State &state) {
-
     std::vector<int> active_locs;
     std::vector<int> minimum_distance;
 
