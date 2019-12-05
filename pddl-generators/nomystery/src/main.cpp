@@ -39,8 +39,8 @@ int main(int argc, char * argv[]) {
         
         SearchEngine<OpenList, AdmissibleHeuristic> engine;
         int initial_fuel = engine.search();
-        cout << initial_fuel << endl;
-	//output_pddl_file(initial_fuel * g_c);
+        //cout << initial_fuel << endl;
+	output_pddl_file(initial_fuel * g_c);
 	return 0;
 }
 
