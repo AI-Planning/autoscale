@@ -18,6 +18,16 @@ def get_constants(dummy_actions):
     return re.findall(r"\(available ([^\)]+)\)", dummy_actions)
 
 
+def remove_constants(problem_file, constants):
+    new_lines = []
+    with open(problem_file) as f:
+        for line in f:
+            if not any(f"{c} - complex" in line for c in constants):
+                new_lines.append(line.replace("\t", " " * 4))
+    with open(problem_file, "w") as f:
+        f.writelines(new_lines)
+
+
 def main():
     args = parse_args()
     os.chdir(DIR)
@@ -45,7 +55,7 @@ def main():
     with open("domain.pddl", "w") as f:
         f.write("".join(domain_parts))
 
-    # TODO: Remove constants (and tabs) from problem.pddl
+    remove_constants("problem.pddl", constants)
 
 
 main()
