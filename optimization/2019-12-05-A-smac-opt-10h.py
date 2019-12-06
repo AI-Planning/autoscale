@@ -18,7 +18,8 @@ from reports.benchmark_configuration_report import BenchmarkConfigurationReport
 class BaseReport(AbsoluteReport):
     INFO_ATTRIBUTES = ['run_time_limit', 'run_memory_limit']
     ERROR_ATTRIBUTES = [
-        'domain', 'problem', 'algorithm', 'unexplained_errors', 'error', 'node']
+        'domain', 'problem', 'algorithm', 'unexplained_errors', 'error',
+        'node', 'optimization_wallclock_time']
 
 
 NODE = platform.node()
@@ -33,9 +34,8 @@ DOMAINS = [
     'transport', 'trucks', 'visitall', 'woodworking', 'zenotravel',
 ]
 ATTRIBUTES = [
-    "error", "sequences", "final_*",
-    "evaluated_configurations", "optimization_wallclock_time", "run_dir",
-    "incumbent_changed", "*_average_runtimes",
+    "error", "final_*", "evaluated_configurations",
+    "optimization_wallclock_time", "run_dir", "incumbent_changed",
 ]
 RUN_TIME_LIMIT = 23 * 60 * 60
 RUN_MEMORY_LIMIT = 3584
@@ -58,6 +58,7 @@ else:
     SMAC_RUNS_PER_DOMAIN = 2
     OPTIONS = ["--debug", "--evaluations", "1", "--tasks", "3", "--tasksbaseline", "3"]
     DOMAINS = ["driverlog"]
+    ATTRIBUTES += ["sequences", "*_average_runtimes"]
 
 
 exp = Experiment(environment=ENV)
@@ -104,10 +105,7 @@ exp.add_step('publish-report', subprocess.call, ['publish', report])
 
 taskwise_report = os.path.join(exp.eval_dir, '{}-taskwise.html'.format(exp.name))
 exp.add_report(
-    TaskwiseReport(attributes=[
-        "error", "final_*", "evaluated_configurations",
-        "optimization_wallclock_time", "run_dir", "incumbent_changed",
-    ]),
+    TaskwiseReport(attributes=ATTRIBUTES),
     outfile=taskwise_report)
 exp.add_step('publish-taskwise-report', subprocess.call, ['publish', taskwise_report])
 
