@@ -35,7 +35,7 @@ def print_pddl(instance_name, num_floors, elevators, passengers, cost_slow, cost
 
    
     
-    cost_facts = "\n       ".join([f"(travel-slow n{i} n{j} {cost_slow.get_cost(i,j)})" for i, j in sorted(slow_floors)] + [f"(travel-fast n{i} n{j} {cost_fast.get_cost(i,j)})" for i, j in sorted(fast_floors)])
+    cost_facts = "\n       ".join([f"(= (travel-slow n{i} n{j}) {cost_slow.get_cost(i,j)})" for i, j in sorted(slow_floors)] + [f"(= (travel-fast n{i} n{j}) {cost_fast.get_cost(i,j)})" for i, j in sorted(fast_floors)])
 
 
     
