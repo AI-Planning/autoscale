@@ -104,7 +104,10 @@ exp.add_step('publish-report', subprocess.call, ['publish', report])
 
 taskwise_report = os.path.join(exp.eval_dir, '{}-taskwise.html'.format(exp.name))
 exp.add_report(
-    TaskwiseReport(attributes=ATTRIBUTES),
+    TaskwiseReport(attributes=[
+        "error", "final_*", "evaluated_configurations",
+        "optimization_wallclock_time", "run_dir", "incumbent_changed",
+    ]),
     outfile=taskwise_report)
 exp.add_step('publish-taskwise-report', subprocess.call, ['publish', taskwise_report])
 
