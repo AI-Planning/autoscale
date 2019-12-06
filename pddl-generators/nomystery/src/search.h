@@ -18,6 +18,7 @@ enum class SearchNodeStatus {
 };
 
 struct SearchNode {
+    // This lets GCC emit a warning which can be ignored (https://stackoverflow.com/questions/36005063).
     SearchNodeStatus status : 2;
     int g : 30;
     int parent_state_id;
@@ -27,15 +28,15 @@ struct SearchNode {
     }
 };
 
-template <typename TOpenList, typename H> 
+template <typename TOpenList, typename H>
 class SearchEngine {
     StateRegistry registry;
     TOpenList open;
-    
+
     PerStateInformation<SearchNode> search_space;
     H heuristic;
 
-	
+
   public:
     SearchEngine () {
     }

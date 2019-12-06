@@ -47,44 +47,12 @@ def error(content, props):
 
 
 def parse_average_runtimes(content, props):
-    reading_sart = False
-    first_baseline_config = None
-    baseline_average_runtimes = props.get("baseline_average_runtimes", [])
-    sart_average_runtimes = props.get("sart_average_runtimes", [])
+    baseline_average_runtimes = []
+    sart_average_runtimes = []
     for line in content.splitlines():
-        if "Validator time:" in line or "Validator peak memory:" in line or not line.strip():
-            continue
-        match = re.match(r".*Average runtime for y=(.+): (.+)", line)
-        if match:
-            config_string, value_string = match.group(1), match.group(2)
-            parameters = ast.literal_eval(config_string)
-            runtime = ast.literal_eval(value_string)
-
-            if first_baseline_config is None:
-                first_baseline_config = parameters
-            elif first_baseline_config == parameters:
-                assert not reading_sart
-                reading_sart = True
-
-            if reading_sart:
-                sart_average_runtimes.append((parameters, runtime))
-            else:
-                baseline_average_runtimes.append((parameters, runtime))
-        else:
-            reading_sart = False
-            first_baseline_config = None
-    props["baseline_average_runtimes"] = baseline_average_runtimes
-    props["sart_average_runtimes"] = sart_average_runtimes
-
-def parse_additional_average_runtimes(content, props):
-    baseline_average_runtimes = props.get("baseline_average_runtimes", [])
-    sart_average_runtimes = props.get("sart_average_runtimes", [])
-    for line in content.splitlines():
-        if "Validator time:" in line or "Validator peak memory:" in line or not line.strip():
-            continue
         match = re.match(r".*Average (sart|baseline) runtime for y=(.+): (.+)", line)
         if match:
-            name, config_string, value_string = match.group(1), match.group(2), match.group(3)
+            name, config_string, value_string = match.groups()
             parameters = ast.literal_eval(config_string)
             runtime = ast.literal_eval(value_string)
 
@@ -105,13 +73,12 @@ parser.add_pattern(
     'optimization_wallclock_time', r'optimize wall-clock time: (.+)s\n', type=float, file='driver.log')
 parser.add_repeated_pattern('sequences', r'Sequence: (.+)\n', type=str)
 parser.add_bottom_up_pattern('final_sequence', r'Final sequence: (\{.+\})\n', type=str)
+parser.add_bottom_up_pattern('final_baseline_runtimes', r'Final baseline runtimes: (.*)\n', type=str)
+parser.add_bottom_up_pattern('final_sart_runtimes', r'Final sart runtimes: (.*)\n', type=str)
 parser.add_bottom_up_pattern('final_value', r'Estimated cost of incumbent: (.+)\n', type=float)
 parser.add_bottom_up_pattern('evaluated_configurations', r'\#Configurations: (\d+)\n', type=int)
 parser.add_bottom_up_pattern('incumbent_changed', r'\#Incumbent changed: (\d+)\n', type=int)
-parser.add_bottom_up_pattern('final_baseline_runtimes', r'Final baseline runtimes: (.*)\n', type=str)
-parser.add_bottom_up_pattern('final_sart_runtimes', r'Final sart runtimes: (.*)\n', type=str)
 parser.add_function(error)
 parser.add_function(parse_average_runtimes)
-parser.add_function(parse_additional_average_runtimes)
 
 parser.parse()
