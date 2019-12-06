@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.4)
-project(spidersolver)
+project(nomysterygenerator)
 
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -Wall -pg")
 
