@@ -20,6 +20,8 @@ def parse_args():
     parser.add_argument("--goals", type=int, default=1)
     parser.add_argument("--reactions", type=int, default=1)
     parser.add_argument("--initial-substances", type=int, default=1)
+    parser.add_argument("domain")
+    parser.add_argument("problem")
     return parser.parse_args()
 
 
@@ -43,7 +45,7 @@ def main():
     p = subprocess.run([
             os.path.join(DIR, "pathways"),
             "--seed", "2004",
-            "-out", os.path.abspath("problem.pddl"),
+            "-out", args.problem,
             "-R", str(args.reactions),
             "-G", str(args.goals),
             "-L", str(args.initial_substances),
@@ -67,10 +69,10 @@ def main():
         domain_parts.append(f.read())
     domain_parts.append(f"\n{dummy_actions}\n)\n")
 
-    with open("domain.pddl", "w") as f:
+    with open(args.domain, "w") as f:
         f.write("".join(domain_parts))
 
-    remove_constants("problem.pddl", constants)
+    remove_constants(args.problem, constants)
 
 
 main()
