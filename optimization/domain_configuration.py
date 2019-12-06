@@ -736,6 +736,8 @@ DOMAIN_LIST_SAT = [
 ]
 
 
-DOMAINS_OPT = {dom.name : dom for dom in DOMAIN_LIST_OPT}
-DOMAINS_SAT = {dom.name : dom for dom in DOMAIN_LIST_SAT}
-
+def get_domains(track):
+    domains = {dom.name: dom for dom in DOMAIN_LIST_OPT}
+    if track == "sat":
+        domains = {dom.name: dom for dom in DOMAIN_LIST_SAT}
+    return domains

@@ -76,7 +76,7 @@ try:
 except ImportError:
     cplex = None
 
-from domain_configuration import DOMAINS_SAT, DOMAINS_OPT
+from domain_configuration import get_domains
 from domain_configuration import EvaluatedSequence, EstimatedSequence
 from planner_selection import get_baseline_planner, get_sart_planners
 
@@ -205,10 +205,7 @@ def setup_logging():
 
 setup_logging()
 
-if ARGS.track == 'opt':
-    DOMAINS = DOMAINS_OPT
-else:
-    DOMAINS = DOMAINS_SAT
+DOMAINS = get_domains(ARGS.track)
 
 # SMAC moves old directories out of the way, but we want a completely pristine directory to safeguard against errors.
 if os.path.exists(SMAC_OUTPUT_DIR):

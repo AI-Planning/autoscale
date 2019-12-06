@@ -40,7 +40,7 @@ import json
 
 from collections import defaultdict
 
-from domain_configuration import DOMAINS_SAT, DOMAINS_OPT
+from domain_configuration import get_domains
 from domain_configuration import EvaluatedSequence
 
 from runner import Runner
@@ -201,11 +201,7 @@ if os.path.exists(SMAC_OUTPUT_DIR):
 
 verify_planner_selection(ARGS.track, ARGS.images_dir, ARGS.domain)
 
-if ARGS.track == 'opt':
-    DOMAINS = DOMAINS_OPT
-else:
-    DOMAINS = DOMAINS_SAT
-
+DOMAINS = get_domains(ARGS.track)
 
 print("{} domains available: {}".format(len(DOMAINS), sorted(DOMAINS)))
 
@@ -379,10 +375,3 @@ incumbent = smac.optimize()
 
 print("Final configuration: {}".format(incumbent.get_dictionary()))
 evaluate_sequence(incumbent, print_final_configuration=True)
-
-
-
-
-
-
-
