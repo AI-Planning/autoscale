@@ -7,6 +7,8 @@ import os
 
 from string import Formatter
 
+from runner import TMP_DOMAIN, TMP_PROBLEM
+
 class EvaluatedSequence:
     def __init__(self, sequence, runner, time_limit):
         self.seq = sequence
@@ -399,7 +401,7 @@ DOMAIN_LIST_OPT = [
         ],
     ),
     Domain("tpp",
-        "tpp -s {seed} -m {markets} -p {products} -t {trucks} -d {depots} -l {goods} tmp.pddl",
+        "tpp -s {seed} -m {markets} -p {products} -t {trucks} -d {depots} -l {goods} " + TMP_PROBLEM,
         [LinearAtr("products", lower_b=2, upper_b=10, lower_m=1),
          LinearAtr("markets", lower_b=1, upper_b=5, optional_m=True),
          LinearAtr("trucks", lower_b=2, upper_b=5, optional_m=True),
@@ -407,7 +409,7 @@ DOMAIN_LIST_OPT = [
          LinearAtr("goods", lower_b=3, upper_b=10)],
     ),
     Domain("trucks",
-        "trucks-strips.sh domain-tmp.pddl tmp.pddl -seed {seed} -t 1 -l {locations} -p {packages} -a {areas} -n 1",
+        "trucks-strips.sh tmp-domain.pddl tmp-problem.pddl -seed {seed} -t 1 -l {locations} -p {packages} -a {areas} -n 1",
         [LinearAtr("areas", lower_b=2, upper_b=10, upper_m=1, optional_m=True),
          LinearAtr("packages", lower_b=2, upper_b=8, upper_m=2),
          LinearAtr("locations", lower_b=2, upper_b=10, upper_m=2, optional_m=True)],
@@ -488,7 +490,7 @@ DOMAIN_LIST_OPT = [
     ),
 
     Domain("storage",
-           "storage -p 01 -o {containers} -e {seed} -c {crates} -n {hoists} -s {store_areas} -d {depots} tmp.pddl",
+           "storage -p 01 -o {containers} -e {seed} -c {crates} -n {hoists} -s {store_areas} -d {depots} tmp-problem.pddl",
            [LinearAtr("crates", lower_b=2, upper_b=10, lower_m=1, upper_m=5),
             LinearAtr("hoists", lower_b=2, upper_b=5, optional_m=True),
             LinearAtr("store_areas", lower_b=0, upper_b=5, optional_m=True),
@@ -562,7 +564,7 @@ DOMAIN_LIST_OPT = [
     # ),
 
     # Domain("pathways",
-    #        "pathways --seed {seed} -out tmp.pddl -R {reactions} -G {num_goals} -L {substances} -n prob > domain_file_to_concatenate", # TODO: The generator outputs both the problem and the domain file,
+    #        "pathways --seed {seed} -out TODO -R {reactions} -G {num_goals} -L {substances} -n prob > domain_file_to_concatenate", # TODO: The generator outputs both the problem and the domain file,
     #        [] # TODO
     # ),
 
@@ -605,7 +607,7 @@ DOMAIN_LIST_SAT = [
         ],
     ),
     Domain("tpp",
-        "tpp -s {seed} -m {markets} -p {products} -t {trucks} -d {depots} -l {goods} tmp.pddl",
+        "tpp -s {seed} -m {markets} -p {products} -t {trucks} -d {depots} -l {goods} " + TMP_PROBLEM,
         [LinearAtr("products", lower_b=5, upper_b=20, lower_m=1),
          LinearAtr("markets", lower_b=1,upper_b=10, optional_m=True),
          LinearAtr("trucks", lower_b=2, upper_b=10, optional_m=True),
@@ -695,7 +697,7 @@ DOMAIN_LIST_SAT = [
     ),
 
     Domain("storage",
-           "storage -p 01 -o {containers} -e {seed} -c {crates} -n {hoists} -s {store_areas} -d {depots} tmp.pddl",
+           "storage -p 01 -o {containers} -e {seed} -c {crates} -n {hoists} -s {store_areas} -d {depots} tmp-problem.pddl",
            [LinearAtr("crates", lower_b=5, upper_b=15, lower_m=1, upper_m=5),
             LinearAtr("hoists", lower_b=2, upper_b=5, optional_m=True),
             LinearAtr("store_areas", lower_b=0, upper_b=10, optional_m=True),

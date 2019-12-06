@@ -80,7 +80,7 @@ from domain_configuration import DOMAINS_SAT, DOMAINS_OPT
 from domain_configuration import EvaluatedSequence, EstimatedSequence
 from planner_selection import get_baseline_planner, get_sart_planners
 
-from runner import Runner
+from runner import Runner, TMP_DOMAIN, TMP_PROBLEM
 
 warnings.simplefilter(action="ignore", category=FutureWarning)
 
@@ -346,7 +346,7 @@ if "sart_average_runtimes" in content[ARGS.domain]:
 
 
 STORED_VALID_SEQUENCES = content[ARGS.domain]["sequences"]
-    
+
 
 domain = DOMAINS[ARGS.domain]
 
@@ -429,7 +429,7 @@ using_baseline = [seq.use_baseline_instead_of_sart  for sequences in evaluated_s
 if len(using_baseline) == 0:
     print ("Error: no valid sequences")
     exit(0)
-    
+
 if any (using_baseline) and not all (using_baseline):
     # Right now printing and error because I don't think this will ever happen
     logging.info("Warning: some sequences use the state of the art and some the baseline runtimes: {} {}".format(using_baseline.count(True), using_baseline.count(False) ))
@@ -543,14 +543,14 @@ print("Solution value  = ", cplex_problem.solution.get_objective_value())
 
 x = cplex_problem.solution.get_values()
 
-print (x) 
+print (x)
 final_selection = []
 # final_sequences = []
 for sequences in evaluated_sequences:
     for seq in sequences:
         for name, idt in seq.get_cplex_start_index().items():
             if x [idt] > 0.9:
-                print ("START: ", name, idt)                
+                print ("START: ", name, idt)
                 for nameend, idtend in seq.get_cplex_end_index().items():
                     if x [idtend] > 0.9 :
                         seq_id, i = map(int, name.split("-")[1:])
@@ -559,12 +559,12 @@ for sequences in evaluated_sequences:
                         logging.info (f"Selected: sequence {seq_id}, {endi-i} instances from {i} to {endi}: {sequences_by_id[seq_id].get_runtimes(i, endi)}")
                         final_selection += sequences_by_id[seq_id].get_instances(i, endi)
 
-            
+
         for name, idt in seq.get_cplex_end_index().items():
             if x [idt] > 0.9:
                 print ("END: ", name, idt)
 
-                        
+
 
 # if len(final_selection) < 30:
 #     total_extra_problems = 30 - len(final_selection)
@@ -594,10 +594,10 @@ if ARGS.output:
         i += 1
 
         # print (generator_command.format(**task) + "> {}".format(problem_file))
-        # continue 
-        if "tmp.pddl" in generator_command:
+        # continue
+        if TMP_PROBLEM in generator_command:
             subprocess.run(command, check=True)
-            shutil.move("tmp.pddl", problem_file)
+            shutil.move(TMP_PROBLEM, problem_file)
         else:
             with open(problem_file, "w") as f:
                 subprocess.run(command, stdout=f, check=True)

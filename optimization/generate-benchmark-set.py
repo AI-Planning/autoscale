@@ -1089,9 +1089,9 @@ for domain, (config_dict, baseline_times, sart_times) in FINAL_CONFIGURATIONS.it
 
             problem_file = f"{ARGS.output}/{domain}/p{i:02d}.pddl"
             i += 1
-            if "tmp.pddl" in generator_command:
+            if TMP_PROBLEM in generator_command:
                 subprocess.run(command, check=True)
-                shutil.move("tmp.pddl", problem_file)
+                shutil.move(TMP_PROBLEM, problem_file)
             else:
                 with open(problem_file, "w") as f:
                     subprocess.run(command, stdout=f, check=True)

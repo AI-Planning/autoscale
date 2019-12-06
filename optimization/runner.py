@@ -21,6 +21,10 @@ import json
 MIN_PLANNER_RUNTIME = 0.1
 PLANNER_MEMORY_LIMIT = 3 * 1024 ** 3  # 3 GiB in Bytes
 
+TMP_DOMAIN = "tmp-domain.pddl"
+TMP_PROBLEM = "tmp-problem.pddl"
+
+
 # This class is in charge of running instances, using a cache to store the results
 class Runner:
     # We need to provide a set of planners and which parameters are linear
@@ -68,7 +72,7 @@ class Runner:
     def is_solvable(self, parameters, time_limit, lower_bound):
         runtime = self.run_planners(parameters, time_limit)
         return runtime and runtime <= time_limit and runtime >= lower_bound
-    
+
 
     def run_planners(self, parameters, time_limit=None):
         if not time_limit:
@@ -103,15 +107,15 @@ class Runner:
                 command = shlex.split(self.domain.generator_command(self.GENERATORS_DIR).format(**parameters))
                 self.logging.debug("Generator command: {}".format(" ".join(command)))
                 # Some generators print to a file, others print to stdout.
-                if "tmp.pddl" in self.domain.generator_command(self.GENERATORS_DIR):
+                if TMP_PROBLEM in self.domain.generator_command(self.GENERATORS_DIR):
                     subprocess.run(command, check=True)
-                    shutil.move("tmp.pddl", problem_file)
+                    shutil.move(TMP_PROBLEM, problem_file)
                 else:
                     with open(problem_file, "w") as f:
                         subprocess.run(command, stdout=f, check=True)
 
-                if "domain-tmp.pddl" in self.domain.generator_command(self.GENERATORS_DIR):
-                    shutil.move("domain-tmp.pddl", os.path.join(plan_dir, "domain.pddl"))
+                if TMP_DOMAIN in self.domain.generator_command(self.GENERATORS_DIR):
+                    shutil.move(TMP_DOMAIN, os.path.join(plan_dir, "domain.pddl"))
 
 
                 # Check domain file. Problem file seems to be ignored.
@@ -145,7 +149,7 @@ class Runner:
                         set_limit(resource.RLIMIT_AS, PLANNER_MEMORY_LIMIT)
                         set_limit(resource.RLIMIT_CORE, 0)
 
-                    self.logging.debug([self.SINGULARITY_SCRIPT, image_path, "domain.pddl", "problem.pddl", "sas_plan"]) 
+                    self.logging.debug([self.SINGULARITY_SCRIPT, image_path, "domain.pddl", "problem.pddl", "sas_plan"])
                     # Outcomes:
                     #  plan found -> append runtime
                     #  out of memory, out of time, unsolvable, planner bug -> skip
