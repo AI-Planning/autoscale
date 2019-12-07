@@ -49,6 +49,11 @@ images$
 ^pddl-generators/tidybot/tidybot-.*-snapshot-standalone.jar$
 ^pddl-generators/tpp/tpp$
 ^pddl-generators/trucks/trucks$
+^pddl-generators/trucks/adl2strips/ff$
+^pddl-generators/trucks/adl2strips/lex.fct_pddl.c$
+^pddl-generators/trucks/adl2strips/lex.ops_pddl.c$
+^pddl-generators/trucks/adl2strips/scan-fct_pddl.tab.c$
+^pddl-generators/trucks/adl2strips/scan-ops_pddl.tab.c$
 ^pddl-generators/tsp/tsp$
 ^pddl-generators/turnandopen/turnandopen$
 ^pddl-generators/tyreworld/tyreworld$

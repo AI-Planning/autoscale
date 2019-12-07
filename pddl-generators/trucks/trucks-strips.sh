@@ -1,12 +1,14 @@
-#!/bin/bash
+#! /bin/bash
 
-cwd=$(pwd)
+# Usage: ./trucks-strips.sh <domain.pddl> <problem.pddl> -seed <seed> -t 1 -l <locations> -p <packages> -a <areas> -n 1
 
-cd "$(dirname "$0")"
+set -exuo pipefail
 
-./trucks  "${@:3}" > problem-adl.pddl
+dir=$(dirname "$0")
 
-./adl2strips/ff -o domain-adl.pddl -f problem-adl.pddl
+${dir}/trucks "${@:3}" > problem-adl.pddl
+${dir}/adl2strips/ff -o ${dir}/domain-adl.pddl -f problem-adl.pddl
+rm problem-adl.pddl
 
-mv domain-strips.pddl $cwd/"$1"
-mv problem-strips.pddl $cwd/"$2"
+mv domain-strips.pddl "$1"
+mv problem-strips.pddl "$2"
