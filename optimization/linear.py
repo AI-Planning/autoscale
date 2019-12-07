@@ -351,7 +351,7 @@ scenario = Scenario(
         # time limit for evaluate_cfg (we cut off planner runs ourselves)
         "cutoff": None,
         "output_dir": SMAC_OUTPUT_DIR,
-        "acq_opt_challengers": 1000,
+        #"acq_opt_challengers": 1000,  # Overriden in SMAC4HPO constructor.
     }
 )
 
@@ -369,6 +369,9 @@ smac = SMAC4HPO(
     rng=np.random.RandomState(ARGS.random_seed),
     tae_runner=evaluate_cfg
 )
+# SMAC4HPO overrides the value for acq_opt_challengers in the scenario with
+# a fixed value of 10000, so we set it here (see https://github.com/automl/SMAC3/issues/561).
+smac.solver.scenario.acq_opt_challengers = 1000
 print("Output dir:", SMAC_OUTPUT_DIR)
 print("SMAC output dir:", smac.output_dir)
 incumbent = smac.optimize()
