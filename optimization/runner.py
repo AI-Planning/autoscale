@@ -117,10 +117,6 @@ class Runner:
                 if TMP_DOMAIN in self.domain.generator_command(self.GENERATORS_DIR):
                     shutil.move(TMP_DOMAIN, os.path.join(plan_dir, "domain.pddl"))
 
-
-                # Check domain file. Problem file seems to be ignored.
-                subprocess.run(["validate", self.domain.get_domain_file(self.GENERATORS_DIR), problem_file], check=True)
-
                 # Call planners.
                 runtimes = []
                 for image in self.planners:

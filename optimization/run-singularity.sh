@@ -32,4 +32,5 @@ if [ -f $PWD/$4 ]; then
     validate $PWD/$2 $PWD/$3 $PWD/$4
 else
     echo "No plan file."
+    validate $PWD/$2 $PWD/$3
 fi
