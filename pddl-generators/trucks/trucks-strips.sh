@@ -2,7 +2,7 @@
 
 # Usage: ./trucks-strips.sh <domain.pddl> <problem.pddl> -seed <seed> -t 1 -l <locations> -p <packages> -a <areas> -n 1
 
-set -exuo pipefail
+set -euo pipefail
 
 dir=$(dirname "$0")
 
