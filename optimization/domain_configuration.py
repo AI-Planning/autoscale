@@ -640,7 +640,7 @@ ATTRIBUTES_SAT = {
             LinearAtr("hoists",lower_b=5, upper_b=20,  optional_m=True),
             LinearAtr("crates", lower_b=5, upper_b=20, lower_m=1)],
     "childsnack":
-           [LinearAtr("num_children", lower_b=10, upper_b=20, lower_m=1, upper_m=5),
+           [LinearAtr("num_children", lower_b=4, upper_b=12, lower_m=1, upper_m=3),
             EnumAtr("const_ratio", [1, 1.3, 2]),
             EnumAtr("gluten_factor", [0.4, 0.6, 0.8]),
             EnumAtr("num_trays", [2,3,4]),
