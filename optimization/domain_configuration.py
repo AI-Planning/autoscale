@@ -477,9 +477,9 @@ DOMAIN_LIST_OPT = [
 
     Domain("hiking",
            "generator.py {n_couples} {n_cars} {n_places} {seed}",
-           [LinearAtr("n_couples", lower_b=2, upper_b=6,lower_m=1),
-            LinearAtr("n_places", lower_b=4, upper_b=10,optional_m=True),
-            LinearAtr("n_cars", base_atr="n_couples", lower_b=1, upper_b=2, optional_m=True)]
+           [LinearAtr("n_couples", lower_b=1, upper_b=6,lower_m=0.1, default_m=0.1,optional_m=True),
+            LinearAtr("n_places", lower_b=2, upper_b=10,default_m=1),
+            LinearAtr("n_cars", base_atr="n_couples", lower_b=1, upper_b=2, default_m=0.1, optional_m=True)]
     ),
 
     Domain("floortile",
