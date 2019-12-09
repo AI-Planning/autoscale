@@ -650,7 +650,7 @@ ATTRIBUTES_SAT = {
             LinearAtr("n_places", lower_b=5, upper_b=20,optional_m=True),
             LinearAtr("n_cars", base_atr="n_couples", lower_b=1, upper_b=5, optional_m=True)],
     "floortile":
-           [GridAtr("grid", "num_columns", "num_rows", lower_x=5, upper_x=10, upper_m=10),
+           [GridAtr("grid", "num_columns", "num_rows", lower_x=3, upper_x=10, upper_m=10),
             EnumAtr("num_robots", [2, 3, 4, 5])],
     "storage":
            [LinearAtr("crates", lower_b=5, upper_b=15, lower_m=1, upper_m=5),
