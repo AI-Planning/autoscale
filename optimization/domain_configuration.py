@@ -422,7 +422,7 @@ DOMAIN_LIST_OPT = [
     ),
     Domain("woodworking",
         "create_woodworking_instance.py {wood_factor} {size} {num_machines} {seed}",
-        [LinearAtr("size", lower_b=3, upper_b=20, lower_m=1),
+        [LinearAtr("size", lower_b=2, upper_b=20, lower_m=1),
          EnumAtr("num_machines", [1, 2, 3]),
          EnumAtr("wood_factor", [1.0, 1.25, 1.5, 2.0])]
     ),
