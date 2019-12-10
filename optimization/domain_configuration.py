@@ -206,7 +206,6 @@ class GridAtr:
         val_x = self.lower_x if self.lower_x == self.upper_x else int(cfg.get("{}_x".format(atr)))
         m =  float(cfg.get("{}_m".format(atr)))
         maxdiff = self.lower_x if self.lower_x == self.upper_x else int(cfg.get("{}_maxdiff".format(atr)))
-
         grid_values = []
         for i in range(len(Y)*int(math.ceil(1 + m) + 2)):
             for j in range(maxdiff + 1):
@@ -331,6 +330,10 @@ class Domain:
 
     def has_enum_parameter(self):
         return len(self.get_enum_parameters()) > 0
+
+    def generated_domain_file(self):
+        return "tmp-domain.pddl" in self.gen_command
+    
 
 
 def adapt_parameters_floortile(parameters):
@@ -527,6 +530,15 @@ DOMAIN_LIST_OPT = [
            # enum_values=[MultiSequenceAtr(f"yinc{yinc}-sp{sp}", {"num_spawn_apples" : f"{sp}%", "yinc" : yinc}) for sp in [40,55,70,85,100] for yinc in [0,1]],
            adapt_f=adapt_parameters_snake
     ),
+    
+    Domain("pathways",
+           "wrapper.py --seed {seed} --reactions {reactions} --goals {num_goals} --initial-substances {substances} tmp-domain.pddl tmp.pddl", 
+           [LinearAtr("reactions", lower_b=10, upper_b=20, upper_m=10),
+            LinearAtr("num_goals", lower_b=1, upper_b=10),
+            LinearAtr("substances", lower_b=2, upper_b=10),
+           ] 
+    ),
+
 
  #   Domain("agricola", "GenAgricola.py --num_workers {num_workers} --num_ints {num_ints} --num_rounds {num_rounds} {last_stage} {seed}",
  #          [LinearAtr("n", lower_b=5, upper_b=10, lower_m=0.1, upper_m=2)]),
@@ -560,11 +572,6 @@ DOMAIN_LIST_OPT = [
 
     # Domain("termes",
     #        "",
-    #        [] # TODO
-    # ),
-
-    # Domain("pathways",
-    #        "pathways --seed {seed} -out TODO -R {reactions} -G {num_goals} -L {substances} -n prob > domain_file_to_concatenate", # TODO: The generator outputs both the problem and the domain file,
     #        [] # TODO
     # ),
 

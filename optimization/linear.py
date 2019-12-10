@@ -206,7 +206,7 @@ DOMAINS = get_domains(ARGS.track)
 print("{} domains available: {}".format(len(DOMAINS), sorted(DOMAINS)))
 
 for domain in DOMAINS:
-    assert os.path.exists(os.path.join(ARGS.generators_dir, domain, "domain.pddl")) or os.path.exists(os.path.join(ARGS.generators_dir, domain, "domain-adl.pddl")), f"domain.pddl missing for {domain}"
+    assert os.path.exists(os.path.join(ARGS.generators_dir, domain, "domain.pddl")) or DOMAINS[domain].generated_domain_file(), f"domain.pddl missing for {domain}"
 
     downward_benchmarks = os.environ.get("DOWNWARD_BENCHMARKS")
     if downward_benchmarks:

@@ -20,6 +20,7 @@ def parse_args():
     parser.add_argument("--goals", type=int, default=1)
     parser.add_argument("--reactions", type=int, default=1)
     parser.add_argument("--initial-substances", type=int, default=1)
+    parser.add_argument("--seed", type=int, default=2004)
     parser.add_argument("domain")
     parser.add_argument("problem")
     return parser.parse_args()
@@ -42,10 +43,17 @@ def remove_constants(problem_file, constants):
 def main():
     args = parse_args()
 
+    target_dir = os.getcwd()
+
+    target_problem = os.path.join(target_dir, args.problem)
+    target_domain = os.path.join(target_dir, args.domain)
+    
+    
+    os.chdir(DIR)
     p = subprocess.run([
             os.path.join(DIR, "pathways"),
-            "--seed", "2004",
-            "-out", args.problem,
+            "--seed", str(args.seed),
+            "-out", target_problem,
             "-R", str(args.reactions),
             "-G", str(args.goals),
             "-L", str(args.initial_substances),
@@ -69,7 +77,7 @@ def main():
         domain_parts.append(f.read())
     domain_parts.append(f"\n{dummy_actions}\n)\n")
 
-    with open(args.domain, "w") as f:
+    with open(target_domain, "w") as f:
         f.write("".join(domain_parts))
 
     remove_constants(args.problem, constants)
