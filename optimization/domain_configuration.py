@@ -333,7 +333,7 @@ class Domain:
 
     def generated_domain_file(self):
         return "tmp-domain.pddl" in self.gen_command
-    
+
 
 
 def adapt_parameters_floortile(parameters):
@@ -530,13 +530,13 @@ DOMAIN_LIST_OPT = [
            # enum_values=[MultiSequenceAtr(f"yinc{yinc}-sp{sp}", {"num_spawn_apples" : f"{sp}%", "yinc" : yinc}) for sp in [40,55,70,85,100] for yinc in [0,1]],
            adapt_f=adapt_parameters_snake
     ),
-    
+
     Domain("pathways",
-           "wrapper.py --seed {seed} --reactions {reactions} --goals {num_goals} --initial-substances {substances} tmp-domain.pddl tmp.pddl", 
+           "wrapper.py --seed {seed} --reactions {reactions} --goals {num_goals} --initial-substances {substances} tmp-domain.pddl tmp.pddl",
            [LinearAtr("reactions", lower_b=10, upper_b=20, upper_m=10),
             LinearAtr("num_goals", lower_b=1, upper_b=10),
             LinearAtr("substances", lower_b=2, upper_b=10),
-           ] 
+           ]
     ),
 
 
@@ -684,6 +684,11 @@ ATTRIBUTES_SAT = {
            [ConstantAtr("snake_size", "1"), ConstantAtr("num_initial_apples", 5),
             GridAtr("grid", "x_grid", "y_grid", lower_x=3, upper_x=8),
             EnumAtr("num_spawn_apples", [f"{sp}%" for sp in [40,55,70,85,100]])
+           ],
+    "pathways":
+           [LinearAtr("reactions", lower_b=10, upper_b=20, upper_m=10),
+            LinearAtr("num_goals", lower_b=1, upper_b=10),
+            LinearAtr("substances", lower_b=2, upper_b=10),
            ],
 }
 
