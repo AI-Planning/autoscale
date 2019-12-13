@@ -28,7 +28,7 @@ DIR = os.path.abspath(os.path.dirname(__file__))
 REPO = os.path.dirname(DIR)
 IMAGES_DIR = os.path.join(REPO, "images")
 DOMAINS = [
-    'childsnack', 'floortile', 'hiking', 'woodworking',
+    'childsnack', 'floortile', 'hiking', 'pathways', 'woodworking',
 ]
 ATTRIBUTES = [
     "error", "final_*", "evaluated_configurations",
