@@ -108,7 +108,7 @@ class Runner:
                 self.logging.debug("Generator command: {}".format(" ".join(command)))
                 self.domain.generate_problem(command, problem_file)
 
-                if TMP_DOMAIN in self.domain.generator_command(self.GENERATORS_DIR):
+                if TMP_DOMAIN in command:
                     shutil.move(TMP_DOMAIN, os.path.join(plan_dir, "domain.pddl"))
 
                 # Call planners.

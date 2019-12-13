@@ -580,7 +580,6 @@ print(final_selection)
 if ARGS.output:
     i = 1
     seed = 2019
-    generator_command = domain.generator_command(GENERATORS_DIR)
     # os.mkdir (f"{ARGS.output}/{ARGS.domain}")
     for task in final_selection:
         task["seed"] = seed
