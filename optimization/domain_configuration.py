@@ -1,6 +1,7 @@
 import math
 import os
 import shlex
+import shutil
 from string import Formatter
 import subprocess
 import sys
@@ -326,6 +327,9 @@ class Domain:
     def get_generator_command(self, generators_dir, parameters):
         command = shlex.split(self.gen_command.format(**parameters))
         command[0] = os.path.abspath(os.path.join(generators_dir, self.name, command[0]))
+        # Call Python scripts with the correct Python interpreter.
+        if command[0].endswith(".py"):
+            command.insert(0, sys.executable)
         return command
 
     def generate_problem(self, command, problem_file):
@@ -362,7 +366,6 @@ def adapt_parameters_parking(parameters):
 
 def adapt_parameters_storage(parameters):
     crates, hoists, store_areas, depots = parameters["crates"], parameters["hoists"], parameters["store_areas"], parameters["depots"]
-
 
     depots = min(depots, 36)
     parameters["depots"] = depots
