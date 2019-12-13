@@ -59,7 +59,7 @@ RELATIVE = args.relative
 TEST = args.test
 
 EVALUATIONS_PER_TIME = Attribute(
-    "evaluations_per_time", min_wins=False, functions=[geometric_mean], digits=1)
+    "evaluations_per_time", min_wins=False, function=geometric_mean, digits=1)
 
 BENCHMARKS_DIR = os.environ["DOWNWARD_BENCHMARKS"]
 
