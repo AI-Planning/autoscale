@@ -28,10 +28,7 @@ DIR = os.path.abspath(os.path.dirname(__file__))
 REPO = os.path.dirname(DIR)
 IMAGES_DIR = os.path.join(REPO, "images")
 DOMAINS = [
-    'barman', 'blocksworld', 'childsnack', 'depots', 'driverlog',
-    'floortile', 'gripper', 'hiking', 'miconic-strips', 'nomystery',
-    'parking', 'rover', 'satellite', 'snake', 'storage', 'tpp',
-    'transport', 'trucks', 'visitall', 'woodworking', 'zenotravel',
+    'childsnack', 'floortile', 'hiking', 'woodworking',
 ]
 ATTRIBUTES = [
     "error", "final_*", "evaluated_configurations",
@@ -43,7 +40,7 @@ RUN_MEMORY_LIMIT = 3584
 if REMOTE:
     ENV = BaselSlurmEnvironment(
         email="jendrik.seipp@unibas.ch",
-        partition="infai_2",
+        partition="infai_1",
         setup="\n".join([
             BaselSlurmEnvironment.DEFAULT_SETUP,
             "module load Singularity/2.6.1 2> /dev/null",
