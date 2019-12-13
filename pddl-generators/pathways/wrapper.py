@@ -43,17 +43,12 @@ def remove_constants(problem_file, constants):
 def main():
     args = parse_args()
 
-    target_dir = os.getcwd()
+    problem_file = os.path.abspath(args.problem)
 
-    target_problem = os.path.join(target_dir, args.problem)
-    target_domain = os.path.join(target_dir, args.domain)
-    
-    
-    os.chdir(DIR)
     p = subprocess.run([
             os.path.join(DIR, "pathways"),
             "--seed", str(args.seed),
-            "-out", target_problem,
+            "-out", problem_file,
             "-R", str(args.reactions),
             "-G", str(args.goals),
             "-L", str(args.initial_substances),
@@ -77,10 +72,10 @@ def main():
         domain_parts.append(f.read())
     domain_parts.append(f"\n{dummy_actions}\n)\n")
 
-    with open(target_domain, "w") as f:
+    with open(args.domain, "w") as f:
         f.write("".join(domain_parts))
 
-    remove_constants(args.problem, constants)
+    remove_constants(problem_file, constants)
 
 
 main()

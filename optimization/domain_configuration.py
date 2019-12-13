@@ -532,7 +532,7 @@ DOMAIN_LIST_OPT = [
     ),
 
     Domain("pathways",
-           "wrapper.py --seed {seed} --reactions {reactions} --goals {num_goals} --initial-substances {substances} tmp-domain.pddl tmp.pddl",
+           f"wrapper.py --seed {{seed}} --reactions {{reactions}} --goals {{num_goals}} --initial-substances {{substances}} {TMP_DOMAIN} {TMP_PROBLEM}",
            [LinearAtr("reactions", lower_b=10, upper_b=20, upper_m=10),
             LinearAtr("num_goals", lower_b=1, upper_b=10),
             LinearAtr("substances", lower_b=2, upper_b=10),
