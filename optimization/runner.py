@@ -104,15 +104,9 @@ class Runner:
                 shutil.rmtree(plan_dir, ignore_errors=True)
                 os.mkdir(plan_dir)
                 problem_file = os.path.join(plan_dir, "problem.pddl")
-                command = shlex.split(self.domain.generator_command(self.GENERATORS_DIR).format(**parameters))
+                command = self.domain.get_generator_command(self.GENERATORS_DIR, parameters)
                 self.logging.debug("Generator command: {}".format(" ".join(command)))
-                # Some generators print to a file, others print to stdout.
-                if TMP_PROBLEM in self.domain.generator_command(self.GENERATORS_DIR):
-                    subprocess.run(command, check=True)
-                    shutil.move(TMP_PROBLEM, problem_file)
-                else:
-                    with open(problem_file, "w") as f:
-                        subprocess.run(command, stdout=f, check=True)
+                self.domain.generate_problem(command, problem_file)
 
                 if TMP_DOMAIN in self.domain.generator_command(self.GENERATORS_DIR):
                     shutil.move(TMP_DOMAIN, os.path.join(plan_dir, "domain.pddl"))

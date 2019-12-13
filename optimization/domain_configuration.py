@@ -1,11 +1,13 @@
+import math
+import os
+import shlex
+from string import Formatter
+import subprocess
+import sys
+
 from ConfigSpace.hyperparameters import UniformFloatHyperparameter
 from ConfigSpace.hyperparameters import UniformIntegerHyperparameter
 from ConfigSpace.hyperparameters import CategoricalHyperparameter
-
-import math
-import os
-
-from string import Formatter
 
 from runner import TMP_DOMAIN, TMP_PROBLEM
 
@@ -321,9 +323,19 @@ class Domain:
     def get_hyperparameters(self, only_baseline):
         return [a for atr in self.linear_attributes for a in atr.get_hyperparameters(only_baseline)]
 
-    def generator_command(self, GENERATORS_DIR):
-        return "{}/{}/{}".format(GENERATORS_DIR, self.name, self.gen_command)
+    def get_generator_command(self, generators_dir, parameters):
+        command = shlex.split(self.gen_command.format(**parameters))
+        command[0] = os.path.abspath(os.path.join(generators_dir, self.name, command[0]))
+        return command
 
+    def generate_problem(self, command, problem_file):
+        # Some generators print to a file, others print to stdout.
+        if TMP_PROBLEM in self.gen_command:
+            subprocess.run(command, check=True)
+            shutil.move(TMP_PROBLEM, problem_file)
+        else:
+            with open(problem_file, "w") as f:
+                subprocess.run(command, stdout=f, check=True)
 
     def get_enum_parameters(self):
         return [x for x in self.linear_attributes if isinstance(x, EnumAtr)]

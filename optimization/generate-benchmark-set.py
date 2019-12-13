@@ -1070,7 +1070,6 @@ for domain, (config_dict, baseline_times, sart_times) in FINAL_CONFIGURATIONS.it
 
     if not ARGS.printY:
         os.mkdir(f"{ARGS.output}/{domain}")
-        generator_command = DOMAINS[domain].generator_command(ARGS.generators_dir)
         domain_file = f"{ARGS.output}/{domain}/domain.pddl"
         shutil.copy2(DOMAINS[domain].get_domain_file(), domain_file)
 
@@ -1085,13 +1084,8 @@ for domain, (config_dict, baseline_times, sart_times) in FINAL_CONFIGURATIONS.it
 
             task["seed"] = seed
             seed += 1
-            command = shlex.split(generator_command.format(**task))
+            command = DOMAINS[domain].get_generator_command(ARGS.generators_dir, task)
 
             problem_file = f"{ARGS.output}/{domain}/p{i:02d}.pddl"
             i += 1
-            if TMP_PROBLEM in generator_command:
-                subprocess.run(command, check=True)
-                shutil.move(TMP_PROBLEM, problem_file)
-            else:
-                with open(problem_file, "w") as f:
-                    subprocess.run(command, stdout=f, check=True)
+            DOMAINS[domain].generate_problem(command, problem_file)

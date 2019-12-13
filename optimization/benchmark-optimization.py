@@ -585,16 +585,9 @@ if ARGS.output:
     for task in final_selection:
         task["seed"] = seed
         seed += 1
-        command = shlex.split(generator_command.format(**task))
+        command = domain.get_generator_command(GENERATORS_DIR, task)
 
         problem_file = f"{ARGS.output}/{ARGS.domain}/p{i:02d}.pddl"
         i += 1
 
-        # print (generator_command.format(**task) + "> {}".format(problem_file))
-        # continue
-        if TMP_PROBLEM in generator_command:
-            subprocess.run(command, check=True)
-            shutil.move(TMP_PROBLEM, problem_file)
-        else:
-            with open(problem_file, "w") as f:
-                subprocess.run(command, stdout=f, check=True)
+        domain.generate_problem(command, problem_file)
