@@ -14,6 +14,60 @@ import subprocess
 
 DIR = Path(__file__).parent.resolve()
 
+DOMAIN_HEADER = """\
+(define (domain Pathways-Propositional)
+(:requirements :typing :adl)
+
+(:types
+    level molecule - object
+    simple complex - molecule
+)
+"""
+
+PREDICATES = """\
+(:predicates
+    (association-reaction ?x1 ?x2 - molecule ?x3 - complex)
+    (catalyzed-association-reaction ?x1 ?x2 - molecule ?x3 - complex)
+    (synthesis-reaction ?x1 ?x2 - molecule)
+    (possible ?x - molecule)
+    (available ?x - molecule)
+    (chosen ?s - simple)
+    (next ?l1 ?l2 - level)
+    (num-subs ?l - level)
+{goal_predicates}
+)
+"""
+
+ACTIONS = """\
+(:action choose
+ :parameters (?x - simple ?l1 ?l2 - level)
+ :precondition (and (possible ?x) (not (chosen ?x))
+                    (num-subs ?l2) (next ?l1 ?l2))
+ :effect (and (chosen ?x) (not (num-subs ?l2)) (num-subs ?l1)))
+
+(:action initialize
+  :parameters (?x - simple)
+  :precondition (and (chosen ?x))
+  :effect (and (available ?x)))
+
+(:action associate
+ :parameters (?x1 ?x2 - molecule ?x3 - complex)
+ :precondition (and (association-reaction ?x1  ?x2  ?x3)
+                    (available ?x1) (available ?x2))
+ :effect (and  (not (available ?x1)) (not (available ?x2)) (available ?x3)))
+
+(:action associate-with-catalyze
+ :parameters (?x1 ?x2 - molecule ?x3 - complex)
+ :precondition (and (catalyzed-association-reaction ?x1 ?x2 ?x3)
+                    (available ?x1) (available ?x2))
+ :effect (and (not (available ?x1)) (available ?x3)))
+
+(:action synthesize
+ :parameters (?x1 ?x2 - molecule)
+ :precondition (and (synthesis-reaction ?x1 ?x2) (available ?x1))
+ :effect (and (available ?x2)))
+"""
+
 
 def parse_args():
     parser = argparse.ArgumentParser(description=__doc__)
@@ -58,22 +112,14 @@ def main():
         check=True)
     dummy_actions = p.stdout.strip().replace("\t", "    ")
     constants = get_constants(dummy_actions)
+    constants_pddl = "(:constants {} - complex)\n".format(" ".join(constants))
 
-    domain_parts = []
+    goal_predicates = "\n".join([f"    (goal{goal})" for goal in range(1, args.goals + 1)])
 
-    with open(DIR / "domain-header.pddl") as f:
-        domain_parts.append(f.read())
-    domain_parts.extend([f"    (goal{goal})\n" for goal in range(1, args.goals + 1)])
-    domain_parts.append(")\n\n")
-
-    domain_parts.append("(:constants {} - complex)\n\n".format(" ".join(constants)))
-
-    with open(DIR / "domain-acts.pddl") as f:
-        domain_parts.append(f.read())
-    domain_parts.append(f"\n{dummy_actions}\n)\n")
+    domain_parts = [DOMAIN_HEADER, constants_pddl, PREDICATES.format(**locals()), ACTIONS, f"{dummy_actions}\n)", ""]
 
     with open(args.domain, "w") as f:
-        f.write("".join(domain_parts))
+        f.write("\n".join(domain_parts))
 
     remove_constants(problem_file, constants)
 
