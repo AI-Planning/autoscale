@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 
 import argparse
 from itertools import product
@@ -7,8 +7,8 @@ import random
 import sys
 
 # Board notation:
-# 
-class Board:   
+#
+class Board:
     def __init__(self, board_name):
         if board_name.startswith("empty"):
             width, height = board_name.replace("empty-", "").replace("empty", "").split("x")
@@ -58,7 +58,7 @@ class Board:
         return self.board[x][y] == '_'
 
     def generate_snake_aux(self, x, y, snake_size, snake):
-        
+
         if not self.is_empty(x, y):
             return False
 
@@ -67,30 +67,30 @@ class Board:
         if snake_size == 0:
             snake += [(x,y)]
             return True
-        
+
         pos_list = [(x+1, y),(x-1, y), (x, y+1), (x, y-1)]
         random.shuffle(pos_list)
         for pos in pos_list:
             if self.generate_snake_aux(pos[0], pos[1], snake_size-1, snake):
-                snake += [(x,y)]                
+                snake += [(x,y)]
                 return True
         self.board[auxx][auxy] = '_'
         return False
 
-        
+
     def generate_snake(self, snake_size):
         snake = []
         for (x, y) in self.random_clear_positions():
             if self.generate_snake_aux(x, y, snake_size, snake):
                 self.board[x][y] = 'H'
                 return snake[::-1]
-            
+
             # next_pos = []
             # if auxx > 0 and auxx <= x  and auxy == y:
             #     auxx -= 1
             # elif auxy >= y and auxy <= self.height() - 1  and auxx == self.width() - 1:
             #     auxy += 1
-            
+
             # elif auxy <= y:
             #     if auxx == 0 and auxy > 0:
             #         auxy -= 1
@@ -109,9 +109,9 @@ class Board:
             #         auxy -= 1
             # assert (not (auxx, auxy) in snake)
             # snake.append((auxx, auxy))
-            # self.board[auxx][auxy] = 'S'        
+            # self.board[auxx][auxy] = 'S'
         return snake
-    
+
 def print_list (l):
     print(" ".join([str(len(l))] + ["{} {}".format(a, b) for (a, b) in l]))
 
@@ -153,10 +153,10 @@ def print_pddl(instance_name, board, snake, apples, spawn_apples):
     positions = list(product(range(board.width()), range(board.height())))
     pos_objects = " ".join([pos_name(pos) for pos in positions])
     is_adjacent_facts = "\n ".join(["(isAdjacent {} {})".format(pos_name(adj1), pos_name(adj2)) for (adj1, adj2) in get_adjacent_pairs(board.width(), board.height())])
-    
+
     head_snake = "(headSnake {})".format(pos_name(snake[0]))
     tail_snake = "(tailSnake {})".format(pos_name(snake[-1]))
-    
+
     next_snake_facts = "\n ".join(["(nextSnake {} {})".format(pos_name(snake[i]), pos_name(snake[i+1]))  for i in range (0, len(snake)-1)])
     blocked_facts = "\n ".join(["(blocked {})".format(pos_name(sn)) for sn in board.blocked_positions()])
 
@@ -168,15 +168,15 @@ def print_pddl(instance_name, board, snake, apples, spawn_apples):
                              ["(nextSpawn {} dummyPoint)".format(pos_name(spawn_apples[-1]))]
         if len(spawn_apples) > 1:
             spawn_apples_facts += ["(nextSpawn {} {})".format(pos_name(spawn_apples[i]), pos_name(spawn_apples[i+1])) for i in range (0, len(spawn_apples)-1)]
-            
+
     next_point_facts = "\n ".join(spawn_apples_facts)
 
     goal_facts = "\n ".join(["(not (isPoint {}))".format(pos_name(a)) for a in apples + spawn_apples])
 
 
 
-    
-    print """(define (problem {instance_name})
+
+    print("""(define (problem {instance_name})
 (:domain snake)
 (:objects
     {pos_objects}
@@ -194,7 +194,7 @@ def print_pddl(instance_name, board, snake, apples, spawn_apples):
     {goal_facts}
 ))
 )
-""".format(**locals())
+""".format(**locals()))
 
 
 def parse():
@@ -207,7 +207,7 @@ def parse():
     parser.add_argument("output_type", choices=["pddl", "raw", "readable", "draw"])
 
     parser.add_argument("--output", default=None)
-       
+
 
     return parser.parse_args()
 
@@ -235,16 +235,16 @@ def main():
     else:
         num_spawn_apples = int(args.num_spawn_apples)
 
-    
+
     instance_name = "snake-%s-%s-%s-%d-%s" % (board_name, args.snake_size, num_initial_apples, num_spawn_apples, args.random_seed)
 
     assert (board.num_clear_positions() - args.snake_size - num_initial_apples - num_spawn_apples > 0), instance_name
-    
+
     snake = board.generate_snake(args.snake_size)
     apples = board.generate_apples(num_initial_apples)
     spawn_apples = board.generate_apples(num_spawn_apples, "B")
 
-    
+
     #Not repeated
     assert (len(apples) == len(set(apples)))
     assert (len(spawn_apples) == len(set(spawn_apples)))
@@ -253,13 +253,13 @@ def main():
     assert (len(apples) == num_initial_apples)
     assert (len(spawn_apples) == num_spawn_apples), instance_name
     assert (len(snake) == args.snake_size + 1)
-    
+
     if args.output:
         sys.stdout = open("{}/{}.pddl".format(args.output, instance_name), 'w')
     if args.output_type == "raw":
         print_solver(instance_name, board, snake, apples, spawn_apples)
     elif args.output_type == "readable":
-        print_readable(instance_name, board, snake, apples, spawn_apples)        
+        print_readable(instance_name, board, snake, apples, spawn_apples)
     elif args.output_type == "pddl":
          print_pddl(instance_name, board, snake, apples, spawn_apples)
     elif args.output_type == "draw":
