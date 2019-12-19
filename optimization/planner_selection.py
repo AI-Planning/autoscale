@@ -1,6 +1,6 @@
 import os
-# Decided from https://ai.dmi.unibas.ch/_tmp_files/sieverss/2019-11-10-sat-baselineabs-report.html
 
+# Decided from https://ai.dmi.unibas.ch/_tmp_files/sieverss/2019-11-10-sat-baselineabs-report.html
 PLANNER_SELECTION_SAT = {
     "barman": ["lama-first.img"],
     "blocksworld": ["lama-first.img", "mpc.img"], # 23, 22
@@ -8,6 +8,7 @@ PLANNER_SELECTION_SAT = {
     "data-network": ["saarplan-grey.img", "lama-first.img",], # 9, 7
     "depots": ["mpc.img"],
     "driverlog": ["mpc.img", "lapkt-bfws-pref.img", "saarplan-dec-fallback.img"], # 15, 14, next: lapkt-dual-bfws with 13
+    "elevators": ["lapkt-dual-bfws.img", "mpc.img"],
     "floortile": ["mpc.img"],
     "gripper": ["mpc.img","lama-first.img"], # 15, next: lapkt-dual-bfws and saarplan-dec-fallback with 13
     "hiking": ["lama-first.img"],
@@ -18,6 +19,7 @@ PLANNER_SELECTION_SAT = {
     "pathways": ["mpc.img"],
     "rover": ["lama-first.img"],
     "satellite": ["mpc.img", "saarplan-dec-fallback.img"],
+    "scanalyzer": ["lapkt-dual-bfws.img"],
     "snake": ["lapkt-bfws-pref.img"],
     "storage": ["lapkt-dual-bfws.img", "lapkt-bfws-pref.img"], # 18, 16, next: mpc with 15
     "termes": ["lama-first.img"],
@@ -30,15 +32,15 @@ PLANNER_SELECTION_SAT = {
     "zenotravel": ["mpc.img", "lama-first.img", "saarplan-dec-fallback.img"],
 }
 
+# Decided from https://ai.dmi.unibas.ch/_tmp_files/seipp/2019-09-16-A-optimal-planners-3min-abs.html
 PLANNER_SELECTION_OPT = {
-    "elevators" : ["symba1.img"], #TODO: putting symba to test, but I did not check this.
-    "scanalyzer" : ["symba1.img"], #TODO: putting symba to test, but I did not check this.
     "barman": ["symba1.img"],
     "blocksworld": ["fdss-mas1.img"],
     "childsnack": ["delfi-ipdb.img"],
     "data-network": ["lmcut.img"],
     "depots": ["scorpion-nodiv.img", "delfi-ipdb.img"],
     "driverlog": ["symba1.img","delfi-ipdb.img"],
+    "elevators" : ["delfi-ipdb.img"],
     "floortile": ["symba1.img"],
     "gripper": ["delfi-blind.img"],
     "hiking": ["delfi-mas-miasm.img"],
@@ -49,6 +51,7 @@ PLANNER_SELECTION_OPT = {
     "pathways": ["delfi-celmcut.img"],
     "rover": ["symba1.img"],
     "satellite": ["delfi-celmcut.img", "symba1.img"],
+    "scanalyzer": ["lmcut.img"],
     "snake": ["bjolp.img","scorpion-nodiv.img"],
     "storage": ["delfi-celmcut.img"],
     "termes": ["symba2.img"],
@@ -62,10 +65,10 @@ PLANNER_SELECTION_OPT = {
 }
 
 
-def get_baseline_planner(track):   
+def get_baseline_planner(track):
     if track == "opt":
         BASELINE_PLANNER = "blind.img"
-    else: 
+    else:
         assert track == "sat"
         BASELINE_PLANNER = "gbfs-ff.img"
 
@@ -73,7 +76,7 @@ def get_baseline_planner(track):
 
 def get_sart_planners(track, domain):
     selection = PLANNER_SELECTION_OPT if track == "opt" else PLANNER_SELECTION_SAT
-    
+
     return selection[domain]
 
 
@@ -86,4 +89,4 @@ def verify_planner_selection(track, images_dir, domain):
         for image in images:
             path = os.path.join(images_dir, image)
             assert os.path.exists(path), f"image at {path} is missing"
-            
+
