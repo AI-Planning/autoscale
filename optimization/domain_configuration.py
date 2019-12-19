@@ -745,6 +745,13 @@ ATTRIBUTES_SAT = {
                 # In IPC'08, they used more diverse values for the capacity of the elevators. We restrict ourselves to a single value for simplicity, expecting that a not so large capacity will result in more interesting problems
                ] 
 
+    Domain("scanalyzer",
+           "generator.py {size} {segment_type} {inout} --seed {seed}",
+           [EnumAtr("segment_type", ["empty", "ab"]),
+            EnumAtr("inout", ["none", "both", "in"]),
+            LinearAtr("size", lower_b=2, upper_b=4, lower_m = 1, default_m=1, upper_m = 1)
+           ]
+        ),
 }
 
 
