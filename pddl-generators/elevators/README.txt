@@ -1,9 +1,65 @@
+IPC OPT Instances: All instances have 1 slow elevator 
+
+IPC'08 (IPC'11 is a subset)
+    09/2 floors 3 passengers 1 fast elevator
+    09/2 floors 3 passengers 2 fast elevators
+    09/2 floors 4 passengers 1 fast elevator 
+    09/2 floors 4 passengers 2 fast elevators
+    09/2 floors 5 passengers 1 fast elevator 
+    09/2 floors 5 passengers 2 fast elevators
+    09/2 floors 6 passengers 1 fast elevator 
+    09/2 floors 6 passengers 2 fast elevators
+    09/2 floors 7 passengers 1 fast elevator 
+    09/2 floors 7 passengers 2 fast elevators
+    13/2 floors 3 passengers 1 fast elevator 
+    13/2 floors 3 passengers 2 fast elevators
+    13/2 floors 4 passengers 1 fast elevator 
+    13/2 floors 4 passengers 2 fast elevators
+    13/2 floors 5 passengers 1 fast elevator 
+    13/2 floors 5 passengers 2 fast elevators
+    13/2 floors 6 passengers 1 fast elevator 
+    13/2 floors 6 passengers 2 fast elevators
+    13/2 floors 7 passengers 1 fast elevator 
+    13/2 floors 7 passengers 2 fast elevators
+    13/3 floors 3 passengers 1 fast elevator 
+    13/3 floors 3 passengers 2 fast elevators
+    13/3 floors 4 passengers 1 fast elevator 
+    13/3 floors 4 passengers 2 fast elevators
+    13/3 floors 5 passengers 1 fast elevator 
+    13/3 floors 5 passengers 2 fast elevators
+    13/3 floors 6 passengers 1 fast elevator 
+    13/3 floors 6 passengers 2 fast elevators
+    13/3 floors 7 passengers 1 fast elevator 
+    13/3 floors 7 passengers 2 fast elevators
+        
+
+
+    
+
+IPC SAT Instances
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 There was not Readme.txt in the generator version I have, so this is the way I am using
 it. I cannot credit the author as I don't know who was she/he.
 
 - Change the following variables at generate_data.c
-  	- FLOORS: number of floors
-	- AREA_SIZE: a divisor of FLOORS (a slow elevator covers this
+  	- FLOORS: floors
+        - AREA_SIZE: a divisor of FLOORS (a slow elevator covers this
   	  + 1 floors) (a fast elevator skips this/2-1 floors)
 	- FAST_ELEVATORS: number of fast elevators
 	- SLOW_ELEVATORS: number of slow elevators covering the same area

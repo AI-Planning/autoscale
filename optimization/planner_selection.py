@@ -31,6 +31,8 @@ PLANNER_SELECTION_SAT = {
 }
 
 PLANNER_SELECTION_OPT = {
+    "elevators" : ["symba1.img"], #TODO: putting symba to test, but I did not check this.
+    "scanalyzer" : ["symba1.img"], #TODO: putting symba to test, but I did not check this.
     "barman": ["symba1.img"],
     "blocksworld": ["fdss-mas1.img"],
     "childsnack": ["delfi-ipdb.img"],

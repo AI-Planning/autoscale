@@ -554,6 +554,22 @@ DOMAIN_LIST_OPT = [
            ]
     ),
 
+    Domain("elevators",
+           "generate.py --seed {seed} {num_areas} {area_size} {passengers} {fast_elevators} {slow_elevators}  --fast_cost {fast_cost}  --stop_fast_cost {stop_fast_cost}  --fast_capacity {fast_capacity} --slow_cost {slow_cost} --stop_slow_cost {stop_slow_cost} --slow_capacity {slow_capacity}",
+           [EnumAtr("num_areas", [2, 3, 4]),
+            LinearAtr("area_size", lower_b=2, upper_b=4, lower_m = 0.1, default_m=0.1, upper_m = 1, optional_m=True),
+            LinearAtr("passengers", lower_b=3, upper_b=6, lower_m=0.5, default_m=1),
+            EnumAtr("fast_elevators", [1, 2, 3]),
+            ConstantAtr("slow_elevators", 1),
+            ConstantAtr("fast_cost", 3),
+            ConstantAtr("stop_fast_cost", 1),
+            ConstantAtr("fast_capacity", 3),
+            ConstantAtr("slow_cost", 1),
+            ConstantAtr("stop_slow_cost", 5),
+            ConstantAtr("slow_capacity", 2)
+           ] 
+    ),
+
 
  #   Domain("agricola", "GenAgricola.py --num_workers {num_workers} --num_ints {num_ints} --num_rounds {num_rounds} {last_stage} {seed}",
  #          [LinearAtr("n", lower_b=5, upper_b=10, lower_m=0.1, upper_m=2)]),

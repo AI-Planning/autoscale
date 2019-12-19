@@ -9,7 +9,7 @@ import sys
 
 def print_pddl(instance_name, num_floors, elevators, passengers, cost_slow, cost_fast):
 
-    num_counts=max(num_floors, max([e.capacity for e in elevators]))
+    num_counts=max(num_floors, max([e.capacity + 1 for e in elevators]))
 
     count_objects = [f"n{i}" for i in range(num_counts)]
     next_facts = "\n       ".join([f"(next {count_objects[i]} {count_objects[i+1]})"  for i in range (num_floors-1)])
@@ -96,10 +96,10 @@ class Elevator:
 class Passenger:
     def __init__ (self, identifier, num_floors):
         self.name = f"p{identifier}"
-        self.init_floor = random.randint(0, num_floors)
-        self.dest_floor = random.randint(0, num_floors)
+        self.init_floor = random.randint(0, num_floors - 1)
+        self.dest_floor = random.randint(0, num_floors - 1)
         while self.init_floor == self.dest_floor:
-            self.dest_floor = random.randint(0, num_floors)
+            self.dest_floor = random.randint(0, num_floors - 1)
 
     def get_init(self):
         return f"(passenger-at {self.name} n{self.init_floor})"
@@ -128,8 +128,7 @@ def parse():
     parser.add_argument("slow_elevators", type=int, help="")
     
 
-    parser.add_argument("random_seed", type=int)
-    parser.add_argument("output_type", choices=["pddl", "raw", "readable", "draw"])
+    parser.add_argument("--seed", type=int, default=1)
 
     parser.add_argument("--fast_capacity", type=int, default=6, help="")
     parser.add_argument("--slow_capacity", type=int, default=4, help="")
@@ -145,11 +144,11 @@ def parse():
 
 def main():
     args = parse()
-    random.seed(args.random_seed)
+    random.seed(args.seed)
 
     assert args.area_size >= 2
 
-    floors = args.areas*args.area_size
+    floors = args.areas*args.area_size + 1
     fast_step_size = max(1, args.area_size//2)
     slow_step_size = 1
 
@@ -165,9 +164,10 @@ def main():
     
     if args.output:
         sys.stdout = open("{}/{}.pddl".format(args.output, instance_name), 'w')
+
+    print (f"""; {floors} floors, area size: {args.area_size}, areas: {args.areas}, passengers: {args.passengers}""")
         
-    if args.output_type == "pddl":
-         print_pddl(instance_name, floors, elevators, passengers, slow_cost ,fast_cost )
+    print_pddl(instance_name, floors, elevators, passengers, slow_cost ,fast_cost )
     
 
 if __name__ == "__main__":
