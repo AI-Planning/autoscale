@@ -559,10 +559,10 @@ DOMAIN_LIST_OPT = [
            [EnumAtr("segment_type", ["empty", "ab"]),
             EnumAtr("inout", ["none", "both", "in"]),
             LinearAtr("size", lower_b=1, upper_b=4, lower_m = 1, default_m=1, upper_m = 1)
-           ] 
+           ]
     ),
 
-    
+
     Domain("elevators",
            "generate.py --seed {seed} {num_areas} {area_size} {passengers} {fast_elevators} {slow_elevators}  --fast_cost {fast_cost}  --stop_fast_cost {stop_fast_cost}  --fast_capacity {fast_capacity} --slow_cost {slow_cost} --stop_slow_cost {stop_slow_cost} --slow_capacity {slow_capacity}",
            [EnumAtr("num_areas", [2, 3, 4]),
@@ -576,7 +576,7 @@ DOMAIN_LIST_OPT = [
             ConstantAtr("slow_cost", 1),
             ConstantAtr("stop_slow_cost", 5),
             ConstantAtr("slow_capacity", 2)
-           ] 
+           ]
     ),
 
 
@@ -743,15 +743,12 @@ ATTRIBUTES_SAT = {
                 ConstantAtr("stop_slow_cost", 5),
                 ConstantAtr("slow_capacity", 3)
                 # In IPC'08, they used more diverse values for the capacity of the elevators. We restrict ourselves to a single value for simplicity, expecting that a not so large capacity will result in more interesting problems
-               ] 
-
-    Domain("scanalyzer",
-           "generator.py {size} {segment_type} {inout} --seed {seed}",
+               ],
+    "scanalyzer":
            [EnumAtr("segment_type", ["empty", "ab"]),
             EnumAtr("inout", ["none", "both", "in"]),
             LinearAtr("size", lower_b=2, upper_b=4, lower_m = 1, default_m=1, upper_m = 1)
-           ]
-        ),
+           ],
 }
 
 
