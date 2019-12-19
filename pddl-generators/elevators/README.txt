@@ -31,12 +31,18 @@ IPC'08 (IPC'11 is a subset)
     13/3 floors 6 passengers 2 fast elevators
     13/3 floors 7 passengers 1 fast elevator 
     13/3 floors 7 passengers 2 fast elevators
-        
-
-
-    
+            
 
 IPC SAT Instances
+
+3 linear scalings:
+
+passengers: 4-13, 10-26 (+2), 12-39 (+3)
+floors 08/2, 16/2, 24/3
+2 fast elevators
+1 slow elevator
+capacity 3/2, 4/3, 6/4
+
 
 
 

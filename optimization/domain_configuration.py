@@ -721,6 +721,21 @@ ATTRIBUTES_SAT = {
             LinearAtr("num_goals", lower_b=1, upper_b=10),
             LinearAtr("substances", lower_b=2, upper_b=10),
            ],
+    "elevators":
+               [EnumAtr("num_areas", [2, 3, 4]),
+                LinearAtr("area_size", lower_b=2, upper_b=10, lower_m = 0.1, default_m=0.1, upper_m = 1, optional_m=True),
+                LinearAtr("passengers", lower_b=4, upper_b=15, lower_m=1, default_m=1, upper_m=5),
+                EnumAtr("fast_elevators", [2, 3]),
+                ConstantAtr("slow_elevators", 1),
+                ConstantAtr("fast_cost", 3),
+                ConstantAtr("stop_fast_cost", 1),
+                ConstantAtr("fast_capacity", 4),
+                ConstantAtr("slow_cost", 1),
+                ConstantAtr("stop_slow_cost", 5),
+                ConstantAtr("slow_capacity", 3)
+                # In IPC'08, they used more diverse values for the capacity of the elevators. We restrict ourselves to a single value for simplicity, expecting that a not so large capacity will result in more interesting problems
+               ] 
+
 }
 
 
