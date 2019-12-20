@@ -34,7 +34,7 @@ def create_pddl(half_segment_ids, problem_type, size, prob_no):
                 init.append("(CYCLE-4-WITH-ANALYSIS seg%da seg%db segbacka segbackb)" % (seg,seg))
 
         init.append("(= (total-cost) 0)")
-         
+
         if len(half_segment_ids) == 1:
             objects.append("empty - car")
             objects.append("segback - segment")
@@ -47,9 +47,9 @@ def create_pddl(half_segment_ids, problem_type, size, prob_no):
     else:
 
         if len(half_segment_ids) == 2:
-            perms = {"in":  [0] + range(size - 1, 0, -1),
-                     "out": [0] + range(size - 1, 0, -1)}
-        
+            perms = {"in":  [0] + list(range(size - 1, 0, -1)),
+                     "out": [0] + list(range(size - 1, 0, -1))}
+
         for seg in range(1,size+1):
             for direction in [ "in", "out" ]:
                 for half in half_segment_ids:
@@ -77,7 +77,7 @@ def create_pddl(half_segment_ids, problem_type, size, prob_no):
                     init.append("(CYCLE-2-WITH-ANALYSIS seg-in-%d seg-out-%d)" % (in_seg,out_seg))
                 else:
                     init.append("(CYCLE-4-WITH-ANALYSIS seg-in-%da seg-in-%db seg-out-%da seg-out-%db)" % (in_seg,in_seg,out_seg,out_seg))
-                
+
         init.append("(= (total-cost) 0)")
 
     print ( f"(define (problem scanalyzer3d-{prob_no})")
@@ -120,7 +120,7 @@ def main():
         sys.stdout = open(args.output, 'w')
 
     prob_id = f"{args.size}-{args.segment_type}-{args.inout}"
-    
+
 
     size = args.size
     if args.segment_type == "ab":
@@ -135,7 +135,7 @@ def main():
     else:
         assert args.inout == "none"
         (insize, outsize) = (1, 1)
-                
+
     create_pddl(half_segment_ids, (insize, outsize), size, prob_id)
 
 if __name__ == "__main__":
