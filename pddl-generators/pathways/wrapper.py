@@ -88,7 +88,7 @@ def remove_constants(problem_file, constants):
     new_lines = []
     with open(problem_file) as f:
         for line in f:
-            if not any(f"{c} - complex" in line for c in constants):
+            if not any(f"\t{c} - complex\n" == line for c in constants):
                 new_lines.append(line.replace("\t", " " * 4))
     with open(problem_file, "w") as f:
         f.writelines(new_lines)
