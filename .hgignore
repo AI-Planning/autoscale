@@ -3,7 +3,7 @@
 images$
 ^optimization/data/
 ^optimization/smac/
-
+~$
 ^pddl-generators/assembly/assembly$
 ^pddl-generators/blocksworld/3ops/2pddl/2pddl$
 ^pddl-generators/blocksworld/4ops/2pddl/2pddl$
@@ -36,6 +36,10 @@ images$
 ^pddl-generators/nomystery/old/Makefile.depend$
 ^pddl-generators/nomystery/old/nomystery$
 ^pddl-generators/nomystery/release-search$
+^pddl-generators/nomystery/CMakeFiles
+^pddl-generators/nomystery/CMakeCache.txt
+^pddl-generators/nomystery/cmake_install.cmake
+^pddl-generators/nomystery/nomystery_opt
 ^pddl-generators/npuzzle/n-puzzle-generator$
 ^pddl-generators/openstacks/generate_pddl$
 ^pddl-generators/openstacks/generate_problems$
