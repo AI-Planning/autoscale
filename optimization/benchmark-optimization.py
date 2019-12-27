@@ -141,7 +141,7 @@ def parse_args():
 
     parser.add_argument(
         "--smac_output_dir",
-        default="smac",
+        default=None,
         help="Directory where to store logs and temporary files (default: %(default)s)",
     )
 
@@ -208,9 +208,12 @@ setup_logging()
 DOMAINS = get_domains(ARGS.track)
 
 # SMAC moves old directories out of the way, but we want a completely pristine directory to safeguard against errors.
-if os.path.exists(SMAC_OUTPUT_DIR):
+if not SMAC_OUTPUT_DIR:
+    print("No run directory, so we will not run anything")
+elif os.path.exists(SMAC_OUTPUT_DIR):
     sys.exit("Error: SMAC output directory already exists")
-os.mkdir (SMAC_OUTPUT_DIR)
+else:
+    os.mkdir (SMAC_OUTPUT_DIR)
 
 print("{} domains available: {}".format(len(DOMAINS), sorted(DOMAINS)))
 
@@ -402,15 +405,15 @@ for i in range (K_PER_CATEGORY):
 
         logging.info(f"Evaluate sequence with penalty {sequence['penalty']}")
 
-        Y = domain.get_configs(sequence['config'], 40)
+        Y = domain.get_configs(sequence['config'], 30)
         logging.info("Configurations in sequence {}".format(Y))
 
         baseline_eval = EvaluatedSequence(Y, RUNNER_BASELINE, PLANNER_TIME_LIMIT)
-        runtimes_baseline = baseline_eval.get_runtimes(40, 0, PLANNER_TIME_LIMIT)
+        runtimes_baseline = baseline_eval.get_runtimes(30, 0, PLANNER_TIME_LIMIT)
         logging.info(f"Baseline runtimes {runtimes_baseline}")
 
         sart_eval = EvaluatedSequence(Y, RUNNER_SART, PLANNER_TIME_LIMIT)
-        runtimes_sart = sart_eval.get_runtimes(40, 0, PLANNER_TIME_LIMIT)
+        runtimes_sart = sart_eval.get_runtimes(30, 0, PLANNER_TIME_LIMIT)
         logging.info(f"Sart runtimes {runtimes_sart}")
 
         if len(runtimes_sart) < 3:
@@ -578,6 +581,9 @@ for sequences in evaluated_sequences:
 print(final_selection)
 
 if ARGS.output:
+    if not os.path.exists(f"{ARGS.output}"):
+        os.mkdir (f"{ARGS.output}")
+    os.mkdir (f"{ARGS.output}/{ARGS.domain}")
     i = 1
     seed = 2019
     # os.mkdir (f"{ARGS.output}/{ARGS.domain}")

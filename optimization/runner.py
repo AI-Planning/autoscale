@@ -91,6 +91,9 @@ class Runner:
                 if (runtime is None or time_limit < runtime) and all(values_linear_attributes[linear_atr] <= parameters[linear_atr] for linear_atr in self.linear_attributes_names):
                     return None
 
+        if self.SMAC_OUTPUT_DIR is None:
+            sys.exit(f"Error: No temporary dir for Runner has been provided but I have no data for {parameters}" )
+            
         results = []
         solved = False
         for i in range(self.runs_per_configuration):
