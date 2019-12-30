@@ -367,7 +367,8 @@ smac = SMAC4HPO(
     scenario=scenario,
     initial_design=DefaultConfiguration,
     rng=np.random.RandomState(ARGS.random_seed),
-    tae_runner=evaluate_cfg
+    tae_runner=evaluate_cfg,
+    tae_runner_kwargs={"use_pynisher": False},
 )
 # SMAC4HPO overrides the value for acq_opt_challengers in the scenario with
 # a fixed value of 10000, so we set it here (see https://github.com/automl/SMAC3/issues/561).

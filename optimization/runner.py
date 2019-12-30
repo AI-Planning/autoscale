@@ -21,8 +21,6 @@ import json
 MIN_PLANNER_RUNTIME = 0.1
 PLANNER_MEMORY_LIMIT = 3 * 1024 ** 3  # 3 GiB in Bytes
 
-TMP_DOMAIN = "tmp-domain.pddl"
-TMP_PROBLEM = "tmp-problem.pddl"
 
 
 # This class is in charge of running instances, using a cache to store the results
@@ -92,7 +90,8 @@ class Runner:
                     return None
 
         if self.SMAC_OUTPUT_DIR is None:
-            sys.exit(f"Error: No temporary dir for Runner has been provided but I have no data for {parameters}" )
+            print(f"Warning: No temporary dir for Runner has been provided but I have no data for {parameters}, so I consider it unsolvable" )
+            return None
             
         results = []
         solved = False
@@ -109,10 +108,7 @@ class Runner:
                 problem_file = os.path.join(plan_dir, "problem.pddl")
                 command = self.domain.get_generator_command(self.GENERATORS_DIR, parameters)
                 self.logging.debug("Generator command: {}".format(" ".join(command)))
-                self.domain.generate_problem(command, problem_file)
-
-                if TMP_DOMAIN in command:
-                    shutil.move(TMP_DOMAIN, os.path.join(plan_dir, "domain.pddl"))
+                self.domain.generate_problem(command, problem_file, os.path.join(plan_dir,  "domain.pddl"))
 
                 # Call planners.
                 runtimes = []

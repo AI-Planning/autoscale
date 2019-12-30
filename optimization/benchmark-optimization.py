@@ -80,7 +80,7 @@ from domain_configuration import get_domains
 from domain_configuration import EvaluatedSequence, EstimatedSequence
 from planner_selection import get_baseline_planner, get_sart_planners
 
-from runner import Runner, TMP_DOMAIN, TMP_PROBLEM
+from runner import Runner
 
 warnings.simplefilter(action="ignore", category=FutureWarning)
 
@@ -403,7 +403,7 @@ for i in range (K_PER_CATEGORY):
             continue
         sequence = candidate_sequences[j][i]
 
-        logging.info(f"Evaluate sequence with penalty {sequence['penalty']}")
+        logging.info(f"Evaluate sequence {sequence['config']} with penalty {sequence['penalty']}")
 
         Y = domain.get_configs(sequence['config'], 30)
         logging.info("Configurations in sequence {}".format(Y))
@@ -593,6 +593,7 @@ if ARGS.output:
         command = domain.get_generator_command(GENERATORS_DIR, task)
 
         problem_file = f"{ARGS.output}/{ARGS.domain}/p{i:02d}.pddl"
+        domain_file = f"{ARGS.output}/{ARGS.domain}/domain-p{i:02d}.pddl"
         i += 1
 
-        domain.generate_problem(command, problem_file)
+        domain.generate_problem(command, problem_file, domain_file)

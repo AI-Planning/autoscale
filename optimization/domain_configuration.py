@@ -10,7 +10,8 @@ from ConfigSpace.hyperparameters import UniformFloatHyperparameter
 from ConfigSpace.hyperparameters import UniformIntegerHyperparameter
 from ConfigSpace.hyperparameters import CategoricalHyperparameter
 
-from runner import TMP_DOMAIN, TMP_PROBLEM
+TMP_PROBLEM = "tmp-problem.pddl"
+TMP_DOMAIN = "tmp-domain.pddl"
 
 class EvaluatedSequence:
     def __init__(self, sequence, runner, time_limit):
@@ -332,7 +333,7 @@ class Domain:
             command.insert(0, sys.executable)
         return command
 
-    def generate_problem(self, command, problem_file):
+    def generate_problem(self, command, problem_file, domain_file):
         # Some generators print to a file, others print to stdout.
         if TMP_PROBLEM in self.gen_command:
             subprocess.run(command, check=True)
@@ -340,6 +341,10 @@ class Domain:
         else:
             with open(problem_file, "w") as f:
                 subprocess.run(command, stdout=f, check=True)
+                
+        if self.generated_domain_file():
+            shutil.move(TMP_DOMAIN, domain_file)
+            
 
     def get_enum_parameters(self):
         return [x for x in self.linear_attributes if isinstance(x, EnumAtr)]
@@ -348,7 +353,7 @@ class Domain:
         return len(self.get_enum_parameters()) > 0
 
     def generated_domain_file(self):
-        return "tmp-domain.pddl" in self.gen_command
+        return TMP_DOMAIN in self.gen_command
 
 
 

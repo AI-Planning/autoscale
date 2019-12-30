@@ -1087,5 +1087,6 @@ for domain, (config_dict, baseline_times, sart_times) in FINAL_CONFIGURATIONS.it
             command = DOMAINS[domain].get_generator_command(ARGS.generators_dir, task)
 
             problem_file = f"{ARGS.output}/{domain}/p{i:02d}.pddl"
+            domain_file = f"{ARGS.output}/{domain}/domain-p{i:02d}.pddl"
             i += 1
-            DOMAINS[domain].generate_problem(command, problem_file)
+            DOMAINS[domain].generate_problem(command, problem_file, domain_file)

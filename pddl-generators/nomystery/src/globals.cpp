@@ -77,6 +77,15 @@ bool process_command_line(int argc, char *argv[]) {
 
 void output_pddl_file(int initial_fuel) {
 
+    set<int> fuel_levels_road;
+    for (int i = 0; i < g_num_locations; i++) {
+        for (int j = 0; j < g_num_locations; j++) {
+            if (g_graph[i][j] != NOT_CONNECTED) {
+                fuel_levels_road.insert(g_graph[i][j]);
+            }
+        }
+    }
+
 	int max_init_fuel = max(initial_fuel, g_m);
 	int printn = (int) (((float) 100) * g_n);
 	int printc = (int) (((float) 100) * g_c);
@@ -109,7 +118,9 @@ void output_pddl_file(int initial_fuel) {
 	printf("(:init\n");
 	for (int post = 0; post <= max_init_fuel; post++) {
 		for (int pre = post; pre <= max_init_fuel; pre++) {
+                    if (fuel_levels_road.count(pre-post)) {
 			printf("(sum level%d level%d level%d)\n", post, pre - post, pre);
+                    }
 		}
 	}
 	printf("\n");
