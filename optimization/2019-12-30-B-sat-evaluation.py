@@ -81,6 +81,8 @@ for benchmarks_dir in BENCHMARKS:
     abs_benchmarks_dir = os.path.join(BENCHMARKS_DIR, benchmarks_dir)
     domains = os.listdir(abs_benchmarks_dir)
     for domain in domains:
+        if domain in ['trucks']:
+            continue
         suite.extend(suites.build_suite(abs_benchmarks_dir, [domain]))
 if not project.REMOTE:
     suite = [task for task in suite if task.problem == "p01.pddl"]
