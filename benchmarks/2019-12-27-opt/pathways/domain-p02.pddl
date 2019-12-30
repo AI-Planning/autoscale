@@ -6,7 +6,7 @@
     simple complex - molecule
 )
 
-(:constants cdc25A SP1-p107p1-gP c-Myc-Max-gcdc25A DMP1p1-gp19ARF SP1-p107-gP DMP1p1-cycDp1 c-Myc SP1-p107 Skp2-cdk2p1-cycA cdk2p1-cycEp1 - complex)
+(:constants cdc25A SP1-p107 Skp2-cdk2p1-cycA c-Myc-Max-gcdc25A DMP1p1-cycD cdk2p1-cycA cycDp1 p19ARF PCNA-cycD DMP1-cycDp1 - complex)
 
 (:predicates
     (association-reaction ?x1 ?x2 - molecule ?x3 - complex)
@@ -56,34 +56,34 @@
  :parameters ()
  :precondition
     (or (available cdc25A)
-        (available SP1-p107p1-gP))
+        (available SP1-p107))
  :effect (and (goal1)))
 
 (:action DUMMY-ACTION-2
  :parameters ()
  :precondition
-    (or (available c-Myc-Max-gcdc25A)
-        (available DMP1p1-gp19ARF))
+    (or (available Skp2-cdk2p1-cycA)
+        (available c-Myc-Max-gcdc25A))
  :effect (and (goal2)))
 
 (:action DUMMY-ACTION-3
  :parameters ()
  :precondition
-    (or (available SP1-p107-gP)
-        (available DMP1p1-cycDp1))
+    (or (available DMP1p1-cycD)
+        (available cdk2p1-cycA))
  :effect (and (goal3)))
 
 (:action DUMMY-ACTION-4
  :parameters ()
  :precondition
-    (or (available c-Myc)
-        (available SP1-p107))
+    (or (available cycDp1)
+        (available p19ARF))
  :effect (and (goal4)))
 
 (:action DUMMY-ACTION-5
  :parameters ()
  :precondition
-    (or (available Skp2-cdk2p1-cycA)
-        (available cdk2p1-cycEp1))
+    (or (available PCNA-cycD)
+        (available DMP1-cycDp1))
  :effect (and (goal5)))
 )

@@ -6,7 +6,7 @@
     simple complex - molecule
 )
 
-(:constants CEBP-pRbp1-gP CEBP-pRbp2-gP CEBP-pRbp1p2-gP CEBP-pRbp1p2 pRbp1-E2F13-DP12p1 pRbp1-E2F13p1-DP12p1 CEBP-pRb-gP p21-Gadd45 Mdm2-pRbp1p2 Mdm2-E2F13p1-DP12p1 PCNA-Gadd45 pRbp1-E2F13p1-DP12 - complex)
+(:constants CEBP-pRbp1p2-gP pRbp1p2-AP2 PCNA-p21 PCNA-Gadd45 CEBP-pRbp1-gP Mdm2-E2F13p1-DP12p1 P pRbp1-E2F13-DP12p1 Mdm2-pRbp1p2 pRbp1-AP2 Mdm2-pRbp1 Mdm2-pRb - complex)
 
 (:predicates
     (association-reaction ?x1 ?x2 - molecule ?x3 - complex)
@@ -56,42 +56,42 @@
 (:action DUMMY-ACTION-1
  :parameters ()
  :precondition
-    (or (available CEBP-pRbp1-gP)
-        (available CEBP-pRbp2-gP))
+    (or (available CEBP-pRbp1p2-gP)
+        (available pRbp1p2-AP2))
  :effect (and (goal1)))
 
 (:action DUMMY-ACTION-2
  :parameters ()
  :precondition
-    (or (available CEBP-pRbp1p2-gP)
-        (available CEBP-pRbp1p2))
+    (or (available PCNA-p21)
+        (available PCNA-Gadd45))
  :effect (and (goal2)))
 
 (:action DUMMY-ACTION-3
  :parameters ()
  :precondition
-    (or (available pRbp1-E2F13-DP12p1)
-        (available pRbp1-E2F13p1-DP12p1))
+    (or (available CEBP-pRbp1-gP)
+        (available Mdm2-E2F13p1-DP12p1))
  :effect (and (goal3)))
 
 (:action DUMMY-ACTION-4
  :parameters ()
  :precondition
-    (or (available CEBP-pRb-gP)
-        (available p21-Gadd45))
+    (or (available P)
+        (available pRbp1-E2F13-DP12p1))
  :effect (and (goal4)))
 
 (:action DUMMY-ACTION-5
  :parameters ()
  :precondition
     (or (available Mdm2-pRbp1p2)
-        (available Mdm2-E2F13p1-DP12p1))
+        (available pRbp1-AP2))
  :effect (and (goal5)))
 
 (:action DUMMY-ACTION-6
  :parameters ()
  :precondition
-    (or (available PCNA-Gadd45)
-        (available pRbp1-E2F13p1-DP12))
+    (or (available Mdm2-pRbp1)
+        (available Mdm2-pRb))
  :effect (and (goal6)))
 )

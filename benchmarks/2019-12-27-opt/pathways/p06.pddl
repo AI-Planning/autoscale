@@ -147,10 +147,7 @@
     l77 - level
     l78 - level
     l79 - level
-    l80 - level
-    l81 - level
-    l82 - level
-    l83 - level)
+    l80 - level)
 
 
 (:init
@@ -335,10 +332,7 @@
     (next l77 l76)
     (next l78 l77)
     (next l79 l78)
-    (next l80 l79)
-    (next l81 l80)
-    (next l82 l81)
-    (next l83 l82))
+    (next l80 l79))
 
 
 (:goal

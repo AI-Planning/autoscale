@@ -78,58 +78,58 @@
 
 
 (origin p0 f0)
-(destin p0 f8)
+(destin p0 f6)
 
-(origin p1 f0)
-(destin p1 f2)
+(origin p1 f7)
+(destin p1 f6)
 
-(origin p2 f6)
-(destin p2 f0)
+(origin p2 f8)
+(destin p2 f2)
 
 (origin p3 f2)
-(destin p3 f9)
+(destin p3 f8)
 
-(origin p4 f9)
-(destin p4 f2)
+(origin p4 f7)
+(destin p4 f4)
 
-(origin p5 f6)
-(destin p5 f4)
+(origin p5 f10)
+(destin p5 f3)
 
-(origin p6 f7)
-(destin p6 f6)
+(origin p6 f9)
+(destin p6 f7)
 
-(origin p7 f6)
-(destin p7 f2)
+(origin p7 f1)
+(destin p7 f6)
 
-(origin p8 f3)
-(destin p8 f6)
+(origin p8 f6)
+(destin p8 f7)
 
-(origin p9 f2)
-(destin p9 f5)
+(origin p9 f1)
+(destin p9 f0)
 
-(origin p10 f0)
-(destin p10 f10)
+(origin p10 f9)
+(destin p10 f8)
 
-(origin p11 f4)
-(destin p11 f8)
+(origin p11 f8)
+(destin p11 f2)
 
-(origin p12 f2)
-(destin p12 f5)
+(origin p12 f3)
+(destin p12 f1)
 
-(origin p13 f8)
-(destin p13 f2)
+(origin p13 f1)
+(destin p13 f8)
 
 (origin p14 f4)
-(destin p14 f10)
+(destin p14 f1)
 
-(origin p15 f2)
-(destin p15 f10)
+(origin p15 f8)
+(destin p15 f9)
 
-(origin p16 f10)
-(destin p16 f4)
+(origin p16 f7)
+(destin p16 f1)
 
-(origin p17 f3)
-(destin p17 f4)
+(origin p17 f4)
+(destin p17 f9)
 
 
 

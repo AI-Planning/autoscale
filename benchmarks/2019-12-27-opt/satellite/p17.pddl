@@ -3,136 +3,140 @@
 (:objects
 	satellite0 - satellite
 	instrument0 - instrument
-	satellite1 - satellite
 	instrument1 - instrument
+	satellite1 - satellite
+	instrument2 - instrument
+	infrared1 - mode
 	thermograph3 - mode
 	infrared4 - mode
 	thermograph2 - mode
-	infrared1 - mode
 	thermograph0 - mode
-	GroundStation0 - direction
-	GroundStation4 - direction
+	GroundStation2 - direction
+	Star5 - direction
 	GroundStation6 - direction
 	GroundStation7 - direction
 	Star8 - direction
-	GroundStation12 - direction
-	GroundStation16 - direction
+	GroundStation9 - direction
+	GroundStation11 - direction
+	GroundStation13 - direction
+	Star17 - direction
+	GroundStation18 - direction
 	Star19 - direction
-	GroundStation20 - direction
-	GroundStation24 - direction
-	Star25 - direction
-	Star27 - direction
+	Star21 - direction
+	Star22 - direction
+	Star23 - direction
 	GroundStation28 - direction
 	GroundStation29 - direction
 	Star32 - direction
-	GroundStation33 - direction
-	Star22 - direction
-	Star17 - direction
-	GroundStation9 - direction
-	GroundStation2 - direction
-	GroundStation13 - direction
-	GroundStation3 - direction
-	GroundStation31 - direction
-	GroundStation11 - direction
-	Star23 - direction
-	Star26 - direction
-	GroundStation10 - direction
-	Star14 - direction
-	Star5 - direction
-	GroundStation18 - direction
-	GroundStation34 - direction
-	GroundStation35 - direction
 	Star1 - direction
+	GroundStation12 - direction
+	GroundStation20 - direction
 	GroundStation30 - direction
+	GroundStation3 - direction
+	Star27 - direction
+	Star14 - direction
+	GroundStation33 - direction
+	GroundStation4 - direction
+	GroundStation24 - direction
 	Star15 - direction
-	Star21 - direction
-	Star36 - direction
+	Star26 - direction
+	Star25 - direction
+	GroundStation34 - direction
+	GroundStation16 - direction
+	GroundStation0 - direction
+	GroundStation10 - direction
+	GroundStation31 - direction
+	Planet35 - direction
+	Phenomenon36 - direction
 	Phenomenon37 - direction
 	Phenomenon38 - direction
-	Phenomenon39 - direction
-	Planet40 - direction
-	Phenomenon41 - direction
-	Planet42 - direction
-	Star43 - direction
+	Planet39 - direction
+	Phenomenon40 - direction
+	Star41 - direction
+	Phenomenon42 - direction
+	Phenomenon43 - direction
 	Phenomenon44 - direction
 	Phenomenon45 - direction
-	Phenomenon46 - direction
+	Star46 - direction
 	Phenomenon47 - direction
-	Phenomenon48 - direction
-	Star49 - direction
-	Planet50 - direction
+	Star48 - direction
+	Phenomenon49 - direction
+	Phenomenon50 - direction
 	Star51 - direction
 	Planet52 - direction
 	Star53 - direction
-	Planet54 - direction
+	Star54 - direction
 	Planet55 - direction
 	Star56 - direction
-	Phenomenon57 - direction
-	Phenomenon58 - direction
+	Planet57 - direction
+	Planet58 - direction
 	Star59 - direction
-	Star60 - direction
+	Planet60 - direction
 	Star61 - direction
 	Phenomenon62 - direction
-	Phenomenon63 - direction
-	Phenomenon64 - direction
-	Phenomenon65 - direction
-	Planet66 - direction
-	Star67 - direction
+	Star63 - direction
+	Star64 - direction
+	Planet65 - direction
 )
 (:init
-	(supports instrument0 thermograph0)
-	(supports instrument0 infrared1)
-	(supports instrument0 thermograph2)
-	(calibration_target instrument0 GroundStation10)
-	(calibration_target instrument0 Star26)
-	(calibration_target instrument0 Star23)
-	(calibration_target instrument0 Star21)
-	(calibration_target instrument0 GroundStation11)
-	(calibration_target instrument0 GroundStation31)
+	(supports instrument0 thermograph3)
+	(supports instrument0 infrared4)
+	(calibration_target instrument0 Star14)
+	(calibration_target instrument0 Star27)
 	(calibration_target instrument0 GroundStation3)
-	(calibration_target instrument0 GroundStation13)
-	(calibration_target instrument0 GroundStation2)
-	(calibration_target instrument0 GroundStation9)
-	(calibration_target instrument0 Star17)
-	(calibration_target instrument0 Star22)
+	(calibration_target instrument0 GroundStation31)
+	(calibration_target instrument0 GroundStation30)
+	(calibration_target instrument0 GroundStation20)
+	(calibration_target instrument0 GroundStation12)
+	(calibration_target instrument0 Star1)
+	(calibration_target instrument0 Star15)
+	(supports instrument1 infrared4)
+	(supports instrument1 thermograph3)
+	(calibration_target instrument1 GroundStation24)
 	(on_board instrument0 satellite0)
+	(on_board instrument1 satellite0)
 	(power_avail satellite0)
-	(pointing satellite0 GroundStation34)
-	(supports instrument1 thermograph0)
-	(calibration_target instrument1 Star21)
-	(calibration_target instrument1 Star15)
-	(calibration_target instrument1 GroundStation30)
-	(calibration_target instrument1 Star1)
-	(calibration_target instrument1 GroundStation35)
-	(calibration_target instrument1 GroundStation34)
-	(calibration_target instrument1 GroundStation18)
-	(calibration_target instrument1 Star5)
-	(calibration_target instrument1 Star14)
-	(on_board instrument1 satellite1)
+	(pointing satellite0 GroundStation16)
+	(supports instrument2 thermograph0)
+	(supports instrument2 thermograph2)
+	(supports instrument2 infrared4)
+	(calibration_target instrument2 GroundStation31)
+	(calibration_target instrument2 GroundStation10)
+	(calibration_target instrument2 GroundStation0)
+	(calibration_target instrument2 GroundStation16)
+	(calibration_target instrument2 GroundStation34)
+	(calibration_target instrument2 Star25)
+	(calibration_target instrument2 Star26)
+	(calibration_target instrument2 Star15)
+	(calibration_target instrument2 GroundStation24)
+	(calibration_target instrument2 GroundStation4)
+	(calibration_target instrument2 GroundStation33)
+	(on_board instrument2 satellite1)
 	(power_avail satellite1)
-	(pointing satellite1 GroundStation13)
+	(pointing satellite1 Star54)
 )
 (:goal (and
-	(pointing satellite1 GroundStation6)
-	(have_image Star36 thermograph2)
-	(have_image Phenomenon37 thermograph0)
-	(have_image Phenomenon39 infrared1)
-	(have_image Planet40 infrared1)
-	(have_image Phenomenon44 infrared1)
-	(have_image Phenomenon45 thermograph0)
-	(have_image Phenomenon46 thermograph2)
-	(have_image Phenomenon47 thermograph0)
-	(have_image Planet50 infrared1)
-	(have_image Planet52 infrared1)
-	(have_image Star53 thermograph0)
-	(have_image Phenomenon57 thermograph2)
-	(have_image Phenomenon58 infrared1)
-	(have_image Star60 thermograph0)
-	(have_image Phenomenon62 thermograph0)
-	(have_image Phenomenon64 thermograph2)
-	(have_image Phenomenon65 thermograph0)
-	(have_image Planet66 thermograph2)
-	(have_image Star67 thermograph0)
+	(have_image Phenomenon37 thermograph3)
+	(have_image Phenomenon40 thermograph0)
+	(have_image Star41 thermograph0)
+	(have_image Phenomenon43 infrared4)
+	(have_image Star46 thermograph0)
+	(have_image Phenomenon49 infrared4)
+	(have_image Phenomenon50 infrared4)
+	(have_image Star51 thermograph0)
+	(have_image Planet52 infrared4)
+	(have_image Star53 thermograph3)
+	(have_image Star54 thermograph2)
+	(have_image Planet55 infrared4)
+	(have_image Star56 infrared4)
+	(have_image Planet57 infrared4)
+	(have_image Planet58 thermograph0)
+	(have_image Star59 thermograph3)
+	(have_image Planet60 thermograph3)
+	(have_image Phenomenon62 thermograph2)
+	(have_image Star63 infrared4)
+	(have_image Star64 infrared4)
+	(have_image Planet65 thermograph3)
 ))
 
 )

@@ -6,7 +6,7 @@
     simple complex - molecule
 )
 
-(:constants CEBP-pRbp1p2-gP pRbp1-AP2 p19ARF cdc25Cp1p2 m1433-cdc25Cp2 CEBP-pRbp1-gP m1433-cdc25Cp1p2 P c-Abl-pRbp1 c-Abl-pRbp1p2 - complex)
+(:constants m1433-cdc25Cp1p2 p19ARF CEBP-pRbp1p2-gP c-Abl-pRbp1p2 P CEBP-pRbp1-gP CEBP-pRbp1 m1433-cdc25Cp2 CEBP-pRbp2-gP c-Abl-pRbp1 - complex)
 
 (:predicates
     (association-reaction ?x1 ?x2 - molecule ?x3 - complex)
@@ -55,35 +55,35 @@
 (:action DUMMY-ACTION-1
  :parameters ()
  :precondition
-    (or (available CEBP-pRbp1p2-gP)
-        (available pRbp1-AP2))
+    (or (available m1433-cdc25Cp1p2)
+        (available p19ARF))
  :effect (and (goal1)))
 
 (:action DUMMY-ACTION-2
  :parameters ()
  :precondition
-    (or (available p19ARF)
-        (available cdc25Cp1p2))
+    (or (available CEBP-pRbp1p2-gP)
+        (available c-Abl-pRbp1p2))
  :effect (and (goal2)))
 
 (:action DUMMY-ACTION-3
  :parameters ()
  :precondition
-    (or (available m1433-cdc25Cp2)
+    (or (available P)
         (available CEBP-pRbp1-gP))
  :effect (and (goal3)))
 
 (:action DUMMY-ACTION-4
  :parameters ()
  :precondition
-    (or (available m1433-cdc25Cp1p2)
-        (available P))
+    (or (available CEBP-pRbp1)
+        (available m1433-cdc25Cp2))
  :effect (and (goal4)))
 
 (:action DUMMY-ACTION-5
  :parameters ()
  :precondition
-    (or (available c-Abl-pRbp1)
-        (available c-Abl-pRbp1p2))
+    (or (available CEBP-pRbp2-gP)
+        (available c-Abl-pRbp1))
  :effect (and (goal5)))
 )

@@ -34,6 +34,7 @@
     cdk2p1-cycB - complex
     CEBP-pRb - complex
     CEBP-pRbp1 - complex
+    HDAC1-p130-E2F4-DP12p1 - complex
     HDAC1-pRb-E2F13p1-DP12 - complex
     HDAC1-pRb-E2F13p1-DP12p1 - complex
     HDAC1-pRb-E2F4p1-DP12 - complex
@@ -41,6 +42,7 @@
     cdc25Cp2 - complex
     Mdm2-E2F13p1-DP12 - complex
     Mdm2-E2F13p1-DP12p1 - complex
+    Mdm2-pRb - complex
     Mdm2-pRbp1 - complex
     p130-E2F4-DP12p1 - complex
     p16-cdk46p1 - complex
@@ -130,10 +132,7 @@
     l70 - level
     l71 - level
     l72 - level
-    l73 - level
-    l74 - level
-    l75 - level
-    l76 - level)
+    l73 - level)
 
 
 (:init
@@ -276,10 +275,7 @@
     (next l70 l69)
     (next l71 l70)
     (next l72 l71)
-    (next l73 l72)
-    (next l74 l73)
-    (next l75 l74)
-    (next l76 l75))
+    (next l73 l72))
 
 
 (:goal
@@ -288,7 +284,6 @@
     (goal2)
     (goal3)
     (goal4)
-    (goal5)
-    (goal6)))
+    (goal5)))
 
 )

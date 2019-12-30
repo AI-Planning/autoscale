@@ -37,8 +37,10 @@
     cdk2p1p2-cycEp1 - complex
     cdk2p1p2-cycE - complex
     pRb-E2F4p1-DP12-gE2 - complex
+    cdk2p2-cycEp1 - complex
     cdk2p2-cycE - complex
     E2F4-DP12 - complex
+    Skp2-cdk2-cycA - complex
     Skp2-cdk2p1p2-cycA - complex
     cdk2-cycA - complex
     cdk2p1-cycA - complex
@@ -70,9 +72,7 @@
     l14 - level
     l15 - level
     l16 - level
-    l17 - level
-    l18 - level
-    l19 - level)
+    l17 - level)
 
 
 (:init
@@ -160,9 +160,7 @@
     (next l14 l13)
     (next l15 l14)
     (next l16 l15)
-    (next l17 l16)
-    (next l18 l17)
-    (next l19 l18))
+    (next l17 l16))
 
 
 (:goal
@@ -170,7 +168,6 @@
     (goal1)
     (goal2)
     (goal3)
-    (goal4)
-    (goal5)))
+    (goal4)))
 
 )

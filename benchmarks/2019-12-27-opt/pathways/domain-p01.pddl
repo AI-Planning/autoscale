@@ -6,7 +6,7 @@
     simple complex - molecule
 )
 
-(:constants cdk2p1-cycEp1 Skp2-cdk2p1-cycA p107p1 p107-E2F4-DP12-gE2 Skp2p1 cdk7p1-cycH DP12p1 Skp2-cdk2p2-cycA cdk2p2-cycEp1 Skp2-cdk2-cycA - complex)
+(:constants cdk2p1-cycEp1 Skp2-cdk2p1-cycA p107p1 p107-E2F4-DP12-gE2 Skp2p1 cdk7p1-cycH DP12p1 Skp2-cdk2p2-cycA - complex)
 
 (:predicates
     (association-reaction ?x1 ?x2 - molecule ?x3 - complex)
@@ -21,7 +21,6 @@
     (goal2)
     (goal3)
     (goal4)
-    (goal5)
 )
 
 (:action choose
@@ -79,11 +78,4 @@
     (or (available DP12p1)
         (available Skp2-cdk2p2-cycA))
  :effect (and (goal4)))
-
-(:action DUMMY-ACTION-5
- :parameters ()
- :precondition
-    (or (available cdk2p2-cycEp1)
-        (available Skp2-cdk2-cycA))
- :effect (and (goal5)))
 )

@@ -17,27 +17,23 @@
     HDAC1-p130-E2F5p1-DP12 - simple
     HDAC1-p107-E2F4p1-DP12 - simple
     gp19ARF - simple
-    gP - simple
     gE2 - simple
     gcdc25A - simple
     E2F13p1-DP12 - simple
     DMP1 - simple
     cycB - simple
-    CEBP - simple
     cdk7 - simple
     cdk46p3-cycD - simple
     cdk46p1 - simple
     cdk2p1 - simple
     APC - simple
-    CEBP-gP - complex
-    P - complex
     c-Myc-Max - complex
     APCp1 - complex
     DMP1-cycD - complex
-    DMP1-cycDp1 - complex
     DMP1-gp19ARF - complex
-    DMP1p1-cycD - complex
+    DMP1p1-cycDp1 - complex
     DMP1p1 - complex
+    DMP1p1-gp19ARF - complex
     E2F13p1-DP12-gE2 - complex
     HDAC1-p107-E2F4p1-DP12-gE2 - complex
     HDAC1-p130-E2F5p1-DP12-gE2 - complex
@@ -45,21 +41,18 @@
     p16-cdk46p1 - complex
     p16-cdk7 - complex
     PCNA-cycDp1 - complex
-    PCNA-cycD - complex
+    cdk2p1-cycEp1 - complex
     cdk2p1-cycE - complex
     cdk46p1-cycDp1 - complex
     cdk46p1-cycD - complex
     pRbp1-E2F4p1-DP12-gE2 - complex
     RPA-cycA - complex
-    cdk2p1-cycA - complex
+    c-Myc - complex
     cycA - complex
     cycD - complex
-    cycDp1 - complex
     cycE - complex
     cycEp1 - complex
-    p19ARF - complex
     pol - complex
-    SP1-gP - complex
     SP1-p107p1 - complex
     p107p1 - complex
     p107 - complex
@@ -82,8 +75,7 @@
     l16 - level
     l17 - level
     l18 - level
-    l19 - level
-    l20 - level)
+    l19 - level)
 
 
 (:init
@@ -99,13 +91,11 @@
     (possible HDAC1-p130-E2F5p1-DP12)
     (possible HDAC1-p107-E2F4p1-DP12)
     (possible gp19ARF)
-    (possible gP)
     (possible gE2)
     (possible gcdc25A)
     (possible E2F13p1-DP12)
     (possible DMP1)
     (possible cycB)
-    (possible CEBP)
     (possible cdk7)
     (possible cdk46p3-cycD)
     (possible cdk46p1)
@@ -117,8 +107,6 @@
     (association-reaction cdk2p1 cycEp1 cdk2p1-cycEp1)
     (association-reaction cdk46p1 cycD cdk46p1-cycD)
     (association-reaction cdk46p1 cycDp1 cdk46p1-cycDp1)
-    (association-reaction CEBP gP CEBP-gP)
-    (synthesis-reaction CEBP-gP P) 
     (association-reaction c-Myc Max c-Myc-Max)
     (synthesis-reaction c-Myc-Max-gcdc25A cdc25A) 
     (association-reaction c-Myc-Max gcdc25A c-Myc-Max-gcdc25A)
@@ -152,19 +140,6 @@
     (association-reaction pRbp1-E2F4p1-DP12 gE2 pRbp1-E2F4p1-DP12-gE2)
     (association-reaction RPA cycA RPA-cycA)
     (association-reaction Skp2 cdk2p1-cycA Skp2-cdk2p1-cycA)
-    (synthesis-reaction SP1-gP c-Myc) 
-    (synthesis-reaction SP1-gP cycA) 
-    (synthesis-reaction SP1-gP cycD) 
-    (synthesis-reaction SP1-gP cycDp1) 
-    (synthesis-reaction SP1-gP cycE) 
-    (synthesis-reaction SP1-gP cycEp1) 
-    (synthesis-reaction SP1-gP p107) 
-    (synthesis-reaction SP1-gP p107p1) 
-    (synthesis-reaction SP1-gP p19ARF) 
-    (synthesis-reaction SP1-gP pol) 
-    (association-reaction SP1 gP SP1-gP)
-    (association-reaction SP1-p107 gP SP1-p107-gP)
-    (association-reaction SP1-p107p1 gP SP1-p107p1-gP)
     (association-reaction SP1 p107p1 SP1-p107p1)
     (association-reaction SP1 p107 SP1-p107)
     (num-subs l0)
@@ -186,8 +161,7 @@
     (next l16 l15)
     (next l17 l16)
     (next l18 l17)
-    (next l19 l18)
-    (next l20 l19))
+    (next l19 l18))
 
 
 (:goal

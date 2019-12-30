@@ -261,8 +261,12 @@ class Sequence:
         # We may start up until the point where the state of the art takes 300 seconds
         self.latest_start = next(i for i,v in enumerate(self.sorted_runtimes) if v > 300) if self.sorted_runtimes[-1] > 300 else len(self.sorted_runtimes)
         # We may stop right after the state of the art
-        self.earliest_end = max(next(i for i,v in enumerate(self.sorted_runtimes) if v > 2000) if self.sorted_runtimes[-1] > 2000 else len(self.sorted_runtimes), self.latest_start + 1)
-        self.latest_end = len(self.sorted_runtimes)
+        self.earliest_end = min(len(self.sorted_runtimes)-1, max(next(i for i,v in enumerate(self.sorted_runtimes) if v > 2000) if self.sorted_runtimes[-1] > 2000 else len(self.sorted_runtimes), self.latest_start + 1))
+        self.latest_end = len(self.sorted_runtimes) 
+
+        
+        assert self.earliest_end < self.latest_end
+
 
         self.parameters_of_instances = domain.get_configs(self.config, len(self.sorted_runtimes))
 
@@ -289,7 +293,6 @@ class Sequence:
         objective_values = [self.penalty for v in self.start_var_names] # Add penalty for including this sequence
         self.start_var_index = {self.start_var_names[i] : index for i, index in enumerate(cplex_problem.variables.add(obj=objective_values,types=var_types,names=self.start_var_names))}
 
-
         self.end_var_names = ["end-{}-{}".format(self.seq_id, i) for i in range (self.earliest_end, self.latest_end)]
         var_types = [t.binary for v in self.end_var_names]
 
@@ -305,7 +308,7 @@ class Sequence:
 
         self.end_var_index = {self.end_var_names[i] : index for i, index in enumerate(cplex_problem.variables.add(obj=objective_values,types=var_types,names=self.end_var_names))}
 
-        print ([i for i, ind in self.start_var_index.items()] + [i for i, ind in self.end_var_index.items()], [1 for i in self.start_var_index] + [-1 for i in self.end_var_index], "E", 0)
+        # print ("XXX", [i for i, ind in self.start_var_index.items()] + [i for i, ind in self.end_var_index.items()], [1 for i in self.start_var_index] + [-1 for i in self.end_var_index], "E", 0)
 
         return [CPLEXConstraint(cplex_problem, [ind for i, ind in self.start_var_index.items()], [1 for i in self.start_var_index],"L", 1),
                 CPLEXConstraint(cplex_problem, [ind for i, ind in self.end_var_index.items()], [1 for i in self.end_var_index],"L", 1),
@@ -320,7 +323,7 @@ class Sequence:
         return self.end_var_index
 
     def get_info_per_option(self):
-        print ( [("seq-{}-{}".format(self.seq_id, i), self.earliest_end-i, max(0, self.solved_instances - i), max(0, self.trivial_instances - i))  for i in range (self.latest_start)] + [("end-{}-{}".format(self.seq_id, i), i - self.earliest_end, 0, 0)  for i in range (self.earliest_end, self.latest_end)])
+        #print ( [("seq-{}-{}".format(self.seq_id, i), self.earliest_end-i, max(0, self.solved_instances - i), max(0, self.trivial_instances - i))  for i in range (self.latest_start)] + [("end-{}-{}".format(self.seq_id, i), i - self.earliest_end, 0, 0)  for i in range (self.earliest_end, self.latest_end)])
         return [(self.start_var_index["seq-{}-{}".format(self.seq_id, i)], self.earliest_end-i, max(0, self.solved_instances - i), max(0, self.trivial_instances - i))  for i in range (self.latest_start)] + [(self.end_var_index["end-{}-{}".format(self.seq_id, i)], i - self.earliest_end, 0, 0)  for i in range (self.earliest_end, self.latest_end)]
 
     def get_start_vars_per_option(self):
@@ -373,7 +376,7 @@ if domain.has_enum_parameter():
 
     already_selected = set()
 
-    print (enum_parameters)
+    #print (enum_parameters)
     for enum_parameter in enum_parameters:
         for value in enum_parameter.get_values():
             valid_sequences = [seq for seq in STORED_VALID_SEQUENCES if seq['config'][enum_parameter.name] == value if seq['penalty'] < MINIMUM_QUALITY and not seq['unique_id'] in already_selected]
@@ -431,11 +434,19 @@ if len(using_baseline) == 0:
     exit(0)
 
 if any (using_baseline) and not all (using_baseline):
+
+    num_sequences_using_baseline = using_baseline.count(True)
+    num_sequences_using_sart = using_baseline.count(False)
+    
     # Right now printing and error because I don't think this will ever happen
-    logging.info("Warning: some sequences use the state of the art and some the baseline runtimes: {} {}".format(using_baseline.count(True), using_baseline.count(False) ))
+    logging.info(f"Warning: some sequences use the state of the art and some the baseline runtimes: {num_sequences_using_baseline} use baseline {num_sequences_using_sart} use sart")
+    logging.info(f"Sequences runtimes: {str([seq.runtimes_sart for sequences in evaluated_sequences for seq in sequences if seq.use_baseline_instead_of_sart ])}")
+    logging.info(f"Sequences no runtimes: {str([seq.runtimes_sart for sequences in evaluated_sequences for seq in sequences if not seq.use_baseline_instead_of_sart ])}")
+    
 
     evaluated_sequences = [[seq for seq in sequences if not seq.use_baseline_instead_of_sart]  for sequences in evaluated_sequences]
     evaluated_sequences = [sequences  for sequences in evaluated_sequences if len(sequences) > 0]
+
 
 
 if ARGS.no_cplex:

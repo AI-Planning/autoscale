@@ -74,13 +74,13 @@
   (:goal
     (and
     (available p0)
-    (surface-condition p0 verysmooth)
-    (treatment p0 varnished)
     (wood p0 mahogany)
+    (treatment p0 varnished)
+    (surface-condition p0 verysmooth)
     (available p1)
+    (wood p1 cherry)
     (treatment p1 glazed)
     (surface-condition p1 smooth)
-    (wood p1 cherry)
     )
   )
   (:metric minimize (total-cost))

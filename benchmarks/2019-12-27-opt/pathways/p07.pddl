@@ -7,9 +7,11 @@
 (:objects
     Skp2 - simple
     Skp1 - simple
+    RPA - simple
     pRb - simple
     PCNA - simple
     p57 - simple
+    p27 - simple
     Jun - simple
     HDAC1-p107-E2F4p1-DP12 - simple
     HDAC1 - simple
@@ -25,19 +27,23 @@
     HDAC1-pRb-E2F13p1-DP12-gE2 - complex
     HDAC1-pRb-E2F13p1-DP12 - complex
     p107-E2F4-DP12p1 - complex
-    p57-cdk2p1-cycA - complex
+    p27-cdk2p1-cycEp1 - complex
+    p27-cdk46p1-cycDp1 - complex
     p57-cdk2p1-cycEp1 - complex
+    PCNA-cycDp1 - complex
     PCNA-cycD - complex
-    cdk2p1-cycEp1 - complex
-    cdk2p1-cycE - complex
     cdk46p1-cycDp1 - complex
+    cdk46p1-cycD - complex
     pRb-E2F13p1-DP12-gE2 - complex
     pRb-E2F4-DP12p1 - complex
     pRb-Jun - complex
     pRb-E2F13p1-DP12 - complex
+    RPA-cycA - complex
+    Skp2-cdk2p1-cycA - complex
+    Skp2-Skp1-cdk2p1-cycA - complex
+    cdk2p1-cycA - complex
     Skp2-Skp1 - complex
     c-Myc - complex
-    cycA - complex
     cycD - complex
     cycDp1 - complex
     cycE - complex
@@ -86,15 +92,60 @@
     l37 - level
     l38 - level
     l39 - level
-    l40 - level)
+    l40 - level
+    l41 - level
+    l42 - level
+    l43 - level
+    l44 - level
+    l45 - level
+    l46 - level
+    l47 - level
+    l48 - level
+    l49 - level
+    l50 - level
+    l51 - level
+    l52 - level
+    l53 - level
+    l54 - level
+    l55 - level
+    l56 - level
+    l57 - level
+    l58 - level
+    l59 - level
+    l60 - level
+    l61 - level
+    l62 - level
+    l63 - level
+    l64 - level
+    l65 - level
+    l66 - level
+    l67 - level
+    l68 - level
+    l69 - level
+    l70 - level
+    l71 - level
+    l72 - level
+    l73 - level
+    l74 - level
+    l75 - level
+    l76 - level
+    l77 - level
+    l78 - level
+    l79 - level
+    l80 - level
+    l81 - level
+    l82 - level
+    l83 - level)
 
 
 (:init
     (possible Skp2)
     (possible Skp1)
+    (possible RPA)
     (possible pRb)
     (possible PCNA)
     (possible p57)
+    (possible p27)
     (possible Jun)
     (possible HDAC1-p107-E2F4p1-DP12)
     (possible HDAC1)
@@ -128,6 +179,11 @@
     (association-reaction HDAC1 pRb-E2F13p1-DP12 HDAC1-pRb-E2F13p1-DP12)
     (association-reaction p107-E2F4-DP12p1 gE2 p107-E2F4-DP12p1-gE2)
     (association-reaction p107 E2F4-DP12p1 p107-E2F4-DP12p1)
+    (association-reaction p27 cdk2p1-cycA p27-cdk2p1-cycA)
+    (association-reaction p27 cdk2p1-cycEp1 p27-cdk2p1-cycEp1)
+    (association-reaction p27 cdk2p1-cycE p27-cdk2p1-cycE)
+    (association-reaction p27 cdk46p1-cycDp1 p27-cdk46p1-cycDp1)
+    (association-reaction p27 cdk46p1-cycD p27-cdk46p1-cycD)
     (association-reaction p57 cdk2p1-cycA p57-cdk2p1-cycA)
     (association-reaction p57 cdk2p1-cycEp1 p57-cdk2p1-cycEp1)
     (association-reaction p57 cdk2p1-cycE p57-cdk2p1-cycE)
@@ -139,6 +195,7 @@
     (association-reaction pRb E2F13p1-DP12 pRb-E2F13p1-DP12)
     (association-reaction pRb E2F4-DP12p1 pRb-E2F4-DP12p1)
     (association-reaction pRb Jun pRb-Jun)
+    (association-reaction RPA cycA RPA-cycA)
     (association-reaction Skp2 cdk2p1-cycA Skp2-cdk2p1-cycA)
     (association-reaction Skp2-Skp1 cdk2p1-cycA Skp2-Skp1-cdk2p1-cycA)
     (association-reaction Skp2 Skp1 Skp2-Skp1)
@@ -182,7 +239,50 @@
     (next l37 l36)
     (next l38 l37)
     (next l39 l38)
-    (next l40 l39))
+    (next l40 l39)
+    (next l41 l40)
+    (next l42 l41)
+    (next l43 l42)
+    (next l44 l43)
+    (next l45 l44)
+    (next l46 l45)
+    (next l47 l46)
+    (next l48 l47)
+    (next l49 l48)
+    (next l50 l49)
+    (next l51 l50)
+    (next l52 l51)
+    (next l53 l52)
+    (next l54 l53)
+    (next l55 l54)
+    (next l56 l55)
+    (next l57 l56)
+    (next l58 l57)
+    (next l59 l58)
+    (next l60 l59)
+    (next l61 l60)
+    (next l62 l61)
+    (next l63 l62)
+    (next l64 l63)
+    (next l65 l64)
+    (next l66 l65)
+    (next l67 l66)
+    (next l68 l67)
+    (next l69 l68)
+    (next l70 l69)
+    (next l71 l70)
+    (next l72 l71)
+    (next l73 l72)
+    (next l74 l73)
+    (next l75 l74)
+    (next l76 l75)
+    (next l77 l76)
+    (next l78 l77)
+    (next l79 l78)
+    (next l80 l79)
+    (next l81 l80)
+    (next l82 l81)
+    (next l83 l82))
 
 
 (:goal
@@ -191,6 +291,7 @@
     (goal2)
     (goal3)
     (goal4)
-    (goal5)))
+    (goal5)
+    (goal6)))
 
 )

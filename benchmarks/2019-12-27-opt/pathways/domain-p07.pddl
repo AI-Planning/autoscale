@@ -6,7 +6,7 @@
     simple complex - molecule
 )
 
-(:constants Skp2-Skp1-cdk2p1-cycA p57-cdk2p1-cycE cdk46p1-cycD HDAC1-p107-E2F4-DP12p1 p57-cdk46p1-cycD p57-cdk46p1-cycDp1 cdk2p1-cycA PCNA-cycDp1 Skp2-cdk2p1-cycA p107-E2F4-DP12p1-gE2 - complex)
+(:constants p57-cdk2p1-cycE HDAC1-p107-E2F4-DP12p1 p27-cdk46p1-cycD p57-cdk2p1-cycA cdk2p1-cycEp1 cdk2p1-cycE p27-cdk2p1-cycE p57-cdk46p1-cycDp1 p57-cdk46p1-cycD p107-E2F4-DP12p1-gE2 p27-cdk2p1-cycA cycA - complex)
 
 (:predicates
     (association-reaction ?x1 ?x2 - molecule ?x3 - complex)
@@ -22,6 +22,7 @@
     (goal3)
     (goal4)
     (goal5)
+    (goal6)
 )
 
 (:action choose
@@ -55,35 +56,42 @@
 (:action DUMMY-ACTION-1
  :parameters ()
  :precondition
-    (or (available Skp2-Skp1-cdk2p1-cycA)
-        (available p57-cdk2p1-cycE))
+    (or (available p57-cdk2p1-cycE)
+        (available HDAC1-p107-E2F4-DP12p1))
  :effect (and (goal1)))
 
 (:action DUMMY-ACTION-2
  :parameters ()
  :precondition
-    (or (available cdk46p1-cycD)
-        (available HDAC1-p107-E2F4-DP12p1))
+    (or (available p27-cdk46p1-cycD)
+        (available p57-cdk2p1-cycA))
  :effect (and (goal2)))
 
 (:action DUMMY-ACTION-3
  :parameters ()
  :precondition
-    (or (available p57-cdk46p1-cycD)
-        (available p57-cdk46p1-cycDp1))
+    (or (available cdk2p1-cycEp1)
+        (available cdk2p1-cycE))
  :effect (and (goal3)))
 
 (:action DUMMY-ACTION-4
  :parameters ()
  :precondition
-    (or (available cdk2p1-cycA)
-        (available PCNA-cycDp1))
+    (or (available p27-cdk2p1-cycE)
+        (available p57-cdk46p1-cycDp1))
  :effect (and (goal4)))
 
 (:action DUMMY-ACTION-5
  :parameters ()
  :precondition
-    (or (available Skp2-cdk2p1-cycA)
+    (or (available p57-cdk46p1-cycD)
         (available p107-E2F4-DP12p1-gE2))
  :effect (and (goal5)))
+
+(:action DUMMY-ACTION-6
+ :parameters ()
+ :precondition
+    (or (available p27-cdk2p1-cycA)
+        (available cycA))
+ :effect (and (goal6)))
 )

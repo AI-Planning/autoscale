@@ -16,6 +16,7 @@
     E2F3 - simple
     E2F2 - simple
     E2F13p1-DP12p1 - simple
+    E2F13p1-DP12 - simple
     E2F13-DP12 - simple
     DP12 - simple
     DMP1 - simple
@@ -32,27 +33,29 @@
     CEBP-gP - complex
     CEBP-pRb - complex
     CEBP-pRb-gP - complex
-    CEBP-pRbp1 - complex
     CEBP-pRbp1p2 - complex
     CEBP-pRbp2 - complex
-    CEBP-pRbp2-gP - complex
     DMP1-gp19ARF - complex
     DMP1p1 - complex
     DMP1p1-gp19ARF - complex
     E2F2-DP12 - complex
     E2F3-DP12 - complex
+    cdc25Cp1p2 - complex
     cdc25Cp2 - complex
     E2F5-DP12 - complex
     p16-cdk46p1 - complex
     pRb-AP2 - complex
+    pRbp1-AP2 - complex
     pRbp1 - complex
     pRbp1p2-AP2 - complex
     pRbp2-AP2 - complex
     pRbp1p2 - complex
     pRb-E2F13-DP12 - complex
     pRb-E2F13p1-DP12p1 - complex
+    pRb-E2F13p1-DP12 - complex
     pRbp1-E2F13-DP12 - complex
     pRbp1-E2F13p1-DP12p1 - complex
+    pRbp1-E2F13p1-DP12 - complex
     l0 - level
     l1 - level
     l2 - level
@@ -73,60 +76,7 @@
     l17 - level
     l18 - level
     l19 - level
-    l20 - level
-    l21 - level
-    l22 - level
-    l23 - level
-    l24 - level
-    l25 - level
-    l26 - level
-    l27 - level
-    l28 - level
-    l29 - level
-    l30 - level
-    l31 - level
-    l32 - level
-    l33 - level
-    l34 - level
-    l35 - level
-    l36 - level
-    l37 - level
-    l38 - level
-    l39 - level
-    l40 - level
-    l41 - level
-    l42 - level
-    l43 - level
-    l44 - level
-    l45 - level
-    l46 - level
-    l47 - level
-    l48 - level
-    l49 - level
-    l50 - level
-    l51 - level
-    l52 - level
-    l53 - level
-    l54 - level
-    l55 - level
-    l56 - level
-    l57 - level
-    l58 - level
-    l59 - level
-    l60 - level
-    l61 - level
-    l62 - level
-    l63 - level
-    l64 - level
-    l65 - level
-    l66 - level
-    l67 - level
-    l68 - level
-    l69 - level
-    l70 - level
-    l71 - level
-    l72 - level
-    l73 - level)
+    l20 - level)
 
 
 (:init
@@ -141,6 +91,7 @@
     (possible E2F3)
     (possible E2F2)
     (possible E2F13p1-DP12p1)
+    (possible E2F13p1-DP12)
     (possible E2F13-DP12)
     (possible DP12)
     (possible DMP1)
@@ -187,9 +138,11 @@
     (catalyzed-association-reaction pRb cdk46p3-cycDp1 pRbp1)
     (association-reaction pRb E2F13-DP12 pRb-E2F13-DP12)
     (association-reaction pRb E2F13p1-DP12p1 pRb-E2F13p1-DP12p1)
+    (association-reaction pRb E2F13p1-DP12 pRb-E2F13p1-DP12)
     (association-reaction pRbp1 AP2 pRbp1-AP2)
     (association-reaction pRbp1 E2F13-DP12 pRbp1-E2F13-DP12)
     (association-reaction pRbp1 E2F13p1-DP12p1 pRbp1-E2F13p1-DP12p1)
+    (association-reaction pRbp1 E2F13p1-DP12 pRbp1-E2F13p1-DP12)
     (association-reaction pRbp1p2 AP2 pRbp1p2-AP2)
     (association-reaction pRbp2 AP2 pRbp2-AP2)
     (catalyzed-association-reaction pRbp2 cdk46p3-cycDp1 pRbp1p2)
@@ -213,60 +166,7 @@
     (next l17 l16)
     (next l18 l17)
     (next l19 l18)
-    (next l20 l19)
-    (next l21 l20)
-    (next l22 l21)
-    (next l23 l22)
-    (next l24 l23)
-    (next l25 l24)
-    (next l26 l25)
-    (next l27 l26)
-    (next l28 l27)
-    (next l29 l28)
-    (next l30 l29)
-    (next l31 l30)
-    (next l32 l31)
-    (next l33 l32)
-    (next l34 l33)
-    (next l35 l34)
-    (next l36 l35)
-    (next l37 l36)
-    (next l38 l37)
-    (next l39 l38)
-    (next l40 l39)
-    (next l41 l40)
-    (next l42 l41)
-    (next l43 l42)
-    (next l44 l43)
-    (next l45 l44)
-    (next l46 l45)
-    (next l47 l46)
-    (next l48 l47)
-    (next l49 l48)
-    (next l50 l49)
-    (next l51 l50)
-    (next l52 l51)
-    (next l53 l52)
-    (next l54 l53)
-    (next l55 l54)
-    (next l56 l55)
-    (next l57 l56)
-    (next l58 l57)
-    (next l59 l58)
-    (next l60 l59)
-    (next l61 l60)
-    (next l62 l61)
-    (next l63 l62)
-    (next l64 l63)
-    (next l65 l64)
-    (next l66 l65)
-    (next l67 l66)
-    (next l68 l67)
-    (next l69 l68)
-    (next l70 l69)
-    (next l71 l70)
-    (next l72 l71)
-    (next l73 l72))
+    (next l20 l19))
 
 
 (:goal

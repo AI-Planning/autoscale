@@ -12,7 +12,6 @@
     p53p1 - simple
     gP - simple
     E2F13p1-DP12p1 - simple
-    E2F13p1-DP12 - simple
     E2F13-DP12p1 - simple
     cks1 - simple
     CEBP - simple
@@ -24,28 +23,25 @@
     cdk2p1-cks1 - complex
     CEBP-gP - complex
     CEBP-pRb - complex
+    CEBP-pRb-gP - complex
     CEBP-pRbp1 - complex
+    CEBP-pRbp1p2 - complex
     CEBP-pRbp2 - complex
-    P - complex
+    CEBP-pRbp2-gP - complex
     Mdm2-E2F13-DP12p1 - complex
-    Mdm2-E2F13p1-DP12 - complex
-    Mdm2-pRb - complex
-    Mdm2-pRbp1 - complex
     Mdm2-pRbp2 - complex
+    p21-Gadd45 - complex
     Mdm2 - complex
     Gadd45 - complex
-    PCNA-p21 - complex
     p21 - complex
     pRb-AP2 - complex
-    pRbp1-AP2 - complex
     pRbp1 - complex
-    pRbp1p2-AP2 - complex
     pRbp2-AP2 - complex
     pRbp1p2 - complex
     c-Fos - complex
     pRb-E2F13-DP12p1 - complex
     pRb-E2F13p1-DP12p1 - complex
-    pRb-E2F13p1-DP12 - complex
+    pRbp1-E2F13p1-DP12p1 - complex
     l0 - level
     l1 - level
     l2 - level
@@ -122,11 +118,7 @@
     l73 - level
     l74 - level
     l75 - level
-    l76 - level
-    l77 - level
-    l78 - level
-    l79 - level
-    l80 - level)
+    l76 - level)
 
 
 (:init
@@ -137,7 +129,6 @@
     (possible p53p1)
     (possible gP)
     (possible E2F13p1-DP12p1)
-    (possible E2F13p1-DP12)
     (possible E2F13-DP12p1)
     (possible cks1)
     (possible CEBP)
@@ -162,7 +153,6 @@
     (association-reaction CEBP-pRbp2 gP CEBP-pRbp2-gP)
     (synthesis-reaction CEBP-pRbp2-gP P) 
     (association-reaction Mdm2 E2F13-DP12p1 Mdm2-E2F13-DP12p1)
-    (association-reaction Mdm2 E2F13p1-DP12 Mdm2-E2F13p1-DP12)
     (association-reaction Mdm2 E2F13p1-DP12p1 Mdm2-E2F13p1-DP12p1)
     (association-reaction Mdm2 pRb Mdm2-pRb)
     (association-reaction Mdm2 pRbp1 Mdm2-pRbp1)
@@ -179,11 +169,9 @@
     (catalyzed-association-reaction pRb cdk46p3-cycDp1 pRbp1)
     (association-reaction pRb E2F13-DP12p1 pRb-E2F13-DP12p1)
     (association-reaction pRb E2F13p1-DP12p1 pRb-E2F13p1-DP12p1)
-    (association-reaction pRb E2F13p1-DP12 pRb-E2F13p1-DP12)
     (association-reaction pRbp1 AP2 pRbp1-AP2)
     (association-reaction pRbp1 E2F13-DP12p1 pRbp1-E2F13-DP12p1)
     (association-reaction pRbp1 E2F13p1-DP12p1 pRbp1-E2F13p1-DP12p1)
-    (association-reaction pRbp1 E2F13p1-DP12 pRbp1-E2F13p1-DP12)
     (association-reaction pRbp1p2 AP2 pRbp1p2-AP2)
     (association-reaction pRbp2 AP2 pRbp2-AP2)
     (catalyzed-association-reaction pRbp2 cdk46p3-cycDp1 pRbp1p2)
@@ -263,11 +251,7 @@
     (next l73 l72)
     (next l74 l73)
     (next l75 l74)
-    (next l76 l75)
-    (next l77 l76)
-    (next l78 l77)
-    (next l79 l78)
-    (next l80 l79))
+    (next l76 l75))
 
 
 (:goal

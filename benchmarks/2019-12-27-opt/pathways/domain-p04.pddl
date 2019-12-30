@@ -6,7 +6,7 @@
     simple complex - molecule
 )
 
-(:constants m1433-cdc25Cp1p2 Raf1-pRbp1-E2F13p1-DP12p1 Raf1-pRbp1-E2F13p1-DP12 p21-Gadd45 c-Fos pRbp1-E2F13p1-DP12 PCNA-Gadd45 Raf1-pRb-E2F13p1-DP12p1 c-Abl-pRbp1 m1433-cdc25Cp2 Mdm2-pRb HDAC1-p130-E2F4-DP12p1 - complex)
+(:constants m1433-cdc25Cp1p2 Raf1-pRbp1-E2F13p1-DP12p1 Raf1-pRbp1-E2F13p1-DP12 p21-Gadd45 c-Fos pRbp1-E2F13p1-DP12 PCNA-Gadd45 Raf1-pRb-E2F13p1-DP12p1 c-Abl-pRbp1 m1433-cdc25Cp2 - complex)
 
 (:predicates
     (association-reaction ?x1 ?x2 - molecule ?x3 - complex)
@@ -22,7 +22,6 @@
     (goal3)
     (goal4)
     (goal5)
-    (goal6)
 )
 
 (:action choose
@@ -87,11 +86,4 @@
     (or (available c-Abl-pRbp1)
         (available m1433-cdc25Cp2))
  :effect (and (goal5)))
-
-(:action DUMMY-ACTION-6
- :parameters ()
- :precondition
-    (or (available Mdm2-pRb)
-        (available HDAC1-p130-E2F4-DP12p1))
- :effect (and (goal6)))
 )
