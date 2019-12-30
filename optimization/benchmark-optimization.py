@@ -529,7 +529,7 @@ try:
 
     constraint_list += [CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_instances, "E", 30),
                         CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_solved, "G", 8, penalties=[(x, 2*x**2) for x in range(1, 20)]),
-                        CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_solved, "L", 15, penalties=[(-x, 2*x**2) for x in range(1, 16)]),
+                        CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_solved, "L", 15, penalties=[(-x, 2*x**2) for x in range(1, 30)]),
                         CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_trivial, "G", 2, penalties=[(1, 2)]),
                         CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_trivial, "L", 6, penalties=[(-x, 2*x**2) for x in range(1, 30)])]
 
