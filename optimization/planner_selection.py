@@ -1,35 +1,79 @@
 import os
 
+OPT_2014_PLANNERS = {
+    "blind.img",
+    "fdss-mas1.img",
+    "fdss-mas2.img",
+    "bjolp.img",
+    "lmcut.img",
+    "symba1.img",
+}
+
 # Decided from https://ai.dmi.unibas.ch/_tmp_files/seipp/2019-09-16-A-optimal-planners-3min-abs.html
-PLANNER_SELECTION_OPT = {
+PLANNER_SELECTION_OPT_2014 = {
+    "barman": ["symba1.img"],
+    "blocksworld": ["symba1.img"],
+    "childsnack": ["symba1.img"],
+    "data-network": ["lmcut.img"],
+    "depots": ["fdss-mas1.img"],
+    "driverlog": ["symba1.img"],
+    "elevators" : ["symba1.img"],
+    "floortile": ["symba1.img"],
+    "gripper": ["fdss-mas2.img"],
+    "hiking": ["symba1.img"],
+    "maintenance": ["bjolp.img", "lmcut.img"],
+    "miconic-strips": ["bjolp.img"],
+    "nomystery" : ["bjolp.img"],
+    "parking": ["fdss-mas1.img"],
+    "pathways": ["symba1.img"],
+    "rover": ["symba1.img"],
+    "satellite": ["symba1.img"],
+    "scanalyzer": ["lmcut.img"],
+    "snake": ["bjolp.img"],
+    "storage": ["bjolp.img"],
+    "termes": ["symba1.img"],
+    "tetris": ["symba1.img"],
+    "tpp": ["symba1.img"],
+    "transport" : ["fdss-mas2.img", "symba1.img"],
+    "trucks": ["symba1.img"],
+    "visitall": ["fdss-mas1.img", "symba1.img"],
+    "woodworking": ["symba1.img"],
+    "zenotravel": ["fdss-mas2.img"],
+}
+
+for domain, planners in PLANNER_SELECTION_OPT_2014.items():
+    assert set(planners).issubset(OPT_2014_PLANNERS), domain
+
+# Decided from https://ai.dmi.unibas.ch/_tmp_files/seipp/2019-09-16-A-optimal-planners-3min-abs.html
+PLANNER_SELECTION_OPT_2020 = {
     "barman": ["symba1.img"],
     "blocksworld": ["fdss-mas1.img"],
     "childsnack": ["delfi-ipdb.img"],
     "data-network": ["lmcut.img"],
     "depots": ["scorpion-nodiv.img", "delfi-ipdb.img"],
-    "driverlog": ["symba1.img","delfi-ipdb.img"],
+    "driverlog": ["symba1.img", "delfi-ipdb.img"],
     "elevators" : ["delfi-ipdb.img"],
     "floortile": ["symba1.img"],
     "gripper": ["delfi-blind.img"],
     "hiking": ["delfi-mas-miasm.img"],
     "maintenance": ["delfi-blind.img"],
-    "miconic-strips": ["bjolp.img","scorpion-nodiv.img"],
-    "nomystery" : ["bjolp.img","scorpion-nodiv.img"],
+    "miconic-strips": ["bjolp.img", "scorpion-nodiv.img"],
+    "nomystery" : ["bjolp.img", "scorpion-nodiv.img"],
     "parking": ["delfi-ipdb.img"],
     "pathways": ["delfi-celmcut.img"],
     "rover": ["symba1.img"],
     "satellite": ["delfi-celmcut.img", "symba1.img"],
     "scanalyzer": ["lmcut.img"],
-    "snake": ["bjolp.img","scorpion-nodiv.img"],
+    "snake": ["bjolp.img", "scorpion-nodiv.img"],
     "storage": ["delfi-celmcut.img"],
     "termes": ["symba2.img"],
     "tetris": ["scorpion-nodiv.img"],
     "tpp": ["complementary2.img"],
     "transport" : ["delfi-ipdb.img", "scorpion-nodiv.img"],
     "trucks": ["scorpion-nodiv.img", "symba2.img"],
-    "visitall": ["delfi-ipdb.img","symba2.img"],
+    "visitall": ["delfi-ipdb.img", "symba2.img"],
     "woodworking": ["scorpion-nodiv.img", "delfi-celmcut.img"],
-    "zenotravel": ["delfi-celmcut.img","symba2.img"],
+    "zenotravel": ["delfi-celmcut.img", "symba2.img"],
 }
 
 # Decided from https://ai.dmi.unibas.ch/_tmp_files/sieverss/2019-11-10-sat-baselineabs-report.html
