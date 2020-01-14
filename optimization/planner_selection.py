@@ -76,8 +76,49 @@ PLANNER_SELECTION_OPT_2020 = {
     "zenotravel": ["delfi-celmcut.img", "symba2.img"],
 }
 
+SAT_2014_PLANNERS = {
+    "lama-first.img",
+    "mpc.img",
+    "gbfs-ff.img",
+}
+
 # Decided from https://ai.dmi.unibas.ch/_tmp_files/sieverss/2019-11-10-sat-baselineabs-report.html
-PLANNER_SELECTION_SAT = {
+PLANNER_SELECTION_SAT_2014 = {
+    "barman": ["lama-first.img"],
+    "blocksworld": ["lama-first.img", "mpc.img"],
+    "childsnack": ["mpc.img"],
+    "data-network": ["lama-first.img",],
+    "depots": ["mpc.img"],
+    "driverlog": ["mpc.img"],
+    "elevators": ["mpc.img"],
+    "floortile": ["mpc.img"],
+    "gripper": ["mpc.img", "lama-first.img"],
+    "hiking": ["lama-first.img"],
+    "maintenance": ["mpc.img"],
+    "miconic-strips": ["mpc.img"],
+    "nomystery" : ["lama-first.img"],
+    "parking": ["lama-first.img"],
+    "pathways": ["mpc.img"],
+    "rover": ["lama-first.img"],
+    "satellite": ["mpc.img"],
+    "scanalyzer": ["lama-first.img"],
+    "snake": ["mpc.img"],
+    "storage": ["mpc.img"],
+    "termes": ["lama-first.img"],
+    "tetris": ["lama-first.img", "mpc.img"],
+    "tpp": ["lama-first.img"],
+    "transport" : ["lama-first.img"],
+    "trucks": ["mpc.img", "lama-first.img"],
+    "visitall": ["lama-first.img"],
+    "woodworking": ["mpc.img"],
+    "zenotravel": ["mpc.img"],
+}
+
+for domain, planners in PLANNER_SELECTION_SAT_2014.items():
+    assert set(planners).issubset(SAT_2014_PLANNERS), domain
+
+# Decided from https://ai.dmi.unibas.ch/_tmp_files/sieverss/2019-11-10-sat-baselineabs-report.html
+PLANNER_SELECTION_SAT_2020 = {
     "barman": ["lama-first.img"],
     "blocksworld": ["lama-first.img", "mpc.img"], # 23, 22
     "childsnack": ["saarplan-dec-fallback.img"],
@@ -100,8 +141,8 @@ PLANNER_SELECTION_SAT = {
     "storage": ["lapkt-dual-bfws.img", "lapkt-bfws-pref.img"], # 18, 16, next: mpc with 15
     "termes": ["lama-first.img"],
     "tetris": ["lapkt-bfws-pref.img", "lapkt-dual-bfws.img"], # 10, 9
-    "transport" : ["lapkt-dual-bfws.img", "saarplan-dec-fallback.img"], # 23/9/5, 6/7/13 (for sat08/11/14), next: lapkt-bfws-pref with 22/8/4
     "tpp": ["mpc.img", "lama-first.img"], # 19, 18
+    "transport" : ["lapkt-dual-bfws.img", "saarplan-dec-fallback.img"], # 23/9/5, 6/7/13 (for sat08/11/14), next: lapkt-bfws-pref with 22/8/4
     "trucks": ["mpc.img", "lama-first.img"],
     "visitall": ["lapkt-dual-bfws.img", "lapkt-bfws-pref.img"], # 15/12, 15/11 (for sat11/sat14)
     "woodworking": ["mpc.img"],
@@ -119,19 +160,31 @@ def get_baseline_planner(track):
     return BASELINE_PLANNER
 
 
-def get_sart_planners(track, domain):
-    selection = PLANNER_SELECTION_OPT if track == "opt" else PLANNER_SELECTION_SAT
+def _get_planner_selection(track, year):
+    assert track in ["opt", "sat"]
+    assert year in [2014, 2020]
+    if track == "opt":
+        if year == 2014:
+            return PLANNER_SELECTION_OPT_2014
+        else:
+            return PLANNER_SELECTION_OPT_2020
+    else:
+        if year == 2014:
+            return PLANNER_SELECTION_SAT_2014
+        else:
+            return PLANNER_SELECTION_SAT_2020
 
-    return selection[domain]
+
+def get_sart_planners(track, year, domain):
+    return _get_planner_selection(track, year)[domain]
 
 
-def verify_planner_selection(track, images_dir, domain):
-    selection = PLANNER_SELECTION_OPT if track == "opt" else PLANNER_SELECTION_SAT
+def verify_planner_selection(track, year, images_dir, domain):
+    selection = _get_planner_selection(track, year)
 
-    assert selection[domain], f"no planners selected for {domain}"
+    assert selection.get(domain), f"no planners selected for {domain}"
     for domain, images in selection.items():
         assert len(images) <= 3, f"too many images for {domain}"
         for image in images:
             path = os.path.join(images_dir, image)
             assert os.path.exists(path), f"image at {path} is missing"
-
