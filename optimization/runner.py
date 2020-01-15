@@ -92,7 +92,7 @@ class Runner:
         if self.SMAC_OUTPUT_DIR is None:
             print(f"Warning: No temporary dir for Runner has been provided but I have no data for {parameters}, so I consider it unsolvable" )
             return None
-            
+
         results = []
         solved = False
         for i in range(self.runs_per_configuration):
@@ -108,7 +108,13 @@ class Runner:
                 problem_file = os.path.join(plan_dir, "problem.pddl")
                 command = self.domain.get_generator_command(self.GENERATORS_DIR, parameters)
                 self.logging.debug("Generator command: {}".format(" ".join(command)))
-                self.domain.generate_problem(command, problem_file, os.path.join(plan_dir,  "domain.pddl"))
+
+                # If the generator fails, print error message and count task as unsolved.
+                try:
+                    self.domain.generate_problem(command, problem_file, os.path.join(plan_dir,  "domain.pddl"))
+                except subprocess.CalledProcessError as err:
+                    print(err, file=sys.stderr)
+                    return None
 
                 # Call planners.
                 runtimes = []

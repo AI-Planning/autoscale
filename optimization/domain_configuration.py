@@ -341,10 +341,10 @@ class Domain:
         else:
             with open(problem_file, "w") as f:
                 subprocess.run(command, stdout=f, check=True)
-                
+
         if self.generated_domain_file():
             shutil.move(TMP_DOMAIN, domain_file)
-            
+
 
     def get_enum_parameters(self):
         return [x for x in self.linear_attributes if isinstance(x, EnumAtr)]
