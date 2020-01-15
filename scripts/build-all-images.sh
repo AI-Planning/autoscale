@@ -19,8 +19,8 @@ OUTDIR=${1}
 ./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-03 ${OUTDIR}/delfi-ipdb.img ${DOWNWARD_BENCHMARKS}
 ./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-04 ${OUTDIR}/delfi-mas-sccdfp.img ${DOWNWARD_BENCHMARKS}
 ./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-05 ${OUTDIR}/delfi-mas-miasm.img ${DOWNWARD_BENCHMARKS}
-./build-image.sh ../planners/ipc-2018/seq-opt/decstar/Singularity_fork ${OUTDIR}/decstar-fork.img ${DOWNWARD_BENCHMARKS}
-./build-image.sh ../planners/ipc-2018/seq-opt/decstar/Singularity_star ${OUTDIR}/decstar-star.img ${DOWNWARD_BENCHMARKS}
+./build-image.sh ../planners/ipc-2018/seq-opt/decstar/Singularity_fork ${OUTDIR}/decstar-fork.img ${DOWNWARD_BENCHMARKS} || true
+./build-image.sh ../planners/ipc-2018/seq-opt/decstar/Singularity_star ${OUTDIR}/decstar-star.img ${DOWNWARD_BENCHMARKS} || true
 ./build-image.sh ../planners/ipc-2018/scorpion/scorpion/Singularity ${OUTDIR}/scorpion.img ${DOWNWARD_BENCHMARKS}
 ./build-image.sh ../planners/custom/seq-opt/scorpion-nodiv/Singularity ${OUTDIR}/scorpion-nodiv.img ${DOWNWARD_BENCHMARKS}
 
