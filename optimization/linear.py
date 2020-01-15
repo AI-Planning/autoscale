@@ -71,6 +71,11 @@ def parse_args():
     )
 
     parser.add_argument(
+        'year', choices=['2014', '2020'],
+        help="Choose the latest planner year to include: 2014 or 2020."
+    )
+
+    parser.add_argument(
         "--tasks", type=int, default=30, help="Number of tasks to generate in each round (default: %(default)s)"
     )
 
@@ -149,6 +154,7 @@ PLANNER_TIME_LIMIT = 180
 PLANNER_MEMORY_LIMIT = 3 * 1024 ** 3  # 3 GiB in Bytes
 MIN_PLANNER_RUNTIME = 0.1
 ARGS = parse_args()
+YEAR = int(ARGS.year)
 SMAC_OUTPUT_DIR = ARGS.smac_output_dir
 GENERATORS_DIR = ARGS.generators_dir
 TMP_PLAN_DIR = "plan"
@@ -199,7 +205,7 @@ if os.path.exists(SMAC_OUTPUT_DIR):
     sys.exit("Error: SMAC output directory already exists")
 
 
-verify_planner_selection(ARGS.track, ARGS.images_dir, ARGS.domain)
+verify_planner_selection(ARGS.track, YEAR, ARGS.images_dir, ARGS.domain)
 
 DOMAINS = get_domains(ARGS.track)
 
@@ -220,7 +226,7 @@ for domain in DOMAINS:
 # We got the configurations. They should be sorted from easier to harder.
 RUNNER_BASELINE = Runner("baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
 
-RUNNER_SART = Runner("sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, ARGS.domain), PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
+RUNNER_SART = Runner("sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, YEAR, ARGS.domain), PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
 
 
 
