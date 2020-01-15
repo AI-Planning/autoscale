@@ -30,6 +30,7 @@ def parse_args():
         choices=["sat", "opt"],
         help="Choose the track to optimize for: satisficing or optimal.",
     )
+
     parser.add_argument(
         "plannerset",
         choices=["baseline", "sart"],
@@ -47,7 +48,6 @@ def parse_args():
         "--domain",
         help="Only generate a domain",
     )
-
 
     parser.add_argument(
         "--printY",

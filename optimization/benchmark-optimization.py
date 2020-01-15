@@ -105,6 +105,10 @@ def parse_args():
         help="Choose the track to optimize for: satisficing or optimal."
     )
     parser.add_argument(
+        'year', choices=['2014', '2020'],
+        help="Choose the latest planner year to include: 2014 or 2020."
+    )
+    parser.add_argument(
         "--tasks", type=int, default=30, help="Number of tasks to generate in each round (default: %(default)s)"
     )
     parser.add_argument(
@@ -166,6 +170,7 @@ PLANNER_TIME_LIMIT = 180
 PLANNER_MEMORY_LIMIT = 3 * 1024 ** 3  # 3 GiB in Bytes
 MIN_PLANNER_RUNTIME = 0.1
 ARGS = parse_args()
+YEAR = int(ARGS.year)
 SMAC_OUTPUT_DIR = ARGS.smac_output_dir
 GENERATORS_DIR = ARGS.generators_dir
 TMP_PLAN_DIR = "plan"
@@ -262,9 +267,9 @@ class Sequence:
         self.latest_start = next(i for i,v in enumerate(self.sorted_runtimes) if v > 300) if self.sorted_runtimes[-1] > 300 else len(self.sorted_runtimes)
         # We may stop right after the state of the art
         self.earliest_end = min(len(self.sorted_runtimes)-1, max(next(i for i,v in enumerate(self.sorted_runtimes) if v > 2000) if self.sorted_runtimes[-1] > 2000 else len(self.sorted_runtimes), self.latest_start + 1))
-        self.latest_end = len(self.sorted_runtimes) 
+        self.latest_end = len(self.sorted_runtimes)
 
-        
+
         assert self.earliest_end < self.latest_end
 
 
@@ -334,7 +339,7 @@ class Sequence:
 
 RUNNER_BASELINE = Runner("baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
 
-RUNNER_SART = Runner("sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, ARGS.domain), PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
+RUNNER_SART = Runner("sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, YEAR, ARGS.domain), PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
 
 f = open(ARGS.database)
 content = json.loads(f.read())
@@ -437,12 +442,12 @@ if any (using_baseline) and not all (using_baseline):
 
     num_sequences_using_baseline = using_baseline.count(True)
     num_sequences_using_sart = using_baseline.count(False)
-    
+
     # Right now printing and error because I don't think this will ever happen
     logging.info(f"Warning: some sequences use the state of the art and some the baseline runtimes: {num_sequences_using_baseline} use baseline {num_sequences_using_sart} use sart")
     logging.info(f"Sequences runtimes: {str([seq.runtimes_sart for sequences in evaluated_sequences for seq in sequences if seq.use_baseline_instead_of_sart ])}")
     logging.info(f"Sequences no runtimes: {str([seq.runtimes_sart for sequences in evaluated_sequences for seq in sequences if not seq.use_baseline_instead_of_sart ])}")
-    
+
 
     evaluated_sequences = [[seq for seq in sequences if not seq.use_baseline_instead_of_sart]  for sequences in evaluated_sequences]
     evaluated_sequences = [sequences  for sequences in evaluated_sequences if len(sequences) > 0]
