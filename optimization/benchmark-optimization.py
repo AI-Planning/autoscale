@@ -341,8 +341,8 @@ RUNNER_BASELINE = Runner("baseline", DOMAINS[ARGS.domain], [get_baseline_planner
 
 RUNNER_SART = Runner("sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, YEAR, ARGS.domain), PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
 
-f = open(ARGS.database)
-content = json.loads(f.read())
+with open(ARGS.database) as f:
+    content = json.load(f)
 
 if "baseline_average_runtimes:" in content[ARGS.domain]:
     logging.info (f"Loading cache data for baseline planners: {len(content[ARGS.domain]['baseline_average_runtimes:'])}")

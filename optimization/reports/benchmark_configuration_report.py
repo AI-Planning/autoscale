@@ -26,7 +26,7 @@ class BenchmarkConfigurationReport(PlanningReport):
                     final_sequence[attr] = best_run[attr]
                 final_sequences[domain] = final_sequence
 
-        print(json.dumps(final_sequences, sort_keys=True, indent=1))
+        print(json.dumps(final_sequences, sort_keys=True))
         #pprint.pprint(final_sequences, indent=1)
 
     def get_text(self):
@@ -51,5 +51,5 @@ class BenchmarkConfigurationReport(PlanningReport):
                 "baseline_average_runtimes:": baseline_average_runtimes[domain],
                 "sart_average_runtimes": sart_average_runtimes[domain]}
 
-        return json.dumps(result, sort_keys=True, indent=2)
+        return json.dumps(result, sort_keys=True)
 
