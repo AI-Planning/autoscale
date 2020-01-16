@@ -47,8 +47,7 @@ random.seed(seed)
 #         nodes * pi * Connect^2
 connect_distance = math.sqrt((degree * size * size) / (nodes * math.pi * 0.694))
 
-city = euclidean_graph.generate_connected(nodes, size, size, connect_distance, epsilon)
-
+city = euclidean_graph.generate_connected_safe(nodes, size, size, connect_distance, epsilon)
 
 id = (
     "city-sequential-%dnodes-%dsize-%ddegree-%dmindistance-%dtrucks-%dpackages-%dseed"
