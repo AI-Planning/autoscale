@@ -122,22 +122,21 @@ def generate_connected(num_vert, width, height, connect_distance, epsilon):
         graph = generate(num_vert, width, height, connect_distance, epsilon)
         if graph.is_connected():
             return graph
+        else:
+            connect_distance += 1
 
 
 def generate_connected_safe(num_vert, width, height, connect_distance, epsilon):
+    multiplier = 1.5
     while True:
         try: 
             city = generate_connected(num_vert, width, height, connect_distance, epsilon)
             return city
         except ValueError:
-            if epsilon > 10:
-                epsilon = min (epsilon-1, int(epsilon*0.9))
-            
-            if width < 100:
-                width = max(width+1, int(width*1.1) )
-
-            if height < 100:
-                height = max(height+1, int(height*1.1) )
+            width = max(width+1, int(width*multiplier) )
+            height = max(height+1, int(height*multiplier) )
+            connect_distance*=multiplier
+            multiplier += 0.5
     
 
 
