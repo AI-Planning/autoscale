@@ -136,7 +136,6 @@ def generate_connected_safe(num_vert, width, height, connect_distance, epsilon):
             width = max(width+1, int(width*multiplier) )
             height = max(height+1, int(height*multiplier) )
             connect_distance*=multiplier
-            multiplier += 0.5
     
 
 
