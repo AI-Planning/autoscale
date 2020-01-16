@@ -97,7 +97,7 @@ SUITE_SATISFICING = [
     'zenotravel']
 
 ENVIRONMENT = BaselSlurmEnvironment(
-    partition="infai_1",
+    partition="infai_2",
     email="jendrik.seipp@unibas.ch",
     memory_per_cpu='3872M',
     export=["PATH"],
@@ -136,20 +136,20 @@ TIME_LIMIT = 180 if project.REMOTE else 10
 IMAGES = [
     get_image("decstar-fork"),
     get_image("decstar-star"),
-    get_image("fdss-mas1"),
-    get_image("fdss-mas2"),
     get_image("blind"),
-    get_image("bjolp"),
-    get_image("lmcut"),
-    get_image("symba1"),
-    get_image("symba2"),
-    get_image("complementary2"),
-    get_image("delfi-blind"),
-    get_image("delfi-celmcut"),
-    get_image("delfi-ipdb"),
-    get_image("delfi-mas-sccdfp"),
-    get_image("delfi-mas-miasm"),
-    get_image("scorpion-nodiv"),
+    #get_image("fdss-mas1"),
+    #get_image("fdss-mas2"),
+    #get_image("bjolp"),
+    #get_image("lmcut"),
+    #get_image("symba1"),
+    #get_image("symba2"),
+    #get_image("complementary2"),
+    #get_image("delfi-blind"),
+    #get_image("delfi-celmcut"),
+    #get_image("delfi-ipdb"),
+    #get_image("delfi-mas-sccdfp"),
+    #get_image("delfi-mas-miasm"),
+    #get_image("scorpion-nodiv"),
 ]
 
 for planner, image in IMAGES:

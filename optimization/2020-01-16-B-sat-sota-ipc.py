@@ -139,14 +139,14 @@ IMAGES = [
     get_image("decstar-dec-fallback"),
     get_image("decstar-fork"),
     get_image("decstar-star"),
-    get_image("gbfs-ff"),
-    get_image("lama-first"),
-    get_image("lapkt-bfws-pref"),
-    get_image("lapkt-dual-bfws"),
-    get_image("mpc"),
+    #get_image("gbfs-ff"),
+    #get_image("lama-first"),
+    #get_image("lapkt-bfws-pref"),
+    #get_image("lapkt-dual-bfws"),
+    #get_image("mpc"),
     get_image("saarplan-dec"),
-    get_image("saarplan-dec-fallback"),
-    get_image("saarplan-grey"),
+    #get_image("saarplan-dec-fallback"),
+    #get_image("saarplan-grey"),
 ]
 
 for planner, image in IMAGES:
