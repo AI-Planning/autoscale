@@ -563,7 +563,7 @@ DOMAIN_LIST_OPT = [
            "generator.py {size} {segment_type} {inout} --seed {seed}",
            [EnumAtr("segment_type", ["empty", "ab"]),
             EnumAtr("inout", ["none", "both", "in"]),
-            LinearAtr("size", lower_b=1, upper_b=4, lower_m = 1, default_m=1, upper_m = 1)
+            LinearAtr("size", lower_b=1, upper_b=4, lower_m = 1, default_m=1, upper_m = 2)
            ]
     ),
 
@@ -752,7 +752,7 @@ ATTRIBUTES_SAT = {
     "scanalyzer":
            [EnumAtr("segment_type", ["empty", "ab"]),
             EnumAtr("inout", ["none", "both", "in"]),
-            LinearAtr("size", lower_b=2, upper_b=4, lower_m = 1, default_m=1, upper_m = 1)
+            LinearAtr("size", lower_b=2, upper_b=4, lower_m = 1, default_m=1, upper_m = 3)
            ],
 }
 
