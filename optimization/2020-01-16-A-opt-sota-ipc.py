@@ -122,7 +122,7 @@ SUITE = SUITE_OPTIMAL if "-opt-" in exp.name else SUITE_SATISFICING
 if not project.REMOTE:
     SUITE = [
         "depot:p01.pddl",
-        "gripper:prob01.pddl",
+        "gripper:prob02.pddl",
         #"caldera-split-sat18-adl:p01.pddl",
     ]
 
@@ -134,19 +134,22 @@ def get_image(name):
 
 TIME_LIMIT = 180 if project.REMOTE else 10
 IMAGES = [
-    get_image("cerberus"),
-    get_image("decstar-dec"),
-    get_image("decstar-dec-fallback"),
     get_image("decstar-fork"),
     get_image("decstar-star"),
-    #get_image("gbfs-ff"),
-    #get_image("lama-first"),
-    #get_image("lapkt-bfws-pref"),
-    #get_image("lapkt-dual-bfws"),
-    #get_image("mpc"),
-    get_image("saarplan-dec"),
-    #get_image("saarplan-dec-fallback"),
-    #get_image("saarplan-grey"),
+    get_image("blind"),
+    #get_image("fdss-mas1"),
+    #get_image("fdss-mas2"),
+    #get_image("bjolp"),
+    #get_image("lmcut"),
+    #get_image("symba1"),
+    #get_image("symba2"),
+    #get_image("complementary2"),
+    #get_image("delfi-blind"),
+    #get_image("delfi-celmcut"),
+    #get_image("delfi-ipdb"),
+    #get_image("delfi-mas-sccdfp"),
+    #get_image("delfi-mas-miasm"),
+    #get_image("scorpion-nodiv"),
 ]
 
 for planner, image in IMAGES:
