@@ -44,7 +44,7 @@ PLANNER_SELECTION_OPT_2014 = {
 for domain, planners in PLANNER_SELECTION_OPT_2014.items():
     assert set(planners).issubset(OPT_2014_PLANNERS), domain
 
-# Decided from https://ai.dmi.unibas.ch/_tmp_files/seipp/2019-09-16-A-optimal-planners-3min-abs.html
+# Decided from https://ai.dmi.unibas.ch/_tmp_files/seipp/2020-01-16-A-opt-sota-ipc.html
 PLANNER_SELECTION_OPT_2020 = {
     "barman": ["symba1.img"],
     "blocksworld": ["fdss-mas1.img"],
@@ -62,7 +62,7 @@ PLANNER_SELECTION_OPT_2020 = {
     "parking": ["delfi-ipdb.img"],
     "pathways": ["delfi-celmcut.img"],
     "rover": ["symba1.img"],
-    "satellite": ["delfi-celmcut.img", "symba1.img"],
+    "satellite": ["delfi-celmcut.img", "decstar-star.img"],
     "scanalyzer": ["lmcut.img"],
     "snake": ["bjolp.img", "scorpion-nodiv.img"],
     "storage": ["delfi-celmcut.img"],

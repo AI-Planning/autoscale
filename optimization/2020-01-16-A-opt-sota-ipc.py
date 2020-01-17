@@ -217,4 +217,6 @@ exp.add_report(
 exp.add_step('open-report', subprocess.call, ['xdg-open', report])
 exp.add_step('publish-report', subprocess.call, ['publish', report])
 
+exp.add_fetcher(os.path.expanduser("~/projects/Downward/exp-scripts/other-planners/2019-08-singularity/data/2019-09-16-A-optimal-planners-3min-eval"))
+
 exp.run_steps()
