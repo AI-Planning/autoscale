@@ -149,6 +149,13 @@ PLANNER_SELECTION_SAT_2020 = {
     "zenotravel": ["mpc.img"],
 }
 
+PLANNER_SELECTION = {
+    ("opt", 2014): PLANNER_SELECTION_OPT_2014,
+    ("opt", 2020): PLANNER_SELECTION_OPT_2020,
+    ("sat", 2014): PLANNER_SELECTION_OPT_2014,
+    ("sat", 2020): PLANNER_SELECTION_OPT_2020,
+}
+
 
 def get_baseline_planner(track):
     if track == "opt":
@@ -161,18 +168,7 @@ def get_baseline_planner(track):
 
 
 def _get_planner_selection(track, year):
-    assert track in ["opt", "sat"]
-    assert year in [2014, 2020]
-    if track == "opt":
-        if year == 2014:
-            return PLANNER_SELECTION_OPT_2014
-        else:
-            return PLANNER_SELECTION_OPT_2020
-    else:
-        if year == 2014:
-            return PLANNER_SELECTION_SAT_2014
-        else:
-            return PLANNER_SELECTION_SAT_2020
+    return PLANNER_SELECTION[(track, year)]
 
 
 def get_sart_planners(track, year, domain):
