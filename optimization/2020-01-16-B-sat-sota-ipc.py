@@ -214,4 +214,6 @@ exp.add_report(
 exp.add_step('open-report', subprocess.call, ['xdg-open', report])
 exp.add_step('publish-report', subprocess.call, ['publish', report])
 
+exp.add_fetcher(os.path.join(DIR, "data", "2019-11-10-sat-baseline-eval"))
+
 exp.run_steps()

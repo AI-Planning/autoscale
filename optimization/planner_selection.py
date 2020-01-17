@@ -117,36 +117,36 @@ PLANNER_SELECTION_SAT_2014 = {
 for domain, planners in PLANNER_SELECTION_SAT_2014.items():
     assert set(planners).issubset(SAT_2014_PLANNERS), domain
 
-# Decided from https://ai.dmi.unibas.ch/_tmp_files/sieverss/2019-11-10-sat-baselineabs-report.html
+# Decided from https://ai.dmi.unibas.ch/_tmp_files/seipp/2020-01-16-B-sat-sota-ipc.html
 PLANNER_SELECTION_SAT_2020 = {
-    "barman": ["lama-first.img"],
-    "blocksworld": ["lama-first.img", "mpc.img"], # 23, 22
+    "barman": ["lapkt_bfws_pref.img"],
+    "blocksworld": ["lama-first.img", "lapkt-bfws-pref.img"],
     "childsnack": ["saarplan-dec-fallback.img"],
-    "data-network": ["saarplan-grey.img", "lama-first.img",], # 9, 7
+    "data-network": ["saarplan-grey.img", "lama-first.img",],
     "depots": ["mpc.img"],
-    "driverlog": ["mpc.img", "lapkt-bfws-pref.img", "saarplan-dec-fallback.img"], # 15, 14, next: lapkt-dual-bfws with 13
+    "driverlog": ["lapkt-bfws-pref.img", "lama-first.img"],
     "elevators": ["lapkt-dual-bfws.img", "mpc.img"],
     "floortile": ["mpc.img"],
-    "gripper": ["mpc.img","lama-first.img"], # 15, next: lapkt-dual-bfws and saarplan-dec-fallback with 13
+    "gripper": ["mpc.img", "lama-first.img"],
     "hiking": ["lama-first.img"],
-    "maintenance": ["mpc.img"],
-    "miconic-strips": ["mpc.img", "saarplan-dec-fallback.img"], # 116, next: lapkt-dual-bfws with 94
-    "nomystery" : ["lama-first.img", "saarplan-dec-fallback.img"], # 10, 9
-    "parking": ["lapkt-bfws-pref.img", "lapkt-dual-bfws.img"], # 13/11, 12/11 (for sat11/sat14)
+    "maintenance": ["lapkt-dual-bfws.img", "mpc.img"],
+    "miconic-strips": ["mpc.img", "lama-first.img"],
+    "nomystery" : ["saarplan-dec.img"],
+    "parking": ["lapkt-bfws-pref.img", "lama-first.img"],
     "pathways": ["mpc.img"],
     "rover": ["lama-first.img"],
-    "satellite": ["mpc.img", "saarplan-dec-fallback.img"],
+    "satellite": ["mpc.img", "lama-first.img"],
     "scanalyzer": ["lapkt-dual-bfws.img"],
     "snake": ["lapkt-bfws-pref.img"],
-    "storage": ["lapkt-dual-bfws.img", "lapkt-bfws-pref.img"], # 18, 16, next: mpc with 15
+    "storage": ["lapkt-dual-bfws.img"],
     "termes": ["lama-first.img"],
-    "tetris": ["lapkt-bfws-pref.img", "lapkt-dual-bfws.img"], # 10, 9
-    "tpp": ["mpc.img", "lama-first.img"], # 19, 18
-    "transport" : ["lapkt-dual-bfws.img", "saarplan-dec-fallback.img"], # 23/9/5, 6/7/13 (for sat08/11/14), next: lapkt-bfws-pref with 22/8/4
-    "trucks": ["mpc.img", "lama-first.img"],
-    "visitall": ["lapkt-dual-bfws.img", "lapkt-bfws-pref.img"], # 15/12, 15/11 (for sat11/sat14)
+    "tetris": ["lapkt-bfws-pref.img"],
+    "tpp": ["lama-first.img"],
+    "transport" : ["lapkt-dual-bfws.img"],
+    "trucks": ["lama-first.img", "saarplan-grey.img"],
+    "visitall": ["lapkt-bfws-pref.img"],
     "woodworking": ["mpc.img"],
-    "zenotravel": ["mpc.img", "lama-first.img", "saarplan-dec-fallback.img"],
+    "zenotravel": ["mpc.img"],
 }
 
 
