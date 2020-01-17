@@ -205,7 +205,7 @@ if os.path.exists(SMAC_OUTPUT_DIR):
     sys.exit("Error: SMAC output directory already exists")
 
 
-verify_planner_selection(ARGS.track, YEAR, ARGS.images_dir, ARGS.domain)
+verify_planner_selection(ARGS.images_dir)
 
 DOMAINS = get_domains(ARGS.track)
 

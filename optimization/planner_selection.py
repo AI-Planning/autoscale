@@ -175,12 +175,11 @@ def get_sart_planners(track, year, domain):
     return _get_planner_selection(track, year)[domain]
 
 
-def verify_planner_selection(track, year, images_dir, domain):
-    selection = _get_planner_selection(track, year)
+def verify_planner_selection(images_dir):
+    for selection in PLANNER_SELECTION.values():
+        for images in selection.values():
+            assert 1 <= len(images) <= 2, f"{domain} needs 1-2 images"
+            for image in images:
+                path = os.path.join(images_dir, image)
+                assert os.path.exists(path), f"image at {path} is missing"
 
-    assert selection.get(domain), f"no planners selected for {domain}"
-    for domain, images in selection.items():
-        assert len(images) <= 3, f"too many images for {domain}"
-        for image in images:
-            path = os.path.join(images_dir, image)
-            assert os.path.exists(path), f"image at {path} is missing"
