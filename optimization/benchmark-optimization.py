@@ -379,7 +379,7 @@ class CPLEXSequence:
 def select_best_k(candidates, K, already_selected):
     MAX_REDUNDANCY = 0.1
     selected = [c for c in already_selected]
-    while len(selected) < K and candidates and MAX_REDUNDANCY <= 0.5:
+    while len(selected) < K and candidates and MAX_REDUNDANCY <= 0.9:
         sorted_candidates = sorted(candidates, key=lambda x : x.penalty)
         remaining_candidates = []
         for candidate in sorted_candidates:
