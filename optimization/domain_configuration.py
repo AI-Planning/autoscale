@@ -30,6 +30,15 @@ class EvaluatedSequence:
     def get_runtimes(self, n, larger_than, lower_than):
         return sorted([t for t in self.runtimes if t <= lower_than and t >= larger_than])[:n]
 
+    def num_solved (self):
+        return len(self.runtimes)
+
+    def get_index_with_runtimes (self, lower, upper):
+        return [i for i, val in enumerate(self.runtimes) if val >= lower and val <= upper]
+
+
+    
+
 class EstimatedSequence:
     def __init__(self, evaluated_sequence):
         assert evaluated_sequence.is_evaluated()
@@ -94,6 +103,10 @@ class LinearAtr:
         self.optional_m = optional_m
 
         assert self.level_enum in ["false", "true", "choose"]
+
+
+    def has_lowest_value(self, cfg):
+        return self.lower_b == cfg[f"{self.name}_b"]
 
     def get_level_enum(self, cfg):
         if self.level_enum == "choose":
@@ -183,6 +196,9 @@ class GridAtr:
         else:
             return self.level_enum
 
+    def has_lowest_value(self, cfg):
+        return self.lower_x == cfg[f"{self.name}_x"]
+
     def get_hyperparameters(self, only_baseline, modifier=None):
         atr = "{}_{}".format(modifier, self.name) if modifier else self.name
 
@@ -246,6 +262,9 @@ class ConstantAtr:
         for i, Yi in enumerate(Y):
             Yi[self.name] = self.value
 
+    def has_lowest_value(self, cfg):
+        return True
+
 class EnumAtr:
     def __init__(self, name, values):
         self.values = values
@@ -307,16 +326,25 @@ class Domain:
 
         self.num_sequences_linear_hierarchy = num_sequences_linear_hierarchy
 
+        self.generator_attribute_names = [fn for _, fn, _, _ in Formatter().parse(self.gen_command) if fn is not None and fn != "seed"]
+
+
     def get_domain_file(self, GENERATORS_DIR):
         return os.path.join(GENERATORS_DIR, self.name, "domain.pddl")
 
     def get_linear_attributes_names(self):
         return [a.name for a in self.linear_attributes if isinstance(a, LinearAtr)] + [a.name_x for a in self.linear_attributes if isinstance(a, GridAtr)] + [a.name_y for a in self.linear_attributes if isinstance(a, GridAtr)]
 
-    def get_generator_attribute_names(self):
-        names = [fn for _, fn, _, _ in Formatter().parse(self.gen_command) if fn is not None and fn != "seed"]
-        return names
+    def has_lowest_linear_values(self, cfg):
+        for linear_atr in self.linear_attributes:
+            if isinstance(linear_atr, EnumAtr):
+                continue
+            if not linear_atr.has_lowest_value(cfg):
+                return False
+        return True
 
+    def get_generator_attribute_names(self):
+        return self.generator_attribute_names
 
     def get_configs(self, cfg, num_tasks):
         result = get_linear_scaling_values(self.linear_attributes, cfg, num_tasks)
@@ -527,11 +555,11 @@ DOMAIN_LIST_OPT = [
     Domain("transport",
            "{generator} {nodes} {size} {degree} {mindistance} {trucks} {packages} {seed}",
            [ConstantAtr("size", 1000), ConstantAtr("mindistance", 100),
-            LinearAtr("nodes", lower_b=5, upper_b=15, lower_m=0.1, upper_m=3, optional_m=True),
+            LinearAtr("nodes", lower_b=2, upper_b=15, lower_m=0.1, upper_m=3, optional_m=True),
             LinearAtr("packages", lower_b=2, upper_b=5, lower_m=1, upper_m=3),
             LinearAtr("trucks", lower_b=2, upper_b=5, optional_m=True),
             EnumAtr("degree", [3, 4, 5]),
-            EnumAtr("generator", ["city-generator.py", "two-cities-generator.py", "three-cities-generator.py"]),
+            EnumAtr("generator", ["city-generator.py", "two-cities-generator.py",  "three-cities-generator.py"]),
            ],
     ),
 
@@ -716,7 +744,7 @@ ATTRIBUTES_SAT = {
            ],
     "transport":
            [ConstantAtr("size", 1000), ConstantAtr("mindistance", 100),
-            LinearAtr("nodes", lower_b=10, upper_b=60, upper_m=10, optional_m=True),
+            LinearAtr("nodes", lower_b=5, upper_b=60, upper_m=10, optional_m=True),
             LinearAtr("packages", lower_b=2, upper_b=10, lower_m=1, upper_m=10),
             LinearAtr("trucks", lower_b=2, upper_b=10, optional_m=True),
             EnumAtr("degree", [3, 4, 5]),

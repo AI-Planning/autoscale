@@ -271,6 +271,7 @@ def evaluate_runtimes(runtimes, num_expected_runtimes):
 def evaluate_cfg(cfg):
     return evaluate_sequence(cfg)
 
+previous_subsequences = {}
 def evaluate_sequence(cfg, print_final_configuration=False):
     logging.info(f"Evaluate configuration {cfg.get_dictionary()}")
     domain = DOMAINS[ARGS.domain]
@@ -280,7 +281,7 @@ def evaluate_sequence(cfg, print_final_configuration=False):
 
     # First test: Does the baseline solve the first three configurations in less than 10,
     # 60, and 300s? If not, return a high error right away
-    if not print_final_configuration:
+    if not print_final_configuration and not domain.has_lowest_linear_values(cfg):
         if not RUNNER_BASELINE.is_solvable(sequence[0], time_limit=10, lower_bound=0):
             logging.info("First instance was not solved by the baseline planner in less than 10 seconds")
             return 10 ** 6
@@ -313,11 +314,18 @@ def evaluate_sequence(cfg, print_final_configuration=False):
     if ARGS.only_baseline:
         sart_eval = None
         sart_times = []
+        if baseline_eval.num_solved() > 20:
+            penalty += baseline_eval.num_solved() - 20
     else:
         sart_eval = EvaluatedSequence(sequence, RUNNER_SART, PLANNER_TIME_LIMIT)
         sart_times = sart_eval.get_runtimes(ARGS.tasksbaseline, 10, PLANNER_TIME_LIMIT)
         penalty += evaluate_runtimes(sart_times, ARGS.tasksbaseline)
 
+        if sart_eval.num_solved() > 20:
+            penalty += sart_eval.num_solved() - 20
+            if sart_eval.num_solved() == ARGS.tasksbaseline and baseline_eval.num_solved() > 20:
+                penalty += baseline_eval_eval.num_solved() - 20
+    
     results = {
         "baseline_times": baseline_times,
         "sart_times": sart_times,
@@ -325,13 +333,27 @@ def evaluate_sequence(cfg, print_final_configuration=False):
         "config": cfg.get_dictionary(),
     }
 
+    
+    parameters_cache_key = domain.get_generator_attribute_names()
+    # Identify which instances are actually relevant
+    evaluated_instances = set(baseline_eval.get_index_with_runtimes(2, 179.9) + sart_eval.get_index_with_runtimes(2, 179.9) )
+    relevant_subsequence = tuple([tuple ([sequence[i][atr] for atr in domain.get_generator_attribute_names() ]) for i in evaluated_instances])
+
+    global previous_subsequences
+    is_duplicate =  relevant_subsequence in previous_subsequences and previous_subsequences[relevant_subsequence]["penalty"] < penalty
+
+    if not is_duplicate:
+        previous_subsequences[relevant_subsequence] = results
+
     if print_final_configuration:
         logging.info(f"Final sequence: {results}")
         logging.info(f"Final baseline runtimes: {baseline_eval.runtimes}")
         if sart_eval:
             logging.info(f"Final sart runtimes: {sart_eval.runtimes}")
-    else:
+    elif not is_duplicate:
         logging.info(f"Sequence: {results}")
+    else:
+        logging.debug(f"Duplicated Sequence: {results}")
 
     # STORED_VALID_SEQUENCES.append((penalty, cfg))
 

@@ -523,8 +523,11 @@ if any (using_baseline) and not all (using_baseline):
 
     # Right now printing and error because I don't think this will ever happen
     logging.info(f"Warning: some sequences use the state of the art and some the baseline runtimes: {num_sequences_using_baseline} use baseline {num_sequences_using_sart} use sart")
-    logging.info(f"Sequences runtimes: {str([seq.runtimes_sart for sequences in candidate_sequences for seq in sequences if seq.use_baseline_instead_of_sart ])}")
-    logging.info(f"Sequences no runtimes: {str([seq.runtimes_sart for sequences in candidate_sequences for seq in sequences if not seq.use_baseline_instead_of_sart ])}")
+    logging.info("Sequences runtimes: {}".format(str([seq.runtimes_sart for seq in candidate_sequences if seq.use_baseline_instead_of_sart ])))
+    logging.info("Sequences no runtimes: {}".format(str([seq.runtimes_sart for seq in candidate_sequences if not seq.use_baseline_instead_of_sart ])))
+
+    # logging.info("Sequences runtimes: {}".format(str([seq.runtimes_baseline for seq in candidate_sequences if seq.use_baseline_instead_of_sart ])))
+    # logging.info("Sequences no runtimes: {}".format(str([seq.runtimes_baseline for seq in candidate_sequences if not seq.use_baseline_instead_of_sart ])))
 
     candidate_sequences = [seq for seq in candidate_sequences if not seq.use_baseline_instead_of_sart]
 
