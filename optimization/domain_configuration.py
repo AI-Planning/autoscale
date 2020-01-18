@@ -140,7 +140,11 @@ class LinearAtr:
 
         use_m = cfg.get("{}_optional_m".format(atr)) == "false" if self.optional_m else True
 
-        m = self.lower_m if self.lower_m == self.upper_m else float(cfg.get("{}_m".format(atr)))
+        try:
+            m = self.lower_m if self.lower_m == self.upper_m else float(cfg.get("{}_m".format(atr)))
+        except:
+            m = self.default_m
+            
         m2 = 0 if self.lower_m == self.upper_m or "{}_m2".format(atr) not in cfg else float(cfg.get("{}_m2".format(atr)))
 
         if m2:
