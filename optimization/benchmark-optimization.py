@@ -275,9 +275,7 @@ class CPLEXSequence:
         self.earliest_end = min(len(self.sorted_runtimes)-1, max(next(i for i,v in enumerate(self.sorted_runtimes) if v > 2000) if self.sorted_runtimes[-1] > 2000 else len(self.sorted_runtimes), self.latest_start + 1))
         self.latest_end = len(self.sorted_runtimes)
 
-
         assert self.earliest_end < self.latest_end
-
 
         self.parameters_of_instances = domain.get_configs(self.config, len(self.sorted_runtimes))
 
@@ -299,7 +297,8 @@ class CPLEXSequence:
 
 
     def __str__(self):
-        return f"Sequence(penalty={self.penalty}, config={self.config}, runtimes_baseline={self.runtimes_baseline}, runtimes_sart={self.runtimes_sart}"
+        return f"Sequence({self.seq_id}, penalty={self.penalty}, config={self.config}, runtimes_baseline={self.runtimes_baseline}, runtimes_sart={self.runtimes_sart}"
+    
     def __repr__(self):
         return str(self)
 
@@ -373,8 +372,7 @@ class CPLEXSequence:
         return self.end_var_index
 
     def get_info_per_option(self):
-        #print ( [("seq-{}-{}".format(self.seq_id, i), self.earliest_end-i, max(0, self.solved_instances - i), max(0, self.trivial_instances - i))  for i in range (self.latest_start)] + [("end-{}-{}".format(self.seq_id, i), i - self.earliest_end, 0, 0)  for i in range (self.earliest_end, self.latest_end)])
-        return [(self.start_var_index["seq-{}-{}".format(self.seq_id, i)], self.earliest_end-i, max(0, self.solved_instances - i), max(0, self.trivial_instances - i))  for i in range (self.latest_start)] + [(self.end_var_index["end-{}-{}".format(self.seq_id, i)], i - self.earliest_end, 0, 0)  for i in range (self.earliest_end, self.latest_end)]
+        return [(self.start_var_index["seq-{}-{}".format(self.seq_id, i)], self.earliest_end-i, max(0, self.solved_instances - i), max(0, self.trivial_instances - i))  for i in range (self.latest_start)] + [(self.end_var_index["end-{}-{}".format(self.seq_id, i)], i + 1 - self.earliest_end, 0, 0)  for i in range (self.earliest_end, self.latest_end)]
 
     def get_start_vars_per_option(self):
         return [self.start_var_index["seq-{}-{}".format(self.seq_id, i)] for i in range (self.latest_start)]
@@ -577,14 +575,16 @@ try:
             v1 = seq1.get_start_vars_per_option()
             v2 = seq2.get_start_vars_per_option()
 
-            intersection_penalty_variable = cplex_problem.variables.add (obj=[PENALTY_INTERSECTION], types=[cplex_problem.variables.type.binary])[0]
-
             i1 = max(map(lambda x : x[0], intersection))
             i2 = max(map(lambda x : x[1], intersection))
             cp_vars = v1[:i1+1] + v2[:i2+1]
 
-            constraint_list.append(CPLEXConstraint(cplex_problem, cp_vars + [intersection_penalty_variable], [1 for v in cp_vars] + [-1], "L", 1))
-            intersection_penalty_variables.append(intersection_penalty_variable)
+            if domain.allow_instances_with_duplicated_parameters():
+                intersection_penalty_variable = cplex_problem.variables.add (obj=[domain.get_penalty_for_instances_with_duplicated_parameters()], types=[cplex_problem.variables.type.binary])[0]
+                constraint_list.append(CPLEXConstraint(cplex_problem, cp_vars + [intersection_penalty_variable], [1 for v in cp_vars] + [-1], "L", 1))
+                intersection_penalty_variables.append(intersection_penalty_variable)
+            else:
+                constraint_list.append(CPLEXConstraint(cplex_problem, cp_vars, [1 for v in cp_vars], "L", 1))
 
     if intersection_penalty_variables:
         constraint_list.append(CPLEXConstraint(cplex_problem, intersection_penalty_variables, [1 for v in intersection_penalty_variables], "L", 1))
@@ -598,6 +598,12 @@ try:
     for c in constraint_list:
         c.apply()
 
+
+    cplex_problem.set_log_stream(None)
+    # cplex_problem.set_error_stream(None)
+    # cplex_problem.set_warning_stream(None)
+    cplex_problem.set_results_stream(None)
+
     logging.info ("CPLEX solve")
     cplex_problem.solve()
 except CplexError as exc:
@@ -608,14 +614,15 @@ except CplexError as exc:
 
 print()
 # solution.get_status() returns an integer code
-print("Solution status = ", cplex_problem.solution.get_status(), ":", end=' ')
-# the following line prints the corresponding string
-print(cplex_problem.solution.status[cplex_problem.solution.get_status()])
-print("Solution value  = ", cplex_problem.solution.get_objective_value())
+logging.info("Solution status = {}: {}".format(str(cplex_problem.solution.get_status()), str(cplex_problem.solution.status[cplex_problem.solution.get_status()])))
+if cplex_problem.solution.get_status() == 103:
+    sys.exit()
+    
+logging.info("Solution value  = {}".format(str( cplex_problem.solution.get_objective_value())))
 
 x = cplex_problem.solution.get_values()
 
-print (x)
+# print (x)
 final_selection = []
 # final_sequences = []
 for seq in candidate_sequences:
@@ -627,9 +634,8 @@ for seq in candidate_sequences:
                         seq_id, i = map(int, name.split("-")[1:])
                         seq_id, endi = map(int, nameend.split("-")[1:])
 
-                        logging.info (f"Selected: sequence {seq_id}, {endi-i} instances from {i} to {endi}: {sequences_by_id[seq_id].get_runtimes(i, endi)}")
-                        final_selection += sequences_by_id[seq_id].get_instances(i, endi)
-
+                        logging.info (f"Selected: sequence {seq_id}, {endi+1-i} instances from {i} to {endi}: {sequences_by_id[seq_id].get_runtimes(i, endi+1)}")
+                        final_selection += sequences_by_id[seq_id].get_instances(i, endi+1)
 
         for name, idt in seq.get_cplex_end_index().items():
             if x [idt] > 0.9:

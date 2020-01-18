@@ -318,16 +318,21 @@ def get_linear_scaling_values(linear_atrs, cfg, num_values, base={}, name_base=N
     return result
 
 class Domain:
-    def __init__(self, name, gen_command, linear_atrs, adapt_f=None,  num_sequences_linear_hierarchy=3):
+    def __init__(self, name, gen_command, linear_atrs, adapt_f=None,  num_sequences_linear_hierarchy=3, penalty_for_instances_with_duplicated_parameters=100):
         self.name = name
         self.linear_attributes = linear_atrs
         self.gen_command = gen_command
         self.adapt_f = adapt_f
-
         self.num_sequences_linear_hierarchy = num_sequences_linear_hierarchy
-
         self.generator_attribute_names = [fn for _, fn, _, _ in Formatter().parse(self.gen_command) if fn is not None and fn != "seed"]
 
+        self.penalty_for_instances_with_duplicated_parameters = penalty_for_instances_with_duplicated_parameters
+
+    def get_penalty_for_instances_with_duplicated_parameters(self):
+        return self.penalty_for_instances_with_duplicated_parameters
+
+    def allow_instances_with_duplicated_parameters(self):
+        return self.penalty_for_instances_with_duplicated_parameters != None and self.penalty_for_instances_with_duplicated_parameters != math.inf
 
     def get_domain_file(self, GENERATORS_DIR):
         return os.path.join(GENERATORS_DIR, self.name, "domain.pddl")
@@ -430,7 +435,7 @@ def adapt_parameters_snake(parameters):
 
 DOMAIN_LIST_OPT = [
     Domain("blocksworld", "blocksworld 4 {n} {seed}", [LinearAtr("n", lower_b=5, upper_b=10, lower_m=0.1, upper_m=2)]),
-    Domain("gripper", "gripper -n {n}", [LinearAtr("n", lower_b=8, upper_b=15, lower_m=0.1, upper_m=2)]),
+    Domain("gripper", "gripper -n {n}", [LinearAtr("n", lower_b=8, upper_b=15, lower_m=0.1, upper_m=2)], penalty_for_instances_with_duplicated_parameters=math.inf),
     Domain("miconic-strips",
         "miconic -f {floors} -p {passengers}",
         [LinearAtr("passengers", lower_b=5, upper_b=15, lower_m=0.01, upper_m=5),  #level="true"
