@@ -323,16 +323,11 @@ class CPLEXSequence:
     # Returns the number of instances that are different among those instances that
     # mattered for the evaluation of both sequences
     def compare_redundancy (self, other):
-        diff = 0
-        for c in self.parameters_of_evaluated_instances:
-            if c not in other.parameters_of_instances:
-                diff += 1
 
-        for c in other.parameters_of_evaluated_instances:
-            if c not in self.parameters_of_instances:
-                diff += 1
+        percentage_in_other = sum([1.0 for c in self.parameters_of_evaluated_instances if c in other.parameters_of_instances])/len(self.parameters_of_evaluated_instances)
+        percentage_in_me = sum([1.0 for c in other.parameters_of_evaluated_instances if c in self.parameters_of_instances])/len(other.parameters_of_evaluated_instances)
 
-        return result
+        return max(percentage_in_other, percentage_in_me)
 
     def add_cplex_variables(self, cplex_problem):
         t = cplex_problem.variables.type
@@ -381,18 +376,11 @@ class CPLEXSequence:
         return self.sorted_runtimes[i:]
 
 
-def select_best_k(candidates, K):
-    sorted_candidates = sorted(candidates, key=lambda x : x.penalty)
-    if True:
-        return sorted_candidates[:K]
-    
-    if len(candidates) <= K:
-        MAX_REDUNDANCY = 0
-    else:
-        MAX_REDUNDANCY = 2
-
-    selected = []
-    while len(selected) < K and candidates:    
+def select_best_k(candidates, K, already_selected):
+    MAX_REDUNDANCY = 0.1
+    selected = [c for c in already_selected]
+    while len(selected) < K and candidates and MAX_REDUNDANCY <= 0.5:
+        sorted_candidates = sorted(candidates, key=lambda x : x.penalty)
         remaining_candidates = []
         for candidate in sorted_candidates:
             if len(selected) == K:
@@ -401,6 +389,7 @@ def select_best_k(candidates, K):
             is_redundant = False
             for sel in selected:
                 if candidate.compare_redundancy(sel) >= MAX_REDUNDANCY:
+                    assert candidate.compare_redundancy(sel) < 1.0
                     is_redundant = True
                     break
 
@@ -410,9 +399,10 @@ def select_best_k(candidates, K):
                 remaining_candidates.append(candidate)
                     
         candidates = remaining_candidates
+        MAX_REDUNDANCY += 0.1
 
 
-    return selected
+    return selected[:K]
 
 
 RUNNER_BASELINE = Runner("baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
@@ -487,15 +477,14 @@ while len(candidate_sequences) < ARGS.max_sequences_per_enum and evaluated_seque
         for enum_parameter in enum_parameters:
             for value in enum_parameter.get_values():
                 valid_sequences = [seq for seq in evaluated_sequences if seq.has_enum_value(enum_parameter.name, value)]
-                bestK = select_best_k(valid_sequences, ARGS.max_sequences_per_enum)
+                candidate_sequences = select_best_k(valid_sequences, ARGS.max_sequences_per_enum, candidate_sequences)
 
                 for seq in bestK:
                     if not seq.seq_id in already_selected:
                         already_selected.add(seq.seq_id)
                         candidate_sequences.append(seq)
     else:
-        bestK = select_best_k(evaluated_sequences, ARGS.max_sequences_per_enum)
-        candidate_sequences += bestK
+        candidate_sequences = select_best_k(evaluated_sequences, ARGS.max_sequences_per_enum, candidate_sequences)
 
     evaluated_sequences = discarded_evaluated_sequences
     desired_quality += 1
@@ -628,7 +617,7 @@ final_selection = []
 for seq in candidate_sequences:
         for name, idt in seq.get_cplex_start_index().items():
             if x [idt] > 0.9:
-                logging.debug ("START: ", name, idt)
+                logging.debug ("START: {} {}".format(name, idt))
                 for nameend, idtend in seq.get_cplex_end_index().items():
                     if x [idtend] > 0.9 :
                         seq_id, i = map(int, name.split("-")[1:])
@@ -639,7 +628,7 @@ for seq in candidate_sequences:
 
         for name, idt in seq.get_cplex_end_index().items():
             if x [idt] > 0.9:
-                logging.debug ("END: ", name, idt)
+                logging.debug ("END: {} {}".format(name, idt))
 
 
 print(final_selection)
