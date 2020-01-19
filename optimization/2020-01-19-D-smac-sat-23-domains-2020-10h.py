@@ -51,7 +51,7 @@ if REMOTE:
             "source activate smac-conda",
         ]))
     SMAC_TIME_LIMIT = 10 * 60 * 60
-    SMAC_RUNS_PER_DOMAIN = 10
+    SMAC_RUNS_PER_DOMAIN = 8
     OPTIONS = []
 else:
     ENV = LocalEnvironment(processes=2)
