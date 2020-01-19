@@ -115,11 +115,11 @@ def parse_args():
     )
 
     parser.add_argument(
-        "--maximum_redundancy", type=float, default=0.8, help="Exclude any sequence if there is another selected sequence with X% of the solvable instances or viceversa (default: %(default)f)"
+        "--maximum_redundancy", type=float, default=0.8, help="Exclude any sequence if there is another selected sequence with X per cent of the solvable instances or viceversa (default: %(default)s)"
     )
 
     parser.add_argument(
-        "--desired_redundancy", type=float, default=0.2, help="Prefer sequences such that no other previous sequence have X% of the solvable instances or viceversa (default: %(default)f)"
+        "--desired_redundancy", type=float, default=0.2, help="Prefer sequences such that no other previous sequence have X per cent of the solvable instances or viceversa (default: %(default)s)"
     )
     
     parser.add_argument(
@@ -264,6 +264,11 @@ class CPLEXSequence:
         while first_index < len(self.sorted_runtimes) - 2 and self.sorted_runtimes[first_index] < 10:
             first_index += 1
 
+        if len(self.sorted_runtimes) == 0:
+            logging.debug ("Warning: discarding sequence because it has no runtimes")
+            self.seq_id = -1
+            return
+
         factors = [self.sorted_runtimes[i]/self.sorted_runtimes[i-1] for i in range (first_index, len(self.sorted_runtimes))]
         average_factor = float(sum(factors))/float(len(factors))
         
@@ -287,13 +292,14 @@ class CPLEXSequence:
 
         # Identify which instances are actually relevant
         evaluated_instances = set([i for i, t  in enumerate (self.runtimes_baseline) if t >= 2 and t <= 180] + \
-                                  [i for i, t  in enumerate (self.runtimes_sart) if t >= 2 and t <= 180])        
+                                  [i for i, t  in enumerate (self.runtimes_sart) if t >= 2 and t <= 180])
+
+
         self.parameters_of_evaluated_instances = [self.parameters_of_instances[i] for i in evaluated_instances]
 
-        
-
         global previous_parameters_of_evaluated_instances
-        if self.parameters_of_evaluated_instances in previous_parameters_of_evaluated_instances:
+        if len(evaluated_instances) == 0 or self.parameters_of_evaluated_instances in previous_parameters_of_evaluated_instances:
+            logging.debug ("Discarding sequence", self.runtimes_baseline, self.runtimes_sart)
             self.seq_id = -1
         else:
             global SEQ_ID
@@ -383,16 +389,16 @@ class CPLEXSequence:
 
 def select_best_k(candidates, K, already_selected):
     MAX_REDUNDANCY = ARGS.desired_redundancy
-    selected = [c for c in already_selected]
-    while len(selected) < K and candidates and MAX_REDUNDANCY <= ARGS.maximum_redundancy:
+    new_selected = []
+    while len(already_selected + new_selected) < K and candidates and MAX_REDUNDANCY <= ARGS.maximum_redundancy:
         sorted_candidates = sorted(candidates, key=lambda x : x.penalty)
         remaining_candidates = []
         for candidate in sorted_candidates:
-            if len(selected) == K:
+            if len(already_selected + new_selected) == K:
                 break
 
             is_redundant = False
-            for sel in selected:
+            for sel in already_selected + new_selected:
                 if candidate.compare_redundancy(sel) >= MAX_REDUNDANCY:
                     #assert candidate.compare_redundancy(sel) < 1.0 This assertion may
                     # fail. We may have some duplicates if they come from different SMAC
@@ -402,14 +408,14 @@ def select_best_k(candidates, K, already_selected):
                     break
 
             if not is_redundant:
-                selected.append(candidate)
+                new_selected.append(candidate)
             else:
                 remaining_candidates.append(candidate)
                     
         candidates = remaining_candidates
         MAX_REDUNDANCY += 0.1
 
-    return selected[:K]
+    return new_selected
 
 
 RUNNER_BASELINE = Runner("baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
@@ -484,14 +490,14 @@ while len(candidate_sequences) < ARGS.max_sequences_per_enum and evaluated_seque
         for enum_parameter in enum_parameters:
             for value in enum_parameter.get_values():
                 valid_sequences = [seq for seq in evaluated_sequences if seq.has_enum_value(enum_parameter.name, value)]
-                candidate_sequences = select_best_k(valid_sequences, ARGS.max_sequences_per_enum, candidate_sequences)
-
+                bestK = select_best_k(valid_sequences, ARGS.max_sequences_per_enum, candidate_sequences)
+                
                 for seq in bestK:
                     if not seq.seq_id in already_selected:
                         already_selected.add(seq.seq_id)
                         candidate_sequences.append(seq)
     else:
-        candidate_sequences = select_best_k(evaluated_sequences, ARGS.max_sequences_per_enum, candidate_sequences)
+        candidate_sequences += select_best_k(evaluated_sequences, ARGS.max_sequences_per_enum, candidate_sequences)
 
     evaluated_sequences = discarded_evaluated_sequences
     desired_quality += 1
@@ -517,15 +523,23 @@ if any (using_baseline) and not all (using_baseline):
 
     # Right now printing and error because I don't think this will ever happen
     logging.info(f"Warning: some sequences use the state of the art and some the baseline runtimes: {num_sequences_using_baseline} use baseline {num_sequences_using_sart} use sart")
-    logging.info("Sequences runtimes: {}".format(str([seq.runtimes_sart for seq in candidate_sequences if seq.use_baseline_instead_of_sart ])))
-    logging.info("Sequences no runtimes: {}".format(str([seq.runtimes_sart for seq in candidate_sequences if not seq.use_baseline_instead_of_sart ])))
+    logging.debug("Sart invalid runtimes: {}".format(str([seq.runtimes_sart for seq in candidate_sequences if seq.use_baseline_instead_of_sart ])))
+    logging.debug("Sart valid runtimes: {}".format(str([seq.runtimes_sart for seq in candidate_sequences if not seq.use_baseline_instead_of_sart ])))
+
+    if num_sequences_using_sart >= min(5, num_sequences_using_baseline):
+        logging.info(f"Using sart runtimes on CPLEX optimization")
+        candidate_sequences = [seq for seq in candidate_sequences if not seq.use_baseline_instead_of_sart]
+    else:
+        
+        logging.info(f"Using baseline runtimes on CPLEX optimization")
+        candidate_sequences = [seq for seq in candidate_sequences if seq.use_baseline_instead_of_sart]
 
     # logging.info("Sequences runtimes: {}".format(str([seq.runtimes_baseline for seq in candidate_sequences if seq.use_baseline_instead_of_sart ])))
     # logging.info("Sequences no runtimes: {}".format(str([seq.runtimes_baseline for seq in candidate_sequences if not seq.use_baseline_instead_of_sart ])))
 
-    candidate_sequences = [seq for seq in candidate_sequences if not seq.use_baseline_instead_of_sart]
+    # candidate_sequences = [seq for seq in candidate_sequences if not seq.use_baseline_instead_of_sart]
 
-    exit(0)
+    # exit(0)
 
 
 
@@ -638,7 +652,7 @@ for seq in candidate_sequences:
                 logging.debug ("END: {} {}".format(name, idt))
 
 
-print(final_selection)
+logging.info(final_selection)
 
 if ARGS.output:
     if not os.path.exists(f"{ARGS.output}"):
