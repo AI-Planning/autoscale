@@ -4,7 +4,7 @@ set -euo pipefail
 
 cd $(dirname "$0")
 
-OUTDIR=${1}
+OUTDIR=../images/
 
 ./build-image.sh ../planners/custom/seq-opt/fd-19.06/Singularity-blind ${OUTDIR}/blind.img ${DOWNWARD_BENCHMARKS}
 ./build-image.sh ../planners/custom/seq-opt/fd-19.06/Singularity-fdss1-01 ${OUTDIR}/fdss-mas1.img ${DOWNWARD_BENCHMARKS}
@@ -13,7 +13,8 @@ OUTDIR=${1}
 ./build-image.sh ../planners/custom/seq-opt/fd-19.06/Singularity-fdss1-04 ${OUTDIR}/lmcut.img ${DOWNWARD_BENCHMARKS}
 ./build-image.sh ../planners/ipc-2014/seq-opt/symba/Singularity-01 ${OUTDIR}/symba1.img ${DOWNWARD_BENCHMARKS}
 ./build-image.sh ../planners/ipc-2014/seq-opt/symba/Singularity-02 ${OUTDIR}/symba2.img ${DOWNWARD_BENCHMARKS}
-./build-image.sh ../planners/ipc-2018/seq-opt/complementary2/Singularity ${OUTDIR}/complementary2.img ${DOWNWARD_BENCHMARKS}
+./build-image.sh ../planners/ipc-2018/seq-opt/complementary2/Singularity-180s ${OUTDIR}/complementary2-3584mb-180s.img ${DOWNWARD_BENCHMARKS}
+./build-image.sh ../planners/ipc-2018/seq-opt/complementary2/Singularity-1800s ${OUTDIR}/complementary2-3584mb-1800s.img ${DOWNWARD_BENCHMARKS}
 ./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-01 ${OUTDIR}/delfi-blind.img ${DOWNWARD_BENCHMARKS}
 ./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-02 ${OUTDIR}/delfi-celmcut.img ${DOWNWARD_BENCHMARKS}
 ./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-03 ${OUTDIR}/delfi-ipdb.img ${DOWNWARD_BENCHMARKS}

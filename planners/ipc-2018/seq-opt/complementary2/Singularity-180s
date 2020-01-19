@@ -27,6 +27,10 @@ From: ubuntu:xenial
     cd /planner
     ./build.py release64 -j6
 
+    ## Clean up.
+    apt -y autoremove cmake g++ make autotools-dev automake gcc g++-multilib
+    rm -rf /var/lib/apt/lists/*
+
 %runscript
     ## The runscript is called whenever the container is used to solve
     ## an instance.
@@ -36,14 +40,14 @@ From: ubuntu:xenial
     PLANFILE=$3
 
     ## Call your planner.
-    ## Original limits.
+    ## Original time limits.
     #/planner/fast-downward.py \
     #    --build=release64 \
     #    --plan-file $PLANFILE \
     #    $DOMAINFILE \
     #    $PROBLEMFILE \
     #    --search "astar(cpdbs_symbolic(genetic_ss(use_ucb=true,num_episodes=10000000,num_collections=1,pdb_factory=symbolic(termination_time_ms=30000),genetic_time_limit=900,time_limit=1.0,create_perimeter=true,use_first_goal_vars=true,use_norm_dist=true,perimeter_time_ms=250000)))"
-    ## Short limits.
+    ## Short time limits.
     /planner/fast-downward.py \
         --build=release64 \
         --plan-file $PLANFILE \
