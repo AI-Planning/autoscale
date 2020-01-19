@@ -107,7 +107,7 @@ def parse_args():
     )
 
     parser.add_argument(
-        "--minimum_quality", type=int, default=18, help="Minimum quality, automatically discard any sequence with higher penalty (default: %(default)d)"
+        "--minimum_quality", type=int, default=math.inf, help="Minimum quality, automatically discard any sequence with higher penalty (default: %(default)d)"
     )
 
     parser.add_argument(
@@ -444,6 +444,7 @@ logging.info(f"Stored sequences: {len(STORED_VALID_SEQUENCES)}")
 # This must be done before filtering sequences because we need to know which instances have a runtime between 10 and 180 on the baseline or the state of the art planners to perform the filter
 evaluated_sequences = []
 sequences_by_id = {}
+
 for sequence in STORED_VALID_SEQUENCES:
     logging.debug(f"Evaluate sequence {sequence['config']} with penalty {sequence['penalty']}")
 

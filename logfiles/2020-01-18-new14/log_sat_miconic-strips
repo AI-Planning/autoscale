@@ -1,0 +1,15 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-01-19 21:10:41,687 INFO     No run directory, so we will not run anything
+2020-01-19 21:10:45,306 INFO     Loading cache data for baseline planners: 81542
+2020-01-19 21:10:45,392 INFO     Loading cache data for sart planners: 3374
+2020-01-19 21:10:45,396 INFO     Stored sequences: 37755
+2020-01-19 21:10:54,914 INFO     Different evaluated sequences: 5900
+2020-01-19 21:10:55,288 INFO     Candidate sequences: 100
+2020-01-19 21:10:55,289 INFO     Using sart runtimes on CPLEX optimization
+2020-01-19 21:10:55,561 INFO     CPLEX solve
+
+2020-01-19 21:10:56,873 INFO     Solution status = 101: MIP_optimal
+2020-01-19 21:10:56,873 INFO     Solution value  = 7611.993559082148
+2020-01-19 21:10:56,876 INFO     Selected: sequence 784, 17 instances from 10 to 26: [1.0, 4.0, 4.0, 5.0, 5.0, 11.0, 36.0, 52.0, 180.0, 623.0769230769231, 2156.804733727811, 7465.862539827038, 25843.370330170517, 89457.82037366719, 309661.68590884795, 1071905.83583832, 3710443.277901877, 12843842.11581419, 44459453.477818355, 153898108.19244817]
+2020-01-19 21:10:56,876 INFO     Selected: sequence 1070, 13 instances from 15 to 27: [24.0, 57.0, 66.0, 209.72368421052633, 666.4246018005541, 2117.651859668866, 6729.117422500411, 21382.65602018223, 67946.20301150011, 215908.00035891155, 686076.0800878571, 2180097.0176475984, 6927545.128445988, 22013186.164732974, 69949795.51030281]
+2020-01-19 21:10:56,876 INFO     [{'passengers': 20, 'floors': 19}, {'passengers': 21, 'floors': 20}, {'passengers': 22, 'floors': 21}, {'passengers': 23, 'floors': 22}, {'passengers': 24, 'floors': 23}, {'passengers': 25, 'floors': 24}, {'passengers': 26, 'floors': 25}, {'passengers': 27, 'floors': 26}, {'passengers': 28, 'floors': 27}, {'passengers': 29, 'floors': 28}, {'passengers': 30, 'floors': 29}, {'passengers': 31, 'floors': 30}, {'passengers': 32, 'floors': 31}, {'passengers': 33, 'floors': 32}, {'passengers': 34, 'floors': 33}, {'passengers': 35, 'floors': 33}, {'passengers': 36, 'floors': 34}, {'passengers': 27, 'floors': 11}, {'passengers': 28, 'floors': 11}, {'passengers': 30, 'floors': 11}, {'passengers': 31, 'floors': 11}, {'passengers': 32, 'floors': 11}, {'passengers': 33, 'floors': 11}, {'passengers': 34, 'floors': 11}, {'passengers': 35, 'floors': 11}, {'passengers': 36, 'floors': 11}, {'passengers': 37, 'floors': 11}, {'passengers': 38, 'floors': 11}, {'passengers': 39, 'floors': 11}, {'passengers': 40, 'floors': 11}]

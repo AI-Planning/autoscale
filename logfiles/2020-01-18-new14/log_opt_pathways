@@ -1,0 +1,32 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-01-19 21:18:30,516 INFO     No run directory, so we will not run anything
+2020-01-19 21:18:33,801 INFO     Loading cache data for baseline planners: 3031
+2020-01-19 21:18:33,813 INFO     Stored sequences: 25889
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 11, 'num_goals': 1, 'substances': 37}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 11, 'num_goals': 1, 'substances': 36}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 11, 'num_goals': 1, 'substances': 36}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 11, 'num_goals': 1, 'substances': 37}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 12, 'num_goals': 1, 'substances': 29}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 12, 'num_goals': 1, 'substances': 25}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 12, 'num_goals': 1, 'substances': 25}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 12, 'num_goals': 1, 'substances': 20}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 12, 'num_goals': 1, 'substances': 20}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 11, 'num_goals': 1, 'substances': 37}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 12, 'num_goals': 1, 'substances': 33}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 11, 'num_goals': 1, 'substances': 33}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 12, 'num_goals': 1, 'substances': 45}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 12, 'num_goals': 1, 'substances': 20}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 12, 'num_goals': 1, 'substances': 29}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 12, 'num_goals': 1, 'substances': 25}, so I consider it unsolvable
+2020-01-19 21:18:39,545 INFO     Different evaluated sequences: 3310
+2020-01-19 21:18:40,143 INFO     Candidate sequences: 100
+2020-01-19 21:18:40,144 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 1 use baseline 99 use sart
+2020-01-19 21:18:40,144 INFO     Using sart runtimes on CPLEX optimization
+2020-01-19 21:18:40,332 INFO     CPLEX solve
+
+2020-01-19 21:18:40,491 INFO     Solution status = 101: MIP_optimal
+2020-01-19 21:18:40,491 INFO     Solution value  = 25.35947032248014
+2020-01-19 21:18:40,494 INFO     Selected: sequence 1154, 7 instances from 17 to 23: [131.0, 377.2967948717949, 1086.6631406147271, 3129.7291607576726, 9014.0212303104, 25961.536787041427, 74772.55434883149, 215354.5427495512, 620248.6926754703, 1786395.7539685178, 5145048.796525993, 14818400.15563544, 42678892.24312182]
+2020-01-19 21:18:40,494 INFO     Selected: sequence 1938, 3 instances from 13 to 15: [180.0, 1905.8823529411764, 20179.930795847748, 213669.85548544672, 2262386.705140024, 23954682.760306135, 253637817.46206495, 2685576890.774805, 28435520019.968525, 301081976682.01965, 3187926811927.2666, 33754519185112.234, 357400791371776.56, 3784243673348222.5, 4.0068462423687064e+16, 4.242543080155101e+17, 4.492104437811283e+18]
+2020-01-19 21:18:40,494 INFO     Selected: sequence 3098, 20 instances from 0 to 19: [1.0, 1.0, 1.0, 1.0, 2.0, 2.0, 2.0, 2.0, 3.0, 3.0, 6.0, 43.0, 50.0, 71.0, 230.73715762273903, 749.8540268707143, 2436.8899548185013, 7919.451572031351, 25736.785150161213, 83639.89650556784, 271814.5349796449, 883348.0732640821, 2870721.4593870044, 9329325.491064206, 30318620.371063646, 98530032.21777603, 320204782.7381203, 1040607625.7211348, 3381786559.9921365, 10990194627.315014]
+2020-01-19 21:18:40,494 INFO     [{'reactions': 24, 'num_goals': 11, 'substances': 11}, {'reactions': 24, 'num_goals': 11, 'substances': 12}, {'reactions': 24, 'num_goals': 12, 'substances': 12}, {'reactions': 25, 'num_goals': 12, 'substances': 12}, {'reactions': 25, 'num_goals': 13, 'substances': 12}, {'reactions': 26, 'num_goals': 13, 'substances': 12}, {'reactions': 26, 'num_goals': 13, 'substances': 13}, {'reactions': 106, 'num_goals': 2, 'substances': 68}, {'reactions': 113, 'num_goals': 2, 'substances': 73}, {'reactions': 120, 'num_goals': 2, 'substances': 78}, {'reactions': 10, 'num_goals': 1, 'substances': 7}, {'reactions': 11, 'num_goals': 1, 'substances': 8}, {'reactions': 12, 'num_goals': 2, 'substances': 9}, {'reactions': 13, 'num_goals': 3, 'substances': 10}, {'reactions': 14, 'num_goals': 4, 'substances': 11}, {'reactions': 15, 'num_goals': 5, 'substances': 12}, {'reactions': 17, 'num_goals': 6, 'substances': 13}, {'reactions': 18, 'num_goals': 7, 'substances': 14}, {'reactions': 19, 'num_goals': 7, 'substances': 15}, {'reactions': 20, 'num_goals': 8, 'substances': 16}, {'reactions': 21, 'num_goals': 9, 'substances': 18}, {'reactions': 23, 'num_goals': 10, 'substances': 19}, {'reactions': 24, 'num_goals': 11, 'substances': 20}, {'reactions': 25, 'num_goals': 12, 'substances': 21}, {'reactions': 26, 'num_goals': 13, 'substances': 22}, {'reactions': 27, 'num_goals': 13, 'substances': 23}, {'reactions': 29, 'num_goals': 14, 'substances': 24}, {'reactions': 30, 'num_goals': 15, 'substances': 25}, {'reactions': 31, 'num_goals': 16, 'substances': 26}, {'reactions': 32, 'num_goals': 17, 'substances': 27}]

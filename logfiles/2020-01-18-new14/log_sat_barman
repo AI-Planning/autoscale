@@ -1,0 +1,7 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-01-19 21:04:18,478 INFO     No run directory, so we will not run anything
+2020-01-19 21:04:21,923 INFO     Loading cache data for baseline planners: 662
+2020-01-19 21:04:21,924 INFO     Loading cache data for sart planners: 40
+2020-01-19 21:04:21,924 INFO     Stored sequences: 37357
+2020-01-19 21:04:25,599 INFO     Different evaluated sequences: 0
+Error: no valid sequences
