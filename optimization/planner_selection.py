@@ -68,7 +68,7 @@ PLANNER_SELECTION_OPT_2020 = {
     "storage": ["delfi-celmcut.img"],
     "termes": ["symba2.img"],
     "tetris": ["scorpion-nodiv.img"],
-    "tpp": ["complementary2.img"],
+    "tpp": ["complementary2-3584mb-180s.img"],
     "transport" : ["delfi-ipdb.img", "scorpion-nodiv.img"],
     "trucks": ["scorpion-nodiv.img", "symba2.img"],
     "visitall": ["delfi-ipdb.img", "symba2.img"],
@@ -119,7 +119,7 @@ for domain, planners in PLANNER_SELECTION_SAT_2014.items():
 
 # Decided from https://ai.dmi.unibas.ch/_tmp_files/seipp/2020-01-16-B-sat-sota-ipc.html
 PLANNER_SELECTION_SAT_2020 = {
-    "barman": ["lapkt_bfws_pref.img"],
+    "barman": ["lapkt-bfws-pref.img"],
     "blocksworld": ["lama-first.img", "lapkt-bfws-pref.img"],
     "childsnack": ["saarplan-dec-fallback.img"],
     "data-network": ["saarplan-grey.img", "lama-first.img",],
@@ -152,8 +152,8 @@ PLANNER_SELECTION_SAT_2020 = {
 PLANNER_SELECTION = {
     ("opt", 2014): PLANNER_SELECTION_OPT_2014,
     ("opt", 2020): PLANNER_SELECTION_OPT_2020,
-    ("sat", 2014): PLANNER_SELECTION_OPT_2014,
-    ("sat", 2020): PLANNER_SELECTION_OPT_2020,
+    ("sat", 2014): PLANNER_SELECTION_SAT_2014,
+    ("sat", 2020): PLANNER_SELECTION_SAT_2020,
 }
 
 
@@ -182,4 +182,5 @@ def verify_planner_selection(images_dir):
             for image in images:
                 path = os.path.join(images_dir, image)
                 assert os.path.exists(path), f"image at {path} is missing"
-
+                assert image != get_baseline_planner("opt")
+                assert image != get_baseline_planner("sat")
