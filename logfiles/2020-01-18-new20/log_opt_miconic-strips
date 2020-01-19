@@ -1,0 +1,17 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-01-19 23:00:38,254 INFO     No run directory, so we will not run anything
+2020-01-19 23:00:40,886 INFO     Loading cache data for baseline planners: 1793
+2020-01-19 23:00:40,888 INFO     Loading cache data for sart planners: 6147
+2020-01-19 23:00:40,894 INFO     Stored sequences: 19957
+2020-01-19 23:00:47,785 INFO     Different evaluated sequences: 2932
+2020-01-19 23:00:48,277 INFO     Candidate sequences: 100
+2020-01-19 23:00:48,278 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 3 use baseline 97 use sart
+2020-01-19 23:00:48,278 INFO     Using sart runtimes on CPLEX optimization
+2020-01-19 23:00:48,535 INFO     CPLEX solve
+
+2020-01-19 23:00:49,207 INFO     Solution status = 101: MIP_optimal
+2020-01-19 23:00:49,207 INFO     Solution value  = 16.809293930338093
+2020-01-19 23:00:49,209 INFO     Selected: sequence 390, 5 instances from 22 to 26: [19.0, 180.0, 1705.2631578947367, 16155.12465373961, 153048.54935121734, 1449933.6254325851, 13736213.293571858, 130132546.99173337]
+2020-01-19 23:00:49,210 INFO     Selected: sequence 2507, 6 instances from 21 to 26: [229.45276292335117, 741.5291607487268, 2396.4213341130867, 7744.584454094521, 25028.398601200297, 80885.00296608938, 261398.41422017835, 844768.8502338384, 2730064.038277984]
+2020-01-19 23:00:49,210 INFO     Selected: sequence 958, 19 instances from 0 to 18: [0.1, 0.1, 0.1, 0.1, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 4.0, 25.0, 40.0, 180.0, 810.0, 3645.0, 16402.5, 73811.25, 332150.625, 1494677.8125, 6726050.15625, 30267225.703125, 136202515.6640625, 612911320.4882812, 2758100942.1972656, 12411454239.887695, 55851544079.49463, 251331948357.72583, 1130993767609.766]
+2020-01-19 23:00:49,210 INFO     [{'passengers': 21, 'floors': 42}, {'passengers': 21, 'floors': 44}, {'passengers': 22, 'floors': 45}, {'passengers': 22, 'floors': 46}, {'passengers': 23, 'floors': 47}, {'passengers': 26, 'floors': 23}, {'passengers': 27, 'floors': 24}, {'passengers': 28, 'floors': 24}, {'passengers': 28, 'floors': 25}, {'passengers': 29, 'floors': 26}, {'passengers': 30, 'floors': 26}, {'passengers': 8, 'floors': 15}, {'passengers': 9, 'floors': 15}, {'passengers': 10, 'floors': 16}, {'passengers': 12, 'floors': 17}, {'passengers': 13, 'floors': 18}, {'passengers': 15, 'floors': 19}, {'passengers': 16, 'floors': 20}, {'passengers': 18, 'floors': 21}, {'passengers': 19, 'floors': 22}, {'passengers': 21, 'floors': 23}, {'passengers': 22, 'floors': 24}, {'passengers': 24, 'floors': 25}, {'passengers': 25, 'floors': 26}, {'passengers': 27, 'floors': 27}, {'passengers': 28, 'floors': 27}, {'passengers': 30, 'floors': 28}, {'passengers': 31, 'floors': 29}, {'passengers': 32, 'floors': 30}, {'passengers': 34, 'floors': 31}]
