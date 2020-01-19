@@ -103,7 +103,7 @@ def parse_args():
     )
 
     parser.add_argument(
-        "--max_sequences_per_enum", type=int, default=30, help="Number of sequences that will be allowed per value of each enum parameter  (default: %(default)d)"
+        "--max_sequences_per_enum", type=int, default=100, help="Number of sequences that will be allowed per value of each enum parameter  (default: %(default)d)"
     )
 
     parser.add_argument(
@@ -114,7 +114,13 @@ def parse_args():
         "--desired_minimum_quality", type=int, default=14, help="Desired minimum quality. If we have enough sequences, we discard any worse than this. Otherwise, we increase the threshold (default: %(default)d)"
     )
 
+    parser.add_argument(
+        "--maximum_redundancy", type=float, default=0.8, help="Exclude any sequence if there is another selected sequence with X% of the solvable instances or viceversa (default: %(default)f)"
+    )
 
+    parser.add_argument(
+        "--desired_redundancy", type=float, default=0.2, help="Prefer sequences such that no other previous sequence have X% of the solvable instances or viceversa (default: %(default)f)"
+    )
     
     parser.add_argument(
         "--sequence_length", type=int, default=30, help="Number of tasks on each sequence (default: %(default)d)"
@@ -323,7 +329,6 @@ class CPLEXSequence:
     # Returns the number of instances that are different among those instances that
     # mattered for the evaluation of both sequences
     def compare_redundancy (self, other):
-
         percentage_in_other = sum([1.0 for c in self.parameters_of_evaluated_instances if c in other.parameters_of_instances])/len(self.parameters_of_evaluated_instances)
         percentage_in_me = sum([1.0 for c in other.parameters_of_evaluated_instances if c in self.parameters_of_instances])/len(other.parameters_of_evaluated_instances)
 
@@ -377,9 +382,9 @@ class CPLEXSequence:
 
 
 def select_best_k(candidates, K, already_selected):
-    MAX_REDUNDANCY = 0.1
+    MAX_REDUNDANCY = ARGS.desired_redundancy
     selected = [c for c in already_selected]
-    while len(selected) < K and candidates and MAX_REDUNDANCY <= 0.9:
+    while len(selected) < K and candidates and MAX_REDUNDANCY <= ARGS.maximum_redundancy:
         sorted_candidates = sorted(candidates, key=lambda x : x.penalty)
         remaining_candidates = []
         for candidate in sorted_candidates:
@@ -389,7 +394,10 @@ def select_best_k(candidates, K, already_selected):
             is_redundant = False
             for sel in selected:
                 if candidate.compare_redundancy(sel) >= MAX_REDUNDANCY:
-                    assert candidate.compare_redundancy(sel) < 1.0
+                    #assert candidate.compare_redundancy(sel) < 1.0 This assertion may
+                    # fail. We may have some duplicates if they come from different SMAC
+                    # runs, and, due to a slight different in runtime, one instance was
+                    # not considered by one of the candidates
                     is_redundant = True
                     break
 
@@ -400,7 +408,6 @@ def select_best_k(candidates, K, already_selected):
                     
         candidates = remaining_candidates
         MAX_REDUNDANCY += 0.1
-
 
     return selected[:K]
 
