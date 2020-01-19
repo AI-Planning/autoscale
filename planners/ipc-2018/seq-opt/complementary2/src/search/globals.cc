@@ -391,5 +391,6 @@ bool g_is_part_of_anytime_portfolio = false;
 std::map<size_t,pair<State,int> > unique_samples;
 
 utils::Log g_log;
-float memory_limit=4000;//MB
+// JS: 4000 * (3500 / 8000) = 4000 * 0.4374 = 1750
+float memory_limit=1750;//MB
 double overall_pdb_gen_time=0;

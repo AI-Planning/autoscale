@@ -138,11 +138,13 @@ static shared_ptr<PDBFactory>_parse(options::OptionParser &parser) {
 
     parser.add_option<int> ("precomputation_time_ms", "Maximum construction time for each PDB.", "1000");
     parser.add_option<int> ("precomputation_step_time_ms", "Maximum time for each step in the PDB construction.", "500");
-    parser.add_option<int> ("precomputation_nodes", "Maximum number of BDD nodes in the frontier of the PDB.", "200000");
+    // JS: 200000 * (3500 / 8000) = 87500
+    parser.add_option<int> ("precomputation_nodes", "Maximum number of BDD nodes in the frontier of the PDB.", "87500");
 
     parser.add_option<int> ("termination_time_ms", "Maximum construction time for each PDB in the termination phase.", "30000");
     parser.add_option<int> ("termination_step_time_ms", "Maximum time for each step in the PDB construction during the termination phase.", "10000");
-    parser.add_option<int> ("termination_nodes", "Maximum number of BDD nodes in the frontier of the PDB.", "20000000");
+    // JS: 20000000 * (3500 / 8000) = 8750000
+    parser.add_option<int> ("termination_nodes", "Maximum number of BDD nodes in the frontier of the PDB.", "8750000");
 
     parser.add_option<double> ("increase_factor", "Multiplication factor when we increase the precomputation time for a PDB.", "2");
 
