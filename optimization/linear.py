@@ -353,7 +353,7 @@ def evaluate_sequence(cfg, print_final_configuration=False):
     elif not is_duplicate:
         logging.info(f"Sequence: {results}")
     else:
-        logging.debug(f"Duplicated Sequence: {results}")
+        logging.info(f"Duplicated Sequence: {results}")
 
     # STORED_VALID_SEQUENCES.append((penalty, cfg))
 
