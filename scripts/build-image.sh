@@ -6,7 +6,7 @@ TMPDIR="/tmp/singularity-rundir"
 
 RECIPE=${1}
 IMAGE=${2}
-BENCHMARKS_DIR=${3}
+BENCHMARKS_DIR=${DOWNWARD_BENCHMARKS}
 
 if [[ -e ${IMAGE} ]]; then
     echo "Image exists -> will test it now."
