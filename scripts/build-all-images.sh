@@ -24,7 +24,7 @@ OUTDIR=../images/
 ./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-05 ${OUTDIR}/delfi-mas-miasm.img
 ./build-image.sh ../planners/ipc-2018/seq-opt/decstar/Singularity_fork ${OUTDIR}/decstar-fork.img || true
 ./build-image.sh ../planners/ipc-2018/seq-opt/decstar/Singularity_star ${OUTDIR}/decstar-star.img || true
-./build-image.sh ../planners/ipc-2018/scorpion/scorpion/Singularity ${OUTDIR}/scorpion.img
+./build-image.sh ../planners/ipc-2018/seq-opt/scorpion/Singularity ${OUTDIR}/scorpion.img
 ./build-image.sh ../planners/custom/seq-opt/scorpion-nodiv/Singularity ${OUTDIR}/scorpion-nodiv.img
 
 ./build-image.sh ../planners/custom/seq-opt/fd-19.06/Singularity-gbfs-ff ${OUTDIR}/gbfs-ff.img
