@@ -27,18 +27,15 @@ exp.add_step(
 
 
 # TODO: Use versions for 3.5 GiB and 1800s.
-for algo in [
-    "complementary2",
-    "delfi_celmcut",
-    "delfi_ipdb",
-    "delfi_mas_sccdfp",
-    "scorpion",
+for old, new in [
+    ("complementary2", "complementary2_3584mb_1800s"),
+    ("delfi_celmcut", ""),
+    ("delfi_ipdb", "delfi_ipdb_1800s"),
+    ("delfi_mas_sccdfp", "delfi_mas_sccdfp_1800s"),
+    ("scorpion", ""),
 ]:
     project.fetch_algorithm(
-        exp,
-        "2019-11-16-C-opt-evaluation-old-30min",
-        algo,
-        algo)
+        exp, "2019-11-16-C-opt-evaluation-old-30min", old, new)
 
 for algo in [
     "decstar_opt",
