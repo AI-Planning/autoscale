@@ -29,7 +29,7 @@ IMAGES_DIR = os.path.join(REPO, "images")
 BENCHMARKS_DIR = os.path.join(REPO, "benchmarks")
 
 BENCHMARKS = [
-    "2020-01-18-new14-opt",
+    "2020-01-18-new20-opt",
 ]
 ENVIRONMENT = BaselSlurmEnvironment(
     partition="infai_2",
@@ -85,7 +85,7 @@ for benchmarks_dir in BENCHMARKS:
         suite.extend(suites.build_suite(abs_benchmarks_dir, [domain]))
 if not project.REMOTE:
     suite = [task for task in suite if task.problem == "p01.pddl"]
-    #IMAGES = IMAGES[:2]
+    IMAGES = IMAGES[:2]
     #suite = suites.build_suite(
     #    os.environ["DOWNWARD_BENCHMARKS"],
     #    ["depot:p01.pddl", "caldera-split-opt18-adl:p01.pddl"])
