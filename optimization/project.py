@@ -302,3 +302,24 @@ def add_scp_steps(exp):
             'scp', '-r',
             '%s:%s-eval' % (USER.scp_login, remote_exp),
             '%s-eval' % exp.path])
+
+
+def fetch_algorithm(exp, expname, algo, new_algo=None):
+    """
+    Fetch and rename a single algorithm.
+    """
+    assert not expname.rstrip("/").endswith("-eval")
+    new_algo = new_algo or algo
+
+    def algo_filter(run):
+        if run["algorithm"] == algo:
+            run["algorithm"] = new_algo
+            run['id'][0] = run['id'][0].replace(algo, new_algo)
+            return run
+        return False
+
+    exp.add_fetcher(
+        os.path.join("data", expname + "-eval"),
+        filter=algo_filter,
+        name="fetch-{new_algo}-from-{expname}".format(**locals()),
+        merge=True)
