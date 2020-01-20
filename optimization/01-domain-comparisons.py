@@ -8,7 +8,7 @@ from lab.reports import Report, Table
 
 from project import DOMAIN_RENAMINGS
 
-OPT_OLD_DOMAIN_SIZES = {
+OPT_IPC_DOMAIN_SIZES = {
     "barman": 34,
     "blocksworld": 35,
     "childsnack": 20,
@@ -35,7 +35,7 @@ OPT_OLD_DOMAIN_SIZES = {
     "zenotravel": 20,
 }
 
-SAT_OLD_DOMAIN_SIZES = {
+SAT_IPC_DOMAIN_SIZES = {
     "barman": 40,
     "blocksworld": 35,
     "childsnack": 20,
@@ -70,15 +70,15 @@ def parse_args():
 ARGS = parse_args()
 
 if ARGS.track == "opt":
-    OLD_DOMAIN_SIZES = OPT_OLD_DOMAIN_SIZES
-    from results.coverage_scores_opt import OPT_OLD as OLD
-    from results.coverage_scores_opt import OPT_NEW as NEW
+    IPC_DOMAIN_SIZES = OPT_IPC_DOMAIN_SIZES
+    from results.coverage_scores_opt import OPT_OLD as IPC
+    from results.coverage_scores_opt import OPT_NEW as NEW2014
 else:
-    OLD_DOMAIN_SIZES = SAT_OLD_DOMAIN_SIZES
-    from results.coverage_scores_sat import SAT_OLD as OLD
-    from results.coverage_scores_sat import SAT_NEW as NEW
+    IPC_DOMAIN_SIZES = SAT_IPC_DOMAIN_SIZES
+    from results.coverage_scores_sat import SAT_OLD as IPC
+    from results.coverage_scores_sat import SAT_NEW as NEW2014
 
-names = ["old", "new"]
+names = ["ipc", "new2014"]
 
 sets = {}
 dicts = {}
@@ -115,7 +115,7 @@ def version(s):
 
 
 table = Table(title="comparison", min_wins=None)
-table.set_column_order(["old size", "old min/max coverage", "new min/max coverage", "old unique", "new unique", "old only", "new only"])
+table.set_column_order(["ipc size", "ipc min/max coverage", "new2014 min/max coverage", "ipc unique", "new2014 unique", "ipc only", "new2014 only"])
 for name in names:
     different_coverage_scores = defaultdict(set)
     for domain, algo, coverage in sets[name]:
@@ -135,9 +135,9 @@ for name1, name2 in itertools.combinations(names, 2):
     #table.set_column_order(outcomes)
 
     for domain in sorted(domains):
-        table.add_cell(domain, "old size", OLD_DOMAIN_SIZES[domain])
-        table.add_cell(domain, "old min/max coverage", " ''{}--{}''".format(min(dicts[name1][domain].values()), max(dicts[name1][domain].values())))
-        table.add_cell(domain, "new min/max coverage", " ''{}--{}''".format(min(dicts[name2][domain].values()), max(dicts[name2][domain].values())))
+        table.add_cell(domain, "ipc size", IPC_DOMAIN_SIZES[domain])
+        table.add_cell(domain, "ipc min/max coverage", " ''{}--{}''".format(min(dicts[name1][domain].values()), max(dicts[name1][domain].values())))
+        table.add_cell(domain, "new2014 min/max coverage", " ''{}--{}''".format(min(dicts[name2][domain].values()), max(dicts[name2][domain].values())))
         result = {outcome: 0 for outcome in outcomes}
         for planner1, planner2 in itertools.permutations(planners, 2):
             coverage11 = dicts[name1][domain][planner1]
