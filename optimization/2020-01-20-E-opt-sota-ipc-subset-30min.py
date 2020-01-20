@@ -81,8 +81,7 @@ def get_image(name):
 TIME_LIMIT = 1800 if project.REMOTE else 1
 IMAGES = [
     #get_image("complementary2-3584mb-1800s"),
-    get_image("decstar-fork"),
-    get_image("decstar-star"),
+    get_image("decstar-opt"),
     get_image("delfi-blind"),
     #get_image("delfi-celmcut"),
     #get_image("delfi-ipdb-1800s"),
