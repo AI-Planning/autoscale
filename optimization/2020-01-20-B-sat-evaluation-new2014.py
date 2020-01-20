@@ -61,15 +61,13 @@ def get_image(name):
 TIME_LIMIT = 1800 if project.REMOTE else 1
 IMAGES = [
     get_image("cerberus"),
-    get_image("decstar-dec-fallback"),
-    get_image("decstar-dec"),
-    get_image("decstar-fork"),
-    get_image("decstar-star"),
+    get_image("decstar-agl"),
     get_image("lapkt-bfws-pref"),
     get_image("lapkt-dual-bfws"),
-    get_image("saarplan-dec-fallback"),
-    get_image("saarplan-dec"),
-    get_image("saarplan-grey"),
+    get_image("lapkt-poly-bfws"),
+    get_image("olcff"),
+    get_image("remix-agl"),
+    get_image("saarplan-agl"),
 ]
 
 for planner, image in IMAGES:
@@ -88,7 +86,7 @@ for benchmarks_dir in BENCHMARKS:
         suite.extend(suites.build_suite(abs_benchmarks_dir, [domain]))
 if not project.REMOTE:
     suite = [task for task in suite if task.problem == "p01.pddl"]
-    IMAGES = IMAGES[:2]
+    #IMAGES = IMAGES[:2]
     #suite = suites.build_suite(
     #    os.environ["DOWNWARD_BENCHMARKS"],
     #    ["depot:p01.pddl", "caldera-split-opt18-adl:p01.pddl"])

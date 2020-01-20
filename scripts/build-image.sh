@@ -9,9 +9,9 @@ IMAGE=${2}
 BENCHMARKS_DIR=${DOWNWARD_BENCHMARKS}
 
 if [[ -e ${IMAGE} ]]; then
-    echo "Image exists -> will test it now."
+    echo "Image ${IMAGE} exists -> will test it now."
 else
-    echo "Image does not exist -> will create and test it now."
+    echo "Image ${IMAGE} does not exist -> will create and test it now."
     sudo singularity build ${IMAGE} ${RECIPE}
 fi
 

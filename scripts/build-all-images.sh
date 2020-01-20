@@ -31,8 +31,11 @@ OUTDIR=../images/
 ./build-image.sh ../planners/custom/seq-opt/fd-19.06/Singularity-gbfs-ff ${OUTDIR}/gbfs-ff.img
 ./build-image.sh ../planners/custom/seq-opt/fd-19.06/Singularity-lama-first ${OUTDIR}/lama-first.img
 ./build-image.sh ../planners/sat/decstar/Singularity ${OUTDIR}/decstar-agl.img
+./build-image.sh ../planners/sat/fast-downward-remix-agl/Singularity ${OUTDIR}/remix-agl.img
 ./build-image.sh ../planners/sat/lapkt-dual-bfws/Singularity ${OUTDIR}/lapkt-dual-bfws.img
 ./build-image.sh ../planners/sat/lapkt-bfws-pref/Singularity ${OUTDIR}/lapkt-bfws-pref.img
+./build-image.sh ../planners/sat/lapkt-poly-bfws/Singularity ${OUTDIR}/lapkt-poly-pref.img
+./build-image.sh ../planners/sat/olcff/Singularity ${OUTDIR}/olcff.img
 ./build-image.sh ../planners/sat/madagascar/Singularity-MpC ${OUTDIR}/mpc.img
 ./build-image.sh ../planners/sat/saarplan/Singularity-dec-fallback ${OUTDIR}/saarplan-dec-fallback.img
 ./build-image.sh ../planners/sat/saarplan/Singularity-grey ${OUTDIR}/saarplan-grey.img
