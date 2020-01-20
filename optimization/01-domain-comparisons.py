@@ -8,6 +8,60 @@ from lab.reports import Report, Table
 
 from project import DOMAIN_RENAMINGS
 
+OPT_OLD_DOMAIN_SIZES = {
+    "barman": 34,
+    "blocksworld": 35,
+    "childsnack": 20,
+    "depot": 22,
+    "driverlog": 20,
+    "elevators": 50,
+    "floortile": 40,
+    "gripper": 20,
+    "hiking": 20,
+    "miconic-strips": 150,
+    "nomystery": 20,
+    "parking": 40,
+    "pathways": 30,
+    "rovers": 40,
+    "satellite": 36,
+    "scanalyzer": 50,
+    "snake": 20,
+    "storage": 30,
+    "tpp": 30,
+    "transport": 70,
+    "trucks": 30,
+    "visitall": 40,
+    "woodworking": 50,
+    "zenotravel": 20,
+}
+
+SAT_OLD_DOMAIN_SIZES = {
+    "barman": 40,
+    "blocksworld": 35,
+    "childsnack": 20,
+    "depot": 22,
+    "driverlog": 20,
+    "elevators": 50,
+    "floortile": 40,
+    "gripper": 20,
+    "hiking": 20,
+    "miconic-strips": 150,
+    "nomystery": 20,
+    "parking": 40,
+    "pathways": 30,
+    "rovers": 40,
+    "satellite": 36,
+    "scanalyzer": 50,
+    "snake": 20,
+    "storage": 30,
+    "tpp": 30,
+    "transport": 70,
+    "trucks": 30,
+    "visitall": 40,
+    "woodworking": 50,
+    "zenotravel": 20,
+}
+
 def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("track", choices=["sat", "opt"])
@@ -16,11 +70,11 @@ def parse_args():
 ARGS = parse_args()
 
 if ARGS.track == "opt":
-    from results.coverage_scores_opt import OPT_OLD_DOMAIN_SIZES as OLD_DOMAIN_SIZES
+    OLD_DOMAIN_SIZES = OPT_OLD_DOMAIN_SIZES
     from results.coverage_scores_opt import OPT_OLD as OLD
     from results.coverage_scores_opt import OPT_NEW as NEW
 else:
-    from results.coverage_scores_sat import SAT_OLD_DOMAIN_SIZES as OLD_DOMAIN_SIZES
+    OLD_DOMAIN_SIZES = SAT_OLD_DOMAIN_SIZES
     from results.coverage_scores_sat import SAT_OLD as OLD
     from results.coverage_scores_sat import SAT_NEW as NEW
 
@@ -99,7 +153,7 @@ for name1, name2 in itertools.combinations(names, 2):
 
 
 def render_txt2tags(text, target="xhtml"):
-    #return text
+    return text
     from lab.reports import markup
     doc = markup.Document()
     doc.add_text(text)
