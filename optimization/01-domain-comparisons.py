@@ -1,5 +1,6 @@
 #! /usr/bin/env python3
 
+import argparse
 from collections import defaultdict
 import itertools
 
@@ -7,11 +8,23 @@ from lab.reports import Report, Table
 
 from project import DOMAIN_RENAMINGS
 
-from results.coverage_scores_opt import OPT_OLD_DOMAIN_SIZES, OPT_OLD, OPT_NEW
-from results.coverage_scores_sat import SAT_OLD_DOMAIN_SIZES, SAT_OLD, SAT_NEW
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("track", choices=["sat", "opt"])
+    return parser.parse_args()
 
-#names = ["opt_old", "opt_new"]
-names = ["sat_old", "sat_new"]
+ARGS = parse_args()
+
+if ARGS.track == "opt":
+    from results.coverage_scores_opt import OPT_OLD_DOMAIN_SIZES as OLD_DOMAIN_SIZES
+    from results.coverage_scores_opt import OPT_OLD as OLD
+    from results.coverage_scores_opt import OPT_NEW as NEW
+else:
+    from results.coverage_scores_sat import SAT_OLD_DOMAIN_SIZES as OLD_DOMAIN_SIZES
+    from results.coverage_scores_sat import SAT_OLD as OLD
+    from results.coverage_scores_sat import SAT_NEW as NEW
+
+names = ["old", "new"]
 
 sets = {}
 dicts = {}
@@ -68,7 +81,7 @@ for name1, name2 in itertools.combinations(names, 2):
     #table.set_column_order(outcomes)
 
     for domain in sorted(domains):
-        table.add_cell(domain, "old size", OPT_OLD_DOMAIN_SIZES[domain])
+        table.add_cell(domain, "old size", OLD_DOMAIN_SIZES[domain])
         table.add_cell(domain, "old min/max coverage", " ''{}--{}''".format(min(dicts[name1][domain].values()), max(dicts[name1][domain].values())))
         table.add_cell(domain, "new min/max coverage", " ''{}--{}''".format(min(dicts[name2][domain].values()), max(dicts[name2][domain].values())))
         result = {outcome: 0 for outcome in outcomes}
