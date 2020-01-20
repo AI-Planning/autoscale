@@ -19,7 +19,7 @@ OPT_OLD_DOMAIN_SIZES = {
     "storage": 30,
     "tpp": 30,
     "transport": 70,
-    "trucks": 60,
+    "trucks": 30,
     "visitall": 40,
     "woodworking": 50,
     "zenotravel": 20,
