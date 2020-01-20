@@ -4,14 +4,17 @@ OPT_OLD_DOMAIN_SIZES = {
     "childsnack": 20,
     "depot": 22,
     "driverlog": 20,
+    "elevators": 50,
     "floortile": 40,
     "gripper": 20,
     "hiking": 20,
     "miconic-strips": 150,
     "nomystery": 20,
     "parking": 40,
+    "pathways": 30,
     "rovers": 40,
     "satellite": 36,
+    "scanalyzer": 50,
     "snake": 20,
     "storage": 30,
     "tpp": 30,
@@ -19,7 +22,7 @@ OPT_OLD_DOMAIN_SIZES = {
     "trucks": 60,
     "visitall": 40,
     "woodworking": 50,
-    "zenotravel": 20
+    "zenotravel": 20,
 }
 
 OPT_OLD = [
