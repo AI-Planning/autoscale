@@ -34,7 +34,7 @@ OUTDIR=../images/
 ./build-image.sh ../planners/sat/fast-downward-remix-agl/Singularity ${OUTDIR}/remix-agl.img
 ./build-image.sh ../planners/sat/lapkt-dual-bfws/Singularity ${OUTDIR}/lapkt-dual-bfws.img
 ./build-image.sh ../planners/sat/lapkt-bfws-pref/Singularity ${OUTDIR}/lapkt-bfws-pref.img
-./build-image.sh ../planners/sat/lapkt-poly-bfws/Singularity ${OUTDIR}/lapkt-poly-pref.img
+./build-image.sh ../planners/sat/lapkt-poly-bfws/Singularity ${OUTDIR}/lapkt-poly-bfws.img
 ./build-image.sh ../planners/sat/olcff/Singularity ${OUTDIR}/olcff.img
 ./build-image.sh ../planners/sat/madagascar/Singularity-MpC ${OUTDIR}/mpc.img
 ./build-image.sh ../planners/sat/saarplan/Singularity-dec-fallback ${OUTDIR}/saarplan-dec-fallback.img
