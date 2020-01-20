@@ -40,6 +40,17 @@ for algo in [
         algo,
         algo)
 
+for algo in [
+    "decstar_opt",
+    "delfi_blind",
+    "delfi_mas_miasm",
+]:
+    project.fetch_algorithm(
+        exp,
+        "2020-01-20-E-opt-sota-ipc-subset-30min",
+        algo,
+        algo)
+
 domains = [
     "barman", "blocksworld", "childsnack", "depot", "driverlog",
     "elevators", "floortile", "gripper", "hiking", "miconic-strips",
