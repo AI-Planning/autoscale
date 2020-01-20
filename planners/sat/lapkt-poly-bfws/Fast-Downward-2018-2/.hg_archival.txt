@@ -1,0 +1,5 @@
+repo: 875fe8fa322a09154e7c39371c8fc3921e36d73d
+node: 00c35334a7b05126132a35d23012bcddd9251d15
+branch: default
+latesttag: issue717-v2
+latesttagdistance: 22
