@@ -32,7 +32,7 @@ BENCHMARKS = [
     "2020-01-18-new20-opt",
 ]
 ENVIRONMENT = BaselSlurmEnvironment(
-    partition="infai_2",
+    partition="infai_1",
     email="jendrik.seipp@unibas.ch",
     memory_per_cpu='3872M',
     export=["PATH"],
