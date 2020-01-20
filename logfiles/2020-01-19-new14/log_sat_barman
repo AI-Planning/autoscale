@@ -1,0 +1,32 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-01-20 10:58:15,326 INFO     No run directory, so we will not run anything
+2020-01-20 10:58:17,888 INFO     Loading cache data for baseline planners: 558
+2020-01-20 10:58:17,889 INFO     Loading cache data for sart planners: 2552
+2020-01-20 10:58:17,892 INFO     Stored sequences: 24457
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 10, 'num_shots': 18, 'num_ingredients': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 11, 'num_shots': 18, 'num_ingredients': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 12, 'num_shots': 20, 'num_ingredients': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 12, 'num_shots': 17, 'num_ingredients': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 12, 'num_shots': 17, 'num_ingredients': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 12, 'num_shots': 17, 'num_ingredients': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 12, 'num_shots': 17, 'num_ingredients': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 12, 'num_shots': 17, 'num_ingredients': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 12, 'num_shots': 21, 'num_ingredients': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 12, 'num_shots': 17, 'num_ingredients': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 12, 'num_shots': 17, 'num_ingredients': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 12, 'num_shots': 18, 'num_ingredients': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 12, 'num_shots': 17, 'num_ingredients': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 12, 'num_shots': 17, 'num_ingredients': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 12, 'num_shots': 17, 'num_ingredients': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 12, 'num_shots': 17, 'num_ingredients': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 12, 'num_shots': 17, 'num_ingredients': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 12, 'num_shots': 17, 'num_ingredients': 5}, so I consider it unsolvable
+2020-01-20 10:58:22,793 INFO     Different evaluated sequences: 1643
+2020-01-20 10:58:23,351 INFO     Candidate sequences: 100
+2020-01-20 10:58:23,352 INFO     Using sart runtimes on CPLEX optimization
+2020-01-20 10:58:23,640 INFO     CPLEX solve
+
+2020-01-20 10:58:24,162 INFO     Solution status = 101: MIP_optimal
+2020-01-20 10:58:24,162 INFO     Solution value  = 12.0
+2020-01-20 10:58:24,165 INFO     Selected: sequence 7, 30 instances from 0 to 29: [1.0, 2.0, 4.0, 6.0, 6.0, 10.0, 18.0, 22.0, 42.0, 42.0, 61.0, 93.0, 124.0, 136.0, 196.5208831111176, 283.97395219686433, 410.3442048991329, 592.9500406346102, 856.8166590168138, 1238.1056359875115, 1789.0706835964534, 2585.2187550631315, 3735.6578880914017, 5398.049905652461, 7800.217165711079, 11271.364454882647, 16287.194827505871, 23535.102286060886, 34008.37562769977, 49142.3236141924]
+2020-01-20 10:58:24,166 INFO     [{'num_cocktails': 5, 'num_shots': 6, 'num_ingredients': 3}, {'num_cocktails': 9, 'num_shots': 14, 'num_ingredients': 3}, {'num_cocktails': 13, 'num_shots': 23, 'num_ingredients': 3}, {'num_cocktails': 17, 'num_shots': 31, 'num_ingredients': 3}, {'num_cocktails': 22, 'num_shots': 41, 'num_ingredients': 3}, {'num_cocktails': 26, 'num_shots': 49, 'num_ingredients': 3}, {'num_cocktails': 30, 'num_shots': 58, 'num_ingredients': 3}, {'num_cocktails': 34, 'num_shots': 66, 'num_ingredients': 3}, {'num_cocktails': 39, 'num_shots': 76, 'num_ingredients': 3}, {'num_cocktails': 43, 'num_shots': 84, 'num_ingredients': 3}, {'num_cocktails': 47, 'num_shots': 93, 'num_ingredients': 3}, {'num_cocktails': 51, 'num_shots': 101, 'num_ingredients': 3}, {'num_cocktails': 56, 'num_shots': 111, 'num_ingredients': 3}, {'num_cocktails': 60, 'num_shots': 119, 'num_ingredients': 3}, {'num_cocktails': 64, 'num_shots': 128, 'num_ingredients': 3}, {'num_cocktails': 68, 'num_shots': 136, 'num_ingredients': 3}, {'num_cocktails': 73, 'num_shots': 146, 'num_ingredients': 3}, {'num_cocktails': 77, 'num_shots': 155, 'num_ingredients': 3}, {'num_cocktails': 81, 'num_shots': 163, 'num_ingredients': 3}, {'num_cocktails': 85, 'num_shots': 172, 'num_ingredients': 3}, {'num_cocktails': 90, 'num_shots': 181, 'num_ingredients': 3}, {'num_cocktails': 94, 'num_shots': 190, 'num_ingredients': 3}, {'num_cocktails': 98, 'num_shots': 198, 'num_ingredients': 3}, {'num_cocktails': 102, 'num_shots': 207, 'num_ingredients': 3}, {'num_cocktails': 107, 'num_shots': 216, 'num_ingredients': 3}, {'num_cocktails': 111, 'num_shots': 225, 'num_ingredients': 3}, {'num_cocktails': 115, 'num_shots': 233, 'num_ingredients': 3}, {'num_cocktails': 119, 'num_shots': 242, 'num_ingredients': 3}, {'num_cocktails': 124, 'num_shots': 251, 'num_ingredients': 3}, {'num_cocktails': 128, 'num_shots': 260, 'num_ingredients': 3}]

@@ -1,0 +1,123 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-01-20 11:11:31,176 INFO     No run directory, so we will not run anything
+2020-01-20 11:11:33,651 INFO     Loading cache data for baseline planners: 2191
+2020-01-20 11:11:33,656 INFO     Loading cache data for sart planners: 21294
+2020-01-20 11:11:33,701 INFO     Stored sequences: 2093
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 6, 'cameras': 6, 'goals': 12, 'waypoints': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 5, 'cameras': 5, 'goals': 11, 'waypoints': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 5, 'cameras': 7, 'goals': 12, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 7, 'objectives': 6, 'cameras': 5, 'goals': 13, 'waypoints': 8}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 6, 'objectives': 6, 'cameras': 5, 'goals': 12, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 6, 'cameras': 5, 'goals': 12, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 6, 'cameras': 7, 'goals': 12, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 6, 'objectives': 5, 'cameras': 7, 'goals': 12, 'waypoints': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 6, 'objectives': 6, 'cameras': 5, 'goals': 12, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 6, 'objectives': 6, 'cameras': 5, 'goals': 12, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 7, 'objectives': 6, 'cameras': 5, 'goals': 13, 'waypoints': 8}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 6, 'objectives': 6, 'cameras': 5, 'goals': 12, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 6, 'cameras': 5, 'goals': 12, 'waypoints': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 5, 'cameras': 6, 'goals': 11, 'waypoints': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 5, 'cameras': 6, 'goals': 11, 'waypoints': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 6, 'cameras': 6, 'goals': 12, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 5, 'cameras': 6, 'goals': 11, 'waypoints': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 6, 'objectives': 6, 'cameras': 5, 'goals': 12, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 6, 'objectives': 6, 'cameras': 5, 'goals': 12, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 6, 'cameras': 7, 'goals': 12, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 6, 'cameras': 5, 'goals': 12, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 6, 'cameras': 5, 'goals': 11, 'waypoints': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 6, 'objectives': 6, 'cameras': 5, 'goals': 12, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 6, 'cameras': 7, 'goals': 12, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 5, 'cameras': 6, 'goals': 11, 'waypoints': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 5, 'cameras': 6, 'goals': 11, 'waypoints': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 6, 'cameras': 7, 'goals': 12, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 6, 'objectives': 6, 'cameras': 5, 'goals': 12, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 6, 'objectives': 6, 'cameras': 5, 'goals': 12, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 6, 'objectives': 6, 'cameras': 5, 'goals': 12, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 7, 'objectives': 5, 'cameras': 8, 'goals': 13, 'waypoints': 8}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 4, 'cameras': 7, 'goals': 11, 'waypoints': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 7, 'objectives': 5, 'cameras': 7, 'goals': 12, 'waypoints': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 7, 'objectives': 4, 'cameras': 7, 'goals': 12, 'waypoints': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 6, 'objectives': 5, 'cameras': 7, 'goals': 12, 'waypoints': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 5, 'cameras': 5, 'goals': 12, 'waypoints': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 8, 'objectives': 4, 'cameras': 9, 'goals': 14, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 5, 'cameras': 7, 'goals': 12, 'waypoints': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 6, 'objectives': 5, 'cameras': 7, 'goals': 12, 'waypoints': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 5, 'cameras': 5, 'goals': 12, 'waypoints': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 7, 'objectives': 5, 'cameras': 7, 'goals': 12, 'waypoints': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 7, 'objectives': 5, 'cameras': 7, 'goals': 12, 'waypoints': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 6, 'objectives': 5, 'cameras': 7, 'goals': 12, 'waypoints': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 7, 'objectives': 5, 'cameras': 7, 'goals': 12, 'waypoints': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 5, 'cameras': 5, 'goals': 11, 'waypoints': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 6, 'objectives': 5, 'cameras': 7, 'goals': 12, 'waypoints': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 7, 'objectives': 5, 'cameras': 7, 'goals': 12, 'waypoints': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 7, 'objectives': 4, 'cameras': 8, 'goals': 13, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 6, 'cameras': 5, 'goals': 12, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 6, 'cameras': 6, 'goals': 12, 'waypoints': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 7, 'objectives': 6, 'cameras': 5, 'goals': 12, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 5, 'cameras': 5, 'goals': 11, 'waypoints': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 5, 'cameras': 7, 'goals': 12, 'waypoints': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 6, 'objectives': 6, 'cameras': 5, 'goals': 12, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 5, 'cameras': 6, 'goals': 11, 'waypoints': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 7, 'objectives': 5, 'cameras': 7, 'goals': 12, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 6, 'cameras': 7, 'goals': 12, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 6, 'cameras': 6, 'goals': 12, 'waypoints': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 6, 'cameras': 7, 'goals': 12, 'waypoints': 8}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 5, 'cameras': 7, 'goals': 12, 'waypoints': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 6, 'cameras': 7, 'goals': 12, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 6, 'cameras': 7, 'goals': 12, 'waypoints': 8}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 6, 'cameras': 7, 'goals': 12, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 6, 'cameras': 7, 'goals': 12, 'waypoints': 8}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 6, 'objectives': 6, 'cameras': 7, 'goals': 12, 'waypoints': 8}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 6, 'cameras': 11, 'goals': 12, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 5, 'cameras': 6, 'goals': 11, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 5, 'cameras': 6, 'goals': 11, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 5, 'cameras': 6, 'goals': 11, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 5, 'cameras': 6, 'goals': 11, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 6, 'cameras': 6, 'goals': 11, 'waypoints': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 5, 'cameras': 6, 'goals': 11, 'waypoints': 8}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 4, 'cameras': 7, 'goals': 11, 'waypoints': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 4, 'cameras': 6, 'goals': 11, 'waypoints': 8}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 5, 'cameras': 5, 'goals': 11, 'waypoints': 8}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 5, 'cameras': 5, 'goals': 11, 'waypoints': 8}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 5, 'cameras': 6, 'goals': 11, 'waypoints': 8}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 5, 'cameras': 6, 'goals': 11, 'waypoints': 8}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 5, 'cameras': 6, 'goals': 11, 'waypoints': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 5, 'cameras': 6, 'goals': 11, 'waypoints': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 5, 'cameras': 6, 'goals': 11, 'waypoints': 9}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 5, 'cameras': 6, 'goals': 11, 'waypoints': 9}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 5, 'cameras': 6, 'goals': 11, 'waypoints': 9}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 5, 'cameras': 5, 'goals': 11, 'waypoints': 8}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 4, 'cameras': 6, 'goals': 11, 'waypoints': 9}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 5, 'cameras': 7, 'goals': 11, 'waypoints': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 6, 'cameras': 6, 'goals': 12, 'waypoints': 9}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 5, 'cameras': 6, 'goals': 11, 'waypoints': 8}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 5, 'cameras': 6, 'goals': 11, 'waypoints': 9}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 5, 'cameras': 7, 'goals': 11, 'waypoints': 9}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 4, 'cameras': 6, 'goals': 11, 'waypoints': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 5, 'cameras': 7, 'goals': 11, 'waypoints': 9}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 4, 'cameras': 7, 'goals': 11, 'waypoints': 9}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 5, 'cameras': 8, 'goals': 12, 'waypoints': 9}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 5, 'cameras': 8, 'goals': 12, 'waypoints': 9}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 4, 'cameras': 8, 'goals': 12, 'waypoints': 9}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 4, 'cameras': 5, 'goals': 12, 'waypoints': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 4, 'cameras': 5, 'goals': 12, 'waypoints': 9}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 5, 'cameras': 7, 'goals': 11, 'waypoints': 5}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 5, 'cameras': 5, 'goals': 12, 'waypoints': 9}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 4, 'cameras': 9, 'goals': 12, 'waypoints': 9}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 6, 'cameras': 9, 'goals': 12, 'waypoints': 9}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 6, 'cameras': 8, 'goals': 12, 'waypoints': 9}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 4, 'objectives': 5, 'cameras': 8, 'goals': 12, 'waypoints': 9}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 5, 'cameras': 5, 'goals': 12, 'waypoints': 9}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 4, 'cameras': 8, 'goals': 12, 'waypoints': 9}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 5, 'objectives': 5, 'cameras': 8, 'goals': 12, 'waypoints': 9}, so I consider it unsolvable
+2020-01-20 11:11:34,556 INFO     Different evaluated sequences: 1419
+2020-01-20 11:11:34,762 INFO     Candidate sequences: 100
+2020-01-20 11:11:34,763 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 2 use baseline 98 use sart
+2020-01-20 11:11:34,763 INFO     Using sart runtimes on CPLEX optimization
+2020-01-20 11:11:35,066 INFO     CPLEX solve
+
+2020-01-20 11:11:35,389 INFO     Solution status = 101: MIP_optimal
+2020-01-20 11:11:35,390 INFO     Solution value  = 11.432900432900432
+2020-01-20 11:11:35,393 INFO     Selected: sequence 1321, 21 instances from 3 to 23: [2.0, 3.0, 3.0, 5.0, 5.0, 8.0, 8.0, 11.0, 18.0, 19.0, 19.0, 28.0, 28.0, 33.0, 33.0, 39.0, 179.99999999999997, 830.7692307692306, 3834.319526627218, 17696.85935366408, 81677.81240152652, 376974.5187762762, 1739882.394352044, 8030226.435470971, 37062583.54832756, 171058077.91535795, 789498821.1478058]
+2020-01-20 11:11:35,393 INFO     Selected: sequence 59, 9 instances from 19 to 27: [180.0, 320.7920792079208, 571.7086560141163, 1018.8867136885241, 1815.8377075637063, 3236.1464095194765, 5767.38964072778, 10278.516191396044, 18318.147667834535, 32646.203764457587, 58181.35324358778]
+2020-01-20 11:11:35,393 INFO     [{'rovers': 13, 'objectives': 15, 'cameras': 27, 'goals': 32, 'waypoints': 12}, {'rovers': 14, 'objectives': 19, 'cameras': 31, 'goals': 37, 'waypoints': 12}, {'rovers': 15, 'objectives': 23, 'cameras': 35, 'goals': 42, 'waypoints': 13}, {'rovers': 16, 'objectives': 27, 'cameras': 39, 'goals': 46, 'waypoints': 14}, {'rovers': 17, 'objectives': 31, 'cameras': 43, 'goals': 51, 'waypoints': 15}, {'rovers': 18, 'objectives': 35, 'cameras': 47, 'goals': 55, 'waypoints': 15}, {'rovers': 19, 'objectives': 39, 'cameras': 51, 'goals': 60, 'waypoints': 16}, {'rovers': 20, 'objectives': 43, 'cameras': 55, 'goals': 65, 'waypoints': 17}, {'rovers': 21, 'objectives': 47, 'cameras': 59, 'goals': 69, 'waypoints': 18}, {'rovers': 22, 'objectives': 51, 'cameras': 63, 'goals': 74, 'waypoints': 18}, {'rovers': 23, 'objectives': 55, 'cameras': 67, 'goals': 78, 'waypoints': 19}, {'rovers': 24, 'objectives': 59, 'cameras': 71, 'goals': 83, 'waypoints': 20}, {'rovers': 25, 'objectives': 63, 'cameras': 75, 'goals': 88, 'waypoints': 21}, {'rovers': 26, 'objectives': 67, 'cameras': 79, 'goals': 92, 'waypoints': 21}, {'rovers': 27, 'objectives': 71, 'cameras': 83, 'goals': 97, 'waypoints': 22}, {'rovers': 28, 'objectives': 75, 'cameras': 87, 'goals': 101, 'waypoints': 23}, {'rovers': 29, 'objectives': 79, 'cameras': 91, 'goals': 106, 'waypoints': 24}, {'rovers': 30, 'objectives': 83, 'cameras': 95, 'goals': 111, 'waypoints': 24}, {'rovers': 31, 'objectives': 87, 'cameras': 99, 'goals': 115, 'waypoints': 25}, {'rovers': 32, 'objectives': 91, 'cameras': 103, 'goals': 120, 'waypoints': 26}, {'rovers': 33, 'objectives': 95, 'cameras': 107, 'goals': 124, 'waypoints': 27}, {'rovers': 37, 'objectives': 8, 'cameras': 83, 'goals': 81, 'waypoints': 94}, {'rovers': 39, 'objectives': 8, 'cameras': 86, 'goals': 85, 'waypoints': 99}, {'rovers': 40, 'objectives': 8, 'cameras': 90, 'goals': 88, 'waypoints': 104}, {'rovers': 42, 'objectives': 8, 'cameras': 94, 'goals': 91, 'waypoints': 108}, {'rovers': 43, 'objectives': 8, 'cameras': 98, 'goals': 94, 'waypoints': 113}, {'rovers': 45, 'objectives': 8, 'cameras': 102, 'goals': 98, 'waypoints': 118}, {'rovers': 47, 'objectives': 8, 'cameras': 106, 'goals': 101, 'waypoints': 123}, {'rovers': 48, 'objectives': 8, 'cameras': 110, 'goals': 104, 'waypoints': 127}, {'rovers': 50, 'objectives': 8, 'cameras': 114, 'goals': 107, 'waypoints': 132}]
