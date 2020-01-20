@@ -4,7 +4,7 @@ import argparse
 from collections import defaultdict
 import itertools
 
-from lab.reports import Report, Table
+from lab.reports import Table
 
 from project import DOMAIN_RENAMINGS
 
@@ -80,15 +80,12 @@ else:
 
 names = ["ipc", "new2014"]
 
-sets = {}
 dicts = {}
 domains = None
 planners = None
 for name in names:
     original_list = globals()[name.upper()]
     sanitized = [(DOMAIN_RENAMINGS[domain], algo, coverage) for domain, algo, coverage in original_list]
-    new_set = set(sanitized)
-    sets[name] = new_set
 
     new_domains = sorted({domain for domain, _, _ in sanitized})
     if domains is None:
@@ -118,8 +115,8 @@ table = Table(title="comparison", min_wins=None)
 table.set_column_order(["ipc size", "ipc min/max coverage", "new2014 min/max coverage", "ipc unique", "new2014 unique", "ipc only", "new2014 only"])
 for name in names:
     different_coverage_scores = defaultdict(set)
-    for domain, algo, coverage in sets[name]:
-        different_coverage_scores[domain].add(coverage)
+    for domain, algo_to_coverage in dicts[name].items():
+        different_coverage_scores[domain] |= set(algo_to_coverage.values())
     for domain in domains:
         different_scores = different_coverage_scores[domain]
         table.add_cell(domain, version(name) + " unique", len(different_scores))
@@ -127,9 +124,6 @@ for name in names:
 tables = [table]
 
 for name1, name2 in itertools.combinations(names, 2):
-    set1 = sets[name1]
-    set2 = sets[name2]
-
     #table = Table(title=f"{name1} vs. {name2}", min_wins=False)
     outcomes = [f"{name1}", f"{name2}"]
     #table.set_column_order(outcomes)
