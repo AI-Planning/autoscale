@@ -11,7 +11,6 @@ DIR = os.path.dirname(FILE)
 sys.path.insert(0, os.path.dirname(DIR))
 
 import project
-from reports.per_domain_comparison import PerDomainComparison
 
 
 FILENAME = os.path.splitext(os.path.basename(__file__))[0]
@@ -57,10 +56,10 @@ domains = [
 ]
 
 exp.add_report(
-    PerDomainComparison(
+    project.CoverageData(
         filter=[project.group_domains],
         filter_domain=domains,
         ),
-    name=f"{exp.name}-per-domain")
+    outfile=os.path.join(DIR, "results", f"{exp.name}-coverage.json"))
 
 exp.run_steps()

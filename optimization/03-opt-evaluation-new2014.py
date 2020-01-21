@@ -80,6 +80,6 @@ exp.add_report(
         filter=[project.group_domains],
         filter_domain=domains,
         ),
-    name=f"{exp.name}-per-domain")
+    outfile=os.path.join(DIR, "results", f"{exp.name}-coverage.json"))
 
 exp.run_steps()

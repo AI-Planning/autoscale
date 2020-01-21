@@ -1,0 +1,232 @@
+{
+  "barman": {
+    "complementary2_3584mb_1800s": 13,
+    "decstar_opt": 10,
+    "delfi_blind": 10,
+    "delfi_celmcut": 10,
+    "delfi_ipdb_1800s": 13,
+    "delfi_mas_miasm": 13,
+    "delfi_mas_sccdfp_1800s": 12,
+    "scorpion": 10
+  },
+  "blocksworld": {
+    "complementary2_3584mb_1800s": 9,
+    "decstar_opt": 10,
+    "delfi_blind": 5,
+    "delfi_celmcut": 11,
+    "delfi_ipdb_1800s": 9,
+    "delfi_mas_miasm": 9,
+    "delfi_mas_sccdfp_1800s": 8,
+    "scorpion": 12
+  },
+  "childsnack": {
+    "complementary2_3584mb_1800s": 10,
+    "decstar_opt": 11,
+    "delfi_blind": 14,
+    "delfi_celmcut": 14,
+    "delfi_ipdb_1800s": 14,
+    "delfi_mas_miasm": 13,
+    "delfi_mas_sccdfp_1800s": 14,
+    "scorpion": 6
+  },
+  "depot": {
+    "complementary2_3584mb_1800s": 11,
+    "decstar_opt": 13,
+    "delfi_blind": 10,
+    "delfi_celmcut": 14,
+    "delfi_ipdb_1800s": 16,
+    "delfi_mas_miasm": 15,
+    "delfi_mas_sccdfp_1800s": 14,
+    "scorpion": 21
+  },
+  "driverlog": {
+    "complementary2_3584mb_1800s": 23,
+    "decstar_opt": 30,
+    "delfi_blind": 10,
+    "delfi_celmcut": 27,
+    "delfi_ipdb_1800s": 24,
+    "delfi_mas_miasm": 27,
+    "delfi_mas_sccdfp_1800s": 29,
+    "scorpion": 22
+  },
+  "elevators": {
+    "complementary2_3584mb_1800s": 11,
+    "decstar_opt": 10,
+    "delfi_blind": 9,
+    "delfi_celmcut": 14,
+    "delfi_ipdb_1800s": 13,
+    "delfi_mas_miasm": 12,
+    "delfi_mas_sccdfp_1800s": 11,
+    "scorpion": 12
+  },
+  "floortile": {
+    "complementary2_3584mb_1800s": 18,
+    "decstar_opt": 16,
+    "delfi_blind": 7,
+    "delfi_celmcut": 18,
+    "delfi_ipdb_1800s": 7,
+    "delfi_mas_miasm": 10,
+    "delfi_mas_sccdfp_1800s": 7,
+    "scorpion": 6
+  },
+  "gripper": {
+    "complementary2_3584mb_1800s": 30,
+    "decstar_opt": 30,
+    "delfi_blind": 30,
+    "delfi_celmcut": 30,
+    "delfi_ipdb_1800s": 30,
+    "delfi_mas_miasm": 30,
+    "delfi_mas_sccdfp_1800s": 30,
+    "scorpion": 11
+  },
+  "hiking": {
+    "complementary2_3584mb_1800s": 14,
+    "decstar_opt": 6,
+    "delfi_blind": 17,
+    "delfi_celmcut": 6,
+    "delfi_ipdb_1800s": 18,
+    "delfi_mas_miasm": 17,
+    "delfi_mas_sccdfp_1800s": 17,
+    "scorpion": 10
+  },
+  "miconic-strips": {
+    "complementary2_3584mb_1800s": 11,
+    "decstar_opt": 30,
+    "delfi_blind": 3,
+    "delfi_celmcut": 23,
+    "delfi_ipdb_1800s": 6,
+    "delfi_mas_miasm": 7,
+    "delfi_mas_sccdfp_1800s": 9,
+    "scorpion": 24
+  },
+  "nomystery": {
+    "complementary2_3584mb_1800s": 28,
+    "decstar_opt": 25,
+    "delfi_blind": 7,
+    "delfi_celmcut": 12,
+    "delfi_ipdb_1800s": 21,
+    "delfi_mas_miasm": 26,
+    "delfi_mas_sccdfp_1800s": 24,
+    "scorpion": 26
+  },
+  "parking": {
+    "complementary2_3584mb_1800s": 9,
+    "decstar_opt": 12,
+    "delfi_blind": 9,
+    "delfi_celmcut": 11,
+    "delfi_ipdb_1800s": 14,
+    "delfi_mas_miasm": 9,
+    "delfi_mas_sccdfp_1800s": 12,
+    "scorpion": 15
+  },
+  "pathways": {
+    "complementary2_3584mb_1800s": 17,
+    "decstar_opt": 20,
+    "delfi_blind": 10,
+    "delfi_celmcut": 23,
+    "delfi_ipdb_1800s": 13,
+    "delfi_mas_miasm": 13,
+    "delfi_mas_sccdfp_1800s": 15,
+    "scorpion": 21
+  },
+  "rovers": {
+    "complementary2_3584mb_1800s": 30,
+    "decstar_opt": 10,
+    "delfi_blind": 9,
+    "delfi_celmcut": 10,
+    "delfi_ipdb_1800s": 10,
+    "delfi_mas_miasm": 11,
+    "delfi_mas_sccdfp_1800s": 10,
+    "scorpion": 9
+  },
+  "satellite": {
+    "complementary2_3584mb_1800s": 26,
+    "decstar_opt": 30,
+    "delfi_blind": 28,
+    "delfi_celmcut": 30,
+    "delfi_ipdb_1800s": 28,
+    "delfi_mas_miasm": 28,
+    "delfi_mas_sccdfp_1800s": 28,
+    "scorpion": 24
+  },
+  "scanalyzer": {
+    "complementary2_3584mb_1800s": 11,
+    "decstar_opt": 14,
+    "delfi_blind": 14,
+    "delfi_celmcut": 17,
+    "delfi_ipdb_1800s": 17,
+    "delfi_mas_miasm": 14,
+    "delfi_mas_sccdfp_1800s": 16,
+    "scorpion": 19
+  },
+  "snake": {
+    "complementary2_3584mb_1800s": 11,
+    "decstar_opt": 8,
+    "delfi_blind": 8,
+    "delfi_celmcut": 6,
+    "delfi_ipdb_1800s": 9,
+    "delfi_mas_miasm": 8,
+    "delfi_mas_sccdfp_1800s": 8,
+    "scorpion": 11
+  },
+  "storage": {
+    "complementary2_3584mb_1800s": 10,
+    "decstar_opt": 19,
+    "delfi_blind": 13,
+    "delfi_celmcut": 22,
+    "delfi_ipdb_1800s": 25,
+    "delfi_mas_miasm": 15,
+    "delfi_mas_sccdfp_1800s": 16,
+    "scorpion": 16
+  },
+  "tpp": {
+    "complementary2_3584mb_1800s": 21,
+    "decstar_opt": 30,
+    "delfi_blind": 5,
+    "delfi_celmcut": 6,
+    "delfi_ipdb_1800s": 6,
+    "delfi_mas_miasm": 22,
+    "delfi_mas_sccdfp_1800s": 15,
+    "scorpion": 8
+  },
+  "transport": {
+    "complementary2_3584mb_1800s": 8,
+    "decstar_opt": 25,
+    "delfi_blind": 25,
+    "delfi_celmcut": 25,
+    "delfi_ipdb_1800s": 25,
+    "delfi_mas_miasm": 25,
+    "delfi_mas_sccdfp_1800s": 25,
+    "scorpion": 9
+  },
+  "visitall": {
+    "complementary2_3584mb_1800s": 10,
+    "decstar_opt": 12,
+    "delfi_blind": 5,
+    "delfi_celmcut": 10,
+    "delfi_ipdb_1800s": 12,
+    "delfi_mas_miasm": 9,
+    "delfi_mas_sccdfp_1800s": 9,
+    "scorpion": 15
+  },
+  "woodworking": {
+    "complementary2_3584mb_1800s": 14,
+    "decstar_opt": 18,
+    "delfi_blind": 16,
+    "delfi_celmcut": 19,
+    "delfi_ipdb_1800s": 15,
+    "delfi_mas_miasm": 18,
+    "delfi_mas_sccdfp_1800s": 21,
+    "scorpion": 20
+  },
+  "zenotravel": {
+    "complementary2_3584mb_1800s": 16,
+    "decstar_opt": 22,
+    "delfi_blind": 4,
+    "delfi_celmcut": 16,
+    "delfi_ipdb_1800s": 12,
+    "delfi_mas_miasm": 12,
+    "delfi_mas_sccdfp_1800s": 16,
+    "scorpion": 16
+  }
+}

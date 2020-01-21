@@ -3,10 +3,15 @@
 import argparse
 from collections import defaultdict
 import itertools
+import json
+import os.path
 
 from lab.reports import Table
 
 from project import DOMAIN_RENAMINGS
+
+FILE = os.path.abspath(__file__)
+DIR = os.path.dirname(FILE)
 
 OPT_IPC_DOMAIN_SIZES = {
     "barman": 34,
@@ -71,6 +76,10 @@ ARGS = parse_args()
 
 if ARGS.track == "opt":
     IPC_DOMAIN_SIZES = OPT_IPC_DOMAIN_SIZES
+    RESULTS = {
+        "ipc": "02-opt-evaluation-ipc-coverage.json",
+        "new2014": "03-opt-evaluation-new2014-coverage.json",
+    }
     from results.coverage_scores_opt import OPT_OLD as IPC
     from results.coverage_scores_opt import OPT_NEW as NEW2014
 else:
@@ -78,30 +87,28 @@ else:
     from results.coverage_scores_sat import SAT_OLD as IPC
     from results.coverage_scores_sat import SAT_NEW as NEW2014
 
-names = ["ipc", "new2014"]
+names = sorted(RESULTS.keys())
 
 dicts = {}
-domains = None
-planners = None
-for name in names:
-    original_list = globals()[name.upper()]
-    sanitized = [(DOMAIN_RENAMINGS[domain], algo, coverage) for domain, algo, coverage in original_list]
 
-    new_domains = sorted({domain for domain, _, _ in sanitized})
-    if domains is None:
-        domains = set(new_domains)
-    else:
-        domains &= set(new_domains)
+for name, filename in RESULTS.items():
+    with open(os.path.join(DIR, "results", filename)) as f:
+        dicts[name] = json.load(f)
 
-    new_planners = sorted({planner for _, planner, _ in sanitized})
-    assert planners is None or planners == new_planners
-    planners = new_planners
+def same_keys(dicts):
+    return len(set(tuple(d.keys()) for d in dicts)) == 1
 
-    dic = defaultdict(dict)
-    for domain, algo, coverage in sanitized:
-        dic[domain][algo] = coverage
-    dicts[name] = dic
+assert same_keys(dicts.values())
 
+algo_dicts = []
+for domain_dict in dicts.values():
+    algo_dicts.extend(domain_dict.values())
+assert same_keys(algo_dicts)
+
+domains = sorted(list(dicts.values())[0].keys())
+print("Domains", len(domains), domains)
+planners = sorted(list(algo_dicts[0].keys()))
+print("Planners", len(planners), planners)
 
 def bc(s):
     return f" ''\\bc{{{s}}}''"
