@@ -80,12 +80,10 @@ if ARGS.track == "opt":
         "ipc": "02-opt-evaluation-ipc-coverage.json",
         "new2014": "03-opt-evaluation-new2014-coverage.json",
     }
-    from results.coverage_scores_opt import OPT_OLD as IPC
-    from results.coverage_scores_opt import OPT_NEW as NEW2014
 else:
     IPC_DOMAIN_SIZES = SAT_IPC_DOMAIN_SIZES
-    from results.coverage_scores_sat import SAT_OLD as IPC
-    from results.coverage_scores_sat import SAT_NEW as NEW2014
+    RESULTS = {
+    }
 
 names = sorted(RESULTS.keys())
 
@@ -106,6 +104,7 @@ for domain_dict in dicts.values():
 assert same_keys(algo_dicts)
 
 domains = sorted(list(dicts.values())[0].keys())
+domains.remove("pathways")  # TODO: add pathways again.
 print("Domains", len(domains), domains)
 planners = sorted(list(algo_dicts[0].keys()))
 print("Planners", len(planners), planners)
@@ -127,8 +126,6 @@ for name in names:
     for domain in domains:
         different_scores = different_coverage_scores[domain]
         table.add_cell(domain, version(name) + " unique", len(different_scores))
-
-tables = [table]
 
 for name1, name2 in itertools.combinations(names, 2):
     #table = Table(title=f"{name1} vs. {name2}", min_wins=False)
@@ -160,4 +157,4 @@ def render_txt2tags(text, target="xhtml"):
     doc.add_text(text)
     return doc.render(target=target)
 
-print(render_txt2tags("\n\n\n".join(str(table) for table in tables)))
+print(render_txt2tags(str(table)))
