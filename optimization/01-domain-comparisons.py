@@ -123,7 +123,7 @@ def bc(s):
 table = Table(title="comparison", min_wins=None)
 table.set_column_order(
     ["ipc size"] +
-    [f"{name} min/max coverage" for name in names] +
+    [f"{name} range" for name in names] +
     [f"{name} unique" for name in names])
 
 for domain in domains:
@@ -144,7 +144,7 @@ for domain in domains:
     table.add_cell(domain, "ipc size", IPC_DOMAIN_SIZES[domain])
     for name, domain_dicts in dicts.items():
         scores = domain_dicts[domain].values()
-        table.add_cell(domain, f"{name} min/max coverage", " ''{}--{}''".format(min(scores), max(scores)))
+        table.add_cell(domain, f"{name} range", " ''{}--{}''".format(min(scores), max(scores)))
 
 
 def render_txt2tags(text, target="tex"):
