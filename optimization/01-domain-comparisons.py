@@ -86,7 +86,7 @@ else:
     RESULTS = {
         "ipc": "05-sat-evaluation-ipc-coverage.json",
         "new2014": "06-sat-evaluation-new2014-coverage.json",
-        "new2020": "07-sat-evaluation-new2020-coverage.json", # TODO: update
+        "new2020": "07-sat-evaluation-new2020-coverage.json",
     }
 
 names = sorted(RESULTS.keys())
