@@ -53,12 +53,13 @@ for algo in [
         algo,
         algo)
 
-for algo in [
-    "decstar_opt",
-]:
+for algo in ["decstar_opt"]:
     project.fetch_algorithm(
         # The experiment name is wrong: this is new2014, not IPC.
         exp, "2020-01-20-F-opt-evaluation-ipc-decstar", algo, algo)
+
+project.fetch_algorithms(
+    exp, "2020-01-21-A-opt-evaluation-new2014-enum")
 
 report = os.path.join(exp.eval_dir, '{}.html'.format(exp.name))
 exp.add_report(
