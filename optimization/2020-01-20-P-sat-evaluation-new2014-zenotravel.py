@@ -29,7 +29,7 @@ IMAGES_DIR = os.path.join(REPO, "images")
 BENCHMARKS_DIR = os.path.join(REPO, "benchmarks")
 
 BENCHMARKS = [
-    "2020-01-18-new14-opt",
+    "2020-01-19-new14-sat",
 ]
 ENVIRONMENT = BaselSlurmEnvironment(
     partition="infai_1",
@@ -60,22 +60,25 @@ def get_image(name):
 
 TIME_LIMIT = 1800 if project.REMOTE else 1
 IMAGES = [
-    get_image("blind"),
-    get_image("fdss-mas1"),
-    get_image("fdss-mas2"),
-    get_image("bjolp"),
-    get_image("lmcut"),
-    get_image("symba1"),
+    get_image("decstar-agl"),
+    get_image("lapkt-poly-bfws"),
+    get_image("olcff"),
+    get_image("remix-agl"),
+    get_image("saarplan-agl"),
 
-    get_image("complementary2-3584mb-1800s"),
+    get_image("cerberus"),
+    get_image("decstar-dec"),
+    get_image("decstar-dec-fallback"),
     get_image("decstar-fork"),
     get_image("decstar-star"),
-    get_image("delfi-blind"),
-    get_image("delfi-celmcut"),
-    get_image("delfi-ipdb-1800s"),
-    get_image("delfi-mas-miasm"),
-    get_image("delfi-mas-sccdfp-1800s"),
-    get_image("scorpion"),
+    get_image("gbfs-ff"),
+    get_image("lama-first"),
+    get_image("lapkt-bfws-pref"),
+    get_image("lapkt-dual-bfws"),
+    get_image("mpc"),
+    get_image("saarplan-dec"),
+    get_image("saarplan-dec-fallback"),
+    get_image("saarplan-grey"),
 ]
 
 for planner, image in IMAGES:
@@ -89,7 +92,7 @@ for benchmarks_dir in BENCHMARKS:
     abs_benchmarks_dir = os.path.join(BENCHMARKS_DIR, benchmarks_dir)
     domains = os.listdir(abs_benchmarks_dir)
     for domain in domains:
-        if domain != "barman":
+        if domain not in ['zenotravel']:
             continue
         suite.extend(suites.build_suite(abs_benchmarks_dir, [domain]))
 if not project.REMOTE:
