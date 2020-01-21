@@ -118,7 +118,7 @@ def version(s):
 
 
 table = Table(title="comparison", min_wins=None)
-table.set_column_order(["ipc size", "ipc min/max coverage", "new2014 min/max coverage", "ipc unique", "new2014 unique", "ipc only", "new2014 only"])
+table.set_column_order(["ipc size", "ipc min/max coverage", "new2014 min/max coverage", "ipc unique", "new2014 unique"])
 for name in names:
     different_coverage_scores = defaultdict(set)
     for domain, algo_to_coverage in dicts[name].items():
@@ -128,26 +128,10 @@ for name in names:
         table.add_cell(domain, version(name) + " unique", len(different_scores))
 
 for name1, name2 in itertools.combinations(names, 2):
-    #table = Table(title=f"{name1} vs. {name2}", min_wins=False)
-    outcomes = [f"{name1}", f"{name2}"]
-    #table.set_column_order(outcomes)
-
     for domain in sorted(domains):
         table.add_cell(domain, "ipc size", IPC_DOMAIN_SIZES[domain])
         table.add_cell(domain, "ipc min/max coverage", " ''{}--{}''".format(min(dicts[name1][domain].values()), max(dicts[name1][domain].values())))
         table.add_cell(domain, "new2014 min/max coverage", " ''{}--{}''".format(min(dicts[name2][domain].values()), max(dicts[name2][domain].values())))
-        result = {outcome: 0 for outcome in outcomes}
-        for planner1, planner2 in itertools.permutations(planners, 2):
-            coverage11 = dicts[name1][domain][planner1]
-            coverage12 = dicts[name1][domain][planner2]
-            coverage21 = dicts[name2][domain][planner1]
-            coverage22 = dicts[name2][domain][planner2]
-            if coverage11 > coverage12 and coverage21 <= coverage22:
-                result[f"{name1}"] += 1
-            elif coverage21 > coverage22 and coverage11 <= coverage12:
-                result[f"{name2}"] += 1
-        for key, value in result.items():
-            table.add_cell(domain, version(key) + " only", value)
 
 
 def render_txt2tags(text, target="xhtml"):
