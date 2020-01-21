@@ -94,8 +94,13 @@ dicts = {}
 for name, filename in RESULTS.items():
     with open(os.path.join(DIR, "results", filename)) as f:
         dicts[name] = json.load(f)
+        for domain in ["pathways", "nomystery", "trucks"]: # TODO: use these domains again.
+            if domain in dicts[name]:
+                del dicts[name][domain]
 
 def same_keys(dicts):
+    #for d in dicts:
+    #    print(sorted(d.keys()))
     return len(set(tuple(d.keys()) for d in dicts)) == 1
 
 assert same_keys(dicts.values())
@@ -106,7 +111,6 @@ for domain_dict in dicts.values():
 assert same_keys(algo_dicts)
 
 domains = sorted(list(dicts.values())[0].keys())
-domains.remove("pathways")  # TODO: add pathways again.
 print("Domains", len(domains), domains)
 planners = sorted(list(algo_dicts[0].keys()))
 print("Planners", len(planners), planners)
@@ -116,7 +120,10 @@ def bc(s):
 
 
 table = Table(title="comparison", min_wins=None)
-table.set_column_order(["ipc size", "ipc min/max coverage", "new2014 min/max coverage", "ipc unique", "new2014 unique"])
+table.set_column_order(
+    ["ipc size"] +
+    [f"{name} min/max coverage" for name in names] +
+    [f"{name} unique" for name in names])
 
 for domain in domains:
     different_coverage_scores = defaultdict(set)
@@ -132,11 +139,11 @@ for domain in domains:
             value = unique
         table.add_cell(domain, name + " unique", value)
 
-for name1, name2 in itertools.combinations(names, 2):
-    for domain in domains:
-        table.add_cell(domain, "ipc size", IPC_DOMAIN_SIZES[domain])
-        table.add_cell(domain, "ipc min/max coverage", " ''{}--{}''".format(min(dicts[name1][domain].values()), max(dicts[name1][domain].values())))
-        table.add_cell(domain, "new2014 min/max coverage", " ''{}--{}''".format(min(dicts[name2][domain].values()), max(dicts[name2][domain].values())))
+for domain in domains:
+    table.add_cell(domain, "ipc size", IPC_DOMAIN_SIZES[domain])
+    for name, domain_dicts in dicts.items():
+        scores = domain_dicts[domain].values()
+        table.add_cell(domain, f"{name} min/max coverage", " ''{}--{}''".format(min(scores), max(scores)))
 
 
 def render_txt2tags(text, target="tex"):
