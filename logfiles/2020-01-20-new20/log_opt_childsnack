@@ -1,0 +1,25 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-01-21 14:25:41,828 INFO     No run directory, so we will not run anything
+2020-01-21 14:25:45,029 INFO     Loading cache data for baseline planners: 996
+2020-01-21 14:25:45,031 INFO     Loading cache data for sart planners: 1789
+2020-01-21 14:25:45,036 INFO     Stored sequences: 26953
+2020-01-21 14:25:50,729 INFO     Different evaluated sequences: 132
+const_ratio 1 54 17
+const_ratio 1.3 40 15
+const_ratio 2 38 12
+num_trays 2 57 16
+num_trays 3 41 18
+num_trays 4 34 10
+gluten_factor 0.4 47 16
+gluten_factor 0.6 45 16
+gluten_factor 0.8 40 12
+2020-01-21 14:25:50,804 INFO     Candidate sequences: 44
+2020-01-21 14:25:50,805 INFO     Using sart runtimes on CPLEX optimization
+2020-01-21 14:25:50,854 INFO     CPLEX solve
+
+2020-01-21 14:25:50,888 INFO     Solution status = 101: MIP_optimal
+2020-01-21 14:25:50,889 INFO     Solution value  = 48.85280454312712
+2020-01-21 14:25:50,890 INFO     Selected: sequence 6, 11 instances from 0 to 10: [0.1, 1.0, 2.0, 11.0, 31.0, 126.0, 520.0733137829912, 2146.6369183271563, 8860.38552066121, 36571.8258660723, 150952.62435922807, 623066.9172598637, 2571749.8124435726, 10615067.041097738, 43814389.61978026, 180846784.13443026, 746457034.220559, 3081050661.7754745, 12717239901.609915, 52491246807.96468, 216661084698.56393, 894282922912.6943, 3691211771259.875, 15235720140904.031, 62886440171033.51, 259567931204485.84, 1071383762962797.2, 4422207174105974.5, 1.8252951898985804e+16, 7.534026333672294e+16]
+2020-01-21 14:25:50,890 INFO     Selected: sequence 45, 10 instances from 1 to 10: [1.0, 1.0, 2.0, 9.0, 45.0, 213.75, 1015.3125, 4822.734375, 22907.98828125, 108812.9443359375, 516861.4855957031, 2455092.05657959, 11661687.268753052, 55393014.526576996, 263116819.00124073, 1249804890.2558935, 5936573228.715494, 28198722836.398598, 133943933472.89334, 636233683996.2434, 3022109998982.1562, 14355022495165.242, 68186356852034.9, 323885195047165.75, 1538454676474037.2, 7307659713251677.0, 3.4711383637945464e+16, 1.6487907228024096e+17, 7.831755933311446e+17]
+2020-01-21 14:25:50,890 INFO     Selected: sequence 18, 9 instances from 0 to 8: [0.1, 1.0, 2.0, 26.0, 55.0, 415.6730769230769, 3141.529215976331, 23742.711189974965, 179440.10572423387, 1356153.1067235367, 10249387.902737498, 77461720.11107378, 585431846.2240767, 4424513760.885811, 33439113615.925453, 252722531751.1289, 1909999134196.032, 14435185764212.318, 109096692410296.94, 824519233023974.9, 6231462664969656.0, 4.709547744871298e+16, 3.559331276412346e+17, 2.6900330608270234e+18, 2.033044217125039e+19, 1.5365122640964236e+20, 1.1612486919036433e+21, 8.776360306117919e+21, 6.63290307750835e+22, 5.012944056655349e+23]
+2020-01-21 14:25:50,890 INFO     [{'num_children': 2, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.4}, {'num_children': 3, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.4}, {'num_children': 4, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.4}, {'num_children': 5, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.4}, {'num_children': 6, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.4}, {'num_children': 7, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.4}, {'num_children': 8, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.4}, {'num_children': 10, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.4}, {'num_children': 11, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.4}, {'num_children': 12, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.4}, {'num_children': 13, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.4}, {'num_children': 3, 'const_ratio': 1, 'num_trays': 2, 'gluten_factor': 0.8}, {'num_children': 4, 'const_ratio': 1, 'num_trays': 2, 'gluten_factor': 0.8}, {'num_children': 5, 'const_ratio': 1, 'num_trays': 2, 'gluten_factor': 0.8}, {'num_children': 6, 'const_ratio': 1, 'num_trays': 2, 'gluten_factor': 0.8}, {'num_children': 7, 'const_ratio': 1, 'num_trays': 2, 'gluten_factor': 0.8}, {'num_children': 8, 'const_ratio': 1, 'num_trays': 2, 'gluten_factor': 0.8}, {'num_children': 9, 'const_ratio': 1, 'num_trays': 2, 'gluten_factor': 0.8}, {'num_children': 10, 'const_ratio': 1, 'num_trays': 2, 'gluten_factor': 0.8}, {'num_children': 11, 'const_ratio': 1, 'num_trays': 2, 'gluten_factor': 0.8}, {'num_children': 12, 'const_ratio': 1, 'num_trays': 2, 'gluten_factor': 0.8}, {'num_children': 2, 'const_ratio': 1.3, 'num_trays': 4, 'gluten_factor': 0.6}, {'num_children': 3, 'const_ratio': 1.3, 'num_trays': 4, 'gluten_factor': 0.6}, {'num_children': 4, 'const_ratio': 1.3, 'num_trays': 4, 'gluten_factor': 0.6}, {'num_children': 5, 'const_ratio': 1.3, 'num_trays': 4, 'gluten_factor': 0.6}, {'num_children': 6, 'const_ratio': 1.3, 'num_trays': 4, 'gluten_factor': 0.6}, {'num_children': 7, 'const_ratio': 1.3, 'num_trays': 4, 'gluten_factor': 0.6}, {'num_children': 8, 'const_ratio': 1.3, 'num_trays': 4, 'gluten_factor': 0.6}, {'num_children': 9, 'const_ratio': 1.3, 'num_trays': 4, 'gluten_factor': 0.6}, {'num_children': 11, 'const_ratio': 1.3, 'num_trays': 4, 'gluten_factor': 0.6}]

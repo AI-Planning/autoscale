@@ -111,7 +111,7 @@ def parse_args():
     )
 
     parser.add_argument(
-        "--desired_minimum_quality", type=int, default=14, help="Desired minimum quality. If we have enough sequences, we discard any worse than this. Otherwise, we increase the threshold (default: %(default)d)"
+        "--desired_minimum_quality", type=int, default=20, help="Desired minimum quality. If we have enough sequences, we discard any worse than this. Otherwise, we increase the threshold (default: %(default)d)"
     )
 
     parser.add_argument(
@@ -299,7 +299,7 @@ class CPLEXSequence:
 
         global previous_parameters_of_evaluated_instances
         if len(evaluated_instances) == 0 or self.parameters_of_evaluated_instances in previous_parameters_of_evaluated_instances:
-            logging.debug ("Discarding sequence", self.runtimes_baseline, self.runtimes_sart)
+            logging.debug (f"Discarding sequence {self.runtimes_baseline} {self.runtimes_sart}")
             self.seq_id = -1
         else:
             global SEQ_ID
@@ -476,6 +476,7 @@ logging.info(f"Different evaluated sequences: {len(evaluated_sequences)}")
 
 # Step 2: Filter sequences in "evaluated_sequences" and put them into candidate_sequences
 candidate_sequences= []
+candidate_sequences_per_enum = defaultdict(list)
 desired_quality = ARGS.desired_minimum_quality
 while len(candidate_sequences) < ARGS.max_sequences_per_enum and evaluated_sequences:
     discarded_evaluated_sequences = [seq for seq in evaluated_sequences if seq.penalty > desired_quality]
@@ -489,14 +490,17 @@ while len(candidate_sequences) < ARGS.max_sequences_per_enum and evaluated_seque
 
         already_selected = set()
         for enum_parameter in enum_parameters:
+
             for value in enum_parameter.get_values():
                 valid_sequences = [seq for seq in evaluated_sequences if seq.has_enum_value(enum_parameter.name, value)]
-                bestK = select_best_k(valid_sequences, ARGS.max_sequences_per_enum, candidate_sequences)
+                bestK = select_best_k(valid_sequences, ARGS.max_sequences_per_enum, candidate_sequences_per_enum[(enum_parameter.name,value )])
+                print (enum_parameter.name, value, len(valid_sequences), len(bestK))
                 
                 for seq in bestK:
                     if not seq.seq_id in already_selected:
                         already_selected.add(seq.seq_id)
                         candidate_sequences.append(seq)
+                        candidate_sequences_per_enum[(enum_parameter.name,value)].append(seq)
     else:
         candidate_sequences += select_best_k(evaluated_sequences, ARGS.max_sequences_per_enum, candidate_sequences)
 

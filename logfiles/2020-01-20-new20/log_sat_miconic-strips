@@ -1,0 +1,14 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-01-21 14:30:25,596 INFO     No run directory, so we will not run anything
+2020-01-21 14:30:28,828 INFO     Loading cache data for baseline planners: 32311
+2020-01-21 14:30:28,874 INFO     Loading cache data for sart planners: 32311
+2020-01-21 14:30:28,934 INFO     Stored sequences: 2508
+2020-01-21 14:30:29,639 INFO     Different evaluated sequences: 1313
+2020-01-21 14:30:29,960 INFO     Candidate sequences: 100
+2020-01-21 14:30:29,961 INFO     Using baseline runtimes on CPLEX optimization
+2020-01-21 14:30:30,150 INFO     CPLEX solve
+
+2020-01-21 14:30:30,305 INFO     Solution status = 101: MIP_optimal
+2020-01-21 14:30:30,305 INFO     Solution value  = 87332.64002664002
+2020-01-21 14:30:30,307 INFO     Selected: sequence 591, 30 instances from 0 to 29: [0.1, 0.1, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 2.0, 2.0, 3.0, 4.0, 4.0, 4.0, 5.0, 6.0, 6.0, 7.0, 8.0, 10.0, 10.0, 12.0, 14.0, 15.0, 16.0, 18.0, 21.0]
+2020-01-21 14:30:30,307 INFO     [{'passengers': 18, 'floors': 20}, {'passengers': 22, 'floors': 24}, {'passengers': 27, 'floors': 29}, {'passengers': 32, 'floors': 34}, {'passengers': 37, 'floors': 39}, {'passengers': 42, 'floors': 44}, {'passengers': 46, 'floors': 49}, {'passengers': 51, 'floors': 54}, {'passengers': 56, 'floors': 59}, {'passengers': 61, 'floors': 64}, {'passengers': 66, 'floors': 69}, {'passengers': 70, 'floors': 74}, {'passengers': 75, 'floors': 79}, {'passengers': 80, 'floors': 84}, {'passengers': 85, 'floors': 89}, {'passengers': 90, 'floors': 94}, {'passengers': 94, 'floors': 99}, {'passengers': 99, 'floors': 104}, {'passengers': 104, 'floors': 109}, {'passengers': 109, 'floors': 114}, {'passengers': 114, 'floors': 119}, {'passengers': 118, 'floors': 124}, {'passengers': 123, 'floors': 129}, {'passengers': 128, 'floors': 134}, {'passengers': 133, 'floors': 139}, {'passengers': 138, 'floors': 144}, {'passengers': 142, 'floors': 149}, {'passengers': 147, 'floors': 154}, {'passengers': 152, 'floors': 159}, {'passengers': 157, 'floors': 164}]

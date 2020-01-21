@@ -1,0 +1,28 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-01-21 14:24:49,845 INFO     No run directory, so we will not run anything
+2020-01-21 14:24:52,097 INFO     Loading cache data for baseline planners: 448
+2020-01-21 14:24:52,098 INFO     Loading cache data for sart planners: 2485
+2020-01-21 14:24:52,101 INFO     Stored sequences: 24415
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 15, 'num_shots': 19, 'num_ingredients': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 15, 'num_shots': 19, 'num_ingredients': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 15, 'num_shots': 19, 'num_ingredients': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 15, 'num_shots': 22, 'num_ingredients': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 15, 'num_shots': 22, 'num_ingredients': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 15, 'num_shots': 22, 'num_ingredients': 6}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 15, 'num_shots': 24, 'num_ingredients': 6}, so I consider it unsolvable
+2020-01-21 14:24:58,146 INFO     Different evaluated sequences: 1682
+num_ingredients 3 1032 100
+num_ingredients 4 282 77
+num_ingredients 5 187 54
+num_ingredients 6 181 42
+2020-01-21 14:25:00,751 INFO     Candidate sequences: 273
+2020-01-21 14:25:00,753 INFO     Using sart runtimes on CPLEX optimization
+2020-01-21 14:25:02,448 INFO     CPLEX solve
+
+2020-01-21 14:25:02,903 INFO     Solution status = 101: MIP_optimal
+2020-01-21 14:25:02,903 INFO     Solution value  = 0.0
+2020-01-21 14:25:02,912 INFO     Selected: sequence 3, 11 instances from 9 to 19: [5.0, 5.0, 7.0, 10.0, 16.0, 20.0, 26.0, 180.0, 1246.1538461538462, 8627.218934911243, 59726.9003186163, 413493.9252827283, 2862650.25195735, 19818347.89816627, 137203946.98730496, 949873479.1428806, 6576047163.296865, 45526480361.285995, 315183325578.13385, 2182038407848.6191, 15106419746644.287]
+2020-01-21 14:25:02,912 INFO     Selected: sequence 27, 8 instances from 1 to 8: [2.0, 4.0, 12.0, 23.0, 180.0, 1408.695652173913, 11024.574669187145, 86279.28001972548, 675229.1479804603, 5284402.027673168, 41356189.78179001, 323657137.42270446, 2532968901.5689917, 19823234881.844284, 155138359944.86832, 1214126295220.7085, 9501857962596.85, 74362366663801.44, 581966347803663.4, 4554519243680844.0, 3.564406364619791e+16, 2.789535415789402e+17, 2.1831146732264886e+18, 1.708524526872904e+19, 1.337106151465751e+20, 1.0464309011471096e+21, 8.189459226368683e+21, 6.409142003245056e+22, 5.015850263409175e+23]
+2020-01-21 14:25:02,913 INFO     Selected: sequence 523, 5 instances from 15 to 19: [180.0, 720.0, 2880.0, 11520.0, 46080.0, 184320.0, 737280.0, 2949120.0, 11796480.0, 47185920.0, 188743680.0, 754974720.0, 3019898880.0, 12079595520.0, 48318382080.0]
+2020-01-21 14:25:02,913 INFO     Selected: sequence 1478, 6 instances from 11 to 16: [180.0, 611.3207547169811, 2076.183695265219, 7051.189908447914, 23947.437424917443, 81330.9195563234, 276218.21736109833, 938099.6061320321, 3185998.6623352035, 10820372.81547805, 36748435.97709526, 124806008.9788141, 423869464.4563498, 1439556671.7385466, 4889060394.583743, 16604356057.076864, 56392152646.67615, 191520518422.6737, 650447043699.6466]
+2020-01-21 14:25:02,914 INFO     [{'num_cocktails': 15, 'num_shots': 16, 'num_ingredients': 3}, {'num_cocktails': 16, 'num_shots': 17, 'num_ingredients': 3}, {'num_cocktails': 17, 'num_shots': 18, 'num_ingredients': 3}, {'num_cocktails': 18, 'num_shots': 19, 'num_ingredients': 3}, {'num_cocktails': 19, 'num_shots': 20, 'num_ingredients': 3}, {'num_cocktails': 21, 'num_shots': 22, 'num_ingredients': 3}, {'num_cocktails': 22, 'num_shots': 23, 'num_ingredients': 3}, {'num_cocktails': 23, 'num_shots': 24, 'num_ingredients': 3}, {'num_cocktails': 24, 'num_shots': 25, 'num_ingredients': 3}, {'num_cocktails': 25, 'num_shots': 26, 'num_ingredients': 3}, {'num_cocktails': 26, 'num_shots': 27, 'num_ingredients': 3}, {'num_cocktails': 6, 'num_shots': 12, 'num_ingredients': 3}, {'num_cocktails': 7, 'num_shots': 18, 'num_ingredients': 3}, {'num_cocktails': 8, 'num_shots': 24, 'num_ingredients': 3}, {'num_cocktails': 9, 'num_shots': 30, 'num_ingredients': 3}, {'num_cocktails': 10, 'num_shots': 36, 'num_ingredients': 3}, {'num_cocktails': 11, 'num_shots': 42, 'num_ingredients': 3}, {'num_cocktails': 12, 'num_shots': 48, 'num_ingredients': 3}, {'num_cocktails': 13, 'num_shots': 54, 'num_ingredients': 3}, {'num_cocktails': 20, 'num_shots': 25, 'num_ingredients': 4}, {'num_cocktails': 21, 'num_shots': 26, 'num_ingredients': 4}, {'num_cocktails': 22, 'num_shots': 28, 'num_ingredients': 4}, {'num_cocktails': 23, 'num_shots': 29, 'num_ingredients': 4}, {'num_cocktails': 24, 'num_shots': 30, 'num_ingredients': 4}, {'num_cocktails': 17, 'num_shots': 26, 'num_ingredients': 6}, {'num_cocktails': 18, 'num_shots': 28, 'num_ingredients': 6}, {'num_cocktails': 19, 'num_shots': 30, 'num_ingredients': 6}, {'num_cocktails': 20, 'num_shots': 31, 'num_ingredients': 6}, {'num_cocktails': 21, 'num_shots': 33, 'num_ingredients': 6}, {'num_cocktails': 23, 'num_shots': 36, 'num_ingredients': 6}]

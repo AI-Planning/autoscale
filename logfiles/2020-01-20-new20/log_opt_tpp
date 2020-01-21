@@ -1,0 +1,86 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-01-21 14:58:24,234 INFO     No run directory, so we will not run anything
+2020-01-21 14:58:26,959 INFO     Loading cache data for baseline planners: 1553
+2020-01-21 14:58:26,962 INFO     Loading cache data for sart planners: 2791
+2020-01-21 14:58:26,968 INFO     Stored sequences: 16287
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 17, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 2, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 12, 'markets': 1, 'trucks': 2, 'depots': 13, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 12, 'markets': 1, 'trucks': 2, 'depots': 13, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 17, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 17, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 1, 'trucks': 3, 'depots': 8, 'goods': 3}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 8, 'markets': 1, 'trucks': 2, 'depots': 3, 'goods': 12}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 8, 'markets': 1, 'trucks': 2, 'depots': 3, 'goods': 12}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 8, 'markets': 1, 'trucks': 2, 'depots': 3, 'goods': 12}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 10, 'markets': 1, 'trucks': 2, 'depots': 3, 'goods': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 8, 'markets': 1, 'trucks': 2, 'depots': 3, 'goods': 12}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 10, 'markets': 1, 'trucks': 2, 'depots': 3, 'goods': 7}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 12, 'markets': 1, 'trucks': 2, 'depots': 23, 'goods': 4}, so I consider it unsolvable
+2020-01-21 14:58:31,651 INFO     Different evaluated sequences: 1323
+2020-01-21 14:58:32,060 INFO     Candidate sequences: 100
+2020-01-21 14:58:32,061 INFO     Using sart runtimes on CPLEX optimization
+2020-01-21 14:58:32,243 INFO     CPLEX solve
+
+2020-01-21 14:58:32,378 INFO     Solution status = 101: MIP_optimal
+2020-01-21 14:58:32,378 INFO     Solution value  = 6.230769230769231
+2020-01-21 14:58:32,380 INFO     Selected: sequence 960, 10 instances from 2 to 11: [2.0, 6.0, 9.0, 12.0, 76.0, 291.3333333333333, 1116.7777777777776, 4280.981481481481, 16410.429012345674, 62906.64454732508, 241142.1374314128, 924378.1934870823, 3543449.7417004816, 13583224.009851845, 52069025.371098734, 199597930.5892118, 765125400.5919784, 2932980702.2692504, 11243092692.032125, 43098521986.123146, 165211000946.8054, 633308836962.7539, 2427683875023.8896, 9306121520924.91, 35673465830212.16, 136748285682479.92, 524201761782839.7, 2009440086834218.8]
+2020-01-21 14:58:32,380 INFO     Selected: sequence 1170, 12 instances from 0 to 11: [2.0, 2.0, 3.0, 4.0, 66.0, 66.0, 69.0, 104.0, 521.3702239789196, 2613.7202928060465, 13103.037831524383, 65687.82470217429, 329304.5757467367, 1650861.5424457619, 8276058.193683958, 41489329.94330364, 207993281.20457226, 1042706765.4590217, 5227271729.343317, 26205229156.984615, 131371405721.11523, 658587877165.8018, 3301616432958.993, 16551581722541.46, 82975979518142.64, 415973125252348.8, 2085346168096426.0, 1.045420575705784e+16, 5.240876535652844e+16, 2.627343243499219e+17]
+2020-01-21 14:58:32,380 INFO     Selected: sequence 292, 8 instances from 12 to 19: [152.0, 326.46812350582354, 701.1936556935109, 1506.0353749240066, 3234.6877814791437, 6947.51611938626, 14921.990463963772, 32049.69885356609, 68836.87528717412, 147848.98357242192, 317552.5015074468, 682044.534748134, 1464906.5750435905, 3146350.662275157, 6757784.188186023, 14514481.072200106, 31174443.41646028, 66956987.128356986]
+2020-01-21 14:58:32,380 INFO     [{'products': 4, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 8}, {'products': 5, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 9}, {'products': 6, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 10}, {'products': 7, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 11}, {'products': 9, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 12}, {'products': 10, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 14}, {'products': 11, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 15}, {'products': 12, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 16}, {'products': 13, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 17}, {'products': 14, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 18}, {'products': 2, 'markets': 1, 'trucks': 3, 'depots': 4, 'goods': 3}, {'products': 3, 'markets': 1, 'trucks': 3, 'depots': 4, 'goods': 3}, {'products': 4, 'markets': 1, 'trucks': 3, 'depots': 4, 'goods': 3}, {'products': 6, 'markets': 1, 'trucks': 3, 'depots': 5, 'goods': 3}, {'products': 7, 'markets': 1, 'trucks': 3, 'depots': 5, 'goods': 3}, {'products': 9, 'markets': 1, 'trucks': 3, 'depots': 5, 'goods': 3}, {'products': 10, 'markets': 1, 'trucks': 3, 'depots': 6, 'goods': 3}, {'products': 12, 'markets': 1, 'trucks': 3, 'depots': 6, 'goods': 3}, {'products': 13, 'markets': 1, 'trucks': 3, 'depots': 6, 'goods': 3}, {'products': 14, 'markets': 1, 'trucks': 3, 'depots': 7, 'goods': 4}, {'products': 16, 'markets': 1, 'trucks': 3, 'depots': 7, 'goods': 4}, {'products': 17, 'markets': 1, 'trucks': 3, 'depots': 7, 'goods': 4}, {'products': 16, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 4}, {'products': 17, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 4}, {'products': 18, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 5}, {'products': 19, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 5}, {'products': 21, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 5}, {'products': 22, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 5}, {'products': 23, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 5}, {'products': 24, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 5}]

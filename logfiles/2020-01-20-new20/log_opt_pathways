@@ -1,0 +1,43 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-01-21 14:53:34,343 INFO     No run directory, so we will not run anything
+2020-01-21 14:53:37,116 INFO     Loading cache data for baseline planners: 3363
+2020-01-21 14:53:37,121 INFO     Loading cache data for sart planners: 2402
+2020-01-21 14:53:37,125 INFO     Stored sequences: 27009
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 16, 'num_goals': 1, 'substances': 19}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 16, 'num_goals': 1, 'substances': 21}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 16, 'num_goals': 1, 'substances': 19}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 16, 'num_goals': 1, 'substances': 19}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 16, 'num_goals': 1, 'substances': 21}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 17, 'num_goals': 1, 'substances': 21}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 16, 'num_goals': 1, 'substances': 19}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 17, 'num_goals': 1, 'substances': 21}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 16, 'num_goals': 1, 'substances': 19}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 16, 'num_goals': 1, 'substances': 19}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 16, 'num_goals': 1, 'substances': 19}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 13, 'num_goals': 1, 'substances': 30}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 16, 'num_goals': 1, 'substances': 19}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 16, 'num_goals': 1, 'substances': 19}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 12, 'num_goals': 1, 'substances': 27}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 11, 'num_goals': 1, 'substances': 33}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 11, 'num_goals': 1, 'substances': 57}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 11, 'num_goals': 1, 'substances': 33}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 11, 'num_goals': 1, 'substances': 41}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 12, 'num_goals': 1, 'substances': 23}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 11, 'num_goals': 1, 'substances': 33}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 16, 'num_goals': 1, 'substances': 19}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 16, 'num_goals': 1, 'substances': 21}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 11, 'num_goals': 1, 'substances': 21}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 11, 'num_goals': 1, 'substances': 21}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 12, 'num_goals': 1, 'substances': 23}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 12, 'num_goals': 1, 'substances': 29}, so I consider it unsolvable
+Warning: No temporary dir for Runner has been provided but I have no data for {'reactions': 16, 'num_goals': 1, 'substances': 19}, so I consider it unsolvable
+2020-01-21 14:53:42,683 INFO     Different evaluated sequences: 2031
+2020-01-21 14:53:42,843 INFO     Candidate sequences: 100
+2020-01-21 14:53:42,844 INFO     Using sart runtimes on CPLEX optimization
+2020-01-21 14:53:43,040 INFO     CPLEX solve
+
+2020-01-21 14:53:43,180 INFO     Solution status = 101: MIP_optimal
+2020-01-21 14:53:43,180 INFO     Solution value  = 20.0
+2020-01-21 14:53:43,183 INFO     Selected: sequence 1501, 23 instances from 2 to 24: [0.1, 0.1, 0.1, 0.1, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 3.0, 4.0, 11.0, 21.0, 77.0, 213.69444444444446, 593.05604657688, 1645.8802908787657, 4567.733433524656, 12676.61374606969, 35180.80431043079, 97635.61600293798, 270963.48986673955, 751992.109503906, 2086968.0008706888, 5791863.2145375945, 16073883.012062669]
+2020-01-21 14:53:43,184 INFO     Selected: sequence 1502, 7 instances from 14 to 20: [180.0, 498.46153846153845, 1380.3550295857988, 3822.521620391443, 10585.44448723784, 29313.538580043252, 81175.95299088901, 224794.94674400034, 622509.0832910779, 1723871.3075752924, 4773797.467131579, 13219746.83205668, 36608529.68877234, 101377466.83044648, 280737600.4535441, 777427201.2559682]
+2020-01-21 14:53:43,184 INFO     [{'reactions': 10, 'num_goals': 3, 'substances': 10}, {'reactions': 10, 'num_goals': 4, 'substances': 14}, {'reactions': 10, 'num_goals': 5, 'substances': 17}, {'reactions': 11, 'num_goals': 6, 'substances': 21}, {'reactions': 11, 'num_goals': 8, 'substances': 24}, {'reactions': 11, 'num_goals': 9, 'substances': 28}, {'reactions': 11, 'num_goals': 10, 'substances': 31}, {'reactions': 12, 'num_goals': 11, 'substances': 35}, {'reactions': 12, 'num_goals': 12, 'substances': 38}, {'reactions': 12, 'num_goals': 13, 'substances': 42}, {'reactions': 12, 'num_goals': 15, 'substances': 45}, {'reactions': 12, 'num_goals': 16, 'substances': 49}, {'reactions': 13, 'num_goals': 17, 'substances': 52}, {'reactions': 13, 'num_goals': 18, 'substances': 56}, {'reactions': 13, 'num_goals': 19, 'substances': 59}, {'reactions': 13, 'num_goals': 20, 'substances': 63}, {'reactions': 14, 'num_goals': 22, 'substances': 66}, {'reactions': 14, 'num_goals': 23, 'substances': 70}, {'reactions': 14, 'num_goals': 24, 'substances': 73}, {'reactions': 14, 'num_goals': 25, 'substances': 77}, {'reactions': 15, 'num_goals': 26, 'substances': 80}, {'reactions': 15, 'num_goals': 27, 'substances': 84}, {'reactions': 15, 'num_goals': 29, 'substances': 87}, {'reactions': 12, 'num_goals': 17, 'substances': 58}, {'reactions': 13, 'num_goals': 18, 'substances': 61}, {'reactions': 13, 'num_goals': 19, 'substances': 65}, {'reactions': 13, 'num_goals': 20, 'substances': 69}, {'reactions': 13, 'num_goals': 22, 'substances': 73}, {'reactions': 13, 'num_goals': 23, 'substances': 77}, {'reactions': 14, 'num_goals': 24, 'substances': 80}]
