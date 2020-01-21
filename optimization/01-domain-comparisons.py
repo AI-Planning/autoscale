@@ -124,27 +124,44 @@ table = Table(title="comparison", min_wins=None)
 table.set_column_order(
     ["ipc size"] +
     [f"{name} range" for name in names] +
-    [f"{name} unique" for name in names])
+    #[f"{name} unique" for name in names] +
+    [f"{name} comp" for name in names]
+)
 
-for domain in domains:
-    different_coverage_scores = defaultdict(set)
-    for name, domain_dict in dicts.items():
-        algo_dict = domain_dict[domain]
-        different_coverage_scores[name] |= set(algo_dict.values())
-    max_unique = max(len(values) for values in different_coverage_scores.values())
-    for name, values in different_coverage_scores.items():
-        unique = len(values)
-        if unique == max_unique:
-            value = bc(unique)
-        else:
-            value = unique
-        table.add_cell(domain, name + " unique", value)
+#for domain in domains:
+#    different_coverage_scores = defaultdict(set)
+#    for name, domain_dict in dicts.items():
+#        algo_dict = domain_dict[domain]
+#        different_coverage_scores[name] |= set(algo_dict.values())
+#    max_unique = max(len(values) for values in different_coverage_scores.values())
+#    for name, values in different_coverage_scores.items():
+#        unique = len(values)
+#        if unique == max_unique:
+#            value = bc(unique)
+#        else:
+#            value = unique
+#        table.add_cell(domain, name + " unique", value)
 
 for domain in domains:
     table.add_cell(domain, "ipc size", IPC_DOMAIN_SIZES[domain])
     for name, domain_dicts in dicts.items():
         scores = domain_dicts[domain].values()
         table.add_cell(domain, f"{name} range", " ''{}--{}''".format(min(scores), max(scores)))
+    num_comparisons = {}
+    for name, domain_dict in dicts.items():
+        num_comparisons[name] = 0
+        algo_dict = domain_dict[domain]
+        for algo1, algo2 in itertools.combinations(planners, 2):
+            if algo_dict[algo1] != algo_dict[algo2]:
+                num_comparisons[name] += 1
+        print(algo_dict, num_comparisons)
+    max_comparisons = max(num_comparisons.values())
+    for name, comparisons in num_comparisons.items():
+        if comparisons == max_comparisons:
+            value = bc(comparisons)
+        else:
+            value = comparisons
+        table.add_cell(domain, name + " comp", value)
 
 
 def render_txt2tags(text, target="tex"):
