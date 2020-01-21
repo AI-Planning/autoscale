@@ -83,12 +83,12 @@ if ARGS.track == "opt":
 else:
     IPC_DOMAIN_SIZES = SAT_IPC_DOMAIN_SIZES
     RESULTS = {
+        "new2014": "2020-01-20-B-sat-evaluation-new2014-coverage.json",
     }
 
 names = sorted(RESULTS.keys())
 
 dicts = {}
-
 for name, filename in RESULTS.items():
     with open(os.path.join(DIR, "results", filename)) as f:
         dicts[name] = json.load(f)
@@ -121,9 +121,7 @@ for domain in domains:
     for name, domain_dict in dicts.items():
         algo_dict = domain_dict[domain]
         different_coverage_scores[name] |= set(algo_dict.values())
-    print(different_coverage_scores)
     max_unique = max(len(values) for values in different_coverage_scores.values())
-    print(max_unique)
     for name, values in different_coverage_scores.items():
         unique = len(values)
         if unique == max_unique:
