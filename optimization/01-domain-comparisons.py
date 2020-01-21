@@ -113,10 +113,6 @@ def bc(s):
     return f" ''\\bc{{{s}}}''"
 
 
-def version(s):
-    return s.replace("sat_", "").replace("old_", "")
-
-
 table = Table(title="comparison", min_wins=None)
 table.set_column_order(["ipc size", "ipc min/max coverage", "new2014 min/max coverage", "ipc unique", "new2014 unique"])
 for name in names:
@@ -125,10 +121,10 @@ for name in names:
         different_coverage_scores[domain] |= set(algo_to_coverage.values())
     for domain in domains:
         different_scores = different_coverage_scores[domain]
-        table.add_cell(domain, version(name) + " unique", len(different_scores))
+        table.add_cell(domain, name + " unique", len(different_scores))
 
 for name1, name2 in itertools.combinations(names, 2):
-    for domain in sorted(domains):
+    for domain in domains:
         table.add_cell(domain, "ipc size", IPC_DOMAIN_SIZES[domain])
         table.add_cell(domain, "ipc min/max coverage", " ''{}--{}''".format(min(dicts[name1][domain].values()), max(dicts[name1][domain].values())))
         table.add_cell(domain, "new2014 min/max coverage", " ''{}--{}''".format(min(dicts[name2][domain].values()), max(dicts[name2][domain].values())))
