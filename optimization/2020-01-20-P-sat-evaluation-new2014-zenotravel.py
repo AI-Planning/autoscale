@@ -32,7 +32,7 @@ BENCHMARKS = [
     "2020-01-19-new14-sat",
 ]
 ENVIRONMENT = BaselSlurmEnvironment(
-    partition="infai_2",
+    partition="infai_1",
     email="jendrik.seipp@unibas.ch",
     memory_per_cpu='3872M',
     export=["PATH"],
@@ -60,14 +60,25 @@ def get_image(name):
 
 TIME_LIMIT = 1800 if project.REMOTE else 1
 IMAGES = [
-    get_image("cerberus"),
     get_image("decstar-agl"),
-    get_image("lapkt-bfws-pref"),
-    get_image("lapkt-dual-bfws"),
     get_image("lapkt-poly-bfws"),
     get_image("olcff"),
     get_image("remix-agl"),
     get_image("saarplan-agl"),
+
+    get_image("cerberus"),
+    get_image("decstar-dec"),
+    get_image("decstar-dec-fallback"),
+    get_image("decstar-fork"),
+    get_image("decstar-star"),
+    get_image("gbfs-ff"),
+    get_image("lama-first"),
+    get_image("lapkt-bfws-pref"),
+    get_image("lapkt-dual-bfws"),
+    get_image("mpc"),
+    get_image("saarplan-dec"),
+    get_image("saarplan-dec-fallback"),
+    get_image("saarplan-grey"),
 ]
 
 for planner, image in IMAGES:
@@ -81,7 +92,7 @@ for benchmarks_dir in BENCHMARKS:
     abs_benchmarks_dir = os.path.join(BENCHMARKS_DIR, benchmarks_dir)
     domains = os.listdir(abs_benchmarks_dir)
     for domain in domains:
-        if domain in ['trucks']:
+        if domain not in ['zenotravel']:
             continue
         suite.extend(suites.build_suite(abs_benchmarks_dir, [domain]))
 if not project.REMOTE:
@@ -114,9 +125,5 @@ exp.add_report(
     outfile=report)
 exp.add_step('open-report', subprocess.call, ['xdg-open', report])
 exp.add_step('publish-report', subprocess.call, ['publish', report])
-
-exp.add_report(
-    project.CoverageData(filter=[project.group_domains]),
-    outfile=os.path.join(DIR, "results", f"{exp.name}-coverage.json"))
 
 exp.run_steps()

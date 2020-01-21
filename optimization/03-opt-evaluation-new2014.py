@@ -38,27 +38,34 @@ exp.add_step(
     os.path.join(exp.eval_dir, "properties"))
 
 
-# TODO: Use versions for 3.5 GiB and 1800s.
-for old, new in [
-    ("complementary2", "complementary2_3584mb_1800s"),
-    ("delfi_celmcut", ""),
-    ("delfi_ipdb", "delfi_ipdb_1800s"),
-    ("delfi_mas_sccdfp", "delfi_mas_sccdfp_1800s"),
-    ("scorpion", ""),
-]:
-    project.fetch_algorithm(
-        exp, "2019-11-16-C-opt-evaluation-old-30min", old, new)
-
 for algo in [
-    "decstar_opt",
+    "complementary2_3584mb_1800s",
     "delfi_blind",
+    "delfi_celmcut",
+    "delfi_ipdb_1800s",
     "delfi_mas_miasm",
+    "delfi_mas_sccdfp_1800s",
+    "scorpion",
 ]:
     project.fetch_algorithm(
         exp,
-        "2020-01-20-E-opt-sota-ipc-subset-30min",
+        "2020-01-20-A-opt-evaluation-new2014",
         algo,
         algo)
+
+for algo in [
+    "decstar_opt",
+]:
+    project.fetch_algorithm(
+        # The experiment name is wrong: this is new2014, not IPC.
+        exp, "2020-01-20-F-opt-evaluation-ipc-decstar", algo, algo)
+
+report = os.path.join(exp.eval_dir, '{}.html'.format(exp.name))
+exp.add_report(
+    BaseReport(attributes=ATTRIBUTES),
+    outfile=report)
+exp.add_step('open-report', subprocess.call, ['xdg-open', report])
+exp.add_step('publish-report', subprocess.call, ['publish', report])
 
 domains = [
     "barman", "blocksworld", "childsnack", "depot", "driverlog",
@@ -67,13 +74,6 @@ domains = [
     "scanalyzer", "snake", "storage", "tpp", "transport", "visitall",
     "woodworking", "zenotravel",
 ]
-
-report = os.path.join(exp.eval_dir, '{}.html'.format(exp.name))
-exp.add_report(
-    BaseReport(attributes=ATTRIBUTES),
-    outfile=report)
-exp.add_step('open-report', subprocess.call, ['xdg-open', report])
-exp.add_step('publish-report', subprocess.call, ['publish', report])
 
 exp.add_report(
     project.CoverageData(

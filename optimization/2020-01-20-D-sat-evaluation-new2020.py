@@ -29,7 +29,7 @@ IMAGES_DIR = os.path.join(REPO, "images")
 BENCHMARKS_DIR = os.path.join(REPO, "benchmarks")
 
 BENCHMARKS = [
-    "2020-01-19-new14-sat",
+    "2020-01-19-new20-sat",
 ]
 ENVIRONMENT = BaselSlurmEnvironment(
     partition="infai_2",
@@ -86,7 +86,7 @@ for benchmarks_dir in BENCHMARKS:
         suite.extend(suites.build_suite(abs_benchmarks_dir, [domain]))
 if not project.REMOTE:
     suite = [task for task in suite if task.problem == "p01.pddl"]
-    #IMAGES = IMAGES[:2]
+    IMAGES = IMAGES[1:2]
     #suite = suites.build_suite(
     #    os.environ["DOWNWARD_BENCHMARKS"],
     #    ["depot:p01.pddl", "caldera-split-opt18-adl:p01.pddl"])
@@ -114,9 +114,5 @@ exp.add_report(
     outfile=report)
 exp.add_step('open-report', subprocess.call, ['xdg-open', report])
 exp.add_step('publish-report', subprocess.call, ['publish', report])
-
-exp.add_report(
-    project.CoverageData(filter=[project.group_domains]),
-    outfile=os.path.join(DIR, "results", f"{exp.name}-coverage.json"))
 
 exp.run_steps()
