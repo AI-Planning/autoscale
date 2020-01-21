@@ -79,6 +79,7 @@ if ARGS.track == "opt":
     RESULTS = {
         "ipc": "02-opt-evaluation-ipc-coverage.json",
         "new2014": "03-opt-evaluation-new2014-coverage.json",
+        "new2020": "04-opt-evaluation-new2020-coverage.json",
     }
 else:
     IPC_DOMAIN_SIZES = SAT_IPC_DOMAIN_SIZES
