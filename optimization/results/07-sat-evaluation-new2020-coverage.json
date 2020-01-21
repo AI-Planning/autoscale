@@ -1,0 +1,222 @@
+{
+  "barman": {
+    "cerberus": 17,
+    "decstar_agl": 30,
+    "lapkt_bfws_pref": 16,
+    "lapkt_dual_bfws": 16,
+    "lapkt_poly_bfws": 16,
+    "olcff": 27,
+    "remix_agl": 30,
+    "saarplan_agl": 30
+  },
+  "blocksworld": {
+    "cerberus": 13,
+    "decstar_agl": 25,
+    "lapkt_bfws_pref": 7,
+    "lapkt_dual_bfws": 8,
+    "lapkt_poly_bfws": 8,
+    "olcff": 28,
+    "remix_agl": 22,
+    "saarplan_agl": 25
+  },
+  "childsnack": {
+    "cerberus": 3,
+    "decstar_agl": 8,
+    "lapkt_bfws_pref": 1,
+    "lapkt_dual_bfws": 3,
+    "lapkt_poly_bfws": 2,
+    "olcff": 5,
+    "remix_agl": 10,
+    "saarplan_agl": 20
+  },
+  "depot": {
+    "cerberus": 23,
+    "decstar_agl": 17,
+    "lapkt_bfws_pref": 25,
+    "lapkt_dual_bfws": 26,
+    "lapkt_poly_bfws": 26,
+    "olcff": 30,
+    "remix_agl": 11,
+    "saarplan_agl": 30
+  },
+  "driverlog": {
+    "cerberus": 10,
+    "decstar_agl": 10,
+    "lapkt_bfws_pref": 18,
+    "lapkt_dual_bfws": 20,
+    "lapkt_poly_bfws": 20,
+    "olcff": 12,
+    "remix_agl": 12,
+    "saarplan_agl": 11
+  },
+  "elevators": {
+    "cerberus": 30,
+    "decstar_agl": 30,
+    "lapkt_bfws_pref": 14,
+    "lapkt_dual_bfws": 27,
+    "lapkt_poly_bfws": 27,
+    "olcff": 16,
+    "remix_agl": 12,
+    "saarplan_agl": 30
+  },
+  "floortile": {
+    "cerberus": 20,
+    "decstar_agl": 14,
+    "lapkt_bfws_pref": 1,
+    "lapkt_dual_bfws": 1,
+    "lapkt_poly_bfws": 2,
+    "olcff": 13,
+    "remix_agl": 11,
+    "saarplan_agl": 13
+  },
+  "gripper": {
+    "cerberus": 30,
+    "decstar_agl": 30,
+    "lapkt_bfws_pref": 30,
+    "lapkt_dual_bfws": 30,
+    "lapkt_poly_bfws": 26,
+    "olcff": 30,
+    "remix_agl": 30,
+    "saarplan_agl": 30
+  },
+  "hiking": {
+    "cerberus": 7,
+    "decstar_agl": 18,
+    "lapkt_bfws_pref": 7,
+    "lapkt_dual_bfws": 8,
+    "lapkt_poly_bfws": 3,
+    "olcff": 20,
+    "remix_agl": 18,
+    "saarplan_agl": 18
+  },
+  "miconic-strips": {
+    "cerberus": 30,
+    "decstar_agl": 30,
+    "lapkt_bfws_pref": 30,
+    "lapkt_dual_bfws": 30,
+    "lapkt_poly_bfws": 30,
+    "olcff": 30,
+    "remix_agl": 30,
+    "saarplan_agl": 30
+  },
+  "parking": {
+    "cerberus": 12,
+    "decstar_agl": 13,
+    "lapkt_bfws_pref": 11,
+    "lapkt_dual_bfws": 11,
+    "lapkt_poly_bfws": 11,
+    "olcff": 11,
+    "remix_agl": 11,
+    "saarplan_agl": 11
+  },
+  "pathways": {
+    "cerberus": 30,
+    "decstar_agl": 30,
+    "lapkt_bfws_pref": 30,
+    "lapkt_dual_bfws": 30,
+    "lapkt_poly_bfws": 30,
+    "olcff": 30,
+    "remix_agl": 30,
+    "saarplan_agl": 30
+  },
+  "rovers": {
+    "cerberus": 14,
+    "decstar_agl": 17,
+    "lapkt_bfws_pref": 11,
+    "lapkt_dual_bfws": 19,
+    "lapkt_poly_bfws": 19,
+    "olcff": 19,
+    "remix_agl": 21,
+    "saarplan_agl": 20
+  },
+  "satellite": {
+    "cerberus": 16,
+    "decstar_agl": 15,
+    "lapkt_bfws_pref": 7,
+    "lapkt_dual_bfws": 16,
+    "lapkt_poly_bfws": 16,
+    "olcff": 14,
+    "remix_agl": 17,
+    "saarplan_agl": 15
+  },
+  "scanalyzer": {
+    "cerberus": 10,
+    "decstar_agl": 16,
+    "lapkt_bfws_pref": 15,
+    "lapkt_dual_bfws": 15,
+    "lapkt_poly_bfws": 15,
+    "olcff": 15,
+    "remix_agl": 16,
+    "saarplan_agl": 15
+  },
+  "snake": {
+    "cerberus": 8,
+    "decstar_agl": 6,
+    "lapkt_bfws_pref": 11,
+    "lapkt_dual_bfws": 11,
+    "lapkt_poly_bfws": 3,
+    "olcff": 10,
+    "remix_agl": 7,
+    "saarplan_agl": 10
+  },
+  "storage": {
+    "cerberus": 10,
+    "decstar_agl": 20,
+    "lapkt_bfws_pref": 29,
+    "lapkt_dual_bfws": 26,
+    "lapkt_poly_bfws": 29,
+    "olcff": 17,
+    "remix_agl": 6,
+    "saarplan_agl": 28
+  },
+  "tpp": {
+    "cerberus": 11,
+    "decstar_agl": 17,
+    "lapkt_bfws_pref": 10,
+    "lapkt_dual_bfws": 8,
+    "lapkt_poly_bfws": 9,
+    "olcff": 11,
+    "remix_agl": 17,
+    "saarplan_agl": 13
+  },
+  "transport": {
+    "cerberus": 26,
+    "decstar_agl": 22,
+    "lapkt_bfws_pref": 18,
+    "lapkt_dual_bfws": 19,
+    "lapkt_poly_bfws": 19,
+    "olcff": 16,
+    "remix_agl": 19,
+    "saarplan_agl": 22
+  },
+  "visitall": {
+    "cerberus": 28,
+    "decstar_agl": 29,
+    "lapkt_bfws_pref": 23,
+    "lapkt_dual_bfws": 21,
+    "lapkt_poly_bfws": 21,
+    "olcff": 25,
+    "remix_agl": 30,
+    "saarplan_agl": 30
+  },
+  "woodworking": {
+    "cerberus": 6,
+    "decstar_agl": 19,
+    "lapkt_bfws_pref": 4,
+    "lapkt_dual_bfws": 4,
+    "lapkt_poly_bfws": 8,
+    "olcff": 28,
+    "remix_agl": 14,
+    "saarplan_agl": 26
+  },
+  "zenotravel": {
+    "cerberus": 3,
+    "decstar_agl": 30,
+    "lapkt_bfws_pref": 27,
+    "lapkt_dual_bfws": 29,
+    "lapkt_poly_bfws": 29,
+    "olcff": 27,
+    "remix_agl": 30,
+    "saarplan_agl": 30
+  }
+}
