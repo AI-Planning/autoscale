@@ -86,7 +86,7 @@ else:
     RESULTS = {
         "ipc": "05-sat-evaluation-ipc-coverage.json",
         "new2014": "2020-01-20-B-sat-evaluation-new2014-coverage.json",
-        "new2020": "2020-01-20-D-sat-evaluation-new2020-coverage.json", # TODO: add nomystery.
+        "new2020": "2020-01-20-D-sat-evaluation-new2020-coverage.json",
     }
 
 names = sorted(RESULTS.keys())
@@ -95,7 +95,7 @@ dicts = {}
 for name, filename in RESULTS.items():
     with open(os.path.join(DIR, "results", filename)) as f:
         dicts[name] = json.load(f)
-        for domain in ["pathways", "nomystery", "trucks"]: # TODO: use these domains again.
+        for domain in ["pathways", "trucks"]: # TODO: use these domains again.
             if domain in dicts[name]:
                 del dicts[name][domain]
 

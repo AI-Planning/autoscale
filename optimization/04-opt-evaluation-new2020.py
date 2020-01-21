@@ -57,6 +57,9 @@ for algo in ["decstar_opt"]:
     project.fetch_algorithm(
         exp, "2020-01-20-G-opt-evaluation-new2020-decstar", algo, algo)
 
+project.fetch_algorithms(
+    exp, "2020-01-21-C-opt-evaluation-new2020-enum")
+
 report = os.path.join(exp.eval_dir, '{}.html'.format(exp.name))
 exp.add_report(
     BaseReport(attributes=ATTRIBUTES),

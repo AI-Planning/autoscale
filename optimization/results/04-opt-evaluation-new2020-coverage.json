@@ -22,7 +22,7 @@
   "childsnack": {
     "complementary2_3584mb_1800s": 12,
     "decstar_opt": 17,
-    "delfi_blind": 18,
+    "delfi_blind": 20,
     "delfi_celmcut": 20,
     "delfi_ipdb_1800s": 20,
     "delfi_mas_miasm": 20,
@@ -51,13 +51,13 @@
   },
   "elevators": {
     "complementary2_3584mb_1800s": 9,
-    "decstar_opt": 8,
+    "decstar_opt": 11,
     "delfi_blind": 6,
     "delfi_celmcut": 11,
-    "delfi_ipdb_1800s": 10,
-    "delfi_mas_miasm": 7,
-    "delfi_mas_sccdfp_1800s": 7,
-    "scorpion": 13
+    "delfi_ipdb_1800s": 11,
+    "delfi_mas_miasm": 6,
+    "delfi_mas_sccdfp_1800s": 6,
+    "scorpion": 16
   },
   "floortile": {
     "complementary2_3584mb_1800s": 17,
@@ -67,7 +67,7 @@
     "delfi_ipdb_1800s": 9,
     "delfi_mas_miasm": 10,
     "delfi_mas_sccdfp_1800s": 9,
-    "scorpion": 8
+    "scorpion": 7
   },
   "gripper": {
     "complementary2_3584mb_1800s": 30,
@@ -100,24 +100,24 @@
     "scorpion": 27
   },
   "nomystery": {
-    "complementary2_3584mb_1800s": 24,
-    "decstar_opt": 21,
+    "complementary2_3584mb_1800s": 23,
+    "decstar_opt": 22,
     "delfi_blind": 4,
-    "delfi_celmcut": 10,
-    "delfi_ipdb_1800s": 13,
-    "delfi_mas_miasm": 15,
-    "delfi_mas_sccdfp_1800s": 13,
-    "scorpion": 21
+    "delfi_celmcut": 13,
+    "delfi_ipdb_1800s": 17,
+    "delfi_mas_miasm": 17,
+    "delfi_mas_sccdfp_1800s": 16,
+    "scorpion": 18
   },
   "parking": {
-    "complementary2_3584mb_1800s": 7,
-    "decstar_opt": 10,
+    "complementary2_3584mb_1800s": 8,
+    "decstar_opt": 9,
     "delfi_blind": 7,
-    "delfi_celmcut": 9,
-    "delfi_ipdb_1800s": 15,
+    "delfi_celmcut": 8,
+    "delfi_ipdb_1800s": 13,
     "delfi_mas_miasm": 7,
-    "delfi_mas_sccdfp_1800s": 10,
-    "scorpion": 15
+    "delfi_mas_sccdfp_1800s": 9,
+    "scorpion": 14
   },
   "pathways": {
     "complementary2_3584mb_1800s": 28,
@@ -156,18 +156,18 @@
     "delfi_celmcut": 16,
     "delfi_ipdb_1800s": 14,
     "delfi_mas_miasm": 11,
-    "delfi_mas_sccdfp_1800s": 13,
+    "delfi_mas_sccdfp_1800s": 14,
     "scorpion": 19
   },
   "snake": {
-    "complementary2_3584mb_1800s": 18,
-    "decstar_opt": 11,
-    "delfi_blind": 13,
-    "delfi_celmcut": 7,
-    "delfi_ipdb_1800s": 17,
-    "delfi_mas_miasm": 12,
-    "delfi_mas_sccdfp_1800s": 12,
-    "scorpion": 15
+    "complementary2_3584mb_1800s": 16,
+    "decstar_opt": 9,
+    "delfi_blind": 10,
+    "delfi_celmcut": 4,
+    "delfi_ipdb_1800s": 15,
+    "delfi_mas_miasm": 9,
+    "delfi_mas_sccdfp_1800s": 9,
+    "scorpion": 16
   },
   "storage": {
     "complementary2_3584mb_1800s": 9,
@@ -190,34 +190,34 @@
     "scorpion": 3
   },
   "transport": {
-    "complementary2_3584mb_1800s": 11,
-    "decstar_opt": 14,
+    "complementary2_3584mb_1800s": 12,
+    "decstar_opt": 12,
     "delfi_blind": 22,
-    "delfi_celmcut": 18,
-    "delfi_ipdb_1800s": 22,
-    "delfi_mas_miasm": 21,
+    "delfi_celmcut": 19,
+    "delfi_ipdb_1800s": 21,
+    "delfi_mas_miasm": 23,
     "delfi_mas_sccdfp_1800s": 22,
-    "scorpion": 15
+    "scorpion": 14
   },
   "visitall": {
-    "complementary2_3584mb_1800s": 14,
-    "decstar_opt": 13,
-    "delfi_blind": 8,
-    "delfi_celmcut": 14,
-    "delfi_ipdb_1800s": 11,
-    "delfi_mas_miasm": 10,
-    "delfi_mas_sccdfp_1800s": 10,
-    "scorpion": 17
+    "complementary2_3584mb_1800s": 17,
+    "decstar_opt": 18,
+    "delfi_blind": 10,
+    "delfi_celmcut": 18,
+    "delfi_ipdb_1800s": 17,
+    "delfi_mas_miasm": 15,
+    "delfi_mas_sccdfp_1800s": 15,
+    "scorpion": 20
   },
   "woodworking": {
-    "complementary2_3584mb_1800s": 7,
-    "decstar_opt": 16,
-    "delfi_blind": 10,
-    "delfi_celmcut": 19,
-    "delfi_ipdb_1800s": 8,
-    "delfi_mas_miasm": 10,
+    "complementary2_3584mb_1800s": 8,
+    "decstar_opt": 15,
+    "delfi_blind": 12,
+    "delfi_celmcut": 18,
+    "delfi_ipdb_1800s": 10,
+    "delfi_mas_miasm": 15,
     "delfi_mas_sccdfp_1800s": 18,
-    "scorpion": 19
+    "scorpion": 18
   },
   "zenotravel": {
     "complementary2_3584mb_1800s": 17,
