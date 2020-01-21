@@ -2,6 +2,7 @@
 
 from collections import defaultdict, Counter
 import os.path
+import subprocess
 import sys
 
 import lab
@@ -11,12 +12,23 @@ DIR = os.path.dirname(FILE)
 sys.path.insert(0, os.path.dirname(DIR))
 
 import project
-from reports.per_domain_comparison import PerDomainComparison
+
+from downward.reports.absolute import AbsoluteReport
+
+# Create custom report class with suitable info and error attributes.
+class BaseReport(AbsoluteReport):
+    INFO_ATTRIBUTES = []
+    ERROR_ATTRIBUTES = [
+        'domain', 'problem', 'algorithm', 'unexplained_errors', 'error', 'node']
 
 
 FILENAME = os.path.splitext(os.path.basename(__file__))[0]
 EXPS = os.path.join(DIR, "data")
 EXPPATH = os.path.join(EXPS, FILENAME)
+
+ATTRIBUTES = [
+    'cost', 'coverage', 'run_dir', 'total_time', 'runtime',
+]
 
 exp = lab.experiment.Experiment()
 exp.steps = []
@@ -48,6 +60,13 @@ for algo in [
         # The experiment name is wrong: this is new2014, not IPC.
         exp, "2020-01-20-F-opt-evaluation-ipc-decstar", algo, algo)
 
+report = os.path.join(exp.eval_dir, '{}.html'.format(exp.name))
+exp.add_report(
+    BaseReport(attributes=ATTRIBUTES),
+    outfile=report)
+exp.add_step('open-report', subprocess.call, ['xdg-open', report])
+exp.add_step('publish-report', subprocess.call, ['publish', report])
+
 domains = [
     "barman", "blocksworld", "childsnack", "depot", "driverlog",
     "elevators", "floortile", "gripper", "hiking", "miconic-strips",
@@ -57,7 +76,7 @@ domains = [
 ]
 
 exp.add_report(
-    PerDomainComparison(
+    project.CoverageData(
         filter=[project.group_domains],
         filter_domain=domains,
         ),

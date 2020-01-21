@@ -18,6 +18,9 @@ from lab import tools
 from downward.experiment import FastDownwardExperiment
 from downward.reports.absolute import AbsoluteReport
 
+from reports.per_domain_comparison import PerDomainComparison
+from reports.coverage import CoverageData
+
 DIR = os.path.dirname(os.path.abspath(__file__))
 NODE = platform.node()
 REMOTE = NODE.endswith(".scicore.unibas.ch") or NODE.endswith(".cluster.bc2.ch")
