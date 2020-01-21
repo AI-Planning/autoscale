@@ -1,0 +1,18 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-01-21 15:35:58,662 INFO     No run directory, so we will not run anything
+2020-01-21 15:36:01,296 INFO     Loading cache data for baseline planners: 199
+2020-01-21 15:36:01,296 INFO     Loading cache data for sart planners: 436
+2020-01-21 15:36:01,297 INFO     Stored sequences: 24300
+2020-01-21 15:36:05,532 INFO     Different evaluated sequences: 204
+cars_diff 0 67 8
+cars_diff -1 69 5
+cars_diff -2 68 8
+2020-01-21 15:36:05,548 INFO     Candidate sequences: 21
+2020-01-21 15:36:05,548 INFO     Using sart runtimes on CPLEX optimization
+2020-01-21 15:36:05,566 INFO     CPLEX solve
+
+2020-01-21 15:36:05,596 INFO     Solution status = 101: MIP_optimal
+2020-01-21 15:36:05,597 INFO     Solution value  = 0.0
+2020-01-21 15:36:05,597 INFO     Selected: sequence 115, 6 instances from 6 to 11: [180.0, 490.9090909090909, 1338.8429752066113, 3651.3899323816668, 9958.336179222726, 27159.098670607433, 74070.26910165662, 202009.82482269985, 550935.8858800905, 1502552.4160366105, 4097870.2255543917, 11176009.706057431, 30480026.47106572, 83127344.92108832, 226710940.69387722, 618302565.528756, 1686279724.1693344, 4598944702.280003, 12542576460.763643, 34207026711.17357, 93291891030.47336, 254432430083.10913, 693906627499.3884, 1892472620452.8774]
+2020-01-21 15:36:05,597 INFO     Selected: sequence 175, 24 instances from 0 to 23: [3.0, 4.0, 6.0, 9.0, 10.0, 18.0, 27.0, 30.0, 39.0, 41.0, 71.0, 163.0, 242.48259460871964, 360.72275268820044, 536.6195644554253, 798.2877564843718, 1187.551450531928, 1766.6291837811684, 2628.0787005812413, 3909.591056152465, 5815.998669661928, 8652.015016322, 12870.938955529831, 19147.108423235077, 28483.684231414187, 42372.99175735452, 63035.048973357145, 93772.40629660951, 139498.0146104596, 207520.4940215296]
+2020-01-21 15:36:05,597 INFO     [{'curbs': 23, 'cars': 44}, {'curbs': 26, 'cars': 50}, {'curbs': 28, 'cars': 54}, {'curbs': 30, 'cars': 58}, {'curbs': 33, 'cars': 64}, {'curbs': 35, 'cars': 68}, {'curbs': 10, 'cars': 17}, {'curbs': 11, 'cars': 19}, {'curbs': 12, 'cars': 21}, {'curbs': 13, 'cars': 23}, {'curbs': 14, 'cars': 25}, {'curbs': 15, 'cars': 27}, {'curbs': 17, 'cars': 31}, {'curbs': 18, 'cars': 33}, {'curbs': 19, 'cars': 35}, {'curbs': 20, 'cars': 37}, {'curbs': 21, 'cars': 39}, {'curbs': 23, 'cars': 43}, {'curbs': 24, 'cars': 45}, {'curbs': 25, 'cars': 47}, {'curbs': 26, 'cars': 49}, {'curbs': 27, 'cars': 51}, {'curbs': 28, 'cars': 53}, {'curbs': 30, 'cars': 57}, {'curbs': 31, 'cars': 59}, {'curbs': 32, 'cars': 61}, {'curbs': 33, 'cars': 63}, {'curbs': 34, 'cars': 65}, {'curbs': 36, 'cars': 69}, {'curbs': 37, 'cars': 71}]

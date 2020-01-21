@@ -1,0 +1,111 @@
+(define (problem strips-sat-x-1)
+(:domain satellite)
+(:objects
+	satellite0 - satellite
+	instrument0 - instrument
+	instrument1 - instrument
+	instrument2 - instrument
+	infrared0 - mode
+	GroundStation0 - direction
+	GroundStation2 - direction
+	GroundStation3 - direction
+	Star4 - direction
+	GroundStation6 - direction
+	GroundStation7 - direction
+	GroundStation8 - direction
+	Star9 - direction
+	GroundStation10 - direction
+	Star12 - direction
+	GroundStation15 - direction
+	Star16 - direction
+	Star17 - direction
+	Star18 - direction
+	Star19 - direction
+	Star20 - direction
+	GroundStation11 - direction
+	Star1 - direction
+	Star5 - direction
+	Star14 - direction
+	GroundStation13 - direction
+	Planet21 - direction
+	Phenomenon22 - direction
+	Planet23 - direction
+	Phenomenon24 - direction
+	Planet25 - direction
+	Star26 - direction
+	Planet27 - direction
+	Planet28 - direction
+	Phenomenon29 - direction
+	Phenomenon30 - direction
+	Planet31 - direction
+	Phenomenon32 - direction
+	Phenomenon33 - direction
+	Phenomenon34 - direction
+	Phenomenon35 - direction
+	Star36 - direction
+	Star37 - direction
+	Star38 - direction
+	Planet39 - direction
+	Planet40 - direction
+	Phenomenon41 - direction
+	Star42 - direction
+	Star43 - direction
+	Planet44 - direction
+	Phenomenon45 - direction
+	Planet46 - direction
+	Star47 - direction
+	Phenomenon48 - direction
+	Planet49 - direction
+	Planet50 - direction
+	Planet51 - direction
+)
+(:init
+	(supports instrument0 infrared0)
+	(calibration_target instrument0 GroundStation11)
+	(supports instrument1 infrared0)
+	(calibration_target instrument1 Star5)
+	(calibration_target instrument1 Star1)
+	(supports instrument2 infrared0)
+	(calibration_target instrument2 GroundStation13)
+	(calibration_target instrument2 Star14)
+	(on_board instrument0 satellite0)
+	(on_board instrument1 satellite0)
+	(on_board instrument2 satellite0)
+	(power_avail satellite0)
+	(pointing satellite0 Star12)
+)
+(:goal (and
+	(pointing satellite0 Phenomenon22)
+	(have_image Planet21 infrared0)
+	(have_image Phenomenon22 infrared0)
+	(have_image Planet23 infrared0)
+	(have_image Phenomenon24 infrared0)
+	(have_image Planet25 infrared0)
+	(have_image Star26 infrared0)
+	(have_image Planet27 infrared0)
+	(have_image Planet28 infrared0)
+	(have_image Phenomenon29 infrared0)
+	(have_image Phenomenon30 infrared0)
+	(have_image Planet31 infrared0)
+	(have_image Phenomenon32 infrared0)
+	(have_image Phenomenon33 infrared0)
+	(have_image Phenomenon34 infrared0)
+	(have_image Phenomenon35 infrared0)
+	(have_image Star36 infrared0)
+	(have_image Star37 infrared0)
+	(have_image Star38 infrared0)
+	(have_image Planet39 infrared0)
+	(have_image Phenomenon41 infrared0)
+	(have_image Star42 infrared0)
+	(have_image Star43 infrared0)
+	(have_image Planet44 infrared0)
+	(have_image Phenomenon45 infrared0)
+	(have_image Planet46 infrared0)
+	(have_image Star47 infrared0)
+	(have_image Phenomenon48 infrared0)
+	(have_image Planet49 infrared0)
+	(have_image Planet50 infrared0)
+	(have_image Planet51 infrared0)
+))
+
+)
