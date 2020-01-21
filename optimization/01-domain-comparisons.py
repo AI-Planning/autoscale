@@ -84,9 +84,9 @@ if ARGS.track == "opt":
 else:
     IPC_DOMAIN_SIZES = SAT_IPC_DOMAIN_SIZES
     RESULTS = {
-        "ipc": "2020-01-20-H-sat-evaluation-ipc-coverage.json", # TODO: update.
+        "ipc": "05-sat-evaluation-ipc-coverage.json",
         "new2014": "2020-01-20-B-sat-evaluation-new2014-coverage.json",
-        "new2020": "2020-01-20-D-sat-evaluation-new2020-coverage.json",
+        "new2020": "2020-01-20-D-sat-evaluation-new2020-coverage.json", # TODO: add nomystery.
     }
 
 names = sorted(RESULTS.keys())

@@ -326,3 +326,19 @@ def fetch_algorithm(exp, expname, algo, new_algo=None):
         filter=algo_filter,
         name="fetch-{new_algo}-from-{expname}".format(**locals()),
         merge=True)
+
+def fetch_algorithms(exp, expname, algos=None, name=None):
+    """
+    Fetch multiple or all algorithms.
+    """
+    assert not expname.rstrip("/").endswith("-eval")
+    algos = set(algos or [])
+
+    def algo_filter(run):
+        return run["algorithm"] in algos
+
+    exp.add_fetcher(
+        os.path.join("data", expname + "-eval"),
+        filter=algo_filter if algos else None,
+        name=name or "fetch-from-{expname}".format(**locals()),
+        merge=True)
