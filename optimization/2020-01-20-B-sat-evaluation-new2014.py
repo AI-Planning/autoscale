@@ -116,9 +116,7 @@ exp.add_step('open-report', subprocess.call, ['xdg-open', report])
 exp.add_step('publish-report', subprocess.call, ['publish', report])
 
 exp.add_report(
-    project.CoverageData(
-        filter=[project.group_domains],
-        ),
+    project.CoverageData(filter=[project.group_domains]),
     outfile=os.path.join(DIR, "results", f"{exp.name}-coverage.json"))
 
 exp.run_steps()
