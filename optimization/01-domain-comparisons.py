@@ -115,13 +115,22 @@ def bc(s):
 
 table = Table(title="comparison", min_wins=None)
 table.set_column_order(["ipc size", "ipc min/max coverage", "new2014 min/max coverage", "ipc unique", "new2014 unique"])
-for name in names:
+
+for domain in domains:
     different_coverage_scores = defaultdict(set)
-    for domain, algo_to_coverage in dicts[name].items():
-        different_coverage_scores[domain] |= set(algo_to_coverage.values())
-    for domain in domains:
-        different_scores = different_coverage_scores[domain]
-        table.add_cell(domain, name + " unique", len(different_scores))
+    for name, domain_dict in dicts.items():
+        algo_dict = domain_dict[domain]
+        different_coverage_scores[name] |= set(algo_dict.values())
+    print(different_coverage_scores)
+    max_unique = max(len(values) for values in different_coverage_scores.values())
+    print(max_unique)
+    for name, values in different_coverage_scores.items():
+        unique = len(values)
+        if unique == max_unique:
+            value = bc(unique)
+        else:
+            value = unique
+        table.add_cell(domain, name + " unique", value)
 
 for name1, name2 in itertools.combinations(names, 2):
     for domain in domains:
@@ -130,8 +139,8 @@ for name1, name2 in itertools.combinations(names, 2):
         table.add_cell(domain, "new2014 min/max coverage", " ''{}--{}''".format(min(dicts[name2][domain].values()), max(dicts[name2][domain].values())))
 
 
-def render_txt2tags(text, target="xhtml"):
-    return text
+def render_txt2tags(text, target="tex"):
+    #return text
     from lab.reports import markup
     doc = markup.Document()
     doc.add_text(text)

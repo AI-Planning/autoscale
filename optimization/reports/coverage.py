@@ -17,6 +17,5 @@ class CoverageData(PlanningReport):
 
         output = defaultdict(dict)
         for (domain, algo), coverage in sorted(domain_and_algorithm_to_coverage.items()):
-            #print(f'("{domain}", "{algo}", {coverage}),')
             output[domain][algo] = coverage
         return json.dumps(output, indent=2)
