@@ -54,6 +54,11 @@ def coverage(content, props):
         del props["runtime"]
 
 
+def unsolvable(content, props):
+    # Note that this may easily generate false positives.
+    props["unsolvable"] = int("unsolvable" in content.lower())
+
+
 def error(content, props):
     if props.get('planner_exit_code') == 0:
         props['error'] = 'none'
@@ -89,6 +94,7 @@ def main():
     parser.add_pattern("cost", r"\nFinal value: (.+)\n", type=int)
     parser.add_pattern("delfi_planner", r"Chose (.+)\n", type=str)
     parser.add_function(coverage)
+    parser.add_function(unsolvable)
     parser.add_function(error)
     parser.parse()
 
