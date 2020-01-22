@@ -37,28 +37,8 @@ exp.add_step(
     project.remove_file,
     os.path.join(exp.eval_dir, "properties"))
 
-
-# TODO: Use versions for 3.5 GiB and 1800s.
-for old, new in [
-    ("complementary2", "complementary2_3584mb_1800s"),
-    ("delfi_celmcut", ""),
-    ("delfi_ipdb", "delfi_ipdb_1800s"),
-    ("delfi_mas_sccdfp", "delfi_mas_sccdfp_1800s"),
-    ("scorpion", ""),
-]:
-    project.fetch_algorithm(
-        exp, "2019-11-16-C-opt-evaluation-old-30min", old, new)
-
-for algo in [
-    "decstar_opt",
-    "delfi_blind",
-    "delfi_mas_miasm",
-]:
-    project.fetch_algorithm(
-        exp,
-        "2020-01-20-E-opt-sota-ipc-subset-30min",
-        algo,
-        algo)
+project.fetch_algorithms(
+    exp, "2020-01-20-S-opt-evaluation-ipc")
 
 domains = [
     "barman", "blocksworld", "childsnack", "depot", "driverlog",
