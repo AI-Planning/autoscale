@@ -7,22 +7,31 @@ From: ubuntu:18.04
 
 %post
     ## Install all dependencies.
-    apt update
-    apt install -y --no-install-recommends cmake g++ make python
+    apt-get update
+    apt-get install -y --no-install-recommends cmake g++ make python
 
     cd /planner
 
     ## Build the planner.
     ./build.py
 
-    ## Clean up.
-    apt -y autoremove cmake g++ make
+    ## Strip planner binary.
+    strip --strip-all builds/release/bin/downward
+
+    ## Remove packages unneeded for running the planner.
+    apt-get -y autoremove cmake g++ make
     rm -rf /var/lib/apt/lists/*
+
+    ## Only keep essential binaries.
+    mkdir -p /compiled-planner/builds/release
+    mv /planner/driver /planner/fast-downward.py /compiled-planner
+    mv /planner/builds/release/bin /compiled-planner/builds/release
+    rm -rf /planner
+    mv /compiled-planner /planner
 
 %runscript
     DOMAINFILE=$1
     PROBLEMFILE=$2
     PLANFILE=$3
 
-    ## Originally without time limit.
     /planner/fast-downward.py --alias lama-first --plan-file $PLANFILE $DOMAINFILE $PROBLEMFILE
