@@ -302,7 +302,8 @@ def add_scp_steps(exp):
         remote_exp = os.path.join(
             REMOTE_USER.repos, get_rel_experiment_dir())
         exp.add_step('scp-eval-dir', subprocess.call, [
-            'scp', '-r',
+            'scp',
+            '-Cvr',  # Compress files, show report.
             '%s:%s-eval' % (USER.scp_login, remote_exp),
             '%s-eval' % exp.path])
 
