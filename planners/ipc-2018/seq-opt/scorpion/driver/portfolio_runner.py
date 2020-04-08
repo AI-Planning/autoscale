@@ -234,7 +234,8 @@ def run(portfolio, executable, sas_file, plan_manager, time, memory):
             sys.exit(limits.RESOURCE_MODULE_MISSING_MSG)
         else:
             sys.exit(
-                "Portfolios need a time limit. Please pass --search-time-limit "
+                "For technical reasons, Scorpion needs a time limit. "
+                "Please set a time limit with ulimit, or pass --search-time-limit "
                 "or --overall-time-limit to fast-downward.py.")
 
     timeout = util.get_elapsed_time() + time
