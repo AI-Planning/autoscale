@@ -1,68 +1,67 @@
 # This file is automatically converted. Check all lines for mistakes.
-# OLD: \.o$
 *.o
 *.pyc
-# TODO: images$
-# TODO: ^optimization/data/
-# TODO: ^optimization/smac/
-# TODO: ~$
-# TODO: ^pddl-generators/assembly/assembly$
-# TODO: ^pddl-generators/blocksworld/3ops/2pddl/2pddl$
-# TODO: ^pddl-generators/blocksworld/4ops/2pddl/2pddl$
-# TODO: ^pddl-generators/blocksworld/bwstates.1/bwstates$
-# TODO: ^pddl-generators/blocksworld/matching/2pddl-typed$
-# TODO: ^pddl-generators/blocksworld/matching/2pddl-untyped$
-# TODO: ^pddl-generators/briefcaseworld/briefcaseworld$
-# TODO: ^pddl-generators/depots/depots$
-# TODO: ^pddl-generators/driverlog/dlgen$
-# TODO: ^pddl-generators/elevators/generate_data$
-# TODO: ^pddl-generators/elevators/generate_pddl$
-# TODO: ^pddl-generators/ferry/ferry$
-# TODO: ^pddl-generators/freecell/freecell$
-# TODO: ^pddl-generators/fridge/fridge$
-# TODO: ^pddl-generators/goldminer/gold-miner-generator$
-# TODO: ^pddl-generators/grid/grid$
-# TODO: ^pddl-generators/gripper/gripper$
-# TODO: ^pddl-generators/grippers/grippers$
-# TODO: ^pddl-generators/hanoi/hanoi$
-# TODO: ^pddl-generators/logistics/logistics$
-# TODO: ^pddl-generators/maintenance/maintenance$
-# TODO: ^pddl-generators/miconic-adl/miconic$
-# TODO: ^pddl-generators/miconic-simple/miconic$
-# TODO: ^pddl-generators/miconic-strips/miconic$
-# TODO: ^pddl-generators/movie/movie$
-# TODO: ^pddl-generators/mprime/mprime$
-# TODO: ^pddl-generators/mystery/mystery$
-# TODO: ^pddl-generators/nomystery/build/
-# TODO: ^pddl-generators/nomystery/nomystery$
-# TODO: ^pddl-generators/nomystery/old/Makefile.depend$
-# TODO: ^pddl-generators/nomystery/old/nomystery$
-# TODO: ^pddl-generators/nomystery/release-search$
-# TODO: ^pddl-generators/nomystery/CMakeFiles
-# TODO: ^pddl-generators/nomystery/CMakeCache.txt
-# TODO: ^pddl-generators/nomystery/cmake_install.cmake
-# TODO: ^pddl-generators/nomystery/nomystery_opt
-# TODO: ^pddl-generators/npuzzle/n-puzzle-generator$
-# TODO: ^pddl-generators/openstacks/generate_pddl$
-# TODO: ^pddl-generators/openstacks/generate_problems$
-# TODO: ^pddl-generators/pathways/pathways$
-# TODO: ^pddl-generators/rover/rovgen$
-# TODO: ^pddl-generators/satellite/satgen$
-# TODO: ^pddl-generators/schedule/schedule$
-# TODO: ^pddl-generators/storage/storage$
-# TODO: ^pddl-generators/sokoban/random/sokoban-generator-typed$
-# TODO: ^pddl-generators/sokoban/random/sokoban-generator-untyped$
-# TODO: ^pddl-generators/tidybot/tidybot-.*-snapshot-standalone.jar$
-# TODO: ^pddl-generators/tpp/tpp$
-# TODO: ^pddl-generators/trucks/trucks$
-# TODO: ^pddl-generators/trucks/adl2strips/ff$
-# TODO: ^pddl-generators/trucks/adl2strips/lex.fct_pddl.c$
-# TODO: ^pddl-generators/trucks/adl2strips/lex.ops_pddl.c$
-# TODO: ^pddl-generators/trucks/adl2strips/scan-fct_pddl.tab.c$
-# TODO: ^pddl-generators/trucks/adl2strips/scan-ops_pddl.tab.c$
-# TODO: ^pddl-generators/tsp/tsp$
-# TODO: ^pddl-generators/turnandopen/turnandopen$
-# TODO: ^pddl-generators/tyreworld/tyreworld$
-# TODO: ^pddl-generators/visitall/grid$
-# TODO: ^pddl-generators/zenotravel/ztravel$
+images/
+optimization/data/
+optimization/smac/
+pddl-generators/assembly/assembly
+pddl-generators/blocksworld/3ops/2pddl/2pddl
+pddl-generators/blocksworld/4ops/2pddl/2pddl
+pddl-generators/blocksworld/bwstates.1/bwstates
+pddl-generators/blocksworld/matching/2pddl-typed
+pddl-generators/blocksworld/matching/2pddl-untyped
+pddl-generators/briefcaseworld/briefcaseworld
+pddl-generators/depots/depots
+pddl-generators/driverlog/dlgen
+pddl-generators/elevators/generate_data
+pddl-generators/elevators/generate_pddl
+pddl-generators/ferry/ferry
+pddl-generators/freecell/freecell
+pddl-generators/fridge/fridge
+pddl-generators/goldminer/gold-miner-generator
+pddl-generators/grid/grid
+pddl-generators/gripper/gripper
+pddl-generators/grippers/grippers
+pddl-generators/hanoi/hanoi
+pddl-generators/logistics/logistics
+pddl-generators/maintenance/maintenance
+pddl-generators/miconic-adl/miconic
+pddl-generators/miconic-simple/miconic
+pddl-generators/miconic-strips/miconic
+pddl-generators/movie/movie
+pddl-generators/mprime/mprime
+pddl-generators/mystery/mystery
+pddl-generators/nomystery/build/
+pddl-generators/nomystery/nomystery
+pddl-generators/nomystery/old/Makefile.depend
+pddl-generators/nomystery/old/nomystery
+pddl-generators/nomystery/release-search
+pddl-generators/nomystery/CMakeFiles
+pddl-generators/nomystery/CMakeCache.txt
+pddl-generators/nomystery/cmake_install.cmake
+pddl-generators/nomystery/Makefile
+pddl-generators/nomystery/nomystery_opt
+pddl-generators/npuzzle/n-puzzle-generator
+pddl-generators/openstacks/generate_pddl
+pddl-generators/openstacks/generate_problems
+pddl-generators/pathways/pathways
+pddl-generators/rover/rovgen
+pddl-generators/satellite/satgen
+pddl-generators/schedule/schedule
+pddl-generators/storage/storage
+pddl-generators/sokoban/random/sokoban-generator-typed
+pddl-generators/sokoban/random/sokoban-generator-untyped
+pddl-generators/tidybot/tidybot-.*-snapshot-standalone.jar
+pddl-generators/tpp/tpp
+pddl-generators/trucks/trucks
+pddl-generators/trucks/adl2strips/ff
+pddl-generators/trucks/adl2strips/lex.fct_pddl.c
+pddl-generators/trucks/adl2strips/lex.ops_pddl.c
+pddl-generators/trucks/adl2strips/scan-fct_pddl.tab.c
+pddl-generators/trucks/adl2strips/scan-ops_pddl.tab.c
+pddl-generators/tsp/tsp
+pddl-generators/turnandopen/turnandopen
+pddl-generators/tyreworld/tyreworld
+pddl-generators/visitall/grid
+pddl-generators/zenotravel/ztravel
 
