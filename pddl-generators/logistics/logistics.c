@@ -145,33 +145,33 @@ int main( int argc, char *argv[] )
 
   printf("\n(:init");
   for ( i = 0; i < gairplanes; i++ ) {
-    printf("\n(AIRPLANE a%d)", i);
+    printf("\n    (AIRPLANE a%d)", i);
   }
   for ( i = 0; i < gcities; i++ ) {
-    printf("\n(CITY c%d)", i);
+    printf("\n    (CITY c%d)", i);
   }
   for ( i = 0; i < gcities; i++ ) {
-    printf("\n(TRUCK t%d)", i);
+    printf("\n    (TRUCK t%d)", i);
   }
   for ( i = 0; i < gcities; i++ ) {
     for ( j = 0; j < gcity_size; j++ ) {
-      printf("\n(LOCATION l%d%d)", i, j);
-      printf("\n(in-city  l%d%d c%d)", i, j, i);
+      printf("\n    (LOCATION l%d%d)", i, j);
+      printf("\n    (in-city  l%d%d c%d)", i, j, i);
     }
   }
   for ( i = 0; i < gcities; i++ ) {
-    printf("\n(AIRPORT l%d0)", i);
+    printf("\n    (AIRPORT l%d0)", i);
   }
   for ( i = 0; i < gpackages; i++ ) {
-    printf("\n(OBJ p%d)", i);
+    printf("\n    (OBJ p%d)", i);
   }
   print_random_origins();
   printf("\n)");
 
   printf("\n(:goal");
-  printf("\n(and");
+  printf("\n    (and");
   print_random_destins();
-  printf("\n)");
+  printf("\n    )");
   printf("\n)");
 
   printf("\n)");
@@ -267,13 +267,13 @@ void print_random_origins( void )
   int i;
 
   for ( i = 0; i < gtrucks; i++ ) {
-    printf("\n(at t%d l%d%d)", i, gt_corigin[i], gt_lorigin[i] );
+    printf("\n    (at t%d l%d%d)", i, gt_corigin[i], gt_lorigin[i] );
   }
   for ( i = 0; i < gpackages; i++ ) {
-    printf("\n(at p%d l%d%d)", i, gp_corigin[i], gp_lorigin[i] );
+    printf("\n    (at p%d l%d%d)", i, gp_corigin[i], gp_lorigin[i] );
   }
   for ( i = 0; i < gairplanes; i++ ) {
-    printf("\n(at a%d l%d0)", i, ga_corigin[i]);
+    printf("\n    (at a%d l%d0)", i, ga_corigin[i]);
   }
 
 }
@@ -287,7 +287,7 @@ void print_random_destins( void )
   int i;
 
   for ( i = 0; i < gpackages; i++ ) {
-    printf("\n(at p%d l%d%d)", i, gp_cdestin[i], gp_ldestin[i] );
+    printf("\n        (at p%d l%d%d)", i, gp_cdestin[i], gp_ldestin[i] );
   }
 
 }
