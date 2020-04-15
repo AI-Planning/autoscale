@@ -6,16 +6,16 @@
  * (C) Copyright 2001 Albert Ludwigs University Freiburg
  *     Institute of Computer Science
  *
- * All rights reserved. Use of this software is permitted for 
- * non-commercial research purposes, and it may be copied only 
+ * All rights reserved. Use of this software is permitted for
+ * non-commercial research purposes, and it may be copied only
  * for that use.  All copies must include this copyright message.
  * This software is made available AS IS, and neither the authors
  * nor the  Albert Ludwigs University Freiburg make any warranty
- * about the software or its performance. 
+ * about the software or its performance.
  *********************************************************************/
 
 
-/* 
+/*
  * C code for generating randomozied mystery problems...
  */
 
@@ -114,8 +114,8 @@ int main( int argc, char *argv[] )
 
   /* header
    */
-  printf("(define (problem strips-mystery-l%d-f%d-s%d-v%d-c%d)", 
-	 glocations, gmax_fuel, gmax_space, gvehicles, gcargos);
+  printf("(define (problem strips-mystery-l%d-f%d-s%d-v%d-c%d)",
+         glocations, gmax_fuel, gmax_space, gvehicles, gcargos);
   printf("\n(:domain mystery-strips)");
 
   printf("\n(:objects ");
@@ -165,8 +165,8 @@ int main( int argc, char *argv[] )
   exit( 0 );
 
 }
-  
-  
+
+
 
 
 
@@ -252,7 +252,7 @@ void create_random_locations( void )
  */
 
 
-  
+
 
 
 void print_random_fuels( void )
@@ -264,7 +264,7 @@ void print_random_fuels( void )
   for ( i = 0; i < glocations; i++ ) {
     printf("\n(has-fuel l%d f%d)", i, gfuel[i]);
   }
- 
+
 }
 
 
@@ -358,28 +358,28 @@ Bool process_command_line( int argc, char *argv[] )
     switch ( option ) {
     default:
       if ( --argc && ++argv ) {
-	switch ( option ) {
-	case 'l':
-	  sscanf( *argv, "%d", &glocations );
-	  break;
-	case 'f':
-	  sscanf( *argv, "%d", &gmax_fuel );
-	  break;
-	case 's':
-	  sscanf( *argv, "%d", &gmax_space );
-	  break;
-	case 'v':
-	  sscanf( *argv, "%d", &gvehicles );
-	  break;
-	case 'c':
-	  sscanf( *argv, "%d", &gcargos );
-	  break;
-	default:
-	  printf( "\n\nunknown option: %c entered\n\n", option );
-	  return FALSE;
-	}
+        switch ( option ) {
+        case 'l':
+          sscanf( *argv, "%d", &glocations );
+          break;
+        case 'f':
+          sscanf( *argv, "%d", &gmax_fuel );
+          break;
+        case 's':
+          sscanf( *argv, "%d", &gmax_space );
+          break;
+        case 'v':
+          sscanf( *argv, "%d", &gvehicles );
+          break;
+        case 'c':
+          sscanf( *argv, "%d", &gcargos );
+          break;
+        default:
+          printf( "\n\nunknown option: %c entered\n\n", option );
+          return FALSE;
+        }
       } else {
-	return FALSE;
+        return FALSE;
       }
     }
   }
