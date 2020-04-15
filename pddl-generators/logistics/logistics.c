@@ -63,7 +63,7 @@ Bool setup_city_sizes( int vec );
 
 /* command line params
  */
-int gcities, gcity_size, gpackages, gairplanes;
+int gcities, gcity_size, gpackages, gairplanes, gtrucks;
 
 int grandom_seed;
 
@@ -89,6 +89,7 @@ int main( int argc, char *argv[] )
   gcity_size = -1;
   gpackages = -1;
   gairplanes = 0;
+  gtrucks = -1;
   grandom_seed = -1;
 
   if ( argc == 1 || ( argc == 2 && *++argv[0] == '?' ) ) {
@@ -206,8 +207,8 @@ void create_random_locations( void )
   int r1, r2, i;
 
   ga_corigin = ( int * ) calloc( gairplanes, sizeof( int ) );
-  gt_corigin = ( int * ) calloc( gcities, sizeof( int ) );
-  gt_lorigin = ( int * ) calloc( gcities, sizeof( int ) );
+  gt_corigin = ( int * ) calloc( gtrucks, sizeof( int ) );
+  gt_lorigin = ( int * ) calloc( gtrucks, sizeof( int ) );
   gp_corigin = ( int * ) calloc( gpackages, sizeof( int ) );
   gp_lorigin = ( int * ) calloc( gpackages, sizeof( int ) );
   gp_cdestin = ( int * ) calloc( gpackages, sizeof( int ) );
@@ -216,6 +217,12 @@ void create_random_locations( void )
   for ( i = 0; i < gcities; i++ ) {
     r2 = random() % gcity_size;
     gt_corigin[i] = i;
+    gt_lorigin[i] = r2;
+  }
+  for ( i = gcities; i < gtrucks; i++) {
+    r1 = random() % gcities;
+    r2 = random() % gcity_size;
+    gt_corigin[i] = r1;
     gt_lorigin[i] = r2;
   }
   for ( i = 0; i < gpackages; i++ ) {
@@ -259,7 +266,7 @@ void print_random_origins( void )
 
   int i;
 
-  for ( i = 0; i < gcities; i++ ) {
+  for ( i = 0; i < gtrucks; i++ ) {
     printf("\n(at t%d l%d%d)", i, gt_corigin[i], gt_lorigin[i] );
   }
   for ( i = 0; i < gpackages; i++ ) {
@@ -311,6 +318,7 @@ void usage( void )
   printf("-c <num>    number of cities (minimal 1)\n");
   printf("-s <num>    city size(minimal 1)\n");
   printf("-p <num>    number of packages (minimal 1)\n");
+  printf("-t <num>    number of trucks (optional, default and minimal: same as number of cities; there will be at least one truck per city)\n");
   printf("-r <num>    random seed (minimal 1, optional)\n\n");
 }
 
@@ -334,12 +342,18 @@ Bool process_command_line( int argc, char *argv[] ) {
                             break;
                         case 'c':
                             sscanf( *argv, "%d", &gcities );
+                            if (gtrucks == -1) {
+                                gtrucks = gcities;
+                            }
                             break;
                         case 'p':
                             sscanf( *argv, "%d", &gpackages );
                             break;
                         case 's':
                             sscanf( *argv, "%d", &gcity_size );
+                            break;
+                        case 't':
+                            sscanf( *argv, "%d", &gtrucks );
                             break;
                         case 'r':
                             sscanf( *argv, "%d", &grandom_seed );
@@ -354,7 +368,7 @@ Bool process_command_line( int argc, char *argv[] ) {
         }
     }
 
-    if ( gcities < 1 || gpackages < 1 || gcity_size < 1 ) {
+    if ( gcities < 1 || gpackages < 1 || gcity_size < 1 || gtrucks < gcities ) {
         return FALSE;
     }
 
