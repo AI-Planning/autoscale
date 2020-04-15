@@ -541,7 +541,7 @@ void usage( void ) {
   printf("\nOPTIONS   DESCRIPTIONS\n\n");
   printf("-f <num>    number of (free)cells (minimal 0)\n");
   printf("-c <num>    number of cols (minimal 1)\n");
-  printf("-s <num>    number of suits (minimal 1)\n");
+  printf("-s <num>    number of suits (minimal 1, maximal 4)\n");
   printf("-0 .. -3 <num>    suit sizes\n");
   printf("-i <num>    number of initial stacks (minimal 1)\n\n");
   printf("-r <num>    random seed (optional)\n\n");
