@@ -145,8 +145,10 @@ int main( int argc, char *argv[] )
     printf("\n(conn l%d l%d)", i, i+1);
     printf("\n(conn l%d l%d)", i+1, i);
   }
-  printf("\n(conn l%d l0)", glocations - 1);
-  printf("\n(conn l0 l%d)", glocations - 1);
+  if (glocations > 2) {
+    printf("\n(conn l%d l0)", glocations - 1);
+    printf("\n(conn l0 l%d)", glocations - 1);
+  }
   print_random_fuels();
   print_random_spaces();
   print_random_origins();
