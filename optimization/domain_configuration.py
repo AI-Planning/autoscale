@@ -37,7 +37,7 @@ class EvaluatedSequence:
         return [i for i, val in enumerate(self.runtimes) if val >= lower and val <= upper]
 
 
-    
+
 
 class EstimatedSequence:
     def __init__(self, evaluated_sequence):
@@ -157,7 +157,7 @@ class LinearAtr:
             m = self.lower_m if self.lower_m == self.upper_m else float(cfg.get("{}_m".format(atr)))
         except:
             m = self.default_m
-            
+
         m2 = 0 if self.lower_m == self.upper_m or "{}_m2".format(atr) not in cfg else float(cfg.get("{}_m2".format(atr)))
 
         if m2:
@@ -621,6 +621,19 @@ DOMAIN_LIST_OPT = [
            ]
     ),
 
+    # TODO: do we need upper bounds on some of the parameters?
+    # TODO: num_trucks must be at least as large as num_cities
+    # Domain("logistics",
+        # "logistics -r {seed} -a {num_airplanes} -c {num_cities} -s {city_size} -p {num_packages} -t {num_trucks}",
+        # [
+            # LinearAtr("num_airplanes"),
+            # LinearAtr("num_cities"),
+            # LinearAtr("city_size"),
+            # LinearAtr("num_packages"),
+            # LinearAtr("num_trucks"),
+        # ],
+    # ),
+
 
  #   Domain("agricola", "GenAgricola.py --num_workers {num_workers} --num_ints {num_ints} --num_rounds {num_rounds} {last_stage} {seed}",
  #          [LinearAtr("n", lower_b=5, upper_b=10, lower_m=0.1, upper_m=2)]),
@@ -786,6 +799,18 @@ ATTRIBUTES_SAT = {
                 ConstantAtr("slow_capacity", 3)
                 # In IPC'08, they used more diverse values for the capacity of the elevators. We restrict ourselves to a single value for simplicity, expecting that a not so large capacity will result in more interesting problems
                ],
+    # TODO: do we need upper bounds on some of the parameters?
+    # TODO: num_trucks must be at least as large as num_cities
+    # Domain("logistics",
+        # "logistics -r {seed} -a {num_airplanes} -c {num_cities} -s {city_size} -p {num_packages} -t {num_trucks}",
+        # [
+            # LinearAtr("num_airplanes"),
+            # LinearAtr("num_cities"),
+            # LinearAtr("city_size"),
+            # LinearAtr("num_packages"),
+            # LinearAtr("num_trucks"),
+        # ],
+    # ),
     "scanalyzer":
            [EnumAtr("segment_type", ["empty", "ab"]),
             EnumAtr("inout", ["none", "both", "in"]),
