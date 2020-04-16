@@ -207,7 +207,8 @@ This page was created by Joerg Hoffmann, to form a starting point for people who
 ** Mprime **
 
 *   Origin: Drew McDermott. Used in the AIPS-1998 competition.
-*   Adaptions: Translated all predicate names to get a more intuitive notation. Operator for passing on fuel from one location to another could, in the original version, be instantiated with the same location as origin and destination city, which caused the amount of fuel in that city to increase one unit. Changed that such that origin and destination cities must be different.
+*   Adaptions: Translated all predicate names to get a more intuitive notation. Also use typing. Operator for passing on fuel from one location to another could, in the original version, be instantiated with the same location as origin and destination city, which caused the amount of fuel in that city to increase one unit. Changed that such that origin and destination cities must be different.
+    NOTE: in the ai-basel benchmarks repo, the reformulated domain no-mprime does a similar translation of predicate names but doesn't use typing. It also doesn't use the described fix (which the mprime domain of that repo does, however).
 *   Description: Typed STRIPS domain; the name results from Mystery' (see below). Logistics variant where trucks move on a map of locations. Additionally, trucks have only limited transportation capacity, and there are constraints on the amount of fuel. Each location has initially a certain amount of fuel available. Moving a truck away from a location decreases the amount of fuel at that location by one. If a location has more than one fuel item, then it can pass a fuel item over to a different location.
 *   Parameters:
     *   -l number of locations
@@ -221,7 +222,8 @@ This page was created by Joerg Hoffmann, to form a starting point for people who
 ** Mystery **
 
 *   Origin: Drew McDermott. Used in the AIPS-1998 competition.
-*   Adaptions: Translated all predicate names to get a more intuitive notation.
+*   Adaptions: Translated all predicate names to get a more intuitive notation. Also use typing.
+    NOTE: in the ai-basel benchmarks repo, the reformulated domain no-mystery does a similar translation of predicate names but doesn't use typing. This is not to be confused with the IPC'11 domain nomystery for which there is also a generator here.
 *   Description: Typed STRIPS domain; the name is because the original specified the semantics in a disguised manner by using unintuitive names for the predicates and constants. The domain is the same like the Mprime domain above, except that there is no way of passing on fuel between locations.
 *   Parameters:
     *   -l number of locations
