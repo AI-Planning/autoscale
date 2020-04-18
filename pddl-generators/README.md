@@ -233,6 +233,20 @@ This page was created by Joerg Hoffmann, to form a starting point for people who
     *   -c number of cargos
 *   Generation: Exactly like in Mprime.
 
+## Overview of mystery/mprime/nomystery domain variants
+
+pddl-generators/mprime: typed, speaking names, pass fuel between locations, no fuel increment
+pddl-generators/mystery: typed, speaking names, like pddl-generators/mprime but no fuel passing
+pddl-generators/nomystery: typed, speaking names, fuel associated with trucks, very different from aibasel/no-mystery
+
+aibasel/mprime: untyped, obfuscated names, pass fuel between locations, forbid increasing fuel
+aibasel/mystery: untyped, obfuscated names, no fuel passing
+aibasel/no-mprime: untyped, speaking names, copy of aibasel/mprime but with speaking predicate names, fuel increasing allowed
+aibasel/no-mystery: untyped, speaking names, copy of aibasel/mystery but with speaking predicate names, no fuel passing
+aibasel/nomystery-{opt,sat}11-strips: same as pddl-generators/nomystery
+
+aibasel/mprime, aibasel/mystery, and aibasel/nomystery-{opt,sat}11-strips are the original IPC domains, with the fix applied to mprime, whereas the versions ins pddl-generators are adaptations which behave the same.
+
 
 ** Schedule **
 
