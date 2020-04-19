@@ -1,12 +1,8 @@
 #! /usr/bin/env python3
 
 import argparse
-
-
-def parse_args():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("input_file")
-    return parser.parse_args()
+import math
+import random
 
 
 class Task:
@@ -23,21 +19,66 @@ class Task:
         return range(1, self.num_products + 1)
 
 
-def read_integer_line(line):
-    return [int(x) for x in line.split()]
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("products", type=int, help="Number of products")
+    parser.add_argument("orders", type=int, help="Number of orders")
+    parser.add_argument(
+        "density",
+        type=int,
+        help="approximate percentage of products included in an order",
+    )
+    return parser.parse_args()
 
 
-def read_input(filename):
-    matrix = []
-    with open(filename) as f:
-        orders, products = read_integer_line(next(f))
-        print(orders, products)
-        for _ in range(orders):
-            values = read_integer_line(next(f))
-            assert len(values) == products
-            matrix.append(values)
-        durations = read_integer_line(next(f))
-    return Task(matrix, durations)
+def include_product_for_order(product, order, num_products, density):
+    # This is based on Ioannis's code. It is designed so that products
+    # are more likely to be included in orders if the distance between
+    # the product and order id (before the reshuffling that happens at
+    # the end) is small.
+    #
+    # Compared to an independent identically distributed choice for
+    # each product/order pair, this should tend to favour instances
+    # with small (= few stacks) solutions since it adds some locality
+    # to the problem: the matrix entries (before shuffling) will tend
+    # to cluster around the diagonal.
+
+    d = abs(product - order)
+    s = num_products / 6.0
+    # The next line is the density function of the normal distribution
+    # with mu = 0 and sigma = s for x = d.
+    p = (1 / (s * (2 * math.pi) ** 0.5)) * math.exp(-(d * d) / (2 * s * s))
+    # The next line is rather magical to me. If there is an
+    # explanation for what this formula signifies, I don't know it.
+    chance = p * density * num_products / (2.7 * (num_products / 5.0) ** 0.5)
+    return random.randrange(100) <= chance
+
+
+def generate_task(num_products, num_orders, density):
+    products = list(range(num_products))
+    orders = list(range(num_orders))
+    matrix = [[0 for product in products] for order in orders]
+    for order in orders:
+        for product in products:
+            if include_product_for_order(product, order, num_products, density):
+                matrix[order][product] = 1
+    for order in orders:
+        if all(matrix[order][product] == 0 for product in products):
+            matrix[order][random.choice(products)] = 1
+    for product in products:
+        if all(matrix[order][product] == 0 for order in orders):
+            matrix[random.choice(orders)][product] = 1
+    weights = [random.randrange(10, 100 + 1, 10) for product in products]
+
+    random.shuffle(products)
+    # Ioannis's original code, used for generating the competition
+    # instances, only shuffles the orders but not the products, which
+    # means that planners that process the products in numerical order
+    # (or whatever) are somewhat biased. (Depending on the planner
+    # and/or track, I guess this can be either positive or negative.)
+    random.shuffle(orders)
+
+    return Task(matrix, weights)
 
 
 def write_problem(task, filename):
@@ -166,7 +207,7 @@ def write_domain(task, filename):
 
 def main():
     args = parse_args()
-    task = read_input(args.input_file)
+    task = generate_task(args.products, args.orders, args.density)
     write_problem(task, "problem.pddl")
     write_domain(task, "domain.pddl")
 
