@@ -32,7 +32,12 @@ def parse_args():
         type=int,
         help="approximate percentage of products included in an order",
     )
-    return parser.parse_args()
+    args = parser.parse_args()
+
+    if not 0 <= args.density <= 100:
+        raise argparse.ArgumentTypeError("density must be between 0 and 100")
+
+    return args
 
 
 def include_product_for_order(product, order, num_products, density):
