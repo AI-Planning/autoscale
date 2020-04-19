@@ -11,12 +11,12 @@ The instance generator is provided as a .jar file, together with the source code
 
 The number of objects will be num-cupboards * objects-per-cupboard, where objects-per-cupboard = (cupboard-size - 2)^2. Thus, num-cupboards should be >= 1, otherwise there will be no objects. It is recommended to set cupboard-size = 4. Scaling world-size will then increase the number of literals/states, while scaling num-cupboards will increase the number of objects and goals. Scaling num-tables will tend to make the domain more constrained (since there are more obstacles), and also to increase the branching factor, since there are more places to set objects down.
 
-Problems with the same size can be quite different in difficulty, so we will generate various problems of the same size. The automatic generator returns error quite often (9 out of 10 times at least) when the size of the world is lower than 9. But problems with size 9 are quite challenging even for the satisficing planners. In addition some of the generated problems are unsolvable or are equal to other generated problems. This makes quite hard to generate problems for this domain.
+Problems with the same size can be quite different in difficulty, so we will generate various problems of the same size. The automatic generator returns error quite often (9 out of 10 times at least) when the size of the world is lower than 9. But problems with size 9 are quite challenging even for the satisficing planners. In addition some of the generated problems are unsolvable or are equal to other generated problems. This makes it quite hard to generate problems for this domain.
 
 For the satisficing track, problems with world size=8 are solved quite easily, but problems with size=9 are challenging. The following table shows the parameters chosen for the problems at IPC 2011.
 
 
-problem & size  & tables & cupboards & goal positions    
+problem & size  & tables & cupboards & goal positions
 p01     & 9x9   & 5      & 1         & 6
 p02     & 9x9   & 6      & 1         & 6
 p03     & 9x9   & 3      & 1         & 7
@@ -40,7 +40,7 @@ p20     & 12x12 & 7      & 2         & 11
 
 
 
-problem & size  & tables & cupboards & goal positions    
+problem & size  & tables & cupboards & goal positions
 p01    & 5    & 0    & 1    & 4
 p02    & 6    & 0    & 1    & 4
 p03    & 6    & 0    & 1    & 4
