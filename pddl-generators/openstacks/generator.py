@@ -1,5 +1,9 @@
 #! /usr/bin/env python3
 
+"""
+Openstacks generator for sequential STRIPS with negative preconditions.
+"""
+
 import argparse
 import math
 import random
@@ -20,7 +24,7 @@ class Task:
 
 
 def parse_args():
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("products", type=int, help="Number of products")
     parser.add_argument("orders", type=int, help="Number of orders")
     parser.add_argument(

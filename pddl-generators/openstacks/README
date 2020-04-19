@@ -50,9 +50,12 @@ variables (opt, sat, all, ADL, negated, semiground, temporal, numeric,
 net_benefit) to affect which problem set is generated.
 
 
+generator.py:
 
-
-
+Combination of generate_problems.py and generate_pddl.cpp in Python. This
+generator version can only generate the sequential STRIPS version with
+negative preconditions. In contrast to the original generator files, this
+script only generates a single task per call.
 
 
 
@@ -74,16 +77,16 @@ For the satisficing track, in the 2008 competition, objects ranged from 5 to 100
 The selected problems are (numbers in parenthesis are number of objects of each new problem):
 
 problem	old	best	problem	old	best
-p01	p21	6	p11	(130)	
-p02	p22	16	p12	(130)	
-p03	p24	19	p13	(160)	
-p04	p25	19	p14	(160)	
-p05	p26	15	p15	(190)	
-p06	p27	18	p16	(190)	
-p07	p20	13	p17	(220)	
-p08	p28	33	p18	(220)	
-p09	p29	31	p19	(250)	
-p10	p30	35	p20	(250)	
+p01	p21	6	p11	(130)
+p02	p22	16	p12	(130)
+p03	p24	19	p13	(160)
+p04	p25	19	p14	(160)
+p05	p26	15	p15	(190)
+p06	p27	18	p16	(190)
+p07	p20	13	p17	(220)
+p08	p28	33	p18	(220)
+p09	p29	31	p19	(250)
+p10	p30	35	p20	(250)
 
 For the optimal track, in the IPC 2008 a total of 9 problems were not solved by any planner (problem 20 and from 23 to 30). As in the satisficing version, there is no record of the density used to generate the problems. The first problem in IPC 2008 started with 5 objects and each problem had 1 object more than the previous one. So problem 30 had 34 objects.
 
