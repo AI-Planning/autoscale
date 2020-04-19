@@ -32,6 +32,7 @@ def parse_args():
         type=int,
         help="approximate percentage of products included in an order",
     )
+    parser.add_argument("--seed", type=int, default=1)
     args = parser.parse_args()
 
     if not 0 <= args.density <= 100:
@@ -216,6 +217,7 @@ def write_domain(task, filename):
 
 def main():
     args = parse_args()
+    random.seed(args.seed)
     task = generate_task(args.products, args.orders, args.density)
     write_problem(task, "problem.pddl")
     write_domain(task, "domain.pddl")
