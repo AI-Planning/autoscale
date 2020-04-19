@@ -604,7 +604,6 @@ DOMAIN_LIST_OPT = [
            ]
     ),
 
-
     Domain("elevators",
            "generate.py --seed {seed} {num_areas} {area_size} {passengers} {fast_elevators} {slow_elevators}  --fast_cost {fast_cost}  --stop_fast_cost {stop_fast_cost}  --fast_capacity {fast_capacity} --slow_cost {slow_cost} --stop_slow_cost {stop_slow_cost} --slow_capacity {slow_capacity}",
            [EnumAtr("num_areas", [2, 3, 4]),
@@ -618,6 +617,15 @@ DOMAIN_LIST_OPT = [
             ConstantAtr("slow_cost", 1),
             ConstantAtr("stop_slow_cost", 5),
             ConstantAtr("slow_capacity", 2)
+           ]
+    ),
+
+    # TODO: find good parameter values.
+    Domain("openstacks",
+           f"generator.py {{products}} {{orders}} {{density}} --domain {TMP_DOMAIN} --problem {TMP_PROBLEM} --seed {{seed}}",
+           [EnumAtr("density", [1, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]),
+            LinearAtr("products", lower_b=1, upper_b=1, lower_m=1, default_m=1, upper_m=1),
+            LinearAtr("orders", lower_b=1, upper_b=1, lower_m=1, default_m=1, upper_m=1),
            ]
     ),
 
@@ -816,6 +824,12 @@ ATTRIBUTES_SAT = {
             EnumAtr("inout", ["none", "both", "in"]),
             LinearAtr("size", lower_b=2, upper_b=4, lower_m = 1, default_m=1, upper_m = 3)
            ],
+    # TODO: find good parameter values.
+    "openstacks":
+        [EnumAtr("density", [1, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]),
+        LinearAtr("products", lower_b=1, upper_b=1, lower_m=1, default_m=1, upper_m=1),
+        LinearAtr("orders", lower_b=1, upper_b=1, lower_m=1, default_m=1, upper_m=1),
+        ],
 }
 
 
