@@ -1,6 +1,8 @@
 # This file is automatically converted. Check all lines for mistakes.
+*.code-workspace
 *.o
 *.pyc
+.vscode/
 images/
 optimization/data/
 optimization/smac/
