@@ -629,6 +629,17 @@ DOMAIN_LIST_OPT = [
            ]
     ),
 
+    # TODO: find good parameter values.
+    # TODO: add random seed.
+    # TODO: decouple width and height?
+    Domain("sokoban",
+           f"random/sokoban-generator-typed -n {{size}} -b {{boxes}} -w {{walls}}",
+           [LinearAtr("size", lower_b=1, upper_b=1, lower_m=1, default_m=1, upper_m=1),
+            LinearAtr("boxes", lower_b=1, upper_b=1, lower_m=1, default_m=1, upper_m=1),
+            LinearAtr("walls", lower_b=1, upper_b=1, lower_m=1, default_m=1, upper_m=1),
+           ]
+    ),
+
     # TODO: do we need upper bounds on some of the parameters?
     # TODO: num_trucks must be at least as large as num_cities
     # Domain("logistics",
