@@ -4,6 +4,7 @@
 *.pyc
 .vscode/
 images/
+optimization/.venv/
 optimization/data/
 optimization/smac/
 pddl-generators/assembly/assembly

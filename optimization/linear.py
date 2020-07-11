@@ -3,8 +3,11 @@
 """
 Usage:
 
-Install SMAC3 in virtualenv (https://automl.github.io/SMAC3/master/installation.html)
-source path-to-smac-venv/bin/activate
+# Install SMAC3 in virtualenv (https://automl.github.io/SMAC3/master/installation.html)
+python3 -m venv --prompt smac .venv
+source .venv/bin/activate
+pip install -U pip wheel
+pip install -r requirements.txt
 python3 linear.py
 
 Installation on Basel grid (use Anaconda since it provides a SWIG package):
@@ -325,7 +328,7 @@ def evaluate_sequence(cfg, print_final_configuration=False):
             penalty += sart_eval.num_solved() - 20
             if sart_eval.num_solved() == ARGS.tasksbaseline and baseline_eval.num_solved() > 20:
                 penalty += baseline_eval_eval.num_solved() - 20
-    
+
     results = {
         "baseline_times": baseline_times,
         "sart_times": sart_times,
@@ -333,7 +336,7 @@ def evaluate_sequence(cfg, print_final_configuration=False):
         "config": cfg.get_dictionary(),
     }
 
-    
+
     parameters_cache_key = domain.get_generator_attribute_names()
     # Identify which instances are actually relevant
     evaluated_instances = set(baseline_eval.get_index_with_runtimes(2, 179.9) + sart_eval.get_index_with_runtimes(2, 179.9) )
