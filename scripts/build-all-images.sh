@@ -15,15 +15,15 @@ OUTDIR=../images/
 ./build-image.sh ../planners/ipc-2014/seq-opt/symba/Singularity-02 ${OUTDIR}/symba2.img
 ./build-image.sh ../planners/ipc-2018/seq-opt/complementary2/Singularity-180s ${OUTDIR}/complementary2-3584mb-180s.img
 ./build-image.sh ../planners/ipc-2018/seq-opt/complementary2/Singularity-1800s ${OUTDIR}/complementary2-3584mb-1800s.img
-./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-01 ${OUTDIR}/delfi-blind.img
-./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-02 ${OUTDIR}/delfi-celmcut.img
-./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-03 ${OUTDIR}/delfi-ipdb.img
-./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-03-1800s ${OUTDIR}/delfi-ipdb-1800s.img
-./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-04 ${OUTDIR}/delfi-mas-sccdfp.img
-./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-04-1800s ${OUTDIR}/delfi-mas-sccdfp-1800s.img
-./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-05 ${OUTDIR}/delfi-mas-miasm.img
-./build-image.sh ../planners/ipc-2018/seq-opt/decstar/Singularity_fork ${OUTDIR}/decstar-fork.img || true
-./build-image.sh ../planners/ipc-2018/seq-opt/decstar/Singularity_star ${OUTDIR}/decstar-star.img || true
+./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-blind ${OUTDIR}/delfi-blind.img
+./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-celmcut ${OUTDIR}/delfi-celmcut.img
+./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-ipdb-60s ${OUTDIR}/delfi-ipdb.img
+./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-ipdb-1800s ${OUTDIR}/delfi-ipdb-1800s.img
+./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-mas-sccdfp-60s ${OUTDIR}/delfi-mas-sccdfp.img
+./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-mas-sccdfp-1800s ${OUTDIR}/delfi-mas-sccdfp-1800s.img
+./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-mas-miasm ${OUTDIR}/delfi-mas-miasm.img
+./build-image.sh ../planners/ipc-2018/seq-opt/decstar/Singularity-fork ${OUTDIR}/decstar-opt-fork.img || true
+./build-image.sh ../planners/ipc-2018/seq-opt/decstar/Singularity-star ${OUTDIR}/decstar-opt-star.img || true
 ./build-image.sh ../planners/ipc-2018/seq-opt/decstar/Singularity ${OUTDIR}/decstar-opt.img || true
 ./build-image.sh ../planners/ipc-2018/seq-opt/scorpion/Singularity ${OUTDIR}/scorpion.img
 ./build-image.sh ../planners/custom/seq-opt/scorpion-nodiv/Singularity ${OUTDIR}/scorpion-nodiv.img
