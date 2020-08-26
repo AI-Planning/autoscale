@@ -319,7 +319,7 @@ def evaluate_sequence(cfg, print_final_configuration=False):
         if sart_eval.num_solved() > 20:
             penalty += sart_eval.num_solved() - 20
             if sart_eval.num_solved() == ARGS.tasksbaseline and baseline_eval.num_solved() > 20:
-                penalty += baseline_eval_eval.num_solved() - 20
+                penalty += baseline_eval.num_solved() - 20
 
     results = {
         "baseline_times": baseline_times,
