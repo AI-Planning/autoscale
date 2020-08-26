@@ -401,10 +401,10 @@ def adapt_parameters_floortile(parameters):
 
 
 def adapt_parameters_grid(parameters):
-    parameters["shapes"] = min(parameters["x"]*parameters["y"] -1, parameters ["shapes"])
-    parameters ["keys"] = min(parameters["x"]*parameters["y"] -1, parameters ["shapes"] + parameters ["extra_keys"])
+    parameters["shapes"] = min(parameters["x"]*parameters["y"] -1, parameters["shapes"])
+    parameters ["keys"] = min(parameters["x"]*parameters["y"] -1, parameters["shapes"] + parameters["extra_keys"])
     parameters["locks"] = int(parameters["x"]*parameters["y"]*parameters["percentage_cells_locked"])
-
+    parameters["locks"] = max(parameters["locks"], parameters["shapes"])
     return parameters
 
 
@@ -638,7 +638,7 @@ DOMAIN_LIST_OPT = [
             ConstantAtr("slow_capacity", 2)
            ]
     ),
-    
+
     Domain("openstacks",
            f"generator.py {{products}} {{orders}} {{density}} --domain {TMP_DOMAIN} --problem {TMP_PROBLEM} --seed {{seed}}",
            [EnumAtr("density", [10, 20, 33, 50, 66, 80]),
@@ -667,7 +667,7 @@ DOMAIN_LIST_OPT = [
             LinearAtr("num_airplanes", lower_b=1, upper_b=5, lower_m=1, default_m=1, upper_m=1, optional_m=True),
             LinearAtr("num_cities", lower_b=2, upper_b=10, lower_m=0, default_m=0.2, upper_m=1, optional_m=True),
             LinearAtr("city_size", lower_b=2, upper_b=15, lower_m=0, default_m=0.2, upper_m=1, optional_m=True),
-            LinearAtr("num_packages", lower_b=1, upper_b=10, lower_m=1, default_m=1, upper_m=2), # scale between 1 and 2 packages per problem. More than that is too big for optimal planners 
+            LinearAtr("num_packages", lower_b=1, upper_b=10, lower_m=1, default_m=1, upper_m=2), # scale between 1 and 2 packages per problem. More than that is too big for optimal planners
             LinearAtr("extra_trucks", lower_b=1, upper_b=10, lower_m=0, default_m=0.5, upper_m=1, optional_m=True),
         ],
            adapt_f=adapt_parameters_logistics # num_trucks should be as large as num_cities
@@ -676,7 +676,7 @@ DOMAIN_LIST_OPT = [
     Domain("grid", # The main parameter to scale here is the grid. We should find what percentage of cells should be locked, and how many keys to have
            "generate.py {x} {y} --shapes {shapes} --keys {keys} --locks {locks} --prob-goal {prob_key_in_goal}  --seed {seed}",
            [GridAtr("grid", "x", "y", lower_x=3, upper_x=8),
-            EnumAtr ("prob_key_goal", [0.5, 0.75, 1]),
+            EnumAtr ("prob_key_in_goal", [0.5, 0.75, 1]),
             LinearAtr("shapes", lower_b=1, upper_b=5, lower_m=0, default_m=0, upper_m=1, optional_m=True),
             LinearAtr("extra_keys", lower_b=1, upper_b=5, lower_m=0, default_m=1, upper_m=3, optional_m=True),
             EnumAtr("percentage_cells_locked", [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]),
@@ -712,7 +712,7 @@ DOMAIN_LIST_OPT = [
 
     Domain("data-network",
            "generator/generator.py {items} {layers} {scripts} {network} {seed}",
-           [EnumAtr ("network", ["tiny-network", "small-network", "ring-network"]), 
+           [EnumAtr ("network", ["tiny-network", "small-network", "ring-network"]),
             EnumAtr ("layers", [2, 3, 4, 5, 6]), # There is no need to scale the number of layers linearly
             LinearAtr("extra_items", lower_b=2, upper_b=10, lower_m=1, default_m=1, upper_m=5), #"[number of layers] must be smaller than [number of data items]"
             LinearAtr("extra_scripts", lower_b=2, upper_b=15,  lower_m=0, upper_m=5, default_m=1),#"[number of scripts] must be larger or equal than [number of data items]-2"
@@ -720,7 +720,7 @@ DOMAIN_LIST_OPT = [
            adapt_f =adapt_parameters_datanetwork
     ),
 
-            
+
 
 
     # Domain("termes",
@@ -857,7 +857,7 @@ ATTRIBUTES_SAT = {
                 ConstantAtr("slow_capacity", 3)
                 # In IPC'08, they used more diverse values for the capacity of the elevators. We restrict ourselves to a single value for simplicity, expecting that a not so large capacity will result in more interesting problems
                ],
-    
+
     "scanalyzer":
            [EnumAtr("segment_type", ["empty", "ab"]),
             EnumAtr("inout", ["none", "both", "in"]),
@@ -868,24 +868,24 @@ ATTRIBUTES_SAT = {
         LinearAtr("products", lower_b=10, upper_b=200, lower_m=1, default_m=10, upper_m=40),
         LinearAtr("orders", lower_b=10, upper_b=200, lower_m=1, default_m=10, upper_m=40),
         ],
-    "logistics" : 
+    "logistics" :
         [
             LinearAtr("num_airplanes", lower_b=1, upper_b=5, lower_m=1, default_m=1, upper_m=2, optional_m=True),
             LinearAtr("num_cities", lower_b=2, upper_b=10, lower_m=0, default_m=0.2, upper_m=2, optional_m=True),
             LinearAtr("city_size", lower_b=2, upper_b=15, lower_m=0, default_m=0.2, upper_m=2, optional_m=True),
-            LinearAtr("num_packages", lower_b=1, upper_b=30, lower_m=1, default_m=2, upper_m=10), 
+            LinearAtr("num_packages", lower_b=1, upper_b=30, lower_m=1, default_m=2, upper_m=10),
             LinearAtr("extra_trucks", lower_b=1, upper_b=10, lower_m=0, default_m=0.5, upper_m=2, optional_m=True),
         ],
 
     "grid" : [GridAtr("grid", "x", "y", lower_x=3, upper_x=10, upper_m=10),
-              EnumAtr ("prob_key_goal", [0.5, 0.75, 1]),
+              EnumAtr ("prob_key_in_goal", [0.5, 0.75, 1]),
               LinearAtr("shapes", lower_b=1, upper_b=5, lower_m=0, default_m=0, upper_m=1, optional_m=True),
               LinearAtr("extra_keys", lower_b=1, upper_b=5, lower_m=0, default_m=1, upper_m=3, optional_m=True),
               EnumAtr("percentage_cells_locked", [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]),
     ],
 
     "data-network" :
-    [EnumAtr ("network", ["tiny-network", "small-network", "ring-network"]), 
+    [EnumAtr ("network", ["tiny-network", "small-network", "ring-network"]),
      EnumAtr ("layers", [2, 3, 4, 5, 6]), # There is no need to scale the number of layers linearly
      LinearAtr("extra_items", lower_b=2, upper_b=20, lower_m=1, default_m=1, upper_m=5), #"[number of layers] must be smaller than [number of data items]"
      LinearAtr("extra_scripts", lower_b=2, upper_b=25,  lower_m=0, upper_m=5, default_m=1),#"[number of scripts] must be larger or equal than [number of data items]-2"
