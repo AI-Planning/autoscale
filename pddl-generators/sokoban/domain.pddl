@@ -1,4 +1,4 @@
-(define (domain sokoban-typed)
+(define (domain typed-sokoban)
 (:requirements :typing)
 (:types LOC DIR BOX)
 (:predicates 
