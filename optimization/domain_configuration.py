@@ -619,13 +619,13 @@ DOMAIN_LIST_OPT = [
             ConstantAtr("slow_capacity", 2)
            ]
     ),
-
-    # TODO: find good parameter values.
+    
     Domain("openstacks",
            f"generator.py {{products}} {{orders}} {{density}} --domain {TMP_DOMAIN} --problem {TMP_PROBLEM} --seed {{seed}}",
-           [EnumAtr("density", [1, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]),
-            LinearAtr("products", lower_b=1, upper_b=1, lower_m=1, default_m=1, upper_m=1),
-            LinearAtr("orders", lower_b=1, upper_b=1, lower_m=1, default_m=1, upper_m=1),
+           [EnumAtr("density", [10, 20, 33, 50, 66, 80]),
+            # We require that both products and orders should be scaled.
+            LinearAtr("products", lower_b=5, upper_b=15, lower_m=0.5, default_m=1, upper_m=5),
+            LinearAtr("orders", lower_b=5, upper_b=15, lower_m=0.5, default_m=1, upper_m=5),
            ]
     ),
 
@@ -837,9 +837,9 @@ ATTRIBUTES_SAT = {
            ],
     # TODO: find good parameter values.
     "openstacks":
-        [EnumAtr("density", [1, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]),
-        LinearAtr("products", lower_b=1, upper_b=1, lower_m=1, default_m=1, upper_m=1),
-        LinearAtr("orders", lower_b=1, upper_b=1, lower_m=1, default_m=1, upper_m=1),
+        [EnumAtr("density", [10, 20, 33, 50, 66, 80]),
+        LinearAtr("products", lower_b=10, upper_b=200, lower_m=1, default_m=10, upper_m=40),
+        LinearAtr("orders", lower_b=10, upper_b=200, lower_m=1, default_m=10, upper_m=40),
         ],
 }
 
