@@ -4,6 +4,7 @@
 Usage:
 
 # Install SMAC3 in virtualenv (https://automl.github.io/SMAC3/master/installation.html)
+sudo apt install python3-venv swig
 python3 -m venv --prompt smac .venv
 source .venv/bin/activate
 pip install -U pip wheel
@@ -20,25 +21,16 @@ module -q load Anaconda3/2019.03 # Python 3.7.3 (the other Anaconda versions loa
 
 source ~/.profile
 conda create --name smac-conda python=3.7 gxx_linux-64 gcc_linux-64 swig
-source activate smac-conda
-curl https://raw.githubusercontent.com/automl/smac3/master/requirements.txt | xargs -n 1 -L 1 pip install
-pip install smac
-pip install lab==4.2
+conda activate smac-conda
+pip install -r requirements.txt
 """
 
 import argparse
 import logging
 import os
 import os.path
-import re
-import resource
-import shlex
-import shutil
-import statistics
-import subprocess
 import sys
 import warnings
-import math
 import json
 
 from collections import defaultdict
@@ -67,7 +59,7 @@ REPO = os.path.dirname(DIR)
 
 
 def parse_args():
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         'track', choices=['sat', 'opt'],
         help="Choose the track to optimize for: satisficing or optimal."
@@ -110,6 +102,12 @@ def parse_args():
         help="Maximum total time running planners (default: %(default)ss)",
     )
 
+    parser.add_argument(
+        "--intensification-percentage",
+        type=float,
+        default=0.5,
+        help="Percentage of SMAC overhead from total runtime (default: %(default)f)",
+    )
 
     parser.add_argument("--debug", action="store_true", help="Print debug info")
 
@@ -138,7 +136,7 @@ def parse_args():
     parser.add_argument("domain", help="Domain name")
 
     parser.add_argument(
-        "--smac_output_dir",
+        "--smac-output-dir",
         default="smac",
         help="Directory where to store logs and temporary files (default: %(default)s)",
     )
@@ -164,8 +162,6 @@ TMP_PLAN_DIR = "plan"
 SINGULARITY_SCRIPT = os.path.join(DIR, "run-singularity.sh")
 print("Singularity script:", SINGULARITY_SCRIPT)
 
-
-# STORED_VALID_SEQUENCES = []
 
 def setup_logging():
     """
@@ -202,10 +198,6 @@ setup_logging()
 
 if ARGS.tasks < ARGS.tasksbaseline:
     sys.exit("Error: number of tasks must be at least as large as the number of tasks for the baseline")
-
-# SMAC moves old directories out of the way, but we want a completely pristine directory to safeguard against errors.
-if os.path.exists(SMAC_OUTPUT_DIR):
-    sys.exit("Error: SMAC output directory already exists")
 
 
 verify_planner_selection(ARGS.images_dir)
@@ -383,6 +375,8 @@ scenario = Scenario(
         "cutoff": None,
         "output_dir": SMAC_OUTPUT_DIR,
         #"acq_opt_challengers": 1000,  # Overriden in SMAC4HPO constructor.
+        # Disable pynisher.
+        "limit_resources": False,
     }
 )
 
@@ -399,13 +393,20 @@ smac = SMAC4HPO(
     initial_design=DefaultConfiguration,
     rng=np.random.RandomState(ARGS.random_seed),
     tae_runner=evaluate_cfg,
-    tae_runner_kwargs={"use_pynisher": False},
 )
 # SMAC4HPO overrides the value for acq_opt_challengers in the scenario with
 # a fixed value of 10000, so we set it here (see https://github.com/automl/SMAC3/issues/561).
 smac.solver.scenario.acq_opt_challengers = 1000
 print("Output dir:", SMAC_OUTPUT_DIR)
 print("SMAC output dir:", smac.output_dir)
+
+# Bug in SMAC: SMAC4HPO and deterministic SMAC4AC scenarios without tuner timeout
+# set intensification_percentage = 1e-10, so we set the desired value ourselves.
+# Balance SMAC's overhead and the time for evaluating configurations.
+# See https://github.com/automl/SMAC3/issues/636#issuecomment-609446077
+smac.scenario.intensification_percentage = ARGS.intensification_percentage
+print("Intensification percentage:", smac.scenario.intensification_percentage)
+
 incumbent = smac.optimize()
 
 print("Final configuration: {}".format(incumbent.get_dictionary()))
