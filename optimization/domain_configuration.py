@@ -408,6 +408,11 @@ def adapt_parameters_grid(parameters):
     return parameters
 
 
+def adapt_parameters_datanetwork(parameters):
+    parameters ["items"] = parameters ["layers"] + parameters["extra_items"]
+    parameters ["scripts"] = max(1, parameters ["items"] - 2) + parameters ["extra_scripts"]
+    return parameters
+
 def adapt_parameters_logistics(parameters):
     parameters ["num_trucks"] = parameters ["num_cities"] + parameters ["extra_trucks"]
     return parameters
@@ -705,10 +710,17 @@ DOMAIN_LIST_OPT = [
     #        ]
     # ),
 
-    # Domain("data-network",
-    #        "",
-    #        [] # TODO
-    # ),
+    Domain("data-network",
+           "generator/generator.py {items} {layers} {scripts} {network} {seed}",
+           [EnumAtr ("network", ["tiny-network", "small-network", "ring-network"]), 
+            EnumAtr ("layers", [2, 3, 4, 5, 6]), # There is no need to scale the number of layers linearly
+            LinearAtr("extra_items", lower_b=2, upper_b=10, lower_m=1, default_m=1, upper_m=5), #"[number of layers] must be smaller than [number of data items]"
+            LinearAtr("extra_scripts", lower_b=2, upper_b=15,  lower_m=0, upper_m=5, default_m=1),#"[number of scripts] must be larger or equal than [number of data items]-2"
+           ],
+           f_adapt =adapt_parameters_datanetwork
+    ),
+
+            
 
 
     # Domain("termes",
@@ -872,6 +884,12 @@ ATTRIBUTES_SAT = {
               EnumAtr("percentage_cells_locked", [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]),
     ],
 
+    "data-network" :
+    [EnumAtr ("network", ["tiny-network", "small-network", "ring-network"]), 
+     EnumAtr ("layers", [2, 3, 4, 5, 6]), # There is no need to scale the number of layers linearly
+     LinearAtr("extra_items", lower_b=2, upper_b=20, lower_m=1, default_m=1, upper_m=5), #"[number of layers] must be smaller than [number of data items]"
+     LinearAtr("extra_scripts", lower_b=2, upper_b=25,  lower_m=0, upper_m=5, default_m=1),#"[number of scripts] must be larger or equal than [number of data items]-2"
+    ],
 }
 
 
