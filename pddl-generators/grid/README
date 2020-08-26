@@ -1,10 +1,6 @@
-Formula for SMAC optimization
-
-
- X: value of -x
- A: -y = X+A
-
-
+One current issue is that locked spots are distributed entirely randomly. It would be more
+interesting if we have some kind of "rooms" scenario where is more likely that one must
+traverse via some locked places.
 
 
 usage:

@@ -14,6 +14,13 @@ where XXX is the density parameter which has unfortunately been lost
 Python script (below) should be preferred.
 
 
+Notes on attribute selection:
+  - A very high-density seems to simplify the problem with blind search.
+  - For OPT in IPC'08 they scaled both products and orders at the same time, with a linear
+    scaling of +1
+  - For SAT, in IPC'14 they started at 170 for both. The scaling factor was +20 in both cases.
+  
+
 generate_problems.py:
 
 A Python version of Ioannis's program which fixes a few issues with
