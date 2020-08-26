@@ -7,44 +7,15 @@
 #     # 4) Sequences must finish -> they must go beyond the capabilities of the state of the art planners.
 #     used_enum_parameters = set()
 
-"""
-Usage:
-
-Install SMAC3 in virtualenv (https://automl.github.io/SMAC3/master/installation.html)
-source path-to-smac-venv/bin/activate
-python3 linear.py
-
-Installation on Basel grid (use Anaconda since it provides a SWIG package):
-
-# Put into ~/.profile:
-# Anaconda Python 3.7.3, GCC 8.2, CMake 3.9.5
-module purge
-module -q load CMake/3.9.5-GCC-8.2.0-2.31.1
-module -q load Anaconda3/2019.03 # Python 3.7.3 (the other Anaconda versions load Python 2 and 3.6)
-
-source ~/.profile
-conda create --name smac-conda python=3.7 gxx_linux-64 gcc_linux-64 swig
-source activate smac-conda
-curl https://raw.githubusercontent.com/automl/smac3/master/requirements.txt | xargs -n 1 -L 1 pip install
-pip install smac
-pip install lab==4.2
-"""
-
 import argparse
 from collections import defaultdict
 import itertools
 import logging
 import os
 import os.path
-import re
-import resource
-import shlex
-import shutil
-import statistics
 import sys
 import warnings
 import math
-import subprocess
 import json
 
 try:
@@ -61,15 +32,6 @@ from runner import Runner
 
 warnings.simplefilter(action="ignore", category=FutureWarning)
 
-import numpy as np
-
-from smac.configspace import ConfigurationSpace
-from smac.scenario.scenario import Scenario
-from smac.facade.smac_hpo_facade import SMAC4HPO
-from smac.initial_design.default_configuration_design import DefaultConfiguration
-
-
-from ConfigSpace.hyperparameters import CategoricalHyperparameter
 
 DIR = os.path.abspath(os.path.dirname(__file__))
 REPO = os.path.dirname(DIR)
@@ -121,7 +83,7 @@ def parse_args():
     parser.add_argument(
         "--desired_redundancy", type=float, default=0.2, help="Prefer sequences such that no other previous sequence have X per cent of the solvable instances or viceversa (default: %(default)s)"
     )
-    
+
     parser.add_argument(
         "--sequence_length", type=int, default=30, help="Number of tasks on each sequence (default: %(default)d)"
     )
@@ -271,7 +233,7 @@ class CPLEXSequence:
 
         factors = [self.sorted_runtimes[i]/self.sorted_runtimes[i-1] for i in range (first_index, len(self.sorted_runtimes))]
         average_factor = float(sum(factors))/float(len(factors))
-        
+
         # Ensure that the runtime of unsolved instances is above the time limit
         if self.sorted_runtimes[-1]*average_factor < PLANNER_TIME_LIMIT:
             average_factor = PLANNER_TIME_LIMIT/self.sorted_runtimes[-1]
@@ -310,13 +272,13 @@ class CPLEXSequence:
 
     def __str__(self):
         return f"Sequence({self.seq_id}, penalty={self.penalty}, config={self.config}, runtimes_baseline={self.runtimes_baseline}, runtimes_sart={self.runtimes_sart}"
-    
+
     def __repr__(self):
         return str(self)
 
     def has_enum_value(self, name, value):
         return self.config[name] == value
-    
+
 
     def get_instances(self, i, endi):
         return self.parameters_of_instances[i:endi]
@@ -411,7 +373,7 @@ def select_best_k(candidates, K, already_selected):
                 new_selected.append(candidate)
             else:
                 remaining_candidates.append(candidate)
-                    
+
         candidates = remaining_candidates
         MAX_REDUNDANCY += 0.1
 
@@ -452,7 +414,7 @@ for sequence in STORED_VALID_SEQUENCES:
         continue
 
     Y = domain.get_configs(sequence['config'], ARGS.sequence_length)
-    
+
     logging.debug("Configurations in sequence {}".format(Y))
     baseline_eval = EvaluatedSequence(Y, RUNNER_BASELINE, PLANNER_TIME_LIMIT)
     runtimes_baseline = baseline_eval.get_runtimes(ARGS.sequence_length, 0, PLANNER_TIME_LIMIT)
@@ -464,7 +426,7 @@ for sequence in STORED_VALID_SEQUENCES:
 
     if len(runtimes_sart) < 3:
         continue # We cannot accept sequences that have less than 3 points to interpolate
-    
+
     new_seq = CPLEXSequence(sequence, domain, runtimes_baseline, runtimes_sart)
     if new_seq.seq_id >= 0:
         evaluated_sequences.append(new_seq)
@@ -480,8 +442,8 @@ candidate_sequences_per_enum = defaultdict(list)
 desired_quality = ARGS.desired_minimum_quality
 while len(candidate_sequences) < ARGS.max_sequences_per_enum and evaluated_sequences:
     discarded_evaluated_sequences = [seq for seq in evaluated_sequences if seq.penalty > desired_quality]
-    evaluated_sequences = [seq for seq in evaluated_sequences if seq.penalty <= desired_quality]    
-    
+    evaluated_sequences = [seq for seq in evaluated_sequences if seq.penalty <= desired_quality]
+
     if domain.has_enum_parameter():
         # Option #1: We have an enum parameter. In this case, we may select a sequence for each
         # value, with a given starting point, and a number of instances. We do a second
@@ -495,7 +457,7 @@ while len(candidate_sequences) < ARGS.max_sequences_per_enum and evaluated_seque
                 valid_sequences = [seq for seq in evaluated_sequences if seq.has_enum_value(enum_parameter.name, value)]
                 bestK = select_best_k(valid_sequences, ARGS.max_sequences_per_enum, candidate_sequences_per_enum[(enum_parameter.name,value )])
                 print (enum_parameter.name, value, len(valid_sequences), len(bestK))
-                
+
                 for seq in bestK:
                     if not seq.seq_id in already_selected:
                         already_selected.add(seq.seq_id)
@@ -506,7 +468,7 @@ while len(candidate_sequences) < ARGS.max_sequences_per_enum and evaluated_seque
 
     evaluated_sequences = discarded_evaluated_sequences
     desired_quality += 1
-    
+
 if len(candidate_sequences) == 0:
     sys.exit("Error: no valid sequences")
 
@@ -535,7 +497,7 @@ if any (using_baseline) and not all (using_baseline):
         logging.info(f"Using sart runtimes on CPLEX optimization")
         candidate_sequences = [seq for seq in candidate_sequences if not seq.use_baseline_instead_of_sart]
     else:
-        
+
         logging.info(f"Using baseline runtimes on CPLEX optimization")
         candidate_sequences = [seq for seq in candidate_sequences if seq.use_baseline_instead_of_sart]
 
@@ -632,7 +594,7 @@ print()
 logging.info("Solution status = {}: {}".format(str(cplex_problem.solution.get_status()), str(cplex_problem.solution.status[cplex_problem.solution.get_status()])))
 if cplex_problem.solution.get_status() == 103:
     sys.exit()
-    
+
 logging.info("Solution value  = {}".format(str( cplex_problem.solution.get_objective_value())))
 
 x = cplex_problem.solution.get_values()
