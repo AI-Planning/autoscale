@@ -399,6 +399,12 @@ def adapt_parameters_floortile(parameters):
     return parameters
 
 
+
+def adapt_parameters_logistics(parameters):
+    parameters ["num_trucks"] = parameters ["num_cities"] + parameters ["extra_trucks"]
+    return parameters
+
+
 def adapt_parameters_parking(parameters):
     curbs = parameters["curbs"]
     cars = 2*(curbs -1) + int(parameters["cars_diff"])
@@ -632,26 +638,25 @@ DOMAIN_LIST_OPT = [
     # TODO: find good parameter values.
     # TODO: add random seed.
     # TODO: decouple width and height?
-    Domain("sokoban",
-           f"random/sokoban-generator-typed -n {{size}} -b {{boxes}} -w {{walls}}",
-           [LinearAtr("size", lower_b=1, upper_b=1, lower_m=1, default_m=1, upper_m=1),
-            LinearAtr("boxes", lower_b=1, upper_b=1, lower_m=1, default_m=1, upper_m=1),
-            LinearAtr("walls", lower_b=1, upper_b=1, lower_m=1, default_m=1, upper_m=1),
-           ]
-    ),
-
-    # TODO: do we need upper bounds on some of the parameters?
-    # TODO: num_trucks must be at least as large as num_cities
-    # Domain("logistics",
-        # "logistics -r {seed} -a {num_airplanes} -c {num_cities} -s {city_size} -p {num_packages} -t {num_trucks}",
-        # [
-            # LinearAtr("num_airplanes"),
-            # LinearAtr("num_cities"),
-            # LinearAtr("city_size"),
-            # LinearAtr("num_packages"),
-            # LinearAtr("num_trucks"),
-        # ],
+    # Domain("sokoban",
+    #        f"random/sokoban-generator-typed -n {{size}} -b {{boxes}} -w {{walls}}",
+    #        [LinearAtr("size", lower_b=1, upper_b=1, lower_m=1, default_m=1, upper_m=1),
+    #         LinearAtr("boxes", lower_b=1, upper_b=1, lower_m=1, default_m=1, upper_m=1),
+    #         LinearAtr("walls", lower_b=1, upper_b=1, lower_m=1, default_m=1, upper_m=1),
+    #        ]
     # ),
+
+    Domain("logistics",
+        "logistics -r {seed} -a {num_airplanes} -c {num_cities} -s {city_size} -p {num_packages} -t {num_trucks}",
+        [
+            LinearAtr("num_airplanes", lower_b=1, upper_b=5, lower_m=1, default_m=1, upper_m=1, optional_m=True),
+            LinearAtr("num_cities", lower_b=2, upper_b=10, lower_m=0, default_m=0.2, upper_m=1, optional_m=True),
+            LinearAtr("city_size", lower_b=2, upper_b=15, lower_m=0, default_m=0.2, upper_m=1, optional_m=True),
+            LinearAtr("num_packages", lower_b=1, upper_b=10, lower_m=1, default_m=1, upper_m=2), # scale between 1 and 2 packages per problem. More than that is too big for optimal planners 
+            LinearAtr("extra_trucks", lower_b=1, upper_b=10, lower_m=0, default_m=0.5, upper_m=1, optional_m=True),
+        ],
+           adapt_f=adapt_parameters_logistics # num_trucks should be as large as num_cities
+    ),
 
 
  #   Domain("agricola", "GenAgricola.py --num_workers {num_workers} --num_ints {num_ints} --num_rounds {num_rounds} {last_stage} {seed}",
@@ -818,29 +823,26 @@ ATTRIBUTES_SAT = {
                 ConstantAtr("slow_capacity", 3)
                 # In IPC'08, they used more diverse values for the capacity of the elevators. We restrict ourselves to a single value for simplicity, expecting that a not so large capacity will result in more interesting problems
                ],
-    # TODO: do we need upper bounds on some of the parameters?
-    # TODO: num_trucks must be at least as large as num_cities
-    # Domain("logistics",
-        # "logistics -r {seed} -a {num_airplanes} -c {num_cities} -s {city_size} -p {num_packages} -t {num_trucks}",
-        # [
-            # LinearAtr("num_airplanes"),
-            # LinearAtr("num_cities"),
-            # LinearAtr("city_size"),
-            # LinearAtr("num_packages"),
-            # LinearAtr("num_trucks"),
-        # ],
-    # ),
+    
     "scanalyzer":
            [EnumAtr("segment_type", ["empty", "ab"]),
             EnumAtr("inout", ["none", "both", "in"]),
             LinearAtr("size", lower_b=2, upper_b=4, lower_m = 1, default_m=1, upper_m = 3)
            ],
-    # TODO: find good parameter values.
     "openstacks":
         [EnumAtr("density", [10, 20, 33, 50, 66, 80]),
         LinearAtr("products", lower_b=10, upper_b=200, lower_m=1, default_m=10, upper_m=40),
         LinearAtr("orders", lower_b=10, upper_b=200, lower_m=1, default_m=10, upper_m=40),
         ],
+    "logistics" : 
+        [
+            LinearAtr("num_airplanes", lower_b=1, upper_b=5, lower_m=1, default_m=1, upper_m=2, optional_m=True),
+            LinearAtr("num_cities", lower_b=2, upper_b=10, lower_m=0, default_m=0.2, upper_m=2, optional_m=True),
+            LinearAtr("city_size", lower_b=2, upper_b=15, lower_m=0, default_m=0.2, upper_m=2, optional_m=True),
+            LinearAtr("num_packages", lower_b=1, upper_b=30, lower_m=1, default_m=2, upper_m=10), 
+            LinearAtr("extra_trucks", lower_b=1, upper_b=10, lower_m=0, default_m=0.5, upper_m=2, optional_m=True),
+        ],
+    
 }
 
 
