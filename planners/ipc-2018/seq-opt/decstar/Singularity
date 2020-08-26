@@ -27,6 +27,24 @@ From: ubuntu:xenial
     cd /planner/src
     ./build_all -j4
 
+    ## Strip binaries.
+    strip --strip-all /planner/src/preprocess/preprocess
+    strip --strip-all /planner/src/search/downward-release
+
+    ## Remove packages unneeded for running the planner.
+    apt -y autoremove cmake g++ make autotools-dev automake gcc g++-multilib
+    rm -rf /var/lib/apt/lists/*
+
+    ## Only keep essential binaries.
+    mkdir -p /compiled-planner/preprocess
+    mkdir -p /compiled-planner/search
+    mv /planner/src/driver /planner/src/fast-downward.py /compiled-planner
+    mv /planner/src/preprocess/preprocess /compiled-planner/preprocess
+    mv /planner/src/translate /compiled-planner/translate
+    mv /planner/src/search/downward-release /compiled-planner/search
+    rm -rf /planner
+    mv /compiled-planner /planner
+
 %runscript
     ## The runscript is called whenever the container is used to solve
     ## an instance.
@@ -36,9 +54,9 @@ From: ubuntu:xenial
     PLANFILE=$3
 
     ## Call your planner.
-    /planner/src/fast-downward.py \
+    /planner/fast-downward.py \
         --plan-file $PLANFILE \
-        --portfolio /planner/src/driver/portfolios/seq_opt_ds.py \
+        --portfolio /planner/driver/portfolios/seq_opt_ds.py \
         $DOMAINFILE \
         $PROBLEMFILE \
         --preprocess-options --h2-time-limit 120

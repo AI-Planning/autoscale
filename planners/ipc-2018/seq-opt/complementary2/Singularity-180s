@@ -21,15 +21,25 @@ From: ubuntu:xenial
 
     ## Install all necessary dependencies.
     apt-get update
-    apt-get -y install cmake g++ make python autotools-dev automake gcc g++-multilib
+    apt-get -y install --no-install-recommends cmake g++ make python autotools-dev automake gcc g++-multilib
 
     ## Build your planner
     cd /planner
     ./build.py release64 -j6
 
-    ## Clean up.
+    ## Strip binaries.
+    strip --strip-all /planner/builds/release64/bin/downward
+
+    ## Remove packages unneeded for running the planner.
     apt -y autoremove cmake g++ make autotools-dev automake gcc g++-multilib
     rm -rf /var/lib/apt/lists/*
+
+    ## Only keep essential binaries.
+    mkdir -p /compiled-planner/builds/release64
+    mv /planner/driver /planner/fast-downward.py /compiled-planner
+    mv /planner/builds/release64/bin /compiled-planner/builds/release64
+    rm -rf /planner
+    mv /compiled-planner /planner
 
 %runscript
     ## The runscript is called whenever the container is used to solve

@@ -27,9 +27,23 @@ From: ubuntu:18.04
     cd /planner
     ./build.py release64 -j4
 
-    ## Clean up
+    ## Strip binaries.
+    strip --strip-all /planner/builds/release64/bin/downward \
+        /planner/builds/release64/bin/preprocess \
+
+    ## Remove packages unneeded for running the planner.
     apt-get -y autoremove cmake g++ make
     rm -rf /var/lib/apt/lists/*
+
+    ## Only keep essential binaries.
+    mkdir -p /compiled-planner/builds/release64
+    mv /planner/driver /compiled-planner
+    mv /planner/fast-downward.py /planner/plan-ipc.py /planner/create-image-from-graph.py /planner/timers.py /compiled-planner
+    mv /planner/dl_model /compiled-planner
+    rm -rf /compiled-planner/dl_model/model_creation /compiled-planner/dl_model/model.h5 /compiled-planner/dl_model/model.json
+    mv /planner/builds/release64/bin /compiled-planner/builds/release64
+    rm -rf /planner
+    mv /compiled-planner /planner
 
 %runscript
     ## The runscript is called whenever the container is used to solve
