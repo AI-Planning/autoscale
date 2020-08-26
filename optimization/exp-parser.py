@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 
 import ast
+import logging
 import re
 
 from lab.parser import Parser
@@ -77,7 +78,9 @@ parser.add_bottom_up_pattern('final_baseline_runtimes', r'Final baseline runtime
 parser.add_bottom_up_pattern('final_sart_runtimes', r'Final sart runtimes: (.*)\n', type=str)
 parser.add_bottom_up_pattern('final_value', r'Estimated cost of incumbent: (.+)\n', type=float)
 parser.add_bottom_up_pattern('evaluated_configurations', r'\#Configurations: (\d+)\n', type=int)
-parser.add_bottom_up_pattern('incumbent_changed', r'\#Incumbent changed: (\d+)\n', type=int)
+parser.add_bottom_up_pattern('incumbent_changed', r'\#Incumbent changed: (.+)\n', type=int)
+parser.add_bottom_up_pattern('evaluation_time', r'Used target algorithm runtime: (.+) / .*\n', type=float)
+parser.add_repeated_pattern('shared_runs', r'Shared model mode: Finished loading new runs, found (.+) new runs.', type=int)
 parser.add_function(error)
 parser.add_function(parse_average_runtimes)
 

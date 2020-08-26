@@ -219,9 +219,9 @@ for domain in DOMAINS:
 # The configurations are a list of lists. Each list corresponds to an individual
 # linear scaling, so we may assume that instances are sorted by difficulty.
 # We got the configurations. They should be sorted from easier to harder.
-RUNNER_BASELINE = Runner("baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
+RUNNER_BASELINE = Runner("baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, "<set later>", TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
 
-RUNNER_SART = Runner("sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, YEAR, ARGS.domain), PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
+RUNNER_SART = Runner("sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, YEAR, ARGS.domain), PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, "<set later>", TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
 
 
 
@@ -377,6 +377,9 @@ scenario = Scenario(
         #"acq_opt_challengers": 1000,  # Overriden in SMAC4HPO constructor.
         # Disable pynisher.
         "limit_resources": False,
+        # Run SMAC in parallel.
+        "shared_model": True,
+        "input_psmac_dirs": os.path.join(ARGS.smac_output_dir, "run_*"),
     }
 )
 
@@ -399,6 +402,9 @@ smac = SMAC4HPO(
 smac.solver.scenario.acq_opt_challengers = 1000
 print("Output dir:", SMAC_OUTPUT_DIR)
 print("SMAC output dir:", smac.output_dir)
+
+RUNNER_BASELINE.SMAC_OUTPUT_DIR = smac.output_dir
+RUNNER_SART.SMAC_OUTPUT_DIR = smac.output_dir
 
 # Bug in SMAC: SMAC4HPO and deterministic SMAC4AC scenarios without tuner timeout
 # set intensification_percentage = 1e-10, so we set the desired value ourselves.

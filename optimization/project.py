@@ -235,7 +235,7 @@ def get_repo_base():
     Abort if the repo base cannot be found."""
     path = os.path.abspath(tools.get_script_path())
     while os.path.dirname(path) != path:
-        if os.path.exists(os.path.join(path, ".hg")):
+        if any(os.path.exists(os.path.join(path, x)) for x in [".git", ".hg"]):
             return path
         path = os.path.dirname(path)
     sys.exit("repo base could not be found")
