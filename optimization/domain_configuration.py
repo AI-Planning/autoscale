@@ -651,6 +651,8 @@ DOMAIN_LIST_OPT = [
     #        [LinearAtr("size", lower_b=1, upper_b=1, lower_m=1, default_m=1, upper_m=1),
     #         LinearAtr("boxes", lower_b=1, upper_b=1, lower_m=1, default_m=1, upper_m=1),
     #         LinearAtr("walls", lower_b=1, upper_b=1, lower_m=1, default_m=1, upper_m=1),
+    #         EnumAtr("percentage_cells_locked", [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]),
+    #           adapt_f=adapt_parameters_sokoban,
     #        ]
     # ),
 
@@ -702,7 +704,6 @@ DOMAIN_LIST_OPT = [
     #         ConstantAtr("instances", 1),
     #        ]
     # ),
-
 
     # Domain("data-network",
     #        "",

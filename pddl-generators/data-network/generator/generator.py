@@ -119,7 +119,7 @@ class DistributedComputing():
         while True:
             try:
                 line = self._clean_line(lines[line_nr])
-                if line is not '':
+                if line != '':
                     return line_nr
                 line_nr += 1;
             except IndexError:
@@ -246,14 +246,14 @@ class DistributedComputing():
 
 
     def _determine_max_capacity(self):
-        self.max_capacity = max([properties['capacity'] for server, properties in self.servers.iteritems()])
+        self.max_capacity = max([properties['capacity'] for server, properties in self.servers.items()])
 
     def _check_required_capacity(self):
-        min_space = max([value['size'] for (key, value) in self.data_items.iteritems()])
+        min_space = max([value['size'] for (key, value) in self.data_items.items()])
         max_space = max([self.data_items[value['input1']]['size'] + 
                          self.data_items[value['input2']]['size'] + 
-                         self.data_items[value['output']]['size'] for (key, value) in self.scripts.iteritems()])
-        for server, properties in self.servers.iteritems():
+                         self.data_items[value['output']]['size'] for (key, value) in self.scripts.items()])
+        for server, properties in self.servers.items():
             capacity = properties['capacity']
             if capacity < min_space:
                 print("Server {} has not enough capacity to cache data item of size {}.".format(server,min_space))
@@ -264,8 +264,8 @@ class DistributedComputing():
         
     def _assign_scripts_to_servers(self):
         try:
-            for server, properties in self.servers.iteritems():
-                for script, value in self.scripts.iteritems():
+            for server, properties in self.servers.items():
+                for script, value in self.scripts.items():
                     self.server_script_pairs[(server,script)] = \
                     {'base_processing_cost' : properties['processing_distr']()}
         except ValueError:
@@ -275,35 +275,36 @@ class DistributedComputing():
     def _assign_initial_data_items_to_servers(self):
         servers = self.servers.keys()
         for data_item in self.initial_data_items:
-            server = numpy.random.choice(servers)
+            
+            server = numpy.random.choice([s for s in servers])
             self.server_data_item_pairs_init.append((server,data_item))
 
     def _assign_goal_data_items_to_servers(self):
         servers = self.servers.keys()
         for data_item in self.goal_data_items:
-            server = numpy.random.choice(servers)
+            server = numpy.random.choice([s for s in servers])
 
             self.server_data_item_pairs_goal.append((server,data_item))
 
     def _compute_process_costs(self):
-        for pair, props in self.server_script_pairs.iteritems():
+        for pair, props in self.server_script_pairs.items():
             if props['base_processing_cost'] >= 0:
                 self.process_costs[(pair[1],pair[0])] = props['base_processing_cost']
 
     def _compute_send_costs(self):
         for data_size in self.data_sizes:
-            for connection, props in self.connections.iteritems():
+            for connection, props in self.connections.items():
                 self.send_costs[(("server{}".format(connection[0]),"server{}".format(connection[1])), 
                                   "number{}".format(data_size))] = data_size * props['send']
 
     def _compute_io_costs(self):
         for data_size in self.data_sizes:
-            for server, props in self.servers.iteritems():
+            for server, props in self.servers.items():
                 self.io_costs[(server,"number{}".format(data_size))] = data_size * props['io']
 
     def _write_pddl(self):
         print ("(define (problem p{}-{}-{}-{}-{})".format(self.num_data_items, self.num_layers, self.num_scripts, self.task_name, self.seed))
-        print ("    (:domain DistributedComputing)")
+        print ("    (:domain data-network)")
         self._write_objects()
         self._write_initial_state()
         self._write_goals()
@@ -339,7 +340,7 @@ class DistributedComputing():
 
     def _write_constant_predicates(self):
         scripts = OrderedDict(sorted(self.scripts.items(), key=lambda x: self._natural_keys(x[0])))
-        for script, properties in scripts.iteritems():
+        for script, properties in scripts.items():
             print ("           (SCRIPT-IO {} {} {} {})".format(script, properties['input1'], properties['input2'], properties['output']))
         script_server_pairs = sorted([(pair[1],pair[0]) for pair in self.server_script_pairs if self.server_script_pairs[pair]['base_processing_cost'] >= 0],
                                      key=lambda x: self._natural_keys(x[0]+x[1]))
@@ -348,10 +349,10 @@ class DistributedComputing():
             print ("           (CONNECTED server{} server{})".format(connection[0], connection[1]))
             print ("           (CONNECTED server{} server{})".format(connection[1], connection[0]))
         data_items = OrderedDict(sorted(self.data_items.items(), key=lambda x: self._natural_keys(x[0])))
-        for data_item, properties in data_items.iteritems():
+        for data_item, properties in data_items.items():
             print ("           (DATA-SIZE {} number{})".format(data_item, properties['size']))
         servers = OrderedDict(sorted(self.servers.items(), key=lambda x: self._natural_keys(x[0])))
-        for server, properties in servers.iteritems():
+        for server, properties in servers.items():
             print ("           (CAPACITY {} number{})".format(server, properties['capacity']))
         self._write_math()
 
@@ -360,7 +361,7 @@ class DistributedComputing():
             for j in sorted(self.data_sizes):
                 if i+j <= self.max_capacity:
                     print ("           (SUM number{} number{} number{})".format(i, j, i+j))
-        capacities = sorted(set([value['capacity'] for (key,value) in self.servers.iteritems()]))
+        capacities = sorted(set([value['capacity'] for (key,value) in self.servers.items()]))
         for i in range (1, self.max_capacity+1):
             for j in capacities:
                 if i <= j:
@@ -377,14 +378,14 @@ class DistributedComputing():
     def _write_cost_predicates(self):
         print ("           (= (total-cost) 0)")
         process_costs = OrderedDict(sorted(self.process_costs.items(), key=lambda x: self._natural_keys("{}{}".format(x[0],x[1]))))
-        for pair,value in process_costs.iteritems():
+        for pair,value in process_costs.items():
             print ("           (= (process-cost {} {}) {})".format(pair[0], pair[1], value))
         send_costs = OrderedDict(sorted(self.send_costs.items(), key=lambda x: self._natural_keys("{}{}{}".format(x[0][0],x[0][1],x[1]))))
-        for pair,value in send_costs.iteritems():
+        for pair,value in send_costs.items():
             print ("           (= (send-cost {} {} {}) {})".format(pair[0][0], pair[0][1], pair[1], value))
             print ("           (= (send-cost {} {} {}) {})".format(pair[0][1], pair[0][0], pair[1], value))
         io_costs = OrderedDict(sorted(self.io_costs.items(), key=lambda x: self._natural_keys("{}{}".format(x[0],x[1]))))
-        for pair,value in io_costs.iteritems():
+        for pair,value in io_costs.items():
             print ("           (= (io-cost {} {}) {})".format(pair[0], pair[1], value))
 
     def _write_goals(self):
