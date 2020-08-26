@@ -17,9 +17,9 @@ OUTDIR=../images/
 ./build-image.sh ../planners/ipc-2018/seq-opt/complementary2/Singularity-1800s ${OUTDIR}/complementary2-3584mb-1800s.img
 ./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-blind ${OUTDIR}/delfi-blind.img
 ./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-celmcut ${OUTDIR}/delfi-celmcut.img
-./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-ipdb-60s ${OUTDIR}/delfi-ipdb.img
+./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-ipdb-60s ${OUTDIR}/delfi-ipdb-60s.img
 ./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-ipdb-1800s ${OUTDIR}/delfi-ipdb-1800s.img
-./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-mas-sccdfp-60s ${OUTDIR}/delfi-mas-sccdfp.img
+./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-mas-sccdfp-60s ${OUTDIR}/delfi-mas-sccdfp-60s.img
 ./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-mas-sccdfp-1800s ${OUTDIR}/delfi-mas-sccdfp-1800s.img
 ./build-image.sh ../planners/ipc-2018/seq-opt/delfi1/Singularity-mas-miasm ${OUTDIR}/delfi-mas-miasm.img
 ./build-image.sh ../planners/ipc-2018/seq-opt/decstar/Singularity-fork ${OUTDIR}/decstar-opt-fork.img || true
