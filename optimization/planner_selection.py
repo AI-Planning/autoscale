@@ -47,37 +47,38 @@ for domain, planners in PLANNER_SELECTION_OPT_2014.items():
     assert set(planners).issubset(OPT_2014_PLANNERS), domain
 
 # Decided from https://ai.dmi.unibas.ch/_tmp_files/seipp/2020-01-16-A-opt-sota-ipc.html
+# and https://ai.dmi.unibas.ch/_tmp_files/seipp/04-opt-evaluation-new2020.html.
 PLANNER_SELECTION_OPT_2020 = {
-    "barman": ["symba1.img"],
-    "blocksworld": ["fdss-mas1.img"],
+    "barman": ["delfi-mas-miasm.img", "symba1.img"],
+    "blocksworld": ["fdss-mas1.img", "scorpion-nodiv.img"],
     "childsnack": ["delfi-ipdb.img"],
     "data-network": ["lmcut.img"],
-    "depots": ["scorpion-nodiv.img", "delfi-ipdb.img"],
-    "driverlog": ["symba1.img", "delfi-ipdb.img"],
-    "elevators" : ["delfi-ipdb.img"],
-    "floortile": ["symba1.img"],
-    "gripper": ["delfi-blind.img"],
-    "hiking": ["delfi-mas-miasm.img"],
+    "depots": ["delfi-ipdb.img", "scorpion-nodiv.img"],
+    "driverlog": ["decstar-star.img", "delfi-ipdb.img", "symba1.img"],
+    "elevators" : ["delfi-ipdb.img", "scorpion-nodiv.img"],
+    "floortile": ["delfi-celmcut.img", "symba1.img"],
+    "gripper": ["delfi-blind.img", "delfi-mas-sccdfp.img"],
+    "hiking": ["delfi-ipdb.img", "delfi-mas-miasm.img"],
     "maintenance": ["delfi-blind.img"],
-    "miconic-strips": ["bjolp.img", "scorpion-nodiv.img"],
-    "nomystery" : ["bjolp.img", "scorpion-nodiv.img"],
+    "miconic-strips": ["bjolp.img", "delfi-celmcut.img", "scorpion-nodiv.img"],
+    "nomystery" : ["complementary2-3584mb-180s.img", "decstar-fork.img", "scorpion-nodiv.img"],
     "openstacks" : ["symba1.img"],
-    "parking": ["delfi-ipdb.img"],
-    "pathways": ["delfi-celmcut.img"],
-    "rover": ["symba1.img"],
+    "parking": ["delfi-ipdb.img", "scorpion-nodiv.img"],
+    "pathways": ["complementary2-3584mb-180s.img", "delfi-celmcut.img"],
+    "rover": ["complementary2-3584mb-180s.img", "symba1.img"],
     "satellite": ["delfi-celmcut.img", "decstar-star.img"],
-    "scanalyzer": ["lmcut.img"],
-    "snake": ["bjolp.img", "scorpion-nodiv.img"],
+    "scanalyzer": ["delfi-celmcut.img", "scorpion-nodiv.img"],
+    "snake": ["bjolp.img", "complementary2-3584mb-180s.img", "scorpion-nodiv.img"],
     "sokoban": ["delfi-ipdb.img"],
-    "storage": ["delfi-celmcut.img"],
-    "termes": ["symba2.img"],
+    "storage": ["delfi-celmcut.img", "delfi-ipdb.img"],
+    "termes": ["symba1.img"],
     "tetris": ["scorpion-nodiv.img"],
-    "tpp": ["complementary2-3584mb-180s.img"],
-    "transport" : ["delfi-ipdb.img", "scorpion-nodiv.img"],
-    "trucks": ["scorpion-nodiv.img", "symba2.img"],
-    "visitall": ["delfi-ipdb.img", "symba2.img"],
-    "woodworking": ["scorpion-nodiv.img", "delfi-celmcut.img"],
-    "zenotravel": ["delfi-celmcut.img", "symba2.img"],
+    "tpp": ["complementary2-3584mb-180s.img", "decstar-star.img"],
+    "transport" : ["delfi-ipdb.img", "delfi-mas-miasm.img", "scorpion-nodiv.img"],
+    "trucks": ["scorpion-nodiv.img", "symba1.img"],
+    "visitall": ["delfi-ipdb.img", "symba1.img", "scorpion-nodiv.img"],
+    "woodworking": ["scorpion-nodiv.img", "delfi-celmcut.img", "delfi-mas-sccdfp.img"],
+    "zenotravel": ["decstar-fork.img", "delfi-celmcut.img", "scorpion-nodiv.img"],
 }
 
 SAT_2014_PLANNERS = {
@@ -108,7 +109,7 @@ PLANNER_SELECTION_SAT_2014 = {
     "satellite": ["mpc.img"],
     "scanalyzer": ["lama-first.img"],
     "snake": ["mpc.img"],
-    "sokoban": ["gbfs-ff.img"],
+    "sokoban": ["lama-first.img"],
     "storage": ["mpc.img"],
     "termes": ["lama-first.img"],
     "tetris": ["lama-first.img", "mpc.img"],
@@ -186,9 +187,9 @@ def get_sart_planners(track, year, domain):
 def verify_planner_selection(images_dir):
     for selection in PLANNER_SELECTION.values():
         for images in selection.values():
-            assert 1 <= len(images) <= 2, f"{domain} needs 1-2 images"
+            assert 1 <= len(images) <= 3, f"{domain} needs 1-3 images"
             for image in images:
                 path = os.path.join(images_dir, image)
                 assert os.path.exists(path), f"image at {path} is missing"
-                assert image != get_baseline_planner("opt")
-                assert image != get_baseline_planner("sat")
+                assert image != get_baseline_planner("opt"), image
+                assert image != get_baseline_planner("sat"), image
