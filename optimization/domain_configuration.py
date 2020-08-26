@@ -400,6 +400,14 @@ def adapt_parameters_floortile(parameters):
 
 
 
+def adapt_parameters_grid(parameters):
+    parameters["shapes"] = min(parameters["x"]*parameters["y"] -1, parameters ["shapes"])
+    parameters ["keys"] = min(parameters["x"]*parameters["y"] -1, parameters ["shapes"] + parameters ["extra_keys"])
+    parameters["locks"] = int(parameters["x"]*parameters["y"]*parameters["percentage_cells_locked"])
+
+    return parameters
+
+
 def adapt_parameters_logistics(parameters):
     parameters ["num_trucks"] = parameters ["num_cities"] + parameters ["extra_trucks"]
     return parameters
@@ -658,6 +666,19 @@ DOMAIN_LIST_OPT = [
            adapt_f=adapt_parameters_logistics # num_trucks should be as large as num_cities
     ),
 
+    Domain("grid", # The main parameter to scale here is the grid. We should find what percentage of cells should be locked, and how many keys to have
+           "generate.py {x} {y} --shapes {shapes} --keys {keys} --locks {locks} --prob-goal {prob_key_in_goal}  --seed {seed}",
+           [GridAtr("grid", "x", "y", lower_x=3, upper_x=8),
+            EnumAtr ("prob_key_goal", [0.5, 0.75, 1]),
+            LinearAtr("shapes", lower_b=1, upper_b=5, lower_m=0, default_m=0, upper_m=1, optional_m=True),
+            LinearAtr("extra_keys", lower_b=1, upper_b=5, lower_m=0, default_m=1, upper_m=3, optional_m=True),
+            EnumAtr("percentage_cells_locked", [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]),
+           ],
+           adapt_f=adapt_parameters_grid
+    ),
+
+
+
 
  #   Domain("agricola", "GenAgricola.py --num_workers {num_workers} --num_ints {num_ints} --num_rounds {num_rounds} {last_stage} {seed}",
  #          [LinearAtr("n", lower_b=5, upper_b=10, lower_m=0.1, upper_m=2)]),
@@ -842,7 +863,14 @@ ATTRIBUTES_SAT = {
             LinearAtr("num_packages", lower_b=1, upper_b=30, lower_m=1, default_m=2, upper_m=10), 
             LinearAtr("extra_trucks", lower_b=1, upper_b=10, lower_m=0, default_m=0.5, upper_m=2, optional_m=True),
         ],
-    
+
+    "grid" : [GridAtr("grid", "x", "y", lower_x=3, upper_x=10, upper_m=10),
+              EnumAtr ("prob_key_goal", [0.5, 0.75, 1]),
+              LinearAtr("shapes", lower_b=1, upper_b=5, lower_m=0, default_m=0, upper_m=1, optional_m=True),
+              LinearAtr("extra_keys", lower_b=1, upper_b=5, lower_m=0, default_m=1, upper_m=3, optional_m=True),
+              EnumAtr("percentage_cells_locked", [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]),
+    ],
+
 }
 
 
