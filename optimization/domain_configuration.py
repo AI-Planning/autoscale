@@ -717,7 +717,7 @@ DOMAIN_LIST_OPT = [
             LinearAtr("extra_items", lower_b=2, upper_b=10, lower_m=1, default_m=1, upper_m=5), #"[number of layers] must be smaller than [number of data items]"
             LinearAtr("extra_scripts", lower_b=2, upper_b=15,  lower_m=0, upper_m=5, default_m=1),#"[number of scripts] must be larger or equal than [number of data items]-2"
            ],
-           f_adapt =adapt_parameters_datanetwork
+           adapt_f =adapt_parameters_datanetwork
     ),
 
             

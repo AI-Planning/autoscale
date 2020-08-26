@@ -224,7 +224,7 @@ def solve(grid_size_x, grid_size_y, max_height, robots, depots, i_grid, g_grid, 
             print ()
             print_grid(target_grid)
             exit()
-        (x, y) = min(different_positions, key=lambda (x, y) : (i_grid[y][x], -order_grid[y][x]))
+        (x, y) = min(different_positions, key=lambda x, y : (i_grid[y][x], -order_grid[y][x]))
         
         plan.append("(create-block {})".format(depot_loc))
 
@@ -258,7 +258,7 @@ def solve(grid_size_x, grid_size_y, max_height, robots, depots, i_grid, g_grid, 
             print_grid(g_grid)
             exit()
 
-        (x, y) = max(different_positions, key=lambda (x, y) : (i_grid[y][x], -order_grid[y][x]))
+        (x, y) = max(different_positions, key=lambda x, y : (i_grid[y][x], -order_grid[y][x]))
         # print("Current grid")
         # print_grid(i_grid)
         # print("Goal grid")
