@@ -23,6 +23,25 @@ source ~/.profile
 conda create --name smac-conda python=3.7 gxx_linux-64 gcc_linux-64 swig
 conda activate smac-conda
 pip install -r requirements.txt
+
+
+To avoid lots of output due to stale file handles we patch the load_json() method in the file
+smac/runhistory/runhistory.py as follows:
+
+    try:
+        with open(fn) as fp:
+            all_data = json.load(fp, object_hook=StatusType.enum_hook)
+    except Exception as e:
+        print(f"Failed to read runhistory from {fn}: {e}")  # PATCHED
+        return  # PATCHED
+        self.logger.warning(
+            'Encountered exception %s while reading runhistory from %s. '
+            'Not adding any runs!',
+            e,
+            fn,
+        )
+        return
+
 """
 
 import argparse
