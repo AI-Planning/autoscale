@@ -40,3 +40,5 @@ OUTDIR=../images/
 ./build-image.sh ../planners/sat/saarplan/Singularity-dec-fallback ${OUTDIR}/saarplan-dec-fallback.img
 ./build-image.sh ../planners/sat/saarplan/Singularity-grey ${OUTDIR}/saarplan-grey.img
 ./build-image.sh ../planners/sat/saarplan/Singularity ${OUTDIR}/saarplan-agl.img
+
+echo "Finished building images"
