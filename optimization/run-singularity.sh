@@ -12,16 +12,9 @@ if [ -f $PWD/$4 ]; then
     exit 2
 fi
 
-start=`date +%s`
-
 set +e
-/usr/bin/time -o /dev/stdout --portability singularity run -C -H $PWD $1 $PWD/$2 $PWD/$3 $4
+/usr/bin/time -o /dev/stdout -f "Singularity runtime: %es real, %Us user, %Ss sys" singularity run -C -H $PWD $1 $PWD/$2 $PWD/$3 $4
 set -e
-
-end=`date +%s`
-
-runtime=$((end-start))
-echo "Singularity runtime: ${runtime}s"
 
 echo ""
 echo "Run VAL"
