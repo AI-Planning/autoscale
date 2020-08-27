@@ -15,8 +15,8 @@ From: ubuntu:18.04
     ## Build the planner.
     ./build.py
 
-    ## Strip planner binary.
-    strip --strip-all builds/release/bin/downward
+    ## Strip binaries.
+    strip --strip-all /planner/builds/release/bin/downward
 
     ## Remove packages unneeded for running the planner.
     apt-get -y autoremove cmake g++ make

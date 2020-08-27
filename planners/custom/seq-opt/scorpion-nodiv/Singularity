@@ -19,9 +19,21 @@ From: ubuntu:18.04
     cmake ../../h2-mutexes/
     make -j4
 
-    ## Clean up.
-    apt -y autoremove cmake g++ make
+    ## Strip binaries.
+    strip --strip-all /planner/builds/release64/bin/downward \
+        /planner/builds/h2-mutexes/bin/preprocess
+
+    ## Remove packages unneeded for running the planner.
+    apt-get -y autoremove cmake g++ make
     rm -rf /var/lib/apt/lists/*
+
+    ## Only keep essential binaries.
+    mkdir -p /compiled-planner/builds/release64
+    mv /planner/driver /planner/fast-downward.py /compiled-planner
+    mv /planner/builds/release64/bin /compiled-planner/builds/release64
+    mv /planner/builds/h2-mutexes/bin/preprocess /compiled-planner
+    rm -rf /planner
+    mv /compiled-planner /planner
 
 %runscript
     DOMAINFILE=$1
@@ -35,7 +47,7 @@ From: ubuntu:18.04
     /planner/fast-downward.py \
         --build=release64 \
         --plan-file $PLANFILE \
-        --transform-task /planner/builds/h2-mutexes/bin/preprocess \
+        --transform-task /planner/preprocess \
         --alias seq-opt-scorpion \
         $DOMAINFILE \
         $PROBLEMFILE

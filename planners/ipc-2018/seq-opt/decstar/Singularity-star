@@ -36,12 +36,12 @@ From: ubuntu:xenial
     rm -rf /var/lib/apt/lists/*
 
     ## Only keep essential binaries.
-    mkdir -p /compiled-planner/preprocess
-    mkdir -p /compiled-planner/search
-    mv /planner/src/driver /planner/src/fast-downward.py /compiled-planner
-    mv /planner/src/preprocess/preprocess /compiled-planner/preprocess
-    mv /planner/src/translate /compiled-planner/translate
-    mv /planner/src/search/downward-release /compiled-planner/search
+    mkdir -p /compiled-planner/src/preprocess
+    mkdir -p /compiled-planner/src/search
+    mv /planner/src/driver /planner/src/fast-downward.py /compiled-planner/src
+    mv /planner/src/preprocess/preprocess /compiled-planner/src/preprocess
+    mv /planner/src/translate /compiled-planner/src/translate
+    mv /planner/src/search/downward-release /compiled-planner/src/search
     rm -rf /planner
     mv /compiled-planner /planner
 
@@ -54,7 +54,7 @@ From: ubuntu:xenial
     PLANFILE=$3
 
     ## Call your planner.
-    /planner/fast-downward.py \
+    /planner/src/fast-downward.py \
         --plan-file $PLANFILE \
         $DOMAINFILE \
         $PROBLEMFILE \
