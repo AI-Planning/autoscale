@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 
 import ast
+import collections
 import logging
 import re
 
@@ -65,6 +66,11 @@ def parse_average_runtimes(content, props):
     props["sart_average_runtimes"] = sart_average_runtimes
 
 
+def parse_shared_runs(content, props):
+    values = re.findall(r"Shared model mode: Finished loading new runs, found (.+) new runs.", content)
+    props["shared_runs"] = sorted(collections.Counter(values).items())
+
+
 parser = CommonParser()
 parser.add_pattern(
     'node', r'node: (.+)\n', type=str, file='driver.log', required=True)
@@ -80,8 +86,8 @@ parser.add_bottom_up_pattern('final_value', r'Estimated cost of incumbent: (.+)\
 parser.add_bottom_up_pattern('evaluated_configurations', r'\#Configurations: (\d+)\n', type=int)
 parser.add_bottom_up_pattern('incumbent_changed', r'\#Incumbent changed: (.+)\n', type=int)
 parser.add_bottom_up_pattern('evaluation_time', r'Used target algorithm runtime: (.+) / .*\n', type=float)
-parser.add_repeated_pattern('shared_runs', r'Shared model mode: Finished loading new runs, found (.+) new runs.', type=int)
 parser.add_function(error)
 parser.add_function(parse_average_runtimes)
+parser.add_function(parse_shared_runs)
 
 parser.parse()
