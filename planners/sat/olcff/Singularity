@@ -28,12 +28,21 @@ From:      fedora:28
     cd /planner/fast-downward-conjunctions
     ./build.py release64clangpgonative -j4
 
-    ## Clean up
-    rm -rf /planner/fast-downward-conjunctions/builds/release64clangpgonative/search/CMakeFiles
+    ## Strip binaries.
+    strip --strip-all /planner/fast-downward-conjunctions/builds/release64clangpgonative/bin/preprocess
+    strip --strip-all /planner/fast-downward-conjunctions/builds/release64clangpgonative/bin/downward
+
+    ## Remove packages unneeded for running the planner.
     dnf remove -y gcc-c++ cmake boost boost-devel glibc-static libstdc++-static clang
     dnf autoremove -y
     dnf clean all
 
+    ## Only keep essential binaries.
+    mkdir -p /compiled-planner/fast-downward-conjunctions/builds/release64clangpgonative
+    mv /planner/fast-downward-conjunctions/driver /planner/fast-downward-conjunctions/fast-downward.py /compiled-planner/fast-downward-conjunctions
+    mv /planner/fast-downward-conjunctions/builds/release64clangpgonative/bin /compiled-planner/fast-downward-conjunctions/builds/release64clangpgonative
+    rm -rf /planner
+    mv /compiled-planner /planner
 
 %runscript
     ## The runscript is called whenever the container is used to solve

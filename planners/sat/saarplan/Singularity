@@ -31,13 +31,31 @@ From:      fedora:28
     cd /planner/fast-downward-decoupled
     ./build_all -j4
 
-    ## Clean up
-    rm -rf /planner/fast-downward-decoupled/preprocess/.obj
-    rm -rf /planner/fast-downward-decoupled/search/.obj
-    rm -rf /planner/fast-downward-conjunctions/builds/release64clangpgonative/search/CMakeFiles
+    ## Strip binaries.
+    strip --strip-all /planner/fast-downward-conjunctions/builds/release64clangpgonative/bin/preprocess
+    strip --strip-all /planner/fast-downward-conjunctions/builds/release64clangpgonative/bin/downward
+    strip --strip-all /planner/fast-downward-decoupled/search/downward-release
+
+    ## Remove packages unneeded for running the planner.
     dnf remove -y gcc-c++ cmake boost boost-devel glibc-static libstdc++-static clang
     dnf autoremove -y
     dnf clean all
+
+    ## Only keep essential binaries.
+    ## fast-downward-conjunctions.
+    mkdir -p /compiled-planner/fast-downward-conjunctions/builds/release64clangpgonative
+    mkdir -p /compiled-planner/fast-downward-conjunctions/src
+    mv /planner/fast-downward-conjunctions/src/translate /compiled-planner/fast-downward-conjunctions/src
+    mv /planner/fast-downward-conjunctions/builds/release64clangpgonative/bin /compiled-planner/fast-downward-conjunctions/builds/release64clangpgonative
+
+    ## fast-downward-decoupled.
+    mkdir -p /compiled-planner/fast-downward-decoupled/search
+    mv /planner/fast-downward-decoupled/search/downward-release /compiled-planner/fast-downward-decoupled/search
+
+    ## rest
+    mv /planner/driver /planner/fast-downward.py /compiled-planner
+    rm -rf /planner
+    mv /compiled-planner /planner
 
 %runscript
     ## The runscript is called whenever the container is used to solve

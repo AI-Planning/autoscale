@@ -27,6 +27,24 @@ From: ubuntu:xenial
     cd /planner/src
     ./build_all -j4
 
+    ## Strip binaries.
+    strip --strip-all /planner/src/preprocess/preprocess
+    strip --strip-all /planner/src/search/downward-release
+
+    ## Remove packages unneeded for running the planner.
+    apt -y autoremove cmake g++ make autotools-dev automake gcc g++-multilib
+    rm -rf /var/lib/apt/lists/*
+
+    ## Only keep essential binaries.
+    mkdir -p /compiled-planner/src/preprocess
+    mkdir -p /compiled-planner/src/search
+    mv /planner/src/driver /planner/src/fast-downward.py /compiled-planner/src
+    mv /planner/src/preprocess/preprocess /compiled-planner/src/preprocess
+    mv /planner/src/translate /compiled-planner/src/translate
+    mv /planner/src/search/downward-release /compiled-planner/src/search
+    rm -rf /planner
+    mv /compiled-planner /planner
+
 %runscript
     ## The runscript is called whenever the container is used to solve
     ## an instance.
