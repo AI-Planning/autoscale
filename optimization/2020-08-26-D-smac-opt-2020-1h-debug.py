@@ -44,8 +44,7 @@ if REMOTE:
         partition="infai_1",
         setup="\n".join([
             BaselSlurmEnvironment.DEFAULT_SETUP,
-            "module load Singularity/2.6.1 2> /dev/null",
-            "conda activate smac-conda",
+            #"module load Singularity/2.6.1 2> /dev/null",  # Use default Singularity 3.5.3.
         ]))
     SMAC_TIME_LIMIT = 1 * 60 * 60
     SMAC_RUNS_PER_DOMAIN = 5
