@@ -18,6 +18,7 @@ from lab import tools
 from downward.experiment import FastDownwardExperiment
 from downward.reports.absolute import AbsoluteReport
 
+from reports.average import AverageReport
 from reports.per_domain_comparison import PerDomainComparison
 from reports.coverage import CoverageData
 

@@ -218,7 +218,6 @@ setup_logging()
 if ARGS.tasks < ARGS.tasksbaseline:
     sys.exit("Error: number of tasks must be at least as large as the number of tasks for the baseline")
 
-
 verify_planner_selection(ARGS.images_dir)
 
 DOMAINS = get_domains(ARGS.track)
