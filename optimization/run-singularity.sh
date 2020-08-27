@@ -15,7 +15,7 @@ fi
 start=`date +%s`
 
 set +e
-{ time singularity run -C -H $PWD $1 $PWD/$2 $PWD/$3 $4 ; } 2>&1
+/usr/bin/time -o /dev/stdout --portability singularity run -C -H $PWD $1 $PWD/$2 $PWD/$3 $4
 set -e
 
 end=`date +%s`
