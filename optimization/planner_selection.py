@@ -144,7 +144,7 @@ PLANNER_SELECTION_SAT_2020 = {
     "hiking": ["fd1906-lama-first.img", "ipc2018-agl-olcff.img"],
     "maintenance": ["ipc2018-agl-lapkt-dual-bfws.img", "ipc2014-agl-mpc.img"],
     "miconic-strips": ["ipc2014-agl-mpc.img", "fd1906-lama-first.img", "ipc2018-agl-saarplan-dec-fallback.img"],
-    "nomystery" : ["ipc2018-agl-saarplan-dec.img", "ipc2018-agl-cerberus.img", "fd1906-lama-first.img"],
+    "nomystery" : ["ipc2018-agl-saarplan-dec-fallback.img", "ipc2018-agl-cerberus.img", "fd1906-lama-first.img"],
     "openstacks": ["fd1906-lama-first.img", "ipc2018-agl-lapkt-dual-bfws.img"],
     "parking": ["ipc2018-agl-lapkt-bfws-pref.img", "fd1906-lama-first.img"],
     "pathways": ["ipc2014-agl-mpc.img"],
