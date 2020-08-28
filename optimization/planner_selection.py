@@ -150,13 +150,13 @@ PLANNER_SELECTION_SAT_2020 = {
     "pathways": ["ipc2014-agl-mpc.img"],
     "rover": ["fd1906-lama-first.img"],
     "satellite": ["ipc2014-agl-mpc.img", "fd1906-lama-first.img"],
-    "scanalyzer": ["ipc2018-agl-lapkt-dual-bfws.img", "fd1906-lama-first.img", "ipc2018-agl-decstar-dec-fallback.img"],
+    "scanalyzer": ["ipc2018-agl-lapkt-dual-bfws.img", "fd1906-lama-first.img", "ipc2018-agl-saarplan-dec-fallback.img"],
     "snake": ["ipc2018-agl-lapkt-bfws-pref.img"],
     "sokoban": ["ipc2018-agl-saarplan-dec-fallback.img"],
     "storage": ["ipc2018-agl-lapkt-dual-bfws.img", "ipc2018-agl-lapkt-poly-bfws.img"],
     "termes": ["fd1906-lama-first.img"],
     "tetris": ["ipc2018-agl-lapkt-bfws-pref.img"],
-    "tpp": ["fd1906-lama-first.img", "ipc2018-agl-decstar-dec-fallback.img"],
+    "tpp": ["fd1906-lama-first.img", "ipc2018-agl-saarplan-dec-fallback.img"],
     "transport" : ["ipc2018-agl-lapkt-dual-bfws.img", "ipc2018-agl-cerberus.img"],
     "trucks": ["fd1906-lama-first.img", "ipc2018-agl-saarplan-grey.img"],
     "visitall": ["ipc2018-agl-lapkt-bfws-pref.img", "fd1906-lama-first.img", "ipc2018-agl-saarplan-grey.img"],
@@ -191,11 +191,11 @@ def get_sart_planners(track, year, domain):
 
 
 def verify_planner_selection(images_dir):
+    valid_images = os.listdir(images_dir)
     for selection in PLANNER_SELECTION.values():
         for images in selection.values():
             assert 1 <= len(images) <= 3, f"{domain} needs 1-3 images"
             for image in images:
-                path = os.path.join(images_dir, image)
-                assert os.path.exists(path), f"image at {path} is missing"
+                assert image in valid_images, f"image {image} is missing"
                 assert image != get_baseline_planner("opt"), image
                 assert image != get_baseline_planner("sat"), image
