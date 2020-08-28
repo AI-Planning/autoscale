@@ -23,23 +23,23 @@ From: ubuntu:bionic
     ## Install all necessary dependencies.
     apt-get update
     apt-get install --no-install-recommends -y \
-	cmake \
-	build-essential \
-	ca-certificates \
-	xutils-dev \
-	scons \
-	gcc-multilib \
-	flex \
-	bison \
-	python2.7 \
-	python-dev \
-	libboost-dev \
-	libjudy-dev \
-	libboost-python-dev \
-	libboost-program-options-dev \
-	g++-multilib \
-	g++ 
-	
+    cmake \
+    build-essential \
+    ca-certificates \
+    xutils-dev \
+    scons \
+    gcc-multilib \
+    flex \
+    bison \
+    python2.7 \
+    python-dev \
+    libboost-dev \
+    libjudy-dev \
+    libboost-python-dev \
+    libboost-program-options-dev \
+    g++-multilib \
+    g++
+
     rm -rf /var/lib/apt/lists/*
 
     ## Set up environment variables
@@ -48,25 +48,25 @@ From: ubuntu:bionic
     ## export LAPKT_URL=https://github.com/LAPKT-dev/LAPKT-public/archive/master.tar.gz \
 
     export LAPKT_PATH=/planner/LAPKT-public
-	
+
     ## Download LAPKT-public
     ## curl -SL $LAPKT_URL | tar -xz
-    ## mv LAPKT-* $LAPKT_PATH 
+    ## mv LAPKT-* $LAPKT_PATH
     cd /planner
     ## tar xjf LAPKT-public.tar.bz2
     cd $LAPKT_PATH
-    cd external/libff 
+    cd external/libff
     make clean
     make depend
-    make 
-    
-    
+    make
+
+
     ## Build your planner
     cd /planner/BFWS/ff-version
     scons -j4
     cd /planner/BFWS/fd-version
     ./build.py
-    
+
     ## Build FD
     cd /planner
     ## tar xjf Fast-Downward-2018-2.tar.bz2
@@ -82,6 +82,38 @@ From: ubuntu:bionic
     cmake ../../
     make -j4
 
+    ## Strip binaries.
+    strip --strip-all /planner/BFWS/ff-version/bfws \
+        /planner/Fast-Downward-2018-2/builds/release32/bin/downward \
+        /planner/h2-fd-preprocessor/builds/release32/bin/preprocess
+
+    ## Remove packages unneeded for running the planner.
+    apt-get -y autoremove cmake \
+        build-essential \
+        ca-certificates \
+        xutils-dev \
+        scons \
+        gcc-multilib \
+        flex \
+        bison \
+        g++-multilib \
+        g++
+    rm -rf /var/lib/apt/lists/*
+
+    ## Only keep essential binaries.
+    mkdir -p /compiled-planner/LAPKT-public/external/libff
+    cp /planner/LAPKT-public/external/libff/libff.a /compiled-planner/LAPKT-public/external/libff
+    mkdir -p /compiled-planner/BFWS
+    cp -r /planner/BFWS/ff-version /compiled-planner/BFWS
+    cp -r /planner/BFWS/fd-version /compiled-planner/BFWS
+    mkdir -p /compiled-planner/Fast-Downward-2018-2/builds/release32
+    cp -r /planner/Fast-Downward-2018-2/builds/release32/bin /compiled-planner/Fast-Downward-2018-2/builds/release32
+    cp -r /planner/Fast-Downward-2018-2/driver /planner/Fast-Downward-2018-2/fast-downward.py /compiled-planner/Fast-Downward-2018-2
+    mkdir -p /compiled-planner/h2-fd-preprocessor/builds/release32
+    cp -r /planner/h2-fd-preprocessor/builds/release32/bin /compiled-planner/h2-fd-preprocessor/builds/release32
+    rm -rf /planner
+    mv /compiled-planner /planner
+
 %runscript
     ## The runscript is called whenever the container is used to solve
     ## an instance.
@@ -93,7 +125,7 @@ From: ubuntu:bionic
 
     ## Call your planner using FF-parser.
     # /planner/BFWS/ff-version/bfws --domain $DOMAINFILE --problem $PROBLEMFILE --output $PLANFILE --Poly-Seq-BFWS 1
-    
+
     ## Call your planner using FD-parser.
     /planner/BFWS/fd-version/poly_bfws.py $DOMAINFILE $PROBLEMFILE $PLANFILE
 
@@ -102,7 +134,7 @@ From: ubuntu:bionic
 ## Please use the same field names and use only one line for each value.
 %labels
 Name        LAPKT-POLYNOMIAL-BFWS
-Description POLYNOMIAL BFWS implemented with LAPKT, 1-BFWS, if not solve then 2-C-M32-BFWS 
+Description POLYNOMIAL BFWS implemented with LAPKT, 1-BFWS, if not solve then 2-C-M32-BFWS
 Authors     Nir Lipovetzky <nir.lipovetzky@unimelb.edu.au> and Miquel Ramirez <miguel.ramirez@unimelb.edu.au> and Guillem Frances <guillem.frances@unibas.ch> and Hector Geffner <hector.geffner@upf.edu>
 SupportsDerivedPredicates no
 SupportsQuantifiedPreconditions yes
