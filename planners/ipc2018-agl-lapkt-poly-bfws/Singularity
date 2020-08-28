@@ -102,15 +102,15 @@ From: ubuntu:bionic
 
     ## Only keep essential binaries.
     mkdir -p /compiled-planner/LAPKT-public/external/libff
-    cp /planner/LAPKT-public/external/libff/libff.a /compiled-planner/LAPKT-public/external/libff
+    mv /planner/LAPKT-public/external/libff/libff.a /compiled-planner/LAPKT-public/external/libff
     mkdir -p /compiled-planner/BFWS
-    cp -r /planner/BFWS/ff-version /compiled-planner/BFWS
-    cp -r /planner/BFWS/fd-version /compiled-planner/BFWS
+    mv /planner/BFWS/ff-version /compiled-planner/BFWS
+    mv /planner/BFWS/fd-version /compiled-planner/BFWS
     mkdir -p /compiled-planner/Fast-Downward-2018-2/builds/release32
-    cp -r /planner/Fast-Downward-2018-2/builds/release32/bin /compiled-planner/Fast-Downward-2018-2/builds/release32
-    cp -r /planner/Fast-Downward-2018-2/driver /planner/Fast-Downward-2018-2/fast-downward.py /compiled-planner/Fast-Downward-2018-2
+    mv /planner/Fast-Downward-2018-2/builds/release32/bin /compiled-planner/Fast-Downward-2018-2/builds/release32
+    mv /planner/Fast-Downward-2018-2/driver /planner/Fast-Downward-2018-2/fast-downward.py /compiled-planner/Fast-Downward-2018-2
     mkdir -p /compiled-planner/h2-fd-preprocessor/builds/release32
-    cp -r /planner/h2-fd-preprocessor/builds/release32/bin /compiled-planner/h2-fd-preprocessor/builds/release32
+    mv /planner/h2-fd-preprocessor/builds/release32/bin /compiled-planner/h2-fd-preprocessor/builds/release32
     rm -rf /planner
     mv /compiled-planner /planner
 
