@@ -27,6 +27,21 @@ From: ubuntu:xenial
     cd /planner
     ./build.py release64
 
+    ## Strip binaries.
+    strip --strip-all /planner/builds/release64/bin/preprocess
+    strip --strip-all /planner/builds/release64/bin/downward
+
+    ## Remove packages unneeded for running the planner.
+    apt -y autoremove cmake g++ g++-multilib make
+    rm -rf /var/lib/apt/lists/*
+
+    ## Only keep essential binaries.
+    mkdir -p /compiled-planner/builds/release64
+    mv /planner/driver /planner/fast-downward.py /planner/plan.py /compiled-planner
+    mv /planner/builds/release64/bin /compiled-planner/builds/release64
+    rm -rf /planner
+    mv /compiled-planner /planner
+
 %runscript
     ## The runscript is called whenever the container is used to solve
     ## an instance.
@@ -43,7 +58,7 @@ From: ubuntu:xenial
 %labels
 Name        Cerberus
 Description Red-black planning heuristic with native support for conditional effects, h^2 mutexes, novelty heuristic for search guidance
-Authors     Michael Katz <michael.katz1@ibm.com> 
+Authors     Michael Katz <michael.katz1@ibm.com>
 SupportsDerivedPredicates no
 SupportsQuantifiedPreconditions no
 SupportsQuantifiedEffects no

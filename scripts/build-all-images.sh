@@ -40,6 +40,7 @@ OUTDIR=../images/
 ./build-image.sh ../planners/ipc2014-agl-madagascar/Singularity-MpC ${OUTDIR}/ipc2014-agl-mpc.img
 ./build-image.sh ../planners/ipc2018-agl-saarplan/Singularity-dec-fallback ${OUTDIR}/ipc2018-agl-saarplan-dec-fallback.img
 ./build-image.sh ../planners/ipc2018-agl-saarplan/Singularity-grey ${OUTDIR}/ipc2018-agl-saarplan-grey.img
-./build-image.sh ../planners/ipc2018-agl-saarplan/Singularity ${OUTDIR}/ipc2018-agl-saarplan-agl.img
+./build-image.sh ../planners/ipc2018-agl-saarplan/Singularity ${OUTDIR}/ipc2018-agl-saarplan.img
+./build-image.sh ../planners/ipc2018-agl-cerberus/Singularity ${OUTDIR}/ipc2018-agl-cerberus.img
 
 echo "Finished building images"
