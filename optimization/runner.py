@@ -163,8 +163,7 @@ class Runner:
                         output = output.decode("utf-8")
                         self.logging.debug(f"\n\n\n\n{output}\n\n\n\n")
                         if "Found plan file." in output:
-                            # This only has a granularity of 1s, but should be precise enough.
-                            match = re.search("Singularity runtime: (.+)s", output)
+                            match = re.search("Singularity runtime: (.+?)s", output)
                             runtime = float(match.group(1))
                             runtime = max(MIN_PLANNER_RUNTIME, runtime)  # log(0) is undefined.
                             runtimes.append(runtime)
