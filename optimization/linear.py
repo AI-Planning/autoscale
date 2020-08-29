@@ -48,6 +48,7 @@ import argparse
 import logging
 import os
 import os.path
+import resource
 import sys
 import warnings
 import json
@@ -70,8 +71,6 @@ from smac.scenario.scenario import Scenario
 from smac.facade.smac_hpo_facade import SMAC4HPO
 from smac.initial_design.default_configuration_design import DefaultConfiguration
 
-
-from ConfigSpace.hyperparameters import CategoricalHyperparameter
 
 DIR = os.path.abspath(os.path.dirname(__file__))
 REPO = os.path.dirname(DIR)
@@ -286,7 +285,8 @@ def evaluate_cfg(cfg):
 
 previous_subsequences = {}
 def evaluate_sequence(cfg, print_final_configuration=False):
-    logging.info(f"Evaluate configuration {cfg.get_dictionary()}")
+    peak_memory = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
+    logging.info(f"[{peak_memory} KB] Evaluate configuration {cfg.get_dictionary()}")
     domain = DOMAINS[ARGS.domain]
     sequence = domain.get_configs(cfg, ARGS.tasks)
 
@@ -346,8 +346,6 @@ def evaluate_sequence(cfg, print_final_configuration=False):
         "config": cfg.get_dictionary(),
     }
 
-
-    parameters_cache_key = domain.get_generator_attribute_names()
     # Identify which instances are actually relevant
     evaluated_instances = set(baseline_eval.get_index_with_runtimes(2, 179.9) + sart_eval.get_index_with_runtimes(2, 179.9) )
     relevant_subsequence = tuple([tuple ([sequence[i][atr] for atr in domain.get_generator_attribute_names() ]) for i in sorted(evaluated_instances)])
@@ -367,8 +365,6 @@ def evaluate_sequence(cfg, print_final_configuration=False):
         logging.info(f"Sequence: {results}")
     else:
         logging.info(f"Duplicated Sequence: {results}")
-
-    # STORED_VALID_SEQUENCES.append((penalty, cfg))
 
     return penalty
 
