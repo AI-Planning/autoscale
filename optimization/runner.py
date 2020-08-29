@@ -3,20 +3,16 @@ from collections import defaultdict
 import sys
 import os
 
-import argparse
 import logging
 import os
 import os.path
+import random
 import re
 import resource
-import shlex
 import shutil
 import statistics
 import subprocess
 import sys
-import warnings
-import math
-import json
 
 MIN_PLANNER_RUNTIME = 0.1
 PLANNER_MEMORY_LIMIT = 3 * 1024 ** 3  # 3 GiB in Bytes
@@ -29,7 +25,7 @@ class Runner:
     # (i.e., we may safely assume that larger values
     # imply larger runtimes).  Linear parameters are important because we will use them to
     # avoid running planners on very large values that are estimated to be unsolvable.
-    def __init__(self, name, domain, planners, planner_time_limit, random_seed, images_dir, runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT):
+    def __init__(self, name, domain, planners, planner_time_limit, random_seed, images_dir, runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT, simulate=False):
         self.name = name
         # We have three types of caches
         self.exact_cache = {}  # Cache the exact runtime so that the same configuration is never run twice
@@ -47,6 +43,7 @@ class Runner:
         self.GENERATORS_DIR = GENERATORS_DIR
         self.logging = logging
         self.SINGULARITY_SCRIPT = SINGULARITY_SCRIPT
+        self.simulate = simulate
 
         self.parameters_cache_key = domain.get_generator_attribute_names()
 
@@ -119,6 +116,10 @@ class Runner:
                 # Call planners.
                 runtimes = []
                 for image in self.planners:
+                    if self.simulate:
+                        runtimes.append(random.randint(0, 180))
+                        continue
+
                     image_path = os.path.abspath(os.path.join(self.images_dir, image))
                     if not os.path.exists(image_path):
                         sys.exit(f"Error, image does not exist: {image_path}")

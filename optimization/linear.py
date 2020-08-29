@@ -128,6 +128,7 @@ def parse_args():
     )
 
     parser.add_argument("--debug", action="store_true", help="Print debug info")
+    parser.add_argument("--simulate", action="store_true", help="Use artifical times instead of running planners")
 
     parser.add_argument(
         "--random-seed",
@@ -236,9 +237,9 @@ for domain in DOMAINS:
 # The configurations are a list of lists. Each list corresponds to an individual
 # linear scaling, so we may assume that instances are sorted by difficulty.
 # We got the configurations. They should be sorted from easier to harder.
-RUNNER_BASELINE = Runner("baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, "<set later>", TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
+RUNNER_BASELINE = Runner("baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, "<set later>", TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT, simulate=ARGS.simulate)
 
-RUNNER_SART = Runner("sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, YEAR, ARGS.domain), PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, "<set later>", TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
+RUNNER_SART = Runner("sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, YEAR, ARGS.domain), PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, "<set later>", TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT, simulate=ARGS.simulate)
 
 
 
