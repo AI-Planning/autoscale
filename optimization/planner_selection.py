@@ -101,8 +101,10 @@ PLANNER_SELECTION_SAT_2014 = {
     "driverlog": ["ipc2014-agl-mpc.img"],
     "elevators": ["ipc2014-agl-mpc.img"],
     "floortile": ["ipc2014-agl-mpc.img"],
+    "grid": ["fd1906-lama-first.img"],
     "gripper": ["ipc2014-agl-mpc.img", "fd1906-lama-first.img"],
     "hiking": ["fd1906-lama-first.img"],
+    "logistics": ["fd1906-lama-first.img"],
     "maintenance": ["ipc2014-agl-mpc.img"],
     "miconic-strips": ["ipc2014-agl-mpc.img"],
     "nomystery" : ["fd1906-lama-first.img"],
@@ -140,8 +142,10 @@ PLANNER_SELECTION_SAT_2020 = {
     "driverlog": ["ipc2018-agl-lapkt-dual-bfws.img", "fd1906-lama-first.img"],
     "elevators": ["ipc2018-agl-lapkt-dual-bfws.img", "ipc2014-agl-mpc.img", "ipc2018-agl-saarplan-dec-fallback.img"],
     "floortile": ["ipc2014-agl-mpc.img", "ipc2018-agl-cerberus.img"],
+    "grid": ["fd1906-lama-first.img", "ipc2018-agl-lapkt-dual-bfws.img"],
     "gripper": ["ipc2014-agl-mpc.img", "fd1906-lama-first.img"],
     "hiking": ["fd1906-lama-first.img", "ipc2018-agl-olcff.img"],
+    "logistics": ["fd1906-lama-first.img", "ipc2018-agl-saarplan-grey.img"],
     "maintenance": ["ipc2018-agl-lapkt-dual-bfws.img", "ipc2014-agl-mpc.img"],
     "miconic-strips": ["ipc2014-agl-mpc.img", "fd1906-lama-first.img", "ipc2018-agl-saarplan-dec-fallback.img"],
     "nomystery" : ["ipc2018-agl-saarplan-dec-fallback.img", "ipc2018-agl-cerberus.img", "fd1906-lama-first.img"],
@@ -191,6 +195,7 @@ def get_sart_planners(track, year, domain):
 
 
 def verify_planner_selection(images_dir):
+    assert len(set(len(setting) for setting in PLANNER_SELECTION.values())) == 1
     valid_images = os.listdir(images_dir)
     for selection in PLANNER_SELECTION.values():
         for images in selection.values():
