@@ -127,6 +127,13 @@ def parse_args():
     #    help="Percentage of SMAC overhead from total runtime (default: %(default)f)",
     #)
 
+    parser.add_argument(
+        "--smac-challengers",
+        type=int,
+        default=1000,
+        help="scenario value for acq_opt_challengers (default: %(default)s)",
+    )
+
     parser.add_argument("--debug", action="store_true", help="Print debug info")
     parser.add_argument("--simulate", action="store_true", help="Use artifical times instead of running planners")
 
@@ -414,7 +421,8 @@ smac = SMAC4HPO(
 )
 # SMAC4HPO overrides the value for acq_opt_challengers in the scenario with
 # a fixed value of 10000, so we set it here (see https://github.com/automl/SMAC3/issues/561).
-smac.solver.scenario.acq_opt_challengers = 1000
+smac.solver.scenario.acq_opt_challengers = ARGS.smac_challengers
+print("SMAC challengers:", smac.solver.scenario.acq_opt_challengers)
 print("Output dir:", SMAC_OUTPUT_DIR)
 print("SMAC output dir:", smac.output_dir)
 
