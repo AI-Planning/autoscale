@@ -86,6 +86,7 @@ parser.add_bottom_up_pattern('final_value', r'Estimated cost of incumbent: (.+)\
 parser.add_bottom_up_pattern('evaluated_configurations', r'\#Configurations: (\d+)\n', type=int)
 parser.add_bottom_up_pattern('incumbent_changed', r'\#Incumbent changed: (.+)\n', type=int)
 parser.add_bottom_up_pattern('evaluation_time', r'Used target algorithm runtime: (.+) / .*\n', type=float)
+parser.add_bottom_up_pattern('peak_memory', r'\[(\d+) KB\]', type=int)
 parser.add_function(error)
 parser.add_function(parse_average_runtimes)
 parser.add_function(parse_shared_runs)
