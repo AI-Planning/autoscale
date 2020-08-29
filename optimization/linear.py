@@ -120,12 +120,12 @@ def parse_args():
         help="Maximum total time running planners (default: %(default)ss)",
     )
 
-    parser.add_argument(
-        "--intensification-percentage",
-        type=float,
-        default=0.5,
-        help="Percentage of SMAC overhead from total runtime (default: %(default)f)",
-    )
+    #parser.add_argument(
+    #    "--intensification-percentage",
+    #    type=float,
+    #    default=0.5,
+    #    help="Percentage of SMAC overhead from total runtime (default: %(default)f)",
+    #)
 
     parser.add_argument("--debug", action="store_true", help="Print debug info")
     parser.add_argument("--simulate", action="store_true", help="Use artifical times instead of running planners")
@@ -422,10 +422,13 @@ RUNNER_BASELINE.SMAC_OUTPUT_DIR = smac.output_dir
 RUNNER_SART.SMAC_OUTPUT_DIR = smac.output_dir
 
 # Bug in SMAC: SMAC4HPO and deterministic SMAC4AC scenarios without tuner timeout
-# set intensification_percentage = 1e-10, so we set the desired value ourselves.
-# Balance SMAC's overhead and the time for evaluating configurations.
+# hardcode the intensification_percentage to 1e-10, but we could set the desired
+# value ourselves here. The value is used to balance SMAC's overhead and the time
+# for evaluating configurations.
 # See https://github.com/automl/SMAC3/issues/636#issuecomment-609446077
-smac.scenario.intensification_percentage = ARGS.intensification_percentage
+# Experiments showed that the value of 1e-10 is actually preferable (we tested
+# this for optimal planners), so we keep the default value.
+#smac.scenario.intensification_percentage = ARGS.intensification_percentage
 print("Intensification percentage:", smac.scenario.intensification_percentage)
 
 incumbent = smac.optimize()
