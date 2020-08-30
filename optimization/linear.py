@@ -359,10 +359,15 @@ def evaluate_sequence(cfg, print_final_configuration=False):
     relevant_subsequence = tuple([tuple ([sequence[i][atr] for atr in domain.get_generator_attribute_names() ]) for i in sorted(evaluated_instances)])
 
     global previous_subsequences
-    is_duplicate =  relevant_subsequence in previous_subsequences and previous_subsequences[relevant_subsequence]["penalty"] < penalty
+    is_duplicate = relevant_subsequence in previous_subsequences and previous_subsequences[relevant_subsequence]["penalty"] < penalty
 
     if not is_duplicate:
         previous_subsequences[relevant_subsequence] = results
+
+    logging.info(f"Previous subsequences: {len(previous_subsequences)}, {sys.getsizeof(previous_subsequences) / 1024:.2} KB")
+    for name, myrunner in [("baseline", RUNNER_BASELINE), ("sart", RUNNER_SART)]:
+        logging.info(f"{name} runner memory: {sys.getsizeof(myrunner) / 1024:.2} KB")
+        logging.info(f"{name} runner frontier cache: {len(myrunner.frontier_cache)}, {sys.getsizeof(myrunner.frontier_cache) / 1024:.2} KB")
 
     if print_final_configuration:
         logging.info(f"Final sequence: {results}")
