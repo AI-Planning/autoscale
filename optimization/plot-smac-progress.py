@@ -12,6 +12,7 @@ def main(expdir : Path):
     result_dir.mkdir(exist_ok=True)
     for json_file in expdir.glob("smac-output-*/run_*/traj.json"):
         df = pd.read_json(json_file, lines=True)
+        df.at[0, "cost"] = 1000
         print(df)
         df.plot(x="cpu_time", y="cost")
         #plt.show()
