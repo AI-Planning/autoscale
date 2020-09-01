@@ -56,7 +56,7 @@ if REMOTE:
             #"module load Singularity/2.6.1 2> /dev/null",  # Use default Singularity 3.5.3.
         ]))
     SMAC_TIME_LIMIT = 10 * 60 * 60
-    SMAC_RUNS_PER_DOMAIN = 5
+    SMAC_RUNS_PER_DOMAIN = 10
     OPTIONS = []
 else:
     ENV = LocalEnvironment(processes=2)
@@ -75,31 +75,29 @@ TRACK = "opt" if "opt" in exp.name else "sat"
 assert ("-2014-" in exp.name) ^ ("-2020-" in exp.name)
 YEAR = "2014" if "-2014-" in exp.name else "2020"
 
-for balance in [1e-10, 0.5]:
-    for domain in DOMAINS:
-        for seed in range(SMAC_RUNS_PER_DOMAIN):
-            run = exp.add_run()
-            run.add_command(
-                "optimize",
-                ["python3", os.path.join(DIR, "linear.py"),
-                "--optimization-time-limit", str(SMAC_TIME_LIMIT),
-                "--random-seed", str(seed),
-                "--intensification-percentage", str(balance),
-                "--smac-output-dir", os.path.join(exp.path, f"smac-output-{domain}-{balance:0.2f}")]
-                + [TRACK, YEAR, domain] + OPTIONS,
-                time_limit=RUN_TIME_LIMIT,
-                memory_limit=RUN_MEMORY_LIMIT,
-                hard_stdout_limit=50 * 1024)
-            domain_setting = f"{domain}"
-            problem = f"seed-{seed}"
-            algorithm = f"linear-{balance:0.2f}"
-            run.set_property("run_time_limit", RUN_TIME_LIMIT)
-            run.set_property("run_memory_limit", RUN_MEMORY_LIMIT)
-            run.set_property("domain", domain_setting)
-            run.set_property("problem", problem)
-            run.set_property("algorithm", algorithm)
-            # Every run has to have a unique id in the form of a list.
-            run.set_property("id", [domain_setting, problem, algorithm])
+for domain in DOMAINS:
+    for seed in range(SMAC_RUNS_PER_DOMAIN):
+        run = exp.add_run()
+        run.add_command(
+            "optimize",
+            ["python3", os.path.join(DIR, "linear.py"),
+            "--optimization-time-limit", str(SMAC_TIME_LIMIT),
+            "--random-seed", str(seed),
+            "--smac-output-dir", os.path.join(exp.path, f"smac-output-{domain}")]
+            + [TRACK, YEAR, domain] + OPTIONS,
+            time_limit=RUN_TIME_LIMIT,
+            memory_limit=RUN_MEMORY_LIMIT,
+            hard_stdout_limit=50 * 1024)
+        domain_setting = f"{domain}"
+        problem = f"seed-{seed}"
+        algorithm = f"linear"
+        run.set_property("run_time_limit", RUN_TIME_LIMIT)
+        run.set_property("run_memory_limit", RUN_MEMORY_LIMIT)
+        run.set_property("domain", domain_setting)
+        run.set_property("problem", problem)
+        run.set_property("algorithm", algorithm)
+        # Every run has to have a unique id in the form of a list.
+        run.set_property("id", [domain_setting, problem, algorithm])
 
 exp.add_step("build", exp.build)
 exp.add_step("start", exp.start_runs)
