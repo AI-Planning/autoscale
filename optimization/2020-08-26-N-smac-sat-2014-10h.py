@@ -105,14 +105,14 @@ exp.add_fetcher(name="fetch")
 
 project.add_scp_steps(exp)
 
-report = os.path.join(exp.eval_dir, "{}.html".format(exp.name))
+report = os.path.join(exp.eval_dir, f"{DIR}/results/{exp.name}.html")
 exp.add_report(
     BaseReport(attributes=ATTRIBUTES),
     outfile=report)
 exp.add_step("open-report", subprocess.call, ["xdg-open", report])
 exp.add_step("publish-report", subprocess.call, ["publish", report])
 
-taskwise_report = os.path.join(exp.eval_dir, "{}-taskwise.html".format(exp.name))
+taskwise_report = os.path.join(exp.eval_dir, f"{DIR}/results/{exp.name}-taskwise.html")
 exp.add_report(
     TaskwiseReport(attributes=ATTRIBUTES),
     outfile=taskwise_report)

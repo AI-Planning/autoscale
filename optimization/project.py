@@ -17,6 +17,7 @@ from lab import tools
 
 from downward.experiment import FastDownwardExperiment
 from downward.reports.absolute import AbsoluteReport
+from downward.reports.compare import ComparativeReport
 
 from reports.average import AverageReport
 from reports.per_domain_comparison import PerDomainComparison
@@ -319,7 +320,8 @@ def fetch_algorithm(exp, expname, algo, new_algo=None):
     def algo_filter(run):
         if run["algorithm"] == algo:
             run["algorithm"] = new_algo
-            run['id'][0] = run['id'][0].replace(algo, new_algo)
+            for i, part in enumerate(run['id']):
+                run['id'][i] = part.replace(algo, new_algo)
             return run
         return False
 
