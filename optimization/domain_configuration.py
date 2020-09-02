@@ -12,6 +12,7 @@ from ConfigSpace.hyperparameters import CategoricalHyperparameter
 
 TMP_PROBLEM = "tmp-problem.pddl"
 TMP_DOMAIN = "tmp-domain.pddl"
+PRECISION = None
 
 class EvaluatedSequence:
     def __init__(self, sequence, runner, time_limit):
@@ -131,18 +132,9 @@ class LinearAtr:
         if self.lower_m != self.upper_m:
             H += [
                 UniformFloatHyperparameter(
-                    "{}_m".format(atr), lower=self.lower_m, upper=self.upper_m, default_value=self.default_m
+                    "{}_m".format(atr), lower=self.lower_m, upper=self.upper_m, default_value=self.default_m, q=PRECISION
                 ),
             ]
-            # if not only_baseline:
-            #     H += [
-            #         UniformFloatHyperparameter(
-            #             "{}_m2".format(atr), lower=0, upper=self.upper_m, default_value=0
-            #         ),
-            #         UniformIntegerHyperparameter(
-            #             "{}_mb".format(atr), lower=3, upper=7, default_value=5
-            #         ),
-            #     ]
 
         return H
 
@@ -204,19 +196,8 @@ class GridAtr:
 
         H = [UniformIntegerHyperparameter("{}_x".format(atr), lower=self.lower_x, upper=self.upper_x, default_value=self.lower_x),
              UniformIntegerHyperparameter("{}_maxdiff".format(atr), lower=0, upper=5, default_value=3),
-             UniformFloatHyperparameter("{}_m".format(atr), lower=self.lower_m, upper=self.upper_m, default_value=self.default_m)
+             UniformFloatHyperparameter("{}_m".format(atr), lower=self.lower_m, upper=self.upper_m, default_value=self.default_m, q=PRECISION)
         ]
-
-        # if not only_baseline += [
-        #         UniformFloatHyperparameter(
-        #             "{}_m2".format(atr), lower=0, upper=self.upper_m, default_value=0
-        #         ),
-        #         UniformIntegerHyperparameter(
-        #             "{}_mb".format(atr), lower=3, upper=7, default_value=5
-        #         ),
-        # ]
-
-
 
         if self.level_enum == "choose":
             assert (modifier is None) # It does not make sense to have enum parameters and hierarchical linear attributes

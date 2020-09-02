@@ -55,6 +55,7 @@ import json
 
 from collections import defaultdict
 
+import domain_configuration
 from domain_configuration import get_domains
 from domain_configuration import EvaluatedSequence
 
@@ -134,6 +135,13 @@ def parse_args():
         help="scenario value for acq_opt_challengers (default: %(default)s)",
     )
 
+    parser.add_argument(
+        "--precision",
+        type=float,
+        default=domain_configuration.PRECISION,
+        help="precision of float domain parameters (default: %(default)s)",
+    )
+
     parser.add_argument("--debug", action="store_true", help="Print debug info")
     parser.add_argument("--simulate", action="store_true", help="Use artifical times instead of running planners")
 
@@ -181,6 +189,7 @@ PLANNER_TIME_LIMIT = 180
 PLANNER_MEMORY_LIMIT = 3 * 1024 ** 3  # 3 GiB in Bytes
 MIN_PLANNER_RUNTIME = 0.1
 ARGS = parse_args()
+domain_configuration.PRECISION = ARGS.precision
 YEAR = int(ARGS.year)
 SMAC_OUTPUT_DIR = ARGS.smac_output_dir
 GENERATORS_DIR = ARGS.generators_dir
