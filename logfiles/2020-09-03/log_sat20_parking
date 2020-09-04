@@ -1,0 +1,17 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-09-04 17:56:36,746 INFO     No run directory, so we will not run anything
+2020-09-04 17:56:37,293 INFO     Loading cache data for baseline planners: 222
+2020-09-04 17:56:37,293 INFO     Loading cache data for sart planners: 593
+2020-09-04 17:56:37,294 INFO     Stored sequences: 3857
+2020-09-04 17:56:37,859 INFO     Different evaluated sequences: 215
+cars_diff 0 93 4
+cars_diff -1 62 3
+cars_diff -2 60 11
+2020-09-04 17:56:37,879 INFO     Candidate sequences: 18
+2020-09-04 17:56:37,879 INFO     Using sart runtimes on CPLEX optimization
+2020-09-04 17:56:37,911 INFO     CPLEX solve
+
+2020-09-04 17:56:37,949 INFO     Solution status = 101: MIP_optimal
+2020-09-04 17:56:37,950 INFO     Solution value  = 2.0
+2020-09-04 17:56:37,950 INFO     Selected: sequence 142, 30 instances from 0 to 29: [3.24, 5.36, 6.13, 11.26, 15.22, 23.78, 32.67, 58.28, 62.79, 103.1, 126.72, 171.2, 251.24913675393339, 368.727387380822, 541.1357346785322, 794.1582138124227, 1165.488117210379, 1710.4432438438953, 2510.2067084250953, 3683.9209612484683, 5406.436690323588, 7934.36069718805, 11644.283153404409, 17088.87903277586, 25079.241267975045, 36805.71097559785, 54015.20508314096, 79271.45822853879, 116336.94771697349, 170733.39770138476]
+2020-09-04 17:56:37,950 INFO     [{'curbs': 11, 'cars': 18}, {'curbs': 12, 'cars': 20}, {'curbs': 13, 'cars': 22}, {'curbs': 15, 'cars': 26}, {'curbs': 16, 'cars': 28}, {'curbs': 18, 'cars': 32}, {'curbs': 19, 'cars': 34}, {'curbs': 21, 'cars': 38}, {'curbs': 22, 'cars': 40}, {'curbs': 24, 'cars': 44}, {'curbs': 25, 'cars': 46}, {'curbs': 27, 'cars': 50}, {'curbs': 28, 'cars': 52}, {'curbs': 30, 'cars': 56}, {'curbs': 31, 'cars': 58}, {'curbs': 33, 'cars': 62}, {'curbs': 34, 'cars': 64}, {'curbs': 36, 'cars': 68}, {'curbs': 37, 'cars': 70}, {'curbs': 39, 'cars': 74}, {'curbs': 40, 'cars': 76}, {'curbs': 42, 'cars': 80}, {'curbs': 43, 'cars': 82}, {'curbs': 45, 'cars': 86}, {'curbs': 46, 'cars': 88}, {'curbs': 48, 'cars': 92}, {'curbs': 49, 'cars': 94}, {'curbs': 51, 'cars': 98}, {'curbs': 52, 'cars': 100}, {'curbs': 54, 'cars': 104}]

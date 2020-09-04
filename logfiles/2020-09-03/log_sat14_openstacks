@@ -1,0 +1,20 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-09-04 18:03:30,021 INFO     No run directory, so we will not run anything
+2020-09-04 18:03:30,961 INFO     Loading cache data for baseline planners: 175
+2020-09-04 18:03:30,961 INFO     Loading cache data for sart planners: 2290
+2020-09-04 18:03:30,965 INFO     Stored sequences: 171
+2020-09-04 18:03:30,991 INFO     Different evaluated sequences: 164
+density 10 26 26
+density 20 15 15
+density 33 27 27
+density 50 15 15
+density 66 32 32
+density 80 42 42
+2020-09-04 18:03:31,045 INFO     Candidate sequences: 157
+2020-09-04 18:03:31,046 INFO     Using sart runtimes on CPLEX optimization
+2020-09-04 18:03:31,539 INFO     CPLEX solve
+
+2020-09-04 18:03:31,970 INFO     Solution status = 101: MIP_optimal
+2020-09-04 18:03:31,970 INFO     Solution value  = 10.0
+2020-09-04 18:03:31,972 INFO     Selected: sequence 49, 30 instances from 0 to 29: [0.17, 1.03, 3.18, 6.82, 12.53, 19.67, 30.57, 45.33, 63.7, 86.02, 112.78, 150.82, 223.36578890010784, 330.8067607145441, 489.92781514715125, 725.587541005501, 1074.6017339396835, 1591.4949214617507, 2357.0184237025537, 3490.765678705806, 5169.855653690112, 7656.60314670584, 11339.498754535196, 16793.90057710214, 24871.919182564623, 36835.53805644658, 54553.76619505461, 80794.62288576056, 119657.5698167658, 177213.94695658152]
+2020-09-04 18:03:31,973 INFO     [{'density': 66, 'products': 10, 'orders': 10}, {'density': 66, 'products': 34, 'orders': 34}, {'density': 66, 'products': 59, 'orders': 58}, {'density': 66, 'products': 84, 'orders': 82}, {'density': 66, 'products': 109, 'orders': 106}, {'density': 66, 'products': 134, 'orders': 130}, {'density': 66, 'products': 159, 'orders': 155}, {'density': 66, 'products': 184, 'orders': 179}, {'density': 66, 'products': 208, 'orders': 203}, {'density': 66, 'products': 233, 'orders': 227}, {'density': 66, 'products': 258, 'orders': 251}, {'density': 66, 'products': 283, 'orders': 276}, {'density': 66, 'products': 308, 'orders': 300}, {'density': 66, 'products': 333, 'orders': 324}, {'density': 66, 'products': 358, 'orders': 348}, {'density': 66, 'products': 382, 'orders': 372}, {'density': 66, 'products': 407, 'orders': 397}, {'density': 66, 'products': 432, 'orders': 421}, {'density': 66, 'products': 457, 'orders': 445}, {'density': 66, 'products': 482, 'orders': 469}, {'density': 66, 'products': 507, 'orders': 493}, {'density': 66, 'products': 532, 'orders': 518}, {'density': 66, 'products': 556, 'orders': 542}, {'density': 66, 'products': 581, 'orders': 566}, {'density': 66, 'products': 606, 'orders': 590}, {'density': 66, 'products': 631, 'orders': 614}, {'density': 66, 'products': 656, 'orders': 639}, {'density': 66, 'products': 681, 'orders': 663}, {'density': 66, 'products': 706, 'orders': 687}, {'density': 66, 'products': 730, 'orders': 711}]

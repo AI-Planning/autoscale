@@ -1,0 +1,18 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-09-04 18:00:37,504 INFO     No run directory, so we will not run anything
+2020-09-04 18:00:38,453 INFO     Loading cache data for baseline planners: 2199
+2020-09-04 18:00:38,456 INFO     Loading cache data for sart planners: 6426
+2020-09-04 18:00:38,462 INFO     Stored sequences: 15838
+2020-09-04 18:00:51,962 INFO     Different evaluated sequences: 6360
+r 0.5 112 58
+r 0.75 626 100
+r 1 1128 100
+2020-09-04 18:00:54,913 INFO     Candidate sequences: 258
+2020-09-04 18:00:54,917 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 180 use baseline 78 use sart
+2020-09-04 18:00:54,918 INFO     Using sart runtimes on CPLEX optimization
+2020-09-04 18:00:55,102 INFO     CPLEX solve
+
+2020-09-04 18:00:55,519 INFO     Solution status = 101: MIP_optimal
+2020-09-04 18:00:55,519 INFO     Solution value  = 1500.9741445099764
+2020-09-04 18:00:55,521 INFO     Selected: sequence 837, 30 instances from 0 to 29: [0.56, 0.58, 0.78, 1.26, 1.51, 2.13, 3.17, 4.41, 6.33, 8.55, 12.18, 15.95, 20.93, 28.96, 39.61, 44.37, 64.61, 77.99, 97.9, 119.87, 164.83, 169.88, 218.95488086239874, 282.20649784240186, 363.73022200187125, 468.80449390436524, 604.2325883599449, 778.7831080617527, 1003.7577268855056, 1293.72294269442]
+2020-09-04 18:00:55,521 INFO     [{'x': 8, 'y': 8, 'r': 1}, {'x': 10, 'y': 10, 'r': 1}, {'x': 13, 'y': 13, 'r': 1}, {'x': 16, 'y': 16, 'r': 1}, {'x': 19, 'y': 19, 'r': 1}, {'x': 22, 'y': 22, 'r': 1}, {'x': 25, 'y': 25, 'r': 1}, {'x': 28, 'y': 28, 'r': 1}, {'x': 31, 'y': 31, 'r': 1}, {'x': 34, 'y': 34, 'r': 1}, {'x': 37, 'y': 37, 'r': 1}, {'x': 40, 'y': 40, 'r': 1}, {'x': 43, 'y': 43, 'r': 1}, {'x': 46, 'y': 46, 'r': 1}, {'x': 49, 'y': 49, 'r': 1}, {'x': 52, 'y': 52, 'r': 1}, {'x': 55, 'y': 55, 'r': 1}, {'x': 58, 'y': 58, 'r': 1}, {'x': 61, 'y': 61, 'r': 1}, {'x': 64, 'y': 64, 'r': 1}, {'x': 67, 'y': 67, 'r': 1}, {'x': 70, 'y': 70, 'r': 1}, {'x': 73, 'y': 73, 'r': 1}, {'x': 76, 'y': 76, 'r': 1}, {'x': 79, 'y': 79, 'r': 1}, {'x': 82, 'y': 82, 'r': 1}, {'x': 85, 'y': 85, 'r': 1}, {'x': 88, 'y': 88, 'r': 1}, {'x': 91, 'y': 91, 'r': 1}, {'x': 93, 'y': 93, 'r': 1}]

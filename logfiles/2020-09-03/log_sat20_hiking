@@ -1,0 +1,15 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-09-04 17:34:44,713 INFO     No run directory, so we will not run anything
+2020-09-04 17:34:45,441 INFO     Loading cache data for baseline planners: 1313
+2020-09-04 17:34:45,442 INFO     Loading cache data for sart planners: 1507
+2020-09-04 17:34:45,444 INFO     Stored sequences: 7420
+2020-09-04 17:34:47,915 INFO     Different evaluated sequences: 352
+2020-09-04 17:34:48,236 INFO     Candidate sequences: 91
+2020-09-04 17:34:48,237 INFO     Using sart runtimes on CPLEX optimization
+2020-09-04 17:34:48,458 INFO     CPLEX solve
+
+2020-09-04 17:34:48,576 INFO     Solution status = 101: MIP_optimal
+2020-09-04 17:34:48,577 INFO     Solution value  = 0.0
+2020-09-04 17:34:48,578 INFO     Selected: sequence 9, 21 instances from 5 to 25: [2.03, 3.12, 4.8, 7.95, 13.75, 22.83, 36.52, 58.27, 88.42, 131.18, 209.5853447914453, 334.85300161113736, 534.9922381241089, 854.7532603139836, 1365.6331512007794, 2181.862287338339, 3485.945721750703, 5569.47046819168, 8898.303006416569, 14216.754868566632, 22714.0072491538, 36290.00641034675, 57980.28286321302, 92634.68192553763, 148001.76666419933]
+2020-09-04 17:34:48,578 INFO     Selected: sequence 232, 9 instances from 9 to 17: [173.38, 337.2016576370797, 655.8135766131867, 1275.4725177925282, 2480.628949533857, 4824.502213434907, 9383.032320013905, 18248.783319708054, 35491.52142845453, 69026.4151444042, 134247.44265450642, 261093.8989308938, 507793.8373424013, 987593.2846334719, 1920741.1042199503, 3735592.8263619915, 7265244.510938097, 14129960.158190222, 27480943.521096066, 53446878.006370746, 103947259.54132538]
+2020-09-04 17:34:48,578 INFO     [{'n_couples': 1, 'n_places': 9, 'n_cars': 2}, {'n_couples': 1, 'n_places': 10, 'n_cars': 2}, {'n_couples': 1, 'n_places': 11, 'n_cars': 2}, {'n_couples': 1, 'n_places': 12, 'n_cars': 2}, {'n_couples': 1, 'n_places': 13, 'n_cars': 2}, {'n_couples': 1, 'n_places': 14, 'n_cars': 2}, {'n_couples': 1, 'n_places': 15, 'n_cars': 2}, {'n_couples': 1, 'n_places': 16, 'n_cars': 2}, {'n_couples': 1, 'n_places': 17, 'n_cars': 2}, {'n_couples': 1, 'n_places': 18, 'n_cars': 2}, {'n_couples': 1, 'n_places': 19, 'n_cars': 2}, {'n_couples': 1, 'n_places': 20, 'n_cars': 2}, {'n_couples': 1, 'n_places': 21, 'n_cars': 2}, {'n_couples': 1, 'n_places': 22, 'n_cars': 2}, {'n_couples': 1, 'n_places': 23, 'n_cars': 2}, {'n_couples': 1, 'n_places': 24, 'n_cars': 2}, {'n_couples': 1, 'n_places': 25, 'n_cars': 2}, {'n_couples': 1, 'n_places': 26, 'n_cars': 2}, {'n_couples': 1, 'n_places': 27, 'n_cars': 2}, {'n_couples': 1, 'n_places': 28, 'n_cars': 2}, {'n_couples': 1, 'n_places': 29, 'n_cars': 2}, {'n_couples': 2, 'n_places': 15, 'n_cars': 3}, {'n_couples': 2, 'n_places': 16, 'n_cars': 3}, {'n_couples': 2, 'n_places': 18, 'n_cars': 3}, {'n_couples': 2, 'n_places': 19, 'n_cars': 3}, {'n_couples': 2, 'n_places': 20, 'n_cars': 3}, {'n_couples': 2, 'n_places': 22, 'n_cars': 3}, {'n_couples': 2, 'n_places': 23, 'n_cars': 3}, {'n_couples': 2, 'n_places': 24, 'n_cars': 3}, {'n_couples': 2, 'n_places': 26, 'n_cars': 3}]

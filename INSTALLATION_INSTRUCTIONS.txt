@@ -1,0 +1,9 @@
+conda create --name benchmarks python=3.7
+
+conda activate benchmarks
+
+# Required for smac 
+conda install gxx_linux-64 gcc_linux-64 swig 
+pip install smac
+
+pip install cplex 

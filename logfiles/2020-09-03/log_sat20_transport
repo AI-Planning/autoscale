@@ -1,0 +1,39 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-09-04 18:00:22,514 INFO     No run directory, so we will not run anything
+2020-09-04 18:00:23,077 INFO     Loading cache data for baseline planners: 713
+2020-09-04 18:00:23,079 INFO     Loading cache data for sart planners: 3039
+2020-09-04 18:00:23,085 INFO     Stored sequences: 130
+2020-09-04 18:00:23,116 INFO     Different evaluated sequences: 115
+degree 3 29 29
+degree 4 39 35
+degree 5 14 14
+generator city-generator.py 17 17
+generator two-cities-generator.py 27 26
+generator three-cities-generator.py 38 35
+degree 3 6 5
+degree 4 4 4
+degree 5 1 1
+generator city-generator.py 2 2
+generator two-cities-generator.py 3 3
+generator three-cities-generator.py 6 6
+degree 3 3 3
+degree 4 1 1
+degree 5 0 0
+generator city-generator.py 1 1
+generator two-cities-generator.py 1 1
+generator three-cities-generator.py 2 2
+degree 3 4 3
+degree 4 2 2
+degree 5 2 2
+generator city-generator.py 1 1
+generator two-cities-generator.py 1 1
+generator three-cities-generator.py 6 6
+2020-09-04 18:00:23,309 INFO     Candidate sequences: 101
+2020-09-04 18:00:23,310 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 30 use baseline 71 use sart
+2020-09-04 18:00:23,311 INFO     Using sart runtimes on CPLEX optimization
+2020-09-04 18:00:23,441 INFO     CPLEX solve
+
+2020-09-04 18:00:23,585 INFO     Solution status = 101: MIP_optimal
+2020-09-04 18:00:23,585 INFO     Solution value  = 6.064220183486238
+2020-09-04 18:00:23,586 INFO     Selected: sequence 112, 30 instances from 0 to 29: [0.61, 1.28, 1.43, 2.45, 3.7, 6.39, 10.09, 12.86, 19.8, 25.93, 44.66, 60.28, 75.7, 99.17, 155.87, 223.62993078917629, 320.84651276558526, 460.3251648406774, 660.4380878542173, 947.5442604566275, 1359.4614575325388, 1950.4476272442057, 2798.347776278532, 4014.847754752123, 5760.185574673106, 8264.258044504768, 11856.902896750462, 17011.34518620831, 24406.530741146795, 35016.557262119466]
+2020-09-04 18:00:23,586 INFO     [{'size': 1000, 'mindistance': 100, 'nodes': 7, 'packages': 4, 'trucks': 2, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 8, 'packages': 5, 'trucks': 3, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 9, 'packages': 6, 'trucks': 4, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 10, 'packages': 7, 'trucks': 6, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 11, 'packages': 8, 'trucks': 7, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 13, 'packages': 9, 'trucks': 8, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 14, 'packages': 10, 'trucks': 10, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 15, 'packages': 11, 'trucks': 11, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 16, 'packages': 12, 'trucks': 12, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 17, 'packages': 13, 'trucks': 14, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 19, 'packages': 14, 'trucks': 15, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 20, 'packages': 15, 'trucks': 17, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 21, 'packages': 16, 'trucks': 18, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 22, 'packages': 17, 'trucks': 19, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 24, 'packages': 18, 'trucks': 21, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 25, 'packages': 19, 'trucks': 22, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 26, 'packages': 20, 'trucks': 23, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 27, 'packages': 21, 'trucks': 25, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 28, 'packages': 22, 'trucks': 26, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 30, 'packages': 23, 'trucks': 27, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 31, 'packages': 24, 'trucks': 29, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 25, 'trucks': 30, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 33, 'packages': 26, 'trucks': 32, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 34, 'packages': 27, 'trucks': 33, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 36, 'packages': 28, 'trucks': 34, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 37, 'packages': 29, 'trucks': 36, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 38, 'packages': 30, 'trucks': 37, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 39, 'packages': 31, 'trucks': 38, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 41, 'packages': 32, 'trucks': 40, 'degree': 3, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 42, 'packages': 33, 'trucks': 41, 'degree': 3, 'generator': 'three-cities-generator.py'}]

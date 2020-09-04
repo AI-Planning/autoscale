@@ -24,7 +24,7 @@ class Runner:
     # We need to provide a set of planners and which parameters are linear
     # (i.e., we may safely assume that larger values
     # imply larger runtimes).  Linear parameters are important because we will use them to
-    # avoid running planners on very large values that are estimated to be unsolvable.
+    # avoid running planners on very large values that are estimated to be unsolvable within the time and memory limits.
     def __init__(self, name, domain, planners, planner_time_limit, random_seed, images_dir, runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT, simulate=False):
         self.name = name
         # We have three types of caches
@@ -87,7 +87,7 @@ class Runner:
                     return None
 
         if self.SMAC_OUTPUT_DIR is None:
-            print(f"Warning: No temporary dir for Runner has been provided but I have no data for {parameters}, so I consider it unsolvable" )
+            print(f"Warning: No temporary dir for Runner has been provided but I have no data for {parameters}, so I consider it unsolved within the time and memory limits" )
             return None
 
         results = []

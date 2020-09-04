@@ -1,0 +1,21 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-09-04 17:31:36,562 INFO     No run directory, so we will not run anything
+2020-09-04 17:31:37,481 INFO     Loading cache data for baseline planners: 562
+2020-09-04 17:31:37,481 INFO     Loading cache data for sart planners: 3010
+2020-09-04 17:31:37,484 INFO     Stored sequences: 4311
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 9, 'num_shots': 22, 'num_ingredients': 4}, so I consider it unsolved within the time and memory limits
+2020-09-04 17:31:38,160 INFO     Different evaluated sequences: 1255
+num_ingredients 3 642 100
+num_ingredients 4 332 100
+num_ingredients 5 147 51
+num_ingredients 6 134 48
+2020-09-04 17:31:39,048 INFO     Candidate sequences: 299
+2020-09-04 17:31:39,050 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 1 use baseline 298 use sart
+2020-09-04 17:31:39,051 INFO     Using sart runtimes on CPLEX optimization
+2020-09-04 17:31:40,517 INFO     CPLEX solve
+
+2020-09-04 17:31:41,906 INFO     Solution status = 101: MIP_optimal
+2020-09-04 17:31:41,906 INFO     Solution value  = 6.75894581392707
+2020-09-04 17:31:41,920 INFO     Selected: sequence 403, 11 instances from 9 to 19: [218.23012839610556, 411.1221420906484, 774.5099952945801, 1459.0937130283437, 2748.7759697524675, 5178.398936560864, 9755.54786612512, 18378.4052434292, 34622.94316289031, 65225.909287712515, 122878.61324767124, 231490.1203917014, 436102.54398749076, 821570.3916458769, 1547750.4493725693, 2915795.7466480136, 5493046.272166907, 10348309.679391688, 19495104.88619052, 36726685.448971875, 69189133.98733178]
+2020-09-04 17:31:41,920 INFO     Selected: sequence 384, 19 instances from 0 to 18: [0.95, 1.14, 1.71, 2.37, 3.1, 5.53, 6.89, 9.56, 11.13, 16.34, 20.4, 25.7, 26.4, 41.48, 179.99999999999997, 781.0993249758918, 3389.5341970988557, 14708.68262964788, 63827.45596279215, 276975.4598192523, 1201918.5816650293, 5215654.404525199, 22633022.970456503, 98214660.91326351, 426196696.3449236, 1849455287.8998613, 8025601538.62042, 34826621913.010506, 151128060374.68396, 655811255242.1194]
+2020-09-04 17:31:41,922 INFO     [{'num_cocktails': 49, 'num_shots': 51, 'num_ingredients': 3}, {'num_cocktails': 53, 'num_shots': 56, 'num_ingredients': 3}, {'num_cocktails': 58, 'num_shots': 61, 'num_ingredients': 3}, {'num_cocktails': 63, 'num_shots': 66, 'num_ingredients': 3}, {'num_cocktails': 68, 'num_shots': 71, 'num_ingredients': 3}, {'num_cocktails': 73, 'num_shots': 76, 'num_ingredients': 3}, {'num_cocktails': 78, 'num_shots': 82, 'num_ingredients': 3}, {'num_cocktails': 83, 'num_shots': 87, 'num_ingredients': 3}, {'num_cocktails': 88, 'num_shots': 92, 'num_ingredients': 3}, {'num_cocktails': 93, 'num_shots': 97, 'num_ingredients': 3}, {'num_cocktails': 97, 'num_shots': 101, 'num_ingredients': 3}, {'num_cocktails': 5, 'num_shots': 6, 'num_ingredients': 4}, {'num_cocktails': 6, 'num_shots': 7, 'num_ingredients': 4}, {'num_cocktails': 8, 'num_shots': 9, 'num_ingredients': 4}, {'num_cocktails': 10, 'num_shots': 11, 'num_ingredients': 4}, {'num_cocktails': 12, 'num_shots': 13, 'num_ingredients': 4}, {'num_cocktails': 14, 'num_shots': 15, 'num_ingredients': 4}, {'num_cocktails': 16, 'num_shots': 17, 'num_ingredients': 4}, {'num_cocktails': 18, 'num_shots': 19, 'num_ingredients': 4}, {'num_cocktails': 20, 'num_shots': 21, 'num_ingredients': 4}, {'num_cocktails': 21, 'num_shots': 22, 'num_ingredients': 4}, {'num_cocktails': 23, 'num_shots': 24, 'num_ingredients': 4}, {'num_cocktails': 25, 'num_shots': 26, 'num_ingredients': 4}, {'num_cocktails': 27, 'num_shots': 29, 'num_ingredients': 4}, {'num_cocktails': 29, 'num_shots': 31, 'num_ingredients': 4}, {'num_cocktails': 31, 'num_shots': 33, 'num_ingredients': 4}, {'num_cocktails': 33, 'num_shots': 35, 'num_ingredients': 4}, {'num_cocktails': 35, 'num_shots': 37, 'num_ingredients': 4}, {'num_cocktails': 37, 'num_shots': 39, 'num_ingredients': 4}, {'num_cocktails': 38, 'num_shots': 40, 'num_ingredients': 4}]

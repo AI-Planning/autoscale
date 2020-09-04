@@ -1,0 +1,23 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-09-04 17:33:44,958 INFO     No run directory, so we will not run anything
+2020-09-04 17:33:45,560 INFO     Loading cache data for baseline planners: 125
+2020-09-04 17:33:45,560 INFO     Loading cache data for sart planners: 1929
+2020-09-04 17:33:45,562 INFO     Stored sequences: 224
+2020-09-04 17:33:45,778 INFO     Different evaluated sequences: 128
+num_robots 2 19 16
+num_robots 3 18 16
+num_robots 4 37 25
+num_robots 5 45 41
+num_robots 2 0 0
+num_robots 3 0 0
+num_robots 4 2 2
+num_robots 5 1 1
+2020-09-04 17:33:45,823 INFO     Candidate sequences: 101
+2020-09-04 17:33:45,824 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 3 use baseline 98 use sart
+2020-09-04 17:33:45,824 INFO     Using sart runtimes on CPLEX optimization
+2020-09-04 17:33:46,227 INFO     CPLEX solve
+
+2020-09-04 17:33:48,089 INFO     Solution status = 101: MIP_optimal
+2020-09-04 17:33:48,090 INFO     Solution value  = 20.0
+2020-09-04 17:33:48,092 INFO     Selected: sequence 57, 30 instances from 0 to 29: [0.17, 0.21, 0.29, 0.46, 0.82, 1.41, 2.33, 3.63, 5.62, 9.04, 12.96, 18.36, 26.34, 39.06, 66.87, 85.9, 118.24, 180.0, 274.01894451962113, 417.1465664202623, 635.0336768914683, 966.7292104234126, 1471.6784326472791, 2240.376504368321, 3410.586694742032, 5192.029812699305, 7903.96960661261, 12032.430050661958, 18317.29879160312, 27884.927118475658]
+2020-09-04 17:33:48,092 INFO     [{'num_columns': 3, 'num_rows': 3, 'num_robots': 3}, {'num_columns': 3, 'num_rows': 7, 'num_robots': 3}, {'num_columns': 5, 'num_rows': 7, 'num_robots': 5}, {'num_columns': 7, 'num_rows': 7, 'num_robots': 5}, {'num_columns': 6, 'num_rows': 11, 'num_robots': 5}, {'num_columns': 8, 'num_rows': 11, 'num_robots': 5}, {'num_columns': 9, 'num_rows': 12, 'num_robots': 5}, {'num_columns': 11, 'num_rows': 12, 'num_robots': 5}, {'num_columns': 11, 'num_rows': 15, 'num_robots': 5}, {'num_columns': 13, 'num_rows': 15, 'num_robots': 5}, {'num_columns': 15, 'num_rows': 15, 'num_robots': 5}, {'num_columns': 14, 'num_rows': 19, 'num_robots': 5}, {'num_columns': 15, 'num_rows': 20, 'num_robots': 5}, {'num_columns': 17, 'num_rows': 20, 'num_robots': 5}, {'num_columns': 19, 'num_rows': 20, 'num_robots': 5}, {'num_columns': 19, 'num_rows': 23, 'num_robots': 5}, {'num_columns': 21, 'num_rows': 23, 'num_robots': 5}, {'num_columns': 22, 'num_rows': 24, 'num_robots': 5}, {'num_columns': 24, 'num_rows': 24, 'num_robots': 5}, {'num_columns': 23, 'num_rows': 28, 'num_robots': 5}, {'num_columns': 25, 'num_rows': 28, 'num_robots': 5}, {'num_columns': 27, 'num_rows': 28, 'num_robots': 5}, {'num_columns': 27, 'num_rows': 31, 'num_robots': 5}, {'num_columns': 28, 'num_rows': 32, 'num_robots': 5}, {'num_columns': 30, 'num_rows': 32, 'num_robots': 5}, {'num_columns': 32, 'num_rows': 32, 'num_robots': 5}, {'num_columns': 31, 'num_rows': 36, 'num_robots': 5}, {'num_columns': 33, 'num_rows': 36, 'num_robots': 5}, {'num_columns': 34, 'num_rows': 37, 'num_robots': 5}, {'num_columns': 36, 'num_rows': 37, 'num_robots': 5}]

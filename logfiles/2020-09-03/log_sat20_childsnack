@@ -1,0 +1,24 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-09-04 17:32:23,831 INFO     No run directory, so we will not run anything
+2020-09-04 17:32:24,359 INFO     Loading cache data for baseline planners: 1440
+2020-09-04 17:32:24,360 INFO     Loading cache data for sart planners: 6437
+2020-09-04 17:32:24,367 INFO     Stored sequences: 3118
+2020-09-04 17:32:24,961 INFO     Different evaluated sequences: 1374
+const_ratio 1 619 85
+const_ratio 1.3 397 57
+const_ratio 2 357 40
+gluten_factor 0.4 534 64
+gluten_factor 0.6 398 42
+gluten_factor 0.8 441 76
+num_trays 2 497 44
+num_trays 3 438 71
+num_trays 4 438 67
+2020-09-04 17:32:28,512 INFO     Candidate sequences: 182
+2020-09-04 17:32:28,513 INFO     Using sart runtimes on CPLEX optimization
+2020-09-04 17:32:29,034 INFO     CPLEX solve
+
+2020-09-04 17:32:29,485 INFO     Solution status = 101: MIP_optimal
+2020-09-04 17:32:29,485 INFO     Solution value  = 2.1141391003780905
+2020-09-04 17:32:29,487 INFO     Selected: sequence 173, 7 instances from 18 to 24: [180.0, 537.2243409053225, 1603.3888470064342, 4785.44175859987, 14282.53219280346, 42627.35524298827, 127224.73791639676, 379712.3665221591, 1133281.8102137065, 3382369.8530669403, 10094952.305621775, 30129189.4381018]
+2020-09-04 17:32:29,488 INFO     Selected: sequence 726, 23 instances from 0 to 22: [0.65, 0.69, 1.02, 1.38, 1.82, 2.52, 3.75, 4.65, 7.08, 7.75, 12.09, 16.3, 19.33, 23.72, 71.91, 180.0, 450.56320400500624, 1127.817782240316, 2823.073297222318, 7066.516388541472, 17688.401473195176, 44276.349119387174, 110829.40956041845, 277420.29927514005, 694418.7716524156, 1738219.70376074, 4350987.9943948435, 10891083.840788094, 27261786.835514627, 68239766.79728317]
+2020-09-04 17:32:29,488 INFO     [{'num_children': 29, 'const_ratio': 1, 'gluten_factor': 0.8, 'num_trays': 2}, {'num_children': 30, 'const_ratio': 1, 'gluten_factor': 0.8, 'num_trays': 2}, {'num_children': 31, 'const_ratio': 1, 'gluten_factor': 0.8, 'num_trays': 2}, {'num_children': 33, 'const_ratio': 1, 'gluten_factor': 0.8, 'num_trays': 2}, {'num_children': 34, 'const_ratio': 1, 'gluten_factor': 0.8, 'num_trays': 2}, {'num_children': 35, 'const_ratio': 1, 'gluten_factor': 0.8, 'num_trays': 2}, {'num_children': 36, 'const_ratio': 1, 'gluten_factor': 0.8, 'num_trays': 2}, {'num_children': 5, 'const_ratio': 1.3, 'gluten_factor': 0.8, 'num_trays': 3}, {'num_children': 6, 'const_ratio': 1.3, 'gluten_factor': 0.8, 'num_trays': 3}, {'num_children': 8, 'const_ratio': 1.3, 'gluten_factor': 0.8, 'num_trays': 3}, {'num_children': 9, 'const_ratio': 1.3, 'gluten_factor': 0.8, 'num_trays': 3}, {'num_children': 11, 'const_ratio': 1.3, 'gluten_factor': 0.8, 'num_trays': 3}, {'num_children': 12, 'const_ratio': 1.3, 'gluten_factor': 0.8, 'num_trays': 3}, {'num_children': 14, 'const_ratio': 1.3, 'gluten_factor': 0.8, 'num_trays': 3}, {'num_children': 15, 'const_ratio': 1.3, 'gluten_factor': 0.8, 'num_trays': 3}, {'num_children': 17, 'const_ratio': 1.3, 'gluten_factor': 0.8, 'num_trays': 3}, {'num_children': 18, 'const_ratio': 1.3, 'gluten_factor': 0.8, 'num_trays': 3}, {'num_children': 20, 'const_ratio': 1.3, 'gluten_factor': 0.8, 'num_trays': 3}, {'num_children': 21, 'const_ratio': 1.3, 'gluten_factor': 0.8, 'num_trays': 3}, {'num_children': 23, 'const_ratio': 1.3, 'gluten_factor': 0.8, 'num_trays': 3}, {'num_children': 25, 'const_ratio': 1.3, 'gluten_factor': 0.8, 'num_trays': 3}, {'num_children': 26, 'const_ratio': 1.3, 'gluten_factor': 0.8, 'num_trays': 3}, {'num_children': 28, 'const_ratio': 1.3, 'gluten_factor': 0.8, 'num_trays': 3}, {'num_children': 29, 'const_ratio': 1.3, 'gluten_factor': 0.8, 'num_trays': 3}, {'num_children': 31, 'const_ratio': 1.3, 'gluten_factor': 0.8, 'num_trays': 3}, {'num_children': 32, 'const_ratio': 1.3, 'gluten_factor': 0.8, 'num_trays': 3}, {'num_children': 34, 'const_ratio': 1.3, 'gluten_factor': 0.8, 'num_trays': 3}, {'num_children': 35, 'const_ratio': 1.3, 'gluten_factor': 0.8, 'num_trays': 3}, {'num_children': 37, 'const_ratio': 1.3, 'gluten_factor': 0.8, 'num_trays': 3}, {'num_children': 38, 'const_ratio': 1.3, 'gluten_factor': 0.8, 'num_trays': 3}]

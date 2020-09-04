@@ -1,0 +1,14 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-09-04 17:33:49,577 INFO     No run directory, so we will not run anything
+2020-09-04 17:33:50,445 INFO     Loading cache data for baseline planners: 120
+2020-09-04 17:33:50,445 INFO     Loading cache data for sart planners: 639
+2020-09-04 17:33:50,446 INFO     Stored sequences: 12752
+2020-09-04 17:33:54,044 INFO     Different evaluated sequences: 1602
+2020-09-04 17:33:58,908 INFO     Candidate sequences: 89
+2020-09-04 17:33:58,910 INFO     Using baseline runtimes on CPLEX optimization
+2020-09-04 17:33:59,241 INFO     CPLEX solve
+
+2020-09-04 17:33:59,330 INFO     Solution status = 101: MIP_optimal
+2020-09-04 17:33:59,330 INFO     Solution value  = 444982.76130084856
+2020-09-04 17:33:59,332 INFO     Selected: sequence 524, 30 instances from 0 to 29: [0.57, 0.68, 0.93, 1.46, 1.59, 3.02, 6.56, 15.08, 32.63, 73.27, 167.07, 375.41672120776826, 843.584812128995, 1895.5877430426676, 4259.5040118196675, 9571.371461594987, 21507.46927379897, 48328.62630182816, 108597.44075362326, 244025.22977961402, 548339.9273109172, 1232154.0529021998, 2768727.0878278976, 6221502.635012162, 13980104.867551064, 31414168.501327477, 70589598.00225481, 158619234.0538752, 356427322.4935261, 800914447.593125]
+2020-09-04 17:33:59,332 INFO     [{'n': 8}, {'n': 9}, {'n': 10}, {'n': 11}, {'n': 12}, {'n': 13}, {'n': 14}, {'n': 15}, {'n': 16}, {'n': 17}, {'n': 18}, {'n': 19}, {'n': 20}, {'n': 21}, {'n': 22}, {'n': 23}, {'n': 24}, {'n': 25}, {'n': 26}, {'n': 27}, {'n': 28}, {'n': 29}, {'n': 30}, {'n': 31}, {'n': 32}, {'n': 34}, {'n': 35}, {'n': 36}, {'n': 37}, {'n': 38}]

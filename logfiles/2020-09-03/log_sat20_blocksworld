@@ -1,0 +1,16 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-09-04 17:32:07,199 INFO     No run directory, so we will not run anything
+2020-09-04 17:32:07,740 INFO     Loading cache data for baseline planners: 118
+2020-09-04 17:32:07,740 INFO     Loading cache data for sart planners: 655
+2020-09-04 17:32:07,741 INFO     Stored sequences: 9406
+2020-09-04 17:32:09,299 INFO     Different evaluated sequences: 3102
+2020-09-04 17:32:11,140 INFO     Candidate sequences: 100
+2020-09-04 17:32:11,141 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 4 use baseline 96 use sart
+2020-09-04 17:32:11,142 INFO     Using sart runtimes on CPLEX optimization
+2020-09-04 17:32:11,618 INFO     CPLEX solve
+
+2020-09-04 17:32:13,762 INFO     Solution status = 101: MIP_optimal
+2020-09-04 17:32:13,762 INFO     Solution value  = 12.803071222856676
+2020-09-04 17:32:13,764 INFO     Selected: sequence 1130, 7 instances from 15 to 21: [202.21472885500307, 433.25700959845744, 928.2787531307644, 1988.8920996630416, 4261.318888061239, 9130.127606632832, 19561.838084200426, 41912.394406675805, 89799.78248156278, 192401.3420825119, 412231.24836357107, 883229.8168404213, 1892372.0907929628, 4054519.0637049614, 8687046.758895313]
+2020-09-04 17:32:13,764 INFO     Selected: sequence 1550, 23 instances from 1 to 23: [0.67, 0.85, 1.07, 1.58, 2.01, 3.04, 3.28, 8.14, 9.12, 9.49, 19.18, 22.52, 30.01, 62.64, 70.87, 180.0, 457.17510935515736, 1161.1615589661114, 2949.1897927740943, 7490.534255670057, 19024.92120813617, 48320.6690766828, 122727.81760692684, 311711.6857520366, 791704.5778942653, 2010820.1498654967, 5107205.121712846, 12971594.777879389, 32946057.00604332]
+2020-09-04 17:32:13,764 INFO     [{'n': 84}, {'n': 88}, {'n': 93}, {'n': 97}, {'n': 102}, {'n': 106}, {'n': 111}, {'n': 18}, {'n': 23}, {'n': 27}, {'n': 32}, {'n': 36}, {'n': 41}, {'n': 45}, {'n': 50}, {'n': 54}, {'n': 59}, {'n': 64}, {'n': 68}, {'n': 73}, {'n': 77}, {'n': 82}, {'n': 86}, {'n': 91}, {'n': 95}, {'n': 100}, {'n': 105}, {'n': 109}, {'n': 114}, {'n': 118}]

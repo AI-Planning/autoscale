@@ -1,0 +1,36 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-09-04 18:03:43,574 INFO     No run directory, so we will not run anything
+2020-09-04 18:03:44,150 INFO     Loading cache data for baseline planners: 3952
+2020-09-04 18:03:44,155 INFO     Loading cache data for sart planners: 12772
+2020-09-04 18:03:44,173 INFO     Stored sequences: 786
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 33, 'products': 20, 'orders': 68}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 33, 'products': 15, 'orders': 63}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 33, 'products': 25, 'orders': 60}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 33, 'products': 14, 'orders': 68}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 33, 'products': 15, 'orders': 59}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 33, 'products': 25, 'orders': 71}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 50, 'products': 11, 'orders': 25}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 66, 'products': 48, 'orders': 36}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 10, 'products': 21, 'orders': 70}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 10, 'products': 20, 'orders': 67}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 80, 'products': 23, 'orders': 53}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 80, 'products': 29, 'orders': 52}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 80, 'products': 31, 'orders': 53}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 50, 'products': 13, 'orders': 23}, so I consider it unsolved within the time and memory limits
+2020-09-04 18:03:44,332 INFO     Different evaluated sequences: 709
+density 10 112 99
+density 20 87 85
+density 33 146 100
+density 50 120 100
+density 66 158 100
+density 80 75 71
+2020-09-04 18:03:45,537 INFO     Candidate sequences: 555
+2020-09-04 18:03:45,542 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 19 use baseline 536 use sart
+2020-09-04 18:03:45,544 INFO     Using sart runtimes on CPLEX optimization
+2020-09-04 18:03:49,842 INFO     CPLEX solve
+
+2020-09-04 18:03:52,278 INFO     Solution status = 101: MIP_optimal
+2020-09-04 18:03:52,278 INFO     Solution value  = 0.0
+2020-09-04 18:03:52,284 INFO     Selected: sequence 256, 12 instances from 18 to 29: [199.8339222551377, 313.3275518546286, 491.27872607069816, 770.2954472437425, 1207.7768577323857, 1893.7213549599692, 2969.2410044720637, 4655.591024279618, 7299.686267537152, 11445.468325413225, 17945.804845149214, 28137.940919822842]
+2020-09-04 18:03:52,284 INFO     Selected: sequence 561, 18 instances from 2 to 19: [1.77, 2.07, 2.14, 2.55, 2.97, 4.09, 5.69, 9.39, 10.86, 23.4, 33.63, 60.68, 180.0, 533.9485827290705, 1583.8949388799058, 4698.435876703741, 13937.350985607669, 41343.49336534905, 122640.55381942698, 363798.6105388407, 1079165.2916445504, 3201215.4333556206, 9496024.686948117, 28168827.35086785, 83559474.67297648, 247869239.30678585, 735274605.7221729, 2181104631.344613]
+2020-09-04 18:03:52,285 INFO     [{'density': 50, 'products': 39, 'orders': 78}, {'density': 50, 'products': 40, 'orders': 81}, {'density': 50, 'products': 42, 'orders': 85}, {'density': 50, 'products': 43, 'orders': 89}, {'density': 50, 'products': 45, 'orders': 92}, {'density': 50, 'products': 46, 'orders': 96}, {'density': 50, 'products': 47, 'orders': 100}, {'density': 50, 'products': 49, 'orders': 103}, {'density': 50, 'products': 50, 'orders': 107}, {'density': 50, 'products': 52, 'orders': 111}, {'density': 50, 'products': 53, 'orders': 114}, {'density': 50, 'products': 55, 'orders': 118}, {'density': 80, 'products': 18, 'orders': 17}, {'density': 80, 'products': 20, 'orders': 19}, {'density': 80, 'products': 23, 'orders': 20}, {'density': 80, 'products': 25, 'orders': 22}, {'density': 80, 'products': 27, 'orders': 24}, {'density': 80, 'products': 30, 'orders': 26}, {'density': 80, 'products': 32, 'orders': 27}, {'density': 80, 'products': 34, 'orders': 29}, {'density': 80, 'products': 37, 'orders': 31}, {'density': 80, 'products': 39, 'orders': 33}, {'density': 80, 'products': 41, 'orders': 34}, {'density': 80, 'products': 44, 'orders': 36}, {'density': 80, 'products': 46, 'orders': 38}, {'density': 80, 'products': 48, 'orders': 39}, {'density': 80, 'products': 51, 'orders': 41}, {'density': 80, 'products': 53, 'orders': 43}, {'density': 80, 'products': 55, 'orders': 45}, {'density': 80, 'products': 58, 'orders': 46}]
