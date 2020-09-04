@@ -177,13 +177,10 @@ PLANNER_SELECTION = {
 
 
 def get_baseline_planner(track):
-    if track == "opt":
-        BASELINE_PLANNER = "fd1906-blind.img"
-    else:
-        assert track == "sat"
-        BASELINE_PLANNER = "fd1906-gbfs-ff.img"
-
-    return BASELINE_PLANNER
+    return {
+        "opt": "fd1906-blind.img",
+        "sat": "fd1906-gbfs-ff.img"
+    }[track]
 
 
 def _get_planner_selection(track, year):
