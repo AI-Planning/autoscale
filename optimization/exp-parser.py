@@ -72,7 +72,9 @@ def parse_shared_runs(content, props):
 
 
 def unsolvable(content, props):
-    props["unsolvable"] = int("unsolvable" in content.lower())
+    props["unsolvable"] = int(
+        ("unsolvable" in content.lower()) and
+        ("Abstract problem is unsolvable or time limit reached!" not in content.lower()))
 
 
 parser = CommonParser()
