@@ -166,7 +166,7 @@ if ARGS.track == "opt":
         "new2014": "03-opt-evaluation-new2014-coverage.json",
         "new2020": "04-opt-evaluation-new2020-coverage.json",
     }
-    PLANNERS = [
+    PLANNERS = {
         "ipc2018-opt-complementary2-3584mb-1800s",
         "ipc2018-opt-decstar",
         "ipc2018-opt-delfi-blind",
@@ -175,7 +175,7 @@ if ARGS.track == "opt":
         "ipc2018-opt-delfi-mas-miasm",
         "ipc2018-opt-delfi-mas-sccdfp-1800s",
         "ipc2018-opt-scorpion",
-    ]
+    }
 else:
     IPC_DOMAIN_SIZES = SAT_IPC_DOMAIN_SIZES
     RESULTS = {
@@ -183,7 +183,7 @@ else:
         "new2014": "06-sat-evaluation-new2014-coverage.json",
         "new2020": "07-sat-evaluation-new2020-coverage.json",
     }
-    PLANNERS = [
+    PLANNERS = {
         "ipc2018-agl-cerberus",
         "ipc2018-agl-decstar-agl",
         "ipc2018-agl-fd-remix",
@@ -192,19 +192,20 @@ else:
         "ipc2018-agl-lapkt-poly-bfws",
         "ipc2018-agl-olcff",
         "ipc2018-agl-saarplan",
-    ]
+    }
 
 names = sorted(RESULTS.keys())
 
 dicts = {}
 for name, filename in RESULTS.items():
     with open(os.path.join(DIR, "results", filename)) as f:
-        dicts[name] = json.load(f)
-
-for benchmarks_name, results in dicts.items():
+        d = json.load(f)
+    # Only keep the data for a subset of planners and domains.
+    filtered_dict = {}
     for domain in DOMAINS:
-        if domain not in results:
-            sys.exit(f"{domain} missing from {benchmarks_name}")
+        domain_dict = {planner: coverage for planner, coverage in d[domain].items() if planner in PLANNERS}
+        filtered_dict[domain] = domain_dict
+    dicts[name] = filtered_dict
 
 algo_dicts = []
 for domain_dict in dicts.values():

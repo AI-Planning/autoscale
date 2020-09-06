@@ -5,6 +5,7 @@ Classes and functions for running paper experiments with Fast Downward.
 from collections import defaultdict, namedtuple
 import getpass
 import os.path
+from pathlib import Path
 import platform
 import shutil
 import subprocess
@@ -24,7 +25,7 @@ from reports.per_domain_comparison import PerDomainComparison
 from reports.coverage import CoverageData
 from reports.domain_size import DomainSize
 
-DIR = os.path.dirname(os.path.abspath(__file__))
+DIR = Path(__file__).resolve().parent
 NODE = platform.node()
 REMOTE = NODE.endswith(".scicore.unibas.ch") or NODE.endswith(".cluster.bc2.ch")
 
@@ -357,10 +358,11 @@ class BaseReport(AbsoluteReport):
     DEFAULT_ATTRIBUTES = ["cost", "coverage", "run_dir", "total_time", "runtime"]
 
 
-def add_base_report(exp, attributes=None):
+def add_base_report(exp, attributes=None, outfile=None):
     if attributes is None:
         attributes = BaseReport.DEFAULT_ATTRIBUTES
-    report = os.path.join(exp.eval_dir, '{}.html'.format(exp.name))
-    exp.add_report(BaseReport(attributes=attributes), outfile=report)
-    exp.add_step('open-report', subprocess.call, ['xdg-open', report])
-    exp.add_step('publish-report', subprocess.call, ['publish', report])
+    if outfile is None:
+        outfile = DIR / "results" / f"{exp.name}.html"
+    exp.add_report(BaseReport(attributes=attributes), outfile=outfile)
+    exp.add_step('open-report', subprocess.call, ['xdg-open', outfile])
+    exp.add_step('publish-report', subprocess.call, ['publish', outfile])
