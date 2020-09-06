@@ -22,6 +22,7 @@ from downward.reports.compare import ComparativeReport
 from reports.average import AverageReport
 from reports.per_domain_comparison import PerDomainComparison
 from reports.coverage import CoverageData
+from reports.domain_size import DomainSize
 
 DIR = os.path.dirname(os.path.abspath(__file__))
 NODE = platform.node()
@@ -150,7 +151,7 @@ DOMAIN_GROUPS = {
     "hiking": ["hiking-opt14-strips", "hiking-sat14-strips"],
     "logistics": ["logistics98", "logistics00"],
     "maintenance": ["maintenance-opt14-adl", "maintenance-sat14-adl"],
-    "miconic-strips": ["miconic", "miconic-strips"],
+    "miconic": ["miconic", "miconic-strips"],
     "miconic-fulladl": ["miconic-fulladl"],
     "miconic-simpleadl": ["miconic-simpleadl"],
     "movie": ["movie"],
@@ -346,3 +347,20 @@ def fetch_algorithms(exp, expname, algos=None, name=None):
         filter=algo_filter if algos else None,
         name=name or "fetch-from-{expname}".format(**locals()),
         merge=True)
+
+
+# Create custom report class with suitable info and error attributes.
+class BaseReport(AbsoluteReport):
+    INFO_ATTRIBUTES = []
+    ERROR_ATTRIBUTES = [
+        'domain', 'problem', 'algorithm', 'unexplained_errors', 'error', 'node']
+    DEFAULT_ATTRIBUTES = ["cost", "coverage", "run_dir", "total_time", "runtime"]
+
+
+def add_base_report(exp, attributes=None):
+    if attributes is None:
+        attributes = BaseReport.DEFAULT_ATTRIBUTES
+    report = os.path.join(exp.eval_dir, '{}.html'.format(exp.name))
+    exp.add_report(BaseReport(attributes=attributes), outfile=report)
+    exp.add_step('open-report', subprocess.call, ['xdg-open', report])
+    exp.add_step('publish-report', subprocess.call, ['publish', report])

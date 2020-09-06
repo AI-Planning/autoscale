@@ -151,4 +151,6 @@ exp.add_report(
     outfile=DIR / "results" / f"{exp.name}-coverage.json",
 )
 
+exp.add_report(project.DomainSize(filter=[project.group_domains]))
+
 exp.run_steps()
