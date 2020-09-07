@@ -12,8 +12,9 @@ import subprocess
 import sys
 
 from lab.environments import LocalEnvironment, BaselSlurmEnvironment
-from lab.experiment import ARGPARSER
+from lab.experiment import Experiment, ARGPARSER
 from lab.reports import Attribute, geometric_mean
+from lab.reports.filter import FilterReport
 from lab import tools
 
 from downward.experiment import FastDownwardExperiment
@@ -350,6 +351,15 @@ def fetch_algorithms(exp, expname, algos=None, name=None):
         merge=True)
 
 
+def get_combination_experiment():
+    exp = Experiment()
+    exp.add_step(
+        "remove-combined-properties",
+        remove_file,
+        Path(exp.eval_dir) / "properties")
+    return exp
+
+
 # Create custom report class with suitable info and error attributes.
 class BaseReport(AbsoluteReport):
     INFO_ATTRIBUTES = []
@@ -364,5 +374,15 @@ def add_base_report(exp, attributes=None, outfile=None):
     if outfile is None:
         outfile = DIR / "results" / f"{exp.name}.html"
     exp.add_report(BaseReport(attributes=attributes), outfile=outfile)
-    exp.add_step('open-report', subprocess.call, ['xdg-open', outfile])
-    exp.add_step('publish-report', subprocess.call, ['publish', outfile])
+    #exp.add_step('open-report', subprocess.call, ['xdg-open', outfile])
+    #exp.add_step('publish-report', subprocess.call, ['publish', outfile])
+
+
+def add_evaluation_reports(exp):
+    add_base_report(exp)
+
+    exp.add_report(FilterReport(), outfile=DIR / "results" / f"{exp.name}-properties.json")
+
+    exp.add_report(
+        CoverageData(filter=[group_domains]),
+        outfile=DIR / "results" / f"{exp.name}-coverage.json")
