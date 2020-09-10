@@ -98,7 +98,7 @@ parser.add_bottom_up_pattern('memory_baseline_runner', r'baseline runner memory:
 parser.add_bottom_up_pattern('memory_sart_runner', r'sart runner memory: (.+) KB', type=float)
 parser.add_function(error)
 parser.add_function(parse_average_runtimes)
-parser.add_function(parse_shared_runs)
+#parser.add_function(parse_shared_runs)
 parser.add_function(unsolvable)
 
 parser.parse()
