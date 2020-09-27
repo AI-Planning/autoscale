@@ -25,6 +25,7 @@ from reports.average import AverageReport
 from reports.per_domain_comparison import PerDomainComparison
 from reports.coverage import CoverageData
 from reports.domain_size import DomainSize
+from reports.per_task_aggregation import PerTaskAggregation
 
 DIR = Path(__file__).resolve().parent
 NODE = platform.node()
@@ -386,3 +387,7 @@ def add_evaluation_reports(exp):
     exp.add_report(
         CoverageData(filter=[group_domains]),
         outfile=DIR / "results" / f"{exp.name}-coverage.json")
+
+    exp.add_report(
+        PerTaskAggregation(function=min),
+        outfile=DIR / "results" / f"{exp.name}-min-runtimes.json")

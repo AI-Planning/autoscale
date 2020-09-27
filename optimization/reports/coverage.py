@@ -18,4 +18,4 @@ class CoverageData(PlanningReport):
         output = defaultdict(dict)
         for (domain, algo), coverage in sorted(domain_and_algorithm_to_coverage.items()):
             output[domain][algo] = coverage
-        return json.dumps(output, indent=2)
+        return json.dumps(output, indent=2, sort_keys=True)
