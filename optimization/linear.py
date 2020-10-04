@@ -310,7 +310,7 @@ def evaluate_sequence(cfg, print_final_configuration=False):
     logging.debug(f"Y: {sequence}")
 
     # First test: Does the baseline solve the first three configurations in less than 10,
-    # 60, and 300s? If not, return a high error right away
+    # 60, and 180s? If not, return a high error right away
     if not print_final_configuration and not domain.has_lowest_linear_values(cfg):
         if not RUNNER_BASELINE.is_solvable(sequence[0], time_limit=10, lower_bound=0):
             logging.info("First instance was not solved by the baseline planner in less than 10 seconds")
@@ -321,7 +321,7 @@ def evaluate_sequence(cfg, print_final_configuration=False):
             return 10 ** 6 - 10 ** 5
 
         if not RUNNER_BASELINE.is_solvable(sequence[2], time_limit=PLANNER_TIME_LIMIT, lower_bound=0):
-            logging.info("Third instance was not solved by the baseline planner in more than 2 or less than 300 seconds")
+            logging.info(f"Third instance was not solved by the baseline planner in less than {PLANNER_TIME_LIMIT} seconds")
             return 10 ** 6 - 2 * 10 ** 5
 
 
