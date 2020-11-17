@@ -106,6 +106,12 @@ def parse_args():
         help="Directory where to store logs and temporary files (default: %(default)s)",
     )
 
+    
+    parser.add_argument(
+        "--multiple_seeds", type=int, default=0, help="Generate the same instance multiple times with different random seeds (default: %(default)d)"
+    )
+
+
     parser.add_argument("--database", help="path to json file with the information needed")
 
     parser.add_argument("--output", help="directory to create the new benchmark set")
@@ -611,30 +617,44 @@ for seq in candidate_sequences:
                         seq_id, i = map(int, name.split("-")[1:])
                         seq_id, endi = map(int, nameend.split("-")[1:])
 
-                        logging.info (f"Selected: sequence {seq_id}, {endi+1-i} instances from {i} to {endi}: {sequences_by_id[seq_id].get_runtimes(i, endi+1)}")
+                        runtimes = ", ".join(list(map('{:.2g}'.format, sequences_by_id[seq_id].get_runtimes(i, endi+1))))
+                        
+                        print (f"Selected: sequence {seq_id}, {endi+1-i} instances from {i} to {endi}")
+                        print(f"Configuration: {sequences_by_id[seq_id].config}")
+                        print(f"Penalty: {'{:.2f}'.format(sequences_by_id[seq_id].penalty)}")
+                        print (f"Estimated runtimes: {runtimes}")
+
                         final_selection += sequences_by_id[seq_id].get_instances(i, endi+1)
+
+                        
 
         for name, idt in seq.get_cplex_end_index().items():
             if x [idt] > 0.9:
                 logging.debug ("END: {} {}".format(name, idt))
 
 
-logging.info(final_selection)
+
+
+                
+print ("  " + "\n  ".join([f"p{i+1:02d}: {config}" for (i, config) in enumerate(final_selection)]))
 
 if ARGS.output:
     if not os.path.exists(f"{ARGS.output}"):
         os.mkdir (f"{ARGS.output}")
     os.mkdir (f"{ARGS.output}/{ARGS.domain}")
-    i = 1
+
     seed = 2019
     # os.mkdir (f"{ARGS.output}/{ARGS.domain}")
-    for task in final_selection:
-        task["seed"] = seed
-        seed += 1
-        command = domain.get_generator_command(GENERATORS_DIR, task)
 
-        problem_file = f"{ARGS.output}/{ARGS.domain}/p{i:02d}.pddl"
-        domain_file = f"{ARGS.output}/{ARGS.domain}/domain-p{i:02d}.pddl"
-        i += 1
+    for numseed in range(0, max(1, ARGS.multiple_seeds)):
+        i = 1    
+        for task in final_selection:
+            task["seed"] = seed
+            seed += 1
+            command = domain.get_generator_command(GENERATORS_DIR, task)
 
-        domain.generate_problem(command, problem_file, domain_file)
+            problem_file = f"{ARGS.output}/{ARGS.domain}/p{i:02d}-{numseed}.pddl"  if  ARGS.multiple_seeds else f"{ARGS.output}/{ARGS.domain}/p{i:02d}.pddl"
+            domain_file = f"{ARGS.output}/{ARGS.domain}/domain-p{i:02d}.pddl"
+            i += 1
+
+            domain.generate_problem(command, problem_file, domain_file)
