@@ -1,0 +1,108 @@
+diff -r 9040aa5291cb src/translate/translate.py
+--- a/src/translate/translate.py	Mon Dec 16 16:27:11 2013 +0100
++++ b/src/translate/translate.py	Fri Dec 20 15:48:12 2013 +0100
+@@ -31,6 +31,7 @@
+ 
+ USE_PARTIAL_ENCODING = True
+ DETECT_UNREACHABLE = True
++COMPILE_AWAY_CONDITIONAL_EFFECTS = False
+ DUMP_TASK = False
+ 
+ ## Setting the following variable to True can cause a severe
+@@ -162,19 +163,84 @@
+     return translate_strips_conditions_aux(conditions, dictionary, ranges)
+ 
+ 
+-def translate_strips_operator(operator, dictionary, ranges, mutex_dict,
+-                              mutex_ranges, implied_facts):
+-    conditions = translate_strips_conditions(operator.precondition, dictionary,
+-                                             ranges, mutex_dict, mutex_ranges)
+-    if conditions is None:
+-        return []
++def translate_strips_operator(operator, dictionary, ranges, mutex_dict, mutex_ranges, implied_facts):
++    def compiled_operators(operator):
++        if not COMPILE_AWAY_CONDITIONAL_EFFECTS:
++            yield operator
++            return
++        unconditional_effects = []
++        conditional_effects = []
++        simplified_condition = False
++        for e in operator.add_effects:
++            if e[0]:
++                conditional_effects.append(e)
++            else:
++                unconditional_effects.append(e)
++
++        for cond, atom in operator.del_effects:
++            if atom in cond:
++                # remove deleted atom from effect condition
++                simplified_condition = True
++                cond = [elem for elem in cond if elem != atom]
++            if cond:
++                conditional_effects.append((cond, atom.negate()))
++            else:
++                unconditional_effects.append((cond, atom.negate()))
++
++        if not conditional_effects:
++            if simplified_condition:
++                yield pddl.PropositionalAction(operator.name,
++                                               operator.precondition,
++                                               unconditional_effects,
++                                               operator.cost)
++            else:
++                yield operator
++            return
++
++        for i in range(2**(len(conditional_effects))):
++            condition = list(operator.precondition)
++            effects = list(unconditional_effects)
++            exclude_conditions = []
++
++            for j, eff in enumerate(conditional_effects):
++                if i >> j & 1:
++                    condition.extend(eff[0])
++                    effects.append(([], eff[1]))
++                else:
++                    exclude_conditions.append(eff[0])
++
++            all_conditions = [condition]
++            for negate in exclude_conditions:
++                if len(negate) == 1:
++                    negated = negate[0].negate()
++                    for c in all_conditions:
++                        c.append(negated)
++                else:
++                    new_conds = []
++                    for literal in negate:
++                        negated = literal.negate()
++                        for cond in all_conditions:
++                            new_cond = deepcopy(cond)
++                            new_cond.append(negated)
++                            new_conds.append(new_cond)
++                    all_conditions = new_conds
++            for cond in all_conditions:
++                yield pddl.PropositionalAction(operator.name, cond, effects,
++                                               operator.cost)
++
+     sas_operators = []
+-    for condition in conditions:
+-        op = translate_strips_operator_aux(operator, dictionary, ranges,
+-                                           mutex_dict, mutex_ranges,
+-                                           implied_facts, condition)
+-        if op is not None:
+-            sas_operators.append(op)
++    for comp_operator in compiled_operators(operator):
++        conditions = translate_strips_conditions(comp_operator.precondition,
++                                                 dictionary, ranges, mutex_dict,
++                                                 mutex_ranges)
++        if conditions is None:
++            continue
++        for condition in conditions:
++            op = translate_strips_operator_aux(comp_operator, dictionary, ranges,
++                                               mutex_dict, mutex_ranges,
++                                               implied_facts, condition)
++            if op is not None:
++                sas_operators.append(op)
+     return sas_operators
+ 
+ 

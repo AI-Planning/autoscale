@@ -1,0 +1,124 @@
+#! /bin/bash
+BASEDIR="$(dirname "$0")"
+TEMPFILE=downward.tmp.$$
+cat > $TEMPFILE
+
+if [[ "$(uname -o)" == "Cygwin" ]]; then
+    # Not sure how to handle time in Cygwin (command time doesn't work).
+    # Ignoring it for now.
+    STATE_SIZE=$("$BASEDIR/dispatch" $TEMPFILE)
+    UNIT_COST=$("$BASEDIR/unitcost" $TEMPFILE)
+else
+    if [[ "$(uname)" == "Darwin" ]]; then
+        # Need to explicitly ask for GNU time (from MacPorts) on Mac OS X.
+        TIME="gtime"
+        if ! which $TIME >/dev/null; then
+            echo "$TIME must be installed on Mac OSX (from MacPorts, perhaps) for this to work"
+            exit 1
+        fi
+    else
+        TIME="command time"
+    fi
+    TIME="$TIME --output=elapsed.time --format=%S\n%U\n"
+    STATE_SIZE=$($TIME --append "$BASEDIR/dispatch" $TEMPFILE)
+    UNIT_COST=$($TIME --append "$BASEDIR/unitcost" $TEMPFILE)
+fi
+
+echo Dispatcher selected state size $STATE_SIZE.
+echo This is a $UNIT_COST task.
+PLANNER="$BASEDIR/downward-$STATE_SIZE"
+
+function run_portfolio {
+    PORTFOLIO="$1"
+    shift
+    # Set soft memory limit of 50 MB to avoid Python using too much space.
+    # On the maia cluster, 20 MB have been tested to be sufficient; 18 MB are not.
+    ulimit -Sv 51200
+    "$PORTFOLIO" "$TEMPFILE" "$UNIT_COST" "$PLANNER" "$@"
+    # Explicit is better than implicit: return portfolio's exit code.
+    return $?
+}
+
+if [[ "$1" == "ipc" ]]; then
+    CONFIG="$2"
+    shift 2
+    PORTFOLIO_SCRIPT="$BASEDIR/downward-$CONFIG.py"
+    if [[ -e "$PORTFOLIO_SCRIPT" ]]; then
+        # Handle configs seq-{sat,opt}-fdss-{1,2} and seq-opt-merge-and-shrink.
+        run_portfolio "$PORTFOLIO_SCRIPT" "$@"
+    elif [[ "$CONFIG" == "seq-sat-fd-autotune-1" ]]; then
+        echo "The seq-sat-fd-autotune-1 planner should not use this code."
+        exit 2
+    elif [[ "$CONFIG" == "seq-sat-fd-autotune-2" ]]; then
+        echo "The seq-sat-fd-autotune-2 planner should not use this code."
+        exit 2
+    elif [[ "$CONFIG" == "seq-sat-lama-2008" ]]; then
+        echo "The seq-sat-lama-2008 planner should not use this code."
+        exit 2
+    elif [[ "$CONFIG" == "seq-agl-mercury" ]]; then
+        "$PLANNER" \
+                --heuristic "hrb=RB(cost_type=1, extract_plan=true, next_red_action_test=true, applicable_paths_first=true, use_connected=true)" \
+                --search "lazy_greedy(hrb,preferred=hrb,cost_type=1,reopen_closed=false)" \
+                "$@" < $TEMPFILE
+    elif [[ "$CONFIG" == "seq-sat-mercury" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hrb=RB(cost_type=1, extract_plan=true, next_red_action_test=true, applicable_paths_first=true, use_connected=true)" \
+                --heuristic "hlm=lmcount(lm_rhw(reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "iterated([
+                    lazy_greedy([hrb,hlm],preferred=[hrb,hlm]),
+                    lazy_wastar([hrb,hlm],preferred=[hrb,hlm],w=5),
+                    lazy_wastar([hrb,hlm],preferred=[hrb,hlm],w=3),
+                    lazy_wastar([hrb,hlm],preferred=[hrb,hlm],w=2),
+                    lazy_wastar([hrb,hlm],preferred=[hrb,hlm],w=1)],
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hrb=RB(cost_type=1, extract_plan=true, next_red_action_test=true, applicable_paths_first=true, use_connected=true)" \
+                --heuristic "hlm1=lmcount(lm_rhw(reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --heuristic "hlm2=lmcount(lm_rhw(reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "iterated([
+                    lazy_greedy([hrb,hlm1],preferred=[hrb,hlm1],
+                                cost_type=1,reopen_closed=false),
+                    lazy_greedy([hrb,hlm2],preferred=[hrb,hlm2],
+                                reopen_closed=false),
+                    lazy_wastar([hrb,hlm2],preferred=[hrb,hlm2],w=5),
+                    lazy_wastar([hrb,hlm2],preferred=[hrb,hlm2],w=3),
+                    lazy_wastar([hrb,hlm2],preferred=[hrb,hlm2],w=2),
+                    lazy_wastar([hrb,hlm2],preferred=[hrb,hlm2],w=1)],
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-2011" ]]; then
+        echo "The seq-sat-lama-2011 planner should not use this code."
+    elif [[ "$CONFIG" == "seq-opt-fd-autotune" ]]; then
+        echo "The seq-opt-fd-autotune planner should not use this code."
+        exit 2
+    elif [[ "$CONFIG" == "seq-opt-selmax" ]]; then
+        echo "The seq-opt-selmax planner should not use this code."
+        exit 2
+    elif [[ "$CONFIG" == "seq-opt-bjolp" ]]; then
+        echo "The seq-opt-bjolp planner should not use this code."
+        exit 2
+    elif [[ "$CONFIG" == "seq-opt-lmcut" ]]; then
+        echo "The seq-opt-lmcut planner should not use this code."
+        exit 2
+    else
+        echo "unknown IPC planner name: $CONFIG"
+        exit 2
+    fi
+elif [[ "$1" == "--portfolio" ]]; then
+    # Portfolio files must reside in the search directory.
+    PORTFOLIO="$2"
+    shift 2
+    run_portfolio "$BASEDIR/$PORTFOLIO" "$@"
+else
+    "$PLANNER" "$@" < $TEMPFILE
+fi
+EXITCODE=$?
+rm -f $TEMPFILE
+exit $EXITCODE
