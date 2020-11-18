@@ -1,0 +1,16 @@
+#!/bin/bash
+cd src/parser-ff
+make clean
+cd ../..
+scons --clean
+
+rm -f *.stats
+rm -f *.list
+rm -f *.dot
+rm -f *.png
+
+for i in {1..100}
+do
+	rm -f *.$i
+done
+find ./ -name '*~' -exec rm '{}' \; -print -or -name ".*~" -exec rm {} \; -print

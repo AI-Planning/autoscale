@@ -1,0 +1,12 @@
+Import('common_env')
+
+env = common_env.Clone()
+
+Export('env')
+
+objects = []
+
+for subdir in ['app','heuristic', 'inference', 'pddl', 'util', 'search'] :
+	objects += SConscript( '%s/SConscript'%subdir )
+
+Return('objects')
