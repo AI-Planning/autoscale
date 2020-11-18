@@ -1,0 +1,57 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-11-17 19:20:39,148 INFO     No run directory, so we will not run anything
+2020-11-17 19:20:39,725 INFO     Loading cache data for baseline planners: 1275
+2020-11-17 19:20:39,727 INFO     Loading cache data for sart planners: 5396
+2020-11-17 19:20:39,732 INFO     Stored sequences: 5435
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 10, 'floors': 32}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 10, 'floors': 32}, so I consider it unsolved within the time and memory limits
+2020-11-17 19:20:41,394 INFO     Different evaluated sequences: 1917
+2020-11-17 19:20:42,271 INFO     Candidate sequences: 100
+2020-11-17 19:20:42,273 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 1 use baseline 99 use sart
+2020-11-17 19:20:42,277 INFO     Using sart runtimes on CPLEX optimization
+2020-11-17 19:20:42,594 INFO     CPLEX solve
+
+2020-11-17 19:20:42,934 INFO     Solution status = 101: MIP_optimal
+2020-11-17 19:20:42,934 INFO     Solution value  = 12.977949717845416
+Selected: sequence 125, 21 instances from 0 to 20
+Configuration: {'floors_b': 6, 'floors_m': 0.08301570969959612, 'floors_optional_m': 'true', 'passengers_b': 9, 'passengers_m': 1.4576953672048407}
+Penalty: 6.44
+Estimated runtimes: 0.42, 0.42, 0.43, 0.43, 0.45, 0.46, 0.46, 0.48, 1.5, 7, 33, 36, 37, 73, 1.8e+02, 4.4e+02, 1.1e+03, 2.7e+03, 6.5e+03, 1.6e+04, 3.9e+04, 9.7e+04, 2.4e+05, 5.8e+05, 1.4e+06, 3.5e+06, 8.6e+06, 2.1e+07, 5.2e+07, 1.3e+08
+Selected: sequence 471, 9 instances from 17 to 25
+Configuration: {'floors_b': 5, 'floors_m': 1.4137799227339154, 'floors_optional_m': 'true', 'passengers_b': 9, 'passengers_m': 1.1502192923151071}
+Penalty: 6.54
+Estimated runtimes: 1.8e+02, 3.9e+02, 8.6e+02, 1.9e+03, 4.1e+03, 9e+03, 2e+04, 4.3e+04, 9.4e+04, 2.1e+05, 4.5e+05, 9.9e+05, 2.2e+06
+  p01: {'passengers': 9, 'floors': 6}
+  p02: {'passengers': 10, 'floors': 6}
+  p03: {'passengers': 11, 'floors': 6}
+  p04: {'passengers': 13, 'floors': 6}
+  p05: {'passengers': 14, 'floors': 6}
+  p06: {'passengers': 16, 'floors': 6}
+  p07: {'passengers': 17, 'floors': 6}
+  p08: {'passengers': 19, 'floors': 6}
+  p09: {'passengers': 20, 'floors': 6}
+  p10: {'passengers': 22, 'floors': 6}
+  p11: {'passengers': 23, 'floors': 6}
+  p12: {'passengers': 25, 'floors': 6}
+  p13: {'passengers': 26, 'floors': 6}
+  p14: {'passengers': 27, 'floors': 6}
+  p15: {'passengers': 29, 'floors': 6}
+  p16: {'passengers': 30, 'floors': 6}
+  p17: {'passengers': 32, 'floors': 6}
+  p18: {'passengers': 33, 'floors': 6}
+  p19: {'passengers': 35, 'floors': 6}
+  p20: {'passengers': 36, 'floors': 6}
+  p21: {'passengers': 38, 'floors': 6}
+  p22: {'passengers': 28, 'floors': 5}
+  p23: {'passengers': 29, 'floors': 5}
+  p24: {'passengers': 30, 'floors': 5}
+  p25: {'passengers': 32, 'floors': 5}
+  p26: {'passengers': 33, 'floors': 5}
+  p27: {'passengers': 34, 'floors': 5}
+  p28: {'passengers': 35, 'floors': 5}
+  p29: {'passengers': 36, 'floors': 5}
+  p30: {'passengers': 37, 'floors': 5}
+
+real	0m7.408s
+user	0m5.013s
+sys	0m3.564s

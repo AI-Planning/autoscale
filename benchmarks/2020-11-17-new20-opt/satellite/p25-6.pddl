@@ -1,0 +1,185 @@
+(define (problem strips-sat-x-1)
+(:domain satellite)
+(:objects
+	satellite0 - satellite
+	instrument0 - instrument
+	satellite1 - satellite
+	instrument1 - instrument
+	instrument2 - instrument
+	satellite2 - satellite
+	instrument3 - instrument
+	satellite3 - satellite
+	instrument4 - instrument
+	instrument5 - instrument
+	satellite4 - satellite
+	instrument6 - instrument
+	instrument7 - instrument
+	instrument8 - instrument
+	satellite5 - satellite
+	instrument9 - instrument
+	satellite6 - satellite
+	instrument10 - instrument
+	satellite7 - satellite
+	instrument11 - instrument
+	spectrograph0 - mode
+	Star4 - direction
+	Star6 - direction
+	GroundStation7 - direction
+	Star12 - direction
+	Star17 - direction
+	GroundStation19 - direction
+	GroundStation20 - direction
+	GroundStation16 - direction
+	Star9 - direction
+	GroundStation8 - direction
+	GroundStation13 - direction
+	Star1 - direction
+	Star14 - direction
+	Star0 - direction
+	Star21 - direction
+	GroundStation3 - direction
+	GroundStation18 - direction
+	Star11 - direction
+	Star2 - direction
+	GroundStation15 - direction
+	Star5 - direction
+	GroundStation10 - direction
+	Planet22 - direction
+	Star23 - direction
+	Phenomenon24 - direction
+	Star25 - direction
+	Phenomenon26 - direction
+	Star27 - direction
+	Planet28 - direction
+	Planet29 - direction
+	Star30 - direction
+	Phenomenon31 - direction
+	Phenomenon32 - direction
+	Star33 - direction
+	Phenomenon34 - direction
+	Star35 - direction
+	Star36 - direction
+	Star37 - direction
+	Planet38 - direction
+	Star39 - direction
+	Star40 - direction
+	Phenomenon41 - direction
+	Star42 - direction
+	Star43 - direction
+)
+(:init
+	(supports instrument0 spectrograph0)
+	(calibration_target instrument0 GroundStation16)
+	(calibration_target instrument0 GroundStation10)
+	(on_board instrument0 satellite0)
+	(power_avail satellite0)
+	(pointing satellite0 Star37)
+	(supports instrument1 spectrograph0)
+	(calibration_target instrument1 GroundStation20)
+	(calibration_target instrument1 GroundStation3)
+	(supports instrument2 spectrograph0)
+	(calibration_target instrument2 GroundStation18)
+	(calibration_target instrument2 GroundStation16)
+	(calibration_target instrument2 GroundStation8)
+	(on_board instrument1 satellite1)
+	(on_board instrument2 satellite1)
+	(power_avail satellite1)
+	(pointing satellite1 Star12)
+	(supports instrument3 spectrograph0)
+	(calibration_target instrument3 Star1)
+	(calibration_target instrument3 Star9)
+	(calibration_target instrument3 GroundStation13)
+	(calibration_target instrument3 Star11)
+	(calibration_target instrument3 Star21)
+	(on_board instrument3 satellite2)
+	(power_avail satellite2)
+	(pointing satellite2 Star11)
+	(supports instrument4 spectrograph0)
+	(calibration_target instrument4 GroundStation13)
+	(calibration_target instrument4 GroundStation19)
+	(calibration_target instrument4 Star9)
+	(calibration_target instrument4 Star21)
+	(supports instrument5 spectrograph0)
+	(calibration_target instrument5 GroundStation8)
+	(calibration_target instrument5 GroundStation18)
+	(calibration_target instrument5 GroundStation13)
+	(calibration_target instrument5 GroundStation19)
+	(on_board instrument4 satellite3)
+	(on_board instrument5 satellite3)
+	(power_avail satellite3)
+	(pointing satellite3 Phenomenon32)
+	(supports instrument6 spectrograph0)
+	(calibration_target instrument6 GroundStation10)
+	(calibration_target instrument6 Star21)
+	(calibration_target instrument6 Star9)
+	(calibration_target instrument6 GroundStation8)
+	(calibration_target instrument6 GroundStation16)
+	(calibration_target instrument6 GroundStation20)
+	(calibration_target instrument6 GroundStation19)
+	(supports instrument7 spectrograph0)
+	(calibration_target instrument7 Star1)
+	(calibration_target instrument7 GroundStation13)
+	(calibration_target instrument7 Star2)
+	(calibration_target instrument7 GroundStation8)
+	(calibration_target instrument7 Star21)
+	(calibration_target instrument7 GroundStation18)
+	(calibration_target instrument7 Star11)
+	(supports instrument8 spectrograph0)
+	(calibration_target instrument8 Star14)
+	(on_board instrument6 satellite4)
+	(on_board instrument7 satellite4)
+	(on_board instrument8 satellite4)
+	(power_avail satellite4)
+	(pointing satellite4 GroundStation20)
+	(supports instrument9 spectrograph0)
+	(calibration_target instrument9 Star21)
+	(calibration_target instrument9 GroundStation10)
+	(calibration_target instrument9 Star0)
+	(calibration_target instrument9 GroundStation3)
+	(on_board instrument9 satellite5)
+	(power_avail satellite5)
+	(pointing satellite5 Star25)
+	(supports instrument10 spectrograph0)
+	(calibration_target instrument10 GroundStation3)
+	(calibration_target instrument10 Star11)
+	(on_board instrument10 satellite6)
+	(power_avail satellite6)
+	(pointing satellite6 Star23)
+	(supports instrument11 spectrograph0)
+	(calibration_target instrument11 GroundStation10)
+	(calibration_target instrument11 Star5)
+	(calibration_target instrument11 GroundStation15)
+	(calibration_target instrument11 Star2)
+	(calibration_target instrument11 Star11)
+	(calibration_target instrument11 GroundStation18)
+	(on_board instrument11 satellite7)
+	(power_avail satellite7)
+	(pointing satellite7 Phenomenon34)
+)
+(:goal (and
+	(pointing satellite0 Phenomenon32)
+	(pointing satellite2 Star12)
+	(pointing satellite4 Star39)
+	(have_image Planet22 spectrograph0)
+	(have_image Star23 spectrograph0)
+	(have_image Phenomenon24 spectrograph0)
+	(have_image Star25 spectrograph0)
+	(have_image Star27 spectrograph0)
+	(have_image Planet29 spectrograph0)
+	(have_image Star30 spectrograph0)
+	(have_image Phenomenon31 spectrograph0)
+	(have_image Phenomenon32 spectrograph0)
+	(have_image Star33 spectrograph0)
+	(have_image Phenomenon34 spectrograph0)
+	(have_image Star35 spectrograph0)
+	(have_image Star36 spectrograph0)
+	(have_image Star37 spectrograph0)
+	(have_image Planet38 spectrograph0)
+	(have_image Star39 spectrograph0)
+	(have_image Star40 spectrograph0)
+	(have_image Phenomenon41 spectrograph0)
+	(have_image Star42 spectrograph0)
+	(have_image Star43 spectrograph0)
+))
+
+)

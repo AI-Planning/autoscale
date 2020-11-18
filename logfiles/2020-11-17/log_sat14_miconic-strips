@@ -1,0 +1,50 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-11-17 19:20:32,064 INFO     No run directory, so we will not run anything
+2020-11-17 19:20:33,055 INFO     Loading cache data for baseline planners: 43435
+2020-11-17 19:20:33,106 INFO     Loading cache data for sart planners: 43435
+2020-11-17 19:20:33,161 INFO     Stored sequences: 2521
+2020-11-17 19:20:34,012 INFO     Different evaluated sequences: 1728
+2020-11-17 19:20:34,292 INFO     Candidate sequences: 100
+2020-11-17 19:20:34,295 INFO     Using baseline runtimes on CPLEX optimization
+2020-11-17 19:20:34,546 INFO     CPLEX solve
+
+2020-11-17 19:20:34,727 INFO     Solution status = 101: MIP_optimal
+2020-11-17 19:20:34,728 INFO     Solution value  = 91125.7858588343
+Selected: sequence 736, 30 instances from 0 to 29
+Configuration: {'floors_b': 18, 'floors_m': 4.9633543232980655, 'floors_optional_m': 'false', 'passengers_b': 20, 'passengers_m': 4.931990638958039}
+Penalty: 16.08
+Estimated runtimes: 0.51, 0.52, 0.54, 0.68, 0.75, 0.82, 0.89, 1.2, 1.3, 1.6, 1.8, 2.2, 2.6, 2.7, 3.4, 3.7, 3.8, 4.3, 4.9, 6.5, 7.3, 8.6, 9.6, 9.8, 11, 13, 14, 15, 18, 20
+  p01: {'passengers': 20, 'floors': 18}
+  p02: {'passengers': 24, 'floors': 22}
+  p03: {'passengers': 29, 'floors': 27}
+  p04: {'passengers': 34, 'floors': 32}
+  p05: {'passengers': 39, 'floors': 37}
+  p06: {'passengers': 44, 'floors': 42}
+  p07: {'passengers': 49, 'floors': 47}
+  p08: {'passengers': 54, 'floors': 52}
+  p09: {'passengers': 59, 'floors': 57}
+  p10: {'passengers': 64, 'floors': 62}
+  p11: {'passengers': 69, 'floors': 67}
+  p12: {'passengers': 74, 'floors': 72}
+  p13: {'passengers': 79, 'floors': 77}
+  p14: {'passengers': 84, 'floors': 82}
+  p15: {'passengers': 89, 'floors': 87}
+  p16: {'passengers': 93, 'floors': 92}
+  p17: {'passengers': 98, 'floors': 97}
+  p18: {'passengers': 103, 'floors': 102}
+  p19: {'passengers': 108, 'floors': 107}
+  p20: {'passengers': 113, 'floors': 112}
+  p21: {'passengers': 118, 'floors': 117}
+  p22: {'passengers': 123, 'floors': 122}
+  p23: {'passengers': 128, 'floors': 127}
+  p24: {'passengers': 133, 'floors': 132}
+  p25: {'passengers': 138, 'floors': 137}
+  p26: {'passengers': 143, 'floors': 142}
+  p27: {'passengers': 148, 'floors': 147}
+  p28: {'passengers': 153, 'floors': 152}
+  p29: {'passengers': 158, 'floors': 156}
+  p30: {'passengers': 163, 'floors': 161}
+
+real	0m7.084s
+user	0m3.945s
+sys	0m4.072s

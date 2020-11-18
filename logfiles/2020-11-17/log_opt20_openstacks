@@ -1,0 +1,75 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-11-17 23:10:50,281 INFO     No run directory, so we will not run anything
+2020-11-17 23:10:50,819 INFO     Loading cache data for baseline planners: 3952
+2020-11-17 23:10:50,824 INFO     Loading cache data for sart planners: 12772
+2020-11-17 23:10:50,842 INFO     Stored sequences: 786
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 33, 'products': 20, 'orders': 68}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 33, 'products': 15, 'orders': 63}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 33, 'products': 25, 'orders': 60}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 33, 'products': 14, 'orders': 68}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 33, 'products': 15, 'orders': 59}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 33, 'products': 25, 'orders': 71}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 50, 'products': 11, 'orders': 25}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 66, 'products': 48, 'orders': 36}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 10, 'products': 21, 'orders': 70}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 10, 'products': 20, 'orders': 67}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 80, 'products': 23, 'orders': 53}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 80, 'products': 29, 'orders': 52}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 80, 'products': 31, 'orders': 53}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 50, 'products': 13, 'orders': 23}, so I consider it unsolved within the time and memory limits
+2020-11-17 23:10:50,980 INFO     Different evaluated sequences: 709
+density 10 112 99
+density 20 87 85
+density 33 146 100
+density 50 120 100
+density 66 158 100
+density 80 75 71
+2020-11-17 23:10:51,981 INFO     Candidate sequences: 555
+2020-11-17 23:10:51,985 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 19 use baseline 536 use sart
+2020-11-17 23:10:51,987 INFO     Using sart runtimes on CPLEX optimization
+2020-11-17 23:10:55,566 INFO     CPLEX solve
+
+2020-11-17 23:10:57,892 INFO     Solution status = 101: MIP_optimal
+2020-11-17 23:10:57,893 INFO     Solution value  = 0.0
+Selected: sequence 256, 12 instances from 18 to 29
+Configuration: {'density': 50, 'orders_b': 12, 'orders_m': 3.676413602684395, 'products_b': 13, 'products_m': 1.455524224848302}
+Penalty: 0.00
+Estimated runtimes: 2e+02, 3.1e+02, 4.9e+02, 7.7e+02, 1.2e+03, 1.9e+03, 3e+03, 4.7e+03, 7.3e+03, 1.1e+04, 1.8e+04, 2.8e+04
+Selected: sequence 561, 18 instances from 2 to 19
+Configuration: {'density': 80, 'orders_b': 14, 'orders_m': 1.728119263418025, 'products_b': 14, 'products_m': 2.3294640448681214}
+Penalty: 0.00
+Estimated runtimes: 1.8, 2.1, 2.1, 2.5, 3, 4.1, 5.7, 9.4, 11, 23, 34, 61, 1.8e+02, 5.3e+02, 1.6e+03, 4.7e+03, 1.4e+04, 4.1e+04, 1.2e+05, 3.6e+05, 1.1e+06, 3.2e+06, 9.5e+06, 2.8e+07, 8.4e+07, 2.5e+08, 7.4e+08, 2.2e+09
+  p01: {'density': 50, 'products': 39, 'orders': 78}
+  p02: {'density': 50, 'products': 40, 'orders': 81}
+  p03: {'density': 50, 'products': 42, 'orders': 85}
+  p04: {'density': 50, 'products': 43, 'orders': 89}
+  p05: {'density': 50, 'products': 45, 'orders': 92}
+  p06: {'density': 50, 'products': 46, 'orders': 96}
+  p07: {'density': 50, 'products': 47, 'orders': 100}
+  p08: {'density': 50, 'products': 49, 'orders': 103}
+  p09: {'density': 50, 'products': 50, 'orders': 107}
+  p10: {'density': 50, 'products': 52, 'orders': 111}
+  p11: {'density': 50, 'products': 53, 'orders': 114}
+  p12: {'density': 50, 'products': 55, 'orders': 118}
+  p13: {'density': 80, 'products': 18, 'orders': 17}
+  p14: {'density': 80, 'products': 20, 'orders': 19}
+  p15: {'density': 80, 'products': 23, 'orders': 20}
+  p16: {'density': 80, 'products': 25, 'orders': 22}
+  p17: {'density': 80, 'products': 27, 'orders': 24}
+  p18: {'density': 80, 'products': 30, 'orders': 26}
+  p19: {'density': 80, 'products': 32, 'orders': 27}
+  p20: {'density': 80, 'products': 34, 'orders': 29}
+  p21: {'density': 80, 'products': 37, 'orders': 31}
+  p22: {'density': 80, 'products': 39, 'orders': 33}
+  p23: {'density': 80, 'products': 41, 'orders': 34}
+  p24: {'density': 80, 'products': 44, 'orders': 36}
+  p25: {'density': 80, 'products': 46, 'orders': 38}
+  p26: {'density': 80, 'products': 48, 'orders': 39}
+  p27: {'density': 80, 'products': 51, 'orders': 41}
+  p28: {'density': 80, 'products': 53, 'orders': 43}
+  p29: {'density': 80, 'products': 55, 'orders': 45}
+  p30: {'density': 80, 'products': 58, 'orders': 46}
+
+real	0m20.913s
+user	0m25.502s
+sys	0m6.585s

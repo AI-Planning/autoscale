@@ -1,0 +1,65 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-11-17 23:02:10,694 INFO     No run directory, so we will not run anything
+2020-11-17 23:02:11,232 INFO     Loading cache data for baseline planners: 589
+2020-11-17 23:02:11,233 INFO     Loading cache data for sart planners: 1390
+2020-11-17 23:02:11,235 INFO     Stored sequences: 1457
+2020-11-17 23:02:11,430 INFO     Different evaluated sequences: 238
+num_machines 1 116 9
+num_machines 2 62 6
+num_machines 3 60 5
+wood_factor 1.0 66 3
+wood_factor 1.25 41 5
+wood_factor 1.5 69 6
+wood_factor 2.0 62 6
+2020-11-17 23:02:11,470 INFO     Candidate sequences: 20
+2020-11-17 23:02:11,470 INFO     Using sart runtimes on CPLEX optimization
+2020-11-17 23:02:11,496 INFO     CPLEX solve
+
+2020-11-17 23:02:11,521 INFO     Solution status = 101: MIP_optimal
+2020-11-17 23:02:11,522 INFO     Solution value  = 16.0
+Selected: sequence 1, 21 instances from 0 to 20
+Configuration: {'num_machines': 1, 'size_b': 2, 'size_m': 1.0, 'wood_factor': 1.0}
+Penalty: 8.00
+Estimated runtimes: 0.54, 0.54, 0.6, 0.72, 0.83, 0.93, 1, 2.7, 3, 10, 19, 72, 88, 2.3e+02, 5.8e+02, 1.5e+03, 3.8e+03, 9.7e+03, 2.5e+04, 6.4e+04, 1.6e+05, 4.2e+05, 1.1e+06, 2.7e+06, 7e+06, 1.8e+07, 4.6e+07, 1.2e+08, 3e+08, 7.7e+08
+Selected: sequence 72, 4 instances from 8 to 11
+Configuration: {'num_machines': 2, 'size_b': 3, 'size_m': 1.417902284079778, 'wood_factor': 1.5}
+Penalty: 8.00
+Estimated runtimes: 1.8e+02, 1.6e+03, 1.4e+04, 1.2e+05, 1.1e+06, 9.7e+06, 8.6e+07, 7.6e+08, 6.7e+09, 5.9e+10, 5.2e+11, 4.6e+12, 4.1e+13, 3.6e+14, 3.2e+15, 2.8e+16, 2.5e+17, 2.2e+18, 1.9e+19, 1.7e+20, 1.5e+21, 1.3e+22
+Selected: sequence 84, 5 instances from 10 to 14
+Configuration: {'num_machines': 3, 'size_b': 3, 'size_m': 1.0570594245544278, 'wood_factor': 2.0}
+Penalty: 0.00
+Estimated runtimes: 1.8e+02, 9.2e+02, 4.7e+03, 2.4e+04, 1.2e+05, 6.3e+05, 3.2e+06, 1.6e+07, 8.4e+07, 4.3e+08, 2.2e+09, 1.1e+10, 5.8e+10, 3e+11, 1.5e+12, 7.7e+12, 4e+13, 2e+14, 1e+15, 5.3e+15
+  p01: {'size': 2, 'num_machines': 1, 'wood_factor': 1.0}
+  p02: {'size': 3, 'num_machines': 1, 'wood_factor': 1.0}
+  p03: {'size': 4, 'num_machines': 1, 'wood_factor': 1.0}
+  p04: {'size': 5, 'num_machines': 1, 'wood_factor': 1.0}
+  p05: {'size': 6, 'num_machines': 1, 'wood_factor': 1.0}
+  p06: {'size': 7, 'num_machines': 1, 'wood_factor': 1.0}
+  p07: {'size': 8, 'num_machines': 1, 'wood_factor': 1.0}
+  p08: {'size': 9, 'num_machines': 1, 'wood_factor': 1.0}
+  p09: {'size': 10, 'num_machines': 1, 'wood_factor': 1.0}
+  p10: {'size': 11, 'num_machines': 1, 'wood_factor': 1.0}
+  p11: {'size': 12, 'num_machines': 1, 'wood_factor': 1.0}
+  p12: {'size': 13, 'num_machines': 1, 'wood_factor': 1.0}
+  p13: {'size': 14, 'num_machines': 1, 'wood_factor': 1.0}
+  p14: {'size': 15, 'num_machines': 1, 'wood_factor': 1.0}
+  p15: {'size': 16, 'num_machines': 1, 'wood_factor': 1.0}
+  p16: {'size': 17, 'num_machines': 1, 'wood_factor': 1.0}
+  p17: {'size': 18, 'num_machines': 1, 'wood_factor': 1.0}
+  p18: {'size': 19, 'num_machines': 1, 'wood_factor': 1.0}
+  p19: {'size': 20, 'num_machines': 1, 'wood_factor': 1.0}
+  p20: {'size': 21, 'num_machines': 1, 'wood_factor': 1.0}
+  p21: {'size': 22, 'num_machines': 1, 'wood_factor': 1.0}
+  p22: {'size': 14, 'num_machines': 2, 'wood_factor': 1.5}
+  p23: {'size': 15, 'num_machines': 2, 'wood_factor': 1.5}
+  p24: {'size': 17, 'num_machines': 2, 'wood_factor': 1.5}
+  p25: {'size': 18, 'num_machines': 2, 'wood_factor': 1.5}
+  p26: {'size': 13, 'num_machines': 3, 'wood_factor': 2.0}
+  p27: {'size': 14, 'num_machines': 3, 'wood_factor': 2.0}
+  p28: {'size': 15, 'num_machines': 3, 'wood_factor': 2.0}
+  p29: {'size': 16, 'num_machines': 3, 'wood_factor': 2.0}
+  p30: {'size': 17, 'num_machines': 3, 'wood_factor': 2.0}
+
+real	0m7.295s
+user	0m5.281s
+sys	0m2.980s

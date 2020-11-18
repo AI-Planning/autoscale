@@ -1,0 +1,95 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-11-17 22:43:51,297 INFO     No run directory, so we will not run anything
+2020-11-17 22:43:51,833 INFO     Loading cache data for baseline planners: 214
+2020-11-17 22:43:51,834 INFO     Loading cache data for sart planners: 305
+2020-11-17 22:43:51,834 INFO     Stored sequences: 4890
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'curbs': 16, 'cars': 28}, so I consider it unsolved within the time and memory limits
+2020-11-17 22:43:52,420 INFO     Different evaluated sequences: 50
+cars_diff 0 11 3
+cars_diff -1 16 3
+cars_diff -2 23 1
+2020-11-17 22:43:52,421 INFO     Candidate sequences: 7
+2020-11-17 22:43:52,421 INFO     Using sart runtimes on CPLEX optimization
+2020-11-17 22:43:52,442 INFO     CPLEX solve
+
+2020-11-17 22:43:52,456 INFO     Solution status = 101: MIP_optimal
+2020-11-17 22:43:52,456 INFO     Solution value  = 112.94758452743716
+Selected: sequence 45, 8 instances from 0 to 7
+Configuration: {'cars_diff': 0, 'curbs_b': 4, 'curbs_m': 1.1744264154521462}
+Penalty: 16.00
+Estimated runtimes: 0.66, 1.3, 3, 6.5, 1.2e+02, 1.2e+03, 1.2e+04, 1.2e+05, 1.1e+06, 1.1e+07, 1.1e+08, 1.1e+09, 1.1e+10, 1.1e+11, 1.1e+12, 1.1e+13, 1.1e+14, 1.1e+15, 1.1e+16, 1.1e+17, 1.1e+18, 1.1e+19, 1.1e+20, 1.1e+21, 1.1e+22, 1.1e+23, 1.1e+24, 1.1e+25, 1.1e+26, 1.1e+27
+Selected: sequence 8, 11 instances from 0 to 10
+Configuration: {'cars_diff': -1, 'curbs_b': 3, 'curbs_m': 1.289264669215296}
+Penalty: 12.95
+Estimated runtimes: 0.5, 0.61, 0.79, 1.7, 10, 61, 1.7e+02, 8.3e+02, 4.1e+03, 2e+04, 9.8e+04, 4.8e+05, 2.3e+06, 1.1e+07, 5.6e+07, 2.7e+08, 1.3e+09, 6.6e+09, 3.2e+10, 1.6e+11, 7.7e+11, 3.8e+12, 1.8e+13, 9.1e+13, 4.4e+14, 2.2e+15, 1.1e+16, 5.2e+16, 2.5e+17, 1.2e+18
+Selected: sequence 2, 11 instances from 0 to 10
+Configuration: {'cars_diff': -2, 'curbs_b': 3, 'curbs_m': 1.011166216674411}
+Penalty: 16.00
+Estimated runtimes: 0.47, 0.53, 0.69, 1.1, 2.1, 6.2, 69, 1.6e+02, 1.1e+03, 7.6e+03, 5.2e+04, 3.5e+05, 2.4e+06, 1.6e+07, 1.1e+08, 7.5e+08, 5.1e+09, 3.5e+10, 2.4e+11, 1.6e+12, 1.1e+13, 7.5e+13, 5.1e+14, 3.5e+15, 2.4e+16, 1.6e+17, 1.1e+18, 7.4e+18, 5.1e+19, 3.4e+20
+  p01: {'curbs': 4, 'cars': 6}
+  p02: {'curbs': 5, 'cars': 8}
+  p03: {'curbs': 6, 'cars': 10}
+  p04: {'curbs': 7, 'cars': 12}
+  p05: {'curbs': 8, 'cars': 14}
+  p06: {'curbs': 9, 'cars': 16}
+  p07: {'curbs': 11, 'cars': 20}
+  p08: {'curbs': 12, 'cars': 22}
+  p09: {'curbs': 3, 'cars': 3}
+  p10: {'curbs': 4, 'cars': 5}
+  p11: {'curbs': 5, 'cars': 7}
+  p12: {'curbs': 6, 'cars': 9}
+  p13: {'curbs': 8, 'cars': 13}
+  p14: {'curbs': 9, 'cars': 15}
+  p15: {'curbs': 10, 'cars': 17}
+  p16: {'curbs': 12, 'cars': 21}
+  p17: {'curbs': 13, 'cars': 23}
+  p18: {'curbs': 14, 'cars': 25}
+  p19: {'curbs': 15, 'cars': 27}
+  p20: {'curbs': 3, 'cars': 2}
+  p21: {'curbs': 4, 'cars': 4}
+  p22: {'curbs': 5, 'cars': 6}
+  p23: {'curbs': 6, 'cars': 8}
+  p24: {'curbs': 7, 'cars': 10}
+  p25: {'curbs': 8, 'cars': 12}
+  p26: {'curbs': 9, 'cars': 14}
+  p27: {'curbs': 10, 'cars': 16}
+  p28: {'curbs': 11, 'cars': 18}
+  p29: {'curbs': 12, 'cars': 20}
+  p30: {'curbs': 13, 'cars': 22}
+
+real	0m6.153s
+user	0m4.304s
+sys	0m2.784s

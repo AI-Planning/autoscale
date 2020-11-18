@@ -1,0 +1,64 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-11-17 22:58:22,809 INFO     No run directory, so we will not run anything
+2020-11-17 22:58:23,584 INFO     Loading cache data for baseline planners: 2109
+2020-11-17 22:58:23,587 INFO     Loading cache data for sart planners: 4142
+2020-11-17 22:58:23,593 INFO     Stored sequences: 3534
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 8, 'markets': 2, 'trucks': 2, 'depots': 1, 'goods': 9}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 14, 'markets': 1, 'trucks': 2, 'depots': 46, 'goods': 3}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 10, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 10}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 2, 'trucks': 2, 'depots': 12, 'goods': 3}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 6, 'markets': 2, 'trucks': 2, 'depots': 1, 'goods': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 7, 'markets': 1, 'trucks': 5, 'depots': 16, 'goods': 3}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 6, 'markets': 1, 'trucks': 6, 'depots': 5, 'goods': 3}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 15, 'markets': 1, 'trucks': 2, 'depots': 11, 'goods': 3}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 15, 'markets': 1, 'trucks': 2, 'depots': 6, 'goods': 3}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 11, 'markets': 3, 'trucks': 2, 'depots': 3, 'goods': 3}, so I consider it unsolved within the time and memory limits
+2020-11-17 22:58:24,290 INFO     Different evaluated sequences: 514
+2020-11-17 22:58:24,419 INFO     Candidate sequences: 100
+2020-11-17 22:58:24,419 INFO     Using sart runtimes on CPLEX optimization
+2020-11-17 22:58:24,592 INFO     CPLEX solve
+
+2020-11-17 22:58:24,722 INFO     Solution status = 101: MIP_optimal
+2020-11-17 22:58:24,722 INFO     Solution value  = 11.91827502597927
+Selected: sequence 512, 19 instances from 0 to 18
+Configuration: {'depots_b': 1, 'depots_m': 0.6966888453587631, 'depots_optional_m': 'true', 'goods_b': 3, 'goods_m': 0.047271010146556366, 'markets_b': 1, 'markets_m': 0.5370971690709196, 'markets_optional_m': 'true', 'products_b': 2, 'products_m': 1.1415375909530447, 'trucks_b': 2, 'trucks_m': 3.999289272561654, 'trucks_optional_m': 'true'}
+Penalty: 3.92
+Estimated runtimes: 1.1, 1.2, 1.4, 1.6, 1.7, 2.3, 2.4, 4, 6.6, 7.3, 18, 66, 1.5e+02, 4.2e+02, 1.2e+03, 3.3e+03, 9.4e+03, 2.6e+04, 7.4e+04, 2.1e+05, 5.8e+05, 1.6e+06, 4.6e+06, 1.3e+07, 3.6e+07, 1e+08, 2.8e+08, 8e+08, 2.2e+09, 6.3e+09
+Selected: sequence 216, 11 instances from 13 to 23
+Configuration: {'depots_b': 3, 'depots_m': 2.1274553707552006, 'depots_optional_m': 'false', 'goods_b': 3, 'goods_m': 0.07152859589532232, 'markets_b': 1, 'markets_m': 3.000093288619053, 'markets_optional_m': 'true', 'products_b': 2, 'products_m': 1.0022427670019207, 'trucks_b': 2, 'trucks_m': 1.3195647446032353, 'trucks_optional_m': 'true'}
+Penalty: 8.00
+Estimated runtimes: 89, 1.8e+02, 3.7e+02, 7.4e+02, 1.5e+03, 3.1e+03, 6.2e+03, 1.3e+04, 2.6e+04, 5.2e+04, 1.1e+05, 2.1e+05, 4.3e+05, 8.8e+05, 1.8e+06, 3.6e+06, 7.4e+06
+  p01: {'products': 2, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 3}
+  p02: {'products': 3, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 3}
+  p03: {'products': 4, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 3}
+  p04: {'products': 5, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 3}
+  p05: {'products': 6, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 3}
+  p06: {'products': 7, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 3}
+  p07: {'products': 8, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 3}
+  p08: {'products': 9, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 3}
+  p09: {'products': 11, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 3}
+  p10: {'products': 12, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 3}
+  p11: {'products': 13, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 3}
+  p12: {'products': 14, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 3}
+  p13: {'products': 15, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 3}
+  p14: {'products': 16, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 3}
+  p15: {'products': 17, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 3}
+  p16: {'products': 19, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 3}
+  p17: {'products': 20, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 3}
+  p18: {'products': 21, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 3}
+  p19: {'products': 22, 'markets': 1, 'trucks': 2, 'depots': 1, 'goods': 3}
+  p20: {'products': 15, 'markets': 1, 'trucks': 2, 'depots': 30, 'goods': 3}
+  p21: {'products': 16, 'markets': 1, 'trucks': 2, 'depots': 32, 'goods': 4}
+  p22: {'products': 17, 'markets': 1, 'trucks': 2, 'depots': 34, 'goods': 4}
+  p23: {'products': 18, 'markets': 1, 'trucks': 2, 'depots': 37, 'goods': 4}
+  p24: {'products': 19, 'markets': 1, 'trucks': 2, 'depots': 39, 'goods': 4}
+  p25: {'products': 20, 'markets': 1, 'trucks': 2, 'depots': 41, 'goods': 4}
+  p26: {'products': 21, 'markets': 1, 'trucks': 2, 'depots': 43, 'goods': 4}
+  p27: {'products': 22, 'markets': 1, 'trucks': 2, 'depots': 45, 'goods': 4}
+  p28: {'products': 23, 'markets': 1, 'trucks': 2, 'depots': 47, 'goods': 4}
+  p29: {'products': 24, 'markets': 1, 'trucks': 2, 'depots': 49, 'goods': 4}
+  p30: {'products': 25, 'markets': 1, 'trucks': 2, 'depots': 51, 'goods': 4}
+
+real	0m5.057s
+user	0m2.866s
+sys	0m3.302s

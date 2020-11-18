@@ -1,0 +1,54 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-11-17 19:19:45,710 INFO     No run directory, so we will not run anything
+2020-11-17 19:19:46,850 INFO     Loading cache data for baseline planners: 1071
+2020-11-17 19:19:46,851 INFO     Loading cache data for sart planners: 1168
+2020-11-17 19:19:46,853 INFO     Stored sequences: 6461
+2020-11-17 19:19:50,212 INFO     Different evaluated sequences: 625
+2020-11-17 19:19:50,770 INFO     Candidate sequences: 100
+2020-11-17 19:19:50,771 INFO     Using sart runtimes on CPLEX optimization
+2020-11-17 19:19:51,060 INFO     CPLEX solve
+
+2020-11-17 19:19:51,225 INFO     Solution status = 101: MIP_optimal
+2020-11-17 19:19:51,225 INFO     Solution value  = 0.0
+Selected: sequence 1, 11 instances from 12 to 22
+Configuration: {'n_cars_b': 1, 'n_cars_m': 1.4797047628584667, 'n_cars_optional_m': 'true', 'n_couples_b': 2, 'n_couples_m': 3.4912618082961258, 'n_couples_optional_m': 'true', 'n_places_b': 4, 'n_places_m': 0.5369583070725836}
+Penalty: 0.00
+Estimated runtimes: 2.8e+02, 4.3e+02, 6.8e+02, 1.1e+03, 1.7e+03, 2.6e+03, 4.2e+03, 6.5e+03, 1e+04, 1.6e+04, 2.5e+04, 4e+04, 6.3e+04, 9.8e+04, 1.5e+05, 2.4e+05, 3.8e+05, 6e+05
+Selected: sequence 433, 19 instances from 3 to 21
+Configuration: {'n_cars_b': 1, 'n_cars_m': 0.21898990528424175, 'n_cars_optional_m': 'false', 'n_couples_b': 2, 'n_couples_m': 3.865348387812207, 'n_couples_optional_m': 'true', 'n_places_b': 3, 'n_places_m': 0.5645145357578462}
+Penalty: 0.00
+Estimated runtimes: 2.6, 3.7, 5.9, 8.9, 12, 17, 24, 40, 57, 94, 1.8e+02, 3.4e+02, 6.6e+02, 1.3e+03, 2.4e+03, 4.6e+03, 8.7e+03, 1.7e+04, 3.2e+04, 6.1e+04, 1.2e+05, 2.2e+05, 4.2e+05, 8e+05, 1.5e+06, 2.9e+06, 5.6e+06
+  p01: {'n_couples': 2, 'n_places': 16, 'n_cars': 3}
+  p02: {'n_couples': 2, 'n_places': 17, 'n_cars': 3}
+  p03: {'n_couples': 2, 'n_places': 18, 'n_cars': 3}
+  p04: {'n_couples': 2, 'n_places': 19, 'n_cars': 3}
+  p05: {'n_couples': 2, 'n_places': 20, 'n_cars': 3}
+  p06: {'n_couples': 2, 'n_places': 21, 'n_cars': 3}
+  p07: {'n_couples': 2, 'n_places': 22, 'n_cars': 3}
+  p08: {'n_couples': 2, 'n_places': 23, 'n_cars': 3}
+  p09: {'n_couples': 2, 'n_places': 24, 'n_cars': 3}
+  p10: {'n_couples': 2, 'n_places': 25, 'n_cars': 3}
+  p11: {'n_couples': 2, 'n_places': 26, 'n_cars': 3}
+  p12: {'n_couples': 2, 'n_places': 5, 'n_cars': 4}
+  p13: {'n_couples': 2, 'n_places': 6, 'n_cars': 4}
+  p14: {'n_couples': 2, 'n_places': 7, 'n_cars': 4}
+  p15: {'n_couples': 2, 'n_places': 8, 'n_cars': 4}
+  p16: {'n_couples': 2, 'n_places': 8, 'n_cars': 5}
+  p17: {'n_couples': 2, 'n_places': 9, 'n_cars': 5}
+  p18: {'n_couples': 2, 'n_places': 10, 'n_cars': 5}
+  p19: {'n_couples': 2, 'n_places': 10, 'n_cars': 6}
+  p20: {'n_couples': 2, 'n_places': 11, 'n_cars': 6}
+  p21: {'n_couples': 2, 'n_places': 12, 'n_cars': 6}
+  p22: {'n_couples': 2, 'n_places': 13, 'n_cars': 6}
+  p23: {'n_couples': 2, 'n_places': 13, 'n_cars': 7}
+  p24: {'n_couples': 2, 'n_places': 14, 'n_cars': 7}
+  p25: {'n_couples': 2, 'n_places': 15, 'n_cars': 7}
+  p26: {'n_couples': 2, 'n_places': 15, 'n_cars': 8}
+  p27: {'n_couples': 2, 'n_places': 16, 'n_cars': 8}
+  p28: {'n_couples': 2, 'n_places': 17, 'n_cars': 8}
+  p29: {'n_couples': 2, 'n_places': 18, 'n_cars': 8}
+  p30: {'n_couples': 2, 'n_places': 18, 'n_cars': 9}
+
+real	0m14.055s
+user	0m10.357s
+sys	0m4.574s

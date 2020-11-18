@@ -1,0 +1,179 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-11-17 23:05:14,131 INFO     No run directory, so we will not run anything
+2020-11-17 23:05:14,654 INFO     Loading cache data for baseline planners: 2747
+2020-11-17 23:05:14,658 INFO     Loading cache data for sart planners: 7316
+2020-11-17 23:05:14,669 INFO     Stored sequences: 629
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 14, 'extra_scripts': 34, 'items': 16, 'scripts': 48}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 27, 'extra_scripts': 73, 'items': 29, 'scripts': 100}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 30, 'extra_scripts': 76, 'items': 32, 'scripts': 106}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 15, 'extra_scripts': 53, 'items': 17, 'scripts': 68}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 22, 'extra_scripts': 11, 'items': 24, 'scripts': 33}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 15, 'extra_scripts': 46, 'items': 17, 'scripts': 61}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 25, 'extra_scripts': 53, 'items': 27, 'scripts': 78}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 26, 'extra_scripts': 47, 'items': 28, 'scripts': 73}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 14, 'extra_scripts': 17, 'items': 16, 'scripts': 31}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 17, 'extra_scripts': 35, 'items': 19, 'scripts': 52}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 26, 'extra_scripts': 24, 'items': 28, 'scripts': 50}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 13, 'extra_scripts': 40, 'items': 15, 'scripts': 53}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 29, 'extra_scripts': 84, 'items': 31, 'scripts': 113}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 15, 'extra_scripts': 38, 'items': 17, 'scripts': 53}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 28, 'extra_scripts': 83, 'items': 30, 'scripts': 111}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 19, 'extra_scripts': 47, 'items': 21, 'scripts': 66}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 14, 'extra_scripts': 56, 'items': 16, 'scripts': 70}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 22, 'extra_scripts': 76, 'items': 24, 'scripts': 98}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 30, 'extra_scripts': 76, 'items': 32, 'scripts': 106}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 27, 'extra_scripts': 94, 'items': 29, 'scripts': 121}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 14, 'extra_scripts': 11, 'items': 16, 'scripts': 25}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 30, 'extra_scripts': 76, 'items': 32, 'scripts': 106}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 24, 'extra_scripts': 50, 'items': 26, 'scripts': 74}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 27, 'extra_scripts': 80, 'items': 29, 'scripts': 107}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 29, 'extra_scripts': 88, 'items': 31, 'scripts': 117}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 21, 'extra_scripts': 73, 'items': 23, 'scripts': 94}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 14, 'extra_scripts': 56, 'items': 16, 'scripts': 70}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 22, 'extra_scripts': 37, 'items': 24, 'scripts': 59}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 28, 'extra_scripts': 70, 'items': 30, 'scripts': 98}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 28, 'extra_scripts': 75, 'items': 30, 'scripts': 103}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 19, 'extra_scripts': 36, 'items': 21, 'scripts': 55}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 24, 'extra_scripts': 42, 'items': 26, 'scripts': 66}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 21, 'extra_scripts': 25, 'items': 23, 'scripts': 46}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'tiny-network', 'layers': 4, 'extra_items': 3, 'extra_scripts': 2, 'items': 7, 'scripts': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 16, 'extra_scripts': 29, 'items': 18, 'scripts': 45}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 13, 'extra_scripts': 52, 'items': 15, 'scripts': 65}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 21, 'extra_scripts': 73, 'items': 23, 'scripts': 94}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 30, 'extra_scripts': 76, 'items': 32, 'scripts': 106}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 18, 'extra_scripts': 29, 'items': 20, 'scripts': 47}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'small-network', 'layers': 3, 'extra_items': 12, 'extra_scripts': 21, 'items': 15, 'scripts': 34}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 3, 'extra_items': 25, 'extra_scripts': 35, 'items': 28, 'scripts': 61}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 15, 'extra_scripts': 53, 'items': 17, 'scripts': 68}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 22, 'extra_scripts': 68, 'items': 24, 'scripts': 90}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 15, 'extra_scripts': 53, 'items': 17, 'scripts': 68}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 28, 'extra_scripts': 70, 'items': 30, 'scripts': 98}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 3, 'extra_items': 26, 'extra_scripts': 76, 'items': 29, 'scripts': 103}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 30, 'extra_scripts': 76, 'items': 32, 'scripts': 106}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 15, 'extra_scripts': 53, 'items': 17, 'scripts': 68}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 3, 'extra_items': 35, 'extra_scripts': 94, 'items': 38, 'scripts': 130}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 17, 'extra_scripts': 15, 'items': 19, 'scripts': 32}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 14, 'extra_scripts': 43, 'items': 16, 'scripts': 57}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 14, 'extra_scripts': 43, 'items': 16, 'scripts': 57}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 19, 'extra_scripts': 40, 'items': 21, 'scripts': 59}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 16, 'extra_scripts': 37, 'items': 18, 'scripts': 53}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 22, 'extra_scripts': 38, 'items': 24, 'scripts': 60}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 31, 'extra_scripts': 90, 'items': 33, 'scripts': 121}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 15, 'extra_scripts': 53, 'items': 17, 'scripts': 68}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 37, 'extra_scripts': 116, 'items': 39, 'scripts': 153}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 15, 'extra_scripts': 53, 'items': 17, 'scripts': 68}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 3, 'extra_items': 35, 'extra_scripts': 94, 'items': 38, 'scripts': 130}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 19, 'extra_scripts': 32, 'items': 21, 'scripts': 51}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 3, 'extra_items': 23, 'extra_scripts': 67, 'items': 26, 'scripts': 91}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 15, 'extra_scripts': 53, 'items': 17, 'scripts': 68}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 3, 'extra_items': 35, 'extra_scripts': 94, 'items': 38, 'scripts': 130}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 20, 'extra_scripts': 10, 'items': 22, 'scripts': 30}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 18, 'extra_scripts': 26, 'items': 20, 'scripts': 44}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 3, 'extra_items': 12, 'extra_scripts': 2, 'items': 15, 'scripts': 15}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 3, 'extra_items': 22, 'extra_scripts': 3, 'items': 25, 'scripts': 26}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 14, 'extra_scripts': 54, 'items': 16, 'scripts': 68}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 26, 'extra_scripts': 85, 'items': 28, 'scripts': 111}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 26, 'extra_scripts': 93, 'items': 28, 'scripts': 119}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 30, 'extra_scripts': 76, 'items': 32, 'scripts': 106}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 30, 'extra_scripts': 76, 'items': 32, 'scripts': 106}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 33, 'extra_scripts': 91, 'items': 35, 'scripts': 124}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 28, 'extra_scripts': 79, 'items': 30, 'scripts': 107}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 15, 'extra_scripts': 53, 'items': 17, 'scripts': 68}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 34, 'extra_scripts': 104, 'items': 36, 'scripts': 138}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 18, 'extra_scripts': 18, 'items': 20, 'scripts': 36}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 12, 'extra_scripts': 14, 'items': 14, 'scripts': 26}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 3, 'extra_items': 35, 'extra_scripts': 94, 'items': 38, 'scripts': 130}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 15, 'extra_scripts': 53, 'items': 17, 'scripts': 68}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 28, 'extra_scripts': 83, 'items': 30, 'scripts': 111}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'tiny-network', 'layers': 4, 'extra_items': 3, 'extra_scripts': 2, 'items': 7, 'scripts': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'tiny-network', 'layers': 4, 'extra_items': 6, 'extra_scripts': 2, 'items': 10, 'scripts': 10}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'small-network', 'layers': 4, 'extra_items': 24, 'extra_scripts': 43, 'items': 28, 'scripts': 69}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 3, 'extra_items': 11, 'extra_scripts': 3, 'items': 14, 'scripts': 15}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 24, 'extra_scripts': 104, 'items': 26, 'scripts': 128}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 22, 'extra_scripts': 38, 'items': 24, 'scripts': 60}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 23, 'extra_scripts': 35, 'items': 25, 'scripts': 58}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 26, 'extra_scripts': 78, 'items': 28, 'scripts': 104}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 4, 'extra_items': 8, 'extra_scripts': 2, 'items': 12, 'scripts': 12}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 30, 'extra_scripts': 76, 'items': 32, 'scripts': 106}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 4, 'extra_items': 8, 'extra_scripts': 2, 'items': 12, 'scripts': 12}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 27, 'extra_scripts': 74, 'items': 29, 'scripts': 101}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 17, 'extra_scripts': 34, 'items': 19, 'scripts': 51}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 15, 'extra_scripts': 6, 'items': 17, 'scripts': 21}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 25, 'extra_scripts': 49, 'items': 27, 'scripts': 74}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'small-network', 'layers': 3, 'extra_items': 35, 'extra_scripts': 61, 'items': 38, 'scripts': 97}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 14, 'extra_scripts': 45, 'items': 16, 'scripts': 59}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 15, 'extra_scripts': 21, 'items': 17, 'scripts': 36}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 3, 'extra_items': 22, 'extra_scripts': 72, 'items': 25, 'scripts': 95}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'small-network', 'layers': 6, 'extra_items': 5, 'extra_scripts': 6, 'items': 11, 'scripts': 15}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 12, 'extra_scripts': 40, 'items': 14, 'scripts': 52}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 19, 'extra_scripts': 77, 'items': 21, 'scripts': 96}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 26, 'extra_scripts': 78, 'items': 28, 'scripts': 104}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 14, 'extra_scripts': 32, 'items': 16, 'scripts': 46}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'small-network', 'layers': 5, 'extra_items': 6, 'extra_scripts': 5, 'items': 11, 'scripts': 14}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 30, 'extra_scripts': 76, 'items': 32, 'scripts': 106}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 28, 'extra_scripts': 75, 'items': 30, 'scripts': 103}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'tiny-network', 'layers': 4, 'extra_items': 5, 'extra_scripts': 7, 'items': 9, 'scripts': 14}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 15, 'extra_scripts': 53, 'items': 17, 'scripts': 68}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 15, 'extra_scripts': 53, 'items': 17, 'scripts': 68}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 31, 'extra_scripts': 90, 'items': 33, 'scripts': 121}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 24, 'extra_scripts': 13, 'items': 26, 'scripts': 37}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 15, 'extra_scripts': 27, 'items': 17, 'scripts': 42}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 32, 'extra_scripts': 103, 'items': 34, 'scripts': 135}, so I consider it unsolved within the time and memory limits
+2020-11-17 23:05:14,799 INFO     Different evaluated sequences: 493
+network tiny-network 19 19
+network small-network 38 37
+network ring-network 428 100
+layers 2 346 100
+layers 3 73 59
+layers 4 29 27
+layers 5 16 16
+layers 6 21 20
+2020-11-17 23:05:15,649 INFO     Candidate sequences: 223
+2020-11-17 23:05:15,651 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 1 use baseline 222 use sart
+2020-11-17 23:05:15,651 INFO     Using sart runtimes on CPLEX optimization
+2020-11-17 23:05:16,645 INFO     CPLEX solve
+
+2020-11-17 23:05:16,999 INFO     Solution status = 101: MIP_optimal
+2020-11-17 23:05:16,999 INFO     Solution value  = 4.388536025603322
+Selected: sequence 175, 18 instances from 2 to 19
+Configuration: {'extra_items_b': 3, 'extra_items_m': 1.7001257026229992, 'extra_scripts_b': 3, 'extra_scripts_m': 4.615094770920852, 'layers': 2, 'network': 'ring-network'}
+Penalty: 0.00
+Estimated runtimes: 1.5, 2.5, 2.6, 3.7, 4.1, 4.4, 4.7, 5.2, 5.9, 6.2, 11, 14, 20, 27, 1.8e+02, 1.2e+03, 7.8e+03, 5.2e+04, 3.4e+05, 2.2e+06, 1.5e+07, 9.8e+07, 6.4e+08, 4.2e+09, 2.8e+10, 1.8e+11, 1.2e+12, 8e+12
+Selected: sequence 90, 12 instances from 15 to 26
+Configuration: {'extra_items_b': 2, 'extra_items_m': 1.6714092538154963, 'extra_scripts_b': 2, 'extra_scripts_m': 4.6358516156198535, 'layers': 2, 'network': 'ring-network'}
+Penalty: 2.39
+Estimated runtimes: 40, 90, 1.8e+02, 3.6e+02, 7.3e+02, 1.5e+03, 2.9e+03, 5.9e+03, 1.2e+04, 2.4e+04, 4.8e+04, 9.7e+04, 1.9e+05, 3.9e+05, 7.9e+05
+  p01: {'network': 'ring-network', 'layers': 2, 'extra_items': 6, 'extra_scripts': 12, 'items': 8, 'scripts': 18}
+  p02: {'network': 'ring-network', 'layers': 2, 'extra_items': 8, 'extra_scripts': 16, 'items': 10, 'scripts': 24}
+  p03: {'network': 'ring-network', 'layers': 2, 'extra_items': 9, 'extra_scripts': 21, 'items': 11, 'scripts': 30}
+  p04: {'network': 'ring-network', 'layers': 2, 'extra_items': 11, 'extra_scripts': 26, 'items': 13, 'scripts': 37}
+  p05: {'network': 'ring-network', 'layers': 2, 'extra_items': 13, 'extra_scripts': 30, 'items': 15, 'scripts': 43}
+  p06: {'network': 'ring-network', 'layers': 2, 'extra_items': 14, 'extra_scripts': 35, 'items': 16, 'scripts': 49}
+  p07: {'network': 'ring-network', 'layers': 2, 'extra_items': 16, 'extra_scripts': 39, 'items': 18, 'scripts': 55}
+  p08: {'network': 'ring-network', 'layers': 2, 'extra_items': 18, 'extra_scripts': 44, 'items': 20, 'scripts': 62}
+  p09: {'network': 'ring-network', 'layers': 2, 'extra_items': 20, 'extra_scripts': 49, 'items': 22, 'scripts': 69}
+  p10: {'network': 'ring-network', 'layers': 2, 'extra_items': 21, 'extra_scripts': 53, 'items': 23, 'scripts': 74}
+  p11: {'network': 'ring-network', 'layers': 2, 'extra_items': 23, 'extra_scripts': 58, 'items': 25, 'scripts': 81}
+  p12: {'network': 'ring-network', 'layers': 2, 'extra_items': 25, 'extra_scripts': 62, 'items': 27, 'scripts': 87}
+  p13: {'network': 'ring-network', 'layers': 2, 'extra_items': 26, 'extra_scripts': 67, 'items': 28, 'scripts': 93}
+  p14: {'network': 'ring-network', 'layers': 2, 'extra_items': 28, 'extra_scripts': 72, 'items': 30, 'scripts': 100}
+  p15: {'network': 'ring-network', 'layers': 2, 'extra_items': 30, 'extra_scripts': 76, 'items': 32, 'scripts': 106}
+  p16: {'network': 'ring-network', 'layers': 2, 'extra_items': 31, 'extra_scripts': 81, 'items': 33, 'scripts': 112}
+  p17: {'network': 'ring-network', 'layers': 2, 'extra_items': 33, 'extra_scripts': 86, 'items': 35, 'scripts': 119}
+  p18: {'network': 'ring-network', 'layers': 2, 'extra_items': 35, 'extra_scripts': 90, 'items': 37, 'scripts': 125}
+  p19: {'network': 'ring-network', 'layers': 2, 'extra_items': 27, 'extra_scripts': 71, 'items': 29, 'scripts': 98}
+  p20: {'network': 'ring-network', 'layers': 2, 'extra_items': 28, 'extra_scripts': 76, 'items': 30, 'scripts': 104}
+  p21: {'network': 'ring-network', 'layers': 2, 'extra_items': 30, 'extra_scripts': 80, 'items': 32, 'scripts': 110}
+  p22: {'network': 'ring-network', 'layers': 2, 'extra_items': 32, 'extra_scripts': 85, 'items': 34, 'scripts': 117}
+  p23: {'network': 'ring-network', 'layers': 2, 'extra_items': 33, 'extra_scripts': 90, 'items': 35, 'scripts': 123}
+  p24: {'network': 'ring-network', 'layers': 2, 'extra_items': 35, 'extra_scripts': 94, 'items': 37, 'scripts': 129}
+  p25: {'network': 'ring-network', 'layers': 2, 'extra_items': 37, 'extra_scripts': 99, 'items': 39, 'scripts': 136}
+  p26: {'network': 'ring-network', 'layers': 2, 'extra_items': 38, 'extra_scripts': 103, 'items': 40, 'scripts': 141}
+  p27: {'network': 'ring-network', 'layers': 2, 'extra_items': 40, 'extra_scripts': 108, 'items': 42, 'scripts': 148}
+  p28: {'network': 'ring-network', 'layers': 2, 'extra_items': 42, 'extra_scripts': 113, 'items': 44, 'scripts': 155}
+  p29: {'network': 'ring-network', 'layers': 2, 'extra_items': 43, 'extra_scripts': 117, 'items': 45, 'scripts': 160}
+  p30: {'network': 'ring-network', 'layers': 2, 'extra_items': 45, 'extra_scripts': 122, 'items': 47, 'scripts': 167}
+
+real	0m51.938s
+user	1m33.396s
+sys	3m41.100s

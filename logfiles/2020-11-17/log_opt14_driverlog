@@ -1,0 +1,59 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-11-17 19:16:24,410 INFO     No run directory, so we will not run anything
+2020-11-17 19:16:25,199 INFO     Loading cache data for baseline planners: 1860
+2020-11-17 19:16:25,201 INFO     Loading cache data for sart planners: 6935
+2020-11-17 19:16:25,208 INFO     Stored sequences: 7495
+2020-11-17 19:16:26,773 INFO     Different evaluated sequences: 3379
+2020-11-17 19:16:27,999 INFO     Candidate sequences: 100
+2020-11-17 19:16:28,000 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 2 use baseline 98 use sart
+2020-11-17 19:16:28,005 INFO     Using sart runtimes on CPLEX optimization
+2020-11-17 19:16:28,170 INFO     CPLEX solve
+
+2020-11-17 19:16:28,293 INFO     Solution status = 101: MIP_optimal
+2020-11-17 19:16:28,294 INFO     Solution value  = 0.999999999999999
+Selected: sequence 2558, 10 instances from 20 to 29
+Configuration: {'drivers_b': 2, 'drivers_m': 0.028259490244428392, 'drivers_optional_m': 'true', 'packages_b': 4, 'packages_m': 1.6420260277114362, 'roadjunctions_b': 2, 'roadjunctions_m': 0.3527420807228668, 'roadjunctions_optional_m': 'true', 'trucks_b': 1, 'trucks_optional_m': 'false'}
+Penalty: 0.00
+Estimated runtimes: 1.7e+02, 3.2e+02, 6e+02, 1.1e+03, 2.1e+03, 3.9e+03, 7.2e+03, 1.3e+04, 2.5e+04, 4.7e+04
+Selected: sequence 2565, 14 instances from 2 to 15
+Configuration: {'drivers_b': 2, 'drivers_m': 0.14778278921078392, 'drivers_optional_m': 'true', 'packages_b': 7, 'packages_m': 1.2189324337152232, 'roadjunctions_b': 2, 'roadjunctions_m': 0.13433162352226394, 'roadjunctions_optional_m': 'false', 'trucks_b': 0, 'trucks_optional_m': 'true'}
+Penalty: 0.00
+Estimated runtimes: 1.1, 1.1, 1.1, 1.2, 1.2, 1.4, 13, 16, 39, 1.4e+02, 5.6e+02, 2.3e+03, 9.6e+03, 4e+04, 1.6e+05, 6.8e+05, 2.8e+06, 1.2e+07, 4.8e+07, 2e+08, 8.1e+08, 3.3e+09, 1.4e+10, 5.7e+10, 2.4e+11, 9.7e+11, 4e+12, 1.7e+13
+Selected: sequence 2218, 6 instances from 21 to 26
+Configuration: {'drivers_b': 1, 'drivers_m': 0.09697747207908276, 'drivers_optional_m': 'false', 'packages_b': 7, 'packages_m': 1.991155968237461, 'roadjunctions_b': 2, 'roadjunctions_m': 0.15680090259424523, 'roadjunctions_optional_m': 'true', 'trucks_b': 0, 'trucks_optional_m': 'false'}
+Penalty: 1.00
+Estimated runtimes: 1.8e+02, 7.1e+02, 2.8e+03, 1.1e+04, 4.3e+04, 1.7e+05, 6.7e+05, 2.6e+06, 1e+07
+  p01: {'drivers': 2, 'packages': 36, 'roadjunctions': 2, 'trucks': 3}
+  p02: {'drivers': 2, 'packages': 38, 'roadjunctions': 2, 'trucks': 3}
+  p03: {'drivers': 2, 'packages': 40, 'roadjunctions': 2, 'trucks': 3}
+  p04: {'drivers': 2, 'packages': 41, 'roadjunctions': 2, 'trucks': 3}
+  p05: {'drivers': 2, 'packages': 43, 'roadjunctions': 2, 'trucks': 3}
+  p06: {'drivers': 2, 'packages': 45, 'roadjunctions': 2, 'trucks': 3}
+  p07: {'drivers': 2, 'packages': 46, 'roadjunctions': 2, 'trucks': 3}
+  p08: {'drivers': 2, 'packages': 48, 'roadjunctions': 2, 'trucks': 3}
+  p09: {'drivers': 2, 'packages': 49, 'roadjunctions': 2, 'trucks': 3}
+  p10: {'drivers': 2, 'packages': 51, 'roadjunctions': 2, 'trucks': 3}
+  p11: {'drivers': 2, 'packages': 9, 'roadjunctions': 2, 'trucks': 2}
+  p12: {'drivers': 2, 'packages': 10, 'roadjunctions': 2, 'trucks': 2}
+  p13: {'drivers': 2, 'packages': 11, 'roadjunctions': 2, 'trucks': 2}
+  p14: {'drivers': 2, 'packages': 13, 'roadjunctions': 2, 'trucks': 2}
+  p15: {'drivers': 2, 'packages': 14, 'roadjunctions': 2, 'trucks': 2}
+  p16: {'drivers': 2, 'packages': 15, 'roadjunctions': 2, 'trucks': 2}
+  p17: {'drivers': 2, 'packages': 16, 'roadjunctions': 3, 'trucks': 2}
+  p18: {'drivers': 2, 'packages': 17, 'roadjunctions': 3, 'trucks': 2}
+  p19: {'drivers': 2, 'packages': 19, 'roadjunctions': 3, 'trucks': 2}
+  p20: {'drivers': 2, 'packages': 20, 'roadjunctions': 3, 'trucks': 2}
+  p21: {'drivers': 2, 'packages': 21, 'roadjunctions': 3, 'trucks': 2}
+  p22: {'drivers': 2, 'packages': 22, 'roadjunctions': 3, 'trucks': 2}
+  p23: {'drivers': 2, 'packages': 24, 'roadjunctions': 3, 'trucks': 2}
+  p24: {'drivers': 2, 'packages': 25, 'roadjunctions': 4, 'trucks': 2}
+  p25: {'drivers': 3, 'packages': 48, 'roadjunctions': 2, 'trucks': 3}
+  p26: {'drivers': 3, 'packages': 50, 'roadjunctions': 2, 'trucks': 3}
+  p27: {'drivers': 3, 'packages': 52, 'roadjunctions': 2, 'trucks': 3}
+  p28: {'drivers': 3, 'packages': 54, 'roadjunctions': 2, 'trucks': 3}
+  p29: {'drivers': 3, 'packages': 56, 'roadjunctions': 2, 'trucks': 3}
+  p30: {'drivers': 3, 'packages': 58, 'roadjunctions': 2, 'trucks': 3}
+
+real	0m7.906s
+user	0m5.215s
+sys	0m3.846s

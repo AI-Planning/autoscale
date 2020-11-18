@@ -1,0 +1,55 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-11-17 22:56:01,240 INFO     No run directory, so we will not run anything
+2020-11-17 22:56:02,129 INFO     Loading cache data for baseline planners: 348
+2020-11-17 22:56:02,129 INFO     Loading cache data for sart planners: 505
+2020-11-17 22:56:02,130 INFO     Stored sequences: 8170
+2020-11-17 22:56:03,217 INFO     Different evaluated sequences: 246
+segment_type empty 246 22
+segment_type ab 0 0
+inout none 63 1
+inout both 85 13
+inout in 98 8
+2020-11-17 22:56:03,319 INFO     Candidate sequences: 22
+2020-11-17 22:56:03,319 INFO     Using sart runtimes on CPLEX optimization
+2020-11-17 22:56:03,359 INFO     CPLEX solve
+
+2020-11-17 22:56:03,387 INFO     Solution status = 101: MIP_optimal
+2020-11-17 22:56:03,387 INFO     Solution value  = 4.299917737092508
+Selected: sequence 228, 30 instances from 0 to 29
+Configuration: {'inout': 'in', 'segment_type': 'empty', 'size_b': 2, 'size_m': 1.2271283252919691}
+Penalty: 4.30
+Estimated runtimes: 0.5, 0.56, 0.74, 1.1, 1.8, 5.1, 8.1, 12, 18, 40, 56, 75, 1e+02, 1.4e+02, 2.1e+02, 3.1e+02, 4.8e+02, 7.2e+02, 1.1e+03, 1.7e+03, 2.5e+03, 3.8e+03, 5.8e+03, 8.8e+03, 1.3e+04, 2e+04, 3.1e+04, 4.7e+04, 7.1e+04, 1.1e+05
+  p01: {'segment_type': 'empty', 'inout': 'in', 'size': 2}
+  p02: {'segment_type': 'empty', 'inout': 'in', 'size': 3}
+  p03: {'segment_type': 'empty', 'inout': 'in', 'size': 4}
+  p04: {'segment_type': 'empty', 'inout': 'in', 'size': 5}
+  p05: {'segment_type': 'empty', 'inout': 'in', 'size': 6}
+  p06: {'segment_type': 'empty', 'inout': 'in', 'size': 8}
+  p07: {'segment_type': 'empty', 'inout': 'in', 'size': 9}
+  p08: {'segment_type': 'empty', 'inout': 'in', 'size': 10}
+  p09: {'segment_type': 'empty', 'inout': 'in', 'size': 11}
+  p10: {'segment_type': 'empty', 'inout': 'in', 'size': 13}
+  p11: {'segment_type': 'empty', 'inout': 'in', 'size': 14}
+  p12: {'segment_type': 'empty', 'inout': 'in', 'size': 15}
+  p13: {'segment_type': 'empty', 'inout': 'in', 'size': 16}
+  p14: {'segment_type': 'empty', 'inout': 'in', 'size': 17}
+  p15: {'segment_type': 'empty', 'inout': 'in', 'size': 19}
+  p16: {'segment_type': 'empty', 'inout': 'in', 'size': 20}
+  p17: {'segment_type': 'empty', 'inout': 'in', 'size': 21}
+  p18: {'segment_type': 'empty', 'inout': 'in', 'size': 22}
+  p19: {'segment_type': 'empty', 'inout': 'in', 'size': 24}
+  p20: {'segment_type': 'empty', 'inout': 'in', 'size': 25}
+  p21: {'segment_type': 'empty', 'inout': 'in', 'size': 26}
+  p22: {'segment_type': 'empty', 'inout': 'in', 'size': 27}
+  p23: {'segment_type': 'empty', 'inout': 'in', 'size': 28}
+  p24: {'segment_type': 'empty', 'inout': 'in', 'size': 30}
+  p25: {'segment_type': 'empty', 'inout': 'in', 'size': 31}
+  p26: {'segment_type': 'empty', 'inout': 'in', 'size': 32}
+  p27: {'segment_type': 'empty', 'inout': 'in', 'size': 33}
+  p28: {'segment_type': 'empty', 'inout': 'in', 'size': 35}
+  p29: {'segment_type': 'empty', 'inout': 'in', 'size': 36}
+  p30: {'segment_type': 'empty', 'inout': 'in', 'size': 37}
+
+real	0m11.461s
+user	0m8.361s
+sys	0m4.051s

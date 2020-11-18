@@ -1,0 +1,57 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-11-17 22:58:37,560 INFO     No run directory, so we will not run anything
+2020-11-17 22:58:38,081 INFO     Loading cache data for baseline planners: 1302
+2020-11-17 22:58:38,083 INFO     Loading cache data for sart planners: 2905
+2020-11-17 22:58:38,088 INFO     Stored sequences: 215
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 15, 'markets': 1, 'trucks': 2, 'depots': 6, 'goods': 9}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 8, 'markets': 3, 'trucks': 2, 'depots': 4, 'goods': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 8, 'markets': 3, 'trucks': 4, 'depots': 3, 'goods': 5}, so I consider it unsolved within the time and memory limits
+2020-11-17 22:58:38,135 INFO     Different evaluated sequences: 202
+2020-11-17 22:58:38,222 INFO     Candidate sequences: 100
+2020-11-17 22:58:38,223 INFO     Using sart runtimes on CPLEX optimization
+2020-11-17 22:58:38,375 INFO     CPLEX solve
+
+2020-11-17 22:58:38,479 INFO     Solution status = 101: MIP_optimal
+2020-11-17 22:58:38,480 INFO     Solution value  = 0.0
+Selected: sequence 181, 17 instances from 0 to 16
+Configuration: {'depots_b': 6, 'depots_m': 2.3294549887359595, 'depots_optional_m': 'true', 'goods_b': 3, 'goods_m': 0.9539621098966787, 'markets_b': 1, 'markets_m': 1.1556094617623434, 'markets_optional_m': 'true', 'products_b': 5, 'products_m': 1.4574659066050262, 'trucks_b': 8, 'trucks_m': 2.6658284581872453, 'trucks_optional_m': 'false'}
+Penalty: 0.00
+Estimated runtimes: 1.1, 1.5, 3.4, 7.8, 16, 31, 46, 76, 1.7e+02, 3.2e+02, 6.1e+02, 1.1e+03, 2.2e+03, 4.1e+03, 7.6e+03, 1.4e+04, 2.7e+04, 5.1e+04, 9.6e+04, 1.8e+05, 3.4e+05, 6.4e+05, 1.2e+06, 2.3e+06, 4.2e+06, 8e+06, 1.5e+07, 2.8e+07, 5.3e+07, 1e+08
+Selected: sequence 187, 13 instances from 15 to 27
+Configuration: {'depots_b': 1, 'depots_m': 0.4425171624906269, 'depots_optional_m': 'false', 'goods_b': 3, 'goods_m': 0.7884044310897945, 'markets_b': 7, 'markets_m': 0.3064540093323288, 'markets_optional_m': 'true', 'products_b': 6, 'products_m': 1.1328218474972556, 'trucks_b': 2, 'trucks_m': 0.5350934514317485, 'trucks_optional_m': 'true'}
+Penalty: 0.00
+Estimated runtimes: 2.6e+02, 4.4e+02, 7.3e+02, 1.2e+03, 2e+03, 3.3e+03, 5.5e+03, 9.1e+03, 1.5e+04, 2.5e+04, 4.2e+04, 6.9e+04, 1.1e+05, 1.9e+05, 3.2e+05
+  p01: {'products': 5, 'markets': 1, 'trucks': 8, 'depots': 6, 'goods': 3}
+  p02: {'products': 6, 'markets': 1, 'trucks': 10, 'depots': 6, 'goods': 3}
+  p03: {'products': 7, 'markets': 1, 'trucks': 13, 'depots': 6, 'goods': 4}
+  p04: {'products': 9, 'markets': 1, 'trucks': 15, 'depots': 6, 'goods': 5}
+  p05: {'products': 10, 'markets': 1, 'trucks': 18, 'depots': 6, 'goods': 6}
+  p06: {'products': 12, 'markets': 1, 'trucks': 21, 'depots': 6, 'goods': 7}
+  p07: {'products': 13, 'markets': 1, 'trucks': 23, 'depots': 6, 'goods': 8}
+  p08: {'products': 15, 'markets': 1, 'trucks': 26, 'depots': 6, 'goods': 9}
+  p09: {'products': 16, 'markets': 1, 'trucks': 29, 'depots': 6, 'goods': 10}
+  p10: {'products': 18, 'markets': 1, 'trucks': 31, 'depots': 6, 'goods': 11}
+  p11: {'products': 19, 'markets': 1, 'trucks': 34, 'depots': 6, 'goods': 12}
+  p12: {'products': 21, 'markets': 1, 'trucks': 37, 'depots': 6, 'goods': 13}
+  p13: {'products': 22, 'markets': 1, 'trucks': 39, 'depots': 6, 'goods': 14}
+  p14: {'products': 23, 'markets': 1, 'trucks': 42, 'depots': 6, 'goods': 15}
+  p15: {'products': 25, 'markets': 1, 'trucks': 45, 'depots': 6, 'goods': 16}
+  p16: {'products': 26, 'markets': 1, 'trucks': 47, 'depots': 6, 'goods': 17}
+  p17: {'products': 28, 'markets': 1, 'trucks': 50, 'depots': 6, 'goods': 18}
+  p18: {'products': 22, 'markets': 7, 'trucks': 2, 'depots': 7, 'goods': 14}
+  p19: {'products': 24, 'markets': 7, 'trucks': 2, 'depots': 8, 'goods': 15}
+  p20: {'products': 25, 'markets': 7, 'trucks': 2, 'depots': 8, 'goods': 16}
+  p21: {'products': 26, 'markets': 7, 'trucks': 2, 'depots': 8, 'goods': 17}
+  p22: {'products': 27, 'markets': 7, 'trucks': 2, 'depots': 9, 'goods': 17}
+  p23: {'products': 28, 'markets': 7, 'trucks': 2, 'depots': 9, 'goods': 18}
+  p24: {'products': 29, 'markets': 7, 'trucks': 2, 'depots': 10, 'goods': 19}
+  p25: {'products': 30, 'markets': 7, 'trucks': 2, 'depots': 10, 'goods': 20}
+  p26: {'products': 32, 'markets': 7, 'trucks': 2, 'depots': 11, 'goods': 21}
+  p27: {'products': 33, 'markets': 7, 'trucks': 2, 'depots': 11, 'goods': 21}
+  p28: {'products': 34, 'markets': 7, 'trucks': 2, 'depots': 12, 'goods': 22}
+  p29: {'products': 35, 'markets': 7, 'trucks': 2, 'depots': 12, 'goods': 23}
+  p30: {'products': 36, 'markets': 7, 'trucks': 2, 'depots': 12, 'goods': 24}
+
+real	0m3.294s
+user	0m1.941s
+sys	0m2.453s

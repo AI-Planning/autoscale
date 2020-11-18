@@ -1,0 +1,296 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-11-17 22:44:03,904 INFO     No run directory, so we will not run anything
+2020-11-17 22:44:04,672 INFO     Loading cache data for baseline planners: 6929
+2020-11-17 22:44:04,683 INFO     Loading cache data for sart planners: 10971
+2020-11-17 22:44:04,699 INFO     Stored sequences: 1724
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 10, 'cameras': 6, 'goals': 2, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 7, 'cameras': 5, 'goals': 1, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 11, 'cameras': 2, 'goals': 8, 'waypoints': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 11, 'cameras': 2, 'goals': 10, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 10, 'cameras': 2, 'goals': 6, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 10, 'cameras': 2, 'goals': 7, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 3, 'cameras': 4, 'goals': 2, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 4, 'cameras': 3, 'goals': 4, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 3, 'cameras': 3, 'goals': 6, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 5, 'cameras': 4, 'goals': 3, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 9, 'cameras': 2, 'goals': 15, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 8, 'cameras': 4, 'goals': 3, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 11, 'cameras': 2, 'goals': 8, 'waypoints': 9}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 3, 'cameras': 5, 'goals': 1, 'waypoints': 9}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 13, 'cameras': 2, 'goals': 7, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 2, 'goals': 7, 'waypoints': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 7, 'cameras': 7, 'goals': 2, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 6, 'goals': 2, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 3, 'goals': 4, 'waypoints': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 4, 'cameras': 7, 'goals': 2, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 3, 'cameras': 2, 'goals': 5, 'waypoints': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 3, 'cameras': 4, 'goals': 2, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 9, 'goals': 3, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 8, 'goals': 3, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 9, 'goals': 4, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 3, 'cameras': 2, 'goals': 4, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 3, 'cameras': 2, 'goals': 4, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 9, 'cameras': 1, 'goals': 4, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 10, 'goals': 2, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 5, 'goals': 2, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 5, 'goals': 2, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 9, 'cameras': 7, 'goals': 2, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 2, 'cameras': 12, 'goals': 4, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 10, 'goals': 2, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 10, 'cameras': 10, 'goals': 2, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 2, 'cameras': 7, 'goals': 5, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 7, 'goals': 3, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 9, 'cameras': 7, 'goals': 2, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 4, 'cameras': 6, 'goals': 5, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 9, 'cameras': 1, 'goals': 3, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 10, 'cameras': 6, 'goals': 3, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 2, 'objectives': 3, 'cameras': 2, 'goals': 2, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 9, 'goals': 3, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 7, 'goals': 5, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 8, 'cameras': 2, 'goals': 2, 'waypoints': 9}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 6, 'goals': 2, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 2, 'cameras': 1, 'goals': 32, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 6, 'cameras': 6, 'goals': 2, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 9, 'cameras': 2, 'goals': 15, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 9, 'cameras': 1, 'goals': 7, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 6, 'goals': 2, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 10, 'goals': 2, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 5, 'goals': 4, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 2, 'cameras': 6, 'goals': 10, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 2, 'cameras': 6, 'goals': 4, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 4, 'cameras': 4, 'goals': 4, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 8, 'cameras': 1, 'goals': 13, 'waypoints': 9}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 5, 'cameras': 6, 'goals': 3, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 7, 'cameras': 2, 'goals': 7, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 2, 'cameras': 2, 'goals': 10, 'waypoints': 21}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 3, 'cameras': 2, 'goals': 6, 'waypoints': 15}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 2, 'cameras': 2, 'goals': 5, 'waypoints': 9}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 2, 'cameras': 1, 'goals': 14, 'waypoints': 9}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 11, 'cameras': 1, 'goals': 7, 'waypoints': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 3, 'cameras': 1, 'goals': 2, 'waypoints': 14}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 2, 'cameras': 2, 'goals': 9, 'waypoints': 19}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 8, 'cameras': 3, 'goals': 6, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 2, 'goals': 12, 'waypoints': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 2, 'cameras': 2, 'goals': 5, 'waypoints': 12}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 8, 'cameras': 1, 'goals': 5, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 4, 'cameras': 2, 'goals': 5, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 3, 'cameras': 1, 'goals': 12, 'waypoints': 15}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 13, 'cameras': 4, 'goals': 4, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 9, 'cameras': 4, 'goals': 2, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 7, 'cameras': 3, 'goals': 5, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 6, 'cameras': 2, 'goals': 7, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 12, 'cameras': 1, 'goals': 4, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 4, 'cameras': 2, 'goals': 8, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 2, 'cameras': 2, 'goals': 14, 'waypoints': 29}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 3, 'objectives': 4, 'cameras': 1, 'goals': 9, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 15, 'cameras': 5, 'goals': 5, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 9, 'cameras': 5, 'goals': 2, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 7, 'cameras': 1, 'goals': 12, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 2, 'goals': 3, 'waypoints': 12}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 5, 'cameras': 1, 'goals': 3, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 2, 'cameras': 1, 'goals': 6, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 4, 'cameras': 2, 'goals': 5, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 6, 'cameras': 7, 'goals': 2, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 6, 'cameras': 2, 'goals': 7, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 6, 'cameras': 2, 'goals': 7, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 3, 'goals': 4, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 7, 'cameras': 1, 'goals': 2, 'waypoints': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 6, 'cameras': 1, 'goals': 3, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 5, 'goals': 6, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 2, 'cameras': 2, 'goals': 10, 'waypoints': 21}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 2, 'cameras': 2, 'goals': 12, 'waypoints': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 2, 'cameras': 2, 'goals': 8, 'waypoints': 20}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 5, 'cameras': 1, 'goals': 7, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 4, 'cameras': 2, 'goals': 11, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 4, 'cameras': 2, 'goals': 2, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 8, 'cameras': 1, 'goals': 10, 'waypoints': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 7, 'cameras': 1, 'goals': 3, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 4, 'cameras': 2, 'goals': 3, 'waypoints': 9}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 22, 'cameras': 2, 'goals': 12, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 7, 'cameras': 4, 'goals': 2, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 4, 'cameras': 1, 'goals': 4, 'waypoints': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 6, 'goals': 5, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 5, 'goals': 3, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 10, 'cameras': 1, 'goals': 10, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 4, 'cameras': 1, 'goals': 12, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 5, 'cameras': 6, 'goals': 5, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 8, 'cameras': 3, 'goals': 4, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 3, 'cameras': 1, 'goals': 22, 'waypoints': 15}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 2, 'goals': 3, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 2, 'cameras': 1, 'goals': 8, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 10, 'cameras': 1, 'goals': 9, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 3, 'goals': 4, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 4, 'cameras': 2, 'goals': 8, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 3, 'cameras': 6, 'goals': 6, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 6, 'cameras': 1, 'goals': 6, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 21, 'cameras': 1, 'goals': 14, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 2, 'cameras': 1, 'goals': 2, 'waypoints': 18}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 9, 'cameras': 1, 'goals': 3, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 3, 'cameras': 7, 'goals': 5, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 4, 'cameras': 1, 'goals': 12, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 3, 'cameras': 2, 'goals': 13, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 7, 'cameras': 2, 'goals': 12, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 8, 'cameras': 2, 'goals': 6, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 5, 'goals': 6, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 3, 'cameras': 1, 'goals': 5, 'waypoints': 9}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 2, 'cameras': 4, 'goals': 5, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 10, 'cameras': 1, 'goals': 4, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 7, 'cameras': 2, 'goals': 10, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 7, 'cameras': 3, 'goals': 6, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 7, 'cameras': 4, 'goals': 1, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 7, 'cameras': 1, 'goals': 17, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 7, 'cameras': 1, 'goals': 17, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 3, 'cameras': 2, 'goals': 11, 'waypoints': 15}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 4, 'goals': 6, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 6, 'cameras': 1, 'goals': 2, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 9, 'cameras': 1, 'goals': 2, 'waypoints': 10}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 3, 'cameras': 1, 'goals': 2, 'waypoints': 14}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 4, 'cameras': 5, 'goals': 1, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 3, 'cameras': 2, 'goals': 11, 'waypoints': 15}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 13, 'cameras': 1, 'goals': 14, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 10, 'cameras': 1, 'goals': 24, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 4, 'goals': 3, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 6, 'cameras': 1, 'goals': 11, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 5, 'cameras': 1, 'goals': 7, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 8, 'cameras': 4, 'goals': 3, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 3, 'cameras': 1, 'goals': 8, 'waypoints': 22}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 13, 'cameras': 1, 'goals': 5, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 6, 'cameras': 1, 'goals': 9, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 2, 'cameras': 1, 'goals': 7, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 5, 'cameras': 2, 'goals': 2, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 10, 'cameras': 1, 'goals': 4, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 6, 'cameras': 1, 'goals': 3, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 2, 'objectives': 4, 'cameras': 1, 'goals': 8, 'waypoints': 12}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 2, 'objectives': 8, 'cameras': 1, 'goals': 10, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 7, 'cameras': 1, 'goals': 2, 'waypoints': 12}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 5, 'cameras': 2, 'goals': 8, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 8, 'cameras': 3, 'goals': 1, 'waypoints': 10}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 12, 'cameras': 1, 'goals': 4, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 4, 'cameras': 1, 'goals': 16, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 2, 'goals': 15, 'waypoints': 33}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 2, 'cameras': 2, 'goals': 14, 'waypoints': 29}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 2, 'cameras': 2, 'goals': 13, 'waypoints': 29}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 2, 'cameras': 2, 'goals': 15, 'waypoints': 10}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 8, 'cameras': 1, 'goals': 7, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 5, 'cameras': 2, 'goals': 15, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 7, 'cameras': 1, 'goals': 4, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 11, 'cameras': 1, 'goals': 5, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 9, 'cameras': 2, 'goals': 13, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 2, 'cameras': 2, 'goals': 12, 'waypoints': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 6, 'cameras': 2, 'goals': 12, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 3, 'cameras': 2, 'goals': 5, 'waypoints': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 5, 'goals': 6, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 4, 'goals': 4, 'waypoints': 11}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 4, 'cameras': 1, 'goals': 11, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 4, 'cameras': 2, 'goals': 5, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 4, 'cameras': 1, 'goals': 9, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 9, 'cameras': 1, 'goals': 29, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 15, 'cameras': 2, 'goals': 12, 'waypoints': 14}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 14, 'cameras': 1, 'goals': 10, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 5, 'goals': 5, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 2, 'goals': 8, 'waypoints': 11}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 9, 'cameras': 2, 'goals': 14, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 6, 'goals': 4, 'waypoints': 9}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 5, 'cameras': 10, 'goals': 3, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 1, 'goals': 8, 'waypoints': 9}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 1, 'goals': 7, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 2, 'cameras': 2, 'goals': 5, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 1, 'goals': 5, 'waypoints': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 10, 'cameras': 2, 'goals': 5, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 10, 'cameras': 2, 'goals': 5, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 12, 'goals': 4, 'waypoints': 13}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 5, 'goals': 4, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 5, 'cameras': 1, 'goals': 19, 'waypoints': 14}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 15, 'goals': 5, 'waypoints': 9}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 7, 'cameras': 1, 'goals': 8, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 9, 'cameras': 2, 'goals': 8, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 1, 'cameras': 10, 'goals': 4, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 2, 'cameras': 2, 'goals': 14, 'waypoints': 29}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 13, 'cameras': 2, 'goals': 14, 'waypoints': 10}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 8, 'cameras': 1, 'goals': 17, 'waypoints': 10}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 8, 'cameras': 1, 'goals': 26, 'waypoints': 9}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 9, 'cameras': 2, 'goals': 46, 'waypoints': 9}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 14, 'cameras': 2, 'goals': 5, 'waypoints': 9}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 13, 'cameras': 2, 'goals': 6, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 4, 'cameras': 2, 'goals': 19, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 6, 'cameras': 1, 'goals': 5, 'waypoints': 15}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 7, 'cameras': 1, 'goals': 8, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 10, 'cameras': 1, 'goals': 15, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 5, 'cameras': 2, 'goals': 5, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 10, 'cameras': 2, 'goals': 6, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 18, 'cameras': 1, 'goals': 5, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 11, 'cameras': 2, 'goals': 15, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 8, 'cameras': 2, 'goals': 6, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 4, 'cameras': 2, 'goals': 5, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 11, 'cameras': 1, 'goals': 6, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 7, 'cameras': 1, 'goals': 15, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 6, 'cameras': 2, 'goals': 12, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 18, 'cameras': 1, 'goals': 13, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 10, 'cameras': 1, 'goals': 9, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 4, 'cameras': 2, 'goals': 5, 'waypoints': 9}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 4, 'cameras': 2, 'goals': 5, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 7, 'cameras': 3, 'goals': 5, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 10, 'cameras': 2, 'goals': 5, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 6, 'cameras': 9, 'goals': 5, 'waypoints': 4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 5, 'cameras': 1, 'goals': 5, 'waypoints': 29}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 8, 'cameras': 2, 'goals': 6, 'waypoints': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 20, 'cameras': 1, 'goals': 5, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 2, 'objectives': 9, 'cameras': 2, 'goals': 8, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 12, 'cameras': 1, 'goals': 8, 'waypoints': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 23, 'cameras': 2, 'goals': 5, 'waypoints': 9}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 9, 'cameras': 1, 'goals': 5, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 5, 'cameras': 1, 'goals': 8, 'waypoints': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 9, 'cameras': 2, 'goals': 5, 'waypoints': 6}, so I consider it unsolved within the time and memory limits
+2020-11-17 22:44:05,253 INFO     Different evaluated sequences: 843
+2020-11-17 22:44:05,346 INFO     Candidate sequences: 100
+2020-11-17 22:44:05,347 INFO     Using sart runtimes on CPLEX optimization
+2020-11-17 22:44:05,529 INFO     CPLEX solve
+
+2020-11-17 22:44:05,656 INFO     Solution status = 101: MIP_optimal
+2020-11-17 22:44:05,656 INFO     Solution value  = 11.79602213173989
+Selected: sequence 17, 7 instances from 17 to 23
+Configuration: {'cameras_b': 7, 'cameras_m': 1.0049552488322961, 'cameras_optional_m': 'true', 'goals_b': 1, 'goals_m': 1.0, 'objectives_b': 1, 'objectives_m': 0.7283374005598124, 'objectives_optional_m': 'false', 'rovers_b': 1, 'rovers_m': 1.0992320870262844, 'rovers_optional_m': 'true', 'waypoints_b': 5, 'waypoints_m': 0.5543340687354139}
+Penalty: 0.00
+Estimated runtimes: 8.4, 14, 27, 1.8e+02, 1.2e+03, 8.1e+03, 5.4e+04, 3.6e+05, 2.4e+06, 1.6e+07, 1.1e+08, 7.3e+08, 4.9e+09
+Selected: sequence 12, 6 instances from 17 to 22
+Configuration: {'cameras_b': 6, 'cameras_m': 0.9999999999999999, 'cameras_optional_m': 'true', 'goals_b': 1, 'goals_m': 1.000808630560928, 'objectives_b': 2, 'objectives_m': 0.5261766634781097, 'objectives_optional_m': 'false', 'rovers_b': 1, 'rovers_m': 0.8722278658836962, 'rovers_optional_m': 'true', 'waypoints_b': 5, 'waypoints_m': 1.118829013457887}
+Penalty: 5.28
+Estimated runtimes: 1.2e+02, 4.4e+02, 1.6e+03, 6.1e+03, 2.3e+04, 8.4e+04, 3.1e+05, 1.2e+06, 4.3e+06, 1.6e+07, 5.9e+07, 2.2e+08, 8.1e+08
+Selected: sequence 103, 17 instances from 2 to 18
+Configuration: {'cameras_b': 8, 'cameras_m': 0.9999999999999999, 'cameras_optional_m': 'true', 'goals_b': 1, 'goals_m': 1.0, 'objectives_b': 2, 'objectives_m': 0.5247503086027514, 'objectives_optional_m': 'false', 'rovers_b': 1, 'rovers_m': 0.8637403042942111, 'rovers_optional_m': 'true', 'waypoints_b': 4, 'waypoints_m': 1.7155340347941144}
+Penalty: 6.51
+Estimated runtimes: 1, 1.7, 1.8, 2, 2, 2.7, 2.8, 3.8, 6.1, 11, 46, 1.8e+02, 7e+02, 2.7e+03, 1.1e+04, 4.1e+04, 1.6e+05, 6.2e+05, 2.4e+06, 9.4e+06, 3.7e+07, 1.4e+08, 5.5e+08, 2.1e+09, 8.3e+09, 3.2e+10, 1.3e+11, 4.9e+11
+  p01: {'rovers': 1, 'objectives': 13, 'cameras': 7, 'goals': 18, 'waypoints': 14}
+  p02: {'rovers': 1, 'objectives': 14, 'cameras': 7, 'goals': 19, 'waypoints': 14}
+  p03: {'rovers': 1, 'objectives': 14, 'cameras': 7, 'goals': 20, 'waypoints': 15}
+  p04: {'rovers': 1, 'objectives': 15, 'cameras': 7, 'goals': 21, 'waypoints': 16}
+  p05: {'rovers': 1, 'objectives': 16, 'cameras': 7, 'goals': 22, 'waypoints': 16}
+  p06: {'rovers': 1, 'objectives': 17, 'cameras': 7, 'goals': 23, 'waypoints': 17}
+  p07: {'rovers': 1, 'objectives': 17, 'cameras': 7, 'goals': 24, 'waypoints': 17}
+  p08: {'rovers': 1, 'objectives': 10, 'cameras': 6, 'goals': 18, 'waypoints': 24}
+  p09: {'rovers': 1, 'objectives': 11, 'cameras': 6, 'goals': 19, 'waypoints': 25}
+  p10: {'rovers': 1, 'objectives': 11, 'cameras': 6, 'goals': 20, 'waypoints': 26}
+  p11: {'rovers': 1, 'objectives': 12, 'cameras': 6, 'goals': 21, 'waypoints': 27}
+  p12: {'rovers': 1, 'objectives': 13, 'cameras': 6, 'goals': 22, 'waypoints': 28}
+  p13: {'rovers': 1, 'objectives': 13, 'cameras': 6, 'goals': 23, 'waypoints': 29}
+  p14: {'rovers': 1, 'objectives': 3, 'cameras': 8, 'goals': 3, 'waypoints': 7}
+  p15: {'rovers': 1, 'objectives': 3, 'cameras': 8, 'goals': 4, 'waypoints': 9}
+  p16: {'rovers': 1, 'objectives': 4, 'cameras': 8, 'goals': 5, 'waypoints': 10}
+  p17: {'rovers': 1, 'objectives': 4, 'cameras': 8, 'goals': 6, 'waypoints': 12}
+  p18: {'rovers': 1, 'objectives': 5, 'cameras': 8, 'goals': 7, 'waypoints': 14}
+  p19: {'rovers': 1, 'objectives': 5, 'cameras': 8, 'goals': 8, 'waypoints': 16}
+  p20: {'rovers': 1, 'objectives': 6, 'cameras': 8, 'goals': 9, 'waypoints': 17}
+  p21: {'rovers': 1, 'objectives': 6, 'cameras': 8, 'goals': 10, 'waypoints': 19}
+  p22: {'rovers': 1, 'objectives': 7, 'cameras': 8, 'goals': 11, 'waypoints': 21}
+  p23: {'rovers': 1, 'objectives': 7, 'cameras': 8, 'goals': 12, 'waypoints': 22}
+  p24: {'rovers': 1, 'objectives': 8, 'cameras': 8, 'goals': 13, 'waypoints': 24}
+  p25: {'rovers': 1, 'objectives': 8, 'cameras': 8, 'goals': 14, 'waypoints': 26}
+  p26: {'rovers': 1, 'objectives': 9, 'cameras': 8, 'goals': 15, 'waypoints': 28}
+  p27: {'rovers': 1, 'objectives': 9, 'cameras': 8, 'goals': 16, 'waypoints': 29}
+  p28: {'rovers': 1, 'objectives': 10, 'cameras': 8, 'goals': 17, 'waypoints': 31}
+  p29: {'rovers': 1, 'objectives': 10, 'cameras': 8, 'goals': 18, 'waypoints': 33}
+  p30: {'rovers': 1, 'objectives': 11, 'cameras': 8, 'goals': 19, 'waypoints': 34}
+
+real	0m6.551s
+user	0m4.216s
+sys	0m3.500s

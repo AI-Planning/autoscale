@@ -1,0 +1,184 @@
+(define (problem strips-sat-x-1)
+(:domain satellite)
+(:objects
+	satellite0 - satellite
+	instrument0 - instrument
+	instrument1 - instrument
+	instrument2 - instrument
+	satellite1 - satellite
+	instrument3 - instrument
+	instrument4 - instrument
+	instrument5 - instrument
+	satellite2 - satellite
+	instrument6 - instrument
+	instrument7 - instrument
+	instrument8 - instrument
+	satellite3 - satellite
+	instrument9 - instrument
+	satellite4 - satellite
+	instrument10 - instrument
+	instrument11 - instrument
+	satellite5 - satellite
+	instrument12 - instrument
+	satellite6 - satellite
+	instrument13 - instrument
+	instrument14 - instrument
+	satellite7 - satellite
+	instrument15 - instrument
+	infrared0 - mode
+	Star13 - direction
+	Star0 - direction
+	Star11 - direction
+	Star1 - direction
+	GroundStation9 - direction
+	GroundStation6 - direction
+	Star7 - direction
+	GroundStation10 - direction
+	GroundStation14 - direction
+	GroundStation5 - direction
+	GroundStation15 - direction
+	GroundStation2 - direction
+	GroundStation12 - direction
+	GroundStation8 - direction
+	Star3 - direction
+	GroundStation4 - direction
+	Planet16 - direction
+	Star17 - direction
+	Star18 - direction
+	Phenomenon19 - direction
+	Phenomenon20 - direction
+	Planet21 - direction
+	Star22 - direction
+	Phenomenon23 - direction
+	Planet24 - direction
+	Planet25 - direction
+	Phenomenon26 - direction
+	Star27 - direction
+	Phenomenon28 - direction
+	Phenomenon29 - direction
+	Planet30 - direction
+	Planet31 - direction
+	Planet32 - direction
+	Star33 - direction
+	Phenomenon34 - direction
+	Star35 - direction
+	Phenomenon36 - direction
+)
+(:init
+	(supports instrument0 infrared0)
+	(calibration_target instrument0 GroundStation8)
+	(calibration_target instrument0 GroundStation10)
+	(supports instrument1 infrared0)
+	(calibration_target instrument1 Star1)
+	(calibration_target instrument1 GroundStation8)
+	(calibration_target instrument1 GroundStation15)
+	(calibration_target instrument1 GroundStation12)
+	(supports instrument2 infrared0)
+	(calibration_target instrument2 GroundStation2)
+	(on_board instrument0 satellite0)
+	(on_board instrument1 satellite0)
+	(on_board instrument2 satellite0)
+	(power_avail satellite0)
+	(pointing satellite0 Star1)
+	(supports instrument3 infrared0)
+	(calibration_target instrument3 GroundStation5)
+	(calibration_target instrument3 GroundStation15)
+	(supports instrument4 infrared0)
+	(calibration_target instrument4 GroundStation15)
+	(supports instrument5 infrared0)
+	(calibration_target instrument5 GroundStation4)
+	(calibration_target instrument5 GroundStation9)
+	(calibration_target instrument5 GroundStation10)
+	(on_board instrument3 satellite1)
+	(on_board instrument4 satellite1)
+	(on_board instrument5 satellite1)
+	(power_avail satellite1)
+	(pointing satellite1 GroundStation4)
+	(supports instrument6 infrared0)
+	(calibration_target instrument6 GroundStation15)
+	(calibration_target instrument6 GroundStation5)
+	(calibration_target instrument6 Star11)
+	(calibration_target instrument6 Star0)
+	(calibration_target instrument6 GroundStation8)
+	(supports instrument7 infrared0)
+	(calibration_target instrument7 Star1)
+	(calibration_target instrument7 Star3)
+	(supports instrument8 infrared0)
+	(calibration_target instrument8 Star3)
+	(on_board instrument6 satellite2)
+	(on_board instrument7 satellite2)
+	(on_board instrument8 satellite2)
+	(power_avail satellite2)
+	(pointing satellite2 GroundStation8)
+	(supports instrument9 infrared0)
+	(calibration_target instrument9 GroundStation8)
+	(calibration_target instrument9 Star7)
+	(calibration_target instrument9 GroundStation6)
+	(calibration_target instrument9 GroundStation14)
+	(calibration_target instrument9 GroundStation9)
+	(on_board instrument9 satellite3)
+	(power_avail satellite3)
+	(pointing satellite3 Planet25)
+	(supports instrument10 infrared0)
+	(calibration_target instrument10 GroundStation15)
+	(calibration_target instrument10 GroundStation5)
+	(calibration_target instrument10 Star7)
+	(supports instrument11 infrared0)
+	(calibration_target instrument11 GroundStation12)
+	(calibration_target instrument11 GroundStation2)
+	(calibration_target instrument11 GroundStation14)
+	(calibration_target instrument11 GroundStation4)
+	(calibration_target instrument11 GroundStation10)
+	(on_board instrument10 satellite4)
+	(on_board instrument11 satellite4)
+	(power_avail satellite4)
+	(pointing satellite4 Star22)
+	(supports instrument12 infrared0)
+	(calibration_target instrument12 GroundStation15)
+	(calibration_target instrument12 GroundStation5)
+	(on_board instrument12 satellite5)
+	(power_avail satellite5)
+	(pointing satellite5 Star11)
+	(supports instrument13 infrared0)
+	(calibration_target instrument13 GroundStation2)
+	(calibration_target instrument13 Star3)
+	(supports instrument14 infrared0)
+	(calibration_target instrument14 GroundStation4)
+	(calibration_target instrument14 GroundStation12)
+	(on_board instrument13 satellite6)
+	(on_board instrument14 satellite6)
+	(power_avail satellite6)
+	(pointing satellite6 Planet21)
+	(supports instrument15 infrared0)
+	(calibration_target instrument15 GroundStation4)
+	(calibration_target instrument15 Star3)
+	(calibration_target instrument15 GroundStation8)
+	(on_board instrument15 satellite7)
+	(power_avail satellite7)
+	(pointing satellite7 Planet30)
+)
+(:goal (and
+	(pointing satellite1 Star13)
+	(pointing satellite3 Planet24)
+	(pointing satellite5 Phenomenon26)
+	(have_image Star17 infrared0)
+	(have_image Star18 infrared0)
+	(have_image Phenomenon19 infrared0)
+	(have_image Phenomenon20 infrared0)
+	(have_image Planet21 infrared0)
+	(have_image Phenomenon23 infrared0)
+	(have_image Planet24 infrared0)
+	(have_image Planet25 infrared0)
+	(have_image Phenomenon26 infrared0)
+	(have_image Star27 infrared0)
+	(have_image Phenomenon28 infrared0)
+	(have_image Phenomenon29 infrared0)
+	(have_image Planet30 infrared0)
+	(have_image Planet31 infrared0)
+	(have_image Star33 infrared0)
+	(have_image Phenomenon34 infrared0)
+	(have_image Star35 infrared0)
+	(have_image Phenomenon36 infrared0)
+))
+
+)

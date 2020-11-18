@@ -1,0 +1,88 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-11-17 22:55:24,388 INFO     No run directory, so we will not run anything
+2020-11-17 22:55:25,163 INFO     Loading cache data for baseline planners: 4467
+2020-11-17 22:55:25,169 INFO     Loading cache data for sart planners: 12661
+2020-11-17 22:55:25,185 INFO     Stored sequences: 1668
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 25, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 19, 'modes': 5, 'observations': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 19, 'modes': 6, 'observations': 10}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 27, 'modes': 4, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 2, 'targets': 22, 'modes': 5, 'observations': 10}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 2, 'targets': 19, 'modes': 5, 'observations': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 10, 'modes': 5, 'observations': 30}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 25, 'modes': 2, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 2, 'targets': 42, 'modes': 1, 'observations': 23}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 18, 'modes': 5, 'observations': 10}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 12, 'modes': 5, 'observations': 10}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 15, 'modes': 5, 'observations': 9}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 33, 'modes': 1, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 10, 'modes': 5, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 2, 'targets': 14, 'modes': 5, 'observations': 9}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 2, 'targets': 12, 'modes': 5, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 2, 'targets': 20, 'modes': 8, 'observations': 10}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 23, 'modes': 5, 'observations': 9}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 19, 'modes': 5, 'observations': 9}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 19, 'modes': 5, 'observations': 10}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 27, 'modes': 2, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 46, 'modes': 6, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 25, 'modes': 2, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 17, 'modes': 7, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 25, 'modes': 2, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 13, 'modes': 4, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 14, 'modes': 4, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 24, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 24, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 23, 'modes': 5, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 18, 'modes': 4, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 20, 'modes': 5, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 38, 'modes': 6, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 1, 'targets': 29, 'modes': 5, 'observations': 11}, so I consider it unsolved within the time and memory limits
+2020-11-17 22:55:25,591 INFO     Different evaluated sequences: 1088
+2020-11-17 22:55:25,735 INFO     Candidate sequences: 100
+2020-11-17 22:55:25,736 INFO     Using sart runtimes on CPLEX optimization
+2020-11-17 22:55:25,916 INFO     CPLEX solve
+
+2020-11-17 22:55:26,064 INFO     Solution status = 101: MIP_optimal
+2020-11-17 22:55:26,064 INFO     Solution value  = 0.0
+Selected: sequence 32, 23 instances from 0 to 22
+Configuration: {'modes_b': 1, 'modes_m': 0.0228063871410402, 'modes_optional_m': 'false', 'observations_b': 11, 'observations_m': 1.0119867872581974, 'satellites_b': 1, 'satellites_m': 0.13771401996018548, 'satellites_optional_m': 'false', 'targets_b': 11, 'targets_m': 2.4801000453427626}
+Penalty: 0.00
+Estimated runtimes: 1.1, 1.1, 1.2, 1.2, 1.3, 1.6, 1.7, 2.3, 5.9, 9.4, 15, 67, 68, 87, 1.3e+02, 2.7e+02, 5.3e+02, 1.1e+03, 2.1e+03, 4.2e+03, 8.4e+03, 1.7e+04, 3.3e+04, 6.6e+04, 1.3e+05, 2.6e+05, 5.3e+05, 1e+06, 2.1e+06, 4.2e+06
+Selected: sequence 811, 7 instances from 14 to 20
+Configuration: {'modes_b': 1, 'modes_m': 0.17439888725990454, 'modes_optional_m': 'false', 'observations_b': 9, 'observations_m': 1.0018801527883898, 'satellites_b': 1, 'satellites_m': 0.13528910933835672, 'satellites_optional_m': 'false', 'targets_b': 14, 'targets_m': 3.600295385630076}
+Penalty: 0.00
+Estimated runtimes: 2e+02, 4.5e+02, 1e+03, 2.2e+03, 4.9e+03, 1.1e+04, 2.4e+04, 5.4e+04, 1.2e+05, 2.6e+05, 5.8e+05, 1.3e+06, 2.9e+06, 6.4e+06, 1.4e+07, 3.1e+07
+  p01: {'satellites': 1, 'targets': 11, 'modes': 1, 'observations': 11}
+  p02: {'satellites': 1, 'targets': 13, 'modes': 1, 'observations': 12}
+  p03: {'satellites': 1, 'targets': 15, 'modes': 1, 'observations': 13}
+  p04: {'satellites': 1, 'targets': 18, 'modes': 1, 'observations': 14}
+  p05: {'satellites': 1, 'targets': 20, 'modes': 1, 'observations': 15}
+  p06: {'satellites': 1, 'targets': 23, 'modes': 1, 'observations': 16}
+  p07: {'satellites': 1, 'targets': 25, 'modes': 1, 'observations': 17}
+  p08: {'satellites': 1, 'targets': 28, 'modes': 1, 'observations': 18}
+  p09: {'satellites': 2, 'targets': 30, 'modes': 1, 'observations': 19}
+  p10: {'satellites': 2, 'targets': 33, 'modes': 1, 'observations': 20}
+  p11: {'satellites': 2, 'targets': 35, 'modes': 1, 'observations': 21}
+  p12: {'satellites': 2, 'targets': 38, 'modes': 1, 'observations': 22}
+  p13: {'satellites': 2, 'targets': 40, 'modes': 1, 'observations': 23}
+  p14: {'satellites': 2, 'targets': 43, 'modes': 1, 'observations': 24}
+  p15: {'satellites': 2, 'targets': 45, 'modes': 1, 'observations': 25}
+  p16: {'satellites': 3, 'targets': 48, 'modes': 1, 'observations': 26}
+  p17: {'satellites': 3, 'targets': 50, 'modes': 1, 'observations': 27}
+  p18: {'satellites': 3, 'targets': 53, 'modes': 1, 'observations': 28}
+  p19: {'satellites': 3, 'targets': 55, 'modes': 1, 'observations': 29}
+  p20: {'satellites': 3, 'targets': 58, 'modes': 1, 'observations': 30}
+  p21: {'satellites': 3, 'targets': 60, 'modes': 1, 'observations': 31}
+  p22: {'satellites': 3, 'targets': 63, 'modes': 1, 'observations': 32}
+  p23: {'satellites': 4, 'targets': 65, 'modes': 1, 'observations': 33}
+  p24: {'satellites': 2, 'targets': 64, 'modes': 3, 'observations': 23}
+  p25: {'satellites': 3, 'targets': 68, 'modes': 3, 'observations': 24}
+  p26: {'satellites': 3, 'targets': 71, 'modes': 3, 'observations': 25}
+  p27: {'satellites': 3, 'targets': 75, 'modes': 3, 'observations': 26}
+  p28: {'satellites': 3, 'targets': 78, 'modes': 4, 'observations': 27}
+  p29: {'satellites': 3, 'targets': 82, 'modes': 4, 'observations': 28}
+  p30: {'satellites': 3, 'targets': 86, 'modes': 4, 'observations': 29}
+
+real	0m5.595s
+user	0m2.975s
+sys	0m3.748s

@@ -1,0 +1,59 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-11-17 23:02:42,649 INFO     No run directory, so we will not run anything
+2020-11-17 23:02:43,197 INFO     Loading cache data for baseline planners: 365
+2020-11-17 23:02:43,197 INFO     Loading cache data for sart planners: 1772
+2020-11-17 23:02:43,199 INFO     Stored sequences: 406
+2020-11-17 23:02:43,263 INFO     Different evaluated sequences: 131
+2020-11-17 23:02:43,354 INFO     Candidate sequences: 76
+2020-11-17 23:02:43,355 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 6 use baseline 70 use sart
+2020-11-17 23:02:43,355 INFO     Using sart runtimes on CPLEX optimization
+2020-11-17 23:02:43,507 INFO     CPLEX solve
+
+2020-11-17 23:02:43,668 INFO     Solution status = 101: MIP_optimal
+2020-11-17 23:02:43,668 INFO     Solution value  = 22.473943479388126
+Selected: sequence 113, 5 instances from 13 to 17
+Configuration: {'cities_b': 3, 'cities_m': 0.6834689923243131, 'cities_optional_m': 'false', 'people_b': 5, 'people_m': 1.0, 'planes_b': 1, 'planes_m': 1.2232219932709214, 'planes_optional_m': 'true'}
+Penalty: 6.47
+Estimated runtimes: 2.9e+02, 1.2e+03, 4.9e+03, 2e+04, 8.4e+04, 3.5e+05, 1.4e+06, 5.9e+06, 2.4e+07, 1e+08, 4.2e+08, 1.7e+09, 7.1e+09, 2.9e+10, 1.2e+11, 5e+11, 2.1e+12
+Selected: sequence 50, 17 instances from 0 to 16
+Configuration: {'cities_b': 5, 'cities_m': 1.3899131848639183, 'cities_optional_m': 'false', 'people_b': 5, 'people_m': 1.0, 'planes_b': 1, 'planes_m': 1.0959879099809458, 'planes_optional_m': 'true'}
+Penalty: 8.00
+Estimated runtimes: 0.48, 0.53, 0.54, 1.1, 1.3, 4, 8.3, 30, 79, 1.5e+02, 4.1e+02, 1.1e+03, 3e+03, 8.3e+03, 2.3e+04, 6.2e+04, 1.7e+05, 4.6e+05, 1.3e+06, 3.4e+06, 9.3e+06, 2.5e+07, 6.9e+07, 1.9e+08, 5.2e+08, 1.4e+09, 3.8e+09, 1e+10, 2.8e+10, 7.8e+10
+Selected: sequence 122, 8 instances from 10 to 17
+Configuration: {'cities_b': 3, 'cities_m': 0.55357814492959, 'cities_optional_m': 'false', 'people_b': 5, 'people_m': 1.0, 'planes_b': 1, 'planes_m': 0.07485954427211214, 'planes_optional_m': 'true'}
+Penalty: 8.00
+Estimated runtimes: 4.3, 11, 42, 1.8e+02, 7.7e+02, 3.3e+03, 1.4e+04, 6.1e+04, 2.6e+05, 1.1e+06, 4.9e+06, 2.1e+07, 9e+07, 3.8e+08, 1.7e+09, 7.1e+09, 3e+10, 1.3e+11, 5.6e+11, 2.4e+12
+  p01: {'planes': 1, 'people': 18, 'cities': 11}
+  p02: {'planes': 1, 'people': 19, 'cities': 12}
+  p03: {'planes': 1, 'people': 20, 'cities': 13}
+  p04: {'planes': 1, 'people': 21, 'cities': 13}
+  p05: {'planes': 1, 'people': 22, 'cities': 14}
+  p06: {'planes': 1, 'people': 5, 'cities': 5}
+  p07: {'planes': 1, 'people': 6, 'cities': 6}
+  p08: {'planes': 1, 'people': 7, 'cities': 7}
+  p09: {'planes': 1, 'people': 8, 'cities': 9}
+  p10: {'planes': 1, 'people': 9, 'cities': 10}
+  p11: {'planes': 1, 'people': 10, 'cities': 11}
+  p12: {'planes': 1, 'people': 11, 'cities': 13}
+  p13: {'planes': 1, 'people': 12, 'cities': 14}
+  p14: {'planes': 1, 'people': 13, 'cities': 16}
+  p15: {'planes': 1, 'people': 14, 'cities': 17}
+  p16: {'planes': 1, 'people': 15, 'cities': 18}
+  p17: {'planes': 1, 'people': 16, 'cities': 20}
+  p18: {'planes': 1, 'people': 17, 'cities': 21}
+  p19: {'planes': 1, 'people': 18, 'cities': 23}
+  p20: {'planes': 1, 'people': 19, 'cities': 24}
+  p21: {'planes': 1, 'people': 20, 'cities': 25}
+  p22: {'planes': 1, 'people': 21, 'cities': 27}
+  p23: {'planes': 1, 'people': 15, 'cities': 8}
+  p24: {'planes': 1, 'people': 16, 'cities': 9}
+  p25: {'planes': 1, 'people': 17, 'cities': 9}
+  p26: {'planes': 1, 'people': 18, 'cities': 10}
+  p27: {'planes': 1, 'people': 19, 'cities': 10}
+  p28: {'planes': 1, 'people': 20, 'cities': 11}
+  p29: {'planes': 1, 'people': 21, 'cities': 11}
+  p30: {'planes': 1, 'people': 22, 'cities': 12}
+
+real	0m3.703s
+user	0m2.098s
+sys	0m2.757s

@@ -1,0 +1,73 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-11-17 22:44:10,455 INFO     No run directory, so we will not run anything
+2020-11-17 22:44:11,337 INFO     Loading cache data for baseline planners: 2640
+2020-11-17 22:44:11,342 INFO     Loading cache data for sart planners: 16675
+2020-11-17 22:44:11,369 INFO     Stored sequences: 734
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 10, 'objectives': 64, 'cameras': 71, 'goals': 45, 'waypoints': 73}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 10, 'objectives': 64, 'cameras': 71, 'goals': 45, 'waypoints': 72}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 8, 'objectives': 8, 'cameras': 5, 'goals': 17, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 9, 'objectives': 14, 'cameras': 5, 'goals': 14, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 8, 'objectives': 16, 'cameras': 5, 'goals': 14, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 6, 'objectives': 9, 'cameras': 5, 'goals': 14, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 6, 'objectives': 8, 'cameras': 5, 'goals': 12, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 11, 'objectives': 6, 'cameras': 5, 'goals': 14, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 10, 'objectives': 4, 'cameras': 5, 'goals': 13, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 10, 'objectives': 6, 'cameras': 5, 'goals': 14, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 8, 'objectives': 6, 'cameras': 5, 'goals': 16, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 8, 'objectives': 6, 'cameras': 5, 'goals': 15, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 9, 'objectives': 10, 'cameras': 5, 'goals': 20, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 10, 'objectives': 8, 'cameras': 5, 'goals': 14, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 9, 'objectives': 8, 'cameras': 5, 'goals': 13, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 7, 'objectives': 7, 'cameras': 5, 'goals': 12, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 8, 'objectives': 16, 'cameras': 5, 'goals': 14, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 10, 'objectives': 4, 'cameras': 5, 'goals': 14, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 14, 'objectives': 10, 'cameras': 5, 'goals': 17, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 8, 'objectives': 9, 'cameras': 5, 'goals': 27, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 8, 'objectives': 9, 'cameras': 5, 'goals': 22, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 9, 'objectives': 15, 'cameras': 5, 'goals': 14, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+2020-11-17 22:44:11,567 INFO     Different evaluated sequences: 628
+2020-11-17 22:44:11,760 INFO     Candidate sequences: 100
+2020-11-17 22:44:11,761 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 15 use baseline 85 use sart
+2020-11-17 22:44:11,761 INFO     Using sart runtimes on CPLEX optimization
+2020-11-17 22:44:11,878 INFO     CPLEX solve
+
+2020-11-17 22:44:12,005 INFO     Solution status = 101: MIP_optimal
+2020-11-17 22:44:12,005 INFO     Solution value  = 8.0
+Selected: sequence 342, 30 instances from 0 to 29
+Configuration: {'cameras_b': 12, 'cameras_m': 3.943886853541891, 'cameras_optional_m': 'false', 'goals_b': 10, 'goals_m': 2.393982093339584, 'objectives_b': 9, 'objectives_m': 3.6757941435865735, 'objectives_optional_m': 'false', 'rovers_b': 10, 'rovers_m': 1.852106313105835, 'rovers_optional_m': 'true', 'waypoints_b': 5, 'waypoints_m': 4.53474075748492}
+Penalty: 8.00
+Estimated runtimes: 0.85, 1.2, 2.3, 3.2, 5.6, 9.3, 12, 19, 33, 33, 41, 44, 60, 62, 1.1e+02, 1.8e+02, 2.9e+02, 4.8e+02, 7.9e+02, 1.3e+03, 2.1e+03, 3.5e+03, 5.7e+03, 9.3e+03, 1.5e+04, 2.5e+04, 4.1e+04, 6.7e+04, 1.1e+05, 1.8e+05
+  p01: {'rovers': 10, 'objectives': 9, 'cameras': 12, 'goals': 10, 'waypoints': 5}
+  p02: {'rovers': 10, 'objectives': 12, 'cameras': 15, 'goals': 12, 'waypoints': 9}
+  p03: {'rovers': 10, 'objectives': 16, 'cameras': 19, 'goals': 14, 'waypoints': 14}
+  p04: {'rovers': 10, 'objectives': 20, 'cameras': 23, 'goals': 17, 'waypoints': 18}
+  p05: {'rovers': 10, 'objectives': 23, 'cameras': 27, 'goals': 19, 'waypoints': 23}
+  p06: {'rovers': 10, 'objectives': 27, 'cameras': 31, 'goals': 21, 'waypoints': 27}
+  p07: {'rovers': 10, 'objectives': 31, 'cameras': 35, 'goals': 24, 'waypoints': 32}
+  p08: {'rovers': 10, 'objectives': 34, 'cameras': 39, 'goals': 26, 'waypoints': 36}
+  p09: {'rovers': 10, 'objectives': 38, 'cameras': 43, 'goals': 29, 'waypoints': 41}
+  p10: {'rovers': 10, 'objectives': 42, 'cameras': 47, 'goals': 31, 'waypoints': 45}
+  p11: {'rovers': 10, 'objectives': 45, 'cameras': 51, 'goals': 33, 'waypoints': 50}
+  p12: {'rovers': 10, 'objectives': 49, 'cameras': 55, 'goals': 36, 'waypoints': 54}
+  p13: {'rovers': 10, 'objectives': 53, 'cameras': 59, 'goals': 38, 'waypoints': 59}
+  p14: {'rovers': 10, 'objectives': 56, 'cameras': 63, 'goals': 41, 'waypoints': 63}
+  p15: {'rovers': 10, 'objectives': 60, 'cameras': 67, 'goals': 43, 'waypoints': 68}
+  p16: {'rovers': 10, 'objectives': 64, 'cameras': 71, 'goals': 45, 'waypoints': 73}
+  p17: {'rovers': 10, 'objectives': 67, 'cameras': 75, 'goals': 48, 'waypoints': 77}
+  p18: {'rovers': 10, 'objectives': 71, 'cameras': 79, 'goals': 50, 'waypoints': 82}
+  p19: {'rovers': 10, 'objectives': 75, 'cameras': 82, 'goals': 53, 'waypoints': 86}
+  p20: {'rovers': 10, 'objectives': 78, 'cameras': 86, 'goals': 55, 'waypoints': 91}
+  p21: {'rovers': 10, 'objectives': 82, 'cameras': 90, 'goals': 57, 'waypoints': 95}
+  p22: {'rovers': 10, 'objectives': 86, 'cameras': 94, 'goals': 60, 'waypoints': 100}
+  p23: {'rovers': 10, 'objectives': 89, 'cameras': 98, 'goals': 62, 'waypoints': 104}
+  p24: {'rovers': 10, 'objectives': 93, 'cameras': 102, 'goals': 65, 'waypoints': 109}
+  p25: {'rovers': 10, 'objectives': 97, 'cameras': 106, 'goals': 67, 'waypoints': 113}
+  p26: {'rovers': 10, 'objectives': 100, 'cameras': 110, 'goals': 69, 'waypoints': 118}
+  p27: {'rovers': 10, 'objectives': 104, 'cameras': 114, 'goals': 72, 'waypoints': 122}
+  p28: {'rovers': 10, 'objectives': 108, 'cameras': 118, 'goals': 74, 'waypoints': 127}
+  p29: {'rovers': 10, 'objectives': 111, 'cameras': 122, 'goals': 77, 'waypoints': 131}
+  p30: {'rovers': 10, 'objectives': 115, 'cameras': 126, 'goals': 79, 'waypoints': 136}
+
+real	4m34.856s
+user	4m32.267s
+sys	0m3.710s

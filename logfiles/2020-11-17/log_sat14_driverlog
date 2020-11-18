@@ -1,0 +1,75 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-11-17 19:16:32,313 INFO     No run directory, so we will not run anything
+2020-11-17 19:16:33,223 INFO     Loading cache data for baseline planners: 3310
+2020-11-17 19:16:33,227 INFO     Loading cache data for sart planners: 7439
+2020-11-17 19:16:33,236 INFO     Stored sequences: 6093
+Warning: No temporary dir for Runner has been provided but I have no data for {'drivers': 5, 'packages': 19, 'roadjunctions': 5, 'trucks': 11}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'drivers': 5, 'packages': 19, 'roadjunctions': 5, 'trucks': 11}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'drivers': 5, 'packages': 19, 'roadjunctions': 5, 'trucks': 11}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'drivers': 5, 'packages': 19, 'roadjunctions': 5, 'trucks': 11}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'drivers': 6, 'packages': 14, 'roadjunctions': 6, 'trucks': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'drivers': 5, 'packages': 19, 'roadjunctions': 5, 'trucks': 11}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'drivers': 5, 'packages': 19, 'roadjunctions': 5, 'trucks': 11}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'drivers': 6, 'packages': 14, 'roadjunctions': 6, 'trucks': 9}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'drivers': 6, 'packages': 13, 'roadjunctions': 6, 'trucks': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'drivers': 5, 'packages': 19, 'roadjunctions': 5, 'trucks': 11}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'drivers': 5, 'packages': 19, 'roadjunctions': 5, 'trucks': 11}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'drivers': 6, 'packages': 14, 'roadjunctions': 6, 'trucks': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'drivers': 5, 'packages': 19, 'roadjunctions': 5, 'trucks': 11}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'drivers': 5, 'packages': 16, 'roadjunctions': 5, 'trucks': 12}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'drivers': 6, 'packages': 15, 'roadjunctions': 6, 'trucks': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'drivers': 5, 'packages': 19, 'roadjunctions': 5, 'trucks': 11}, so I consider it unsolved within the time and memory limits
+2020-11-17 19:16:34,658 INFO     Different evaluated sequences: 3172
+2020-11-17 19:16:34,857 INFO     Candidate sequences: 100
+2020-11-17 19:16:34,858 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 3 use baseline 97 use sart
+2020-11-17 19:16:34,858 INFO     Using sart runtimes on CPLEX optimization
+2020-11-17 19:16:35,051 INFO     CPLEX solve
+
+2020-11-17 19:16:35,219 INFO     Solution status = 101: MIP_optimal
+2020-11-17 19:16:35,220 INFO     Solution value  = 21.85517764616557
+Selected: sequence 12, 14 instances from 1 to 14
+Configuration: {'drivers_b': 5, 'drivers_m': 0.9999999999999999, 'drivers_optional_m': 'true', 'packages_b': 10, 'packages_m': 1.0, 'roadjunctions_b': 0, 'roadjunctions_m': 3.7777768300315957, 'roadjunctions_optional_m': 'false', 'trucks_b': 0, 'trucks_m': 0.9875194762959152, 'trucks_optional_m': 'true'}
+Penalty: 6.40
+Estimated runtimes: 0.35, 0.7, 1.2, 1.7, 2.7, 3.1, 7.5, 8.1, 82, 1.3e+02, 7.9e+02, 4.7e+03, 2.8e+04, 1.6e+05, 9.6e+05, 5.7e+06, 3.3e+07, 2e+08, 1.2e+09, 6.9e+09, 4.1e+10, 2.4e+11, 1.4e+12, 8.4e+12, 4.9e+13, 2.9e+14, 1.7e+15, 1e+16, 6e+16
+Selected: sequence 2041, 5 instances from 10 to 14
+Configuration: {'drivers_b': 5, 'drivers_m': 2.1019313485854134, 'drivers_optional_m': 'true', 'packages_b': 7, 'packages_m': 1.0250777859051419, 'roadjunctions_b': 5, 'roadjunctions_m': 0.0611018999873209, 'roadjunctions_optional_m': 'false', 'trucks_b': 1, 'trucks_m': 0.3615445341675715, 'trucks_optional_m': 'false'}
+Penalty: 6.64
+Estimated runtimes: 1.8e+02, 8e+02, 3.6e+03, 1.6e+04, 7.1e+04, 3.2e+05, 1.4e+06, 6.3e+06, 2.8e+07, 1.3e+08, 5.6e+08, 2.5e+09, 1.1e+10, 5e+10, 2.2e+11, 9.9e+11, 4.4e+12, 2e+13, 8.8e+13, 3.9e+14
+Selected: sequence 1112, 11 instances from 9 to 19
+Configuration: {'drivers_b': 5, 'drivers_m': 4.3807224197541155, 'drivers_optional_m': 'true', 'packages_b': 9, 'packages_m': 3.7286809864735178, 'roadjunctions_b': 0, 'roadjunctions_m': 4.7178714579219605, 'roadjunctions_optional_m': 'true', 'trucks_b': 1, 'trucks_m': 0.7372643489734997, 'trucks_optional_m': 'false'}
+Penalty: 6.82
+Estimated runtimes: 1.7, 2, 3.9, 16, 89, 1.6e+02, 6.1e+02, 2.3e+03, 8.9e+03, 3.4e+04, 1.3e+05, 4.9e+05, 1.9e+06, 7.2e+06, 2.7e+07, 1e+08, 4e+08, 1.5e+09, 5.8e+09, 2.2e+10, 8.4e+10
+  p01: {'drivers': 5, 'packages': 16, 'roadjunctions': 8, 'trucks': 5}
+  p02: {'drivers': 5, 'packages': 17, 'roadjunctions': 12, 'trucks': 5}
+  p03: {'drivers': 5, 'packages': 18, 'roadjunctions': 16, 'trucks': 5}
+  p04: {'drivers': 5, 'packages': 19, 'roadjunctions': 20, 'trucks': 5}
+  p05: {'drivers': 5, 'packages': 20, 'roadjunctions': 23, 'trucks': 5}
+  p06: {'drivers': 5, 'packages': 21, 'roadjunctions': 27, 'trucks': 5}
+  p07: {'drivers': 5, 'packages': 22, 'roadjunctions': 31, 'trucks': 5}
+  p08: {'drivers': 5, 'packages': 23, 'roadjunctions': 35, 'trucks': 5}
+  p09: {'drivers': 5, 'packages': 24, 'roadjunctions': 38, 'trucks': 5}
+  p10: {'drivers': 5, 'packages': 25, 'roadjunctions': 42, 'trucks': 5}
+  p11: {'drivers': 5, 'packages': 26, 'roadjunctions': 46, 'trucks': 5}
+  p12: {'drivers': 5, 'packages': 27, 'roadjunctions': 50, 'trucks': 5}
+  p13: {'drivers': 5, 'packages': 28, 'roadjunctions': 54, 'trucks': 5}
+  p14: {'drivers': 5, 'packages': 29, 'roadjunctions': 57, 'trucks': 5}
+  p15: {'drivers': 5, 'packages': 22, 'roadjunctions': 10, 'trucks': 9}
+  p16: {'drivers': 5, 'packages': 23, 'roadjunctions': 10, 'trucks': 9}
+  p17: {'drivers': 5, 'packages': 24, 'roadjunctions': 10, 'trucks': 10}
+  p18: {'drivers': 5, 'packages': 25, 'roadjunctions': 10, 'trucks': 10}
+  p19: {'drivers': 5, 'packages': 26, 'roadjunctions': 10, 'trucks': 11}
+  p20: {'drivers': 5, 'packages': 47, 'roadjunctions': 5, 'trucks': 12}
+  p21: {'drivers': 5, 'packages': 51, 'roadjunctions': 5, 'trucks': 13}
+  p22: {'drivers': 5, 'packages': 55, 'roadjunctions': 5, 'trucks': 14}
+  p23: {'drivers': 5, 'packages': 58, 'roadjunctions': 5, 'trucks': 14}
+  p24: {'drivers': 5, 'packages': 62, 'roadjunctions': 5, 'trucks': 15}
+  p25: {'drivers': 5, 'packages': 66, 'roadjunctions': 5, 'trucks': 16}
+  p26: {'drivers': 5, 'packages': 69, 'roadjunctions': 5, 'trucks': 17}
+  p27: {'drivers': 5, 'packages': 73, 'roadjunctions': 5, 'trucks': 17}
+  p28: {'drivers': 5, 'packages': 77, 'roadjunctions': 5, 'trucks': 18}
+  p29: {'drivers': 5, 'packages': 81, 'roadjunctions': 5, 'trucks': 19}
+  p30: {'drivers': 5, 'packages': 84, 'roadjunctions': 5, 'trucks': 20}
+
+real	0m7.885s
+user	0m4.467s
+sys	0m4.658s

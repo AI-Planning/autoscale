@@ -1,0 +1,50 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-11-17 22:55:39,900 INFO     No run directory, so we will not run anything
+2020-11-17 22:55:40,420 INFO     Loading cache data for baseline planners: 1822
+2020-11-17 22:55:40,423 INFO     Loading cache data for sart planners: 4029
+2020-11-17 22:55:40,429 INFO     Stored sequences: 235
+2020-11-17 22:55:40,477 INFO     Different evaluated sequences: 224
+2020-11-17 22:55:40,583 INFO     Candidate sequences: 100
+2020-11-17 22:55:40,584 INFO     Using sart runtimes on CPLEX optimization
+2020-11-17 22:55:40,730 INFO     CPLEX solve
+
+2020-11-17 22:55:40,828 INFO     Solution status = 101: MIP_optimal
+2020-11-17 22:55:40,828 INFO     Solution value  = 0.0
+Selected: sequence 9, 30 instances from 0 to 29
+Configuration: {'modes_b': 3, 'modes_m': 0.18213559574311125, 'modes_optional_m': 'true', 'observations_b': 12, 'observations_m': 3.4502842054340883, 'satellites_b': 5, 'satellites_m': 1.5403752982205705, 'satellites_optional_m': 'false', 'targets_b': 22, 'targets_m': 9.455760233555388}
+Penalty: 0.00
+Estimated runtimes: 0.36, 0.73, 1.7, 3.5, 7.2, 13, 24, 37, 60, 73, 97, 1.3e+02, 1.5e+02, 2.3e+02, 3.4e+02, 5e+02, 7.5e+02, 1.1e+03, 1.6e+03, 2.4e+03, 3.6e+03, 5.4e+03, 8e+03, 1.2e+04, 1.8e+04, 2.6e+04, 3.9e+04, 5.8e+04, 8.6e+04, 1.3e+05
+  p01: {'satellites': 5, 'targets': 22, 'modes': 3, 'observations': 12}
+  p02: {'satellites': 6, 'targets': 31, 'modes': 3, 'observations': 15}
+  p03: {'satellites': 8, 'targets': 40, 'modes': 3, 'observations': 18}
+  p04: {'satellites': 9, 'targets': 50, 'modes': 3, 'observations': 22}
+  p05: {'satellites': 11, 'targets': 59, 'modes': 3, 'observations': 25}
+  p06: {'satellites': 12, 'targets': 69, 'modes': 3, 'observations': 29}
+  p07: {'satellites': 14, 'targets': 78, 'modes': 3, 'observations': 32}
+  p08: {'satellites': 15, 'targets': 88, 'modes': 3, 'observations': 36}
+  p09: {'satellites': 17, 'targets': 97, 'modes': 3, 'observations': 39}
+  p10: {'satellites': 18, 'targets': 107, 'modes': 3, 'observations': 43}
+  p11: {'satellites': 20, 'targets': 116, 'modes': 3, 'observations': 46}
+  p12: {'satellites': 21, 'targets': 126, 'modes': 3, 'observations': 49}
+  p13: {'satellites': 23, 'targets': 135, 'modes': 3, 'observations': 53}
+  p14: {'satellites': 25, 'targets': 144, 'modes': 3, 'observations': 56}
+  p15: {'satellites': 26, 'targets': 154, 'modes': 3, 'observations': 60}
+  p16: {'satellites': 28, 'targets': 163, 'modes': 3, 'observations': 63}
+  p17: {'satellites': 29, 'targets': 173, 'modes': 3, 'observations': 67}
+  p18: {'satellites': 31, 'targets': 182, 'modes': 3, 'observations': 70}
+  p19: {'satellites': 32, 'targets': 192, 'modes': 3, 'observations': 74}
+  p20: {'satellites': 34, 'targets': 201, 'modes': 3, 'observations': 77}
+  p21: {'satellites': 35, 'targets': 211, 'modes': 3, 'observations': 81}
+  p22: {'satellites': 37, 'targets': 220, 'modes': 3, 'observations': 84}
+  p23: {'satellites': 38, 'targets': 230, 'modes': 3, 'observations': 87}
+  p24: {'satellites': 40, 'targets': 239, 'modes': 3, 'observations': 91}
+  p25: {'satellites': 41, 'targets': 248, 'modes': 3, 'observations': 94}
+  p26: {'satellites': 43, 'targets': 258, 'modes': 3, 'observations': 98}
+  p27: {'satellites': 45, 'targets': 267, 'modes': 3, 'observations': 101}
+  p28: {'satellites': 46, 'targets': 277, 'modes': 3, 'observations': 105}
+  p29: {'satellites': 48, 'targets': 286, 'modes': 3, 'observations': 108}
+  p30: {'satellites': 49, 'targets': 296, 'modes': 3, 'observations': 112}
+
+real	0m11.659s
+user	0m10.069s
+sys	0m2.676s

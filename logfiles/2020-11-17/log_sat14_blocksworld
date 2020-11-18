@@ -1,0 +1,55 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-11-17 19:14:51,192 INFO     No run directory, so we will not run anything
+2020-11-17 19:14:52,101 INFO     Loading cache data for baseline planners: 132
+2020-11-17 19:14:52,101 INFO     Loading cache data for sart planners: 643
+2020-11-17 19:14:52,101 INFO     Stored sequences: 12201
+2020-11-17 19:14:53,777 INFO     Different evaluated sequences: 2229
+2020-11-17 19:14:55,272 INFO     Candidate sequences: 100
+2020-11-17 19:14:55,273 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 3 use baseline 97 use sart
+2020-11-17 19:14:55,273 INFO     Using sart runtimes on CPLEX optimization
+2020-11-17 19:14:55,666 INFO     CPLEX solve
+
+2020-11-17 19:14:56,532 INFO     Solution status = 101: MIP_optimal
+2020-11-17 19:14:56,532 INFO     Solution value  = 6.023227132579651
+Selected: sequence 1349, 19 instances from 2 to 20
+Configuration: {'n_b': 13, 'n_m': 3.674924660546055}
+Penalty: 0.00
+Estimated runtimes: 0.81, 0.94, 1.1, 1.4, 1.6, 2.2, 2.3, 3.7, 4, 5.2, 9.7, 11, 15, 16, 20, 1.8e+02, 1.6e+03, 1.4e+04, 1.3e+05, 1.1e+06, 1e+07, 9e+07, 8e+08, 7.1e+09, 6.3e+10, 5.7e+11, 5e+12, 4.5e+13
+Selected: sequence 2180, 11 instances from 18 to 28
+Configuration: {'n_b': 13, 'n_m': 4.120294649068779}
+Penalty: 6.02
+Estimated runtimes: 1.8e+02, 3.6e+02, 7e+02, 1.4e+03, 2.7e+03, 5.4e+03, 1.1e+04, 2.1e+04, 4.2e+04, 8.3e+04, 1.6e+05, 3.2e+05
+  p01: {'n': 20}
+  p02: {'n': 24}
+  p03: {'n': 27}
+  p04: {'n': 31}
+  p05: {'n': 35}
+  p06: {'n': 38}
+  p07: {'n': 42}
+  p08: {'n': 46}
+  p09: {'n': 49}
+  p10: {'n': 53}
+  p11: {'n': 57}
+  p12: {'n': 60}
+  p13: {'n': 64}
+  p14: {'n': 68}
+  p15: {'n': 71}
+  p16: {'n': 75}
+  p17: {'n': 79}
+  p18: {'n': 82}
+  p19: {'n': 86}
+  p20: {'n': 87}
+  p21: {'n': 91}
+  p22: {'n': 95}
+  p23: {'n': 99}
+  p24: {'n': 103}
+  p25: {'n': 107}
+  p26: {'n': 111}
+  p27: {'n': 116}
+  p28: {'n': 120}
+  p29: {'n': 124}
+  p30: {'n': 128}
+
+real	0m12.078s
+user	0m9.924s
+sys	0m5.760s

@@ -1,0 +1,93 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-11-17 23:06:18,398 INFO     No run directory, so we will not run anything
+2020-11-17 23:06:19,291 INFO     Loading cache data for baseline planners: 2791
+2020-11-17 23:06:19,296 INFO     Loading cache data for sart planners: 6791
+2020-11-17 23:06:19,309 INFO     Stored sequences: 599
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 31, 'y': 31, 'prob_key_in_goal': 1, 'shapes': 2, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 7, 'locks': 96}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 32, 'y': 34, 'prob_key_in_goal': 1, 'shapes': 4, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 9, 'locks': 108}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 11, 'y': 13, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 7, 'locks': 14}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 33, 'y': 34, 'prob_key_in_goal': 1, 'shapes': 2, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 7, 'locks': 112}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 10, 'y': 13, 'prob_key_in_goal': 1, 'shapes': 2, 'extra_keys': 11, 'percentage_cells_locked': 0.1, 'keys': 13, 'locks': 13}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 39, 'y': 42, 'prob_key_in_goal': 0.75, 'shapes': 5, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 10, 'locks': 163}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 33, 'y': 35, 'prob_key_in_goal': 1, 'shapes': 3, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 8, 'locks': 115}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 39, 'y': 42, 'prob_key_in_goal': 0.75, 'shapes': 5, 'extra_keys': 4, 'percentage_cells_locked': 0.1, 'keys': 9, 'locks': 163}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 35, 'y': 37, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 7, 'locks': 129}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 11, 'y': 13, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 7, 'locks': 14}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 35, 'y': 37, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 7, 'locks': 129}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 7, 'y': 7, 'prob_key_in_goal': 1, 'shapes': 20, 'extra_keys': 20, 'percentage_cells_locked': 0.3, 'keys': 40, 'locks': 20}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 12, 'y': 13, 'prob_key_in_goal': 1, 'shapes': 2, 'extra_keys': 3, 'percentage_cells_locked': 0.1, 'keys': 5, 'locks': 15}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 19, 'y': 24, 'prob_key_in_goal': 1, 'shapes': 2, 'extra_keys': 21, 'percentage_cells_locked': 0.1, 'keys': 23, 'locks': 45}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 39, 'y': 39, 'prob_key_in_goal': 0.75, 'shapes': 4, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 9, 'locks': 152}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 33, 'y': 34, 'prob_key_in_goal': 1, 'shapes': 2, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 7, 'locks': 112}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 7, 'y': 8, 'prob_key_in_goal': 0.5, 'shapes': 5, 'extra_keys': 9, 'percentage_cells_locked': 0.1, 'keys': 14, 'locks': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 9, 'y': 11, 'prob_key_in_goal': 1, 'shapes': 2, 'extra_keys': 7, 'percentage_cells_locked': 0.1, 'keys': 9, 'locks': 9}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 39, 'y': 42, 'prob_key_in_goal': 0.75, 'shapes': 5, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 10, 'locks': 163}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 41, 'y': 41, 'prob_key_in_goal': 0.75, 'shapes': 5, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 10, 'locks': 168}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 18, 'y': 20, 'prob_key_in_goal': 0.5, 'shapes': 2, 'extra_keys': 28, 'percentage_cells_locked': 0.2, 'keys': 30, 'locks': 72}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 21, 'y': 23, 'prob_key_in_goal': 0.75, 'shapes': 3, 'extra_keys': 21, 'percentage_cells_locked': 0.1, 'keys': 24, 'locks': 48}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 18, 'y': 20, 'prob_key_in_goal': 0.5, 'shapes': 2, 'extra_keys': 28, 'percentage_cells_locked': 0.2, 'keys': 30, 'locks': 72}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 31, 'y': 32, 'prob_key_in_goal': 1, 'shapes': 3, 'extra_keys': 5, 'percentage_cells_locked': 0.2, 'keys': 8, 'locks': 198}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 20, 'y': 20, 'prob_key_in_goal': 1, 'shapes': 2, 'extra_keys': 21, 'percentage_cells_locked': 0.1, 'keys': 23, 'locks': 40}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 31, 'y': 34, 'prob_key_in_goal': 1, 'shapes': 2, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 7, 'locks': 105}, so I consider it unsolved within the time and memory limits
+2020-11-17 23:06:19,905 INFO     Different evaluated sequences: 416
+prob_key_in_goal 0.5 81 79
+prob_key_in_goal 0.75 140 100
+prob_key_in_goal 1 176 100
+percentage_cells_locked 0.1 238 100
+percentage_cells_locked 0.2 101 98
+percentage_cells_locked 0.3 43 42
+percentage_cells_locked 0.4 15 15
+percentage_cells_locked 0.5 0 0
+percentage_cells_locked 0.6 0 0
+percentage_cells_locked 0.7 0 0
+percentage_cells_locked 0.8 0 0
+percentage_cells_locked 0.9 0 0
+2020-11-17 23:06:20,444 INFO     Candidate sequences: 303
+2020-11-17 23:06:20,447 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 3 use baseline 300 use sart
+2020-11-17 23:06:20,448 INFO     Using sart runtimes on CPLEX optimization
+2020-11-17 23:06:21,617 INFO     CPLEX solve
+
+2020-11-17 23:06:21,939 INFO     Solution status = 101: MIP_optimal
+2020-11-17 23:06:21,939 INFO     Solution value  = 1.089395343718908
+Selected: sequence 152, 20 instances from 1 to 20
+Configuration: {'extra_keys_b': 5, 'extra_keys_m': 1.5099669118506724, 'extra_keys_optional_m': 'true', 'grid_m': 9.466611311743216, 'grid_maxdiff': 2, 'grid_x': 3, 'percentage_cells_locked': 0.1, 'prob_key_in_goal': 1, 'shapes_b': 1, 'shapes_m': 0.12789800384272515, 'shapes_optional_m': 'false'}
+Penalty: 0.00
+Estimated runtimes: 0.9, 1.6, 2.6, 4.1, 6.2, 9.2, 12, 25, 51, 85, 1.8e+02, 3.8e+02, 8.1e+02, 1.7e+03, 3.6e+03, 7.7e+03, 1.6e+04, 3.5e+04, 7.4e+04, 1.6e+05, 3.3e+05, 7e+05, 1.5e+06, 3.2e+06, 6.7e+06, 1.4e+07, 3e+07, 6.4e+07, 1.4e+08
+Selected: sequence 82, 10 instances from 17 to 26
+Configuration: {'extra_keys_b': 3, 'extra_keys_m': 0.962949856027246, 'extra_keys_optional_m': 'false', 'grid_m': 0.6460417526787092, 'grid_maxdiff': 2, 'grid_x': 3, 'percentage_cells_locked': 0.3, 'prob_key_in_goal': 1, 'shapes_b': 4, 'shapes_m': 0.8536342479799388, 'shapes_optional_m': 'false'}
+Penalty: 1.09
+Estimated runtimes: 1.9e+02, 3.4e+02, 5.9e+02, 1e+03, 1.8e+03, 3.2e+03, 5.5e+03, 9.7e+03, 1.7e+04, 3e+04, 5.2e+04, 9e+04, 1.6e+05
+  p01: {'x': 6, 'y': 6, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 6, 'locks': 3}
+  p02: {'x': 9, 'y': 9, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 6, 'locks': 8}
+  p03: {'x': 12, 'y': 13, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 6, 'locks': 15}
+  p04: {'x': 15, 'y': 16, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 6, 'locks': 24}
+  p05: {'x': 18, 'y': 20, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 6, 'locks': 36}
+  p06: {'x': 21, 'y': 23, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 6, 'locks': 48}
+  p07: {'x': 25, 'y': 25, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 6, 'locks': 62}
+  p08: {'x': 28, 'y': 28, 'prob_key_in_goal': 1, 'shapes': 2, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 7, 'locks': 78}
+  p09: {'x': 31, 'y': 32, 'prob_key_in_goal': 1, 'shapes': 2, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 7, 'locks': 99}
+  p10: {'x': 34, 'y': 35, 'prob_key_in_goal': 1, 'shapes': 2, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 7, 'locks': 119}
+  p11: {'x': 37, 'y': 39, 'prob_key_in_goal': 1, 'shapes': 2, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 7, 'locks': 144}
+  p12: {'x': 40, 'y': 42, 'prob_key_in_goal': 1, 'shapes': 2, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 7, 'locks': 168}
+  p13: {'x': 44, 'y': 44, 'prob_key_in_goal': 1, 'shapes': 2, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 7, 'locks': 193}
+  p14: {'x': 47, 'y': 47, 'prob_key_in_goal': 1, 'shapes': 2, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 7, 'locks': 220}
+  p15: {'x': 50, 'y': 50, 'prob_key_in_goal': 1, 'shapes': 2, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 7, 'locks': 250}
+  p16: {'x': 53, 'y': 54, 'prob_key_in_goal': 1, 'shapes': 3, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 8, 'locks': 286}
+  p17: {'x': 56, 'y': 57, 'prob_key_in_goal': 1, 'shapes': 3, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 8, 'locks': 319}
+  p18: {'x': 59, 'y': 61, 'prob_key_in_goal': 1, 'shapes': 3, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 8, 'locks': 359}
+  p19: {'x': 62, 'y': 64, 'prob_key_in_goal': 1, 'shapes': 3, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 8, 'locks': 396}
+  p20: {'x': 66, 'y': 66, 'prob_key_in_goal': 1, 'shapes': 3, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 8, 'locks': 435}
+  p21: {'x': 6, 'y': 8, 'prob_key_in_goal': 1, 'shapes': 19, 'extra_keys': 20, 'percentage_cells_locked': 0.3, 'keys': 39, 'locks': 19}
+  p22: {'x': 7, 'y': 7, 'prob_key_in_goal': 1, 'shapes': 20, 'extra_keys': 21, 'percentage_cells_locked': 0.3, 'keys': 41, 'locks': 20}
+  p23: {'x': 7, 'y': 7, 'prob_key_in_goal': 1, 'shapes': 21, 'extra_keys': 22, 'percentage_cells_locked': 0.3, 'keys': 43, 'locks': 21}
+  p24: {'x': 7, 'y': 8, 'prob_key_in_goal': 1, 'shapes': 21, 'extra_keys': 23, 'percentage_cells_locked': 0.3, 'keys': 44, 'locks': 21}
+  p25: {'x': 7, 'y': 9, 'prob_key_in_goal': 1, 'shapes': 22, 'extra_keys': 24, 'percentage_cells_locked': 0.3, 'keys': 46, 'locks': 22}
+  p26: {'x': 7, 'y': 9, 'prob_key_in_goal': 1, 'shapes': 23, 'extra_keys': 25, 'percentage_cells_locked': 0.3, 'keys': 48, 'locks': 23}
+  p27: {'x': 8, 'y': 8, 'prob_key_in_goal': 1, 'shapes': 24, 'extra_keys': 26, 'percentage_cells_locked': 0.3, 'keys': 50, 'locks': 24}
+  p28: {'x': 8, 'y': 9, 'prob_key_in_goal': 1, 'shapes': 25, 'extra_keys': 27, 'percentage_cells_locked': 0.3, 'keys': 52, 'locks': 25}
+  p29: {'x': 8, 'y': 9, 'prob_key_in_goal': 1, 'shapes': 26, 'extra_keys': 28, 'percentage_cells_locked': 0.3, 'keys': 54, 'locks': 26}
+  p30: {'x': 8, 'y': 10, 'prob_key_in_goal': 1, 'shapes': 27, 'extra_keys': 28, 'percentage_cells_locked': 0.3, 'keys': 55, 'locks': 27}
+
+real	2m0.836s
+user	1m57.524s
+sys	0m4.750s
