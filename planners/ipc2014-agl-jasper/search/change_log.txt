@@ -1,0 +1,193 @@
+------------------------------------------------------------------------
+r52 | fxie2 | 2012-07-16 11:47:00 -0600 (Mon, 16 Jul 2012) | 1 line
+
+output time when output xml_tree
+------------------------------------------------------------------------
+r50 | fxie2 | 2012-07-15 16:36:00 -0600 (Sun, 15 Jul 2012) | 1 line
+
+rollback to v48
+------------------------------------------------------------------------
+r49 | fxie2 | 2012-07-15 16:30:18 -0600 (Sun, 15 Jul 2012) | 1 line
+
+add patch folder
+------------------------------------------------------------------------
+r48 | fxie2 | 2012-07-14 17:14:44 -0600 (Sat, 14 Jul 2012) | 1 line
+
+add eager-only-ff, eager-only-ff-no-pref, eager-two-level-only-ff, eager-two-level-only-ff-no-pref
+------------------------------------------------------------------------
+r47 | fxie2 | 2012-07-13 20:51:23 -0600 (Fri, 13 Jul 2012) | 1 line
+
+get rid of a debug output of xml_translator
+------------------------------------------------------------------------
+r46 | fxie2 | 2012-07-13 19:09:30 -0600 (Fri, 13 Jul 2012) | 1 line
+
+add xml_translator into makefile
+------------------------------------------------------------------------
+r45 | fxie2 | 2012-07-13 18:00:16 -0600 (Fri, 13 Jul 2012) | 1 line
+
+add xml translator to use Treeviz.jar
+------------------------------------------------------------------------
+r44 | fxie2 | 2012-07-12 11:59:22 -0600 (Thu, 12 Jul 2012) | 1 line
+
+add two-level configuration for hcea hcg hgoalcount
+------------------------------------------------------------------------
+r43 | fxie2 | 2012-07-12 11:33:24 -0600 (Thu, 12 Jul 2012) | 1 line
+
+add hcea, hcg, hgoalcount lama configuration
+------------------------------------------------------------------------
+r42 | fxie2 | 2012-07-04 17:00:13 -0600 (Wed, 04 Jul 2012) | 1 line
+
+1, add two level eager search (default step-size = 25); 2, add seq-sat-eager-lama-2011-cov and seq-sat-eager-lama-two-level-2011-cov into downward
+------------------------------------------------------------------------
+r41 | fxie2 | 2012-07-02 20:22:51 -0600 (Mon, 02 Jul 2012) | 1 line
+
+add config seq-sat-lama-2011-only-LM-cov\ add config seq-sat-lama-2011-only-LM-no-pref-cov\ add config seq-sat-lama-2011-no-pref-cov\ and corresponding two-level-search config
+------------------------------------------------------------------------
+r40 | fxie2 | 2012-07-02 00:21:23 -0600 (Mon, 02 Jul 2012) | 1 line
+
+1, remove some debug output in two-level-best-first-search.cc; 2, add two-level-marcro-only-FF-no-pref-cov into downward
+------------------------------------------------------------------------
+r39 | fxie2 | 2012-07-02 00:13:58 -0600 (Mon, 02 Jul 2012) | 1 line
+
+add seq-sat-lama-2011-only-FF-no-pref-cov
+------------------------------------------------------------------------
+r38 | fxie2 | 2012-06-30 14:54:42 -0600 (Sat, 30 Jun 2012) | 1 line
+
+add WAIT_LOCAL_SEARCH option
+------------------------------------------------------------------------
+r34 | fxie2 | 2012-06-29 15:15:42 -0600 (Fri, 29 Jun 2012) | 1 line
+
+add path_h_stats to get output of path_h_stats of other planners soln
+------------------------------------------------------------------------
+r33 | fxie2 | 2012-06-29 11:49:14 -0600 (Fri, 29 Jun 2012) | 1 line
+
+initial import of path_h_stats
+------------------------------------------------------------------------
+r32 | fxie2 | 2012-06-28 11:56:16 -0600 (Thu, 28 Jun 2012) | 1 line
+
+set default MAX_STEP to 7
+------------------------------------------------------------------------
+r31 | fxie2 | 2012-06-28 11:48:25 -0600 (Thu, 28 Jun 2012) | 1 line
+
+set MAX_STEP to default 1
+------------------------------------------------------------------------
+r30 | fxie2 | 2012-06-28 11:31:06 -0600 (Thu, 28 Jun 2012) | 1 line
+
+add switching between local and global search
+------------------------------------------------------------------------
+r29 | fxie2 | 2012-06-26 11:09:09 -0600 (Tue, 26 Jun 2012) | 1 line
+
+1, add seq-sat-lama-two-level-macro-2011-cov; 2, get rid of one debug output 'complete explore local region'
+------------------------------------------------------------------------
+r28 | fxie2 | 2012-06-26 10:42:00 -0600 (Tue, 26 Jun 2012) | 1 line
+
+add seq-sat-lama-2011-cov
+------------------------------------------------------------------------
+r27 | fxie2 | 2012-06-24 20:23:53 -0600 (Sun, 24 Jun 2012) | 1 line
+
+set default STEP_SIZE = 100
+------------------------------------------------------------------------
+r26 | fxie2 | 2012-06-24 17:58:28 -0600 (Sun, 24 Jun 2012) | 1 line
+
+fix a bug on lowest_bucket, during merging open list
+------------------------------------------------------------------------
+r25 | fxie2 | 2012-06-24 13:42:49 -0600 (Sun, 24 Jun 2012) | 1 line
+
+fix some bugs and adding some output
+------------------------------------------------------------------------
+r24 | fxie2 | 2012-06-24 12:22:17 -0600 (Sun, 24 Jun 2012) | 1 line
+
+1, implementation of 2-level bfs; 2, add merge_for_open_list
+------------------------------------------------------------------------
+r23 | fxie2 | 2012-06-22 10:59:08 -0600 (Fri, 22 Jun 2012) | 1 line
+
+1, add Size() for open_list; 2, initial draft of local_open_list in genegeneral_two_level_macro_lazy_best_first_search
+------------------------------------------------------------------------
+r22 | fxie2 | 2012-06-21 19:41:29 -0600 (Thu, 21 Jun 2012) | 1 line
+
+initial import of two_level_macro_lazy_best_first_search
+------------------------------------------------------------------------
+r21 | fxie2 | 2012-06-21 19:25:36 -0600 (Thu, 21 Jun 2012) | 1 line
+
+add rw statistics; add parameters to control random walks
+------------------------------------------------------------------------
+r20 | fxie2 | 2012-06-15 12:19:46 -0600 (Fri, 15 Jun 2012) | 1 line
+
+add seq-sat-lama-2011-only-ff-cov into downward
+------------------------------------------------------------------------
+r19 | fxie2 | 2012-06-15 12:16:35 -0600 (Fri, 15 Jun 2012) | 1 line
+
+get rid of exit(0) in general_lazy_best_first_search::fetch_next
+------------------------------------------------------------------------
+r18 | fxie2 | 2012-06-14 18:33:34 -0600 (Thu, 14 Jun 2012) | 1 line
+
+set default random walk parameter to 10,2.0,Pure
+------------------------------------------------------------------------
+r17 | fxie2 | 2012-06-14 14:46:25 -0600 (Thu, 14 Jun 2012) | 1 line
+
+fix MacroOperator printing format
+------------------------------------------------------------------------
+r16 | fxie2 | 2012-06-14 14:41:11 -0600 (Thu, 14 Jun 2012) | 1 line
+
+fix a bug on State(State, MacroOperator)
+------------------------------------------------------------------------
+r15 | fxie2 | 2012-06-14 13:02:02 -0600 (Thu, 14 Jun 2012) | 1 line
+
+fix a typo in downward
+------------------------------------------------------------------------
+r14 | fxie2 | 2012-06-14 12:27:36 -0600 (Thu, 14 Jun 2012) | 1 line
+
+first version MacroBestFirst, only working with only FF heuristic
+------------------------------------------------------------------------
+r13 | fxie2 | 2012-06-14 12:24:37 -0600 (Thu, 14 Jun 2012) | 1 line
+
+add g_macro_operators into globals.h
+------------------------------------------------------------------------
+r12 | fxie2 | 2012-06-14 12:23:39 -0600 (Thu, 14 Jun 2012) | 1 line
+
+add check_h_progress_for_macro_move in Search_Progress
+------------------------------------------------------------------------
+r11 | fxie2 | 2012-06-14 12:20:16 -0600 (Thu, 14 Jun 2012) | 1 line
+
+small modification on macro_operator
+------------------------------------------------------------------------
+r10 | fxie2 | 2012-06-14 12:18:41 -0600 (Thu, 14 Jun 2012) | 1 line
+
+added macro-lama-only-ff and -cov into downward
+------------------------------------------------------------------------
+r9 | fxie2 | 2012-06-11 14:35:11 -0600 (Mon, 11 Jun 2012) | 1 line
+
+initial import of random_walk in GeneralMacroLazyBestFirstSearch
+------------------------------------------------------------------------
+r8 | fxie2 | 2012-06-11 10:17:31 -0600 (Mon, 11 Jun 2012) | 1 line
+
+add create* functions into general_macro_lazy_best_first_search.h; overite fetch_next function
+------------------------------------------------------------------------
+r7 | fxie2 | 2012-06-10 22:25:44 -0600 (Sun, 10 Jun 2012) | 1 line
+
+modify search engine used for seq-sat-lama-macro-2011
+------------------------------------------------------------------------
+r6 | fxie2 | 2012-06-10 22:11:14 -0600 (Sun, 10 Jun 2012) | 1 line
+
+add source code for general_macro_lazy_best_first_search.h; add option in downward to use general_macro_lazy_best_first_search
+------------------------------------------------------------------------
+r5 | fxie2 | 2012-06-10 22:07:20 -0600 (Sun, 10 Jun 2012) | 1 line
+
+added GeneralMacroLazyBestFirstSearch
+------------------------------------------------------------------------
+r4 | fxie2 | 2012-06-08 11:47:05 -0600 (Fri, 08 Jun 2012) | 1 line
+
+add MacroOperator
+------------------------------------------------------------------------
+r3 | fxie2 | 2012-06-07 10:19:41 -0600 (Thu, 07 Jun 2012) | 1 line
+
+revert exact_timer
+------------------------------------------------------------------------
+r2 | fxie2 | 2012-06-07 10:18:33 -0600 (Thu, 07 Jun 2012) | 1 line
+
+add walker class into Lama framework
+------------------------------------------------------------------------
+r1 | fxie2 | 2012-06-05 21:15:48 -0600 (Tue, 05 Jun 2012) | 1 line
+
+Initial import
+------------------------------------------------------------------------

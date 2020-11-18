@@ -1,0 +1,2349 @@
+#! /bin/bash
+BASEDIR="$(dirname "$0")"
+TARGETDIR="$(dirname "$1")"
+shift 1
+TEMPFILE="$TARGETDIR"/downward.tmp.$$
+TIMEFILE="$TARGETDIR"/elapsed.time
+cat > $TEMPFILE
+STATE_SIZE=$(command time --output="$TIMEFILE" --append --format='%S\n%U\n' "$BASEDIR/dispatch" $TEMPFILE)
+echo Dispatcher selected state size $STATE_SIZE.
+UNIT_COST=$(command time --output="$TIMEFILE" --append --format='%S\n%U\n' "$BASEDIR/unitcost" $TEMPFILE)
+echo This is a $UNIT_COST task.
+PLANNER="$BASEDIR/downward-$STATE_SIZE"
+if [[ "$1" == "ipc" ]]; then
+    CONFIG="$2"
+    shift 2
+    if [[ "$CONFIG" == "seq-sat-fd-autotune-1" ]]; then
+        "$PLANNER" \
+            --heuristic "hFF=ff(cost_type=1)" \
+            --heuristic "hCea=cea(cost_type=0)" \
+            --heuristic "hCg=cg(cost_type=2)" \
+            --heuristic "hGoalCount=goalcount(cost_type=0)" \
+            --heuristic "hAdd=add(cost_type=0)" \
+            --search "iterated(
+                lazy(alt(single(sum(g(),weight(hFF, 10))),
+                         single(sum(g(),weight(hFF, 10)),pref_only=true),
+                         boost=2000),
+                     preferred=(hFF),reopen_closed=false,cost_type=1),
+                lazy(alt(single(sum(g(),weight(hAdd, 7))),
+                         single(sum(g(),weight(hAdd, 7)),pref_only=true),
+                         single(sum(g(),weight(hCg, 7))),
+                         single(sum(g(),weight(hCg, 7)),pref_only=true),
+                         single(sum(g(),weight(hCea, 7))),
+                         single(sum(g(),weight(hCea, 7)),pref_only=true),
+                         single(sum(g(),weight(hGoalCount, 7))),
+                         single(sum(g(),weight(hGoalCount, 7)),pref_only=true),
+                         boost=1000),
+                     preferred=(hCea,hGoalCount),
+                     reopen_closed=false,cost_type=1),
+                lazy(alt(tiebreaking(sum(g(),weight(hAdd, 3)),hAdd),
+                         tiebreaking(sum(g(),weight(hAdd, 3)),hAdd,pref_only=true),
+                         tiebreaking(sum(g(),weight(hCg, 3)),hCg),
+                         tiebreaking(sum(g(),weight(hCg, 3)),hCg,pref_only=true),
+                         tiebreaking(sum(g(),weight(hCea, 3)),hCea),
+                         tiebreaking(sum(g(),weight(hCea, 3)),hCea,pref_only=true),
+                         tiebreaking(sum(g(),weight(hGoalCount, 3)),hGoalCount),
+                         tiebreaking(sum(g(),weight(hGoalCount, 3)),hGoalCount,pref_only=true),
+                         boost=5000),
+                     preferred=(hCea,hGoalCount),reopen_closed=false,cost_type=0),
+                eager(alt(tiebreaking(sum(g(),weight(hAdd, 10)),hAdd),
+                          tiebreaking(sum(g(),weight(hAdd, 10)),hAdd,pref_only=true),
+                          tiebreaking(sum(g(),weight(hCg, 10)),hCg),
+                          tiebreaking(sum(g(),weight(hCg, 10)),hCg,pref_only=true),
+                          tiebreaking(sum(g(),weight(hCea, 10)),hCea),
+                          tiebreaking(sum(g(),weight(hCea, 10)),hCea,pref_only=true),
+                          tiebreaking(sum(g(),weight(hGoalCount, 10)),hGoalCount),
+                          tiebreaking(sum(g(),weight(hGoalCount, 10)),hGoalCount,pref_only=true),
+                          boost=500),
+                      preferred=(hCea,hGoalCount),reopen_closed=true,
+                      pathmax=true,cost_type=0),
+                repeat_last=true,continue_on_fail=true)" "$@" < $TEMPFILE
+    elif [[ "$CONFIG" == "seq-sat-fd-autotune-1-aras" ]]; then
+        "$PLANNER" \
+            --heuristic "hFF=ff(cost_type=1)" \
+            --heuristic "hCea=cea(cost_type=0)" \
+            --heuristic "hCg=cg(cost_type=2)" \
+            --heuristic "hGoalCount=goalcount(cost_type=0)" \
+            --heuristic "hAdd=add(cost_type=0)" \
+            --search "iterated_aras(
+                lazy(alt(single(sum(g(),weight(hFF, 10))),
+                         single(sum(g(),weight(hFF, 10)),pref_only=true),
+                         boost=2000),
+                     preferred=(hFF),reopen_closed=false,cost_type=1),
+                lazy(alt(single(sum(g(),weight(hAdd, 7))),
+                         single(sum(g(),weight(hAdd, 7)),pref_only=true),
+                         single(sum(g(),weight(hCg, 7))),
+                         single(sum(g(),weight(hCg, 7)),pref_only=true),
+                         single(sum(g(),weight(hCea, 7))),
+                         single(sum(g(),weight(hCea, 7)),pref_only=true),
+                         single(sum(g(),weight(hGoalCount, 7))),
+                         single(sum(g(),weight(hGoalCount, 7)),pref_only=true),
+                         boost=1000),
+                     preferred=(hCea,hGoalCount),
+                     reopen_closed=false,cost_type=1),
+                lazy(alt(tiebreaking(sum(g(),weight(hAdd, 3)),hAdd),
+                         tiebreaking(sum(g(),weight(hAdd, 3)),hAdd,pref_only=true),
+                         tiebreaking(sum(g(),weight(hCg, 3)),hCg),
+                         tiebreaking(sum(g(),weight(hCg, 3)),hCg,pref_only=true),
+                         tiebreaking(sum(g(),weight(hCea, 3)),hCea),
+                         tiebreaking(sum(g(),weight(hCea, 3)),hCea,pref_only=true),
+                         tiebreaking(sum(g(),weight(hGoalCount, 3)),hGoalCount),
+                         tiebreaking(sum(g(),weight(hGoalCount, 3)),hGoalCount,pref_only=true),
+                         boost=5000),
+                     preferred=(hCea,hGoalCount),reopen_closed=false,cost_type=0),
+                eager(alt(tiebreaking(sum(g(),weight(hAdd, 10)),hAdd),
+                          tiebreaking(sum(g(),weight(hAdd, 10)),hAdd,pref_only=true),
+                          tiebreaking(sum(g(),weight(hCg, 10)),hCg),
+                          tiebreaking(sum(g(),weight(hCg, 10)),hCg,pref_only=true),
+                          tiebreaking(sum(g(),weight(hCea, 10)),hCea),
+                          tiebreaking(sum(g(),weight(hCea, 10)),hCea,pref_only=true),
+                          tiebreaking(sum(g(),weight(hGoalCount, 10)),hGoalCount),
+                          tiebreaking(sum(g(),weight(hGoalCount, 10)),hGoalCount,pref_only=true),
+                          boost=500),
+                      preferred=(hCea,hGoalCount),reopen_closed=true,
+                      pathmax=true,cost_type=0),
+                repeat_last=true,continue_on_fail=true)" "$@" < $TEMPFILE
+    elif [[ "$CONFIG" == "seq-sat-fd-autotune-1-aras-rw" ]]; then
+        "$PLANNER" \
+            --heuristic "hFF=ff(cost_type=1)" \
+            --heuristic "hCea=cea(cost_type=0)" \
+            --heuristic "hCg=cg(cost_type=2)" \
+            --heuristic "hGoalCount=goalcount(cost_type=0)" \
+            --heuristic "hAdd=add(cost_type=0)" \
+            --search "iterated_aras_rw(
+                lazy(alt(single(sum(g(),weight(hFF, 10))),
+                         single(sum(g(),weight(hFF, 10)),pref_only=true),
+                         boost=2000),
+                     preferred=(hFF),reopen_closed=false,cost_type=1),
+                lazy(alt(single(sum(g(),weight(hAdd, 7))),
+                         single(sum(g(),weight(hAdd, 7)),pref_only=true),
+                         single(sum(g(),weight(hCg, 7))),
+                         single(sum(g(),weight(hCg, 7)),pref_only=true),
+                         single(sum(g(),weight(hCea, 7))),
+                         single(sum(g(),weight(hCea, 7)),pref_only=true),
+                         single(sum(g(),weight(hGoalCount, 7))),
+                         single(sum(g(),weight(hGoalCount, 7)),pref_only=true),
+                         boost=1000),
+                     preferred=(hCea,hGoalCount),
+                     reopen_closed=false,cost_type=1),
+                lazy(alt(tiebreaking(sum(g(),weight(hAdd, 3)),hAdd),
+                         tiebreaking(sum(g(),weight(hAdd, 3)),hAdd,pref_only=true),
+                         tiebreaking(sum(g(),weight(hCg, 3)),hCg),
+                         tiebreaking(sum(g(),weight(hCg, 3)),hCg,pref_only=true),
+                         tiebreaking(sum(g(),weight(hCea, 3)),hCea),
+                         tiebreaking(sum(g(),weight(hCea, 3)),hCea,pref_only=true),
+                         tiebreaking(sum(g(),weight(hGoalCount, 3)),hGoalCount),
+                         tiebreaking(sum(g(),weight(hGoalCount, 3)),hGoalCount,pref_only=true),
+                         boost=5000),
+                     preferred=(hCea,hGoalCount),reopen_closed=false,cost_type=0),
+                eager(alt(tiebreaking(sum(g(),weight(hAdd, 10)),hAdd),
+                          tiebreaking(sum(g(),weight(hAdd, 10)),hAdd,pref_only=true),
+                          tiebreaking(sum(g(),weight(hCg, 10)),hCg),
+                          tiebreaking(sum(g(),weight(hCg, 10)),hCg,pref_only=true),
+                          tiebreaking(sum(g(),weight(hCea, 10)),hCea),
+                          tiebreaking(sum(g(),weight(hCea, 10)),hCea,pref_only=true),
+                          tiebreaking(sum(g(),weight(hGoalCount, 10)),hGoalCount),
+                          tiebreaking(sum(g(),weight(hGoalCount, 10)),hGoalCount,pref_only=true),
+                          boost=500),
+                      preferred=(hCea,hGoalCount),reopen_closed=true,
+                      pathmax=true,cost_type=0),
+                repeat_last=true,continue_on_fail=true)" "$@" < $TEMPFILE
+    elif [[ "$CONFIG" == "seq-sat-fd-autotune-1-cov" ]]; then
+        "$PLANNER" \
+            --heuristic "hFF=ff(cost_type=1)" \
+            --heuristic "hCea=cea(cost_type=0)" \
+            --heuristic "hCg=cg(cost_type=2)" \
+            --heuristic "hGoalCount=goalcount(cost_type=0)" \
+            --heuristic "hAdd=add(cost_type=0)" \
+            --search "lazy(alt(single(sum(g(),weight(hFF, 10))),
+                         single(sum(g(),weight(hFF, 10)),pref_only=true),
+                         boost=2000)
+                      preferred=(hFF),reopen_closed=false,cost_type=1)" \
+               "$@" < $TEMPFILE
+
+    elif [[ "$CONFIG" == "seq-sat-fd-autotune-2-cov" ]]; then
+        "$PLANNER" \
+            --heuristic "hCea=cea(cost_type=2)" \
+            --heuristic "hCg=cg(cost_type=1)" \
+            --heuristic "hGoalCount=goalcount(cost_type=2)" \
+            --heuristic "hFF=ff(cost_type=0)" \
+            --search " ehc(hCea, preferred=(hCea),preferred_usage=0,cost_type=0)" \
+               "$@" < $TEMPFILE
+
+    elif [[ "$CONFIG" == "seq-sat-fd-autotune-2" ]]; then
+        "$PLANNER" \
+            --heuristic "hCea=cea(cost_type=2)" \
+            --heuristic "hCg=cg(cost_type=1)" \
+            --heuristic "hGoalCount=goalcount(cost_type=2)" \
+            --heuristic "hFF=ff(cost_type=0)" \
+            --search "iterated(
+                ehc(hCea, preferred=(hCea),preferred_usage=0,cost_type=0),
+                lazy(alt(single(sum(weight(g(), 2),weight(hFF, 3))),
+                         single(sum(weight(g(), 2),weight(hFF, 3)),pref_only=true),
+                         single(sum(weight(g(), 2),weight(hCg, 3))),
+                         single(sum(weight(g(), 2),weight(hCg, 3)),pref_only=true),
+                         single(sum(weight(g(), 2),weight(hCea, 3))),
+                         single(sum(weight(g(), 2),weight(hCea, 3)),pref_only=true),
+                         single(sum(weight(g(), 2),weight(hGoalCount, 3))),
+                         single(sum(weight(g(), 2),weight(hGoalCount, 3)),pref_only=true),
+                         boost=200),
+                     preferred=(hCea,hGoalCount),reopen_closed=false,cost_type=1),
+                lazy(alt(single(sum(g(),weight(hFF, 5))),
+                         single(sum(g(),weight(hFF, 5)),pref_only=true),
+                         single(sum(g(),weight(hCg, 5))),
+                         single(sum(g(),weight(hCg, 5)),pref_only=true),
+                         single(sum(g(),weight(hCea, 5))),
+                         single(sum(g(),weight(hCea, 5)),pref_only=true),
+                         single(sum(g(),weight(hGoalCount, 5))),
+                         single(sum(g(),weight(hGoalCount, 5)),pref_only=true),
+                         boost=5000),
+                     preferred=(hCea,hGoalCount),reopen_closed=true,cost_type=0),
+                lazy(alt(single(sum(g(),weight(hFF, 2))),
+                         single(sum(g(),weight(hFF, 2)),pref_only=true),
+                         single(sum(g(),weight(hCg, 2))),
+                         single(sum(g(),weight(hCg, 2)),pref_only=true),
+                         single(sum(g(),weight(hCea, 2))),
+                         single(sum(g(),weight(hCea, 2)),pref_only=true),
+                         single(sum(g(),weight(hGoalCount, 2))),
+                         single(sum(g(),weight(hGoalCount, 2)),pref_only=true),
+                         boost=1000),
+                     preferred=(hCea,hGoalCount),reopen_closed=true,cost_type=1),
+                repeat_last=true,continue_on_fail=true)" "$@" < $TEMPFILE
+    elif [[ "$CONFIG" == "seq-sat-fdss-1" ]]; then
+        "$BASEDIR/downward-seq-sat-fdss-1.py" full "$TARGETDIR" "$TEMPFILE" "$UNIT_COST" "$PLANNER" "$@" 
+    elif [[ "$CONFIG" == "seq-sat-fdss-2" ]]; then
+        "$BASEDIR/downward-seq-sat-fdss-2.py" full "$TARGETDIR" "$TEMPFILE" "$UNIT_COST" "$PLANNER" "$@"
+    elif [[ "$CONFIG" == "seq-sat-fdss-1-cov" ]]; then
+        "$BASEDIR/downward-seq-sat-fdss-1.py" cov "$TARGETDIR" "$TEMPFILE" "$UNIT_COST" "$PLANNER" "$@" 
+    elif [[ "$CONFIG" == "seq-sat-fdss-2-cov" ]]; then
+        "$BASEDIR/downward-seq-sat-fdss-2.py" cov "$TARGETDIR" "$TEMPFILE" "$UNIT_COST" "$PLANNER" "$@"
+    elif [[ "$CONFIG" == "seq-sat-lama-2008" ]]; then
+        echo "The seq-sat-lama-2008 planner should not use this code."
+        exit 2
+    elif [[ "$CONFIG" == "seq-sat-lama-2011" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "iterated(
+                    lazy_greedy(hff,hlm,preferred=(hff,hlm)),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=5),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=3),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=2),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=1),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --heuristic "hlm2,hff2=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "iterated(
+                    lazy_greedy(hff1,hlm1,preferred=(hff1,hlm1),
+                                cost_type=1,reopen_closed=false),
+                    lazy_greedy(hff2,hlm2,preferred=(hff2,hlm2),
+                                reopen_closed=false),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=5),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=3),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=2),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=1),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-only-gbfs" ]]; then 
+        if [[ "$UNIT_COST" == "unit" ]]; then 
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "iterated(
+                    lazy_greedy(hff,hlm,preferred=(hff,hlm)),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then 
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --heuristic "hlm2,hff2=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "iterated(
+                    lazy_greedy(hff1,hlm1,preferred=(hff1,hlm1),
+                                cost_type=1,reopen_closed=false),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        else 
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-ls-greedy" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "iterated(
+                    lazy_two_level_macro_greedy(hff,hlm,preferred=(hff,hlm)),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=5),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=3),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=2),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=1),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --heuristic "hlm2,hff2=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "iterated(
+                    lazy_two_level_macro_greedy(hff1,hlm1,preferred=(hff1,hlm1),
+                                cost_type=1,reopen_closed=false),
+                    lazy_greedy(hff2,hlm2,preferred=(hff2,hlm2),
+                                reopen_closed=false),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=5),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=3),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=2),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=1),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+	elif [[ "$CONFIG" == "seq-sat-lama-2011-ls-all" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "iterated(
+                    lazy_two_level_macro_greedy(hff,hlm,preferred=(hff,hlm)),
+                    lazy_two_level_macro_wastar(hff,hlm,preferred=(hff,hlm),w=5),
+                    lazy_two_level_macro_wastar(hff,hlm,preferred=(hff,hlm),w=3),
+                    lazy_two_level_macro_wastar(hff,hlm,preferred=(hff,hlm),w=2),
+                    lazy_two_level_macro_wastar(hff,hlm,preferred=(hff,hlm),w=1),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --heuristic "hlm2,hff2=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "iterated(
+                    lazy_two_level_macro_greedy(hff1,hlm1,preferred=(hff1,hlm1),
+                                cost_type=1,reopen_closed=false),
+                    lazy_two_level_macro_greedy(hff2,hlm2,preferred=(hff2,hlm2),
+                                reopen_closed=false),
+                    lazy_two_level_macro_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=5),
+                    lazy_two_level_macro_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=3),
+                    lazy_two_level_macro_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=2),
+                    lazy_two_level_macro_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=1),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-ls-greedy-aras" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "iterated_aras(
+                    lazy_two_level_macro_greedy(hff,hlm,preferred=(hff,hlm)),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=5),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=3),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=2),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=1),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --heuristic "hlm2,hff2=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "iterated_aras(
+                    lazy_two_level_macro_greedy(hff1,hlm1,preferred=(hff1,hlm1),
+                                cost_type=1,reopen_closed=false),
+                    lazy_greedy(hff2,hlm2,preferred=(hff2,hlm2),
+                                reopen_closed=false),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=5),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=3),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=2),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=1),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+	elif [[ "$CONFIG" == "seq-sat-lama-2011-ls-all-aras" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "iterated_aras(
+                    lazy_two_level_macro_greedy(hff,hlm,preferred=(hff,hlm)),
+                    lazy_two_level_macro_wastar(hff,hlm,preferred=(hff,hlm),w=5),
+                    lazy_two_level_macro_wastar(hff,hlm,preferred=(hff,hlm),w=3),
+                    lazy_two_level_macro_wastar(hff,hlm,preferred=(hff,hlm),w=2),
+                    lazy_two_level_macro_wastar(hff,hlm,preferred=(hff,hlm),w=1),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --heuristic "hlm2,hff2=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "iterated_aras(
+                    lazy_two_level_macro_greedy(hff1,hlm1,preferred=(hff1,hlm1),
+                                cost_type=1,reopen_closed=false),
+                    lazy_two_level_macro_greedy(hff2,hlm2,preferred=(hff2,hlm2),
+                                reopen_closed=false),
+                    lazy_two_level_macro_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=5),
+                    lazy_two_level_macro_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=3),
+                    lazy_two_level_macro_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=2),
+                    lazy_two_level_macro_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=1),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-only-FF" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "iterated(
+                    lazy_greedy(hff,preferred=(hff)),
+                    lazy_wastar(hff,preferred=(hff),w=5),
+                    lazy_wastar(hff,preferred=(hff),w=3),
+                    lazy_wastar(hff,preferred=(hff),w=2),
+                    lazy_wastar(hff,preferred=(hff),w=1),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --heuristic "hff2=ff(cost_type=2)" \
+                --search "iterated(
+                    lazy_greedy(hff1,preferred=(hff1),
+                                cost_type=1,reopen_closed=false),
+                    lazy_greedy(hff2,preferred=(hff2),
+                                reopen_closed=false),
+                    lazy_wastar(hff2,preferred=(hff2),w=5),
+                    lazy_wastar(hff2,preferred=(hff2),w=3),
+                    lazy_wastar(hff2,preferred=(hff2),w=2),
+                    lazy_wastar(hff2,preferred=(hff2),w=1),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi 
+    elif [[ "$CONFIG" == "seq-sat-lama-macro-2011-only-FF" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "iterated(
+                    lazy_macro_greedy(hff,preferred=(hff)),
+                    lazy_macro_wastar(hff,preferred=(hff),w=5),
+                    lazy_macro_wastar(hff,preferred=(hff),w=3),
+                    lazy_macro_wastar(hff,preferred=(hff),w=2),
+                    lazy_macro_wastar(hff,preferred=(hff),w=1),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --heuristic "hff2=ff(cost_type=2)" \
+                --search "iterated(
+                    lazy_macro_greedy(hff1,preferred=(hff1),
+                                cost_type=1,reopen_closed=false),
+                    lazy_macro_greedy(hff2,preferred=(hff2),
+                                reopen_closed=false),
+                    lazy_macro_wastar(hff2,preferred=(hff2),w=5),
+                    lazy_macro_wastar(hff2,preferred=(hff2),w=3),
+                    lazy_macro_wastar(hff2,preferred=(hff2),w=2),
+                    lazy_macro_wastar(hff2,preferred=(hff2),w=1),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-two-level-macro-2011-only-FF-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "lazy_two_level_macro_greedy(hff,preferred=(hff))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "lazy_two_level_macro_greedy(hff1,preferred=(hff1))" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-two-level-macro-2011-only-FF-no-pref-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "lazy_two_level_macro_greedy(hff)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "lazy_two_level_macro_greedy(hff1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi 
+    elif [[ "$CONFIG" == "seq-sat-lama-macro-2011-only-FF-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "lazy_macro_greedy(hff,preferred=(hff))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "lazy_macro_greedy(hff1,preferred=(hff1))" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-only-FF-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "lazy_greedy(hff,preferred=(hff))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "lazy_greedy(hff1,preferred=(hff1))" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi 
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-only-FF-no-pref-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "lazy_greedy(hff)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "lazy_greedy(hff1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-only-CG-no-pref-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hcg=cg()" \
+                --search "lazy_greedy(hcg)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hcg1=cg(cost_type=1)" \
+                --search "lazy_greedy(hcg1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-only-CEA-no-pref-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hcea=cea()" \
+                --search "lazy_greedy(hcea)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hcea=cea(cost_type=1)" \
+                --search "lazy_greedy(hcea1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "lazy_greedy(hff,hlm,preferred=(hff,hlm))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --search "lazy_greedy(hff1,hlm1,preferred=(hff1,hlm1),cost_type=1,reopen_closed=false)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-only-LM-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "lazy_greedy(hlm,preferred=(hlm))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --search "lazy_greedy(hlm1,preferred=(hlm1),cost_type=1,reopen_closed=false)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-two-level-macro-2011-only-LM-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "lazy_two_level_macro_greedy(hlm,preferred=(hlm))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --search "lazy_two_level_macro_greedy(hlm1,preferred=(hlm1),cost_type=1,reopen_closed=false)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-only-Cea-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hCea=cea(cost_type=1)" \
+                --search "lazy_greedy(hCea,preferred=(hCea))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hCea=cea(cost_type=1)" \
+                --search "lazy_greedy(hCea,preferred=(hCea),cost_type=1,reopen_closed=false)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-only-Cg-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hCg=cg(cost_type=1)" \
+                --search "lazy_greedy(hCg,preferred=(hCg))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hCg=cg(cost_type=1)" \
+                --search "lazy_greedy(hCg,preferred=(hCg),cost_type=1,reopen_closed=false)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-only-GoalCount-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hGoalCount=goalcount(cost_type=1)" \
+                --search "lazy_greedy(hGoalCount,preferred=(hGoalCount))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hGoalCount=goalcount(cost_type=1)" \
+                --search "lazy_greedy(hGoalCount,preferred=(hGoalCount),cost_type=1,reopen_closed=false)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-two-level-macro-2011-only-Cea-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hCea=cea(cost_type=1)" \
+                --search "lazy_two_level_macro_greedy(hCea,preferred=(hCea))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hCea=cea(cost_type=1)" \
+                --search "lazy_two_level_macro_greedy(hCea,preferred=(hCea),cost_type=1,reopen_closed=false)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-two-level-macro-2011-only-Cg-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hCg=cg(cost_type=1)" \
+                --search "lazy_two_level_macro_greedy(hCg,preferred=(hCg))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hCg=cg(cost_type=1)" \
+                --search "lazy_two_level_macro_greedy(hCg,preferred=(hCg),cost_type=1,reopen_closed=false)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-two-level-macro-2011-only-GoalCount-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hGoalCount=goalcount(cost_type=1)" \
+                --search "lazy_two_level_macro_greedy(hGoalCount,preferred=(hGoalCount))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hGoalCount=goalcount(cost_type=1)" \
+                --search "lazy_two_level_macro_greedy(hGoalCount,preferred=(hGoalCount),cost_type=1,reopen_closed=false)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-only-LM-no-pref-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "lazy_greedy(hlm)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --search "lazy_greedy(hlm1,cost_type=1,reopen_closed=false)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-two-level-macro-2011-only-LM-no-pref-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "lazy_two_level_macro_greedy(hlm)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --search "lazy_two_level_macro_greedy(hlm1,cost_type=1,reopen_closed=false)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-no-pref-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "lazy_greedy(hff,hlm)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --search "lazy_greedy(hff1,hlm1,cost_type=1,reopen_closed=false)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-two-level-macro-2011-no-pref-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "lazy_two_level_macro_greedy(hff,hlm)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --search "lazy_two_level_macro_greedy(hff1,hlm1,cost_type=1,reopen_closed=false)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi  
+    elif [[ "$CONFIG" == "path_h_stats" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "path_h_stats(hff,hlm,preferred=(hff,hlm))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --search "path_h_stats(hff1,hlm1,preferred=(hff1,hlm1),cost_type=1,reopen_closed=false)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-two-level-macro-2011-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "lazy_two_level_macro_greedy(hff,hlm,preferred=(hff,hlm))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --search "lazy_two_level_macro_greedy(hff1,hlm1,preferred=(hff1,hlm1),cost_type=1,reopen_closed=false)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi 
+    elif [[ "$CONFIG" == "seq-sat-eager-lama-two-level-2011-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "eager_two_level_greedy(hff,hlm,preferred=(hff,hlm))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --search "eager_two_level_greedy(hff1,hlm1,preferred=(hff1,hlm1),cost_type=1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi 
+    elif [[ "$CONFIG" == "seq-sat-eager-lama-2011-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "eager_greedy(hff,hlm,preferred=(hff,hlm))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --search "eager_greedy(hff1,hlm1,preferred=(hff1,hlm1),cost_type=1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+ 	elif [[ "$CONFIG" == "seq-sat-eager-lama-2011-only-FF-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "eager_greedy(hff,preferred=(hff))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "eager_greedy(hff1,preferred=(hff1))" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+	elif [[ "$CONFIG" == "seq-sat-eager-lama-2011-only-FF-no-pref-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "eager_greedy(hff)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "eager_greedy(hff1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+ 	elif [[ "$CONFIG" == "seq-sat-eager-lama-two-level-macro-2011-only-FF-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "eager_two_level_greedy(hff,preferred=(hff))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "eager_two_level_greedy(hff1,preferred=(hff1))" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+	elif [[ "$CONFIG" == "seq-sat-eager-lama-two-level-macro-2011-only-FF-no-pref-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "eager_two_level_greedy(hff)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "eager_two_level_greedy(hff1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi  
+    elif [[ "$CONFIG" == "seq-sat-lama-macro-2011" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "iterated(
+                    lazy_macro_greedy(hff,hlm,preferred=(hff,hlm)),
+                    lazy_macro_wastar(hff,hlm,preferred=(hff,hlm),w=5),
+                    lazy_macro_wastar(hff,hlm,preferred=(hff,hlm),w=3),
+                    lazy_macro_wastar(hff,hlm,preferred=(hff,hlm),w=2),
+                    lazy_macro_wastar(hff,hlm,preferred=(hff,hlm),w=1),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --heuristic "hlm2,hff2=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "iterated(
+                    lazy_macro_greedy(hff1,hlm1,preferred=(hff1,hlm1),
+                                cost_type=1,reopen_closed=false),
+                    lazy_macro_greedy(hff2,hlm2,preferred=(hff2,hlm2),
+                                reopen_closed=false),
+                    lazy_macro_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=5),
+                    lazy_macro_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=3),
+                    lazy_macro_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=2),
+                    lazy_macro_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=1),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "lama-2011-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "lazy_greedy(hff,hlm,preferred=(hff,hlm))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --search "lazy_greedy(hff1,hlm1,preferred=(hff1,hlm1),
+                                cost_type=1,reopen_closed=false)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "gbfs-ff" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "eager_greedy(hff)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "eager_greedy(hff1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "ls-gbfs-ff" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "eager_two_level_greedy(hff)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "eager_two_level_greedy(hff1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "gbfs-ff-help" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "eager_greedy(hff,preferred=(hff))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "eager_greedy(hff1,preferred=(hff1))" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "ls-gbfs-ff-help" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "eager_two_level_greedy(hff,preferred=(hff))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "eager_two_level_greedy(hff1,preferred=(hff1))" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "gbfs-ff-lm" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "eager_greedy(hff,hlm,preferred=(hff,hlm))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --search "eager_greedy(hff1,hlm1,preferred=(hff1,hlm1),cost_type=1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+	elif [[ "$CONFIG" == "ls-gbfs-ff-lm" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "eager_two_level_greedy(hff,hlm,preferred=(hff,hlm))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --search "eager_two_level_greedy(hff1,hlm1,preferred=(hff1,hlm1),cost_type=1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi    
+    elif [[ "$CONFIG" == "seq-opt-fd-autotune" ]]; then
+        "$PLANNER" \
+            --heuristic "hLMCut=lmcut()" \
+            --heuristic "hHMax=hmax()" \
+            --heuristic "hCombinedSelMax=selmax(
+                hLMCut,hHMax,alpha=4,classifier=0,conf_threshold=0.85,
+                training_set=10,sample=0,uniform=true)" \
+            --search "astar(hCombinedSelMax,mpd=false,
+                            pathmax=true,cost_type=0)" "$@" < $TEMPFILE
+    elif [[ "$CONFIG" == "seq-opt-fdss-1" ]]; then
+        echo "Performing fdss-1"
+        "$BASEDIR/downward-seq-opt-fdss-1.py" "$PLANNER" "$@" < $TEMPFILE
+    elif [[ "$CONFIG" == "seq-opt-fdss-2" ]]; then
+        "$BASEDIR/downward-seq-opt-fdss-2.py" "$PLANNER" "$@" < $TEMPFILE
+    elif [[ "$CONFIG" == "seq-opt-selmax" ]]; then
+        "$PLANNER" --search "astar(selmax(lmcut(),lmcount(lm_merged(lm_hm(m=1),lm_rhw()),admissible=true),training_set=1000),mpd=true)" "$@" < $TEMPFILE
+    elif [[ "$CONFIG" == "seq-opt-bjolp" ]]; then
+        "$PLANNER" --search "astar(lmcount(lm_merged(lm_rhw(),lm_hm(m=1)),admissible=true),mpd=true)" "$@" < $TEMPFILE
+    elif [[ "$CONFIG" == "seq-opt-lmcut" ]]; then
+        "$PLANNER" --search "astar(lmcut())" "$@" < $TEMPFILE
+    elif [[ "$CONFIG" == "seq-opt-merge-and-shrink" ]]; then
+        "$BASEDIR/downward-seq-opt-merge-and-shrink.py" "$PLANNER" "$@" < $TEMPFILE
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-aras" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "iterated_aras(
+                    lazy_greedy(hff,hlm,preferred=(hff,hlm)),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=5),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=3),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=2),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=1),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --heuristic "hlm2,hff2=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "iterated_aras(
+                    lazy_greedy(hff1,hlm1,preferred=(hff1,hlm1),
+                                cost_type=1,reopen_closed=false),
+                    lazy_greedy(hff2,hlm2,preferred=(hff2,hlm2),
+                                reopen_closed=false),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=5),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=3),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=2),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=1),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi    
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-aras-rw" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "iterated_aras_rw(
+                    lazy_greedy(hff,hlm,preferred=(hff,hlm)),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=5),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=3),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=2),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=1),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --heuristic "hlm2,hff2=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "iterated_aras_rw(
+                    lazy_greedy(hff1,hlm1,preferred=(hff1,hlm1),
+                                cost_type=1,reopen_closed=false),
+                    lazy_greedy(hff2,hlm2,preferred=(hff2,hlm2),
+                                reopen_closed=false),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=5),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=3),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=2),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=1),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi    
+    elif [[ "$CONFIG" == "seq-sat-fd-at2-aras" ]]; then
+    	"$PLANNER" \
+            --heuristic "hCea=cea(cost_type=2)" \
+            --heuristic "hCg=cg(cost_type=1)" \
+            --heuristic "hGoalCount=goalcount(cost_type=2)" \
+            --heuristic "hFF=ff(cost_type=0)" \
+            --search "iterated_aras(
+                ehc(hCea, preferred=(hCea),preferred_usage=0,cost_type=0),
+                lazy(alt(single(sum(weight(g(), 2),weight(hFF, 3))),
+                         single(sum(weight(g(), 2),weight(hFF, 3)),pref_only=true),
+                         single(sum(weight(g(), 2),weight(hCg, 3))),
+                         single(sum(weight(g(), 2),weight(hCg, 3)),pref_only=true),
+                         single(sum(weight(g(), 2),weight(hCea, 3))),
+                         single(sum(weight(g(), 2),weight(hCea, 3)),pref_only=true),
+                         single(sum(weight(g(), 2),weight(hGoalCount, 3))),
+                         single(sum(weight(g(), 2),weight(hGoalCount, 3)),pref_only=true),
+                         boost=200),
+                     preferred=(hCea,hGoalCount),reopen_closed=false,cost_type=1),
+                lazy(alt(single(sum(g(),weight(hFF, 5))),
+                         single(sum(g(),weight(hFF, 5)),pref_only=true),
+                         single(sum(g(),weight(hCg, 5))),
+                         single(sum(g(),weight(hCg, 5)),pref_only=true),
+                         single(sum(g(),weight(hCea, 5))),
+                         single(sum(g(),weight(hCea, 5)),pref_only=true),
+                         single(sum(g(),weight(hGoalCount, 5))),
+                         single(sum(g(),weight(hGoalCount, 5)),pref_only=true),
+                         boost=5000),
+                     preferred=(hCea,hGoalCount),reopen_closed=true,cost_type=0),
+                lazy(alt(single(sum(g(),weight(hFF, 2))),
+                         single(sum(g(),weight(hFF, 2)),pref_only=true),
+                         single(sum(g(),weight(hCg, 2))),
+                         single(sum(g(),weight(hCg, 2)),pref_only=true),
+                         single(sum(g(),weight(hCea, 2))),
+                         single(sum(g(),weight(hCea, 2)),pref_only=true),
+                         single(sum(g(),weight(hGoalCount, 2))),
+                         single(sum(g(),weight(hGoalCount, 2)),pref_only=true),
+                         boost=1000),
+                     preferred=(hCea,hGoalCount),reopen_closed=true,cost_type=1),
+                repeat_last=true,continue_on_fail=true)" "$@" < $TEMPFILE
+        elif [[ "$CONFIG" == "seq-sat-fd-at2-aras-rw" ]]; then
+    	"$PLANNER" \
+            --heuristic "hCea=cea(cost_type=2)" \
+            --heuristic "hCg=cg(cost_type=1)" \
+            --heuristic "hGoalCount=goalcount(cost_type=2)" \
+            --heuristic "hFF=ff(cost_type=0)" \
+            --search "iterated_aras_rw(
+                ehc(hCea, preferred=(hCea),preferred_usage=0,cost_type=0),
+                lazy(alt(single(sum(weight(g(), 2),weight(hFF, 3))),
+                         single(sum(weight(g(), 2),weight(hFF, 3)),pref_only=true),
+                         single(sum(weight(g(), 2),weight(hCg, 3))),
+                         single(sum(weight(g(), 2),weight(hCg, 3)),pref_only=true),
+                         single(sum(weight(g(), 2),weight(hCea, 3))),
+                         single(sum(weight(g(), 2),weight(hCea, 3)),pref_only=true),
+                         single(sum(weight(g(), 2),weight(hGoalCount, 3))),
+                         single(sum(weight(g(), 2),weight(hGoalCount, 3)),pref_only=true),
+                         boost=200),
+                     preferred=(hCea,hGoalCount),reopen_closed=false,cost_type=1),
+                lazy(alt(single(sum(g(),weight(hFF, 5))),
+                         single(sum(g(),weight(hFF, 5)),pref_only=true),
+                         single(sum(g(),weight(hCg, 5))),
+                         single(sum(g(),weight(hCg, 5)),pref_only=true),
+                         single(sum(g(),weight(hCea, 5))),
+                         single(sum(g(),weight(hCea, 5)),pref_only=true),
+                         single(sum(g(),weight(hGoalCount, 5))),
+                         single(sum(g(),weight(hGoalCount, 5)),pref_only=true),
+                         boost=5000),
+                     preferred=(hCea,hGoalCount),reopen_closed=true,cost_type=0),
+                lazy(alt(single(sum(g(),weight(hFF, 2))),
+                         single(sum(g(),weight(hFF, 2)),pref_only=true),
+                         single(sum(g(),weight(hCg, 2))),
+                         single(sum(g(),weight(hCg, 2)),pref_only=true),
+                         single(sum(g(),weight(hCea, 2))),
+                         single(sum(g(),weight(hCea, 2)),pref_only=true),
+                         single(sum(g(),weight(hGoalCount, 2))),
+                         single(sum(g(),weight(hGoalCount, 2)),pref_only=true),
+                         boost=1000),
+                     preferred=(hCea,hGoalCount),reopen_closed=true,cost_type=1),
+                repeat_last=true,continue_on_fail=true)" "$@" < $TEMPFILE
+    elif [[ "$CONFIG" == "test-1" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "lazy_two_level_macro_wastar(hff,hlm,preferred=(hff,hlm),w=5)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --search "lazy_two_level_macro_wastar(hff1,hlm1,preferred=(hff1,hlm1),w=5,cost_type=1,reopen_closed=false)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "test-2" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "lazy_wastar(hff,hlm,preferred=(hff,hlm),w=5)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --search "lazy_wastar(hff1,hlm1,preferred=(hff1,hlm1),w=5,cost_type=1,reopen_closed=false)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-eager-lama-2011-only-CG-no-pref-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hcg=cg()" \
+                --search "eager_greedy(hcg)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hcg1=cg(cost_type=1)" \
+                --search "eager_greedy(hcg1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-eager-lama-2011-only-CEA-no-pref-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hcea=cea()" \
+                --search "eager_greedy(hcea)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hcea1=cea(cost_type=1)" \
+                --search "eager_greedy(hcea1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-eager-lama-two-level-macro-2011-only-CG-no-pref-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hcg=cg()" \
+                --search "eager_two_level_greedy(hcg)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hcg1=cg(cost_type=1)" \
+                --search "eager_two_level_greedy(hcg1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-eager-lama-two-level-macro-2011-only-CEA-no-pref-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hcea=cea()" \
+                --search "eager_two_level_greedy(hcea)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hcea1=cea(cost_type=1)" \
+                --search "eager_two_level_greedy(hcea1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-two-level-macro-for-visitall-2011-only-FF-cov" ]]; then 
+        if [[ "$UNIT_COST" == "unit" ]]; then 
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "lazy_two_level_macro_greedy_for_visitall(hff,preferred=(hff))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then 
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "lazy_two_level_macro_greedy_for_visitall(hff1,preferred=(hff1))" \
+                "$@" < $TEMPFILE
+        else 
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-understand-pop-only-FF-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "lazy_greedy_understand_preferred_op(hff,preferred=(hff))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "lazy_greedy_understand_preferred_op(hff1,preferred=(hff1))" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi 
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-understand-pop-no-pref-only-FF-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "lazy_greedy_understand_preferred_op(hff)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "lazy_greedy_understand_preferred_op(hff1)" \
+                "$@" < $TEMPFILE
+        else 
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-understand-pop-no-boost-only-FF-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "lazy_greedy_understand_preferred_op(hff,preferred=(hff),boost=0)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "lazy_greedy_understand_preferred_op(hff1,preferred=(hff1),boost=0)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi 
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-understand-pop-no-pref-no-boost-only-FF-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "lazy_greedy_understand_preferred_op(hff,boost=0)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "lazy_greedy_understand_preferred_op(hff1,boost=0)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-eager-understand-pop-no-pref-no-boost-only-FF-cov" ]]; then 
+        if [[ "$UNIT_COST" == "unit" ]]; then 
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "eager_greedy_understand_preferred_op(hff,preferred=(hff),boost=0)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then 
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "eager_greedy_understand_preferred_op(hff1,preferred=(hff1),boost=0)" \
+                "$@" < $TEMPFILE
+        else 
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-eager-understand-pop-no-boost-only-FF-cov" ]]; then 
+        if [[ "$UNIT_COST" == "unit" ]]; then 
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "eager_greedy_understand_preferred_op(hff,preferred=(hff),boost=0)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then 
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "eager_greedy_understand_preferred_op(hff1,preferred=(hff1),boost=0)" \
+                "$@" < $TEMPFILE
+        else 
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-eager-understand-pop-only-FF-cov" ]]; then 
+        if [[ "$UNIT_COST" == "unit" ]]; then 
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "eager_greedy_understand_preferred_op(hff,preferred=(hff))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then 
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "eager_greedy_understand_preferred_op(hff1,preferred=(hff1))" \
+                "$@" < $TEMPFILE
+        else 
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-eager-no-boost-only-FF-cov" ]]; then 
+        if [[ "$UNIT_COST" == "unit" ]]; then 
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "eager_greedy(hff,preferred=(hff),boost=0)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then 
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "eager_greedy(hff1,preferred=(hff1),boost=0)" \
+                "$@" < $TEMPFILE
+        else 
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-two-level-por-only-FF-cov" ]]; then 
+        if [[ "$UNIT_COST" == "unit" ]]; then 
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "lazy_two_level_greedy_pref_op_revisited(hff,preferred=(hff))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then 
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "lazy_two_level_greedy_pref_op_revisited(hff1,preferred=(hff1))" \
+                "$@" < $TEMPFILE
+        else 
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-two-level-por-cov" ]]; then 
+        if [[ "$UNIT_COST" == "unit" ]]; then 
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "lazy_two_level_greedy_pref_op_revisited(hff,hlm,preferred=(hff,hlm))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then 
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --search "lazy_two_level_greedy_pref_op_revisited(hff1,hlm1,preferred=(hff1,hlm1))" \
+                "$@" < $TEMPFILE
+        else 
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "MacroRWLama_exp_v8_1" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "lazy_greedy(hff,preferred=(hff))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "lazy_greedy(hff1,preferred=(hff1))" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi 
+     elif [[ "$CONFIG" == "MacroRWLama_exp_v8_2" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "eager_greedy(hff,hlm,preferred=(hff, hlm))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --heuristic "hlm2,hff2=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "eager_greedy(hff1, hlm1, preferred=(hff1, hlm1))" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi 
+    elif [[ "$CONFIG" == "MacroRWLama_exp_v8_3" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "lazy_greedy(hff, hlm)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --heuristic "hlm2,hff2=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "lazy_greedy(hff1,hlm1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi 
+    elif [[ "$CONFIG" == "MacroRWLama_exp_v8_4" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "lazy_two_level_macro_greedy(hff,preferred=(hff))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "lazy_two_level_macro_greedy(hff1,preferred=(hff1))" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi 
+     elif [[ "$CONFIG" == "MacroRWLama_exp_v8_5" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "eager_two_level_greedy(hff,hlm,preferred=(hff, hlm))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --heuristic "hlm2,hff2=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "eager_two_level_greedy(hff1, hlm1, preferred=(hff1, hlm1))" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi 
+    elif [[ "$CONFIG" == "MacroRWLama_exp_v8_6" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "lazy_two_level_macro_greedy(hff, hlm)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --heuristic "hlm2,hff2=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "lazy_two_level_macro_greedy(hff1,hlm1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi 
+    elif [[ "$CONFIG" == "PreferredOpRevisited_exp_v1_2" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "lazy_greedy(hff)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "lazy_greedy(hff1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "PreferredOpRevisited_exp_v1_3" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "lazy_two_level_macro_greedy(hff)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "lazy_two_level_macro_greedy(hff1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "PreferredOpRevisited_exp_v1_4" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "lazy_two_level_macro_greedy(hff,preferred=(hff))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "lazy_two_level_macro_greedy(hff1,preferred=(hff1))" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi  
+    elif [[ "$CONFIG" == "PreferredOpRevisited_exp_v1_5" ]]; then 
+        if [[ "$UNIT_COST" == "unit" ]]; then 
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "lazy_two_level_greedy_pref_op_revisited(hff)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then 
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "lazy_two_level_greedy_pref_op_revisited(hff1)" \
+                "$@" < $TEMPFILE
+        else 
+            echo "Something is seriously messed up!"
+            exit 2
+        fi 
+    elif [[ "$CONFIG" == "PreferredOpRevisited_exp_v1_6" ]]; then #need some modification in codes 
+        if [[ "$UNIT_COST" == "unit" ]]; then 
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "lazy_two_level_greedy_pref_op_revisited(hff,preferred=(hff))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then 
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "lazy_two_level_greedy_pref_op_revisited(hff1,preferred=(hff1))" \
+                "$@" < $TEMPFILE
+        else 
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "PreferredOpRevisited_exp_v2_1" ]]; then 
+        if [[ "$UNIT_COST" == "unit" ]]; then 
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "lazy_two_level_greedy_pref_op_revisited(hff, preferred=(hff) )" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then 
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "lazy_two_level_greedy_pref_op_revisited(hff1, preferred=(hff1))" \
+                "$@" < $TEMPFILE
+        else 
+            echo "Something is seriously messed up!"
+            exit 2
+        fi  
+    elif [[ "$CONFIG" == "PreferredOpRevisited_exp_v2_2" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "lazy_greedy(hff, preferred=(hff), boost=0)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "lazy_greedy(hff1, preferred=(hff1), boost=0)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "count_discrepancy" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "count_discrepancy(hff,hlm,preferred=(hff,hlm))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --search "count_discrepancy(hff1,hlm1,preferred=(hff1,hlm1),cost_type=1,reopen_closed=false)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-two-level-macro-rw-2011-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "lazy_two_level_macro_rw_greedy(hff,hlm,preferred=(hff,hlm))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --search "lazy_two_level_macro_rw_greedy(hff1,hlm1,preferred=(hff1,hlm1),cost_type=1,reopen_closed=false)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-two-level-macro-rw-2011-only-FF-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "lazy_two_level_macro_rw_greedy(hff,preferred=(hff))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "lazy_two_level_macro_rw_greedy(hff1,preferred=(hff1))" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "v139_1" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "lazy_two_level_macro_rw_greedy(hff)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "lazy_two_level_macro_rw_greedy(hff1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "v139_2" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "lazy_two_level_macro_rw_greedy(hff,preferred=(hff))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "lazy_two_level_macro_rw_greedy(hff1,preferred=(hff1))" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi 
+    elif [[ "$CONFIG" == "v139_3" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "lazy_two_level_macro_rw_greedy(hff,hlm,preferred=(hff,hlm))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --search "lazy_two_level_macro_rw_greedy(hff1,hlm1,preferred=(hff1,hlm1))" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "v144_1" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "eager_two_level_macro_rw_greedy(hff)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "eager_two_level_macro_rw_greedy(hff1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "v144_2" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hcg=cg()" \
+                --search "eager_two_level_macro_rw_greedy(hcg)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hcg1=cg(cost_type=1)" \
+                --search "eager_two_level_macro_rw_greedy(hcg1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "v144_3" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hcea=cea()" \
+                --search "eager_two_level_macro_rw_greedy(hcea)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hcea1=cea(cost_type=1)" \
+                --search "eager_two_level_macro_rw_greedy(hcea1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-only-CG-cov-no-boost" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hcg=cg()" \
+                --search "lazy_greedy(hcg,preferred=(hcg), boost=0)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hcg1=cg(cost_type=1)" \
+                --search "lazy_greedy(hcg1,preferred=(hcg1), boost=0)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-understand-pop-only-CG-cov-no-boost" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hcg=cg()" \
+                --search "lazy_greedy_understand_preferred_op(hcg,preferred=(hcg), boost=0)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hcg1=cg(cost_type=1)" \
+                --search "lazy_greedy_understand_preferred_op(hcg1,preferred=(hcg1), boost=0)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-only-CEA-cov-no-boost" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hcea=cea()" \
+                --search "lazy_greedy(hcea,preferred=(hcea), boost=0)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hcea=cea(cost_type=1)" \
+                --search "lazy_greedy(hcea,preferred=(hcea), boost=0)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi 
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-understand-pop-only-CEA-cov-no-boost" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hcea=cea()" \
+                --search "lazy_greedy_understand_preferred_op(hcea,preferred=(hcea), boost=0)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hcea=cea(cost_type=1)" \
+                --search "lazy_greedy_understand_preferred_op(hcea,preferred=(hcea), boost=0)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi      
+    elif [[ "$CONFIG" == "v149" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --heuristic "hff2=ff(cost_type=1)" \
+                --search "lazy_two_level_macro_rw_greedy(hff,hlm,preferred=(hff,hlm), rwh=hff2)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --heuristic "hff2=ff(cost_type=1)" \
+                --search "lazy_two_level_macro_rw_greedy(hff1,hlm1,preferred=(hff1,hlm1),rwh=hff2,cost_type=1,reopen_closed=false)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "MacroRWLama-exp-v9-1" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --heuristic "hff2=ff(cost_type=1)" \
+                --search "lazy_two_level_macro_rw_greedy(hff,hlm,preferred=(hff,hlm), rwh=hff2, rw_mode=2)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --heuristic "hff2=ff(cost_type=1)" \
+                --search "lazy_two_level_macro_rw_greedy(hff1,hlm1,preferred=(hff1,hlm1),rwh=hff2, rw_mode=2)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "MacroRWLama-exp-v11-1" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --heuristic "hff2=ff(cost_type=1)" \
+                --search "lazy_two_level_macro_rw_greedy(hff,hlm,preferred=(hff,hlm), rwh=hff2, rw_mode=2, walk_len=10)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --heuristic "hff2=ff(cost_type=1)" \
+                --search "lazy_two_level_macro_rw_greedy(hff1,hlm1,preferred=(hff1,hlm1),rwh=hff2, rw_mode=2, walk_len=10)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "MacroRWLama-exp-v11-2" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "lazy_two_level_macro_rw_greedy(hff,preferred=(hff), rw_mode=2, walk_len=10)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "lazy_two_level_macro_rw_greedy(hff1,preferred=(hff1), rw_mode=2, walk_len=10)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "MacroRWLama-exp-v11-3" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --heuristic "hff2=ff(cost_type=1)" \
+                --search "lazy_two_level_macro_rw_greedy(hff,hlm,preferred=(hff,hlm), rwh=hff2, rw_mode=2, walk_len=1)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --heuristic "hff2=ff(cost_type=1)" \
+                --search "lazy_two_level_macro_rw_greedy(hff1,hlm1,preferred=(hff1,hlm1),rwh=hff2, rw_mode=2, walk_len=1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "MacroRWLama-exp-v11-4" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "lazy_two_level_macro_rw_greedy(hff,preferred=(hff), rw_mode=2, walk_len=1)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "lazy_two_level_macro_rw_greedy(hff1,preferred=(hff1), rw_mode=2, walk_len=1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "rw-ls-mix-all" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --heuristic "hff2=ff(cost_type=1)" \
+                --search "lazy_two_level_macro_rw_ls_mix_greedy(hff,hlm,preferred=(hff,hlm), rwh=hff2, rw_mode=2, walk_len=1)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --heuristic "hff2=ff(cost_type=1)" \
+                --search "lazy_two_level_macro_rw_ls_mix_greedy(hff1,hlm1,preferred=(hff1,hlm1),rwh=hff2, rw_mode=2, walk_len=1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "MacroRWLama-exp-v13-1" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "lazy_two_level_macro_rw_greedy(hff,preferred=(hff), rw_mode=2, walk_len=1)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "lazy_two_level_macro_rw_greedy(hff1,preferred=(hff1), rw_mode=2, walk_len=1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "MacroRWLama-exp-v13-2" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --heuristic "hff2=ff(cost_type=1)" \
+                --search "lazy_two_level_macro_rw_greedy(hff,hlm, rwh=hff2, rw_mode=0, walk_len=1)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --heuristic "hff2=ff(cost_type=1)" \
+                --search "lazy_two_level_macro_rw_greedy(hff1,hlm1, rwh=hff2, rw_mode=0, walk_len=1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "MacroRWLama-exp-v13-3" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "lazy_two_level_macro_rw_greedy(hff, rw_mode=0, walk_len=1)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "lazy_two_level_macro_rw_greedy(hff1, rw_mode=0, walk_len=1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "MacroRWLama-exp-v13-4" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --heuristic "hff2=ff(cost_type=1)" \
+                --search "eager_two_level_macro_rw_greedy(hff,hlm, rwh=hff2, rw_mode=0, walk_len=1)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --heuristic "hff2=ff(cost_type=1)" \
+                --search "eager_two_level_macro_rw_greedy(hff1,hlm1, rwh=hff2, rw_mode=0, walk_len=1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "MacroRWLama-exp-v13-5" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --heuristic "hff2=ff(cost_type=1)" \
+                --search "eager_two_level_macro_rw_greedy(hff,hlm, preferred=(hff, hlm), rwh=hff2, rw_mode=2, walk_len=1)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --heuristic "hff2=ff(cost_type=1)" \
+                --search "eager_two_level_macro_rw_greedy(hff1,hlm1, preferred=(hff1, hlm1), rwh=hff2, rw_mode=2, walk_len=1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "MacroRWLama-exp-v13-6" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff=ff()" \
+                --search "eager_two_level_macro_rw_greedy(hff,preferred=(hff), rw_mode=2, walk_len=1)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hff1=ff(cost_type=1)" \
+                --search "eager_two_level_macro_rw_greedy(hff1,preferred=(hff1), rw_mode=2, walk_len=1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "MacroRWLama-exp-v13-7" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --heuristic "hffrw=ff(cost_type=1)" \
+                --search "iterated(
+                    lazy_two_level_macro_rw_greedy(hff,hlm,preferred=(hff,hlm), rwh=hffrw, rw_mode=2, walk_len=1),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=5),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=3),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=2),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=1),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --heuristic "hlm2,hff2=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --heuristic "hffrw=ff(cost_type=1)" \
+                --search "iterated(
+                    lazy_two_level_macro_rw_greedy(hff1,hlm1,preferred=(hff1,hlm1),rwh=hffrw, rw_mode=2, walk_len=1),
+                    lazy_greedy(hff2,hlm2,preferred=(hff2,hlm2),
+                                reopen_closed=false),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=5),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=3),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=2),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=1),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "IPC2014_v2_1" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "lazy(alt(single(hff), single(hff, pref_only=true), single(hlm), single(hlm, pref_only=true), diverse(probabilistic_m(hff), single(hff)), boost=1000), preferred=(hff,hlm))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --search "lazy(alt(single(hff), single(hff, pref_only=true), single(hlm), single(hlm, pref_only=true), diverse(probabilistic_m(hff), single(hff)), boost=1000), preferred=(hff,hlm))" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "IPC2014_v2_2" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "lazy_two_level_macro_type_greedy(hff,hlm,preferred=(hff,hlm))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --search "lazy_two_level_macro_type_greedy(hff1,hlm1,preferred=(hff1,hlm1),cost_type=1,reopen_closed=false)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "IPC2014_v2_3" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "lazy(alt(single(hff), single(hff, pref_only=true), single(hlm), single(hlm, pref_only=true), probabilistic_m(hff), boost=1000), preferred=(hff,hlm))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --search "lazy(alt(single(hff), single(hff, pref_only=true), single(hlm), single(hlm, pref_only=true), probabilistic_m(hff), boost=1000), preferred=(hff,hlm))" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "IPC2014_v2_4" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "lazy(alt(single(hff), single(hff, pref_only=true), single(hlm), single(hlm, pref_only=true), probabilistic_m(hff), probabilistic_m(hlm), boost=1000), preferred=(hff,hlm))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --search "lazy(alt(single(hff), single(hff, pref_only=true), single(hlm), single(hlm, pref_only=true), probabilistic_m(hff), probabilistic_m(hlm), boost=1000), preferred=(hff,hlm))" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "IPC2014_v2_11" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --heuristic "hff2=ff(cost_type=1)" \
+                --search "lazy_two_level_macro_rw_type_greedy(hff,hlm,preferred=(hff,hlm), rwh=hff2, rw_mode=2, walk_len=1)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --heuristic "hff2=ff(cost_type=1)" \
+                --search "lazy_two_level_macro_rw_type_greedy(hff1,hlm1,preferred=(hff1,hlm1),rwh=hff2, rw_mode=2, walk_len=1)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "IPC2014_v2_2-aras-rw" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "iterated_aras_rw(
+                    lazy_two_level_macro_type_greedy(hff,hlm,preferred=(hff,hlm)),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=5),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=3),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=2),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=1),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --heuristic "hlm2,hff2=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "iterated_aras_rw(
+                    lazy_two_level_macro_type_greedy(hff1,hlm1,preferred=(hff1,hlm1)),
+                    lazy_greedy(hff2,hlm2,preferred=(hff2,hlm2),
+                                reopen_closed=false),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=5),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=3),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=2),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=1),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-sat-jasper" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "iterated_aras_rw(
+                    lazy_two_level_macro_type_greedy(hff,hlm,preferred=(hff,hlm)),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=5),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=3),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=2),
+                    lazy_wastar(hff,hlm,preferred=(hff,hlm),w=1),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --heuristic "hlm2,hff2=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "iterated_aras_rw(
+                    lazy_two_level_macro_type_greedy(hff1,hlm1,preferred=(hff1,hlm1)),
+                    lazy_greedy(hff2,hlm2,preferred=(hff2,hlm2),
+                                reopen_closed=false),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=5),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=3),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=2),
+                    lazy_wastar(hff2,hlm2,preferred=(hff2,hlm2),w=1),
+                    repeat_last=true,continue_on_fail=true)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    elif [[ "$CONFIG" == "seq-agl-jasper" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
+                --search "lazy_two_level_macro_type_greedy(hff,hlm,preferred=(hff,hlm))" \
+                "$@" < $TEMPFILE
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
+            "$PLANNER" \
+                --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
+                    reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
+                --search "lazy_two_level_macro_type_greedy(hff1,hlm1,preferred=(hff1,hlm1),cost_type=1,reopen_closed=false)" \
+                "$@" < $TEMPFILE
+        else
+            echo "Something is seriously messed up!"
+            exit 2
+        fi
+    else
+        echo "unknown IPC planner name: $CONFIG"
+        exit 2
+    fi
+else
+    "$PLANNER" "$@" < $TEMPFILE
+fi
+rm -f $TEMPFILE
+
+

@@ -1,0 +1,4 @@
+state_vars_feature_extractor.o: learning/state_vars_feature_extractor.cc \
+  learning/state_vars_feature_extractor.h learning/feature_extractor.h \
+  learning/../globals.h learning/../operator_cost.h learning/../state.h \
+  learning/../state_var_t.h

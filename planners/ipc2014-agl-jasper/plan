@@ -1,0 +1,4 @@
+#! /bin/bash
+
+./plan-ipc seq-agl-jasper "$@"
+
