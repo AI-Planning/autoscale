@@ -1,4 +1,4 @@
 #! /bin/bash
 
-./plan-ipc seq-agl-jasper "$@"
+"$(dirname "$0")"/plan-ipc seq-agl-jasper "$@"
 

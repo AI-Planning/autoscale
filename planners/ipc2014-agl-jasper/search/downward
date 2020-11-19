@@ -5,9 +5,9 @@ shift 1
 TEMPFILE="$TARGETDIR"/downward.tmp.$$
 TIMEFILE="$TARGETDIR"/elapsed.time
 cat > $TEMPFILE
-STATE_SIZE=$(command time --output="$TIMEFILE" --append --format='%S\n%U\n' "$BASEDIR/dispatch" $TEMPFILE)
+STATE_SIZE=$("$BASEDIR/dispatch" $TEMPFILE)
 echo Dispatcher selected state size $STATE_SIZE.
-UNIT_COST=$(command time --output="$TIMEFILE" --append --format='%S\n%U\n' "$BASEDIR/unitcost" $TEMPFILE)
+UNIT_COST=$("$BASEDIR/unitcost" $TEMPFILE)
 echo This is a $UNIT_COST task.
 PLANNER="$BASEDIR/downward-$STATE_SIZE"
 if [[ "$1" == "ipc" ]]; then
@@ -210,11 +210,11 @@ if [[ "$1" == "ipc" ]]; then
                      preferred=(hCea,hGoalCount),reopen_closed=true,cost_type=1),
                 repeat_last=true,continue_on_fail=true)" "$@" < $TEMPFILE
     elif [[ "$CONFIG" == "seq-sat-fdss-1" ]]; then
-        "$BASEDIR/downward-seq-sat-fdss-1.py" full "$TARGETDIR" "$TEMPFILE" "$UNIT_COST" "$PLANNER" "$@" 
+        "$BASEDIR/downward-seq-sat-fdss-1.py" full "$TARGETDIR" "$TEMPFILE" "$UNIT_COST" "$PLANNER" "$@"
     elif [[ "$CONFIG" == "seq-sat-fdss-2" ]]; then
         "$BASEDIR/downward-seq-sat-fdss-2.py" full "$TARGETDIR" "$TEMPFILE" "$UNIT_COST" "$PLANNER" "$@"
     elif [[ "$CONFIG" == "seq-sat-fdss-1-cov" ]]; then
-        "$BASEDIR/downward-seq-sat-fdss-1.py" cov "$TARGETDIR" "$TEMPFILE" "$UNIT_COST" "$PLANNER" "$@" 
+        "$BASEDIR/downward-seq-sat-fdss-1.py" cov "$TARGETDIR" "$TEMPFILE" "$UNIT_COST" "$PLANNER" "$@"
     elif [[ "$CONFIG" == "seq-sat-fdss-2-cov" ]]; then
         "$BASEDIR/downward-seq-sat-fdss-2.py" cov "$TARGETDIR" "$TEMPFILE" "$UNIT_COST" "$PLANNER" "$@"
     elif [[ "$CONFIG" == "seq-sat-lama-2008" ]]; then
@@ -254,8 +254,8 @@ if [[ "$1" == "ipc" ]]; then
             echo "Something is seriously messed up!"
             exit 2
         fi
-    elif [[ "$CONFIG" == "seq-sat-lama-2011-only-gbfs" ]]; then 
-        if [[ "$UNIT_COST" == "unit" ]]; then 
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-only-gbfs" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
                 --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
                     reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
@@ -263,7 +263,7 @@ if [[ "$1" == "ipc" ]]; then
                     lazy_greedy(hff,hlm,preferred=(hff,hlm)),
                     repeat_last=true,continue_on_fail=true)" \
                 "$@" < $TEMPFILE
-        elif [[ "$UNIT_COST" == "nonunit" ]]; then 
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
             "$PLANNER" \
                 --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
                     reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
@@ -274,7 +274,7 @@ if [[ "$1" == "ipc" ]]; then
                                 cost_type=1,reopen_closed=false),
                     repeat_last=true,continue_on_fail=true)" \
                 "$@" < $TEMPFILE
-        else 
+        else
             echo "Something is seriously messed up!"
             exit 2
         fi
@@ -312,7 +312,7 @@ if [[ "$1" == "ipc" ]]; then
             echo "Something is seriously messed up!"
             exit 2
         fi
-	elif [[ "$CONFIG" == "seq-sat-lama-2011-ls-all" ]]; then
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-ls-all" ]]; then
         if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
                 --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
@@ -380,7 +380,7 @@ if [[ "$1" == "ipc" ]]; then
             echo "Something is seriously messed up!"
             exit 2
         fi
-	elif [[ "$CONFIG" == "seq-sat-lama-2011-ls-all-aras" ]]; then
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-ls-all-aras" ]]; then
         if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
                 --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
@@ -444,7 +444,7 @@ if [[ "$1" == "ipc" ]]; then
         else
             echo "Something is seriously messed up!"
             exit 2
-        fi 
+        fi
     elif [[ "$CONFIG" == "seq-sat-lama-macro-2011-only-FF" ]]; then
         if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
@@ -505,7 +505,7 @@ if [[ "$1" == "ipc" ]]; then
         else
             echo "Something is seriously messed up!"
             exit 2
-        fi 
+        fi
     elif [[ "$CONFIG" == "seq-sat-lama-macro-2011-only-FF-cov" ]]; then
         if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
@@ -535,7 +535,7 @@ if [[ "$1" == "ipc" ]]; then
         else
             echo "Something is seriously messed up!"
             exit 2
-        fi 
+        fi
     elif [[ "$CONFIG" == "seq-sat-lama-2011-only-FF-no-pref-cov" ]]; then
         if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
@@ -789,7 +789,7 @@ if [[ "$1" == "ipc" ]]; then
         else
             echo "Something is seriously messed up!"
             exit 2
-        fi  
+        fi
     elif [[ "$CONFIG" == "path_h_stats" ]]; then
         if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
@@ -823,7 +823,7 @@ if [[ "$1" == "ipc" ]]; then
         else
             echo "Something is seriously messed up!"
             exit 2
-        fi 
+        fi
     elif [[ "$CONFIG" == "seq-sat-eager-lama-two-level-2011-cov" ]]; then
         if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
@@ -840,7 +840,7 @@ if [[ "$1" == "ipc" ]]; then
         else
             echo "Something is seriously messed up!"
             exit 2
-        fi 
+        fi
     elif [[ "$CONFIG" == "seq-sat-eager-lama-2011-cov" ]]; then
         if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
@@ -858,7 +858,7 @@ if [[ "$1" == "ipc" ]]; then
             echo "Something is seriously messed up!"
             exit 2
         fi
- 	elif [[ "$CONFIG" == "seq-sat-eager-lama-2011-only-FF-cov" ]]; then
+    elif [[ "$CONFIG" == "seq-sat-eager-lama-2011-only-FF-cov" ]]; then
         if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
                 --heuristic "hff=ff()" \
@@ -873,7 +873,7 @@ if [[ "$1" == "ipc" ]]; then
             echo "Something is seriously messed up!"
             exit 2
         fi
-	elif [[ "$CONFIG" == "seq-sat-eager-lama-2011-only-FF-no-pref-cov" ]]; then
+    elif [[ "$CONFIG" == "seq-sat-eager-lama-2011-only-FF-no-pref-cov" ]]; then
         if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
                 --heuristic "hff=ff()" \
@@ -888,7 +888,7 @@ if [[ "$1" == "ipc" ]]; then
             echo "Something is seriously messed up!"
             exit 2
         fi
- 	elif [[ "$CONFIG" == "seq-sat-eager-lama-two-level-macro-2011-only-FF-cov" ]]; then
+    elif [[ "$CONFIG" == "seq-sat-eager-lama-two-level-macro-2011-only-FF-cov" ]]; then
         if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
                 --heuristic "hff=ff()" \
@@ -903,7 +903,7 @@ if [[ "$1" == "ipc" ]]; then
             echo "Something is seriously messed up!"
             exit 2
         fi
-	elif [[ "$CONFIG" == "seq-sat-eager-lama-two-level-macro-2011-only-FF-no-pref-cov" ]]; then
+    elif [[ "$CONFIG" == "seq-sat-eager-lama-two-level-macro-2011-only-FF-no-pref-cov" ]]; then
         if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
                 --heuristic "hff=ff()" \
@@ -917,7 +917,7 @@ if [[ "$1" == "ipc" ]]; then
         else
             echo "Something is seriously messed up!"
             exit 2
-        fi  
+        fi
     elif [[ "$CONFIG" == "seq-sat-lama-macro-2011" ]]; then
         if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
@@ -1047,7 +1047,7 @@ if [[ "$1" == "ipc" ]]; then
             echo "Something is seriously messed up!"
             exit 2
         fi
-	elif [[ "$CONFIG" == "ls-gbfs-ff-lm" ]]; then
+    elif [[ "$CONFIG" == "ls-gbfs-ff-lm" ]]; then
         if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
                 --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
@@ -1063,7 +1063,7 @@ if [[ "$1" == "ipc" ]]; then
         else
             echo "Something is seriously messed up!"
             exit 2
-        fi    
+        fi
     elif [[ "$CONFIG" == "seq-opt-fd-autotune" ]]; then
         "$PLANNER" \
             --heuristic "hLMCut=lmcut()" \
@@ -1119,7 +1119,7 @@ if [[ "$1" == "ipc" ]]; then
         else
             echo "Something is seriously messed up!"
             exit 2
-        fi    
+        fi
     elif [[ "$CONFIG" == "seq-sat-lama-2011-aras-rw" ]]; then
         if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
@@ -1153,9 +1153,9 @@ if [[ "$1" == "ipc" ]]; then
         else
             echo "Something is seriously messed up!"
             exit 2
-        fi    
+        fi
     elif [[ "$CONFIG" == "seq-sat-fd-at2-aras" ]]; then
-    	"$PLANNER" \
+        "$PLANNER" \
             --heuristic "hCea=cea(cost_type=2)" \
             --heuristic "hCg=cg(cost_type=1)" \
             --heuristic "hGoalCount=goalcount(cost_type=2)" \
@@ -1194,7 +1194,7 @@ if [[ "$1" == "ipc" ]]; then
                      preferred=(hCea,hGoalCount),reopen_closed=true,cost_type=1),
                 repeat_last=true,continue_on_fail=true)" "$@" < $TEMPFILE
         elif [[ "$CONFIG" == "seq-sat-fd-at2-aras-rw" ]]; then
-    	"$PLANNER" \
+        "$PLANNER" \
             --heuristic "hCea=cea(cost_type=2)" \
             --heuristic "hCg=cg(cost_type=1)" \
             --heuristic "hGoalCount=goalcount(cost_type=2)" \
@@ -1326,18 +1326,18 @@ if [[ "$1" == "ipc" ]]; then
             echo "Something is seriously messed up!"
             exit 2
         fi
-    elif [[ "$CONFIG" == "seq-sat-lama-two-level-macro-for-visitall-2011-only-FF-cov" ]]; then 
-        if [[ "$UNIT_COST" == "unit" ]]; then 
+    elif [[ "$CONFIG" == "seq-sat-lama-two-level-macro-for-visitall-2011-only-FF-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
                 --heuristic "hff=ff()" \
                 --search "lazy_two_level_macro_greedy_for_visitall(hff,preferred=(hff))" \
                 "$@" < $TEMPFILE
-        elif [[ "$UNIT_COST" == "nonunit" ]]; then 
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
             "$PLANNER" \
                 --heuristic "hff1=ff(cost_type=1)" \
                 --search "lazy_two_level_macro_greedy_for_visitall(hff1,preferred=(hff1))" \
                 "$@" < $TEMPFILE
-        else 
+        else
             echo "Something is seriously messed up!"
             exit 2
         fi
@@ -1355,7 +1355,7 @@ if [[ "$1" == "ipc" ]]; then
         else
             echo "Something is seriously messed up!"
             exit 2
-        fi 
+        fi
     elif [[ "$CONFIG" == "seq-sat-lama-2011-understand-pop-no-pref-only-FF-cov" ]]; then
         if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
@@ -1367,7 +1367,7 @@ if [[ "$1" == "ipc" ]]; then
                 --heuristic "hff1=ff(cost_type=1)" \
                 --search "lazy_greedy_understand_preferred_op(hff1)" \
                 "$@" < $TEMPFILE
-        else 
+        else
             echo "Something is seriously messed up!"
             exit 2
         fi
@@ -1385,7 +1385,7 @@ if [[ "$1" == "ipc" ]]; then
         else
             echo "Something is seriously messed up!"
             exit 2
-        fi 
+        fi
     elif [[ "$CONFIG" == "seq-sat-lama-2011-understand-pop-no-pref-no-boost-only-FF-cov" ]]; then
         if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
@@ -1401,95 +1401,95 @@ if [[ "$1" == "ipc" ]]; then
             echo "Something is seriously messed up!"
             exit 2
         fi
-    elif [[ "$CONFIG" == "seq-sat-lama-2011-eager-understand-pop-no-pref-no-boost-only-FF-cov" ]]; then 
-        if [[ "$UNIT_COST" == "unit" ]]; then 
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-eager-understand-pop-no-pref-no-boost-only-FF-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
                 --heuristic "hff=ff()" \
                 --search "eager_greedy_understand_preferred_op(hff,preferred=(hff),boost=0)" \
                 "$@" < $TEMPFILE
-        elif [[ "$UNIT_COST" == "nonunit" ]]; then 
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
             "$PLANNER" \
                 --heuristic "hff1=ff(cost_type=1)" \
                 --search "eager_greedy_understand_preferred_op(hff1,preferred=(hff1),boost=0)" \
                 "$@" < $TEMPFILE
-        else 
+        else
             echo "Something is seriously messed up!"
             exit 2
         fi
-    elif [[ "$CONFIG" == "seq-sat-lama-2011-eager-understand-pop-no-boost-only-FF-cov" ]]; then 
-        if [[ "$UNIT_COST" == "unit" ]]; then 
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-eager-understand-pop-no-boost-only-FF-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
                 --heuristic "hff=ff()" \
                 --search "eager_greedy_understand_preferred_op(hff,preferred=(hff),boost=0)" \
                 "$@" < $TEMPFILE
-        elif [[ "$UNIT_COST" == "nonunit" ]]; then 
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
             "$PLANNER" \
                 --heuristic "hff1=ff(cost_type=1)" \
                 --search "eager_greedy_understand_preferred_op(hff1,preferred=(hff1),boost=0)" \
                 "$@" < $TEMPFILE
-        else 
+        else
             echo "Something is seriously messed up!"
             exit 2
         fi
-    elif [[ "$CONFIG" == "seq-sat-lama-2011-eager-understand-pop-only-FF-cov" ]]; then 
-        if [[ "$UNIT_COST" == "unit" ]]; then 
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-eager-understand-pop-only-FF-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
                 --heuristic "hff=ff()" \
                 --search "eager_greedy_understand_preferred_op(hff,preferred=(hff))" \
                 "$@" < $TEMPFILE
-        elif [[ "$UNIT_COST" == "nonunit" ]]; then 
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
             "$PLANNER" \
                 --heuristic "hff1=ff(cost_type=1)" \
                 --search "eager_greedy_understand_preferred_op(hff1,preferred=(hff1))" \
                 "$@" < $TEMPFILE
-        else 
+        else
             echo "Something is seriously messed up!"
             exit 2
         fi
-    elif [[ "$CONFIG" == "seq-sat-lama-2011-eager-no-boost-only-FF-cov" ]]; then 
-        if [[ "$UNIT_COST" == "unit" ]]; then 
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-eager-no-boost-only-FF-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
                 --heuristic "hff=ff()" \
                 --search "eager_greedy(hff,preferred=(hff),boost=0)" \
                 "$@" < $TEMPFILE
-        elif [[ "$UNIT_COST" == "nonunit" ]]; then 
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
             "$PLANNER" \
                 --heuristic "hff1=ff(cost_type=1)" \
                 --search "eager_greedy(hff1,preferred=(hff1),boost=0)" \
                 "$@" < $TEMPFILE
-        else 
+        else
             echo "Something is seriously messed up!"
             exit 2
         fi
-    elif [[ "$CONFIG" == "seq-sat-lama-2011-two-level-por-only-FF-cov" ]]; then 
-        if [[ "$UNIT_COST" == "unit" ]]; then 
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-two-level-por-only-FF-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
                 --heuristic "hff=ff()" \
                 --search "lazy_two_level_greedy_pref_op_revisited(hff,preferred=(hff))" \
                 "$@" < $TEMPFILE
-        elif [[ "$UNIT_COST" == "nonunit" ]]; then 
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
             "$PLANNER" \
                 --heuristic "hff1=ff(cost_type=1)" \
                 --search "lazy_two_level_greedy_pref_op_revisited(hff1,preferred=(hff1))" \
                 "$@" < $TEMPFILE
-        else 
+        else
             echo "Something is seriously messed up!"
             exit 2
         fi
-    elif [[ "$CONFIG" == "seq-sat-lama-2011-two-level-por-cov" ]]; then 
-        if [[ "$UNIT_COST" == "unit" ]]; then 
+    elif [[ "$CONFIG" == "seq-sat-lama-2011-two-level-por-cov" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
                 --heuristic "hlm,hff=lm_ff_syn(lm_rhw(
                     reasonable_orders=true,lm_cost_type=2,cost_type=2))" \
                 --search "lazy_two_level_greedy_pref_op_revisited(hff,hlm,preferred=(hff,hlm))" \
                 "$@" < $TEMPFILE
-        elif [[ "$UNIT_COST" == "nonunit" ]]; then 
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
             "$PLANNER" \
                 --heuristic "hlm1,hff1=lm_ff_syn(lm_rhw(
                     reasonable_orders=true,lm_cost_type=1,cost_type=1))" \
                 --search "lazy_two_level_greedy_pref_op_revisited(hff1,hlm1,preferred=(hff1,hlm1))" \
                 "$@" < $TEMPFILE
-        else 
+        else
             echo "Something is seriously messed up!"
             exit 2
         fi
@@ -1507,7 +1507,7 @@ if [[ "$1" == "ipc" ]]; then
         else
             echo "Something is seriously messed up!"
             exit 2
-        fi 
+        fi
      elif [[ "$CONFIG" == "MacroRWLama_exp_v8_2" ]]; then
         if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
@@ -1526,7 +1526,7 @@ if [[ "$1" == "ipc" ]]; then
         else
             echo "Something is seriously messed up!"
             exit 2
-        fi 
+        fi
     elif [[ "$CONFIG" == "MacroRWLama_exp_v8_3" ]]; then
         if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
@@ -1545,7 +1545,7 @@ if [[ "$1" == "ipc" ]]; then
         else
             echo "Something is seriously messed up!"
             exit 2
-        fi 
+        fi
     elif [[ "$CONFIG" == "MacroRWLama_exp_v8_4" ]]; then
         if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
@@ -1560,7 +1560,7 @@ if [[ "$1" == "ipc" ]]; then
         else
             echo "Something is seriously messed up!"
             exit 2
-        fi 
+        fi
      elif [[ "$CONFIG" == "MacroRWLama_exp_v8_5" ]]; then
         if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
@@ -1579,7 +1579,7 @@ if [[ "$1" == "ipc" ]]; then
         else
             echo "Something is seriously messed up!"
             exit 2
-        fi 
+        fi
     elif [[ "$CONFIG" == "MacroRWLama_exp_v8_6" ]]; then
         if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
@@ -1598,7 +1598,7 @@ if [[ "$1" == "ipc" ]]; then
         else
             echo "Something is seriously messed up!"
             exit 2
-        fi 
+        fi
     elif [[ "$CONFIG" == "PreferredOpRevisited_exp_v1_2" ]]; then
         if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
@@ -1643,52 +1643,52 @@ if [[ "$1" == "ipc" ]]; then
         else
             echo "Something is seriously messed up!"
             exit 2
-        fi  
-    elif [[ "$CONFIG" == "PreferredOpRevisited_exp_v1_5" ]]; then 
-        if [[ "$UNIT_COST" == "unit" ]]; then 
+        fi
+    elif [[ "$CONFIG" == "PreferredOpRevisited_exp_v1_5" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
                 --heuristic "hff=ff()" \
                 --search "lazy_two_level_greedy_pref_op_revisited(hff)" \
                 "$@" < $TEMPFILE
-        elif [[ "$UNIT_COST" == "nonunit" ]]; then 
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
             "$PLANNER" \
                 --heuristic "hff1=ff(cost_type=1)" \
                 --search "lazy_two_level_greedy_pref_op_revisited(hff1)" \
                 "$@" < $TEMPFILE
-        else 
+        else
             echo "Something is seriously messed up!"
             exit 2
-        fi 
-    elif [[ "$CONFIG" == "PreferredOpRevisited_exp_v1_6" ]]; then #need some modification in codes 
-        if [[ "$UNIT_COST" == "unit" ]]; then 
+        fi
+    elif [[ "$CONFIG" == "PreferredOpRevisited_exp_v1_6" ]]; then #need some modification in codes
+        if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
                 --heuristic "hff=ff()" \
                 --search "lazy_two_level_greedy_pref_op_revisited(hff,preferred=(hff))" \
                 "$@" < $TEMPFILE
-        elif [[ "$UNIT_COST" == "nonunit" ]]; then 
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
             "$PLANNER" \
                 --heuristic "hff1=ff(cost_type=1)" \
                 --search "lazy_two_level_greedy_pref_op_revisited(hff1,preferred=(hff1))" \
                 "$@" < $TEMPFILE
-        else 
+        else
             echo "Something is seriously messed up!"
             exit 2
         fi
-    elif [[ "$CONFIG" == "PreferredOpRevisited_exp_v2_1" ]]; then 
-        if [[ "$UNIT_COST" == "unit" ]]; then 
+    elif [[ "$CONFIG" == "PreferredOpRevisited_exp_v2_1" ]]; then
+        if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
                 --heuristic "hff=ff()" \
                 --search "lazy_two_level_greedy_pref_op_revisited(hff, preferred=(hff) )" \
                 "$@" < $TEMPFILE
-        elif [[ "$UNIT_COST" == "nonunit" ]]; then 
+        elif [[ "$UNIT_COST" == "nonunit" ]]; then
             "$PLANNER" \
                 --heuristic "hff1=ff(cost_type=1)" \
                 --search "lazy_two_level_greedy_pref_op_revisited(hff1, preferred=(hff1))" \
                 "$@" < $TEMPFILE
-        else 
+        else
             echo "Something is seriously messed up!"
             exit 2
-        fi  
+        fi
     elif [[ "$CONFIG" == "PreferredOpRevisited_exp_v2_2" ]]; then
         if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
@@ -1782,7 +1782,7 @@ if [[ "$1" == "ipc" ]]; then
         else
             echo "Something is seriously messed up!"
             exit 2
-        fi 
+        fi
     elif [[ "$CONFIG" == "v139_3" ]]; then
         if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
@@ -1889,7 +1889,7 @@ if [[ "$1" == "ipc" ]]; then
         else
             echo "Something is seriously messed up!"
             exit 2
-        fi 
+        fi
     elif [[ "$CONFIG" == "seq-sat-lama-2011-understand-pop-only-CEA-cov-no-boost" ]]; then
         if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
@@ -1904,7 +1904,7 @@ if [[ "$1" == "ipc" ]]; then
         else
             echo "Something is seriously messed up!"
             exit 2
-        fi      
+        fi
     elif [[ "$CONFIG" == "v149" ]]; then
         if [[ "$UNIT_COST" == "unit" ]]; then
             "$PLANNER" \
