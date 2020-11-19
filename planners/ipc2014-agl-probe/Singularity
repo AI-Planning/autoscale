@@ -28,6 +28,7 @@ From: i386/ubuntu:18.04
     cp /planner/probe /compiled-planner/
     mkdir -p /compiled-planner/src/parser-ff/
     cp /planner/src/parser-ff/libff.a /compiled-planner/src/parser-ff/
+    cp /planner/plan /compiled-planner/
 
     rm -rf /planner
     mv /compiled-planner /planner
