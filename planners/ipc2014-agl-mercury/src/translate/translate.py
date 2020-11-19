@@ -1,4 +1,4 @@
-#! /usr/bin/env pypy
+#! /usr/bin/python
 # -*- coding: utf-8 -*-
 
 from __future__ import print_function
@@ -353,14 +353,14 @@ def translate_strips_operator_aux(operator, dictionary, ranges, mutex_dict,
                 split(index + 1, deletes_for_variables, condition, effects_by_variable,
                       sas_operators)
                 if inc:
-                    del(effects_by_variable[var][none_of_those]) 
+                    del(effects_by_variable[var][none_of_those])
             del condition[var]
-         
+
         deletes_for_variables = []
         for var in effects_by_variable:
             none_of_those = ranges[var] - 1
             if none_of_those in effects_by_variable[var]:
-                if ranges[var] == 2: 
+                if ranges[var] == 2:
                     # since there cannot be conditional add effects and with an
                     # unconditional add effect there were no delete effect there
                     # is no add effect on the variable. As a result after the
