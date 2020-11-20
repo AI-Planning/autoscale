@@ -29,6 +29,9 @@ OUTDIR=../images/
 ./build-image.sh ../planners/ipc2018-opt-scorpion/Singularity ${OUTDIR}/ipc2018-opt-scorpion.img
 ./build-image.sh ../planners/ipc2018-opt-scorpion-nodiv/Singularity ${OUTDIR}/ipc2018-opt-scorpion-nodiv.img
 
+./build-image.sh ../planners/ipc2014-agl-mercury/Singularity ${OUTDIR}/ipc2014-agl-mercury.img
+./build-image.sh ../planners/ipc2014-agl-jasper/Singularity ${OUTDIR}/ipc2014-agl-jasper.img
+./build-image.sh ../planners/ipc2014-agl-probe/Singularity ${OUTDIR}/ipc2014-agl-probe.img
 ./build-image.sh ../planners/fd-19.06/Singularity-gbfs-ff ${OUTDIR}/fd1906-gbfs-ff.img
 ./build-image.sh ../planners/fd-19.06/Singularity-lama-first ${OUTDIR}/fd1906-lama-first.img
 ./build-image.sh ../planners/ipc2018-agl-decstar/Singularity ${OUTDIR}/ipc2018-agl-decstar-agl.img
