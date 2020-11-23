@@ -39,7 +39,7 @@ DOMAINS = [
     "scanalyzer", "snake", "storage", "tpp", "transport",
     "visitall", "woodworking", "zenotravel",
 ]
-ENVIRONMENT = BaselSlurmEnvironment(partition="infai_2", email=project.USER.email")
+ENVIRONMENT = BaselSlurmEnvironment(partition="infai_2", email=project.USER.email)
 
 if not project.REMOTE:
     ENVIRONMENT = LocalEnvironment(processes=2)
