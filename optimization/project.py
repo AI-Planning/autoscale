@@ -85,7 +85,7 @@ SUITE_OPTIMAL = [
     'openstacks-strips', 'organic-synthesis-opt18-strips',
     'organic-synthesis-split-opt18-strips', 'parcprinter-08-strips',
     'parcprinter-opt11-strips', 'parking-opt11-strips',
-    'parking-opt14-strips', '', 'pegsol-08-strips',
+    'parking-opt14-strips', 'pathways', 'pegsol-08-strips',
     'pegsol-opt11-strips', 'petri-net-alignment-opt18-strips',
     'pipesworld-notankage', 'pipesworld-tankage', 'psr-small', 'rovers',
     'satellite', 'scanalyzer-08-strips', 'scanalyzer-opt11-strips',
