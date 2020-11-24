@@ -41,7 +41,7 @@ USERS = {
         repos="/home/jendrik/projects/Downward"),
     "silvan": User(
         email=None,
-        scp_login="sieverss@login.scicore.unibas.ch",
+        scp_login="grid",
         remote_user="sieverss",
         repos="/home/silvan/repos/downward"),
     "seipp": User(
