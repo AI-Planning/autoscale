@@ -9,7 +9,13 @@ CONFIGS = [
            "astar(lmcut, " 
            "      pruning_heuristic=lmcut(search_type=STAR),"
            "      pruning=stubborn_sets_decoupled(min_pruning_ratio=0.2, special_case_optimizations=true))"]),
-    (800, []),
+    (800, ["--decoupling",
+           "portfolio(fallback_on_abstain=false, overwrite_options=true, choose_max_leaves=true, factorings=[fork(search_type=asda, max_leaf_size=10000000), ifork(max_leaf_size=10000000), incarcs(max_leaf_size=1000000)])",
+           "--search",
+           "astar(lmcut,"
+           "      pruning_heuristic=lmcut(search_type=STAR),"
+           "      pruning=stubborn_sets_decoupled(min_pruning_ratio=0.2, special_case_optimizations=true, use_single_var_ifork_optimization=true),"
+           "      symmetry=symmetry_state_pruning(lex_prices=true, lex_num_states=false, lex_goal_cost=false))"]),
     (180, ["--search",
            "astar(lmcut,"
            "      pruning=stubborn_sets_ec(min_pruning_ratio=0.2),"
