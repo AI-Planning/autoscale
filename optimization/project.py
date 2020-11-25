@@ -20,6 +20,7 @@ from lab import tools
 from downward.experiment import FastDownwardExperiment
 from downward.reports.absolute import AbsoluteReport
 from downward.reports.compare import ComparativeReport
+from downward import suites
 
 from reports.average import AverageReport
 from reports.per_domain_comparison import PerDomainComparison
@@ -28,6 +29,8 @@ from reports.domain_size import DomainSize
 from reports.per_task_aggregation import PerTaskAggregation
 
 DIR = Path(__file__).resolve().parent
+REPO = DIR.parent
+IMAGES_DIR = REPO / "images"
 NODE = platform.node()
 REMOTE = NODE.endswith(".scicore.unibas.ch") or NODE.endswith(".cluster.bc2.ch")
 
@@ -358,6 +361,74 @@ def get_combination_experiment():
         "remove-combined-properties",
         remove_file,
         Path(exp.eval_dir) / "properties")
+    return exp
+
+
+def get_evaluation_experiment(
+    planners, benchmarks_dirs, domains, attributes, environment=None):
+    if not environment:
+        if REMOTE:
+            environment = BaselSlurmEnvironment(partition="infai_2", email=USER.email)
+        else:
+            environment = LocalEnvironment(processes=2)
+    exp = Experiment(environment=environment)
+    exp.add_step("build", exp.build)
+    exp.add_step("start", exp.start_runs)
+    exp.add_fetcher(name="fetch")
+    exp.add_parser(DIR / "singularity-parser.py")
+
+    def get_image(nick):
+        resource_name = nick.replace("-", "_")
+        image = IMAGES_DIR / f"{nick}.img"
+        assert image.is_file(), image
+        return resource_name, image
+
+    time_limit = 1800 if REMOTE else 1
+
+    for planner_nick in planners:
+        planner, image = get_image(planner_nick)
+        exp.add_resource(planner, image, symlink=True)
+
+    singularity_script = DIR / "run-singularity.sh"
+    exp.add_resource("run_singularity", singularity_script)
+
+    suite = []
+    for benchmarks_dir in benchmarks_dirs:
+        abs_benchmarks_dir = Path(REPO) / "benchmarks" / benchmarks_dir
+        for domain in domains:
+            suite.extend(suites.build_suite(abs_benchmarks_dir, [domain]))
+    if not REMOTE:
+        suite = [task for task in suite if task.problem == "p01-0.pddl"]
+        planners = planners[:1]
+
+    for planner_nick in planners:
+        planner, _ = get_image(planner_nick)
+        for task in suite:
+            run = exp.add_run()
+            run.add_resource("domain", task.domain_file, "domain.pddl")
+            run.add_resource("problem", task.problem_file, "problem.pddl")
+            run.add_command(
+                "run-planner",
+                ["{run_singularity}", f"{{{planner}}}", "{domain}", "{problem}", "sas_plan"],
+                time_limit=time_limit,
+                memory_limit=3584,
+            )
+            run.add_command("rm-tmp-files", ["rm", "-f", "output.sas", "output"])
+            run.set_property("domain", task.domain)
+            run.set_property("problem", task.problem)
+            run.set_property("algorithm", planner_nick)
+            run.set_property("id", [planner_nick, task.domain, task.problem])
+
+    add_scp_steps(exp)
+
+    report = Path(exp.eval_dir) / f"{exp.name}.html"
+    exp.add_report(BaseReport(attributes=attributes), outfile=report)
+    exp.add_step("open-report", subprocess.call, ["xdg-open", report])
+    exp.add_step("publish-report", subprocess.call, ["publish", report])
+    exp.add_report(
+        CoverageData(filter=[group_domains]),
+        outfile=DIR / "results" / f"{exp.name}-coverage.json",
+    )
     return exp
 
 
