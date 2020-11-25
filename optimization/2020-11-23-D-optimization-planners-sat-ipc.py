@@ -55,12 +55,12 @@ def get_image(nick):
 
 TIME_LIMIT = 1800 if project.REMOTE else 1
 IMAGES = [
-    "fd1906-blind",
-    "fd1906-fdss1-mas1",
-    "fd1906-fdss1-mas2",
-    "fd1906-bjolp",
-    "fd1906-lmcut",
-    "ipc2014-opt-symba1",
+    "fd1906-gbfs-ff",
+    "fd1906-lama-first",
+    "ipc2014-agl-mpc",
+    "ipc2014-agl-mercury",
+    "ipc2014-agl-jasper",
+    "ipc2014-agl-probe",
 ]
 
 for planner_nick in IMAGES:
