@@ -5,6 +5,7 @@ from collections import defaultdict
 import json
 import pathlib
 
+import project
 
 def read_json_file(path):
     properties_file = pathlib.Path(path)
@@ -12,6 +13,20 @@ def read_json_file(path):
     with open(properties_file) as json_file:
         data = json.load(json_file)
         return data
+
+def convert_data(data, data_no):
+    for _, run in data.items():
+        project.group_domains(run)
+        run["problem"] = f"{data_no}_{run['problem']}"
+
+
+def process_files(files):
+    combined_data = {}
+    for file_no, path in enumerate(files):
+        data = read_json_file(path)
+        convert_data(data, file_no)
+        combined_data.update(data)
+    return combined_data
 
 
 def process_data(data, time_out):
@@ -57,12 +72,31 @@ def print_fastest_algorithms(domain_algo_num_fastest, epsilon_num_fastest_algos)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("properties")
-    parser.add_argument("--time-out", type=int, default="1800")
-    parser.add_argument("--epsilon-runtime", type=float, default="0.5")
-    parser.add_argument("--epsilon-num-fastest-algos", type=int, default="1")
+    parser.add_argument(
+        "properties",
+        nargs="+",
+        help="list of paths to properties files")
+    parser.add_argument(
+        "--time-out",
+        type=int,
+        default="1800",
+        help="the value, in seconds, to consider as runtime for "
+        "planners on a task which they don't solve")
+    parser.add_argument(
+        "--epsilon-runtime",
+        type=float,
+        default="0.5",
+        help="epsilon value, in seconds, which is used to determine "
+        "the fastest planners on a task: if planner is slower only by "
+        "this value than the fastet planner, it is also considered "
+        "fastest")
+    parser.add_argument(
+        "--epsilon-num-fastest-algos",
+        type=int,
+        default="1",
+        help="the number of fastest planners to consider for each domain")
     args = parser.parse_args()
-    data = read_json_file(args.properties)
+    data = process_files(args.properties)
     domain_problem_algo_to_runtime = process_data(data, args.time_out)
     domain_algo_num_fastest = determine_fastest_algorithms(
         domain_problem_algo_to_runtime, args.time_out, args.epsilon_runtime)
