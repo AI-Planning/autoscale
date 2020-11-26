@@ -397,8 +397,12 @@ def get_evaluation_experiment(
         abs_benchmarks_dir = Path(REPO) / "benchmarks" / benchmarks_dir
         for domain in domains:
             suite.extend(suites.build_suite(abs_benchmarks_dir, [domain]))
+    # TODO: remove filtering again.
+    print(f"TASKS: {len(suite)}")
+    suite = [task for task in suite if task.problem.startswith(tuple(f"p{i:02}" for i in range(1, 31, 5)))]
+    print(f"TASKS: {len(suite)}")
     if not REMOTE:
-        suite = [task for task in suite if task.problem == "p01-0.pddl"]
+        suite = [task for task in suite if task.problem == "p01-0.pddl"]  # TODO: change back to p01.pddl
         planners = planners[:1]
 
     for planner_nick in planners:
