@@ -433,6 +433,7 @@ def get_evaluation_experiment(
         CoverageData(filter=[group_domains]),
         outfile=DIR / "results" / f"{exp.name}-coverage.json",
     )
+    exp.add_report(FilterReport(), outfile=DIR / "results" / f"{exp.name}-properties.json")
     return exp
 
 
