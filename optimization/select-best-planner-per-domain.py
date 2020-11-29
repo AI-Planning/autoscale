@@ -10,6 +10,7 @@ Copied from project.py to not bother with multpile calls to
 argparse.ArgumentParser.parse().
 """
 
+
 DOMAIN_GROUPS = {
     "airport": ["airport"],
     "assembly": ["assembly"],
@@ -78,6 +79,7 @@ DOMAIN_GROUPS = {
     "termes": ["termes", "termes-opt18-strips", "termes-sat18-strips"],
 }
 
+
 DOMAIN_RENAMINGS = {}
 for group_name, domains in DOMAIN_GROUPS.items():
     for domain in domains:
@@ -91,6 +93,129 @@ def group_domains(run):
     run["domain"] = DOMAIN_RENAMINGS[old_domain]
     run["problem"] = old_domain + "-" + run["problem"]
     return run
+
+
+
+# List of all domains available from 2020-11-23-* experiments.
+# Uncommented are those that we optimize.
+OPT_DOMAINS = [
+    # 'agricola',
+    # 'airport',
+    'barman',
+    'blocksworld',
+    'childsnack',
+    'data-network',
+    'depot',
+    'driverlog',
+    'elevators',
+    'floortile',
+    # 'freecell',
+    # 'ged',
+    'grid',
+    'gripper',
+    'hiking',
+    'logistics',
+    'miconic',
+    # 'movie',
+    # 'mprime',
+    # 'mystery',
+    'nomystery',
+    'openstacks',
+    # 'organic',
+    # 'organic-split',
+    # 'parcprinter',
+    'parking',
+    'pathways',
+    # 'pegsol',
+    # 'petri-net',
+    # 'pipes-nt',
+    # 'pipes-t',
+    # 'psr',
+    'rovers',
+    'satellite',
+    'scanalyzer',
+    'snake',
+    'sokoban',
+    # 'spider',
+    'storage',
+    'termes',
+    'tetris',
+    # 'tidybot',
+    'tpp',
+    'transport',
+    'trucks-strips',
+    'visitall',
+    'woodworking',
+    'zenotravel'
+]
+
+
+# List of all domains available from 2020-11-23-* experiments.
+# Uncommented are those that we optimize.
+SAT_DOMAINS = [
+    # 'agricola',
+    # 'airport',
+    # 'assembly',
+    'barman',
+    'blocksworld',
+    # 'caldera',
+    # 'cavediving',
+    'childsnack',
+    # 'citycar',
+    'data-network',
+    'depot',
+    'driverlog',
+    'elevators',
+    # 'flashfill',
+    'floortile',
+    # 'freecell',
+    # 'ged',
+    'grid',
+    'gripper',
+    'hiking',
+    'logistics',
+    # 'maintenance',
+    # 'miconic-fulladl',
+    'miconic',
+    # 'miconic-simpleadl',
+    # 'movie',
+    # 'mprime',
+    # 'mystery',
+    'nomystery',
+    # 'nurikabe',
+    'openstacks',
+    # 'optical-telegraphs',
+    # 'organic',
+    # 'organic-split',
+    # 'parcprinter',
+    'parking',
+    'pathways',
+    # 'pegsol',
+    # 'philosophers',
+    # 'pipes-nt',
+    # 'pipes-t',
+    # 'psr',
+    'rovers',
+    'satellite',
+    'scanalyzer',
+    # 'schedule',
+    # 'settlers',
+    'snake',
+    'sokoban',
+    # 'spider',
+    'storage',
+    'termes',
+    'tetris',
+    # 'thoughtful',
+    # 'tidybot',
+    'tpp',
+    'transport',
+    # 'trucks-adl',
+    'trucks-strips',
+    'visitall',
+    'woodworking',
+    'zenotravel'
+]
 
 
 def read_json_file(path):
@@ -112,7 +237,7 @@ def process_files(files):
     for file_no, path in enumerate(files):
         data = read_json_file(path)
         convert_data(data, file_no)
-        combined_data.extend([run for run in data.values()])
+        combined_data.extend(data.values())
     return combined_data
 
 
@@ -131,8 +256,11 @@ def select_fastest_algorithms(
         time_out,
         epsilon_runtime,
         exclude_runtime,
-        epsilon_num_fastest):
+        epsilon_num_fastest,
+        track):
     for domain, problem_algo_to_runtime in domain_problem_algo_to_runtime.items():
+        if (track == "sat" and domain not in SAT_DOMAINS) or (track == "opt" and domain not in OPT_DOMAINS):
+            continue
 
         # For each planner, count how many tasks of the domain it solves
         # in under exclude_runtime seconds.
@@ -198,7 +326,12 @@ def select_fastest_algorithms(
         for algo, num_fastest in algo_to_num_fastest.items():
             assert num_fastest <= best_num_fastest
             if best_num_fastest - num_fastest <= epsilon_num_fastest:
-                fastest_algorithms.append(algo)
+                # TODO: this can go away when using the updated
+                # image name in the evaluation experiment.
+                if "mas" in algo and "60s" not in algo:
+                    algo = algo.replace("mas1", "mas1-60s")
+                    algo = algo.replace("mas2", "mas2-60s")
+                fastest_algorithms.append(f"{algo}.img")
         print(f"'{domain}':", f"{fastest_algorithms},")
 
 
@@ -234,18 +367,24 @@ if __name__ == '__main__':
         help="Consider a planner fastest for a domain if it is fastest "
         "on a number x of tasks which is within the given value of the "
         "largest number of tasks any planner is fastest for the domain.")
+    parser.add_argument(
+        '--track',
+        choices=['sat', 'opt'],
+        help="Choose the track to optimize for: satisficing or optimal."
+    )
     args = parser.parse_args()
     data = process_files(args.properties)
     domain_problem_algo_to_runtime = process_data(data, args.time_out)
     call_string = f"# This selection was generated through {__file__} "
     for path in args.properties:
         call_string += f"{path} "
-    call_string += f"--time-out {args.time_out} --epsilon-runtime {args.epsilon_runtime} --exclude-runtime {args.exclude_runtime} --epsilon-num-fastest {args.epsilon_num_fastest}"
+    call_string += f"--time-out {args.time_out} --epsilon-runtime {args.epsilon_runtime} --exclude-runtime {args.exclude_runtime} --epsilon-num-fastest {args.epsilon_num_fastest} --track {args.track}"
     print(call_string)
     select_fastest_algorithms(
         domain_problem_algo_to_runtime,
         args.time_out,
         args.epsilon_runtime,
         args.exclude_runtime,
-        args.epsilon_num_fastest)
+        args.epsilon_num_fastest,
+        args.track)
     exit(0)
