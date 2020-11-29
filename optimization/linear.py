@@ -191,6 +191,10 @@ MIN_PLANNER_RUNTIME = 0.1
 ARGS = parse_args()
 domain_configuration.PRECISION = ARGS.precision
 YEAR = int(ARGS.year)
+if YEAR == "2020":
+    sys.exit("2020 selection of planners no longer availabe")
+
+
 SMAC_OUTPUT_DIR = ARGS.smac_output_dir
 GENERATORS_DIR = ARGS.generators_dir
 TMP_PLAN_DIR = "plan"
