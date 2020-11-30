@@ -16,7 +16,8 @@ import sys
 
 MIN_PLANNER_RUNTIME = 0.1
 PLANNER_MEMORY_LIMIT = 3 * 1024 ** 3  # 3 GiB in Bytes
-
+RATIO_UNSUCCESSFUL_RUNS = 2
+SUCCESSFUL_RUNS_TO_COMPUTE_MEAN = 0.25
 
 
 # This class is in charge of running instances, using a cache to store the results
@@ -91,7 +92,6 @@ class Runner:
             return None
 
         results = []
-        solved = False
         for i in range(self.runs_per_configuration):
             # Ensure that each run uses a different random seed.
             parameters["seed"] = self.get_next_random_seed()
@@ -174,20 +174,26 @@ class Runner:
 
                 self.logging.debug(f"Runtimes for y={parameters}: {runtimes}")
 
-                results.append(min(runtimes) if runtimes else self.planner_time_limit * 10)
                 if runtimes:
-                    solved = True
+                    results.append(min(runtimes))
 
             except Exception as err:
                 print(err, file=sys.stderr)
                 raise
 
-        if solved:
+
+        if len(results) == self.runs_per_configuration: # All instances have been solved
             result = statistics.mean(results)
-        else:
+        elif results and len(results) >= SUCCESSFUL_RUNS_TO_COMPUTE_MEAN*self.runs_per_configuration: # Some instances have been solved
+            num_false_results = self.runs_per_configuration - len(results) 
+            result = statistics.mean(results + [self.planner_time_limit*RATIO_UNSUCCESSFUL_RUNS]*num_false_results)
+        else: # No instance have been solved
             result = None
 
-        if result or time_limit == self.planner_time_limit:
+            
+        self.logging.debug(f"Computed runtimes for {self.runs_per_configuration} instances ({result}): {results}")
+            
+        if len(results) == self.runs_per_configuration or time_limit == self.planner_time_limit:
             self.logging.info(f"Average {self.name} runtime for y={parameters}: {result}")
             self.exact_cache[cache_key] = result
             self.frontier_cache[non_linear_key].append(
