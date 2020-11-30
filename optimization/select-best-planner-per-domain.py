@@ -243,24 +243,59 @@ def process_files(files):
 
 def process_data(data, time_out):
     domain_problem_algo_to_runtime = defaultdict(dict)
+    domains = set()
+    algos = set()
     for run in data:
+        domains.add(run['domain'])
+        algos.add(run['algorithm'])
         if run['problem'] not in domain_problem_algo_to_runtime[run['domain']]:
             domain_problem_algo_to_runtime[run['domain']][run['problem']] = dict()
         domain_problem_algo_to_runtime[run['domain']][run['problem']][run['algorithm']] = \
             run.get('runtime', time_out)
-    return domain_problem_algo_to_runtime
+    return domain_problem_algo_to_runtime, sorted(domains), sorted(algos)
+
+
+def compute_algo_to_fastest_problems(
+    problem_algo_to_runtime, time_out, epsilon_runtime, considered_algos, considered_problems):
+    # Compute how often each planner is the fastest on the domain.
+    algo_to_fastest_problems = defaultdict(set)
+    for problem in considered_problems:
+        algo_to_runtime = problem_algo_to_runtime[problem]
+
+        # Determine the best runtime for the task.
+        best_runtime = time_out
+        for algo in considered_algos:
+            runtime = algo_to_runtime[algo]
+            if runtime < best_runtime:
+                best_runtime = runtime
+        # print(problem, algo_to_runtime)
+        # print(f"best runtime for problem {problem}: {best_runtime}")
+
+        # Count each planner as fastest if its runtime is within
+        # epsilon_runtime of best_runtime.
+        for algo in considered_algos:
+            runtime = algo_to_runtime[algo]
+            assert runtime >= best_runtime, f"{runtime}, {best_runtime}"
+            if runtime - best_runtime <= epsilon_runtime:
+                algo_to_fastest_problems[algo].add(problem)
+    # print(f"best algorithms: {algo_to_num_fastest}")
+    return algo_to_fastest_problems
 
 
 def select_fastest_algorithms(
         domain_problem_algo_to_runtime,
+        domains,
+        algos,
         time_out,
         epsilon_runtime,
         exclude_runtime,
-        epsilon_num_fastest,
+        max_planners,
         track):
-    for domain, problem_algo_to_runtime in domain_problem_algo_to_runtime.items():
+    for domain in domains:
         if (track == "sat" and domain not in SAT_DOMAINS) or (track == "opt" and domain not in OPT_DOMAINS):
             continue
+
+        problem_algo_to_runtime = domain_problem_algo_to_runtime[domain]
 
         # For each planner, count how many tasks of the domain it solves
         # in under exclude_runtime seconds.
@@ -280,59 +315,50 @@ def select_fastest_algorithms(
                 print(f"WARNING! Excluding {algo} from {domain} because "
                 f"it solves all tasks in under {exclude_runtime} seconds!")
 
-        # Compute how often each planner is the fastest on the domain.
-        algo_to_num_fastest = defaultdict(int)
-        for problem, algo_to_runtime in problem_algo_to_runtime.items():
+        # Repeatedly compute the mapping of planners to a set of problems
+        # they solved fastest (within an epsilon), see
+        # compute_algo_to_fastest_problems.
+        # For the best planner, i.e., the planner that solves fastest
+        # the most problems, consider all problems it solves fastest
+        # as covered. Repeat with the covered problem and the best
+        # planner removed. Stop if all problems are covered or the
+        # maximum number of planners has been selected.
+        considered_algos = set(algos) - excluded_algos
+        uncovered_problems = set(problem_algo_to_runtime.keys())
+        algo_to_num_fastest_problems = {}
+        fastest_algos = []
+        while uncovered_problems:
+            algo_to_fastest_problems = compute_algo_to_fastest_problems(
+                problem_algo_to_runtime, time_out, epsilon_runtime, considered_algos, uncovered_problems)
+            best_algo_covered_problems = set()
+            best_algo = None
+            for algo, fastest_problems in algo_to_fastest_problems.items():
+                if len(fastest_problems) > len(best_algo_covered_problems):
+                    best_algo_covered_problems = fastest_problems
+                    best_algo = algo
+            assert best_algo_covered_problems.issubset(uncovered_problems)
+            uncovered_problems = uncovered_problems - best_algo_covered_problems
+            considered_algos = considered_algos - set(best_algo)
+            fastest_algos.append(best_algo)
+            algo_to_num_fastest_problems[best_algo] = len(best_algo_covered_problems)
+            if len(fastest_algos) == max_planners:
+                break
 
-            # Determine the best runtime for the task.
-            best_runtime = time_out
-            for algo, runtime in algo_to_runtime.items():
-                if algo in excluded_algos:
-                    continue
-                if runtime < best_runtime:
-                    best_runtime = runtime
-            # print(problem, algo_to_runtime)
-            # print(f"best runtime for problem {problem}: {best_runtime}")
-
-            # Count each planner as fastest if its runtime is within
-            # epsilon_runtime of best_runtime.
-            for algo, runtime in algo_to_runtime.items():
-                if algo in excluded_algos:
-                    continue
-                assert runtime >= best_runtime, f"{runtime}, {best_runtime}"
-                if runtime - best_runtime <= epsilon_runtime:
-                    algo_to_num_fastest[algo] += 1
-        # print(f"best algorithms: {algo_to_num_fastest}")
-
-        # Determine the highest value among the number of times a
-        # planner is fastest on the domain.
-        best_num_fastest = 0
+        # Print result.
         comment_line = "# "
-        for algo, num_fastest in algo_to_num_fastest.items():
+        for algo in fastest_algos:
             assert algo not in excluded_algos
-            if num_fastest > best_num_fastest:
-                best_num_fastest = num_fastest
-            comment_line += f"{algo}: {num_fastest}, "
+            assert algo in algo_to_num_fastest_problems
+            comment_line += f"{algo}: {algo_to_num_fastest_problems[algo]}, "
         if excluded_algos:
             comment_line += "excluded algos: "
             for algo in excluded_algos:
                 comment_line += f"{algo}, "
+        if uncovered_problems:
+            comment_line += f"number of uncovered problems: {len(uncovered_problems)}"
         print(comment_line)
+        print(f"'{domain}':", f"{fastest_algos},")
 
-        # Finally select each planner as fastest for the domain if the
-        # number of times it is fastest is within epsilon_num_fastest
-        # of best_num_fastest.
-        fastest_algorithms = []
-        for algo, num_fastest in algo_to_num_fastest.items():
-            assert num_fastest <= best_num_fastest
-            if best_num_fastest - num_fastest <= epsilon_num_fastest:
-                # TODO: this can go away when using the updated
-                # image name in the evaluation experiment.
-                if "mas" in algo and "60s" not in algo:
-                    algo = algo.replace("mas1", "mas1-60s")
-                    algo = algo.replace("mas2", "mas2-60s")
-                fastest_algorithms.append(f"{algo}.img")
-        print(f"'{domain}':", f"{fastest_algorithms},")
 
 
 if __name__ == '__main__':
@@ -361,12 +387,10 @@ if __name__ == '__main__':
         "domain in less than the given time, it is excluded from being "
         "selected for that domain.")
     parser.add_argument(
-        "--epsilon-num-fastest",
+        "--max-planners",
         type=int,
-        default="1",
-        help="Consider a planner fastest for a domain if it is fastest "
-        "on a number x of tasks which is within the given value of the "
-        "largest number of tasks any planner is fastest for the domain.")
+        default="6",
+        help="The maxmium number of planners to select per domain.")
     parser.add_argument(
         '--track',
         choices=['sat', 'opt'],
@@ -374,17 +398,19 @@ if __name__ == '__main__':
     )
     args = parser.parse_args()
     data = process_files(args.properties)
-    domain_problem_algo_to_runtime = process_data(data, args.time_out)
+    domain_problem_algo_to_runtime, domains, algos = process_data(data, args.time_out)
     call_string = f"# This selection was generated through {__file__} "
     for path in args.properties:
         call_string += f"{path} "
-    call_string += f"--time-out {args.time_out} --epsilon-runtime {args.epsilon_runtime} --exclude-runtime {args.exclude_runtime} --epsilon-num-fastest {args.epsilon_num_fastest} --track {args.track}"
+    call_string += f"--time-out {args.time_out} --epsilon-runtime {args.epsilon_runtime} --exclude-runtime {args.exclude_runtime} --max-planners {args.max_planners} --track {args.track}"
     print(call_string)
     select_fastest_algorithms(
         domain_problem_algo_to_runtime,
+        domains,
+        algos,
         args.time_out,
         args.epsilon_runtime,
         args.exclude_runtime,
-        args.epsilon_num_fastest,
+        args.max_planners,
         args.track)
     exit(0)
