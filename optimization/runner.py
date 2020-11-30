@@ -181,6 +181,7 @@ class Runner:
                 print(err, file=sys.stderr)
                 raise
 
+
         if len(results) == self.runs_per_configuration: # All instances have been solved
             result = statistics.mean(results)
         elif results and len(results) >= SUCCESSFUL_RUNS_TO_COMPUTE_MEAN*self.runs_per_configuration: # Some instances have been solved
@@ -191,9 +192,8 @@ class Runner:
 
             
         self.logging.debug(f"Computed runtimes for {self.runs_per_configuration} instances ({result}): {results}")
-
             
-        if result or time_limit == self.planner_time_limit:
+        if len(results) == self.runs_per_configuration or time_limit == self.planner_time_limit:
             self.logging.info(f"Average {self.name} runtime for y={parameters}: {result}")
             self.exact_cache[cache_key] = result
             self.frontier_cache[non_linear_key].append(
