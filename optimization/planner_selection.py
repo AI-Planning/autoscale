@@ -10,69 +10,69 @@ OPT_2014_PLANNERS = {
 }
 
 # Manually changed miconic to miconic-strips.
+# This selection was generated through ./select-best-planner-per-domain.py results/2020-11-23-A-optimization-planners-ipc-properties.json results/2020-11-23-B-optimization-planners-opt-2014-properties.json results/2020-11-23-C-optimization-planners-opt-2020-properties.json --time-out 3600 --epsilon-runtime 1.0 --exclude-runtime 30 --max-planners 3 --track opt
 PLANNER_SELECTION_OPT_2014 = {
-    # This selection was generated through ./select-best-planner-per-domain.py results/2020-11-23-A-optimization-planners-ipc-properties.json results/2020-11-23-B-optimization-planners-opt-2014-properties.json results/2020-11-23-C-optimization-planners-opt-2020-properties.json --time-out 3600 --epsilon-runtime 1.0 --exclude-runtime 30 --max-planners 3 --track opt
-    # ipc2014-opt-symba1: 88, fd1906-bjolp: 6,
-    'barman': ['ipc2014-opt-symba1', 'fd1906-bjolp'],
-    # fd1906-fdss1-mas1-60s: 82, ipc2014-opt-symba1: 12, fd1906-fdss1-mas2-60s: 1,
+    # ipc2014-opt-symba1: 38, fd1906-fdss1-mas1-60s: 6, number of uncovered problems: 50
+    'barman': ['ipc2014-opt-symba1', 'fd1906-fdss1-mas1-60s'],
+    # fd1906-fdss1-mas1-60s: 43, ipc2014-opt-symba1: 12, fd1906-fdss1-mas2-60s: 1, number of uncovered problems: 39
     'blocksworld': ['fd1906-fdss1-mas1-60s', 'ipc2014-opt-symba1', 'fd1906-fdss1-mas2-60s'],
-    # ipc2014-opt-symba1: 80,
+    # ipc2014-opt-symba1: 35, number of uncovered problems: 45
     'childsnack': ['ipc2014-opt-symba1'],
-    # fd1906-lmcut: 67, ipc2014-opt-symba1: 8, fd1906-bjolp: 5,
+    # fd1906-lmcut: 29, ipc2014-opt-symba1: 8, fd1906-bjolp: 5, number of uncovered problems: 38
     'data-network': ['fd1906-lmcut', 'ipc2014-opt-symba1', 'fd1906-bjolp'],
-    # fd1906-bjolp: 74, fd1906-fdss1-mas1-60s: 8,
+    # fd1906-bjolp: 29, fd1906-fdss1-mas1-60s: 8, number of uncovered problems: 45
     'depot': ['fd1906-bjolp', 'fd1906-fdss1-mas1-60s'],
-    # ipc2014-opt-symba1: 72, fd1906-bjolp: 5, fd1906-fdss1-mas2-60s: 2, number of uncovered problems: 1
+    # ipc2014-opt-symba1: 35, fd1906-bjolp: 5, fd1906-fdss1-mas2-60s: 2, number of uncovered problems: 38
     'driverlog': ['ipc2014-opt-symba1', 'fd1906-bjolp', 'fd1906-fdss1-mas2-60s'],
-    # ipc2014-opt-symba1: 109, fd1906-bjolp: 1,
+    # ipc2014-opt-symba1: 77, fd1906-bjolp: 1, number of uncovered problems: 32
     'elevators': ['ipc2014-opt-symba1', 'fd1906-bjolp'],
-    # ipc2014-opt-symba1: 100,
+    # ipc2014-opt-symba1: 72, number of uncovered problems: 28
     'floortile': ['ipc2014-opt-symba1'],
-    # ipc2014-opt-symba1: 58, fd1906-bjolp: 4, fd1906-fdss1-mas2-60s: 2, number of uncovered problems: 1
+    # ipc2014-opt-symba1: 52, fd1906-bjolp: 4, fd1906-fdss1-mas2-60s: 2, number of uncovered problems: 7
     'grid': ['ipc2014-opt-symba1', 'fd1906-bjolp', 'fd1906-fdss1-mas2-60s'],
     # ipc2014-opt-symba1: 80, excluded algos: fd1906-fdss1-mas2-60s,
     'gripper': ['ipc2014-opt-symba1'],
-    # ipc2014-opt-symba1: 77, fd1906-fdss1-mas2-60s: 3,
+    # ipc2014-opt-symba1: 42, fd1906-fdss1-mas2-60s: 3, number of uncovered problems: 35
     'hiking': ['ipc2014-opt-symba1', 'fd1906-fdss1-mas2-60s'],
-    # fd1906-bjolp: 115, fd1906-lmcut: 6, ipc2014-opt-symba1: 2,
+    # fd1906-bjolp: 43, fd1906-lmcut: 6, ipc2014-opt-symba1: 2, number of uncovered problems: 72
     'logistics': ['fd1906-bjolp', 'fd1906-lmcut', 'ipc2014-opt-symba1'],
-    # fd1906-bjolp: 205, ipc2014-opt-symba1: 5,
+    # fd1906-bjolp: 186, ipc2014-opt-symba1: 5, number of uncovered problems: 19
     'miconic-strips': ['fd1906-bjolp', 'ipc2014-opt-symba1'],
-    # fd1906-bjolp: 67, fd1906-fdss1-mas2-60s: 13,
+    # fd1906-bjolp: 55, fd1906-fdss1-mas2-60s: 13, number of uncovered problems: 12
     'nomystery': ['fd1906-bjolp', 'fd1906-fdss1-mas2-60s'],
-    # ipc2014-opt-symba1: 156, fd1906-bjolp: 2, fd1906-fdss1-mas1-60s: 1, number of uncovered problems: 1
-    'openstacks': ['ipc2014-opt-symba1', 'fd1906-bjolp', 'fd1906-fdss1-mas1-60s'],
-    # fd1906-fdss1-mas1-60s: 85, fd1906-bjolp: 15,
+    # ipc2014-opt-symba1: 128, fd1906-blind: 2, fd1906-bjolp: 1, number of uncovered problems: 29
+    'openstacks': ['ipc2014-opt-symba1', 'fd1906-blind', 'fd1906-bjolp'],
+    # fd1906-fdss1-mas1-60s: 36, fd1906-bjolp: 15, number of uncovered problems: 49
     'parking': ['fd1906-fdss1-mas1-60s', 'fd1906-bjolp'],
-    # fd1906-bjolp: 29, ipc2014-opt-symba1: 1,
+    # fd1906-bjolp: 4, ipc2014-opt-symba1: 1, number of uncovered problems: 25
     'pathways': ['fd1906-bjolp', 'ipc2014-opt-symba1'],
-    # ipc2014-opt-symba1: 99, fd1906-bjolp: 1,
-    'rovers': ['ipc2014-opt-symba1', 'fd1906-bjolp'],
-    # ipc2014-opt-symba1: 87, fd1906-lmcut: 6, fd1906-fdss1-mas2-60s: 2, number of uncovered problems: 1
+    # ipc2014-opt-symba1: 62, fd1906-fdss1-mas1-60s: 1, number of uncovered problems: 37
+    'rovers': ['ipc2014-opt-symba1', 'fd1906-fdss1-mas1-60s'],
+    # ipc2014-opt-symba1: 32, fd1906-lmcut: 6, fd1906-fdss1-mas2-60s: 2, number of uncovered problems: 56
     'satellite': ['ipc2014-opt-symba1', 'fd1906-lmcut', 'fd1906-fdss1-mas2-60s'],
-    # fd1906-lmcut: 95, ipc2014-opt-symba1: 15,
+    # fd1906-lmcut: 51, ipc2014-opt-symba1: 15, number of uncovered problems: 44
     'scanalyzer': ['fd1906-lmcut', 'ipc2014-opt-symba1'],
-    # fd1906-blind: 70, fd1906-bjolp: 10,
+    # fd1906-blind: 35, fd1906-bjolp: 10, number of uncovered problems: 35
     'snake': ['fd1906-blind', 'fd1906-bjolp'],
     # ipc2014-opt-symba1: 36, fd1906-lmcut: 11, fd1906-bjolp: 3,
     'sokoban': ['ipc2014-opt-symba1', 'fd1906-lmcut', 'fd1906-bjolp'],
-    # fd1906-bjolp: 85, fd1906-fdss1-mas1-60s: 2, ipc2014-opt-symba1: 2, number of uncovered problems: 1
+    # fd1906-bjolp: 32, fd1906-fdss1-mas1-60s: 2, ipc2014-opt-symba1: 2, number of uncovered problems: 54
     'storage': ['fd1906-bjolp', 'fd1906-fdss1-mas1-60s', 'ipc2014-opt-symba1'],
-    # ipc2014-opt-symba1: 20,
+    # ipc2014-opt-symba1: 18, number of uncovered problems: 2
     'termes': ['ipc2014-opt-symba1'],
-    # fd1906-blind: 13, ipc2014-opt-symba1: 3, fd1906-bjolp: 1,
+    # fd1906-blind: 6, ipc2014-opt-symba1: 3, fd1906-bjolp: 1, number of uncovered problems: 7
     'tetris': ['fd1906-blind', 'ipc2014-opt-symba1', 'fd1906-bjolp'],
-    # ipc2014-opt-symba1: 87, fd1906-lmcut: 3,
+    # ipc2014-opt-symba1: 24, fd1906-lmcut: 3, number of uncovered problems: 63
     'tpp': ['ipc2014-opt-symba1', 'fd1906-lmcut'],
-    # ipc2014-opt-symba1: 120, fd1906-fdss1-mas2-60s: 7, fd1906-bjolp: 3,
+    # ipc2014-opt-symba1: 63, fd1906-fdss1-mas2-60s: 7, fd1906-bjolp: 3, number of uncovered problems: 57
     'transport': ['ipc2014-opt-symba1', 'fd1906-fdss1-mas2-60s', 'fd1906-bjolp'],
-    # ipc2014-opt-symba1: 30,
+    # ipc2014-opt-symba1: 12, number of uncovered problems: 18
     'trucks-strips': ['ipc2014-opt-symba1'],
-    # fd1906-fdss1-mas1-60s: 72, ipc2014-opt-symba1: 28,
+    # fd1906-fdss1-mas1-60s: 49, ipc2014-opt-symba1: 28, number of uncovered problems: 23
     'visitall': ['fd1906-fdss1-mas1-60s', 'ipc2014-opt-symba1'],
-    # ipc2014-opt-symba1: 95, fd1906-lmcut: 15,
+    # ipc2014-opt-symba1: 60, fd1906-lmcut: 15, number of uncovered problems: 35
     'woodworking': ['ipc2014-opt-symba1', 'fd1906-lmcut'],
-    # ipc2014-opt-symba1: 69, fd1906-fdss1-mas2-60s: 9, fd1906-lmcut: 2,
+    # ipc2014-opt-symba1: 25, fd1906-fdss1-mas2-60s: 9, fd1906-lmcut: 2, number of uncovered problems: 44
     'zenotravel': ['ipc2014-opt-symba1', 'fd1906-fdss1-mas2-60s', 'fd1906-lmcut'],
 }
 
@@ -92,69 +92,69 @@ SAT_2014_PLANNERS = {
 }
 
 # Manually changed miconic to miconic-strips.
+# This selection was generated through ./select-best-planner-per-domain.py results/2020-11-23-D-optimization-planners-sat-ipc-properties.json results/2020-11-23-E-optimization-planners-sat-2014-properties.json results/2020-11-23-F-optimization-planners-sat-2020-properties.json --time-out 3600 --epsilon-runtime 1.0 --exclude-runtime 30 --max-planners 3 --track sat
 PLANNER_SELECTION_SAT_2014 = {
-    # This selection was generated through ./select-best-planner-per-domain.py results/2020-11-23-D-optimization-planners-sat-ipc-properties.json results/2020-11-23-E-optimization-planners-sat-2014-properties.json results/2020-11-23-F-optimization-planners-sat-2020-properties.json --time-out 3600 --epsilon-runtime 1.0 --exclude-runtime 30 --max-planners 3 --track sat
-    # fd1906-lama-first: 76, ipc2014-agl-probe: 12, ipc2014-agl-jasper: 11, number of uncovered problems: 1
+    # fd1906-lama-first: 74, ipc2014-agl-probe: 12, ipc2014-agl-jasper: 11, number of uncovered problems: 3
     'barman': ['fd1906-lama-first', 'ipc2014-agl-probe', 'ipc2014-agl-jasper'],
-    # fd1906-lama-first: 84, ipc2014-agl-jasper: 4, ipc2014-agl-probe: 4, number of uncovered problems: 3
-    'blocksworld': ['fd1906-lama-first', 'ipc2014-agl-jasper', 'ipc2014-agl-probe'],
-    # fd1906-lama-first: 72, ipc2014-agl-mpc: 7, ipc2014-agl-mercury: 1,
+    # fd1906-lama-first: 78, ipc2014-agl-probe: 4, ipc2014-agl-jasper: 4, number of uncovered problems: 9
+    'blocksworld': ['fd1906-lama-first', 'ipc2014-agl-probe', 'ipc2014-agl-jasper'],
+    # fd1906-lama-first: 33, ipc2014-agl-mpc: 7, ipc2014-agl-mercury: 1, number of uncovered problems: 39
     'childsnack': ['fd1906-lama-first', 'ipc2014-agl-mpc', 'ipc2014-agl-mercury'],
-    # fd1906-lama-first: 41, ipc2014-agl-mercury: 14, ipc2014-agl-jasper: 14, number of uncovered problems: 11
-    'data-network': ['fd1906-lama-first', 'ipc2014-agl-mercury', 'ipc2014-agl-jasper'],
-    # ipc2014-agl-mpc: 58, fd1906-lama-first: 12, ipc2014-agl-jasper: 6, number of uncovered problems: 6
+    # fd1906-lama-first: 35, ipc2014-agl-jasper: 14, ipc2014-agl-mercury: 14, number of uncovered problems: 17
+    'data-network': ['fd1906-lama-first', 'ipc2014-agl-jasper', 'ipc2014-agl-mercury'],
+    # ipc2014-agl-mpc: 50, fd1906-lama-first: 12, ipc2014-agl-jasper: 6, number of uncovered problems: 14
     'depot': ['ipc2014-agl-mpc', 'fd1906-lama-first', 'ipc2014-agl-jasper'],
-    # ipc2014-agl-jasper: 61, ipc2014-agl-mpc: 9, fd1906-lama-first: 7, number of uncovered problems: 3
+    # ipc2014-agl-jasper: 48, ipc2014-agl-mpc: 9, fd1906-lama-first: 7, number of uncovered problems: 16
     'driverlog': ['ipc2014-agl-jasper', 'ipc2014-agl-mpc', 'fd1906-lama-first'],
     # fd1906-lama-first: 100, ipc2014-agl-mpc: 9, ipc2014-agl-jasper: 1, excluded algos: ipc2014-agl-mercury,
     'elevators': ['fd1906-lama-first', 'ipc2014-agl-mpc', 'ipc2014-agl-jasper'],
-    # ipc2014-agl-mpc: 100,
+    # ipc2014-agl-mpc: 71, number of uncovered problems: 29
     'floortile': ['ipc2014-agl-mpc'],
-    # fd1906-lama-first: 61, ipc2014-agl-jasper: 4,
+    # fd1906-lama-first: 44, ipc2014-agl-jasper: 4, number of uncovered problems: 17
     'grid': ['fd1906-lama-first', 'ipc2014-agl-jasper'],
-    # fd1906-gbfs-ff: 80, excluded algos: ipc2014-agl-probe, ipc2014-agl-mercury, ipc2014-agl-mpc, fd1906-lama-first, ipc2014-agl-jasper,
+    # fd1906-gbfs-ff: 80, excluded algos: ipc2014-agl-jasper, ipc2014-agl-mpc, fd1906-lama-first, ipc2014-agl-probe, ipc2014-agl-mercury,
     'gripper': ['fd1906-gbfs-ff'],
-    # fd1906-lama-first: 36, ipc2014-agl-probe: 26, fd1906-gbfs-ff: 18,
+    # fd1906-lama-first: 33, ipc2014-agl-probe: 26, fd1906-gbfs-ff: 18, number of uncovered problems: 3
     'hiking': ['fd1906-lama-first', 'ipc2014-agl-probe', 'fd1906-gbfs-ff'],
-    # ipc2014-agl-mercury: 119, ipc2014-agl-mpc: 4,
+    # ipc2014-agl-mercury: 118, ipc2014-agl-mpc: 4, number of uncovered problems: 1
     'logistics': ['ipc2014-agl-mercury', 'ipc2014-agl-mpc'],
-    # ipc2014-agl-jasper: 210, excluded algos: fd1906-gbfs-ff, ipc2014-agl-mercury, ipc2014-agl-mpc, fd1906-lama-first,
+    # ipc2014-agl-jasper: 210, excluded algos: ipc2014-agl-mpc, fd1906-lama-first, ipc2014-agl-mercury, fd1906-gbfs-ff,
     'miconic-strips': ['ipc2014-agl-jasper'],
     # ipc2014-agl-mercury: 54, ipc2014-agl-jasper: 19, fd1906-lama-first: 6, number of uncovered problems: 1
     'nomystery': ['ipc2014-agl-mercury', 'ipc2014-agl-jasper', 'fd1906-lama-first'],
-    # fd1906-lama-first: 191, ipc2014-agl-probe: 16, ipc2014-agl-jasper: 8, number of uncovered problems: 5
+    # fd1906-lama-first: 178, ipc2014-agl-probe: 16, ipc2014-agl-jasper: 8, number of uncovered problems: 18
     'openstacks': ['fd1906-lama-first', 'ipc2014-agl-probe', 'ipc2014-agl-jasper'],
-    # fd1906-lama-first: 86, ipc2014-agl-jasper: 9, ipc2014-agl-mercury: 5,
+    # fd1906-lama-first: 65, ipc2014-agl-jasper: 9, ipc2014-agl-mercury: 5, number of uncovered problems: 21
     'parking': ['fd1906-lama-first', 'ipc2014-agl-jasper', 'ipc2014-agl-mercury'],
-    # ipc2014-agl-mercury: 28, fd1906-lama-first: 2, excluded algos: ipc2014-agl-mpc,
-    'pathways': ['ipc2014-agl-mercury', 'fd1906-lama-first'],
-    # fd1906-lama-first: 87, ipc2014-agl-mpc: 7, ipc2014-agl-mercury: 5, number of uncovered problems: 1
+    # ipc2014-agl-jasper: 28, fd1906-lama-first: 2, excluded algos: ipc2014-agl-mpc,
+    'pathways': ['ipc2014-agl-jasper', 'fd1906-lama-first'],
+    # fd1906-lama-first: 83, ipc2014-agl-mpc: 7, ipc2014-agl-mercury: 5, number of uncovered problems: 5
     'rovers': ['fd1906-lama-first', 'ipc2014-agl-mpc', 'ipc2014-agl-mercury'],
-    # ipc2014-agl-mercury: 63, ipc2014-agl-mpc: 24, ipc2014-agl-jasper: 7, number of uncovered problems: 2
+    # ipc2014-agl-mercury: 50, ipc2014-agl-mpc: 24, ipc2014-agl-jasper: 7, number of uncovered problems: 15
     'satellite': ['ipc2014-agl-mercury', 'ipc2014-agl-mpc', 'ipc2014-agl-jasper'],
-    # ipc2014-agl-mpc: 77, fd1906-lama-first: 15, ipc2014-agl-mercury: 11, number of uncovered problems: 7
+    # ipc2014-agl-mpc: 51, fd1906-lama-first: 15, ipc2014-agl-mercury: 11, number of uncovered problems: 33
     'scanalyzer': ['ipc2014-agl-mpc', 'fd1906-lama-first', 'ipc2014-agl-mercury'],
-    # ipc2014-agl-probe: 65, ipc2014-agl-jasper: 10, ipc2014-agl-mpc: 5,
+    # ipc2014-agl-probe: 41, ipc2014-agl-jasper: 10, ipc2014-agl-mpc: 5, number of uncovered problems: 24
     'snake': ['ipc2014-agl-probe', 'ipc2014-agl-jasper', 'ipc2014-agl-mpc'],
-    # fd1906-gbfs-ff: 44, fd1906-lama-first: 4, ipc2014-agl-mercury: 1, number of uncovered problems: 1
-    'sokoban': ['fd1906-gbfs-ff', 'fd1906-lama-first', 'ipc2014-agl-mercury'],
-    # ipc2014-agl-mpc: 79, ipc2014-agl-probe: 6, ipc2014-agl-jasper: 5,
+    # fd1906-gbfs-ff: 42, fd1906-lama-first: 4, ipc2014-agl-jasper: 1, number of uncovered problems: 3
+    'sokoban': ['fd1906-gbfs-ff', 'fd1906-lama-first', 'ipc2014-agl-jasper'],
+    # ipc2014-agl-mpc: 56, ipc2014-agl-probe: 6, ipc2014-agl-jasper: 5, number of uncovered problems: 23
     'storage': ['ipc2014-agl-mpc', 'ipc2014-agl-probe', 'ipc2014-agl-jasper'],
-    # fd1906-lama-first: 14, fd1906-gbfs-ff: 4, ipc2014-agl-jasper: 2,
+    # fd1906-lama-first: 10, fd1906-gbfs-ff: 4, ipc2014-agl-jasper: 2, number of uncovered problems: 4
     'termes': ['fd1906-lama-first', 'fd1906-gbfs-ff', 'ipc2014-agl-jasper'],
-    # ipc2014-agl-mercury: 7, ipc2014-agl-jasper: 4, fd1906-gbfs-ff: 4, number of uncovered problems: 5
-    'tetris': ['ipc2014-agl-mercury', 'ipc2014-agl-jasper', 'fd1906-gbfs-ff'],
-    # fd1906-lama-first: 63, ipc2014-agl-mpc: 14, ipc2014-agl-mercury: 11, number of uncovered problems: 2
+    # ipc2014-agl-mercury: 6, fd1906-gbfs-ff: 4, ipc2014-agl-jasper: 4, number of uncovered problems: 6
+    'tetris': ['ipc2014-agl-mercury', 'fd1906-gbfs-ff', 'ipc2014-agl-jasper'],
+    # fd1906-lama-first: 47, ipc2014-agl-mpc: 14, ipc2014-agl-mercury: 11, number of uncovered problems: 18
     'tpp': ['fd1906-lama-first', 'ipc2014-agl-mpc', 'ipc2014-agl-mercury'],
-    # ipc2014-agl-mercury: 121, fd1906-lama-first: 9,
+    # ipc2014-agl-mercury: 117, fd1906-lama-first: 9, number of uncovered problems: 4
     'transport': ['ipc2014-agl-mercury', 'fd1906-lama-first'],
-    # ipc2014-agl-mpc: 18, ipc2014-agl-jasper: 8, fd1906-gbfs-ff: 3, number of uncovered problems: 1
-    'trucks-strips': ['ipc2014-agl-mpc', 'ipc2014-agl-jasper', 'fd1906-gbfs-ff'],
-    # fd1906-lama-first: 100,
+    # ipc2014-agl-jasper: 10, ipc2014-agl-mpc: 8, fd1906-gbfs-ff: 3, number of uncovered problems: 9
+    'trucks-strips': ['ipc2014-agl-jasper', 'ipc2014-agl-mpc', 'fd1906-gbfs-ff'],
+    # fd1906-lama-first: 98, number of uncovered problems: 2
     'visitall': ['fd1906-lama-first'],
-    # ipc2014-agl-jasper: 81, ipc2014-agl-mpc: 20, ipc2014-agl-mercury: 6, number of uncovered problems: 3
+    # ipc2014-agl-jasper: 74, ipc2014-agl-mpc: 20, ipc2014-agl-mercury: 6, number of uncovered problems: 10
     'woodworking': ['ipc2014-agl-jasper', 'ipc2014-agl-mpc', 'ipc2014-agl-mercury'],
-    # ipc2014-agl-mpc: 47, fd1906-lama-first: 20, ipc2014-agl-mercury: 10, number of uncovered problems: 3
+    # ipc2014-agl-mpc: 39, fd1906-lama-first: 20, ipc2014-agl-mercury: 10, number of uncovered problems: 11
     'zenotravel': ['ipc2014-agl-mpc', 'fd1906-lama-first', 'ipc2014-agl-mercury'],
 }
 
