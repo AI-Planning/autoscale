@@ -357,7 +357,7 @@ def select_fastest_algorithms(
 
             assert best_algo_covered_problems.issubset(uncovered_problems)
             uncovered_problems = uncovered_problems - best_algo_covered_problems
-            considered_algos = considered_algos - set(best_algo)
+            considered_algos = considered_algos - {best_algo}
             fastest_algos.append(best_algo)
             algo_to_num_fastest_problems[best_algo] = len(best_algo_covered_problems)
             if len(fastest_algos) == max_planners:
