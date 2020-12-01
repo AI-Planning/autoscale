@@ -302,12 +302,12 @@ def select_fastest_algorithms(
         exclude_runtime,
         max_planners,
         track):
+    results = []
     for domain in domains:
         if (track == "sat" and domain not in SAT_DOMAINS) or (track == "opt" and domain not in OPT_DOMAINS):
             continue
 
         problem_algo_to_runtime = domain_problem_algo_to_runtime[domain]
-
         # For each planner, count how many tasks of the domain it solves
         # in under exclude_runtime seconds.
         algo_to_num_quickly_solved_tasks = defaultdict(int)
@@ -336,7 +336,10 @@ def select_fastest_algorithms(
         # planner removed. Stop if all problems are covered or the
         # maximum number of planners has been selected.
         considered_algos = set(algos) - excluded_algos
-        uncovered_problems = set(problem_algo_to_runtime.keys())
+        problem_algo_to_runtime  = { problem : {k: v for k, v in algo_to_runtime.items() if k in  considered_algos} for problem, algo_to_runtime in problem_algo_to_runtime.items()}
+
+        uncovered_problems = set([problem for problem, algo_to_runtime in problem_algo_to_runtime.items() if min(algo_to_runtime.values()) < time_out])
+
         algo_to_num_fastest_problems = {}
         fastest_algos = []
         while uncovered_problems:
@@ -362,7 +365,7 @@ def select_fastest_algorithms(
             algo_to_num_fastest_problems[best_algo] = len(best_algo_covered_problems)
             if len(fastest_algos) == max_planners:
                 break
-
+        results.append(fastest_algos)
         # Print result.
         comment_line = PREFIX + "# "
         for algo in fastest_algos:
@@ -378,6 +381,8 @@ def select_fastest_algorithms(
         print(comment_line)
         print(PREFIX + f"'{domain}':", f"{fastest_algos},")
 
+    print (f"    # Total planners selected: {sum(map(len, results))}")
+    
 
 
 if __name__ == '__main__':
