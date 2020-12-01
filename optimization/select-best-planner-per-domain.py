@@ -293,6 +293,18 @@ def compute_algo_to_fastest_problems(
     return algo_to_fastest_problems
 
 
+def compute_unsolved_problems(problem_algo_to_runtime, selected_algos):
+    print("Problems solved by an unselected planner in 180s and their minimum runtime:")
+    for domain, algos_for_domain in sorted(selected_algos.items()):
+        domain_results = problem_algo_to_runtime[domain]
+        for problem, problem_results in sorted(domain_results.items()):
+            solved_by_any = any(t <= 180 for t in problem_results.values())
+            solved_by_selection = any(problem_results[algo] <= 180 for algo in algos_for_domain)
+            if solved_by_any and not solved_by_selection:
+                min_runtime = min(problem_results.values())
+                print(f"{domain}:{problem}: {min_runtime}")
+
+
 def select_fastest_algorithms(
         domain_problem_algo_to_runtime,
         domains,
@@ -303,6 +315,7 @@ def select_fastest_algorithms(
         max_planners,
         track):
     results = []
+    selected_algos = {}
     for domain in domains:
         if (track == "sat" and domain not in SAT_DOMAINS) or (track == "opt" and domain not in OPT_DOMAINS):
             continue
@@ -332,7 +345,7 @@ def select_fastest_algorithms(
         # compute_algo_to_fastest_problems.
         # For the best planner, i.e., the planner that solves fastest
         # the most problems, consider all problems it solves fastest
-        # as covered. Repeat with the covered problem and the best
+        # as covered. Repeat with the covered problems and the best
         # planner removed. Stop if all problems are covered or the
         # maximum number of planners has been selected.
         considered_algos = set(algos) - excluded_algos
@@ -376,10 +389,11 @@ def select_fastest_algorithms(
             comment_line += "excluded algos: "
             for algo in excluded_algos:
                 comment_line += f"{algo}, "
-        if uncovered_problems:
-            comment_line += f"number of uncovered problems: {len(uncovered_problems)}"
+        comment_line += f"uncovered problems: {len(uncovered_problems)}"
         print(comment_line)
         print(PREFIX + f"'{domain}':", f"{fastest_algos},")
+        selected_algos[domain] = fastest_algos
+    return selected_algos
 
     print (f"    # Total planners selected: {sum(map(len, results))}")
     
@@ -430,7 +444,7 @@ if __name__ == '__main__':
     call_string += f"--time-out {args.time_out} --epsilon-runtime {args.epsilon_runtime} --exclude-runtime {args.exclude_runtime} --max-planners {args.max_planners} --track {args.track}"
     print(call_string)
     print(f"{TRACK_TO_NAME[args.track]} = {{")
-    select_fastest_algorithms(
+    selected_algos = select_fastest_algorithms(
         domain_problem_algo_to_runtime,
         domains,
         algos,
@@ -440,3 +454,4 @@ if __name__ == '__main__':
         args.max_planners,
         args.track)
     print("}")
+    compute_unsolved_problems(domain_problem_algo_to_runtime, selected_algos)
