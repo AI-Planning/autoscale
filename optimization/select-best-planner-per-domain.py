@@ -365,11 +365,13 @@ def select_fastest_algorithms(
 
             # Determine the planner that solves the most problems fastest.
             best_algo_covered_problems = set()
+            best_algo_time_covered_problems = 0
             best_algo = None
             for algo, fastest_problems in algo_to_fastest_problems.items():
-                if len(fastest_problems) > len(best_algo_covered_problems):
+                if len(fastest_problems) > len(best_algo_covered_problems) or (len(fastest_problems) == len(best_algo_covered_problems) and sum ([problem_algo_to_runtime[p][algo] for p in fastest_problems]) <= best_algo_time_covered_problems):
                     best_algo_covered_problems = fastest_problems
                     best_algo = algo
+                    best_algo_time_covered_problems = sum ([problem_algo_to_runtime[p][algo] for p in fastest_problems])
 
             assert best_algo_covered_problems.issubset(uncovered_problems)
             uncovered_problems = uncovered_problems - best_algo_covered_problems
@@ -389,13 +391,14 @@ def select_fastest_algorithms(
             comment_line += "excluded algos: "
             for algo in excluded_algos:
                 comment_line += f"{algo}, "
-        comment_line += f"uncovered problems: {len(uncovered_problems)}"
+        if uncovered_problems:
+            comment_line += f"uncovered problems: {len(uncovered_problems)}"
         print(comment_line)
         print(PREFIX + f"'{domain}':", f"{fastest_algos},")
         selected_algos[domain] = fastest_algos
-    return selected_algos
 
     print (f"    # Total planners selected: {sum(map(len, results))}")
+    return selected_algos
     
 
 
@@ -454,4 +457,4 @@ if __name__ == '__main__':
         args.max_planners,
         args.track)
     print("}")
-    compute_unsolved_problems(domain_problem_algo_to_runtime, selected_algos)
+    #compute_unsolved_problems(domain_problem_algo_to_runtime, selected_algos)

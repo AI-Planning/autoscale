@@ -10,69 +10,72 @@ OPT_2014_PLANNERS = {
 }
 
 # Manually changed miconic to miconic-strips.
+
 # This selection was generated through ./select-best-planner-per-domain.py results/2020-11-23-A-optimization-planners-ipc-properties.json results/2020-11-23-B-optimization-planners-opt-2014-properties.json results/2020-11-23-C-optimization-planners-opt-2020-properties.json --time-out 3600 --epsilon-runtime 1.0 --exclude-runtime 30 --max-planners 3 --track opt
 PLANNER_SELECTION_OPT_2014 = {
-    # ipc2014-opt-symba1: 37, fd1906-bjolp: 7, number of uncovered problems: 50
+    # ipc2014-opt-symba1: 37, fd1906-bjolp: 7, 
     'barman': ['ipc2014-opt-symba1', 'fd1906-bjolp'],
-    # fd1906-fdss1-mas1-60s: 43, ipc2014-opt-symba1: 14, fd1906-fdss1-mas2-60s: 1, number of uncovered problems: 37
+    # fd1906-fdss1-mas1-60s: 43, ipc2014-opt-symba1: 14, fd1906-fdss1-mas2-60s: 1, 
     'blocksworld': ['fd1906-fdss1-mas1-60s', 'ipc2014-opt-symba1', 'fd1906-fdss1-mas2-60s'],
-    # ipc2014-opt-symba1: 35, number of uncovered problems: 45
+    # ipc2014-opt-symba1: 35, 
     'childsnack': ['ipc2014-opt-symba1'],
-    # fd1906-lmcut: 29, ipc2014-opt-symba1: 8, fd1906-bjolp: 5, number of uncovered problems: 38
+    # fd1906-lmcut: 29, ipc2014-opt-symba1: 8, fd1906-bjolp: 5, 
     'data-network': ['fd1906-lmcut', 'ipc2014-opt-symba1', 'fd1906-bjolp'],
-    # fd1906-bjolp: 29, fd1906-fdss1-mas1-60s: 8, number of uncovered problems: 45
+    # fd1906-bjolp: 29, fd1906-fdss1-mas1-60s: 8, 
     'depot': ['fd1906-bjolp', 'fd1906-fdss1-mas1-60s'],
-    # ipc2014-opt-symba1: 34, fd1906-bjolp: 5, fd1906-fdss1-mas2-60s: 2, number of uncovered problems: 39
+    # ipc2014-opt-symba1: 34, fd1906-bjolp: 5, fd1906-fdss1-mas2-60s: 2, uncovered problems: 2
     'driverlog': ['ipc2014-opt-symba1', 'fd1906-bjolp', 'fd1906-fdss1-mas2-60s'],
-    # ipc2014-opt-symba1: 77, fd1906-bjolp: 1, number of uncovered problems: 32
+    # ipc2014-opt-symba1: 77, fd1906-bjolp: 1, 
     'elevators': ['ipc2014-opt-symba1', 'fd1906-bjolp'],
-    # ipc2014-opt-symba1: 72, number of uncovered problems: 28
+    # ipc2014-opt-symba1: 72, 
     'floortile': ['ipc2014-opt-symba1'],
-    # ipc2014-opt-symba1: 51, fd1906-bjolp: 5, fd1906-fdss1-mas2-60s: 2, number of uncovered problems: 7
+    # ipc2014-opt-symba1: 51, fd1906-bjolp: 5, fd1906-fdss1-mas2-60s: 2, uncovered problems: 1
     'grid': ['ipc2014-opt-symba1', 'fd1906-bjolp', 'fd1906-fdss1-mas2-60s'],
-    # fd1906-blind: 29, fd1906-fdss1-mas1-60s: 1, excluded algos: fd1906-fdss1-mas2-60s, ipc2014-opt-symba1, number of uncovered problems: 50
+    WARNING! Excluding fd1906-fdss1-mas2-60s from gripper because it solves all tasks in under 30 seconds!
+    WARNING! Excluding ipc2014-opt-symba1 from gripper because it solves all tasks in under 30 seconds!
+    # fd1906-blind: 29, fd1906-fdss1-mas1-60s: 1, excluded algos: ipc2014-opt-symba1, fd1906-fdss1-mas2-60s, 
     'gripper': ['fd1906-blind', 'fd1906-fdss1-mas1-60s'],
-    # ipc2014-opt-symba1: 43, fd1906-fdss1-mas2-60s: 2, number of uncovered problems: 35
+    # ipc2014-opt-symba1: 43, fd1906-fdss1-mas2-60s: 2, 
     'hiking': ['ipc2014-opt-symba1', 'fd1906-fdss1-mas2-60s'],
-    # fd1906-bjolp: 44, fd1906-lmcut: 6, ipc2014-opt-symba1: 1, number of uncovered problems: 72
+    # fd1906-bjolp: 44, fd1906-lmcut: 6, ipc2014-opt-symba1: 1, 
     'logistics': ['fd1906-bjolp', 'fd1906-lmcut', 'ipc2014-opt-symba1'],
-    # fd1906-bjolp: 186, ipc2014-opt-symba1: 5, number of uncovered problems: 19
-    'miconic-strips': ['fd1906-bjolp', 'ipc2014-opt-symba1'],
-    # fd1906-bjolp: 55, fd1906-fdss1-mas2-60s: 13, number of uncovered problems: 12
+    # fd1906-bjolp: 186, ipc2014-opt-symba1: 5, 
+    'miconic': ['fd1906-bjolp', 'ipc2014-opt-symba1'],
+    # fd1906-bjolp: 55, fd1906-fdss1-mas2-60s: 13, 
     'nomystery': ['fd1906-bjolp', 'fd1906-fdss1-mas2-60s'],
-    # ipc2014-opt-symba1: 129, fd1906-blind: 3, number of uncovered problems: 28
+    # ipc2014-opt-symba1: 129, fd1906-blind: 3, 
     'openstacks': ['ipc2014-opt-symba1', 'fd1906-blind'],
-    # fd1906-fdss1-mas1-60s: 33, fd1906-bjolp: 16, number of uncovered problems: 51
+    # fd1906-fdss1-mas1-60s: 33, fd1906-bjolp: 16, 
     'parking': ['fd1906-fdss1-mas1-60s', 'fd1906-bjolp'],
-    # fd1906-bjolp: 4, ipc2014-opt-symba1: 1, number of uncovered problems: 25
-    'pathways': ['fd1906-bjolp', 'ipc2014-opt-symba1'],
-    # ipc2014-opt-symba1: 62, fd1906-bjolp: 1, number of uncovered problems: 37
+    # fd1906-lmcut: 4, ipc2014-opt-symba1: 1, 
+    'pathways': ['fd1906-lmcut', 'ipc2014-opt-symba1'],
+    # ipc2014-opt-symba1: 62, fd1906-bjolp: 1, 
     'rovers': ['ipc2014-opt-symba1', 'fd1906-bjolp'],
-    # ipc2014-opt-symba1: 31, fd1906-lmcut: 6, fd1906-fdss1-mas2-60s: 3, number of uncovered problems: 56
+    # ipc2014-opt-symba1: 31, fd1906-lmcut: 6, fd1906-fdss1-mas2-60s: 3, uncovered problems: 1
     'satellite': ['ipc2014-opt-symba1', 'fd1906-lmcut', 'fd1906-fdss1-mas2-60s'],
-    # fd1906-lmcut: 51, ipc2014-opt-symba1: 14, fd1906-fdss1-mas2-60s: 1, number of uncovered problems: 44
+    # fd1906-lmcut: 51, ipc2014-opt-symba1: 14, fd1906-fdss1-mas2-60s: 1, 
     'scanalyzer': ['fd1906-lmcut', 'ipc2014-opt-symba1', 'fd1906-fdss1-mas2-60s'],
-    # fd1906-blind: 33, fd1906-bjolp: 12, number of uncovered problems: 35
+    # fd1906-blind: 33, fd1906-bjolp: 12, 
     'snake': ['fd1906-blind', 'fd1906-bjolp'],
-    # ipc2014-opt-symba1: 36, fd1906-bjolp: 11, fd1906-lmcut: 3,
+    # ipc2014-opt-symba1: 36, fd1906-bjolp: 11, fd1906-lmcut: 3, 
     'sokoban': ['ipc2014-opt-symba1', 'fd1906-bjolp', 'fd1906-lmcut'],
-    # fd1906-bjolp: 32, fd1906-fdss1-mas1-60s: 2, ipc2014-opt-symba1: 2, number of uncovered problems: 54
-    'storage': ['fd1906-bjolp', 'fd1906-fdss1-mas1-60s', 'ipc2014-opt-symba1'],
-    # ipc2014-opt-symba1: 18, number of uncovered problems: 2
+    # fd1906-bjolp: 32, ipc2014-opt-symba1: 2, fd1906-fdss1-mas1-60s: 2, uncovered problems: 1
+    'storage': ['fd1906-bjolp', 'ipc2014-opt-symba1', 'fd1906-fdss1-mas1-60s'],
+    # ipc2014-opt-symba1: 18, 
     'termes': ['ipc2014-opt-symba1'],
-    # fd1906-blind: 6, ipc2014-opt-symba1: 3, fd1906-bjolp: 1, number of uncovered problems: 7
+    # fd1906-blind: 6, ipc2014-opt-symba1: 3, fd1906-bjolp: 1, 
     'tetris': ['fd1906-blind', 'ipc2014-opt-symba1', 'fd1906-bjolp'],
-    # ipc2014-opt-symba1: 27, number of uncovered problems: 63
+    # ipc2014-opt-symba1: 27, 
     'tpp': ['ipc2014-opt-symba1'],
-    # ipc2014-opt-symba1: 64, fd1906-fdss1-mas2-60s: 7, fd1906-bjolp: 2, number of uncovered problems: 57
+    # ipc2014-opt-symba1: 64, fd1906-fdss1-mas2-60s: 7, fd1906-bjolp: 2, 
     'transport': ['ipc2014-opt-symba1', 'fd1906-fdss1-mas2-60s', 'fd1906-bjolp'],
-    # ipc2014-opt-symba1: 12, number of uncovered problems: 18
+    # ipc2014-opt-symba1: 12, 
     'trucks-strips': ['ipc2014-opt-symba1'],
-    # fd1906-fdss1-mas1-60s: 50, ipc2014-opt-symba1: 27, number of uncovered problems: 23
+    # fd1906-fdss1-mas1-60s: 50, ipc2014-opt-symba1: 27, 
     'visitall': ['fd1906-fdss1-mas1-60s', 'ipc2014-opt-symba1'],
-    # ipc2014-opt-symba1: 61, fd1906-lmcut: 15, number of uncovered problems: 34
+    # ipc2014-opt-symba1: 61, fd1906-lmcut: 15, 
     'woodworking': ['ipc2014-opt-symba1', 'fd1906-lmcut'],
-    # ipc2014-opt-symba1: 26, fd1906-fdss1-mas2-60s: 7, fd1906-lmcut: 2, number of uncovered problems: 45
+    # ipc2014-opt-symba1: 26, fd1906-fdss1-mas2-60s: 7, fd1906-lmcut: 2, 
     'zenotravel': ['ipc2014-opt-symba1', 'fd1906-fdss1-mas2-60s', 'fd1906-lmcut'],
 }
 
