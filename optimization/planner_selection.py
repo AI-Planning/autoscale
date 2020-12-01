@@ -39,7 +39,7 @@ PLANNER_SELECTION_OPT_2014 = {
     # fd1906-bjolp: 44, fd1906-lmcut: 6, ipc2014-opt-symba1: 1, 
     'logistics': ['fd1906-bjolp', 'fd1906-lmcut', 'ipc2014-opt-symba1'],
     # fd1906-bjolp: 186, ipc2014-opt-symba1: 5, 
-    'miconic': ['fd1906-bjolp', 'ipc2014-opt-symba1'],
+    'miconic-strips': ['fd1906-bjolp', 'ipc2014-opt-symba1'],
     # fd1906-bjolp: 55, fd1906-fdss1-mas2-60s: 13, 
     'nomystery': ['fd1906-bjolp', 'fd1906-fdss1-mas2-60s'],
     # ipc2014-opt-symba1: 130, fd1906-blind: 2, 
@@ -132,7 +132,7 @@ PLANNER_SELECTION_SAT_2014 = {
     # WARNING! Excluding ipc2014-agl-mercury from miconic because it solves all tasks in under 30 seconds!
     # WARNING! Excluding ipc2014-agl-mpc from miconic because it solves all tasks in under 30 seconds!
     # ipc2014-agl-jasper: 210, excluded algos: fd1906-lama-first, ipc2014-agl-mercury, fd1906-gbfs-ff, ipc2014-agl-mpc, 
-    'miconic': ['ipc2014-agl-jasper'],
+    'miconic-strips': ['ipc2014-agl-jasper'],
     # ipc2014-agl-mercury: 71, ipc2014-agl-jasper: 8, fd1906-lama-first: 1, 
     'nomystery': ['ipc2014-agl-mercury', 'ipc2014-agl-jasper', 'fd1906-lama-first'],
     # fd1906-lama-first: 180, ipc2014-agl-probe: 18, ipc2014-agl-jasper: 7, uncovered problems: 2
