@@ -1,8 +1,5 @@
 from collections import defaultdict
 
-import sys
-import os
-
 import logging
 import os
 import os.path
@@ -13,6 +10,8 @@ import shutil
 import statistics
 import subprocess
 import sys
+
+import planner_selection
 
 MIN_PLANNER_RUNTIME = 0.1
 PLANNER_MEMORY_LIMIT = 3 * 1024 ** 3  # 3 GiB in Bytes
@@ -26,7 +25,7 @@ class Runner:
     # (i.e., we may safely assume that larger values
     # imply larger runtimes).  Linear parameters are important because we will use them to
     # avoid running planners on very large values that are estimated to be unsolvable within the time and memory limits.
-    def __init__(self, name, domain, planners, planner_time_limit, random_seed, images_dir, runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT, simulate=False):
+    def __init__(self, name, domain, planners, planner_time_limit, random_seed, runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, SINGULARITY_SCRIPT, simulate=False):
         self.name = name
         # We have three types of caches
         self.exact_cache = {}  # Cache the exact runtime so that the same configuration is never run twice
@@ -37,7 +36,6 @@ class Runner:
         self.planners = planners
         self.planner_time_limit = planner_time_limit
         self.domain = domain
-        self.images_dir = images_dir
         self.runs_per_configuration = runs_per_configuration
         self.SMAC_OUTPUT_DIR = SMAC_OUTPUT_DIR
         self.TMP_PLAN_DIR = TMP_PLAN_DIR
@@ -120,8 +118,8 @@ class Runner:
                         runtimes.append(random.randint(0, 180))
                         continue
 
-                    image_path = os.path.abspath(os.path.join(self.images_dir, image))
-                    if not os.path.exists(image_path):
+                    image_path = planner_selection.IMAGES_DIR / f"{image}.img"
+                    if not image_path.exists():
                         sys.exit(f"Error, image does not exist: {image_path}")
 
                     self.logging.debug(f"Run image {image} at {image_path} with time limit of {time_limit}")
@@ -185,14 +183,14 @@ class Runner:
         if len(results) == self.runs_per_configuration: # All instances have been solved
             result = statistics.mean(results)
         elif results and len(results) >= SUCCESSFUL_RUNS_TO_COMPUTE_MEAN*self.runs_per_configuration: # Some instances have been solved
-            num_false_results = self.runs_per_configuration - len(results) 
+            num_false_results = self.runs_per_configuration - len(results)
             result = statistics.mean(results + [self.planner_time_limit*RATIO_UNSUCCESSFUL_RUNS]*num_false_results)
         else: # No instance have been solved
             result = None
 
-            
+
         self.logging.debug(f"Computed runtimes for {self.runs_per_configuration} instances ({result}): {results}")
-            
+
         if len(results) == self.runs_per_configuration or time_limit == self.planner_time_limit:
             self.logging.info(f"Average {self.name} runtime for y={parameters}: {result}")
             self.exact_cache[cache_key] = result

@@ -106,7 +106,7 @@ def parse_args():
         help="Directory where to store logs and temporary files (default: %(default)s)",
     )
 
-    
+
     parser.add_argument(
         "--multiple_seeds", type=int, default=0, help="Generate the same instance multiple times with different random seeds (default: %(default)d)"
     )
@@ -386,9 +386,9 @@ def select_best_k(candidates, K, already_selected):
     return new_selected
 
 
-RUNNER_BASELINE = Runner("baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
+RUNNER_BASELINE = Runner("baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, SINGULARITY_SCRIPT)
 
-RUNNER_SART = Runner("sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, YEAR, ARGS.domain), PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT)
+RUNNER_SART = Runner("sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, YEAR, ARGS.domain), PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, SINGULARITY_SCRIPT)
 
 with open(ARGS.database) as f:
     content = json.load(f)
@@ -618,7 +618,7 @@ for seq in candidate_sequences:
                         seq_id, endi = map(int, nameend.split("-")[1:])
 
                         runtimes = ", ".join(list(map('{:.2g}'.format, sequences_by_id[seq_id].get_runtimes(i, endi+1))))
-                        
+
                         print (f"Selected: sequence {seq_id}, {endi+1-i} instances from {i} to {endi}")
                         print(f"Configuration: {sequences_by_id[seq_id].config}")
                         print(f"Penalty: {'{:.2f}'.format(sequences_by_id[seq_id].penalty)}")
@@ -626,7 +626,7 @@ for seq in candidate_sequences:
 
                         final_selection += sequences_by_id[seq_id].get_instances(i, endi+1)
 
-                        
+
 
         for name, idt in seq.get_cplex_end_index().items():
             if x [idt] > 0.9:
@@ -635,7 +635,7 @@ for seq in candidate_sequences:
 
 
 
-                
+
 print ("  " + "\n  ".join([f"p{i+1:02d}: {config}" for (i, config) in enumerate(final_selection)]))
 
 if ARGS.output:
@@ -647,7 +647,7 @@ if ARGS.output:
     # os.mkdir (f"{ARGS.output}/{ARGS.domain}")
 
     for numseed in range(0, max(1, ARGS.multiple_seeds)):
-        i = 1    
+        i = 1
         for task in final_selection:
             task["seed"] = seed
             seed += 1

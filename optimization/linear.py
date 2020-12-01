@@ -61,7 +61,7 @@ from domain_configuration import EvaluatedSequence
 
 from runner import Runner
 
-from planner_selection import get_baseline_planner, get_sart_planners, verify_planner_selection
+from planner_selection import get_baseline_planner, get_sart_planners
 
 warnings.simplefilter(action="ignore", category=FutureWarning)
 
@@ -162,11 +162,6 @@ def parse_args():
         default=os.path.join(REPO, "pddl-generators"),
         help="path to directory containing the generators")
 
-    parser.add_argument(
-        "--images_dir",
-        default=os.path.join(REPO, "images"),
-        help="path to directory containing the Singularity images to run")
-
     parser.add_argument("domain", help="Domain name")
 
     parser.add_argument(
@@ -238,8 +233,6 @@ setup_logging()
 if ARGS.tasks < ARGS.tasksbaseline:
     sys.exit("Error: number of tasks must be at least as large as the number of tasks for the baseline")
 
-verify_planner_selection(ARGS.images_dir)
-
 DOMAINS = get_domains(ARGS.track)
 
 print("{} domains available: {}".format(len(DOMAINS), sorted(DOMAINS)))
@@ -257,9 +250,15 @@ for domain in DOMAINS:
 # The configurations are a list of lists. Each list corresponds to an individual
 # linear scaling, so we may assume that instances are sorted by difficulty.
 # We got the configurations. They should be sorted from easier to harder.
-RUNNER_BASELINE = Runner("baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, "<set later>", TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT, simulate=ARGS.simulate)
+RUNNER_BASELINE = Runner(
+    "baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT,
+    ARGS.random_seed, ARGS.runs_per_configuration, "<set later>", TMP_PLAN_DIR, GENERATORS_DIR,
+    SINGULARITY_SCRIPT, simulate=ARGS.simulate)
 
-RUNNER_SART = Runner("sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, YEAR, ARGS.domain), PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.images_dir, ARGS.runs_per_configuration, "<set later>", TMP_PLAN_DIR, GENERATORS_DIR, logging, SINGULARITY_SCRIPT, simulate=ARGS.simulate)
+RUNNER_SART = Runner(
+    "sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, YEAR, ARGS.domain), PLANNER_TIME_LIMIT,
+    ARGS.random_seed, ARGS.runs_per_configuration, "<set later>", TMP_PLAN_DIR, GENERATORS_DIR,
+    SINGULARITY_SCRIPT, simulate=ARGS.simulate)
 
 
 
