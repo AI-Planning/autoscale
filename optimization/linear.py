@@ -121,6 +121,13 @@ def parse_args():
         help="Maximum total time running planners (default: %(default)ss)",
     )
 
+    parser.add_argument(
+        "--planner-time-limit",
+        type=float,
+        default=180,
+        help="Maximum time for each planner run (default: %(default)ss)",
+    )
+
     #parser.add_argument(
     #    "--intensification-percentage",
     #    type=float,
@@ -180,10 +187,10 @@ def parse_args():
     return parser.parse_args()
 
 
-PLANNER_TIME_LIMIT = 180
+ARGS = parse_args()
+PLANNER_TIME_LIMIT = ARGS.planner_time_limit
 PLANNER_MEMORY_LIMIT = 3 * 1024 ** 3  # 3 GiB in Bytes
 MIN_PLANNER_RUNTIME = 0.1
-ARGS = parse_args()
 domain_configuration.PRECISION = ARGS.precision
 YEAR = int(ARGS.year)
 if YEAR == "2020":
@@ -312,8 +319,8 @@ def evaluate_sequence(cfg, print_final_configuration=False):
 
     logging.debug(f"Y: {sequence}")
 
-    # First test: Does the baseline solve the first three configurations in less than 10,
-    # 60, and 180s? If not, return a high error right away
+    # First test: Does the baseline solve the first three configurations in less than 10s,
+    # 60s, and the planner time limit? If not, return a high error right away
     if not print_final_configuration and not domain.has_lowest_linear_values(cfg):
         if not RUNNER_BASELINE.is_solvable(sequence[0], time_limit=10, lower_bound=0):
             logging.info("First instance was not solved by the baseline planner in less than 10 seconds")

@@ -294,6 +294,7 @@ def compute_algo_to_fastest_problems(
 
 
 def compute_unsolved_problems(problem_algo_to_runtime, selected_algos):
+    raise NotImplementedError("needs planner time limit")
     print("Problems solved by an unselected planner in 180s and their minimum runtime:")
     for domain, algos_for_domain in sorted(selected_algos.items()):
         domain_results = problem_algo_to_runtime[domain]
@@ -400,7 +401,7 @@ def select_fastest_algorithms(
 
     print (f"    # Total planners selected: {sum(map(len, results))}")
     return selected_algos
-    
+
 
 
 if __name__ == '__main__':

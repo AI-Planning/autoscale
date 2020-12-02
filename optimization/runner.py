@@ -115,7 +115,7 @@ class Runner:
                 runtimes = []
                 for image in self.planners:
                     if self.simulate:
-                        runtimes.append(random.randint(0, 180))
+                        runtimes.append(random.randint(0, 1800))
                         continue
 
                     image_path = planner_selection.IMAGES_DIR / f"{image}.img"

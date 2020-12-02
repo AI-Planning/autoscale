@@ -65,6 +65,13 @@ def parse_args():
     )
 
     parser.add_argument(
+        "--planner-time-limit",
+        type=float,
+        default=180,
+        help="Maximum time for each planner run (default: %(default)ss)",
+    )
+
+    parser.add_argument(
         "--max_sequences_per_enum", type=int, default=100, help="Number of sequences that will be allowed per value of each enum parameter  (default: %(default)d)"
     )
 
@@ -123,10 +130,10 @@ def parse_args():
     return parser.parse_args()
 
 
-PLANNER_TIME_LIMIT = 180
+ARGS = parse_args()
 PLANNER_MEMORY_LIMIT = 3 * 1024 ** 3  # 3 GiB in Bytes
 MIN_PLANNER_RUNTIME = 0.1
-ARGS = parse_args()
+PLANNER_TIME_LIMIT = ARGS.planner_time_limit
 YEAR = int(ARGS.year)
 SMAC_OUTPUT_DIR = ARGS.smac_output_dir
 GENERATORS_DIR = ARGS.generators_dir
@@ -259,8 +266,8 @@ class CPLEXSequence:
         self.parameters_of_instances = domain.get_configs(self.config, len(self.sorted_runtimes))
 
         # Identify which instances are actually relevant
-        evaluated_instances = set([i for i, t  in enumerate (self.runtimes_baseline) if t >= 2 and t <= 180] + \
-                                  [i for i, t  in enumerate (self.runtimes_sart) if t >= 2 and t <= 180])
+        evaluated_instances = set([i for i, t  in enumerate (self.runtimes_baseline) if t >= 2 and t <= PLANNER_TIME_LIMIT] + \
+                                  [i for i, t  in enumerate (self.runtimes_sart) if t >= 2 and t <= PLANNER_TIME_LIMIT])
 
 
         self.parameters_of_evaluated_instances = [self.parameters_of_instances[i] for i in evaluated_instances]
