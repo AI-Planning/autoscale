@@ -2,6 +2,8 @@
 *.code-workspace
 *.o
 *.pyc
+*-checkpoint.ipynb
+*.ipynb_checkpoints/
 .vscode/
 images/
 optimization/.venv/
