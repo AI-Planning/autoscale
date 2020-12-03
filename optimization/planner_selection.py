@@ -205,10 +205,11 @@ def verify_planner_selection():
     valid_images = os.listdir(IMAGES_DIR)
     for selection in PLANNER_SELECTION.values():
         for names in selection.values():
-            # assert 1 <= len(images) <= 3, f"{domain} needs 1-3 images"
+            assert 1 <= len(names) <= 3, f"{domain} needs 1-3 images"
             for name in names:
                 image = name + ".img"
                 assert image in valid_images, f"image {image} is missing"
+                # We allow the baseline planner to be state of the art.
                 # assert name != get_baseline_planner("opt"), name
                 # assert name != get_baseline_planner("sat"), name
 
