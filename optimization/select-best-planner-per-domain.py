@@ -357,7 +357,7 @@ def select_fastest_algorithms(
 
         algo_to_num_fastest_problems = {}
         fastest_algos = []
-        while uncovered_problems:
+        while len(uncovered_problems)/len(problem_algo_to_runtime) > args.delta:
             algo_to_fastest_problems = compute_algo_to_fastest_problems(
                 problem_algo_to_runtime, time_out, epsilon_runtime, epsilon_factor_runtime, considered_algos, uncovered_problems)
 
@@ -425,9 +425,17 @@ if __name__ == '__main__':
     parser.add_argument(
         "--epsilon-factor-runtime",
         type=float,
-        default="1",
+        default="5",
         help="Runtime in seconds. Select all planners that are fastest "
         "on a task or slower by at most the given value.")
+
+    parser.add_argument(
+        "--delta",
+        type=float,
+        default="0",
+        help="Allows ignoring elta proportion of the solved instances to avoid including planners that"
+        "are only faster in a marginal number of instances. By default this is 5%.")
+
 
     parser.add_argument(
         "--exclude-runtime",
@@ -453,7 +461,7 @@ if __name__ == '__main__':
     call_string = f"# This selection was generated through {__file__} "
     for path in args.properties:
         call_string += f"{path} "
-    call_string += f"--time-out {args.time_out} --epsilon-runtime {args.epsilon_runtime} --epsilon-factor-runtime {args.epsilon_factor_runtime} --exclude-runtime {args.exclude_runtime} --max-planners {args.max_planners} --track {args.track}"
+    call_string += f"--time-out {args.time_out} --epsilon-runtime {args.epsilon_runtime} --epsilon-factor-runtime {args.epsilon_factor_runtime} --delta {args.delta} --exclude-runtime {args.exclude_runtime} --max-planners {args.max_planners} --track {args.track}"
     print(call_string)
     print(f"{TRACK_TO_NAME[args.track]} = {{")
     selected_algos = select_fastest_algorithms(
