@@ -6,7 +6,7 @@ DOMAIN_GROUPS = {
     "cavediving": ["cavediving-14-adl"],
     "childsnack": ["childsnack-opt14-strips", "childsnack-sat14-strips"],
     "citycar": ["citycar-opt14-adl", "citycar-sat14-adl"],
-    "depot": ["depot", "depots"],
+    "depots": ["depot", "depots"],
     "driverlog": ["driverlog"],
     "elevators": ["elevators-opt08-strips", "elevators-opt11-strips", "elevators-sat08-strips", "elevators-sat11-strips"],
     "floortile": ["floortile-opt11-strips", "floortile-opt14-strips", "floortile-sat11-strips", "floortile-sat14-strips"],

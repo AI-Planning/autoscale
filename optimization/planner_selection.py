@@ -29,7 +29,7 @@ PLANNER_SELECTION_OPT_2014 = {
     # fd1906-lmcut: 30, ipc2014-opt-symba1: 9, uncovered problems: 3
     'data-network': ['fd1906-lmcut', 'ipc2014-opt-symba1'],
     # fd1906-bjolp: 30, fd1906-fdss1-mas1-60s: 7,
-    'depot': ['fd1906-bjolp', 'fd1906-fdss1-mas1-60s'],
+    'depots': ['fd1906-bjolp', 'fd1906-fdss1-mas1-60s'],
     # ipc2014-opt-symba1: 38, fd1906-bjolp: 3, uncovered problems: 2
     'driverlog': ['ipc2014-opt-symba1', 'fd1906-bjolp'],
     # ipc2014-opt-symba1: 77, uncovered problems: 1
@@ -111,7 +111,7 @@ PLANNER_SELECTION_SAT_2014 = {
     # fd1906-lama-first: 49, ipc2014-agl-jasper: 13, ipc2014-agl-mercury: 12,
     'data-network': ['fd1906-lama-first', 'ipc2014-agl-jasper', 'ipc2014-agl-mercury'],
     # ipc2014-agl-mpc: 50, fd1906-lama-first: 12, ipc2014-agl-jasper: 6, uncovered problems: 6
-    'depot': ['ipc2014-agl-mpc', 'fd1906-lama-first', 'ipc2014-agl-jasper'],
+    'depots': ['ipc2014-agl-mpc', 'fd1906-lama-first', 'ipc2014-agl-jasper'],
     # ipc2014-agl-jasper: 57, fd1906-lama-first: 7, uncovered problems: 3
     'driverlog': ['ipc2014-agl-jasper', 'fd1906-lama-first'],
     # WARNING! Excluding ipc2014-agl-mercury from elevators because it solves all tasks in under 30 seconds!
