@@ -13,10 +13,12 @@ import sys
 
 import planner_selection
 
+from domain_configuration import compute_average
+
 MIN_PLANNER_RUNTIME = 0.1
 PLANNER_MEMORY_LIMIT = 3 * 1024 ** 3  # 3 GiB in Bytes
-RATIO_UNSUCCESSFUL_RUNS = 2
-SUCCESSFUL_RUNS_TO_COMPUTE_MEAN = 0.25
+
+
 
 
 # This class is in charge of running instances, using a cache to store the results
@@ -53,24 +55,28 @@ class Runner:
     def load_cache_from_log_file(self, runs):
         for run in runs:
             parameters = run[0]
-            runtime = run[1]
+            runtimes = run[1]
 
             cache_key = tuple([parameters[attr] for attr in self.parameters_cache_key])
             non_linear_key = tuple([parameters[attr] for attr in self.parameters_cache_key if attr not in self.linear_attributes_names])
+
             if cache_key not in self.exact_cache:
-                self.exact_cache[cache_key] = runtime
+                self.exact_cache[cache_key] = runtimes
                 self.frontier_cache[non_linear_key].append(
-                    ({linear_atr : parameters[linear_atr] for linear_atr in self.linear_attributes_names}, runtime)
+                    ({linear_atr : parameters[linear_atr] for linear_atr in self.linear_attributes_names}, compute_average(runtimes))
                 )
 
-    def is_solvable(self, parameters, time_limit, lower_bound):
-        runtime = self.run_planners(parameters, time_limit)
-        return runtime and runtime <= time_limit and runtime >= lower_bound
+    def is_solvable(self, parameters, time_limit):
+        runtimes = self.run_planners(parameters, time_limit, 1)
+        avg_runtime = compute_average(runtimes)
+        return avg_runtime is not None and avg_runtime <= time_limit
 
 
-    def run_planners(self, parameters, time_limit=None):
+    def run_planners(self, parameters, time_limit=None, num_runs=None):
         if not time_limit:
             time_limit = self.planner_time_limit
+        if not num_runs:
+            num_runs = self.runs_per_configuration
 
         # Check the cache to see if we already know the runtime for this attribute configuration
         cache_key = tuple([parameters[attr] for attr in self.parameters_cache_key])
@@ -90,9 +96,11 @@ class Runner:
             return None
 
         results = []
-        for i in range(self.runs_per_configuration):
+        for i in range(num_runs):
             # Ensure that each run uses a different random seed.
             parameters["seed"] = self.get_next_random_seed()
+
+
 
             # Exceptions are silently swallowed, so we catch them ourselves.
             try:
@@ -112,17 +120,20 @@ class Runner:
                     return None
 
                 # Call planners.
+                instance_time_limit = time_limit # If an instance has been solved by a planner, use the solving time as new time limit
+
                 runtimes = []
                 for image in self.planners:
                     if self.simulate:
-                        runtimes.append(random.randint(0, 1800))
+                        if random.randint(0, 2) < 2:
+                            runtimes.append(random.randint(0, 20))
                         continue
 
                     image_path = planner_selection.IMAGES_DIR / f"{image}.img"
                     if not image_path.exists():
                         sys.exit(f"Error, image does not exist: {image_path}")
 
-                    self.logging.debug(f"Run image {image} at {image_path} with time limit of {time_limit}")
+                    self.logging.debug(f"Run image {image} at {image_path} with time limit of {instance_time_limit}")
                     planner_dir = os.path.join(plan_dir, image)
                     os.mkdir(planner_dir)
 
@@ -139,7 +150,7 @@ class Runner:
                         resource.setrlimit(limit_type, (limit, limit))
 
                     def prepare_call():
-                        set_limit(resource.RLIMIT_CPU, time_limit)
+                        set_limit(resource.RLIMIT_CPU, instance_time_limit)
                         set_limit(resource.RLIMIT_AS, PLANNER_MEMORY_LIMIT)
                         set_limit(resource.RLIMIT_CORE, 0)
 
@@ -165,6 +176,7 @@ class Runner:
                             match = re.search("Singularity runtime: (.+?)s", output)
                             runtime = float(match.group(1))
                             runtime = max(MIN_PLANNER_RUNTIME, runtime)  # log(0) is undefined.
+                            instance_time_limit = min(instance_time_limit, runtime)
                             runtimes.append(runtime)
                             self.logging.debug(f"{image} found plan in {runtime} seconds.")
                         else:
@@ -175,27 +187,30 @@ class Runner:
                 if runtimes:
                     results.append(min(runtimes))
 
+
             except Exception as err:
                 print(err, file=sys.stderr)
                 raise
 
 
-        if len(results) == self.runs_per_configuration: # All instances have been solved
+        if len(results) == num_runs: # All instances have been solved
             result = statistics.mean(results)
-        elif results and len(results) >= SUCCESSFUL_RUNS_TO_COMPUTE_MEAN*self.runs_per_configuration: # Some instances have been solved
-            num_false_results = self.runs_per_configuration - len(results)
-            result = statistics.mean(results + [self.planner_time_limit*RATIO_UNSUCCESSFUL_RUNS]*num_false_results)
+        elif results: # Some instances have been solved
+            num_false_results = num_runs - len(results)
+            result = statistics.mean(results + [self.planner_time_limit]*num_false_results)
+            results += ['unsolvable']*(num_false_results)
         else: # No instance have been solved
+            results += ['unsolvable']*(num_runs)
             result = None
 
 
         self.logging.debug(f"Computed runtimes for {self.runs_per_configuration} instances ({result}): {results}")
 
-        if len(results) == self.runs_per_configuration or time_limit == self.planner_time_limit:
-            self.logging.info(f"Average {self.name} runtime for y={parameters}: {result}")
-            self.exact_cache[cache_key] = result
+        if len(results) == self.runs_per_configuration or (time_limit == self.planner_time_limit and num_runs == self.runs_per_configuration):
+            self.logging.info(f"{self.name} runtime for y={parameters}: {results}")
+            self.exact_cache[cache_key] = results
             self.frontier_cache[non_linear_key].append(
                 ({linear_atr : parameters[linear_atr] for linear_atr in self.linear_attributes_names}, result)
             )
 
-        return result
+        return results

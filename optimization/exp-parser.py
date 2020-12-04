@@ -48,22 +48,22 @@ def error(content, props):
         props['error'] = 'some-error-occured'
 
 
-def parse_average_runtimes(content, props):
-    baseline_average_runtimes = []
-    sart_average_runtimes = []
+def parse_runtimes(content, props):
+    baseline_runtimes = []
+    sart_runtimes = []
     for line in content.splitlines():
-        match = re.match(r".*Average (sart|baseline) runtime for y=(.+): (.+)", line)
+        match = re.match(r".*(sart|baseline) runtime for y=(.+): (.*)", line)
         if match:
             name, config_string, value_string = match.groups()
             parameters = ast.literal_eval(config_string)
-            runtime = ast.literal_eval(value_string)
+            runtimes = ast.literal_eval(value_string)
 
             if name == "sart":
-                sart_average_runtimes.append((parameters, runtime))
+                sart_runtimes.append((parameters, runtimes))
             else:
-                baseline_average_runtimes.append((parameters, runtime))
-    props["baseline_average_runtimes"] = baseline_average_runtimes
-    props["sart_average_runtimes"] = sart_average_runtimes
+                baseline_runtimes.append((parameters, runtimes))
+    props["baseline_runtimes"] = baseline_runtimes
+    props["sart_runtimes"] = sart_runtimes
 
 
 def parse_shared_runs(content, props):
@@ -97,7 +97,7 @@ parser.add_bottom_up_pattern('memory_subsequences', r'Previous subsequences: \d+
 parser.add_bottom_up_pattern('memory_baseline_runner', r'baseline runner memory: (.+) KB', type=float)
 parser.add_bottom_up_pattern('memory_sart_runner', r'sart runner memory: (.+) KB', type=float)
 parser.add_function(error)
-parser.add_function(parse_average_runtimes)
+parser.add_function(parse_runtimes)
 #parser.add_function(parse_shared_runs)
 parser.add_function(unsolvable)
 

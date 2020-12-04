@@ -52,12 +52,14 @@ import resource
 import sys
 import warnings
 import json
-
+import itertools
 from collections import defaultdict
 
 import domain_configuration
 from domain_configuration import get_domains
 from domain_configuration import EvaluatedSequence
+from domain_configuration import filter_unsolvable
+
 
 from runner import Runner
 
@@ -69,7 +71,7 @@ import numpy as np
 
 from smac.configspace import ConfigurationSpace
 from smac.scenario.scenario import Scenario
-from smac.facade.smac_hpo_facade import SMAC4HPO
+from smac.facade.smac_bo_facade import SMAC4BO
 from smac.initial_design.default_configuration_design import DefaultConfiguration
 
 
@@ -201,7 +203,7 @@ SMAC_OUTPUT_DIR = ARGS.smac_output_dir
 GENERATORS_DIR = ARGS.generators_dir
 TMP_PLAN_DIR = "plan"
 SINGULARITY_SCRIPT = os.path.join(DIR, "run-singularity.sh")
-print("Singularity script:", SINGULARITY_SCRIPT)
+# print("Singularity script:", SINGULARITY_SCRIPT)
 
 
 def setup_logging():
@@ -242,7 +244,7 @@ if ARGS.tasks < ARGS.tasksbaseline:
 
 DOMAINS = get_domains(ARGS.track)
 
-print("{} domains available: {}".format(len(DOMAINS), sorted(DOMAINS)))
+logging.debug("{} domains available: {}".format(len(DOMAINS), sorted(DOMAINS)))
 
 for domain in DOMAINS:
     assert os.path.exists(os.path.join(ARGS.generators_dir, domain, "domain.pddl")) or DOMAINS[domain].generated_domain_file(), f"domain.pddl missing for {domain}"
@@ -252,7 +254,7 @@ for domain in DOMAINS:
         if not os.path.isdir(os.path.join(downward_benchmarks, domain)):
             print(f"{domain} missing in downward-benchmarks repo -> needs to be mapped in evaluation scripts")
 
-
+logging.info(f"Running optimization for track {ARGS.track}, domain {ARGS.domain}, year {YEAR}; baseline: {get_baseline_planner(ARGS.track)}; state of the art: {', '.join(get_sart_planners(ARGS.track, YEAR, ARGS.domain))}")
 
 # The configurations are a list of lists. Each list corresponds to an individual
 # linear scaling, so we may assume that instances are sorted by difficulty.
@@ -272,37 +274,66 @@ RUNNER_SART = Runner(
 if ARGS.database:
     f = open(ARGS.database)
     content = json.loads(f.read())
+    if ARGS.domain in content:
 
-    if "baseline_average_runtimes:" in content[ARGS.domain]:
-        logging.info (f"Loading cache data for baseline planners: {len(content[ARGS.domain]['baseline_average_runtimes:'])}")
-        RUNNER_BASELINE.load_cache_from_log_file(content[ARGS.domain]["baseline_average_runtimes:"])
+        if "baseline_runtimes" in content[ARGS.domain]:
+            logging.info (f"Loading cache data for baseline planners: {len(content[ARGS.domain]['baseline_runtimes'])}")
+            RUNNER_BASELINE.load_cache_from_log_file(content[ARGS.domain]["baseline_runtimes"])
 
-    if "sart_average_runtimes" in content[ARGS.domain]:
-        logging.info (f"Loading cache data for sart planners: {len(content[ARGS.domain]['sart_average_runtimes'])}" )
-        RUNNER_SART.load_cache_from_log_file(content[ARGS.domain]["sart_average_runtimes"])
+        if "sart_runtimes" in content[ARGS.domain]:
+            logging.info (f"Loading cache data for sart planners: {len(content[ARGS.domain]['sart_runtimes'])}" )
+            RUNNER_SART.load_cache_from_log_file(content[ARGS.domain]["sart_runtimes"])
 
 
-def evaluate_runtimes(runtimes, num_expected_runtimes):
+
+def penalty_by_factor(factor):
+    if factor <= 1:  # Runtime is not increasing: maximum penalty of 1
+        return 1
+    elif factor <= 1.5:
+        return 3 - 2*factor
+    elif factor <= 2: # Runtime is increasing, but not very quickly
+        return 0
+    elif factor > 2: # Runtime is increasing two quickly
+        return 1 - (2 / factor)
+
+
+def evaluate_runtimes_multiple_sequences(sequence, num_expected_runtimes):
     penalty = 0
-    # The default scaling only works if all instances are solvable. For each unsolvable instance apply a double penalty.
 
+    if len(sequence) < num_expected_runtimes:
+        penalty += 2 * (num_expected_runtimes - len(sequence))
+
+    for i in range(1, len(sequence)):
+
+        solved = filter_unsolvable(sequence[i-1])
+        solved2 = filter_unsolvable(sequence[i])
+
+        num_total = len(sequence[i-1])*len(sequence[i])
+        num_solved = len(solved)*len(solved2)
+        num_unsolved =  num_total - num_solved
+
+        new_penalty = 0
+        for t, t2 in itertools.product(solved, solved2):
+            factor = t2 / t if t2 > t else t /t2
+            new_penalty += penalty_by_factor(factor)
+
+        penalty += (new_penalty + 2*num_unsolved)/num_total
+
+    return penalty
+
+# This can be used only if we sample a single runtime per sequence.
+def evaluate_runtimes_single_sequence(runtimes, num_expected_runtimes):
+    penalty = 0
     sorted_runtimes = sorted(runtimes)
-    if runtimes != sorted_runtimes:
-        print ("Warning: runtimes were not sorted")
 
+    # The default scaling only works if all instances are solvable. For each unsolvable
+    # instance apply a double penalty.
     if len(runtimes) < num_expected_runtimes:
         penalty += 2 * (num_expected_runtimes - len(runtimes))
 
     for i in range(1, len(runtimes)):
         factor = sorted_runtimes[i] / sorted_runtimes[i - 1]
-        if factor <= 1:  # Runtime is not increasing: maximum penalty of 1
-            penalty += 1
-        elif factor <= 1.5:
-            penalty += 3 - 2*factor
-        elif factor <= 2: # Runtime is increasing, but not very quickly
-            return 0
-        elif factor > 2: # Runtime is increasing two quickly
-            penalty += 1 - (2 / factor)
+        penalty += penalty_by_factor(factor)
 
     return penalty
 
@@ -322,15 +353,15 @@ def evaluate_sequence(cfg, print_final_configuration=False):
     # First test: Does the baseline solve the first three configurations in less than 10s,
     # 60s, and the planner time limit? If not, return a high error right away
     if not print_final_configuration and not domain.has_lowest_linear_values(cfg):
-        if not RUNNER_BASELINE.is_solvable(sequence[0], time_limit=10, lower_bound=0):
+        if not RUNNER_BASELINE.is_solvable(sequence[0], time_limit=10):
             logging.info("First instance was not solved by the baseline planner in less than 10 seconds")
             return 10 ** 6
 
-        if not RUNNER_BASELINE.is_solvable(sequence[1], time_limit=60, lower_bound=0):
+        if not RUNNER_BASELINE.is_solvable(sequence[1], time_limit=60):
             logging.info("Second instance was not solved by the baseline planner in less than 60 seconds")
             return 10 ** 6 - 10 ** 5
 
-        if not RUNNER_BASELINE.is_solvable(sequence[2], time_limit=PLANNER_TIME_LIMIT, lower_bound=0):
+        if not RUNNER_BASELINE.is_solvable(sequence[2], time_limit=PLANNER_TIME_LIMIT):
             logging.info(f"Third instance was not solved by the baseline planner in less than {PLANNER_TIME_LIMIT} seconds")
             return 10 ** 6 - 2 * 10 ** 5
 
@@ -348,8 +379,8 @@ def evaluate_sequence(cfg, print_final_configuration=False):
     # and unsolved instances are assigned a score of 2
 
     baseline_eval = EvaluatedSequence(sequence, RUNNER_BASELINE, PLANNER_TIME_LIMIT)
-    baseline_times = baseline_eval.get_runtimes(ARGS.tasksbaseline, 10, PLANNER_TIME_LIMIT)
-    penalty = evaluate_runtimes(baseline_times, ARGS.tasksbaseline)
+    baseline_times = baseline_eval.get_runtimes(ARGS.tasksbaseline, 5, PLANNER_TIME_LIMIT)
+    penalty = evaluate_runtimes_multiple_sequences(baseline_times, ARGS.tasksbaseline)
 
     if ARGS.only_baseline:
         sart_eval = None
@@ -358,8 +389,8 @@ def evaluate_sequence(cfg, print_final_configuration=False):
             penalty += baseline_eval.num_solved() - 20
     else:
         sart_eval = EvaluatedSequence(sequence, RUNNER_SART, PLANNER_TIME_LIMIT)
-        sart_times = sart_eval.get_runtimes(ARGS.tasksbaseline, 10, PLANNER_TIME_LIMIT)
-        penalty += evaluate_runtimes(sart_times, ARGS.tasksbaseline)
+        sart_times = sart_eval.get_runtimes(ARGS.tasksbaseline, 5, PLANNER_TIME_LIMIT)
+        penalty += evaluate_runtimes_multiple_sequences(sart_times, ARGS.tasksbaseline)
 
         if sart_eval.num_solved() > 20:
             penalty += sart_eval.num_solved() - 20
@@ -437,7 +468,7 @@ print("Default config:", default_cfg)
 print("Optimizing...")
 # When using SMAC4HPO, the default configuration has to be requested explicitly
 # as first design (see https://github.com/automl/SMAC3/issues/533).
-smac = SMAC4HPO(
+smac = SMAC4BO(
     scenario=scenario,
     initial_design=DefaultConfiguration,
     rng=np.random.RandomState(ARGS.random_seed),
