@@ -34,7 +34,6 @@ class Runner:
         # Caches configurations that can be solved under the time limit, any harder configuration will take longer (only useful for the quicker tests that run the planner less time)
         self.frontier_cache = defaultdict(list)
         random.seed(random_seed)
-        self.random_seed = random.randint(0, 10**6)
         self.linear_attributes_names = domain.get_linear_attributes_names()
         self.planners = planners
         self.planner_time_limit = planner_time_limit
@@ -50,8 +49,7 @@ class Runner:
         self.parameters_cache_key = domain.get_generator_attribute_names()
 
     def get_next_random_seed(self):
-        self.random_seed += 1
-        return self.random_seed
+        return random.randint(0, 10**6)
 
     def load_cache_from_log_file(self, runs):
         for run in runs:
