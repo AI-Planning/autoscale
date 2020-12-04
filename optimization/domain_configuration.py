@@ -459,7 +459,7 @@ DOMAIN_LIST_OPT = [
         [LinearAtr("passengers", lower_b=5, upper_b=20, lower_m=0.1, upper_m=5),  #level="true"
          LinearAtr("floors", lower_b=5, upper_b=15, lower_m=0.1, upper_m=5, optional_m=True)], # level="choose"
     ),
-    Domain("rover",
+    Domain("rovers",
         "rovgen {seed} {rovers} {waypoints} {objectives} {cameras} {goals}",
         [
             LinearAtr("rovers", upper_b=10, upper_m=2, optional_m=True), # level="choose"
@@ -737,7 +737,7 @@ DOMAIN_LIST_OPT = [
 #     # "miconic-strips":
 #     #     [LinearAtr("passengers", lower_b=10, upper_b=20, lower_m=1, upper_m=5),  #level="true"
 #     #      LinearAtr("floors", lower_b=10, upper_b=20, lower_m=0.5, upper_m=5, optional_m=True)], # level="choose"
-#     # "rover":
+#     # "rovers":
 #     #     [
 #     #         LinearAtr("rovers", lower_b=4, upper_b=10, upper_m=2, optional_m=True),
 #     #         LinearAtr("objectives", lower_b=4, upper_b=10, optional_m=True),
