@@ -1,9 +1,11 @@
 import os
 from pathlib import Path
+import sys
 
 DIR = Path(__file__).resolve().parent
 REPO = DIR.parent
 IMAGES_DIR = REPO / "images"
+GENERATORS_DIR = REPO / "pddl-generators"
 
 
 OPT_2014_PLANNERS = {
@@ -202,13 +204,16 @@ def get_sart_planners(track, year, domain):
 
 def verify_planner_selection():
     assert len(set(len(setting) for setting in PLANNER_SELECTION.values())) == 1
+    valid_domains = [d for d in sorted(os.listdir(GENERATORS_DIR)) if (GENERATORS_DIR / d).is_dir()]
     valid_images = os.listdir(IMAGES_DIR)
     for selection in PLANNER_SELECTION.values():
-        for names in selection.values():
+        for domain, names in selection.items():
+            if domain not in valid_domains:
+                sys.exit(f"{domain} is not a valid domain name: {valid_domains}")
             assert 1 <= len(names) <= 3, f"{domain} needs 1-3 images"
             for name in names:
                 image = name + ".img"
-                #assert image in valid_images, f"image {image} is missing"
+                assert image in valid_images, f"image {image} is missing"
                 # We allow the baseline planner to be state of the art.
                 # assert name != get_baseline_planner("opt"), name
                 # assert name != get_baseline_planner("sat"), name
