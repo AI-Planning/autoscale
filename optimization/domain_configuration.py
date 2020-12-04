@@ -454,7 +454,7 @@ def adapt_parameters_snake(parameters):
 DOMAIN_LIST_OPT = [
     Domain("blocksworld", "blocksworld 4 {n} {seed}", [LinearAtr("n", lower_b=5, upper_b=10, lower_m=1, upper_m=5)]),
     Domain("gripper", "gripper -n {n}", [LinearAtr("n", lower_b=8, upper_b=20)], penalty_for_instances_with_duplicated_parameters=math.inf),
-    Domain("miconic-strips",
+    Domain("miconic",
         "miconic -f {floors} -p {passengers}",
         [LinearAtr("passengers", lower_b=5, upper_b=20, lower_m=0.1, upper_m=5),  #level="true"
          LinearAtr("floors", lower_b=5, upper_b=15, lower_m=0.1, upper_m=5, optional_m=True)], # level="choose"
@@ -734,7 +734,7 @@ DOMAIN_LIST_OPT = [
 # ATTRIBUTES_SAT = {
 #     # "blocksworld": [LinearAtr("n", lower_b=12, upper_b=20, lower_m=1, upper_m=5)],
 #     # "gripper": [LinearAtr("n", lower_b=10, upper_b=20)],
-#     # "miconic-strips":
+#     # "miconic":
 #     #     [LinearAtr("passengers", lower_b=10, upper_b=20, lower_m=1, upper_m=5),  #level="true"
 #     #      LinearAtr("floors", lower_b=10, upper_b=20, lower_m=0.5, upper_m=5, optional_m=True)], # level="choose"
 #     # "rovers":

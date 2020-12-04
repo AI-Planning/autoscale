@@ -17,7 +17,6 @@ OPT_2014_PLANNERS = {
     "ipc2014-opt-symba1",
 }
 
-# Manually changed miconic to miconic-strips.
 # This selection was generated through ./select-best-planner-per-domain.py results/2020-11-23-A-optimization-planners-ipc-properties.json results/2020-11-23-B-optimization-planners-opt-2014-properties.json results/2020-11-23-C-optimization-planners-opt-2020-properties.json --time-out 3600 --epsilon-runtime 5.0 --epsilon-factor-runtime 1.0 --delta 0.05 --exclude-runtime 30 --max-planners 5 --track opt
 PLANNER_SELECTION_OPT_2014 = {
     # ipc2014-opt-symba1: 44,
@@ -47,7 +46,7 @@ PLANNER_SELECTION_OPT_2014 = {
     # fd1906-bjolp: 44, fd1906-lmcut: 6, uncovered problems: 1
     'logistics': ['fd1906-bjolp', 'fd1906-lmcut'],
     # fd1906-bjolp: 186, uncovered problems: 5
-    'miconic-strips': ['fd1906-bjolp'],
+    'miconic': ['fd1906-bjolp'],
     # fd1906-bjolp: 55, fd1906-fdss1-mas2-60s: 13,
     'nomystery': ['fd1906-bjolp', 'fd1906-fdss1-mas2-60s'],
     # ipc2014-opt-symba1: 130, uncovered problems: 2
@@ -99,7 +98,6 @@ SAT_2014_PLANNERS = {
     "ipc2014-agl-probe",
 }
 
-# Manually changed miconic to miconic-strips.
 # This selection was generated through ./select-best-planner-per-domain.py results/2020-11-23-D-optimization-planners-sat-ipc-properties.json results/2020-11-23-E-optimization-planners-sat-2014-properties.json results/2020-11-23-F-optimization-planners-sat-2020-properties.json --time-out 3600 --epsilon-runtime 5.0 --epsilon-factor-runtime 1.0 --delta 0.05 --exclude-runtime 30 --max-planners 3 --track sat
 PLANNER_SELECTION_SAT_2014 = {
     # fd1906-lama-first: 84, ipc2014-agl-jasper: 11, uncovered problems: 3
@@ -137,7 +135,7 @@ PLANNER_SELECTION_SAT_2014 = {
     # WARNING! Excluding ipc2014-agl-mercury from miconic because it solves all tasks in under 30 seconds!
     # WARNING! Excluding ipc2014-agl-mpc from miconic because it solves all tasks in under 30 seconds!
     # ipc2014-agl-jasper: 210, excluded algos: fd1906-lama-first, ipc2014-agl-mpc, ipc2014-agl-mercury, fd1906-gbfs-ff,
-    'miconic-strips': ['ipc2014-agl-jasper'],
+    'miconic': ['ipc2014-agl-jasper'],
     # ipc2014-agl-mercury: 71, ipc2014-agl-jasper: 8, uncovered problems: 1
     'nomystery': ['ipc2014-agl-mercury', 'ipc2014-agl-jasper'],
     # fd1906-lama-first: 180, ipc2014-agl-probe: 18, uncovered problems: 9
