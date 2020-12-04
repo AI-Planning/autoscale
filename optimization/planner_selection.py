@@ -1,4 +1,4 @@
-\import os
+import os
 from pathlib import Path
 
 DIR = Path(__file__).resolve().parent
