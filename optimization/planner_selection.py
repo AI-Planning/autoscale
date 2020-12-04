@@ -77,7 +77,7 @@ PLANNER_SELECTION_OPT_2014 = {
     # ipc2014-opt-symba1: 68, uncovered problems: 5
     'transport': ['ipc2014-opt-symba1'],
     # ipc2014-opt-symba1: 12,
-    'trucks-strips': ['ipc2014-opt-symba1'],
+    'trucks': ['ipc2014-opt-symba1'],
     # ipc2014-opt-symba1: 53, fd1906-fdss1-mas1-60s: 24,
     'visitall': ['ipc2014-opt-symba1', 'fd1906-fdss1-mas1-60s'],
     # ipc2014-opt-symba1: 73, uncovered problems: 3
@@ -168,7 +168,7 @@ PLANNER_SELECTION_SAT_2014 = {
     # ipc2014-agl-mercury: 126,
     'transport': ['ipc2014-agl-mercury'],
     # ipc2014-agl-jasper: 14, ipc2014-agl-mpc: 5, ipc2014-agl-mercury: 2, uncovered problems: 1
-    'trucks-strips': ['ipc2014-agl-jasper', 'ipc2014-agl-mpc', 'ipc2014-agl-mercury'],
+    'trucks': ['ipc2014-agl-jasper', 'ipc2014-agl-mpc', 'ipc2014-agl-mercury'],
     # fd1906-lama-first: 98,
     'visitall': ['fd1906-lama-first'],
     # ipc2014-agl-jasper: 87, ipc2014-agl-mpc: 9, ipc2014-agl-mercury: 6, uncovered problems: 1
