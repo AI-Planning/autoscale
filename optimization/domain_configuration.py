@@ -15,14 +15,14 @@ TMP_PROBLEM = "tmp-problem.pddl"
 TMP_DOMAIN = "tmp-domain.pddl"
 PRECISION = None
 
-def filter_unsolvable(runtimes):
+def filter_unsolved(runtimes):
     if runtimes:
-        return [x for x in runtimes if x != "unsolvable"]
+        return [x for x in runtimes if x != "unsolved"]
     else:
         return []
 
 def compute_average(runtimes, runtime_unsolved=None):
-    filtered_runtimes = filter_unsolvable(runtimes)
+    filtered_runtimes = filter_unsolved(runtimes)
     if runtime_unsolved:
         filtered_runtimes += [runtime_unsolved]*(len(runtimes) - len(filtered_runtimes))
 
@@ -34,16 +34,16 @@ class EvaluatedSequence:
         self.seq = sequence
         self.runtimes = []
         self.next_lb_runtime = [0]
-        while self.next_lb_runtime is not None and len(filter_unsolvable(self.next_lb_runtime)) > 0 and len(self.runtimes) < len(self.seq) and compute_average(self.next_lb_runtime, time_limit*2) < time_limit:
+        while self.next_lb_runtime is not None and len(filter_unsolved(self.next_lb_runtime)) > 0 and len(self.runtimes) < len(self.seq) and compute_average(self.next_lb_runtime, time_limit*2) < time_limit:
             self.next_lb_runtime = runner.run_planners(self.seq[len(self.runtimes)])
-            if self.next_lb_runtime and len(filter_unsolvable(self.next_lb_runtime)) > 0: # and self.next_lb_runtime < time_limit:
+            if self.next_lb_runtime and len(filter_unsolved(self.next_lb_runtime)) > 0: # and self.next_lb_runtime < time_limit:
                 self.runtimes.append(self.next_lb_runtime)
 
     def get_next_parameters(self):
         return self.seq[self.next_index]
 
     def get_runtimes(self, n, larger_than, lower_than):
-        return sorted([t for t in self.runtimes if len(filter_unsolvable(t)) > 0 and compute_average(t) <= lower_than and compute_average(t) >= larger_than])[:n]
+        return sorted([t for t in self.runtimes if len(filter_unsolved(t)) > 0 and compute_average(t) <= lower_than and compute_average(t) >= larger_than])[:n]
 
     def num_solved (self):
         return len(self.runtimes)

@@ -58,7 +58,7 @@ from collections import defaultdict
 import domain_configuration
 from domain_configuration import get_domains
 from domain_configuration import EvaluatedSequence
-from domain_configuration import filter_unsolvable
+from domain_configuration import filter_unsolved
 
 
 from runner import Runner
@@ -71,7 +71,7 @@ import numpy as np
 
 from smac.configspace import ConfigurationSpace
 from smac.scenario.scenario import Scenario
-from smac.facade.smac_bo_facade import SMAC4BO
+from smac.facade.smac_hpo_facade import SMAC4HPO
 from smac.initial_design.default_configuration_design import DefaultConfiguration
 
 
@@ -305,8 +305,8 @@ def evaluate_runtimes_multiple_sequences(sequence, num_expected_runtimes):
 
     for i in range(1, len(sequence)):
 
-        solved = filter_unsolvable(sequence[i-1])
-        solved2 = filter_unsolvable(sequence[i])
+        solved = filter_unsolved(sequence[i-1])
+        solved2 = filter_unsolved(sequence[i])
 
         num_total = len(sequence[i-1])*len(sequence[i])
         num_solved = len(solved)*len(solved2)
@@ -468,7 +468,7 @@ print("Default config:", default_cfg)
 print("Optimizing...")
 # When using SMAC4HPO, the default configuration has to be requested explicitly
 # as first design (see https://github.com/automl/SMAC3/issues/533).
-smac = SMAC4BO(
+smac = SMAC4HPO(
     scenario=scenario,
     initial_design=DefaultConfiguration,
     rng=np.random.RandomState(ARGS.random_seed),

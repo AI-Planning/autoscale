@@ -198,9 +198,9 @@ class Runner:
         elif results: # Some instances have been solved
             num_false_results = num_runs - len(results)
             result = statistics.mean(results + [self.planner_time_limit]*num_false_results)
-            results += ['unsolvable']*(num_false_results)
-        else: # No instance have been solved
-            results += ['unsolvable']*(num_runs)
+            results += ["unsolved"] * num_false_results
+        else: # No instance has been solved
+            results += ["unsolved"] * num_runs
             result = None
 
 
