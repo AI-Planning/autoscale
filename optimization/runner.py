@@ -100,8 +100,6 @@ class Runner:
             # Ensure that each run uses a different random seed.
             parameters["seed"] = self.get_next_random_seed()
 
-
-
             # Exceptions are silently swallowed, so we catch them ourselves.
             try:
                 # Write problem file.
@@ -197,10 +195,10 @@ class Runner:
             result = statistics.mean(results)
         elif results: # Some instances have been solved
             num_false_results = num_runs - len(results)
-            result = statistics.mean(results + [self.planner_time_limit]*num_false_results)
+            result = statistics.mean(results + [self.planner_time_limit] * num_false_results)
             results += ["unsolved"] * num_false_results
         else: # No instance has been solved
-            results += ["unsolved"] * num_runs
+            results = ["unsolved"] * num_runs
             result = None
 
 
