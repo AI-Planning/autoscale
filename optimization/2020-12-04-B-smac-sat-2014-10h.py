@@ -5,8 +5,8 @@ import project
 
 DOMAINS = [
     "barman", "blocksworld", "childsnack", "data-network", "depots", "driverlog",
-    "elevators", "floortile", "grid", "gripper", "hiking", "logistics", "miconic-strips",
-    "nomystery", "openstacks", "parking", "rover", "satellite",
+    "elevators", "floortile", "grid", "gripper", "hiking", "logistics", "miconic",
+    "nomystery", "openstacks", "parking", "rovers", "satellite",
     "scanalyzer", "snake", "storage", "tpp", "transport",
     "visitall", "woodworking", "zenotravel",
 ]
