@@ -249,11 +249,6 @@ logging.debug("{} domains available: {}".format(len(DOMAINS), sorted(DOMAINS)))
 for domain in DOMAINS:
     assert os.path.exists(os.path.join(ARGS.generators_dir, domain, "domain.pddl")) or DOMAINS[domain].generated_domain_file(), f"domain.pddl missing for {domain}"
 
-    downward_benchmarks = os.environ.get("DOWNWARD_BENCHMARKS")
-    if downward_benchmarks:
-        if not os.path.isdir(os.path.join(downward_benchmarks, domain)):
-            print(f"{domain} missing in downward-benchmarks repo -> needs to be mapped in evaluation scripts")
-
 logging.info(f"Running optimization for track {ARGS.track}, domain {ARGS.domain}, year {YEAR}; baseline: {get_baseline_planner(ARGS.track)}; state of the art: {', '.join(get_sart_planners(ARGS.track, YEAR, ARGS.domain))}")
 
 # The configurations are a list of lists. Each list corresponds to an individual
