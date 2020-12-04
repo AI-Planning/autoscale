@@ -33,7 +33,8 @@ class Runner:
         self.exact_cache = {}  # Cache the exact runtime so that the same configuration is never run twice
         # Caches configurations that can be solved under the time limit, any harder configuration will take longer (only useful for the quicker tests that run the planner less time)
         self.frontier_cache = defaultdict(list)
-        self.random_seed = random_seed
+        random.seed(random_seed)
+        self.random_seed = random.randint(0, 10**6)
         self.linear_attributes_names = domain.get_linear_attributes_names()
         self.planners = planners
         self.planner_time_limit = planner_time_limit
