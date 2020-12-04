@@ -7,6 +7,7 @@ import getpass
 import os.path
 from pathlib import Path
 import platform
+import re
 import shutil
 import subprocess
 import sys
@@ -20,9 +21,11 @@ from lab import tools
 from downward.experiment import FastDownwardExperiment
 from downward.reports.absolute import AbsoluteReport
 from downward.reports.compare import ComparativeReport
+from downward.reports.taskwise import TaskwiseReport
 from downward import suites
 
 from reports.average import AverageReport
+from reports.benchmark_configuration_report import BenchmarkConfigurationReport
 from reports.per_domain_comparison import PerDomainComparison
 from reports.coverage import CoverageData
 from reports.domain_size import DomainSize
@@ -361,6 +364,90 @@ def get_combination_experiment():
         "remove-combined-properties",
         remove_file,
         Path(exp.eval_dir) / "properties")
+    return exp
+
+
+# Create custom report class with suitable info and error attributes.
+class SmacReport(AbsoluteReport):
+    INFO_ATTRIBUTES = ["run_time_limit", "run_memory_limit", "command"]
+    ERROR_ATTRIBUTES = [
+        "domain", "problem", "algorithm", "unexplained_errors", "error",
+        "node", "optimization_wallclock_time"]
+
+
+def get_smac_experiment(
+    domains, runs_per_domain, attributes, numeric_attributes, extra_smac_options=None):
+    extra_smac_options = extra_smac_options or []
+    smac_precision = 0.1
+    runs_per_config = 3
+    safety_time_limit = 23 * 60 * 60
+    memory_limit = 3584
+    if REMOTE:
+        environment = BaselSlurmEnvironment(
+            email=USER.email,
+            partition="infai_1")
+    else:
+        environment = LocalEnvironment(processes=2)
+
+    exp = Experiment(environment=environment)
+    exp.add_parser("exp-parser.py")
+
+    smac_time_limit = int(re.match(r".*-(\d+)h", exp.name).group(1)) * 60 * 60
+
+    assert ("opt" in exp.name) ^ ("sat" in exp.name)
+    TRACK = "opt" if "opt" in exp.name else "sat"
+
+    assert ("-2014-" in exp.name) ^ ("-2020-" in exp.name)
+    YEAR = "2014" if "-2014-" in exp.name else "2020"
+
+    for domain in domains:
+        for seed in range(runs_per_domain):
+            run = exp.add_run()
+            cmd = (["python3", str(DIR / "linear.py"),
+                "--optimization-time-limit", str(smac_time_limit),
+                "--random-seed", str(seed),
+                "--runs-per-configuration", str(runs_per_config),
+                "--smac-output-dir", str(Path(exp.path) / f"smac-output-{domain}")]
+                + [TRACK, YEAR, domain, "--precision", str(smac_precision)] + extra_smac_options)
+            run.add_command(
+                "optimize",
+                cmd,
+                time_limit=safety_time_limit,
+                memory_limit=memory_limit,
+                hard_stdout_limit=50 * 1024)
+            domain_setting = f"{domain}"
+            problem = f"seed-{seed}"
+            algorithm = f"smac"
+            run.set_property("run_time_limit", safety_time_limit)
+            run.set_property("run_memory_limit", memory_limit)
+            run.set_property("domain", domain_setting)
+            run.set_property("problem", problem)
+            run.set_property("algorithm", algorithm)
+            run.set_property("command", cmd)
+            # Every run has to have a unique id in the form of a list.
+            run.set_property("id", [domain_setting, problem, algorithm])
+
+    exp.add_step("build", exp.build)
+    exp.add_step("start", exp.start_runs)
+    exp.add_fetcher(name="fetch")
+
+    add_scp_steps(exp)
+
+    report = Path(exp.eval_dir) / f"{exp.name}.html"
+    exp.add_report(
+        SmacReport(attributes=attributes),
+        outfile=report)
+    exp.add_step("open-report", subprocess.call, ["xdg-open", report])
+    exp.add_step("publish-report", subprocess.call, ["publish", report])
+
+    taskwise_report = Path(exp.eval_dir) / f"{exp.name}-taskwise.html"
+    exp.add_report(
+        TaskwiseReport(attributes=attributes),
+        outfile=taskwise_report)
+    exp.add_step("publish-taskwise-report", subprocess.call, ["publish", taskwise_report])
+    exp.add_report(BenchmarkConfigurationReport(), outfile=f"{DIR}/results/{exp.name}.json")
+    #exp.add_report(AverageReport(attributes=numeric_attributes), name=f"{exp.name}-avg")
+
     return exp
 
 
