@@ -110,7 +110,7 @@ class SelectedConfiguration:
         return result
 
 class LinearAtr:
-    def __init__(self, name, base_atr=None, level="false",lower_b=1, upper_b=20, lower_m=0.01, upper_m=5.0, default_m=1.0, optional_m = False):
+    def __init__(self, name, base_atr=None, level="false",lower_b=1, upper_b=20, lower_m=0.1, upper_m=5.0, default_m=1.0, optional_m = False):
         self.name = name
         self.lower_b = lower_b
         self.upper_b = upper_b
@@ -452,102 +452,97 @@ def adapt_parameters_snake(parameters):
 
 
 DOMAIN_LIST_OPT = [
-    Domain("blocksworld", "blocksworld 4 {n} {seed}", [LinearAtr("n", lower_b=5, upper_b=10, lower_m=0.1, upper_m=10)]),
-    Domain("gripper", "gripper -n {n}", [LinearAtr("n", lower_b=8, upper_b=15, lower_m=0.1, upper_m=2)], penalty_for_instances_with_duplicated_parameters=math.inf),
+    Domain("blocksworld", "blocksworld 4 {n} {seed}", [LinearAtr("n", lower_b=5, upper_b=10, lower_m=1, upper_m=5)]),
+    Domain("gripper", "gripper -n {n}", [LinearAtr("n", lower_b=8, upper_b=20)], penalty_for_instances_with_duplicated_parameters=math.inf),
     Domain("miconic-strips",
         "miconic -f {floors} -p {passengers}",
-        [LinearAtr("passengers", lower_b=5, upper_b=15, lower_m=0.01, upper_m=5),  #level="true"
-         LinearAtr("floors", lower_b=5, upper_b=15, lower_m=0.01, upper_m=2, optional_m=True)], # level="choose"
+        [LinearAtr("passengers", lower_b=5, upper_b=20, lower_m=0.1, upper_m=5),  #level="true"
+         LinearAtr("floors", lower_b=5, upper_b=15, lower_m=0.1, upper_m=5, optional_m=True)], # level="choose"
     ),
     Domain("rover",
         "rovgen {seed} {rovers} {waypoints} {objectives} {cameras} {goals}",
         [
-            LinearAtr("rovers", upper_b=5, upper_m=2, optional_m=True), # level="choose"
-            LinearAtr("objectives",upper_b=10, optional_m=True), # level="choose"
+            LinearAtr("rovers", upper_b=10, upper_m=2, optional_m=True), # level="choose"
+            LinearAtr("objectives", upper_b=10, optional_m=True), # level="choose"
             LinearAtr("cameras", upper_b=10, optional_m=True), # level="choose"
-            LinearAtr("goals", upper_b=5, lower_m=1), # level="choose"
-            LinearAtr("waypoints", lower_b=4, upper_b=15),
+            LinearAtr("goals", upper_b=20, lower_m=1), # level="choose"
+            LinearAtr("waypoints", lower_b=4, upper_b=20, lower_m=0.5, upper_m=1),
         ],
     ),
     Domain("satellite",
         "satgen {seed} {satellites} 3 {modes} {targets} {observations}",
         [
-            LinearAtr("satellites", upper_b=5, upper_m=1.0, default_m=0.5, optional_m=True),
-            LinearAtr("targets", lower_b=5, lower_m=0.5, default_m=1.0),
-            LinearAtr("modes", upper_b=5, upper_m=1.0, default_m=0.3, optional_m=True),
-            LinearAtr("observations", lower_b=5, upper_b=20, lower_m=1),
+            LinearAtr("satellites", lower_b=1,upper_b=10, upper_m=2.0, default_m=0.5, optional_m=True),
+            LinearAtr("targets", lower_b=5, upper_b=20, lower_m=0.5, upper_m=10, default_m=1.0),
+            LinearAtr("modes", lower_b=2, upper_b=10, upper_m=1.0, default_m=0.3, optional_m=True),
+            LinearAtr("observations", lower_b=5, upper_b=40, lower_m=1, upper_m=10, default_m=2),
         ],
     ),
     Domain("tpp",
         "tpp -s {seed} -m {markets} -p {products} -t {trucks} -d {depots} -l {goods} " + TMP_PROBLEM,
-        [LinearAtr("products", lower_b=2, upper_b=10, lower_m=1),
-         LinearAtr("markets", lower_b=1, upper_b=5, optional_m=True),
-         LinearAtr("trucks", lower_b=2, upper_b=5, optional_m=True),
-         LinearAtr("depots", lower_b=1, upper_b=5, optional_m=True),
+        [LinearAtr("products", lower_b=2, upper_b=20, lower_m=1),
+         LinearAtr("markets", lower_b=1, upper_b=10, optional_m=True),
+         LinearAtr("trucks", lower_b=2, upper_b=10, optional_m=True),
+         LinearAtr("depots", lower_b=1, upper_b=10, optional_m=True),
          LinearAtr("goods", lower_b=3, upper_b=10)],
     ),
     Domain("trucks",
         f"trucks-strips.sh {TMP_DOMAIN} {TMP_PROBLEM} -seed {{seed}} -t 1 -l {{locations}} -p {{packages}} -a {{areas}} -n 1",
         [LinearAtr("areas", lower_b=2, upper_b=10, upper_m=1, optional_m=True),
-         LinearAtr("packages", lower_b=2, upper_b=8, upper_m=2),
+         LinearAtr("packages", lower_b=2, upper_b=15, upper_m=5),
          LinearAtr("locations", lower_b=2, upper_b=10, upper_m=2, optional_m=True)],
     ),
     Domain("visitall",
            "grid -x {x} -y {y} -r {r} -u 0 -s {seed}",
         [GridAtr("grid", "x", "y", lower_x=3, upper_x=8),
          EnumAtr ("r", [0.5, 0.75, 1])],
-        #enum_values=[MultiSequenceAtr("half", {"r": "0.5"}), MultiSequenceAtr("full", {"r": "1"})],
     ),
     Domain("woodworking",
         "create_woodworking_instance.py {wood_factor} {size} {num_machines} {seed}",
-        [LinearAtr("size", lower_b=2, upper_b=20, lower_m=1),
+        [LinearAtr("size", lower_b=2, upper_b=30, lower_m=1, upper_m=10),
          EnumAtr("num_machines", [1, 2, 3]),
          EnumAtr("wood_factor", [1.0, 1.25, 1.5, 2.0])]
     ),
     Domain("zenotravel",
         "ztravel {seed} {cities} {planes} {people}",
-        [LinearAtr("planes", lower_b=1, upper_b=10, optional_m=True),
-         LinearAtr("people", lower_b=5, upper_b=10, lower_m=1),
-         LinearAtr("cities", lower_b=3, upper_b=10, optional_m=True)], # level="choose"
+        [LinearAtr("planes", lower_b=1, upper_b=20, optional_m=True),
+         LinearAtr("people", lower_b=5, upper_b=20, lower_m=1, upper_m=10),
+         LinearAtr("cities", lower_b=3, upper_b=30, optional_m=True)], # level="choose"
     ),
-
     Domain("parking",
            "./parking-generator.pl prob {curbs} {cars} seq",
-           [LinearAtr("curbs", lower_b=3, upper_b=6, lower_m=1),
+           [LinearAtr("curbs", lower_b=3, upper_b=20, lower_m=1),
             EnumAtr("cars_diff", [0, -1, -2])],
            adapt_f = adapt_parameters_parking,
     ),
-
     Domain("driverlog",
            "dlgen {seed} {roadjunctions} {drivers} {packages} {trucks}",
-           [LinearAtr("drivers", lower_b=1, upper_b=5, upper_m=0.5, default_m=0.2, optional_m=True), # level="choose"
-            LinearAtr("packages", lower_m=1, upper_m=2, lower_b=2, upper_b=7),
-            LinearAtr("roadjunctions", lower_b=2, upper_b=5, lower_m=0.01, upper_m=1, default_m=0.01, optional_m=True),
-            LinearAtr("trucks", base_atr="drivers", lower_b=0, upper_b=1, lower_m=0, upper_m=0, optional_m=True)]
+           [LinearAtr("drivers", lower_b=1, upper_b=10, default_m=0.2, optional_m=True), # level="choose"
+            LinearAtr("packages", lower_m=1, upper_m=5, lower_b=2, upper_b=15),
+            LinearAtr("roadjunctions", lower_b=2, upper_b=10, optional_m=True),
+            LinearAtr("trucks", base_atr="drivers", lower_b=0, upper_b=1, lower_m=0, upper_m=1, optional_m=True)]
     ),
-
     Domain("barman",
            "barman-generator.py {num_cocktails} {num_ingredients} {num_shots} {seed}",
-           [LinearAtr("num_cocktails", lower_b=1, upper_b=3, lower_m=1),
-            LinearAtr("num_shots", base_atr="num_cocktails", lower_b=1, upper_b=3, optional_m=True),
-            EnumAtr("num_ingredients", [2,3,4,5])
+           [LinearAtr("num_cocktails", lower_b=1, upper_b=10, lower_m=1),
+            LinearAtr("num_shots", base_atr="num_cocktails", lower_b=1, upper_b=5, optional_m=True),
+            EnumAtr("num_ingredients", [2,3,4,5,6])
            ],
     ),
 
     Domain("depots",
            "depots -e {depots} -i {distributors} -t {trucks} -p {pallets} -h {hoists} -c {crates} -s {seed}",
-           [LinearAtr("depots", lower_b=3, upper_b=7, optional_m=True), # level="choose"
-            LinearAtr("distributors", lower_b=2, upper_b=6, optional_m=True),
+           [LinearAtr("depots", lower_b=3, upper_b=10, optional_m=True), # level="choose"
+            LinearAtr("distributors", lower_b=2, upper_b=10, optional_m=True),
             LinearAtr("trucks", lower_b=2, upper_b=10, optional_m=True),
-            LinearAtr("pallets", lower_b=2, upper_b=10, optional_m=True),
-            LinearAtr("hoists",lower_b=2, upper_b=10,  optional_m=True),
-            LinearAtr("crates", lower_b=3, upper_b=10, lower_m=1)]
+            LinearAtr("pallets", lower_b=2, upper_b=20, optional_m=True),
+            LinearAtr("hoists",lower_b=2, upper_b=20,  optional_m=True),
+            LinearAtr("crates", lower_b=3, upper_b=20, lower_m=1)]
     ),
-
 
     Domain("childsnack",
            "child-snack-generator.py pool {seed} {num_children} {num_trays} {gluten_factor} {const_ratio}",
-           [LinearAtr("num_children", lower_b=2, upper_b=5, lower_m=1, upper_m=2),
+           [LinearAtr("num_children", lower_b=2, upper_b=12, lower_m=1, upper_m=3),
             EnumAtr("const_ratio", [1, 1.3, 2]),
             EnumAtr("num_trays", [2,3,4]),
             EnumAtr("gluten_factor", [0.4, 0.6, 0.8])]
@@ -555,32 +550,32 @@ DOMAIN_LIST_OPT = [
 
     Domain("hiking",
            "generator.py {n_couples} {n_cars} {n_places} {seed}",
-           [LinearAtr("n_couples", lower_b=1, upper_b=6,lower_m=0.1, default_m=0.1,optional_m=True),
-            LinearAtr("n_places", lower_b=2, upper_b=10,default_m=1),
-            LinearAtr("n_cars", base_atr="n_couples", lower_b=1, upper_b=2, default_m=0.1, optional_m=True)]
+           [LinearAtr("n_couples", lower_b=1, upper_b=10,lower_m=0.1, default_m=0.5,optional_m=True),
+            LinearAtr("n_places", lower_b=2, upper_b=20,default_m=1),
+            LinearAtr("n_cars", base_atr="n_couples", lower_b=1, upper_b=5, default_m=0.1, optional_m=True)]
     ),
 
     Domain("floortile",
            "floortile-generator.py name {num_rows} {num_columns} {num_robots} seq {seed}",
-           [GridAtr("grid", "num_columns", "num_rows", lower_x=2, upper_x=3, upper_m=8),
-            EnumAtr("num_robots", [2, 3, 4])
+           [GridAtr("grid", "num_columns", "num_rows", lower_x=2, upper_x=10, upper_m=10),
+            EnumAtr("num_robots", [2, 3, 4, 5])
            ], adapt_f=adapt_parameters_floortile
     ),
 
     Domain("storage",
            "storage -p 01 -o {containers} -e {seed} -c {crates} -n {hoists} -s {store_areas} -d {depots} " + TMP_PROBLEM,
-           [LinearAtr("crates", lower_b=2, upper_b=10, lower_m=1, upper_m=5),
+           [LinearAtr("crates", lower_b=2, upper_b=15, lower_m=1, upper_m=5),
             LinearAtr("hoists", lower_b=2, upper_b=5, optional_m=True),
-            LinearAtr("store_areas", lower_b=0, upper_b=5, optional_m=True),
+            LinearAtr("store_areas", lower_b=0, upper_b=10, optional_m=True),
             LinearAtr("depots", lower_b=1, upper_b=5, upper_m=1, optional_m=True),   #level="true"
            ], adapt_f = adapt_parameters_storage),
 
     Domain("transport",
            "{generator} {nodes} {size} {degree} {mindistance} {trucks} {packages} {seed}",
            [ConstantAtr("size", 1000), ConstantAtr("mindistance", 100),
-            LinearAtr("nodes", lower_b=2, upper_b=15, lower_m=0.1, upper_m=3, optional_m=True),
-            LinearAtr("packages", lower_b=2, upper_b=5, lower_m=1, upper_m=3),
-            LinearAtr("trucks", lower_b=2, upper_b=5, optional_m=True),
+            LinearAtr("nodes", lower_b=2, upper_b=60, lower_m=0.1, upper_m=10, optional_m=True),
+            LinearAtr("packages", lower_b=2, upper_b=10, lower_m=1, upper_m=10),
+            LinearAtr("trucks", lower_b=2, upper_b=10, optional_m=True),
             EnumAtr("degree", [3, 4, 5]),
             EnumAtr("generator", ["city-generator.py", "two-cities-generator.py",  "three-cities-generator.py"]),
            ],
@@ -588,8 +583,8 @@ DOMAIN_LIST_OPT = [
 
     Domain("nomystery",
            "nomystery -l {locations} -p {packages} -n {edgefactor} -m {edgeweight} -c {constrainedness} -s {seed} -e 0 ",
-           [LinearAtr("locations", lower_b=3, upper_b=5, lower_m=0.1, upper_m=1),
-            LinearAtr("packages", lower_b=2, upper_b=10),
+           [LinearAtr("locations", lower_b=3, upper_b=10, lower_m=0.1, upper_m=1),
+            LinearAtr("packages", lower_b=2, upper_b=20, lower_m=1),
             ConstantAtr("edgefactor", "1.5"),
             ConstantAtr("edgeweight", "25"),
             EnumAtr("constrainedness", [1.1, 1.5, 2.0]),
@@ -618,15 +613,15 @@ DOMAIN_LIST_OPT = [
            "generator.py {size} {segment_type} {inout} --seed {seed}",
            [EnumAtr("segment_type", ["empty", "ab"]),
             EnumAtr("inout", ["none", "both", "in"]),
-            LinearAtr("size", lower_b=1, upper_b=4, lower_m = 1, default_m=1, upper_m = 2)
+            LinearAtr("size", lower_b=1, upper_b=4, lower_m = 1, default_m=1, upper_m = 3)
            ]
     ),
 
     Domain("elevators",
            "generate.py --seed {seed} {num_areas} {area_size} {passengers} {fast_elevators} {slow_elevators}  --fast_cost {fast_cost}  --stop_fast_cost {stop_fast_cost}  --fast_capacity {fast_capacity} --slow_cost {slow_cost} --stop_slow_cost {stop_slow_cost} --slow_capacity {slow_capacity}",
            [EnumAtr("num_areas", [2, 3, 4]),
-            LinearAtr("area_size", lower_b=2, upper_b=4, lower_m = 0.1, default_m=0.1, upper_m = 1, optional_m=True),
-            LinearAtr("passengers", lower_b=3, upper_b=6, lower_m=0.5, default_m=1),
+            LinearAtr("area_size", lower_b=2, upper_b=10, lower_m = 0.1, default_m=0.5, upper_m = 1, optional_m=True),
+            LinearAtr("passengers", lower_b=3, upper_b=15, lower_m=1, default_m=1),
             EnumAtr("fast_elevators", [1, 2, 3]),
             ConstantAtr("slow_elevators", 1),
             ConstantAtr("fast_cost", 3),
@@ -642,8 +637,8 @@ DOMAIN_LIST_OPT = [
            f"generator.py {{products}} {{orders}} {{density}} --domain {TMP_DOMAIN} --problem {TMP_PROBLEM} --seed {{seed}}",
            [EnumAtr("density", [10, 20, 33, 50, 66, 80]),
             # We require that both products and orders should be scaled.
-            LinearAtr("products", lower_b=5, upper_b=15, lower_m=0.5, default_m=1, upper_m=5),
-            LinearAtr("orders", lower_b=5, upper_b=15, lower_m=0.5, default_m=1, upper_m=5),
+            LinearAtr("products", lower_b=5, upper_b=100, lower_m=0.5, default_m=1, upper_m=40),
+            LinearAtr("orders", lower_b=5, upper_b=100, lower_m=1, default_m=1, upper_m=40),
            ]
     ),
 
@@ -663,18 +658,18 @@ DOMAIN_LIST_OPT = [
     Domain("logistics",
         "logistics -r {seed} -a {num_airplanes} -c {num_cities} -s {city_size} -p {num_packages} -t {num_trucks}",
         [
-            LinearAtr("num_airplanes", lower_b=1, upper_b=5, lower_m=1, default_m=1, upper_m=1, optional_m=True),
-            LinearAtr("num_cities", lower_b=2, upper_b=10, lower_m=0, default_m=0.2, upper_m=1, optional_m=True),
-            LinearAtr("city_size", lower_b=2, upper_b=15, lower_m=0, default_m=0.2, upper_m=1, optional_m=True),
-            LinearAtr("num_packages", lower_b=1, upper_b=10, lower_m=1, default_m=1, upper_m=2), # scale between 1 and 2 packages per problem. More than that is too big for optimal planners
-            LinearAtr("extra_trucks", lower_b=1, upper_b=10, lower_m=0, default_m=0.5, upper_m=1, optional_m=True),
+            LinearAtr("num_airplanes", lower_b=1, upper_b=5, lower_m=1, default_m=1, upper_m=2, optional_m=True),
+            LinearAtr("num_cities", lower_b=2, upper_b=10, lower_m=0, default_m=0.2, upper_m=2, optional_m=True),
+            LinearAtr("city_size", lower_b=2, upper_b=15, lower_m=0, default_m=0.2, upper_m=2, optional_m=True),
+            LinearAtr("num_packages", lower_b=1, upper_b=30, lower_m=1, default_m=2, upper_m=10), # scale between 1 and 2 packages per problem. More than that is too big for optimal planners
+            LinearAtr("extra_trucks", lower_b=1, upper_b=10, lower_m=0, default_m=0.5, upper_m=2, optional_m=True),
         ],
            adapt_f=adapt_parameters_logistics # num_trucks should be as large as num_cities
     ),
 
     Domain("grid", # The main parameter to scale here is the grid. We should find what percentage of cells should be locked, and how many keys to have
            "generate.py {x} {y} --shapes {shapes} --keys {keys} --locks {locks} --prob-goal {prob_key_in_goal}  --seed {seed}",
-           [GridAtr("grid", "x", "y", lower_x=3, upper_x=8),
+           [GridAtr("grid", "x", "y", lower_x=3, upper_x=10, upper_m=10),
             EnumAtr ("prob_key_in_goal", [0.5, 0.75, 1]),
             LinearAtr("shapes", lower_b=1, upper_b=5, lower_m=0, default_m=0, upper_m=1, optional_m=True),
             LinearAtr("extra_keys", lower_b=1, upper_b=5, lower_m=0, default_m=1, upper_m=3, optional_m=True),
@@ -713,8 +708,8 @@ DOMAIN_LIST_OPT = [
            "generator/generator.py {items} {layers} {scripts} {network} {seed}",
            [EnumAtr ("network", ["tiny-network", "small-network", "ring-network"]),
             EnumAtr ("layers", [2, 3, 4, 5, 6]), # There is no need to scale the number of layers linearly
-            LinearAtr("extra_items", lower_b=2, upper_b=10, lower_m=1, default_m=1, upper_m=5), #"[number of layers] must be smaller than [number of data items]"
-            LinearAtr("extra_scripts", lower_b=2, upper_b=15,  lower_m=0, upper_m=5, default_m=1),#"[number of scripts] must be larger or equal than [number of data items]-2"
+            LinearAtr("extra_items", lower_b=2, upper_b=20, lower_m=1, default_m=1, upper_m=5), #"[number of layers] must be smaller than [number of data items]"
+            LinearAtr("extra_scripts", lower_b=2, upper_b=25,  lower_m=0, upper_m=5, default_m=1),#"[number of scripts] must be larger or equal than [number of data items]-2"
            ],
            adapt_f =adapt_parameters_datanetwork
     ),
@@ -736,165 +731,165 @@ DOMAIN_LIST_OPT = [
     ]
 
 
-ATTRIBUTES_SAT = {
-    "blocksworld": [LinearAtr("n", lower_b=12, upper_b=20, lower_m=1, upper_m=5)],
-    "gripper": [LinearAtr("n", lower_b=10, upper_b=20)],
-    "miconic-strips":
-        [LinearAtr("passengers", lower_b=10, upper_b=20, lower_m=1, upper_m=5),  #level="true"
-         LinearAtr("floors", lower_b=10, upper_b=20, lower_m=0.5, upper_m=5, optional_m=True)], # level="choose"
-    "rover":
-        [
-            LinearAtr("rovers", lower_b=4, upper_b=10, upper_m=2, optional_m=True),
-            LinearAtr("objectives", lower_b=4, upper_b=10, optional_m=True),
-            LinearAtr("cameras", lower_b=5, upper_b=15, optional_m=True),
-            LinearAtr("goals", lower_b=10, upper_b=20, lower_m=1, upper_m=5),
-            LinearAtr("waypoints", lower_b=5, upper_b=20, lower_m=0.5, upper_m=5),
-        ],
-    "satellite":
-        [
-            LinearAtr("satellites", lower_b=1, upper_b=10, upper_m=2.0, default_m=0.5, optional_m=True),
-            LinearAtr("targets", lower_b=10, upper_b=30, lower_m=1.0, upper_m=10, default_m=2),
-            LinearAtr("modes", lower_b=3, upper_b=10, upper_m=1.0, default_m=0.3, optional_m=True),
-            LinearAtr("observations", lower_b=10, upper_b=40, lower_m=1, upper_m=10, default_m=2),
-        ],
-    "tpp":
-        [LinearAtr("products", lower_b=5, upper_b=20, lower_m=1),
-         LinearAtr("markets", lower_b=1,upper_b=10, optional_m=True),
-         LinearAtr("trucks", lower_b=2, upper_b=10, optional_m=True),
-         LinearAtr("depots", lower_b=1, upper_b=10, optional_m=True),
-         LinearAtr("goods", lower_b=3, upper_b=10)],
-    "trucks":
-        [LinearAtr("areas", lower_b=2, upper_b=10, upper_m=1, optional_m=True),
-         LinearAtr("packages", lower_b=5, upper_b=15, upper_m=2),
-         LinearAtr("locations", lower_b=3, upper_b=10, upper_m=2,optional_m=True)],
-    "visitall":
-        [GridAtr("grid", "x", "y", lower_x=3, upper_x=8),
-         EnumAtr ("r", [0.5, 0.75, 1])],
-    "woodworking":
-        [LinearAtr("size", lower_b=2, upper_b=30, lower_m=1, upper_m=10, default_m=2),
-         EnumAtr("num_machines", [1, 2, 3]),
-         EnumAtr("wood_factor", [1.0, 1.25, 1.5, 2.0])],
-    "zenotravel":
-        [LinearAtr("planes", lower_b=2, upper_b=20, optional_m=True),
-         LinearAtr("people", lower_b=10, upper_b=20, lower_m=1, upper_m=10),
-         LinearAtr("cities", lower_b=3, upper_b=30, optional_m=True)],
-    "parking":
-           [LinearAtr("curbs", lower_b=10, upper_b=20, lower_m=1),
-            EnumAtr("cars_diff", [0, -1, -2])],
-    "driverlog":
-           [LinearAtr("drivers", lower_b=5, upper_b=10, optional_m=True),
-            LinearAtr("packages", base_atr="drivers", lower_b=5, upper_b=10, lower_m=1),
-            LinearAtr("roadjunctions", base_atr="drivers", lower_b=0, upper_b=10, optional_m=True),
-            LinearAtr("trucks", base_atr="drivers", lower_b=0, upper_b=1, lower_m=0, upper_m=1, optional_m=True)],
-    "barman":
-           [LinearAtr("num_cocktails", lower_b=5, upper_b=15, lower_m=1),
-            LinearAtr("num_shots", base_atr="num_cocktails", lower_b=1, upper_b=5, optional_m=True),
-            EnumAtr("num_ingredients", [3,4,5,6])
-           ],
-    "depots":
-           [LinearAtr("depots", lower_b=3, upper_b=10, optional_m=True), # level="choose"
-            LinearAtr("distributors", lower_b=2, upper_b=10, optional_m=True),
-            LinearAtr("trucks", lower_b=2, upper_b=10, optional_m=True),
-            LinearAtr("pallets", lower_b=5, upper_b=20, optional_m=True),
-            LinearAtr("hoists",lower_b=5, upper_b=20,  optional_m=True),
-            LinearAtr("crates", lower_b=5, upper_b=20, lower_m=1)],
-    "childsnack":
-           [LinearAtr("num_children", lower_b=4, upper_b=12, lower_m=1, upper_m=3),
-            EnumAtr("const_ratio", [1, 1.3, 2]),
-            EnumAtr("gluten_factor", [0.4, 0.6, 0.8]),
-            EnumAtr("num_trays", [2,3,4]),
-           ],
-    "hiking":
-           [LinearAtr("n_couples", lower_b=1, upper_b=10,lower_m=0.1, default_m=0.5, optional_m=True),
-            LinearAtr("n_places", lower_b=3, upper_b=20, lower_m=0.1),
-            LinearAtr("n_cars", base_atr="n_couples", lower_b=1, upper_b=5, optional_m=True)],
-    "floortile":
-           [GridAtr("grid", "num_columns", "num_rows", lower_x=3, upper_x=10, upper_m=10),
-            EnumAtr("num_robots", [2, 3, 4, 5])],
-    "storage":
-           [LinearAtr("crates", lower_b=5, upper_b=15, lower_m=1, upper_m=5),
-            LinearAtr("hoists", lower_b=2, upper_b=5, optional_m=True),
-            LinearAtr("store_areas", lower_b=0, upper_b=10, optional_m=True),
-            LinearAtr("depots", lower_b=1, upper_b=5, upper_m=1, optional_m=True),   #level="true"
-           ],
-    "transport":
-           [ConstantAtr("size", 1000), ConstantAtr("mindistance", 100),
-            LinearAtr("nodes", lower_b=5, upper_b=60, upper_m=10, optional_m=True),
-            LinearAtr("packages", lower_b=2, upper_b=10, lower_m=1, upper_m=10),
-            LinearAtr("trucks", lower_b=2, upper_b=10, optional_m=True),
-            EnumAtr("degree", [3, 4, 5]),
-            EnumAtr("generator", ["city-generator.py", "two-cities-generator.py", "three-cities-generator.py"]),
-           ],
-    "nomystery":
-           [LinearAtr("locations", lower_b=5, upper_b=10, lower_m=0.1, upper_m=1),
-            LinearAtr("packages", lower_b=10, upper_b=20, lower_m=1),
-            ConstantAtr("edgefactor", "1.5"),
-            ConstantAtr("edgeweight", "25"),
-            EnumAtr("constrainedness", [1.1, 1.5, 2.0]),
-           ],
-    "snake":
-           [ConstantAtr("snake_size", "1"), ConstantAtr("num_initial_apples", 5),
-            GridAtr("grid", "x_grid", "y_grid", lower_x=3, upper_x=8),
-            EnumAtr("num_spawn_apples", [f"{sp}%" for sp in [40,55,70,85,100]])
-           ],
-    "pathways":
-           [LinearAtr("reactions", lower_b=10, upper_b=20, upper_m=10),
-            LinearAtr("num_goals", lower_b=1, upper_b=10),
-            LinearAtr("substances", lower_b=2, upper_b=10),
-           ],
-    "elevators":
-               [EnumAtr("num_areas", [2, 3, 4]),
-                LinearAtr("area_size", lower_b=2, upper_b=10, lower_m = 0.1, default_m=0.1, upper_m = 1, optional_m=True),
-                LinearAtr("passengers", lower_b=4, upper_b=15, lower_m=1, default_m=1, upper_m=5),
-                EnumAtr("fast_elevators", [2, 3]),
-                ConstantAtr("slow_elevators", 1),
-                ConstantAtr("fast_cost", 3),
-                ConstantAtr("stop_fast_cost", 1),
-                ConstantAtr("fast_capacity", 4),
-                ConstantAtr("slow_cost", 1),
-                ConstantAtr("stop_slow_cost", 5),
-                ConstantAtr("slow_capacity", 3)
-                # In IPC'08, they used more diverse values for the capacity of the elevators. We restrict ourselves to a single value for simplicity, expecting that a not so large capacity will result in more interesting problems
-               ],
+# ATTRIBUTES_SAT = {
+#     # "blocksworld": [LinearAtr("n", lower_b=12, upper_b=20, lower_m=1, upper_m=5)],
+#     # "gripper": [LinearAtr("n", lower_b=10, upper_b=20)],
+#     # "miconic-strips":
+#     #     [LinearAtr("passengers", lower_b=10, upper_b=20, lower_m=1, upper_m=5),  #level="true"
+#     #      LinearAtr("floors", lower_b=10, upper_b=20, lower_m=0.5, upper_m=5, optional_m=True)], # level="choose"
+#     # "rover":
+#     #     [
+#     #         LinearAtr("rovers", lower_b=4, upper_b=10, upper_m=2, optional_m=True),
+#     #         LinearAtr("objectives", lower_b=4, upper_b=10, optional_m=True),
+#     #         LinearAtr("cameras", lower_b=5, upper_b=15, optional_m=True),
+#     #         LinearAtr("goals", lower_b=10, upper_b=20, lower_m=1, upper_m=5),
+#     #         LinearAtr("waypoints", lower_b=5, upper_b=20, lower_m=0.5, upper_m=5),
+#     #     ],
+#     # "satellite":
+#     #     [
+#     #         LinearAtr("satellites", lower_b=1, upper_b=10, upper_m=2.0, default_m=0.5, optional_m=True),
+#     #         LinearAtr("targets", lower_b=10, upper_b=30, lower_m=1.0, upper_m=10, default_m=2),
+#     #         LinearAtr("modes", lower_b=3, upper_b=10, upper_m=1.0, default_m=0.3, optional_m=True),
+#     #         LinearAtr("observations", lower_b=10, upper_b=40, lower_m=1, upper_m=10, default_m=2),
+#     #     ],
+#     # "tpp":
+#     #     [LinearAtr("products", lower_b=5, upper_b=20, lower_m=1),
+#     #      LinearAtr("markets", lower_b=1,upper_b=10, optional_m=True),
+#     #      LinearAtr("trucks", lower_b=2, upper_b=10, optional_m=True),
+#     #      LinearAtr("depots", lower_b=1, upper_b=10, optional_m=True),
+#     #      LinearAtr("goods", lower_b=3, upper_b=10)],
+#     # "trucks":
+#     #     [LinearAtr("areas", lower_b=2, upper_b=10, upper_m=1, optional_m=True),
+#     #      LinearAtr("packages", lower_b=5, upper_b=15, upper_m=2),
+#     #      LinearAtr("locations", lower_b=3, upper_b=10, upper_m=2,optional_m=True)],
+#     # "visitall":
+#     #     [GridAtr("grid", "x", "y", lower_x=3, upper_x=8),
+#     #      EnumAtr ("r", [0.5, 0.75, 1])],
+#     # "woodworking":
+#     #     [LinearAtr("size", lower_b=2, upper_b=30, lower_m=1, upper_m=10, default_m=2),
+#     #      EnumAtr("num_machines", [1, 2, 3]),
+#     #      EnumAtr("wood_factor", [1.0, 1.25, 1.5, 2.0])],
+#     # "zenotravel":
+#     #     [LinearAtr("planes", lower_b=2, upper_b=20, optional_m=True),
+#     #      LinearAtr("people", lower_b=10, upper_b=20, lower_m=1, upper_m=10),
+#     #      LinearAtr("cities", lower_b=3, upper_b=30, optional_m=True)],
+#     # "parking":
+#     #        [LinearAtr("curbs", lower_b=10, upper_b=20, lower_m=1),
+#     #         EnumAtr("cars_diff", [0, -1, -2])],
+#     # "driverlog":
+#     #        [LinearAtr("drivers", lower_b=5, upper_b=10, optional_m=True),
+#     #         LinearAtr("packages", base_atr="drivers", lower_b=5, upper_b=10, lower_m=1),
+#     #         LinearAtr("roadjunctions", base_atr="drivers", lower_b=0, upper_b=10, optional_m=True),
+#     #         LinearAtr("trucks", base_atr="drivers", lower_b=0, upper_b=1, lower_m=0, upper_m=1, optional_m=True)],
+#     # "barman":
+#     #        [LinearAtr("num_cocktails", lower_b=5, upper_b=15, lower_m=1),
+#     #         LinearAtr("num_shots", base_atr="num_cocktails", lower_b=1, upper_b=5, optional_m=True),
+#     #         EnumAtr("num_ingredients", [3,4,5,6])
+#     #        ],
+#     # "depots":
+#     #        [LinearAtr("depots", lower_b=3, upper_b=10, optional_m=True), # level="choose"
+#     #         LinearAtr("distributors", lower_b=2, upper_b=10, optional_m=True),
+#     #         LinearAtr("trucks", lower_b=2, upper_b=10, optional_m=True),
+#     #         LinearAtr("pallets", lower_b=5, upper_b=20, optional_m=True),
+#     #         LinearAtr("hoists",lower_b=5, upper_b=20,  optional_m=True),
+#     #         LinearAtr("crates", lower_b=5, upper_b=20, lower_m=1)],
+#     # "childsnack":
+#     #        [LinearAtr("num_children", lower_b=4, upper_b=12, lower_m=1, upper_m=3),
+#     #         EnumAtr("const_ratio", [1, 1.3, 2]),
+#     #         EnumAtr("gluten_factor", [0.4, 0.6, 0.8]),
+#     #         EnumAtr("num_trays", [2,3,4]),
+#     #        ],
+#     # "hiking":
+#     #        [LinearAtr("n_couples", lower_b=1, upper_b=10,lower_m=0.1, default_m=0.5, optional_m=True),
+#     #         LinearAtr("n_places", lower_b=3, upper_b=20, lower_m=0.1),
+#     #         LinearAtr("n_cars", base_atr="n_couples", lower_b=1, upper_b=5, optional_m=True)],
+#     # "floortile":
+#     #        [GridAtr("grid", "num_columns", "num_rows", lower_x=3, upper_x=10, upper_m=10),
+#     #         EnumAtr("num_robots", [2, 3, 4, 5])],
+#     # "storage":
+#     #        [LinearAtr("crates", lower_b=5, upper_b=15, lower_m=1, upper_m=5),
+#     #         LinearAtr("hoists", lower_b=2, upper_b=5, optional_m=True),
+#     #         LinearAtr("store_areas", lower_b=0, upper_b=10, optional_m=True),
+#     #         LinearAtr("depots", lower_b=1, upper_b=5, upper_m=1, optional_m=True),   #level="true"
+#     #        ],
+#     # "transport":
+#     #        [ConstantAtr("size", 1000), ConstantAtr("mindistance", 100),
+#     #         LinearAtr("nodes", lower_b=5, upper_b=60, upper_m=10, optional_m=True),
+#     #         LinearAtr("packages", lower_b=2, upper_b=10, lower_m=1, upper_m=10),
+#     #         LinearAtr("trucks", lower_b=2, upper_b=10, optional_m=True),
+#     #         EnumAtr("degree", [3, 4, 5]),
+#     #         EnumAtr("generator", ["city-generator.py", "two-cities-generator.py", "three-cities-generator.py"]),
+#     #        ],
+#     # "nomystery":
+#     #        [LinearAtr("locations", lower_b=5, upper_b=10, lower_m=0.1, upper_m=1),
+#     #         LinearAtr("packages", lower_b=10, upper_b=20, lower_m=1),
+#     #         ConstantAtr("edgefactor", "1.5"),
+#     #         ConstantAtr("edgeweight", "25"),
+#     #         EnumAtr("constrainedness", [1.1, 1.5, 2.0]),
+#     #        ],
+#     # "snake":
+#     #        [ConstantAtr("snake_size", "1"), ConstantAtr("num_initial_apples", 5),
+#     #         GridAtr("grid", "x_grid", "y_grid", lower_x=3, upper_x=8),
+#     #         EnumAtr("num_spawn_apples", [f"{sp}%" for sp in [40,55,70,85,100]])
+#     #        ],
+#     # "pathways":
+#     #        [LinearAtr("reactions", lower_b=10, upper_b=20, upper_m=10),
+#     #         LinearAtr("num_goals", lower_b=1, upper_b=10),
+#     #         LinearAtr("substances", lower_b=2, upper_b=10),
+#     #        ],
+#     # "elevators":
+#     #            [EnumAtr("num_areas", [2, 3, 4]),
+#     #             LinearAtr("area_size", lower_b=2, upper_b=10, lower_m = 0.1, default_m=0.1, upper_m = 1, optional_m=True),
+#     #             LinearAtr("passengers", lower_b=4, upper_b=15, lower_m=1, default_m=1, upper_m=5),
+#     #             EnumAtr("fast_elevators", [2, 3]),
+#     #             ConstantAtr("slow_elevators", 1),
+#     #             ConstantAtr("fast_cost", 3),
+#     #             ConstantAtr("stop_fast_cost", 1),
+#     #             ConstantAtr("fast_capacity", 4),
+#     #             ConstantAtr("slow_cost", 1),
+#     #             ConstantAtr("stop_slow_cost", 5),
+#     #             ConstantAtr("slow_capacity", 3)
+#                 # In IPC'08, they used more diverse values for the capacity of the elevators. We restrict ourselves to a single value for simplicity, expecting that a not so large capacity will result in more interesting problems
+#     #            ],
 
-    "scanalyzer":
-           [EnumAtr("segment_type", ["empty", "ab"]),
-            EnumAtr("inout", ["none", "both", "in"]),
-            LinearAtr("size", lower_b=2, upper_b=4, lower_m = 1, default_m=1, upper_m = 3)
-           ],
-    "openstacks":
-        [EnumAtr("density", [10, 20, 33, 50, 66, 80]),
-        LinearAtr("products", lower_b=10, upper_b=200, lower_m=1, default_m=10, upper_m=40),
-        LinearAtr("orders", lower_b=10, upper_b=200, lower_m=1, default_m=10, upper_m=40),
-        ],
-    "logistics" :
-        [
-            LinearAtr("num_airplanes", lower_b=1, upper_b=5, lower_m=1, default_m=1, upper_m=2, optional_m=True),
-            LinearAtr("num_cities", lower_b=2, upper_b=10, lower_m=0, default_m=0.2, upper_m=2, optional_m=True),
-            LinearAtr("city_size", lower_b=2, upper_b=15, lower_m=0, default_m=0.2, upper_m=2, optional_m=True),
-            LinearAtr("num_packages", lower_b=1, upper_b=30, lower_m=1, default_m=2, upper_m=10),
-            LinearAtr("extra_trucks", lower_b=1, upper_b=10, lower_m=0, default_m=0.5, upper_m=2, optional_m=True),
-        ],
+#     # "scanalyzer":
+#     #        [EnumAtr("segment_type", ["empty", "ab"]),
+#     #         EnumAtr("inout", ["none", "both", "in"]),
+#     #         LinearAtr("size", lower_b=2, upper_b=4, lower_m = 1, default_m=1, upper_m = 3)
+#     #        ],
+#     # "openstacks":
+#     #     [EnumAtr("density", [10, 20, 33, 50, 66, 80]),
+#     #     LinearAtr("products", lower_b=10, upper_b=200, lower_m=1, default_m=10, upper_m=40),
+#     #     LinearAtr("orders", lower_b=10, upper_b=200, lower_m=1, default_m=10, upper_m=40),
+#     #     ],
+#     # "logistics" :
+#     #     [
+#     #         LinearAtr("num_airplanes", lower_b=1, upper_b=5, lower_m=1, default_m=1, upper_m=2, optional_m=True),
+#     #         LinearAtr("num_cities", lower_b=2, upper_b=10, lower_m=0, default_m=0.2, upper_m=2, optional_m=True),
+#     #         LinearAtr("city_size", lower_b=2, upper_b=15, lower_m=0, default_m=0.2, upper_m=2, optional_m=True),
+#     #         LinearAtr("num_packages", lower_b=1, upper_b=30, lower_m=1, default_m=2, upper_m=10),
+#     #         LinearAtr("extra_trucks", lower_b=1, upper_b=10, lower_m=0, default_m=0.5, upper_m=2, optional_m=True),
+#     #     ],
 
-    "grid" : [GridAtr("grid", "x", "y", lower_x=3, upper_x=10, upper_m=10),
-              EnumAtr ("prob_key_in_goal", [0.5, 0.75, 1]),
-              LinearAtr("shapes", lower_b=1, upper_b=5, lower_m=0, default_m=0, upper_m=1, optional_m=True),
-              LinearAtr("extra_keys", lower_b=1, upper_b=5, lower_m=0, default_m=1, upper_m=3, optional_m=True),
-              EnumAtr("percentage_cells_locked", [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]),
-    ],
+#     # "grid" : [GridAtr("grid", "x", "y", lower_x=3, upper_x=10, upper_m=10),
+#     #           EnumAtr ("prob_key_in_goal", [0.5, 0.75, 1]),
+#     #           LinearAtr("shapes", lower_b=1, upper_b=5, lower_m=0, default_m=0, upper_m=1, optional_m=True),
+#     #           LinearAtr("extra_keys", lower_b=1, upper_b=5, lower_m=0, default_m=1, upper_m=3, optional_m=True),
+#     #           EnumAtr("percentage_cells_locked", [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]),
+#     # ],
 
-    "data-network" :
-    [EnumAtr ("network", ["tiny-network", "small-network", "ring-network"]),
-     EnumAtr ("layers", [2, 3, 4, 5, 6]), # There is no need to scale the number of layers linearly
-     LinearAtr("extra_items", lower_b=2, upper_b=20, lower_m=1, default_m=1, upper_m=5), #"[number of layers] must be smaller than [number of data items]"
-     LinearAtr("extra_scripts", lower_b=2, upper_b=25,  lower_m=0, upper_m=5, default_m=1),#"[number of scripts] must be larger or equal than [number of data items]-2"
-    ],
-}
+#     "data-network" :
+#     [EnumAtr ("network", ["tiny-network", "small-network", "ring-network"]),
+#      EnumAtr ("layers", [2, 3, 4, 5, 6]), # There is no need to scale the number of layers linearly
+#      LinearAtr("extra_items", lower_b=2, upper_b=20, lower_m=1, default_m=1, upper_m=5), #"[number of layers] must be smaller than [number of data items]"
+#      LinearAtr("extra_scripts", lower_b=2, upper_b=25,  lower_m=0, upper_m=5, default_m=1),#"[number of scripts] must be larger or equal than [number of data items]-2"
+#     ],
+# }
 
 
 def get_domains(track):
     domains = {dom.name: dom for dom in DOMAIN_LIST_OPT}
-    if track == "sat":
-        for domain in domains.values():
-            domain.linear_attributes = ATTRIBUTES_SAT[domain.name]
+    # if track == "sat":
+    #     for domain in domains.values():
+    #         domain.linear_attributes = ATTRIBUTES_SAT[domain.name]
     return domains
