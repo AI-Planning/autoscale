@@ -1,0 +1,119 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-05 19:53:32,961 INFO     No run directory, so we will not run anything
+2020-12-05 19:53:33,131 INFO     Loading cache data for baseline planners: 450
+2020-12-05 19:53:33,150 INFO     Loaded data for 393 instances, with min 3 max 15 avg 3.435114503816794 runtimes
+2020-12-05 19:53:33,150 INFO     Loading cache data for sart planners: 1553
+2020-12-05 19:53:33,240 INFO     Loaded data for 1399 instances, with min 3 max 15 avg 3.3302358827734095 runtimes
+2020-12-05 19:53:33,240 INFO     Stored sequences: 64
+2020-12-05 19:53:33,464 INFO     Different evaluated sequences: 59
+degree 3 22 22
+degree 4 10 10
+degree 5 7 7
+generator city-generator.py 13 13
+generator two-cities-generator.py 16 16
+generator three-cities-generator.py 10 10
+degree 3 2 2
+degree 4 2 2
+degree 5 3 3
+generator city-generator.py 2 2
+generator two-cities-generator.py 1 1
+generator three-cities-generator.py 4 4
+degree 3 4 4
+degree 4 2 2
+degree 5 1 1
+generator city-generator.py 4 4
+generator two-cities-generator.py 2 2
+generator three-cities-generator.py 1 1
+degree 3 2 2
+degree 4 0 0
+degree 5 0 0
+generator city-generator.py 1 1
+generator two-cities-generator.py 0 0
+generator three-cities-generator.py 1 1
+degree 3 0 0
+degree 4 0 0
+degree 5 0 0
+generator city-generator.py 0 0
+generator two-cities-generator.py 0 0
+generator three-cities-generator.py 0 0
+degree 3 1 1
+degree 4 0 0
+degree 5 0 0
+generator city-generator.py 0 0
+generator two-cities-generator.py 1 1
+generator three-cities-generator.py 0 0
+degree 3 0 0
+degree 4 1 1
+degree 5 0 0
+generator city-generator.py 0 0
+generator two-cities-generator.py 0 0
+generator three-cities-generator.py 1 1
+degree 3 0 0
+degree 4 0 0
+degree 5 0 0
+generator city-generator.py 0 0
+generator two-cities-generator.py 0 0
+generator three-cities-generator.py 0 0
+degree 3 0 0
+degree 4 0 0
+degree 5 1 1
+generator city-generator.py 0 0
+generator two-cities-generator.py 1 1
+generator three-cities-generator.py 0 0
+degree 3 0 0
+degree 4 0 0
+degree 5 0 0
+generator city-generator.py 0 0
+generator two-cities-generator.py 0 0
+generator three-cities-generator.py 0 0
+degree 3 0 0
+degree 4 1 1
+degree 5 0 0
+generator city-generator.py 1 1
+generator two-cities-generator.py 0 0
+generator three-cities-generator.py 0 0
+2020-12-05 19:53:33,504 INFO     Candidate sequences: 59
+2020-12-05 19:53:33,504 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 30 use baseline 29 use sart
+2020-12-05 19:53:33,505 INFO     Using sart runtimes on CPLEX optimization
+2020-12-05 19:53:33,546 INFO     CPLEX solve
+
+2020-12-05 19:53:33,579 INFO     Solution status = 101: MIP_optimal
+2020-12-05 19:53:33,579 INFO     Solution value  = 6.979620975802525
+Selected: sequence 35, 30 instances from 0 to 29
+Configuration: {'degree': 4, 'generator': 'city-generator.py', 'nodes_b': 2, 'nodes_m': 9.2, 'nodes_optional_m': 'false', 'packages_b': 2, 'packages_m': 1.5, 'trucks_b': 2, 'trucks_m': 1.3000000000000003, 'trucks_optional_m': 'false'}
+Penalty: 6.98
+Estimated runtimes: 0.47, 0.67, 1.3, 2.4, 5.4, 8.5, 14, 21, 32, 41, 62, 77, 1e+02, 1.3e+02, 1.6e+02, 2.3e+02, 3.1e+02, 4.4e+02, 6.1e+02, 8.5e+02, 1.2e+03, 1.7e+03, 2.3e+03, 3.2e+03, 4.5e+03, 6.3e+03, 8.8e+03, 1.2e+04, 1.7e+04, 2.4e+04
+  p01: {'size': 1000, 'mindistance': 100, 'nodes': 2, 'packages': 2, 'trucks': 2, 'degree': 4, 'generator': 'city-generator.py'}
+  p02: {'size': 1000, 'mindistance': 100, 'nodes': 11, 'packages': 3, 'trucks': 3, 'degree': 4, 'generator': 'city-generator.py'}
+  p03: {'size': 1000, 'mindistance': 100, 'nodes': 20, 'packages': 5, 'trucks': 4, 'degree': 4, 'generator': 'city-generator.py'}
+  p04: {'size': 1000, 'mindistance': 100, 'nodes': 29, 'packages': 6, 'trucks': 5, 'degree': 4, 'generator': 'city-generator.py'}
+  p05: {'size': 1000, 'mindistance': 100, 'nodes': 38, 'packages': 8, 'trucks': 7, 'degree': 4, 'generator': 'city-generator.py'}
+  p06: {'size': 1000, 'mindistance': 100, 'nodes': 48, 'packages': 9, 'trucks': 8, 'degree': 4, 'generator': 'city-generator.py'}
+  p07: {'size': 1000, 'mindistance': 100, 'nodes': 57, 'packages': 11, 'trucks': 9, 'degree': 4, 'generator': 'city-generator.py'}
+  p08: {'size': 1000, 'mindistance': 100, 'nodes': 66, 'packages': 12, 'trucks': 11, 'degree': 4, 'generator': 'city-generator.py'}
+  p09: {'size': 1000, 'mindistance': 100, 'nodes': 75, 'packages': 14, 'trucks': 12, 'degree': 4, 'generator': 'city-generator.py'}
+  p10: {'size': 1000, 'mindistance': 100, 'nodes': 84, 'packages': 15, 'trucks': 13, 'degree': 4, 'generator': 'city-generator.py'}
+  p11: {'size': 1000, 'mindistance': 100, 'nodes': 94, 'packages': 17, 'trucks': 15, 'degree': 4, 'generator': 'city-generator.py'}
+  p12: {'size': 1000, 'mindistance': 100, 'nodes': 103, 'packages': 18, 'trucks': 16, 'degree': 4, 'generator': 'city-generator.py'}
+  p13: {'size': 1000, 'mindistance': 100, 'nodes': 112, 'packages': 20, 'trucks': 17, 'degree': 4, 'generator': 'city-generator.py'}
+  p14: {'size': 1000, 'mindistance': 100, 'nodes': 121, 'packages': 21, 'trucks': 18, 'degree': 4, 'generator': 'city-generator.py'}
+  p15: {'size': 1000, 'mindistance': 100, 'nodes': 130, 'packages': 23, 'trucks': 20, 'degree': 4, 'generator': 'city-generator.py'}
+  p16: {'size': 1000, 'mindistance': 100, 'nodes': 140, 'packages': 24, 'trucks': 21, 'degree': 4, 'generator': 'city-generator.py'}
+  p17: {'size': 1000, 'mindistance': 100, 'nodes': 149, 'packages': 26, 'trucks': 22, 'degree': 4, 'generator': 'city-generator.py'}
+  p18: {'size': 1000, 'mindistance': 100, 'nodes': 158, 'packages': 27, 'trucks': 24, 'degree': 4, 'generator': 'city-generator.py'}
+  p19: {'size': 1000, 'mindistance': 100, 'nodes': 167, 'packages': 29, 'trucks': 25, 'degree': 4, 'generator': 'city-generator.py'}
+  p20: {'size': 1000, 'mindistance': 100, 'nodes': 176, 'packages': 30, 'trucks': 26, 'degree': 4, 'generator': 'city-generator.py'}
+  p21: {'size': 1000, 'mindistance': 100, 'nodes': 185, 'packages': 32, 'trucks': 28, 'degree': 4, 'generator': 'city-generator.py'}
+  p22: {'size': 1000, 'mindistance': 100, 'nodes': 195, 'packages': 33, 'trucks': 29, 'degree': 4, 'generator': 'city-generator.py'}
+  p23: {'size': 1000, 'mindistance': 100, 'nodes': 204, 'packages': 35, 'trucks': 30, 'degree': 4, 'generator': 'city-generator.py'}
+  p24: {'size': 1000, 'mindistance': 100, 'nodes': 213, 'packages': 36, 'trucks': 31, 'degree': 4, 'generator': 'city-generator.py'}
+  p25: {'size': 1000, 'mindistance': 100, 'nodes': 222, 'packages': 38, 'trucks': 33, 'degree': 4, 'generator': 'city-generator.py'}
+  p26: {'size': 1000, 'mindistance': 100, 'nodes': 231, 'packages': 39, 'trucks': 34, 'degree': 4, 'generator': 'city-generator.py'}
+  p27: {'size': 1000, 'mindistance': 100, 'nodes': 241, 'packages': 41, 'trucks': 35, 'degree': 4, 'generator': 'city-generator.py'}
+  p28: {'size': 1000, 'mindistance': 100, 'nodes': 250, 'packages': 42, 'trucks': 37, 'degree': 4, 'generator': 'city-generator.py'}
+  p29: {'size': 1000, 'mindistance': 100, 'nodes': 259, 'packages': 44, 'trucks': 38, 'degree': 4, 'generator': 'city-generator.py'}
+  p30: {'size': 1000, 'mindistance': 100, 'nodes': 268, 'packages': 45, 'trucks': 39, 'degree': 4, 'generator': 'city-generator.py'}
+
+real	0m9.075s
+user	0m9.030s
+sys	0m0.913s

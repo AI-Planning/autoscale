@@ -1,0 +1,59 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-05 19:53:42,031 INFO     No run directory, so we will not run anything
+2020-12-05 19:53:42,157 INFO     Loading cache data for baseline planners: 250
+2020-12-05 19:53:42,165 INFO     Loaded data for 54 instances, with min 3 max 15 avg 13.88888888888889 runtimes
+2020-12-05 19:53:42,166 INFO     Loading cache data for sart planners: 450
+2020-12-05 19:53:42,182 INFO     Loaded data for 107 instances, with min 3 max 15 avg 12.616822429906541 runtimes
+2020-12-05 19:53:42,182 INFO     Stored sequences: 1020
+2020-12-05 19:53:46,625 INFO     Different evaluated sequences: 423
+r 0.5 196 11
+r 0.75 97 9
+r 1 130 17
+2020-12-05 19:53:46,668 INFO     Candidate sequences: 37
+2020-12-05 19:53:46,668 INFO     Using sart runtimes on CPLEX optimization
+2020-12-05 19:53:46,719 INFO     CPLEX solve
+
+2020-12-05 19:53:46,797 INFO     Solution status = 101: MIP_optimal
+2020-12-05 19:53:46,797 INFO     Solution value  = 17.16280053709302
+Selected: sequence 404, 21 instances from 0 to 20
+Configuration: {'grid_m': 1.3000000000000003, 'grid_maxdiff': 4, 'grid_x': 5, 'r': 0.5}
+Penalty: 5.12
+Estimated runtimes: 0.54, 0.65, 0.97, 1.1, 1.9, 4, 4.8, 13, 26, 56, 1.1e+02, 1.6e+02, 3.2e+02, 6.6e+02, 1.3e+03, 2.8e+03, 5.7e+03, 1.2e+04, 2.4e+04, 4.9e+04, 1e+05, 2.1e+05, 4.2e+05, 8.7e+05, 1.8e+06, 3.7e+06, 7.5e+06, 1.5e+07, 3.2e+07, 6.5e+07
+Selected: sequence 172, 9 instances from 16 to 24
+Configuration: {'grid_m': 2.0, 'grid_maxdiff': 3, 'grid_x': 3, 'r': 1}
+Penalty: 12.04
+Estimated runtimes: 1.8e+02, 3.6e+02, 7e+02, 1.4e+03, 2.7e+03, 5.4e+03, 1.1e+04, 2.1e+04, 4.1e+04, 8.2e+04, 1.6e+05, 3.2e+05, 6.3e+05, 1.2e+06
+  p01: {'x': 5, 'y': 5, 'r': 0.5}
+  p02: {'x': 5, 'y': 6, 'r': 0.5}
+  p03: {'x': 5, 'y': 7, 'r': 0.5}
+  p04: {'x': 6, 'y': 6, 'r': 0.5}
+  p05: {'x': 6, 'y': 7, 'r': 0.5}
+  p06: {'x': 5, 'y': 9, 'r': 0.5}
+  p07: {'x': 6, 'y': 8, 'r': 0.5}
+  p08: {'x': 6, 'y': 9, 'r': 0.5}
+  p09: {'x': 7, 'y': 8, 'r': 0.5}
+  p10: {'x': 6, 'y': 10, 'r': 0.5}
+  p11: {'x': 8, 'y': 8, 'r': 0.5}
+  p12: {'x': 7, 'y': 10, 'r': 0.5}
+  p13: {'x': 8, 'y': 9, 'r': 0.5}
+  p14: {'x': 7, 'y': 11, 'r': 0.5}
+  p15: {'x': 9, 'y': 9, 'r': 0.5}
+  p16: {'x': 8, 'y': 11, 'r': 0.5}
+  p17: {'x': 9, 'y': 10, 'r': 0.5}
+  p18: {'x': 9, 'y': 11, 'r': 0.5}
+  p19: {'x': 10, 'y': 10, 'r': 0.5}
+  p20: {'x': 9, 'y': 12, 'r': 0.5}
+  p21: {'x': 9, 'y': 13, 'r': 0.5}
+  p22: {'x': 10, 'y': 13, 'r': 1}
+  p23: {'x': 11, 'y': 13, 'r': 1}
+  p24: {'x': 11, 'y': 14, 'r': 1}
+  p25: {'x': 12, 'y': 14, 'r': 1}
+  p26: {'x': 12, 'y': 15, 'r': 1}
+  p27: {'x': 13, 'y': 15, 'r': 1}
+  p28: {'x': 13, 'y': 16, 'r': 1}
+  p29: {'x': 14, 'y': 16, 'r': 1}
+  p30: {'x': 14, 'y': 17, 'r': 1}
+
+real	0m5.362s
+user	0m5.499s
+sys	0m0.853s

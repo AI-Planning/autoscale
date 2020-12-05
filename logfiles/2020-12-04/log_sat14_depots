@@ -1,0 +1,57 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-05 19:37:02,991 INFO     No run directory, so we will not run anything
+2020-12-05 19:37:03,157 INFO     Loading cache data for baseline planners: 215
+2020-12-05 19:37:03,165 INFO     Loaded data for 198 instances, with min 3 max 15 avg 3.257575757575758 runtimes
+2020-12-05 19:37:03,165 INFO     Loading cache data for sart planners: 729
+2020-12-05 19:37:03,197 INFO     Loaded data for 657 instances, with min 3 max 15 avg 3.328767123287671 runtimes
+2020-12-05 19:37:03,197 INFO     Stored sequences: 38
+2020-12-05 19:37:03,303 INFO     Different evaluated sequences: 34
+2020-12-05 19:37:03,316 INFO     Candidate sequences: 34
+2020-12-05 19:37:03,316 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 1 use baseline 33 use sart
+2020-12-05 19:37:03,317 INFO     Using sart runtimes on CPLEX optimization
+2020-12-05 19:37:03,355 INFO     CPLEX solve
+
+2020-12-05 19:37:03,447 INFO     Solution status = 101: MIP_optimal
+2020-12-05 19:37:03,447 INFO     Solution value  = 10.249345225186586
+Selected: sequence 26, 9 instances from 19 to 27
+Configuration: {'crates_b': 3, 'crates_m': 1.0, 'depots_b': 6, 'depots_m': 1.1, 'depots_optional_m': 'false', 'distributors_b': 4, 'distributors_m': 2.2, 'distributors_optional_m': 'true', 'hoists_b': 15, 'hoists_m': 0.4, 'hoists_optional_m': 'true', 'pallets_b': 8, 'pallets_m': 1.2000000000000002, 'pallets_optional_m': 'false', 'trucks_b': 2, 'trucks_m': 1.1, 'trucks_optional_m': 'true'}
+Penalty: 3.50
+Estimated runtimes: 1.9e+02, 4.2e+02, 9.3e+02, 2.1e+03, 4.7e+03, 1.1e+04, 2.4e+04, 5.4e+04, 1.2e+05, 2.7e+05, 6.1e+05
+Selected: sequence 33, 21 instances from 2 to 22
+Configuration: {'crates_b': 3, 'crates_m': 1.1, 'depots_b': 7, 'depots_m': 0.8, 'depots_optional_m': 'false', 'distributors_b': 2, 'distributors_m': 2.8000000000000003, 'distributors_optional_m': 'false', 'hoists_b': 10, 'hoists_m': 2.0, 'hoists_optional_m': 'true', 'pallets_b': 20, 'pallets_m': 0.8, 'pallets_optional_m': 'true', 'trucks_b': 2, 'trucks_m': 1.1, 'trucks_optional_m': 'true'}
+Penalty: 6.75
+Estimated runtimes: 0.46, 0.76, 1.3, 2.4, 3.2, 5.3, 8.8, 12, 19, 28, 42, 86, 2.6e+02, 4.8e+02, 8.7e+02, 1.6e+03, 2.9e+03, 5.4e+03, 9.8e+03, 1.8e+04, 3.3e+04, 6e+04, 1.1e+05, 2e+05, 3.7e+05, 6.8e+05, 1.2e+06, 2.3e+06
+  p01: {'depots': 26, 'distributors': 4, 'trucks': 2, 'pallets': 30, 'hoists': 15, 'crates': 22}
+  p02: {'depots': 28, 'distributors': 4, 'trucks': 2, 'pallets': 31, 'hoists': 15, 'crates': 23}
+  p03: {'depots': 29, 'distributors': 4, 'trucks': 2, 'pallets': 33, 'hoists': 15, 'crates': 24}
+  p04: {'depots': 30, 'distributors': 4, 'trucks': 2, 'pallets': 34, 'hoists': 15, 'crates': 25}
+  p05: {'depots': 31, 'distributors': 4, 'trucks': 2, 'pallets': 35, 'hoists': 15, 'crates': 26}
+  p06: {'depots': 32, 'distributors': 4, 'trucks': 2, 'pallets': 36, 'hoists': 15, 'crates': 27}
+  p07: {'depots': 33, 'distributors': 4, 'trucks': 2, 'pallets': 38, 'hoists': 15, 'crates': 28}
+  p08: {'depots': 34, 'distributors': 4, 'trucks': 2, 'pallets': 39, 'hoists': 15, 'crates': 29}
+  p09: {'depots': 35, 'distributors': 4, 'trucks': 2, 'pallets': 40, 'hoists': 15, 'crates': 30}
+  p10: {'depots': 8, 'distributors': 7, 'trucks': 2, 'pallets': 20, 'hoists': 10, 'crates': 5}
+  p11: {'depots': 9, 'distributors': 10, 'trucks': 2, 'pallets': 20, 'hoists': 10, 'crates': 6}
+  p12: {'depots': 10, 'distributors': 13, 'trucks': 2, 'pallets': 20, 'hoists': 10, 'crates': 7}
+  p13: {'depots': 11, 'distributors': 16, 'trucks': 2, 'pallets': 20, 'hoists': 10, 'crates': 8}
+  p14: {'depots': 11, 'distributors': 18, 'trucks': 2, 'pallets': 20, 'hoists': 10, 'crates': 9}
+  p15: {'depots': 12, 'distributors': 21, 'trucks': 2, 'pallets': 20, 'hoists': 10, 'crates': 10}
+  p16: {'depots': 13, 'distributors': 24, 'trucks': 2, 'pallets': 20, 'hoists': 10, 'crates': 11}
+  p17: {'depots': 14, 'distributors': 27, 'trucks': 2, 'pallets': 20, 'hoists': 10, 'crates': 12}
+  p18: {'depots': 15, 'distributors': 30, 'trucks': 2, 'pallets': 20, 'hoists': 10, 'crates': 13}
+  p19: {'depots': 15, 'distributors': 32, 'trucks': 2, 'pallets': 20, 'hoists': 10, 'crates': 15}
+  p20: {'depots': 16, 'distributors': 35, 'trucks': 2, 'pallets': 20, 'hoists': 10, 'crates': 16}
+  p21: {'depots': 17, 'distributors': 38, 'trucks': 2, 'pallets': 20, 'hoists': 10, 'crates': 17}
+  p22: {'depots': 18, 'distributors': 41, 'trucks': 2, 'pallets': 20, 'hoists': 10, 'crates': 18}
+  p23: {'depots': 19, 'distributors': 43, 'trucks': 2, 'pallets': 20, 'hoists': 10, 'crates': 19}
+  p24: {'depots': 19, 'distributors': 46, 'trucks': 2, 'pallets': 20, 'hoists': 10, 'crates': 20}
+  p25: {'depots': 20, 'distributors': 49, 'trucks': 2, 'pallets': 20, 'hoists': 10, 'crates': 21}
+  p26: {'depots': 21, 'distributors': 52, 'trucks': 2, 'pallets': 20, 'hoists': 10, 'crates': 22}
+  p27: {'depots': 22, 'distributors': 55, 'trucks': 2, 'pallets': 20, 'hoists': 10, 'crates': 23}
+  p28: {'depots': 23, 'distributors': 57, 'trucks': 2, 'pallets': 20, 'hoists': 10, 'crates': 25}
+  p29: {'depots': 23, 'distributors': 60, 'trucks': 2, 'pallets': 20, 'hoists': 10, 'crates': 26}
+  p30: {'depots': 24, 'distributors': 63, 'trucks': 2, 'pallets': 20, 'hoists': 10, 'crates': 27}
+
+real	0m0.974s
+user	0m1.220s
+sys	0m0.794s

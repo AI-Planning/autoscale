@@ -1,0 +1,167 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-05 19:38:27,811 INFO     No run directory, so we will not run anything
+2020-12-05 19:38:27,982 INFO     Loading cache data for baseline planners: 659
+2020-12-05 19:38:28,011 INFO     Loaded data for 318 instances, with min 3 max 15 avg 6.216981132075472 runtimes
+2020-12-05 19:38:28,011 INFO     Loading cache data for sart planners: 1290
+2020-12-05 19:38:28,075 INFO     Loaded data for 697 instances, with min 3 max 15 avg 5.5523672883787665 runtimes
+2020-12-05 19:38:28,075 INFO     Stored sequences: 94
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 26, 'packages': 22, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 27, 'packages': 22, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 23, 'packages': 21, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 26, 'packages': 26, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 27, 'packages': 22, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 24, 'packages': 28, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 22, 'packages': 24, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 27, 'packages': 19, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 23, 'packages': 30, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 13, 'packages': 20, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 21, 'packages': 32, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 26, 'packages': 24, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 27, 'packages': 22, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 28, 'packages': 22, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 27, 'packages': 22, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 18, 'packages': 28, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 19, 'packages': 90, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 22, 'packages': 27, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 25, 'packages': 26, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 17, 'packages': 14, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 26, 'packages': 24, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 23, 'packages': 26, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 12, 'packages': 12, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.1}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 22, 'packages': 31, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 22, 'packages': 30, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 22, 'packages': 24, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 23, 'packages': 28, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 17, 'packages': 14, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 25, 'packages': 26, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 23, 'packages': 26, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 22, 'packages': 27, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 19, 'packages': 38, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 26, 'packages': 23, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 20, 'packages': 30, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 19, 'packages': 53, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 24, 'packages': 27, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 21, 'packages': 37, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 26, 'packages': 24, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 23, 'packages': 28, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 25, 'packages': 26, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 25, 'packages': 25, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 22, 'packages': 28, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 26, 'packages': 24, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 27, 'packages': 22, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 28, 'packages': 22, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 26, 'packages': 23, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 23, 'packages': 30, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 25, 'packages': 27, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 23, 'packages': 26, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 19, 'packages': 52, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 19, 'packages': 57, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 26, 'packages': 23, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 17, 'packages': 14, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 25, 'packages': 25, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 28, 'packages': 22, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 17, 'packages': 14, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 26, 'packages': 24, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 27, 'packages': 22, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 24, 'packages': 17, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 19, 'packages': 33, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 22, 'packages': 28, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 22, 'packages': 30, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 25, 'packages': 26, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 21, 'packages': 31, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 13, 'packages': 20, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 21, 'packages': 31, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 21, 'packages': 32, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 21, 'packages': 29, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 19, 'packages': 60, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 25, 'packages': 27, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 18, 'packages': 52, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 24, 'packages': 27, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 17, 'packages': 14, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 25, 'packages': 28, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 23, 'packages': 21, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 27, 'packages': 22, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 21, 'packages': 29, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 24, 'packages': 28, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 17, 'packages': 14, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 26, 'packages': 23, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 22, 'packages': 30, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 13, 'packages': 20, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 21, 'packages': 32, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}, so I consider it unsolved within the time and memory limits
+2020-12-05 19:38:28,458 INFO     Different evaluated sequences: 87
+constrainedness 1.1 5 4
+constrainedness 1.5 9 9
+constrainedness 2.0 67 60
+constrainedness 1.1 0 0
+constrainedness 1.5 1 1
+constrainedness 2.0 0 0
+constrainedness 1.1 0 0
+constrainedness 1.5 1 1
+constrainedness 2.0 3 3
+constrainedness 1.1 0 0
+constrainedness 1.5 0 0
+constrainedness 2.0 0 0
+constrainedness 1.1 0 0
+constrainedness 1.5 0 0
+constrainedness 2.0 0 0
+constrainedness 1.1 0 0
+constrainedness 1.5 0 0
+constrainedness 2.0 0 0
+constrainedness 1.1 0 0
+constrainedness 1.5 0 0
+constrainedness 2.0 0 0
+constrainedness 1.1 0 0
+constrainedness 1.5 0 0
+constrainedness 2.0 0 0
+constrainedness 1.1 0 0
+constrainedness 1.5 0 0
+constrainedness 2.0 1 1
+2020-12-05 19:38:28,567 INFO     Candidate sequences: 79
+2020-12-05 19:38:28,568 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 8 use baseline 71 use sart
+2020-12-05 19:38:28,568 INFO     Using sart runtimes on CPLEX optimization
+2020-12-05 19:38:28,683 INFO     CPLEX solve
+
+2020-12-05 19:38:28,844 INFO     Solution status = 101: MIP_optimal
+2020-12-05 19:38:28,844 INFO     Solution value  = 15.79531975228172
+Selected: sequence 81, 12 instances from 17 to 28
+Configuration: {'constrainedness': 1.5, 'locations_b': 8, 'locations_m': 0.9, 'packages_b': 4, 'packages_m': 1.0}
+Penalty: 10.67
+Estimated runtimes: 2.2e+02, 3.7e+02, 6.1e+02, 1e+03, 1.7e+03, 2.8e+03, 4.6e+03, 7.7e+03, 1.3e+04, 2.1e+04, 3.5e+04, 5.8e+04, 9.7e+04
+Selected: sequence 14, 18 instances from 4 to 21
+Configuration: {'constrainedness': 2.0, 'locations_b': 8, 'locations_m': 1.0, 'packages_b': 2, 'packages_m': 1.1}
+Penalty: 5.13
+Estimated runtimes: 2.3, 3.2, 3.4, 4.2, 5.2, 5.5, 7.1, 8.4, 8.8, 11, 11, 12, 14, 15, 17, 1.8e+02, 1.9e+03, 2.1e+04, 2.3e+05, 2.5e+06, 2.7e+07, 2.9e+08, 3.1e+09, 3.4e+10, 3.7e+11, 3.9e+12
+  p01: {'locations': 23, 'packages': 21, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p02: {'locations': 24, 'packages': 22, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p03: {'locations': 25, 'packages': 23, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p04: {'locations': 25, 'packages': 24, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p05: {'locations': 26, 'packages': 25, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p06: {'locations': 27, 'packages': 26, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p07: {'locations': 28, 'packages': 27, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p08: {'locations': 29, 'packages': 28, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p09: {'locations': 30, 'packages': 29, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p10: {'locations': 31, 'packages': 30, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p11: {'locations': 32, 'packages': 31, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p12: {'locations': 33, 'packages': 32, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p13: {'locations': 12, 'packages': 6, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}
+  p14: {'locations': 13, 'packages': 7, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}
+  p15: {'locations': 14, 'packages': 8, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}
+  p16: {'locations': 15, 'packages': 9, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}
+  p17: {'locations': 16, 'packages': 10, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}
+  p18: {'locations': 17, 'packages': 11, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}
+  p19: {'locations': 18, 'packages': 12, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}
+  p20: {'locations': 19, 'packages': 14, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}
+  p21: {'locations': 20, 'packages': 15, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}
+  p22: {'locations': 21, 'packages': 16, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}
+  p23: {'locations': 22, 'packages': 17, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}
+  p24: {'locations': 23, 'packages': 18, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}
+  p25: {'locations': 24, 'packages': 19, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}
+  p26: {'locations': 25, 'packages': 20, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}
+  p27: {'locations': 26, 'packages': 21, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}
+  p28: {'locations': 27, 'packages': 22, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}
+  p29: {'locations': 28, 'packages': 24, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}
+  p30: {'locations': 29, 'packages': 25, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}
+
+real	14m38.296s
+user	14m13.541s
+sys	0m25.746s

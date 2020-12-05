@@ -1,0 +1,105 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-05 19:54:05,243 INFO     No run directory, so we will not run anything
+2020-12-05 19:54:05,420 INFO     Loading cache data for baseline planners: 180
+2020-12-05 19:54:05,426 INFO     Loaded data for 126 instances, with min 3 max 15 avg 4.285714285714286 runtimes
+2020-12-05 19:54:05,426 INFO     Loading cache data for sart planners: 799
+2020-12-05 19:54:05,462 INFO     Loaded data for 625 instances, with min 3 max 15 avg 3.8352 runtimes
+2020-12-05 19:54:05,462 INFO     Stored sequences: 32
+2020-12-05 19:54:05,587 INFO     Different evaluated sequences: 28
+network tiny-network 0 0
+network small-network 2 2
+network ring-network 21 21
+layers 2 17 17
+layers 3 2 2
+layers 4 1 1
+layers 5 0 0
+layers 6 3 3
+network tiny-network 0 0
+network small-network 0 0
+network ring-network 0 0
+layers 2 0 0
+layers 3 0 0
+layers 4 0 0
+layers 5 0 0
+layers 6 0 0
+network tiny-network 2 2
+network small-network 1 1
+network ring-network 1 1
+layers 2 2 2
+layers 3 1 1
+layers 4 0 0
+layers 5 0 0
+layers 6 1 1
+network tiny-network 0 0
+network small-network 0 0
+network ring-network 0 0
+layers 2 0 0
+layers 3 0 0
+layers 4 0 0
+layers 5 0 0
+layers 6 0 0
+network tiny-network 0 0
+network small-network 0 0
+network ring-network 0 0
+layers 2 0 0
+layers 3 0 0
+layers 4 0 0
+layers 5 0 0
+layers 6 0 0
+network tiny-network 1 1
+network small-network 0 0
+network ring-network 0 0
+layers 2 1 1
+layers 3 0 0
+layers 4 0 0
+layers 5 0 0
+layers 6 0 0
+2020-12-05 19:54:05,612 INFO     Candidate sequences: 28
+2020-12-05 19:54:05,612 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 11 use baseline 17 use sart
+2020-12-05 19:54:05,613 INFO     Using sart runtimes on CPLEX optimization
+2020-12-05 19:54:05,644 INFO     CPLEX solve
+
+2020-12-05 19:54:05,680 INFO     Solution status = 101: MIP_optimal
+2020-12-05 19:54:05,680 INFO     Solution value  = 18.378770554302008
+Selected: sequence 12, 20 instances from 1 to 20
+Configuration: {'extra_items_b': 2, 'extra_items_m': 2.2, 'extra_scripts_b': 2, 'extra_scripts_m': 3.9000000000000004, 'layers': 2, 'network': 'ring-network'}
+Penalty: 8.42
+Estimated runtimes: 0.9, 1.5, 2, 2.4, 2.5, 3.2, 4.2, 12, 13, 13, 24, 25, 1.3e+02, 2.5e+02, 5.3e+02, 1.1e+03, 2.4e+03, 5.1e+03, 1.1e+04, 2.3e+04, 4.9e+04, 1e+05, 2.2e+05, 4.7e+05, 1e+06, 2.1e+06, 4.5e+06, 9.6e+06, 2e+07
+Selected: sequence 26, 10 instances from 15 to 24
+Configuration: {'extra_items_b': 2, 'extra_items_m': 2.3, 'extra_scripts_b': 2, 'extra_scripts_m': 3.1, 'layers': 2, 'network': 'ring-network'}
+Penalty: 9.96
+Estimated runtimes: 2.7e+02, 4.6e+02, 7.7e+02, 1.3e+03, 2.2e+03, 3.7e+03, 6.3e+03, 1.1e+04, 1.8e+04, 3e+04, 5.1e+04, 8.6e+04, 1.5e+05, 2.5e+05, 4.2e+05
+  p01: {'network': 'ring-network', 'layers': 2, 'extra_items': 4, 'extra_scripts': 5, 'items': 6, 'scripts': 9}
+  p02: {'network': 'ring-network', 'layers': 2, 'extra_items': 6, 'extra_scripts': 9, 'items': 8, 'scripts': 15}
+  p03: {'network': 'ring-network', 'layers': 2, 'extra_items': 8, 'extra_scripts': 13, 'items': 10, 'scripts': 21}
+  p04: {'network': 'ring-network', 'layers': 2, 'extra_items': 10, 'extra_scripts': 17, 'items': 12, 'scripts': 27}
+  p05: {'network': 'ring-network', 'layers': 2, 'extra_items': 13, 'extra_scripts': 21, 'items': 15, 'scripts': 34}
+  p06: {'network': 'ring-network', 'layers': 2, 'extra_items': 15, 'extra_scripts': 25, 'items': 17, 'scripts': 40}
+  p07: {'network': 'ring-network', 'layers': 2, 'extra_items': 17, 'extra_scripts': 29, 'items': 19, 'scripts': 46}
+  p08: {'network': 'ring-network', 'layers': 2, 'extra_items': 19, 'extra_scripts': 33, 'items': 21, 'scripts': 52}
+  p09: {'network': 'ring-network', 'layers': 2, 'extra_items': 21, 'extra_scripts': 37, 'items': 23, 'scripts': 58}
+  p10: {'network': 'ring-network', 'layers': 2, 'extra_items': 23, 'extra_scripts': 40, 'items': 25, 'scripts': 63}
+  p11: {'network': 'ring-network', 'layers': 2, 'extra_items': 26, 'extra_scripts': 44, 'items': 28, 'scripts': 70}
+  p12: {'network': 'ring-network', 'layers': 2, 'extra_items': 28, 'extra_scripts': 48, 'items': 30, 'scripts': 76}
+  p13: {'network': 'ring-network', 'layers': 2, 'extra_items': 30, 'extra_scripts': 52, 'items': 32, 'scripts': 82}
+  p14: {'network': 'ring-network', 'layers': 2, 'extra_items': 32, 'extra_scripts': 56, 'items': 34, 'scripts': 88}
+  p15: {'network': 'ring-network', 'layers': 2, 'extra_items': 35, 'extra_scripts': 60, 'items': 37, 'scripts': 95}
+  p16: {'network': 'ring-network', 'layers': 2, 'extra_items': 37, 'extra_scripts': 64, 'items': 39, 'scripts': 101}
+  p17: {'network': 'ring-network', 'layers': 2, 'extra_items': 39, 'extra_scripts': 68, 'items': 41, 'scripts': 107}
+  p18: {'network': 'ring-network', 'layers': 2, 'extra_items': 41, 'extra_scripts': 72, 'items': 43, 'scripts': 113}
+  p19: {'network': 'ring-network', 'layers': 2, 'extra_items': 43, 'extra_scripts': 76, 'items': 45, 'scripts': 119}
+  p20: {'network': 'ring-network', 'layers': 2, 'extra_items': 46, 'extra_scripts': 80, 'items': 48, 'scripts': 126}
+  p21: {'network': 'ring-network', 'layers': 2, 'extra_items': 36, 'extra_scripts': 48, 'items': 38, 'scripts': 84}
+  p22: {'network': 'ring-network', 'layers': 2, 'extra_items': 38, 'extra_scripts': 51, 'items': 40, 'scripts': 89}
+  p23: {'network': 'ring-network', 'layers': 2, 'extra_items': 41, 'extra_scripts': 54, 'items': 43, 'scripts': 95}
+  p24: {'network': 'ring-network', 'layers': 2, 'extra_items': 43, 'extra_scripts': 57, 'items': 45, 'scripts': 100}
+  p25: {'network': 'ring-network', 'layers': 2, 'extra_items': 45, 'extra_scripts': 60, 'items': 47, 'scripts': 105}
+  p26: {'network': 'ring-network', 'layers': 2, 'extra_items': 47, 'extra_scripts': 64, 'items': 49, 'scripts': 111}
+  p27: {'network': 'ring-network', 'layers': 2, 'extra_items': 50, 'extra_scripts': 67, 'items': 52, 'scripts': 117}
+  p28: {'network': 'ring-network', 'layers': 2, 'extra_items': 52, 'extra_scripts': 70, 'items': 54, 'scripts': 122}
+  p29: {'network': 'ring-network', 'layers': 2, 'extra_items': 54, 'extra_scripts': 73, 'items': 56, 'scripts': 127}
+  p30: {'network': 'ring-network', 'layers': 2, 'extra_items': 57, 'extra_scripts': 76, 'items': 59, 'scripts': 133}
+
+real	0m5.740s
+user	0m11.665s
+sys	0m20.801s

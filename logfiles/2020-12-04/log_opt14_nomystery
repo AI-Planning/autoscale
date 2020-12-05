@@ -1,0 +1,64 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-05 19:37:46,032 INFO     No run directory, so we will not run anything
+2020-12-05 19:37:46,156 INFO     Loading cache data for baseline planners: 272
+2020-12-05 19:37:46,166 INFO     Loaded data for 129 instances, with min 3 max 15 avg 6.325581395348837 runtimes
+2020-12-05 19:37:46,166 INFO     Loading cache data for sart planners: 670
+2020-12-05 19:37:46,194 INFO     Loaded data for 317 instances, with min 3 max 15 avg 6.340694006309148 runtimes
+2020-12-05 19:37:46,194 INFO     Stored sequences: 98
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 14, 'packages': 14, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 14, 'packages': 14, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 6, 'packages': 28, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.1}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 12, 'packages': 14, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'locations': 13, 'packages': 15, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, so I consider it unsolved within the time and memory limits
+2020-12-05 19:37:46,432 INFO     Different evaluated sequences: 80
+constrainedness 1.1 22 21
+constrainedness 1.5 45 32
+constrainedness 2.0 13 10
+2020-12-05 19:37:46,453 INFO     Candidate sequences: 63
+2020-12-05 19:37:46,453 INFO     Using sart runtimes on CPLEX optimization
+2020-12-05 19:37:46,547 INFO     CPLEX solve
+
+2020-12-05 19:37:46,675 INFO     Solution status = 101: MIP_optimal
+2020-12-05 19:37:46,676 INFO     Solution value  = 16.51208949039161
+Selected: sequence 56, 19 instances from 0 to 18
+Configuration: {'constrainedness': 1.5, 'locations_b': 9, 'locations_m': 0.6, 'packages_b': 2, 'packages_m': 1.1}
+Penalty: 8.00
+Estimated runtimes: 1.1, 1.2, 1.7, 1.8, 3.5, 3.5, 15, 22, 61, 73, 1.5e+02, 3.1e+02, 7.1e+02, 1.6e+03, 3.8e+03, 8.8e+03, 2e+04, 4.7e+04, 1.1e+05, 2.5e+05, 5.8e+05, 1.3e+06, 3.1e+06, 7.2e+06, 1.7e+07, 3.9e+07, 8.9e+07, 2.1e+08, 4.8e+08, 1.1e+09
+Selected: sequence 51, 11 instances from 7 to 17
+Configuration: {'constrainedness': 1.5, 'locations_b': 9, 'locations_m': 0.8, 'packages_b': 2, 'packages_m': 1.0}
+Penalty: 8.51
+Estimated runtimes: 45, 78, 1.9e+02, 4.1e+02, 8.8e+02, 1.9e+03, 4.1e+03, 8.9e+03, 1.9e+04, 4.1e+04, 8.9e+04, 1.9e+05, 4.2e+05, 9e+05, 1.9e+06, 4.2e+06, 9.1e+06, 2e+07, 4.2e+07, 9.2e+07, 2e+08, 4.3e+08, 9.3e+08
+  p01: {'locations': 9, 'packages': 2, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p02: {'locations': 9, 'packages': 3, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p03: {'locations': 10, 'packages': 4, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p04: {'locations': 10, 'packages': 5, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p05: {'locations': 11, 'packages': 6, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p06: {'locations': 11, 'packages': 7, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p07: {'locations': 12, 'packages': 8, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p08: {'locations': 13, 'packages': 9, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p09: {'locations': 13, 'packages': 10, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p10: {'locations': 14, 'packages': 11, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p11: {'locations': 14, 'packages': 12, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p12: {'locations': 15, 'packages': 14, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p13: {'locations': 16, 'packages': 15, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p14: {'locations': 16, 'packages': 16, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p15: {'locations': 17, 'packages': 17, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p16: {'locations': 18, 'packages': 18, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p17: {'locations': 18, 'packages': 19, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p18: {'locations': 19, 'packages': 20, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p19: {'locations': 19, 'packages': 21, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p20: {'locations': 14, 'packages': 9, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p21: {'locations': 15, 'packages': 10, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p22: {'locations': 16, 'packages': 11, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p23: {'locations': 17, 'packages': 12, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p24: {'locations': 17, 'packages': 13, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p25: {'locations': 18, 'packages': 14, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p26: {'locations': 19, 'packages': 15, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p27: {'locations': 20, 'packages': 16, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p28: {'locations': 21, 'packages': 17, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p29: {'locations': 21, 'packages': 18, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p30: {'locations': 22, 'packages': 19, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+
+real	0m41.785s
+user	0m40.745s
+sys	0m2.105s

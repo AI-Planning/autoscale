@@ -1,0 +1,115 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-05 19:54:25,362 INFO     No run directory, so we will not run anything
+2020-12-05 19:54:25,530 INFO     Loading cache data for baseline planners: 355
+2020-12-05 19:54:25,543 INFO     Loaded data for 206 instances, with min 3 max 15 avg 5.169902912621359 runtimes
+2020-12-05 19:54:25,543 INFO     Loading cache data for sart planners: 2975
+2020-12-05 19:54:25,782 INFO     Loaded data for 2517 instances, with min 3 max 15 avg 3.545887961859356 runtimes
+2020-12-05 19:54:25,782 INFO     Stored sequences: 105
+2020-12-05 19:54:26,201 INFO     Different evaluated sequences: 96
+density 10 0 0
+density 20 0 0
+density 33 0 0
+density 50 1 1
+density 66 1 1
+density 80 0 0
+density 10 1 1
+density 20 5 5
+density 33 1 1
+density 50 1 1
+density 66 8 8
+density 80 2 2
+density 10 4 4
+density 20 3 3
+density 33 3 3
+density 50 6 6
+density 66 4 4
+density 80 4 4
+density 10 6 6
+density 20 1 1
+density 33 2 2
+density 50 1 1
+density 66 3 3
+density 80 4 4
+density 10 1 1
+density 20 0 0
+density 33 0 0
+density 50 0 0
+density 66 0 0
+density 80 7 7
+density 10 0 0
+density 20 0 0
+density 33 1 1
+density 50 1 1
+density 66 2 2
+density 80 7 7
+density 10 2 2
+density 20 2 2
+density 33 0 0
+density 50 1 1
+density 66 1 1
+density 80 4 2
+density 10 1 1
+density 20 0 0
+density 33 0 0
+density 50 1 1
+density 66 0 0
+density 80 1 1
+density 10 0 0
+density 20 0 0
+density 33 0 0
+density 50 1 1
+density 66 1 1
+density 80 1 1
+2020-12-05 19:54:26,242 INFO     Candidate sequences: 94
+2020-12-05 19:54:26,243 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 92 use baseline 2 use sart
+2020-12-05 19:54:26,244 INFO     Using baseline runtimes on CPLEX optimization
+2020-12-05 19:54:26,393 INFO     CPLEX solve
+
+2020-12-05 19:54:26,492 INFO     Solution status = 101: MIP_optimal
+2020-12-05 19:54:26,492 INFO     Solution value  = 69.15565070651351
+Selected: sequence 32, 13 instances from 0 to 12
+Configuration: {'density': 80, 'orders_b': 9, 'orders_m': 1.1, 'products_b': 5, 'products_m': 0.5}
+Penalty: 23.01
+Estimated runtimes: 0.99, 2.3, 6.7, 13, 62, 79, 2.1e+02, 5.8e+02, 1.6e+03, 4.3e+03, 1.2e+04, 3.1e+04, 8.5e+04, 2.3e+05, 6.2e+05, 1.7e+06, 4.6e+06, 1.2e+07, 3.4e+07, 9.1e+07, 2.5e+08, 6.7e+08, 1.8e+09, 4.9e+09, 1.3e+10, 3.6e+10, 9.8e+10, 2.6e+11, 7.2e+11, 1.9e+12
+Selected: sequence 25, 7 instances from 6 to 12
+Configuration: {'density': 80, 'orders_b': 5, 'orders_m': 1.1, 'products_b': 7, 'products_m': 0.8}
+Penalty: 23.02
+Estimated runtimes: 34, 98, 3.1e+02, 9.1e+02, 2.6e+03, 7.7e+03, 2.2e+04, 6.5e+04, 1.9e+05, 5.5e+05, 1.6e+06, 4.6e+06, 1.3e+07, 3.9e+07, 1.1e+08, 3.3e+08, 9.5e+08, 2.8e+09, 8e+09, 2.3e+10, 6.8e+10, 2e+11, 5.7e+11, 1.7e+12
+Selected: sequence 83, 10 instances from 6 to 15
+Configuration: {'density': 80, 'orders_b': 7, 'orders_m': 1.1, 'products_b': 5, 'products_m': 0.5}
+Penalty: 23.13
+Estimated runtimes: 59, 1e+02, 2.5e+02, 6e+02, 1.5e+03, 3.6e+03, 9e+03, 2.2e+04, 5.4e+04, 1.3e+05, 3.3e+05, 8e+05, 2e+06, 4.9e+06, 1.2e+07, 2.9e+07, 7.2e+07, 1.8e+08, 4.4e+08, 1.1e+09, 2.6e+09, 6.5e+09, 1.6e+10, 3.9e+10
+  p01: {'density': 80, 'products': 5, 'orders': 9}
+  p02: {'density': 80, 'products': 5, 'orders': 10}
+  p03: {'density': 80, 'products': 6, 'orders': 11}
+  p04: {'density': 80, 'products': 6, 'orders': 12}
+  p05: {'density': 80, 'products': 7, 'orders': 13}
+  p06: {'density': 80, 'products': 7, 'orders': 14}
+  p07: {'density': 80, 'products': 8, 'orders': 15}
+  p08: {'density': 80, 'products': 8, 'orders': 16}
+  p09: {'density': 80, 'products': 9, 'orders': 17}
+  p10: {'density': 80, 'products': 9, 'orders': 18}
+  p11: {'density': 80, 'products': 10, 'orders': 20}
+  p12: {'density': 80, 'products': 10, 'orders': 21}
+  p13: {'density': 80, 'products': 11, 'orders': 22}
+  p14: {'density': 80, 'products': 11, 'orders': 11}
+  p15: {'density': 80, 'products': 12, 'orders': 12}
+  p16: {'density': 80, 'products': 13, 'orders': 13}
+  p17: {'density': 80, 'products': 14, 'orders': 14}
+  p18: {'density': 80, 'products': 15, 'orders': 15}
+  p19: {'density': 80, 'products': 15, 'orders': 17}
+  p20: {'density': 80, 'products': 16, 'orders': 18}
+  p21: {'density': 80, 'products': 8, 'orders': 13}
+  p22: {'density': 80, 'products': 8, 'orders': 14}
+  p23: {'density': 80, 'products': 9, 'orders': 15}
+  p24: {'density': 80, 'products': 9, 'orders': 16}
+  p25: {'density': 80, 'products': 10, 'orders': 18}
+  p26: {'density': 80, 'products': 10, 'orders': 19}
+  p27: {'density': 80, 'products': 11, 'orders': 20}
+  p28: {'density': 80, 'products': 11, 'orders': 21}
+  p29: {'density': 80, 'products': 12, 'orders': 22}
+  p30: {'density': 80, 'products': 12, 'orders': 23}
+
+real	0m2.304s
+user	0m2.448s
+sys	0m0.913s

@@ -1,0 +1,68 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-05 19:36:59,908 INFO     No run directory, so we will not run anything
+2020-12-05 19:37:00,087 INFO     Loading cache data for baseline planners: 520
+2020-12-05 19:37:00,109 INFO     Loaded data for 197 instances, with min 3 max 15 avg 7.918781725888325 runtimes
+2020-12-05 19:37:00,109 INFO     Loading cache data for sart planners: 897
+2020-12-05 19:37:00,148 INFO     Loaded data for 333 instances, with min 3 max 15 avg 8.08108108108108 runtimes
+2020-12-05 19:37:00,148 INFO     Stored sequences: 184
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_children': 11, 'const_ratio': 2, 'num_trays': 4, 'gluten_factor': 0.4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_children': 11, 'const_ratio': 2, 'num_trays': 4, 'gluten_factor': 0.4}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_children': 10, 'const_ratio': 1.3, 'num_trays': 4, 'gluten_factor': 0.4}, so I consider it unsolved within the time and memory limits
+2020-12-05 19:37:00,561 INFO     Different evaluated sequences: 126
+const_ratio 1 57 16
+const_ratio 1.3 35 13
+const_ratio 2 34 9
+num_trays 2 44 14
+num_trays 3 53 12
+num_trays 4 29 12
+gluten_factor 0.4 41 13
+gluten_factor 0.6 24 10
+gluten_factor 0.8 61 15
+2020-12-05 19:37:00,628 INFO     Candidate sequences: 38
+2020-12-05 19:37:00,629 INFO     Using sart runtimes on CPLEX optimization
+2020-12-05 19:37:00,673 INFO     CPLEX solve
+
+2020-12-05 19:37:00,699 INFO     Solution status = 101: MIP_optimal
+2020-12-05 19:37:00,699 INFO     Solution value  = 26.855324611099192
+Selected: sequence 24, 10 instances from 6 to 15
+Configuration: {'const_ratio': 1.3, 'gluten_factor': 0.8, 'num_children_b': 4, 'num_children_m': 1.1, 'num_trays': 4}
+Penalty: 12.54
+Estimated runtimes: 74, 1.1e+02, 2e+02, 4.8e+02, 1.1e+03, 2.7e+03, 6.5e+03, 1.6e+04, 3.7e+04, 8.8e+04, 2.1e+05, 5e+05, 1.2e+06, 2.9e+06, 6.9e+06, 1.6e+07, 3.9e+07, 9.3e+07, 2.2e+08, 5.3e+08, 1.3e+09, 3e+09, 7.2e+09, 1.7e+10
+Selected: sequence 4, 20 instances from 0 to 19
+Configuration: {'const_ratio': 2, 'gluten_factor': 0.4, 'num_children_b': 2, 'num_children_m': 1.1, 'num_trays': 3}
+Penalty: 14.32
+Estimated runtimes: 0.17, 0.19, 0.21, 0.38, 0.41, 0.54, 0.79, 5.3, 12, 41, 1.2e+02, 1.2e+02, 2.9e+02, 7.1e+02, 1.7e+03, 4.1e+03, 9.9e+03, 2.4e+04, 5.8e+04, 1.4e+05, 3.3e+05, 8.1e+05, 1.9e+06, 4.7e+06, 1.1e+07, 2.7e+07, 6.5e+07, 1.6e+08, 3.8e+08, 9.2e+08
+  p01: {'num_children': 10, 'const_ratio': 1.3, 'num_trays': 4, 'gluten_factor': 0.8}
+  p02: {'num_children': 11, 'const_ratio': 1.3, 'num_trays': 4, 'gluten_factor': 0.8}
+  p03: {'num_children': 12, 'const_ratio': 1.3, 'num_trays': 4, 'gluten_factor': 0.8}
+  p04: {'num_children': 13, 'const_ratio': 1.3, 'num_trays': 4, 'gluten_factor': 0.8}
+  p05: {'num_children': 14, 'const_ratio': 1.3, 'num_trays': 4, 'gluten_factor': 0.8}
+  p06: {'num_children': 16, 'const_ratio': 1.3, 'num_trays': 4, 'gluten_factor': 0.8}
+  p07: {'num_children': 17, 'const_ratio': 1.3, 'num_trays': 4, 'gluten_factor': 0.8}
+  p08: {'num_children': 18, 'const_ratio': 1.3, 'num_trays': 4, 'gluten_factor': 0.8}
+  p09: {'num_children': 19, 'const_ratio': 1.3, 'num_trays': 4, 'gluten_factor': 0.8}
+  p10: {'num_children': 20, 'const_ratio': 1.3, 'num_trays': 4, 'gluten_factor': 0.8}
+  p11: {'num_children': 2, 'const_ratio': 2, 'num_trays': 3, 'gluten_factor': 0.4}
+  p12: {'num_children': 3, 'const_ratio': 2, 'num_trays': 3, 'gluten_factor': 0.4}
+  p13: {'num_children': 4, 'const_ratio': 2, 'num_trays': 3, 'gluten_factor': 0.4}
+  p14: {'num_children': 5, 'const_ratio': 2, 'num_trays': 3, 'gluten_factor': 0.4}
+  p15: {'num_children': 6, 'const_ratio': 2, 'num_trays': 3, 'gluten_factor': 0.4}
+  p16: {'num_children': 7, 'const_ratio': 2, 'num_trays': 3, 'gluten_factor': 0.4}
+  p17: {'num_children': 8, 'const_ratio': 2, 'num_trays': 3, 'gluten_factor': 0.4}
+  p18: {'num_children': 9, 'const_ratio': 2, 'num_trays': 3, 'gluten_factor': 0.4}
+  p19: {'num_children': 10, 'const_ratio': 2, 'num_trays': 3, 'gluten_factor': 0.4}
+  p20: {'num_children': 11, 'const_ratio': 2, 'num_trays': 3, 'gluten_factor': 0.4}
+  p21: {'num_children': 12, 'const_ratio': 2, 'num_trays': 3, 'gluten_factor': 0.4}
+  p22: {'num_children': 14, 'const_ratio': 2, 'num_trays': 3, 'gluten_factor': 0.4}
+  p23: {'num_children': 15, 'const_ratio': 2, 'num_trays': 3, 'gluten_factor': 0.4}
+  p24: {'num_children': 16, 'const_ratio': 2, 'num_trays': 3, 'gluten_factor': 0.4}
+  p25: {'num_children': 17, 'const_ratio': 2, 'num_trays': 3, 'gluten_factor': 0.4}
+  p26: {'num_children': 18, 'const_ratio': 2, 'num_trays': 3, 'gluten_factor': 0.4}
+  p27: {'num_children': 19, 'const_ratio': 2, 'num_trays': 3, 'gluten_factor': 0.4}
+  p28: {'num_children': 20, 'const_ratio': 2, 'num_trays': 3, 'gluten_factor': 0.4}
+  p29: {'num_children': 21, 'const_ratio': 2, 'num_trays': 3, 'gluten_factor': 0.4}
+  p30: {'num_children': 22, 'const_ratio': 2, 'num_trays': 3, 'gluten_factor': 0.4}
+
+real	0m1.738s
+user	0m1.708s
+sys	0m0.856s

@@ -1,0 +1,69 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-05 19:53:47,395 INFO     No run directory, so we will not run anything
+2020-12-05 19:53:47,562 INFO     Loading cache data for baseline planners: 1155
+2020-12-05 19:53:47,616 INFO     Loaded data for 263 instances, with min 3 max 15 avg 13.17490494296578 runtimes
+2020-12-05 19:53:47,616 INFO     Loading cache data for sart planners: 2427
+2020-12-05 19:53:47,750 INFO     Loaded data for 604 instances, with min 3 max 15 avg 12.054635761589404 runtimes
+2020-12-05 19:53:47,750 INFO     Stored sequences: 431
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 18, 'y': 19, 'r': 0.5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 15, 'y': 20, 'r': 0.5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 16, 'y': 20, 'r': 0.5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 15, 'y': 20, 'r': 0.5}, so I consider it unsolved within the time and memory limits
+2020-12-05 19:53:51,776 INFO     Different evaluated sequences: 320
+r 0.5 20 19
+r 0.75 25 21
+r 1 43 35
+r 0.5 4 3
+r 0.75 5 4
+r 1 4 3
+r 0.5 1 1
+r 0.75 3 2
+r 1 12 9
+r 0.5 11 9
+r 0.75 4 4
+r 1 17 11
+2020-12-05 19:53:52,046 INFO     Candidate sequences: 121
+2020-12-05 19:53:52,048 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 89 use baseline 32 use sart
+2020-12-05 19:53:52,050 INFO     Using sart runtimes on CPLEX optimization
+2020-12-05 19:53:52,096 INFO     CPLEX solve
+
+2020-12-05 19:53:52,146 INFO     Solution status = 101: MIP_optimal
+2020-12-05 19:53:52,146 INFO     Solution value  = 956.3872330513749
+Selected: sequence 5, 30 instances from 0 to 29
+Configuration: {'grid_m': 3.0, 'grid_maxdiff': 0, 'grid_x': 8, 'r': 1}
+Penalty: 8.36
+Estimated runtimes: 0.56, 0.67, 0.85, 1.1, 1.6, 2.3, 3.3, 4.9, 7, 10, 14, 19, 25, 33, 43, 58, 75, 95, 1.2e+02, 1.4e+02, 1.5e+02, 2.4e+02, 3.1e+02, 4.1e+02, 5.4e+02, 7.1e+02, 9.3e+02, 1.2e+03, 1.6e+03, 2.1e+03
+  p01: {'x': 8, 'y': 8, 'r': 1}
+  p02: {'x': 11, 'y': 11, 'r': 1}
+  p03: {'x': 14, 'y': 14, 'r': 1}
+  p04: {'x': 17, 'y': 17, 'r': 1}
+  p05: {'x': 20, 'y': 20, 'r': 1}
+  p06: {'x': 23, 'y': 23, 'r': 1}
+  p07: {'x': 26, 'y': 26, 'r': 1}
+  p08: {'x': 29, 'y': 29, 'r': 1}
+  p09: {'x': 32, 'y': 32, 'r': 1}
+  p10: {'x': 35, 'y': 35, 'r': 1}
+  p11: {'x': 38, 'y': 38, 'r': 1}
+  p12: {'x': 41, 'y': 41, 'r': 1}
+  p13: {'x': 44, 'y': 44, 'r': 1}
+  p14: {'x': 47, 'y': 47, 'r': 1}
+  p15: {'x': 50, 'y': 50, 'r': 1}
+  p16: {'x': 53, 'y': 53, 'r': 1}
+  p17: {'x': 56, 'y': 56, 'r': 1}
+  p18: {'x': 59, 'y': 59, 'r': 1}
+  p19: {'x': 62, 'y': 62, 'r': 1}
+  p20: {'x': 65, 'y': 65, 'r': 1}
+  p21: {'x': 68, 'y': 68, 'r': 1}
+  p22: {'x': 71, 'y': 71, 'r': 1}
+  p23: {'x': 74, 'y': 74, 'r': 1}
+  p24: {'x': 77, 'y': 77, 'r': 1}
+  p25: {'x': 80, 'y': 80, 'r': 1}
+  p26: {'x': 83, 'y': 83, 'r': 1}
+  p27: {'x': 86, 'y': 86, 'r': 1}
+  p28: {'x': 89, 'y': 89, 'r': 1}
+  p29: {'x': 92, 'y': 92, 'r': 1}
+  p30: {'x': 95, 'y': 95, 'r': 1}
+
+real	0m5.309s
+user	0m5.476s
+sys	0m0.747s

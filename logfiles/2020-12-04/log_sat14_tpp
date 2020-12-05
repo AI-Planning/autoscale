@@ -1,0 +1,53 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-05 19:53:28,888 INFO     No run directory, so we will not run anything
+2020-12-05 19:53:29,052 INFO     Loading cache data for baseline planners: 288
+2020-12-05 19:53:29,063 INFO     Loaded data for 259 instances, with min 3 max 15 avg 3.335907335907336 runtimes
+2020-12-05 19:53:29,063 INFO     Loading cache data for sart planners: 617
+2020-12-05 19:53:29,088 INFO     Loaded data for 567 instances, with min 3 max 15 avg 3.2645502645502646 runtimes
+2020-12-05 19:53:29,088 INFO     Stored sequences: 41
+2020-12-05 19:53:29,189 INFO     Different evaluated sequences: 37
+2020-12-05 19:53:29,201 INFO     Candidate sequences: 37
+2020-12-05 19:53:29,201 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 3 use baseline 34 use sart
+2020-12-05 19:53:29,201 INFO     Using sart runtimes on CPLEX optimization
+2020-12-05 19:53:29,241 INFO     CPLEX solve
+
+2020-12-05 19:53:29,338 INFO     Solution status = 101: MIP_optimal
+2020-12-05 19:53:29,338 INFO     Solution value  = 8.075729365040456
+Selected: sequence 34, 30 instances from 0 to 29
+Configuration: {'depots_b': 1, 'depots_m': 1.4000000000000001, 'depots_optional_m': 'false', 'goods_b': 3, 'goods_m': 0.30000000000000004, 'markets_b': 5, 'markets_m': 4.9, 'markets_optional_m': 'true', 'products_b': 2, 'products_m': 1.2, 'trucks_b': 5, 'trucks_m': 0.8, 'trucks_optional_m': 'false'}
+Penalty: 8.08
+Estimated runtimes: 0.56, 0.62, 0.79, 1, 2, 3.4, 4.1, 8.5, 12, 17, 23, 46, 62, 91, 1.6e+02, 2.5e+02, 3.9e+02, 6.1e+02, 9.4e+02, 1.5e+03, 2.2e+03, 3.5e+03, 5.3e+03, 8.3e+03, 1.3e+04, 2e+04, 3e+04, 4.7e+04, 7.3e+04, 1.1e+05
+  p01: {'products': 2, 'markets': 5, 'trucks': 5, 'depots': 1, 'goods': 3}
+  p02: {'products': 3, 'markets': 5, 'trucks': 5, 'depots': 2, 'goods': 3}
+  p03: {'products': 4, 'markets': 5, 'trucks': 6, 'depots': 3, 'goods': 3}
+  p04: {'products': 5, 'markets': 5, 'trucks': 7, 'depots': 5, 'goods': 3}
+  p05: {'products': 6, 'markets': 5, 'trucks': 8, 'depots': 6, 'goods': 4}
+  p06: {'products': 8, 'markets': 5, 'trucks': 9, 'depots': 8, 'goods': 4}
+  p07: {'products': 9, 'markets': 5, 'trucks': 9, 'depots': 9, 'goods': 4}
+  p08: {'products': 10, 'markets': 5, 'trucks': 10, 'depots': 10, 'goods': 5}
+  p09: {'products': 11, 'markets': 5, 'trucks': 11, 'depots': 12, 'goods': 5}
+  p10: {'products': 12, 'markets': 5, 'trucks': 12, 'depots': 13, 'goods': 5}
+  p11: {'products': 13, 'markets': 5, 'trucks': 13, 'depots': 15, 'goods': 5}
+  p12: {'products': 15, 'markets': 5, 'trucks': 13, 'depots': 16, 'goods': 6}
+  p13: {'products': 16, 'markets': 5, 'trucks': 14, 'depots': 17, 'goods': 6}
+  p14: {'products': 17, 'markets': 5, 'trucks': 15, 'depots': 19, 'goods': 6}
+  p15: {'products': 18, 'markets': 5, 'trucks': 16, 'depots': 20, 'goods': 7}
+  p16: {'products': 19, 'markets': 5, 'trucks': 17, 'depots': 21, 'goods': 7}
+  p17: {'products': 21, 'markets': 5, 'trucks': 17, 'depots': 23, 'goods': 7}
+  p18: {'products': 22, 'markets': 5, 'trucks': 18, 'depots': 24, 'goods': 8}
+  p19: {'products': 23, 'markets': 5, 'trucks': 19, 'depots': 26, 'goods': 8}
+  p20: {'products': 24, 'markets': 5, 'trucks': 20, 'depots': 27, 'goods': 8}
+  p21: {'products': 25, 'markets': 5, 'trucks': 21, 'depots': 28, 'goods': 9}
+  p22: {'products': 27, 'markets': 5, 'trucks': 21, 'depots': 30, 'goods': 9}
+  p23: {'products': 28, 'markets': 5, 'trucks': 22, 'depots': 31, 'goods': 9}
+  p24: {'products': 29, 'markets': 5, 'trucks': 23, 'depots': 33, 'goods': 9}
+  p25: {'products': 30, 'markets': 5, 'trucks': 24, 'depots': 34, 'goods': 10}
+  p26: {'products': 31, 'markets': 5, 'trucks': 25, 'depots': 35, 'goods': 10}
+  p27: {'products': 33, 'markets': 5, 'trucks': 25, 'depots': 37, 'goods': 10}
+  p28: {'products': 34, 'markets': 5, 'trucks': 26, 'depots': 38, 'goods': 11}
+  p29: {'products': 35, 'markets': 5, 'trucks': 27, 'depots': 40, 'goods': 11}
+  p30: {'products': 36, 'markets': 5, 'trucks': 28, 'depots': 41, 'goods': 11}
+
+real	0m1.009s
+user	0m1.302s
+sys	0m0.782s

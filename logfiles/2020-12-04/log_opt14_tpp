@@ -1,0 +1,83 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-05 19:53:24,194 INFO     No run directory, so we will not run anything
+2020-12-05 19:53:24,322 INFO     Loading cache data for baseline planners: 285
+2020-12-05 19:53:24,331 INFO     Loaded data for 132 instances, with min 3 max 15 avg 6.4772727272727275 runtimes
+2020-12-05 19:53:24,331 INFO     Loading cache data for sart planners: 1034
+2020-12-05 19:53:24,379 INFO     Loaded data for 493 instances, with min 3 max 15 avg 6.292089249492901 runtimes
+2020-12-05 19:53:24,379 INFO     Stored sequences: 1151
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 12, 'markets': 1, 'trucks': 2, 'depots': 45, 'goods': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 13, 'markets': 1, 'trucks': 2, 'depots': 48, 'goods': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 13, 'markets': 1, 'trucks': 2, 'depots': 44, 'goods': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 12, 'markets': 1, 'trucks': 2, 'depots': 49, 'goods': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 13, 'markets': 1, 'trucks': 2, 'depots': 52, 'goods': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 13, 'markets': 1, 'trucks': 2, 'depots': 52, 'goods': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 13, 'markets': 1, 'trucks': 2, 'depots': 53, 'goods': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 13, 'markets': 1, 'trucks': 2, 'depots': 53, 'goods': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 12, 'markets': 1, 'trucks': 2, 'depots': 41, 'goods': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 13, 'markets': 1, 'trucks': 2, 'depots': 35, 'goods': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 12, 'markets': 1, 'trucks': 2, 'depots': 47, 'goods': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 12, 'markets': 1, 'trucks': 2, 'depots': 48, 'goods': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 13, 'markets': 1, 'trucks': 2, 'depots': 53, 'goods': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 12, 'markets': 1, 'trucks': 2, 'depots': 49, 'goods': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 12, 'markets': 1, 'trucks': 2, 'depots': 42, 'goods': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 12, 'markets': 1, 'trucks': 2, 'depots': 48, 'goods': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 12, 'markets': 1, 'trucks': 2, 'depots': 38, 'goods': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 13, 'markets': 1, 'trucks': 2, 'depots': 48, 'goods': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 12, 'markets': 1, 'trucks': 2, 'depots': 49, 'goods': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 12, 'markets': 1, 'trucks': 2, 'depots': 49, 'goods': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 12, 'markets': 1, 'trucks': 2, 'depots': 49, 'goods': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 12, 'markets': 1, 'trucks': 2, 'depots': 49, 'goods': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 13, 'markets': 1, 'trucks': 2, 'depots': 53, 'goods': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 12, 'markets': 1, 'trucks': 2, 'depots': 41, 'goods': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 12, 'markets': 1, 'trucks': 2, 'depots': 41, 'goods': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 13, 'markets': 1, 'trucks': 2, 'depots': 46, 'goods': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'products': 13, 'markets': 1, 'trucks': 2, 'depots': 10, 'goods': 5}, so I consider it unsolved within the time and memory limits
+2020-12-05 19:53:27,767 INFO     Different evaluated sequences: 115
+2020-12-05 19:53:27,884 INFO     Candidate sequences: 97
+2020-12-05 19:53:27,885 INFO     Using sart runtimes on CPLEX optimization
+2020-12-05 19:53:28,076 INFO     CPLEX solve
+
+2020-12-05 19:53:28,283 INFO     Solution status = 101: MIP_optimal
+2020-12-05 19:53:28,283 INFO     Solution value  = 16.40726814938087
+Selected: sequence 12, 9 instances from 8 to 16
+Configuration: {'depots_b': 2, 'depots_m': 4.8, 'depots_optional_m': 'false', 'goods_b': 4, 'goods_m': 0.1, 'markets_b': 1, 'markets_m': 1.2000000000000002, 'markets_optional_m': 'true', 'products_b': 2, 'products_m': 1.0, 'trucks_b': 2, 'trucks_m': 3.8000000000000003, 'trucks_optional_m': 'true'}
+Penalty: 7.75
+Estimated runtimes: 18, 29, 62, 1.8e+02, 5.3e+02, 1.5e+03, 4.5e+03, 1.3e+04, 3.9e+04, 1.1e+05, 3.3e+05, 9.7e+05, 2.8e+06, 8.3e+06, 2.4e+07, 7.1e+07, 2.1e+08, 6.1e+08, 1.8e+09, 5.2e+09, 1.5e+10, 4.4e+10
+Selected: sequence 70, 21 instances from 0 to 20
+Configuration: {'depots_b': 2, 'depots_m': 4.8, 'depots_optional_m': 'false', 'goods_b': 4, 'goods_m': 0.1, 'markets_b': 1, 'markets_m': 1.2000000000000002, 'markets_optional_m': 'true', 'products_b': 2, 'products_m': 1.2, 'trucks_b': 2, 'trucks_m': 4.9, 'trucks_optional_m': 'true'}
+Penalty: 8.65
+Estimated runtimes: 1.1, 1.4, 1.9, 2.8, 3.7, 7.3, 11, 29, 37, 47, 1.5e+02, 2.8e+02, 5.5e+02, 1.1e+03, 2.1e+03, 4.1e+03, 8.1e+03, 1.6e+04, 3.1e+04, 6e+04, 1.2e+05, 2.3e+05, 4.5e+05, 8.7e+05, 1.7e+06, 3.3e+06, 6.5e+06, 1.3e+07, 2.5e+07, 4.8e+07
+  p01: {'products': 10, 'markets': 1, 'trucks': 2, 'depots': 40, 'goods': 4}
+  p02: {'products': 11, 'markets': 1, 'trucks': 2, 'depots': 45, 'goods': 4}
+  p03: {'products': 12, 'markets': 1, 'trucks': 2, 'depots': 49, 'goods': 4}
+  p04: {'products': 13, 'markets': 1, 'trucks': 2, 'depots': 54, 'goods': 5}
+  p05: {'products': 14, 'markets': 1, 'trucks': 2, 'depots': 59, 'goods': 5}
+  p06: {'products': 15, 'markets': 1, 'trucks': 2, 'depots': 64, 'goods': 5}
+  p07: {'products': 16, 'markets': 1, 'trucks': 2, 'depots': 69, 'goods': 5}
+  p08: {'products': 17, 'markets': 1, 'trucks': 2, 'depots': 73, 'goods': 5}
+  p09: {'products': 18, 'markets': 1, 'trucks': 2, 'depots': 78, 'goods': 5}
+  p10: {'products': 2, 'markets': 1, 'trucks': 2, 'depots': 2, 'goods': 4}
+  p11: {'products': 3, 'markets': 1, 'trucks': 2, 'depots': 6, 'goods': 4}
+  p12: {'products': 4, 'markets': 1, 'trucks': 2, 'depots': 11, 'goods': 4}
+  p13: {'products': 5, 'markets': 1, 'trucks': 2, 'depots': 16, 'goods': 4}
+  p14: {'products': 6, 'markets': 1, 'trucks': 2, 'depots': 21, 'goods': 4}
+  p15: {'products': 8, 'markets': 1, 'trucks': 2, 'depots': 26, 'goods': 4}
+  p16: {'products': 9, 'markets': 1, 'trucks': 2, 'depots': 30, 'goods': 4}
+  p17: {'products': 10, 'markets': 1, 'trucks': 2, 'depots': 35, 'goods': 4}
+  p18: {'products': 11, 'markets': 1, 'trucks': 2, 'depots': 40, 'goods': 4}
+  p19: {'products': 12, 'markets': 1, 'trucks': 2, 'depots': 45, 'goods': 4}
+  p20: {'products': 13, 'markets': 1, 'trucks': 2, 'depots': 49, 'goods': 4}
+  p21: {'products': 15, 'markets': 1, 'trucks': 2, 'depots': 54, 'goods': 5}
+  p22: {'products': 16, 'markets': 1, 'trucks': 2, 'depots': 59, 'goods': 5}
+  p23: {'products': 17, 'markets': 1, 'trucks': 2, 'depots': 64, 'goods': 5}
+  p24: {'products': 18, 'markets': 1, 'trucks': 2, 'depots': 69, 'goods': 5}
+  p25: {'products': 19, 'markets': 1, 'trucks': 2, 'depots': 73, 'goods': 5}
+  p26: {'products': 21, 'markets': 1, 'trucks': 2, 'depots': 78, 'goods': 5}
+  p27: {'products': 22, 'markets': 1, 'trucks': 2, 'depots': 83, 'goods': 5}
+  p28: {'products': 23, 'markets': 1, 'trucks': 2, 'depots': 88, 'goods': 5}
+  p29: {'products': 24, 'markets': 1, 'trucks': 2, 'depots': 93, 'goods': 5}
+  p30: {'products': 25, 'markets': 1, 'trucks': 2, 'depots': 97, 'goods': 5}
+
+real	0m4.682s
+user	0m4.876s
+sys	0m0.957s
