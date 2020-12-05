@@ -21,15 +21,14 @@ class BenchmarkConfigurationReport(PlanningReport):
                 for seq in run.get("sequences", []):
                     sequences[domain].append(ast.literal_eval(seq))
             for run in runs:
-                baseline_average_runtimes[domain].extend(run.get("baseline_average_runtimes", []))
-                sart_average_runtimes[domain].extend(run.get("sart_average_runtimes", []))
+                baseline_average_runtimes[domain].extend(run.get("baseline_runtimes", []))
+                sart_average_runtimes[domain].extend(run.get("sart_runtimes", []))
 
         result = {}
         for domain in domains:
             result[domain] = {
                 "sequences": sequences[domain],
-                "baseline_average_runtimes:": baseline_average_runtimes[domain],
-                "sart_average_runtimes": sart_average_runtimes[domain]}
+                "baseline_runtimes:": baseline_average_runtimes[domain],
+                "sart_runtimes": sart_average_runtimes[domain]}
 
         return json.dumps(result, sort_keys=True)
-
