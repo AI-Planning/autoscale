@@ -275,6 +275,10 @@ if ARGS.database:
             logging.info (f"Loading cache data for baseline planners: {len(content[ARGS.domain]['baseline_runtimes'])}")
             RUNNER_BASELINE.load_cache_from_log_file(content[ARGS.domain]["baseline_runtimes"])
 
+        if "baseline_runtimes:" in content[ARGS.domain]:
+            logging.info (f"Loading cache data for baseline planners: {len(content[ARGS.domain]['baseline_runtimes:'])}")
+            RUNNER_BASELINE.load_cache_from_log_file(content[ARGS.domain]["baseline_runtimes:"])
+
         if "sart_runtimes" in content[ARGS.domain]:
             logging.info (f"Loading cache data for sart planners: {len(content[ARGS.domain]['sart_runtimes'])}" )
             RUNNER_SART.load_cache_from_log_file(content[ARGS.domain]["sart_runtimes"])

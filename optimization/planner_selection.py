@@ -216,4 +216,4 @@ def verify_planner_selection():
                 # assert name != get_baseline_planner("opt"), name
                 # assert name != get_baseline_planner("sat"), name
 
-verify_planner_selection()
+# verify_planner_selection()

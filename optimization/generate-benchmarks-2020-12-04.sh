@@ -10,8 +10,7 @@ LOGS_FOLDER_PREFIX=../logfiles/$NAME
 
 mkdir -p $LOGS_FOLDER_PREFIX
 
-
-for domain in barman blocksworld childsnack depots driverlog elevators floortile gripper hiking miconic-strips nomystery parking rover satellite scanalyzer snake storage tpp transport visitall woodworking zenotravel data-network grid logistics openstacks
+for domain in barman blocksworld childsnack depots driverlog elevators floortile gripper hiking miconic nomystery parking rovers satellite scanalyzer snake storage tpp transport visitall woodworking zenotravel data-network grid logistics openstack
 do
     echo $domain;
 
