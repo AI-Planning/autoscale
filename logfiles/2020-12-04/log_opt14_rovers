@@ -1,0 +1,57 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-05 20:25:40,457 INFO     No run directory, so we will not run anything
+2020-12-05 20:25:40,585 INFO     Loading cache data for baseline planners: 571
+2020-12-05 20:25:40,607 INFO     Loaded data for 468 instances, with min 3 max 15 avg 3.66025641025641 runtimes
+2020-12-05 20:25:40,607 INFO     Loading cache data for sart planners: 1709
+2020-12-05 20:25:40,711 INFO     Loaded data for 1544 instances, with min 3 max 15 avg 3.3205958549222796 runtimes
+2020-12-05 20:25:40,711 INFO     Stored sequences: 98
+2020-12-05 20:25:40,992 INFO     Different evaluated sequences: 94
+2020-12-05 20:25:41,124 INFO     Candidate sequences: 94
+2020-12-05 20:25:41,125 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 2 use baseline 92 use sart
+2020-12-05 20:25:41,126 INFO     Using sart runtimes on CPLEX optimization
+2020-12-05 20:25:41,287 INFO     CPLEX solve
+
+2020-12-05 20:25:41,463 INFO     Solution status = 101: MIP_optimal
+2020-12-05 20:25:41,463 INFO     Solution value  = 13.614819054503986
+Selected: sequence 54, 19 instances from 2 to 20
+Configuration: {'cameras_b': 3, 'cameras_m': 0.4, 'cameras_optional_m': 'false', 'goals_b': 6, 'goals_m': 1.0, 'objectives_b': 1, 'objectives_m': 0.5, 'objectives_optional_m': 'false', 'rovers_b': 1, 'rovers_m': 0.5, 'rovers_optional_m': 'true', 'waypoints_b': 5, 'waypoints_m': 0.8}
+Penalty: 4.95
+Estimated runtimes: 1.1, 1.4, 1.6, 1.6, 2.3, 2.5, 3.6, 3.8, 5, 5.7, 8.5, 9.3, 17, 46, 2.4e+02, 7.8e+02, 2.5e+03, 8.2e+03, 2.7e+04, 8.7e+04, 2.8e+05, 9.1e+05, 3e+06, 9.6e+06, 3.1e+07, 1e+08, 3.3e+08, 1.1e+09
+Selected: sequence 31, 11 instances from 16 to 26
+Configuration: {'cameras_b': 3, 'cameras_m': 0.5, 'cameras_optional_m': 'false', 'goals_b': 6, 'goals_m': 1.0, 'objectives_b': 1, 'objectives_m': 0.5, 'objectives_optional_m': 'false', 'rovers_b': 1, 'rovers_m': 0.5, 'rovers_optional_m': 'true', 'waypoints_b': 5, 'waypoints_m': 1.0}
+Penalty: 6.66
+Estimated runtimes: 2.5e+02, 4.6e+02, 8.5e+02, 1.6e+03, 2.9e+03, 5.3e+03, 9.8e+03, 1.8e+04, 3.3e+04, 6.1e+04, 1.1e+05, 2.1e+05, 3.8e+05, 7e+05
+  p01: {'rovers': 1, 'objectives': 2, 'cameras': 3, 'goals': 8, 'waypoints': 6}
+  p02: {'rovers': 1, 'objectives': 2, 'cameras': 4, 'goals': 9, 'waypoints': 7}
+  p03: {'rovers': 1, 'objectives': 3, 'cameras': 4, 'goals': 10, 'waypoints': 8}
+  p04: {'rovers': 1, 'objectives': 3, 'cameras': 5, 'goals': 11, 'waypoints': 9}
+  p05: {'rovers': 1, 'objectives': 4, 'cameras': 5, 'goals': 12, 'waypoints': 9}
+  p06: {'rovers': 1, 'objectives': 4, 'cameras': 5, 'goals': 13, 'waypoints': 10}
+  p07: {'rovers': 1, 'objectives': 5, 'cameras': 6, 'goals': 14, 'waypoints': 11}
+  p08: {'rovers': 1, 'objectives': 5, 'cameras': 6, 'goals': 15, 'waypoints': 12}
+  p09: {'rovers': 1, 'objectives': 6, 'cameras': 7, 'goals': 16, 'waypoints': 13}
+  p10: {'rovers': 1, 'objectives': 6, 'cameras': 7, 'goals': 17, 'waypoints': 13}
+  p11: {'rovers': 1, 'objectives': 7, 'cameras': 7, 'goals': 18, 'waypoints': 14}
+  p12: {'rovers': 1, 'objectives': 7, 'cameras': 8, 'goals': 19, 'waypoints': 15}
+  p13: {'rovers': 1, 'objectives': 8, 'cameras': 8, 'goals': 20, 'waypoints': 16}
+  p14: {'rovers': 1, 'objectives': 8, 'cameras': 9, 'goals': 21, 'waypoints': 17}
+  p15: {'rovers': 1, 'objectives': 9, 'cameras': 9, 'goals': 22, 'waypoints': 17}
+  p16: {'rovers': 1, 'objectives': 9, 'cameras': 9, 'goals': 23, 'waypoints': 18}
+  p17: {'rovers': 1, 'objectives': 10, 'cameras': 10, 'goals': 24, 'waypoints': 19}
+  p18: {'rovers': 1, 'objectives': 10, 'cameras': 10, 'goals': 25, 'waypoints': 20}
+  p19: {'rovers': 1, 'objectives': 11, 'cameras': 11, 'goals': 26, 'waypoints': 21}
+  p20: {'rovers': 1, 'objectives': 9, 'cameras': 11, 'goals': 22, 'waypoints': 21}
+  p21: {'rovers': 1, 'objectives': 9, 'cameras': 11, 'goals': 23, 'waypoints': 22}
+  p22: {'rovers': 1, 'objectives': 10, 'cameras': 12, 'goals': 24, 'waypoints': 23}
+  p23: {'rovers': 1, 'objectives': 10, 'cameras': 12, 'goals': 25, 'waypoints': 24}
+  p24: {'rovers': 1, 'objectives': 11, 'cameras': 13, 'goals': 26, 'waypoints': 25}
+  p25: {'rovers': 1, 'objectives': 11, 'cameras': 13, 'goals': 27, 'waypoints': 26}
+  p26: {'rovers': 1, 'objectives': 12, 'cameras': 14, 'goals': 28, 'waypoints': 27}
+  p27: {'rovers': 1, 'objectives': 12, 'cameras': 14, 'goals': 29, 'waypoints': 28}
+  p28: {'rovers': 1, 'objectives': 13, 'cameras': 15, 'goals': 30, 'waypoints': 29}
+  p29: {'rovers': 1, 'objectives': 13, 'cameras': 15, 'goals': 31, 'waypoints': 30}
+  p30: {'rovers': 1, 'objectives': 14, 'cameras': 16, 'goals': 32, 'waypoints': 31}
+
+real	0m1.594s
+user	0m2.001s
+sys	0m0.841s

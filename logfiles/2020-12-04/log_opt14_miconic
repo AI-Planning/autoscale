@@ -1,0 +1,106 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-05 20:21:35,097 INFO     No run directory, so we will not run anything
+2020-12-05 20:21:35,220 INFO     Loading cache data for baseline planners: 605
+2020-12-05 20:21:35,242 INFO     Loaded data for 224 instances, with min 3 max 15 avg 8.102678571428571 runtimes
+2020-12-05 20:21:35,242 INFO     Loading cache data for sart planners: 2879
+2020-12-05 20:21:35,431 INFO     Loaded data for 1252 instances, with min 3 max 15 avg 6.8985623003194885 runtimes
+2020-12-05 20:21:35,431 INFO     Stored sequences: 987
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 22, 'floors': 63}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 21, 'floors': 57}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 21, 'floors': 40}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 25, 'floors': 37}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 25, 'floors': 57}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 27, 'floors': 23}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 27, 'floors': 49}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 24, 'floors': 49}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 21, 'floors': 64}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 27, 'floors': 40}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 22, 'floors': 69}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 25, 'floors': 50}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 21, 'floors': 73}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 23, 'floors': 48}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 22, 'floors': 65}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 27, 'floors': 49}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 27, 'floors': 21}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 24, 'floors': 47}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 27, 'floors': 23}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 25, 'floors': 47}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 25, 'floors': 48}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 26, 'floors': 49}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 27, 'floors': 41}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 27, 'floors': 23}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 21, 'floors': 103}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 27, 'floors': 32}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 27, 'floors': 45}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 26, 'floors': 94}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 26, 'floors': 93}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 21, 'floors': 45}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 26, 'floors': 35}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 26, 'floors': 74}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 26, 'floors': 30}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 24, 'floors': 61}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 27, 'floors': 21}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 26, 'floors': 102}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 27, 'floors': 45}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 22, 'floors': 48}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 27, 'floors': 21}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 23, 'floors': 40}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 26, 'floors': 59}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 26, 'floors': 101}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 27, 'floors': 39}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 26, 'floors': 103}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 26, 'floors': 66}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 27, 'floors': 40}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 27, 'floors': 23}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 26, 'floors': 61}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'passengers': 27, 'floors': 33}, so I consider it unsolved within the time and memory limits
+2020-12-05 20:21:39,634 INFO     Different evaluated sequences: 552
+2020-12-05 20:21:40,000 INFO     Candidate sequences: 100
+2020-12-05 20:21:40,002 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 1 use baseline 99 use sart
+2020-12-05 20:21:40,002 INFO     Using sart runtimes on CPLEX optimization
+2020-12-05 20:21:40,211 INFO     CPLEX solve
+
+2020-12-05 20:21:40,614 INFO     Solution status = 101: MIP_optimal
+2020-12-05 20:21:40,614 INFO     Solution value  = 17.827025127233625
+Selected: sequence 180, 7 instances from 20 to 26
+Configuration: {'floors_b': 7, 'floors_m': 0.4, 'floors_optional_m': 'false', 'passengers_b': 7, 'passengers_m': 1.1}
+Penalty: 7.32
+Estimated runtimes: 1.8e+02, 4.9e+02, 1.4e+03, 3.7e+03, 1e+04, 2.8e+04, 7.6e+04, 2.1e+05, 5.7e+05, 1.6e+06
+Selected: sequence 210, 23 instances from 0 to 22
+Configuration: {'floors_b': 10, 'floors_m': 0.2, 'floors_optional_m': 'false', 'passengers_b': 9, 'passengers_m': 1.4000000000000001}
+Penalty: 8.51
+Estimated runtimes: 0.53, 0.54, 0.54, 0.56, 0.58, 0.61, 1, 2.1, 2.3, 3.6, 7.2, 8.7, 16, 16, 72, 1.8e+02, 4.5e+02, 1.1e+03, 2.8e+03, 6.9e+03, 1.7e+04, 4.3e+04, 1.1e+05, 2.6e+05, 6.5e+05, 1.6e+06, 4e+06, 1e+07, 2.5e+07, 6.2e+07
+  p01: {'passengers': 29, 'floors': 15}
+  p02: {'passengers': 30, 'floors': 15}
+  p03: {'passengers': 31, 'floors': 15}
+  p04: {'passengers': 32, 'floors': 16}
+  p05: {'passengers': 33, 'floors': 16}
+  p06: {'passengers': 34, 'floors': 17}
+  p07: {'passengers': 35, 'floors': 17}
+  p08: {'passengers': 9, 'floors': 10}
+  p09: {'passengers': 10, 'floors': 10}
+  p10: {'passengers': 11, 'floors': 10}
+  p11: {'passengers': 13, 'floors': 10}
+  p12: {'passengers': 14, 'floors': 10}
+  p13: {'passengers': 16, 'floors': 10}
+  p14: {'passengers': 17, 'floors': 11}
+  p15: {'passengers': 18, 'floors': 11}
+  p16: {'passengers': 20, 'floors': 11}
+  p17: {'passengers': 21, 'floors': 11}
+  p18: {'passengers': 22, 'floors': 11}
+  p19: {'passengers': 24, 'floors': 12}
+  p20: {'passengers': 25, 'floors': 12}
+  p21: {'passengers': 27, 'floors': 12}
+  p22: {'passengers': 28, 'floors': 12}
+  p23: {'passengers': 29, 'floors': 12}
+  p24: {'passengers': 31, 'floors': 13}
+  p25: {'passengers': 32, 'floors': 13}
+  p26: {'passengers': 34, 'floors': 13}
+  p27: {'passengers': 35, 'floors': 13}
+  p28: {'passengers': 36, 'floors': 13}
+  p29: {'passengers': 38, 'floors': 14}
+  p30: {'passengers': 39, 'floors': 14}
+
+real	0m6.071s
+user	0m7.032s
+sys	0m0.842s
