@@ -406,8 +406,8 @@ def get_evaluation_experiment(
     for domain in domains:
         suite.extend(suites.build_suite(abs_benchmarks_dir, [domain]))
     if not REMOTE:
-        suite = suite[:1] #[task for task in suite if task.problem == "p01.pddl"]
-        #planners = planners[:1]
+        suite = [task for task in suite if task.problem == "p01.pddl"]
+        planners = planners[:1]
 
     for planner_nick in planners:
         planner, _ = get_image(planner_nick)
