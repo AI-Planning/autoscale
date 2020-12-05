@@ -77,4 +77,5 @@ def group_domains(run):
     old_domain = run["domain"]
     run["domain"] = DOMAIN_RENAMINGS[old_domain]
     run["problem"] = old_domain + "-" + run["problem"]
+    run["id"][2] = run["problem"]
     return run

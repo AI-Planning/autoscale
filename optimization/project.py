@@ -250,8 +250,7 @@ def fetch_algorithm(exp, expname, algo, new_algo=None):
     def algo_filter(run):
         if run["algorithm"] == algo:
             run["algorithm"] = new_algo
-            for i, part in enumerate(run['id']):
-                run['id'][i] = part.replace(algo, new_algo)
+            run["id"][0] = new_algo
             return run
         return False
 
@@ -372,7 +371,10 @@ def get_smac_experiment(
 
 
 def get_evaluation_experiment(
-    planners, benchmarks_dirs, domains, attributes, environment=None):
+    planners, benchmarks_dir, domains, attributes, environment=None):
+    """
+    *bechmarks_dir* can either be an absolute path or a directory name under ^/benchmarks/.
+    """
     if not environment:
         if REMOTE:
             environment = BaselSlurmEnvironment(partition="infai_2", email=USER.email)
@@ -400,17 +402,12 @@ def get_evaluation_experiment(
     exp.add_resource("run_singularity", singularity_script)
 
     suite = []
-    for benchmarks_dir in benchmarks_dirs:
-        abs_benchmarks_dir = Path(REPO) / "benchmarks" / benchmarks_dir
-        for domain in domains:
-            suite.extend(suites.build_suite(abs_benchmarks_dir, [domain]))
-    # TODO: remove filtering again.
-    print(f"TASKS: {len(suite)}")
-    suite = [task for task in suite if task.problem.startswith(tuple(f"p{i:02}" for i in range(1, 31, 5)))]
-    print(f"TASKS: {len(suite)}")
+    abs_benchmarks_dir = (Path(REPO) / "benchmarks" / benchmarks_dir).resolve()
+    for domain in domains:
+        suite.extend(suites.build_suite(abs_benchmarks_dir, [domain]))
     if not REMOTE:
-        suite = [task for task in suite if task.problem == "p01-0.pddl"]  # TODO: change back to p01.pddl
-        planners = planners[:1]
+        suite = suite[:1] #[task for task in suite if task.problem == "p01.pddl"]
+        #planners = planners[:1]
 
     for planner_nick in planners:
         planner, _ = get_image(planner_nick)
@@ -433,7 +430,7 @@ def get_evaluation_experiment(
     add_scp_steps(exp)
 
     report = Path(exp.eval_dir) / f"{exp.name}.html"
-    exp.add_report(BaseReport(attributes=attributes), outfile=report)
+    exp.add_report(BaseReport(attributes=attributes, filter=[group_domains]), outfile=report)
     exp.add_step("open-report", subprocess.call, ["xdg-open", report])
     exp.add_step("publish-report", subprocess.call, ["publish", report])
     exp.add_report(
