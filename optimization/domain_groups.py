@@ -52,7 +52,8 @@ DOMAIN_GROUPS = {
     "zenotravel": ["zenotravel"],
     # IPC 2018:
     "agricola": ["agricola", "agricola-opt18-strips", "agricola-sat18-strips"],
-    "caldera": ["caldera-opt18-adl", "caldera-split-opt18-adl", "caldera-sat18-adl", "caldera-split-sat18-adl"],
+    "caldera": ["caldera-opt18-adl", "caldera-sat18-adl"],
+    "caldera-split": ["caldera-split-opt18-adl", "caldera-split-sat18-adl"],
     "data-network": ["data-network", "data-network-opt18-strips", "data-network-sat18-strips"],
     "flashfill": ["flashfill-sat18-adl"],
     "nurikabe": ["nurikabe-opt18-adl", "nurikabe-sat18-adl"],
