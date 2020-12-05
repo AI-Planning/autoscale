@@ -60,10 +60,23 @@ class Runner:
             non_linear_key = tuple([parameters[attr] for attr in self.parameters_cache_key if attr not in self.linear_attributes_names])
 
             if cache_key not in self.exact_cache:
+                logging.debug (f"Loading {cache_key}: {runtimes}")
                 self.exact_cache[cache_key] = runtimes
                 self.frontier_cache[non_linear_key].append(
                     ({linear_atr : parameters[linear_atr] for linear_atr in self.linear_attributes_names}, compute_average(runtimes))
                 )
+            else:
+                logging.debug (f"Loading additional data for {cache_key}: {runtimes}")
+                self.exact_cache[cache_key] += runtimes
+
+                self.frontier_cache[non_linear_key].append(
+                    ({linear_atr : parameters[linear_atr] for linear_atr in self.linear_attributes_names}, compute_average(self.exact_cache[cache_key]))
+                )
+
+
+            num_runtimes = [len(x) for x in self.exact_cache.values()]
+
+        logging.info(f"Loaded data for {len(self.exact_cache)} instances, with min {min(num_runtimes)} max {max(num_runtimes)} avg {statistics.mean(num_runtimes)} runtimes")
 
     def is_solvable(self, parameters, time_limit):
         runtimes = self.run_planners(parameters, time_limit, 1)
@@ -81,6 +94,7 @@ class Runner:
         cache_key = tuple([parameters[attr] for attr in self.parameters_cache_key])
 
         if cache_key in self.exact_cache:
+            logging.debug(f"Data from cache: {self.exact_cache[cache_key]}")
             return self.exact_cache[cache_key]
 
         # Check the unsolvability cache to see if the problem is too hard

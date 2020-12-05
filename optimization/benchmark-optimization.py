@@ -24,7 +24,7 @@ try:
 except ImportError:
     cplex = None
 
-from domain_configuration import get_domains
+from domain_configuration import get_domains, compute_average
 from domain_configuration import EvaluatedSequence, EstimatedSequence
 from planner_selection import get_baseline_planner, get_sart_planners
 
@@ -218,19 +218,19 @@ class CPLEXSequence:
         self.config = sequence['config']
         self.penalty = sequence['penalty']
 
-        self.runtimes_baseline = runtimes_baseline
-        self.runtimes_sart = runtimes_sart
+        self.runtimes_baseline = list(map(lambda x : compute_average(x, 2*PLANNER_TIME_LIMIT), runtimes_baseline))
+        self.runtimes_sart = list(map(lambda x : compute_average(x, 2*PLANNER_TIME_LIMIT), runtimes_sart))
 
-        self.trivial_instances = len([t for t in runtimes_baseline if t < 30])
-        self.solved_instances = len(runtimes_sart)
+        self.trivial_instances = len([t for t in self.runtimes_baseline if t < 30])
+        self.solved_instances = len(self.runtimes_sart)
 
         if self.solved_instances < ARGS.sequence_length:
-            self.runtimes = runtimes_sart
+            self.runtimes = self.runtimes_sart
             self.use_baseline_instead_of_sart = False
         else:
             # All instances were solved by the baseline so we switch to use baseline runtimes instead
-            self.solved_instances = len(runtimes_baseline)
-            self.runtimes = sorted(runtimes_baseline)
+            self.solved_instances = len(self.runtimes_baseline)
+            self.runtimes = sorted(self.runtimes_baseline)
             self.use_baseline_instead_of_sart = True
 
         self.sorted_runtimes = sorted(self.runtimes)
@@ -400,13 +400,13 @@ RUNNER_SART = Runner("sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track,
 with open(ARGS.database) as f:
     content = json.load(f)
 
-if "baseline_average_runtimes:" in content[ARGS.domain]:
-    logging.info (f"Loading cache data for baseline planners: {len(content[ARGS.domain]['baseline_average_runtimes:'])}")
-    RUNNER_BASELINE.load_cache_from_log_file(content[ARGS.domain]["baseline_average_runtimes:"])
+if "baseline_runtimes:" in content[ARGS.domain]:
+    logging.info (f"Loading cache data for baseline planners: {len(content[ARGS.domain]['baseline_runtimes:'])}")
+    RUNNER_BASELINE.load_cache_from_log_file(content[ARGS.domain]["baseline_runtimes:"])
 
-if "sart_average_runtimes" in content[ARGS.domain]:
-    logging.info (f"Loading cache data for sart planners: {len(content[ARGS.domain]['sart_average_runtimes'])}" )
-    RUNNER_SART.load_cache_from_log_file(content[ARGS.domain]["sart_average_runtimes"])
+if "sart_runtimes" in content[ARGS.domain]:
+    logging.info (f"Loading cache data for sart planners: {len(content[ARGS.domain]['sart_runtimes'])}" )
+    RUNNER_SART.load_cache_from_log_file(content[ARGS.domain]["sart_runtimes"])
 
 domain = DOMAINS[ARGS.domain]
 

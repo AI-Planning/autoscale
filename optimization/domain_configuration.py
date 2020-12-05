@@ -23,7 +23,7 @@ def filter_unsolved(runtimes):
 
 def compute_average(runtimes, runtime_unsolved=None):
     filtered_runtimes = filter_unsolved(runtimes)
-    if runtime_unsolved:
+    if filtered_runtimes and runtime_unsolved:
         filtered_runtimes += [runtime_unsolved]*(len(runtimes) - len(filtered_runtimes))
 
     return statistics.mean(filtered_runtimes) if filtered_runtimes else None
@@ -43,7 +43,8 @@ class EvaluatedSequence:
         return self.seq[self.next_index]
 
     def get_runtimes(self, n, larger_than, lower_than):
-        return sorted([t for t in self.runtimes if len(filter_unsolved(t)) > 0 and compute_average(t) <= lower_than and compute_average(t) >= larger_than])[:n]
+
+        return sorted([t for t in self.runtimes if len(filter_unsolved(t)) > 0 and compute_average(t) <= lower_than and compute_average(t) >= larger_than], key=lambda t : compute_average(t))[:n]
 
     def num_solved (self):
         return len(self.runtimes)
@@ -524,7 +525,7 @@ DOMAIN_LIST_OPT = [
     ),
     Domain("barman",
            "barman-generator.py {num_cocktails} {num_ingredients} {num_shots} {seed}",
-           [LinearAtr("num_cocktails", lower_b=1, upper_b=10, lower_m=1),
+           [LinearAtr("num_cocktails", lower_b=1, upper_b=10),
             LinearAtr("num_shots", base_atr="num_cocktails", lower_b=1, upper_b=5, optional_m=True),
             EnumAtr("num_ingredients", [2,3,4,5,6])
            ],
