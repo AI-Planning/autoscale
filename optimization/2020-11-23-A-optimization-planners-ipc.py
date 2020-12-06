@@ -102,6 +102,9 @@ exp.add_report(BaseReport(attributes=ATTRIBUTES), outfile=report)
 exp.add_step("open-report", subprocess.call, ["xdg-open", report])
 exp.add_step("publish-report", subprocess.call, ["publish", report])
 
+exp.add_report(
+    project.CoverageData(filter=[project.group_domains]),
+    outfile=DIR / "results" / f"{exp.name}-coverage.json")
 exp.add_report(FilterReport(), outfile=DIR / "results" / f"{exp.name}-properties.json")
 
 exp.run_steps()

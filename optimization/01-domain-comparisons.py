@@ -9,7 +9,7 @@ import sys
 
 from lab.reports import Table
 
-from project import DOMAIN_RENAMINGS
+from domain_groups import DOMAIN_RENAMINGS
 
 FILE = os.path.abspath(__file__)
 DIR = os.path.dirname(FILE)
@@ -152,7 +152,7 @@ def parse_args():
 ARGS = parse_args()
 
 DOMAINS = [
-    "barman", "blocksworld", "childsnack", "data-network", "depot", "driverlog",
+    "barman", "blocksworld", "childsnack", "data-network", "depots", "driverlog",
     "elevators", "floortile", "grid", "gripper", "hiking", "logistics",
     "miconic", "nomystery", "openstacks", "parking", "rovers", "satellite",
     "scanalyzer", "snake", "storage", "tpp", "transport", "visitall",
