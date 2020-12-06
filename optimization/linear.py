@@ -292,7 +292,7 @@ def penalty_by_factor(factor):
         return 3 - 2*factor
     elif factor <= 2: # Runtime is increasing, but not very quickly
         return 0
-    elif factor > 2: # Runtime is increasing two quickly
+    elif factor > 2: # Runtime is increasing too quickly
         return 1 - (2 / factor)
 
 
