@@ -27,7 +27,7 @@ class Runner:
     # (i.e., we may safely assume that larger values
     # imply larger runtimes).  Linear parameters are important because we will use them to
     # avoid running planners on very large values that are estimated to be unsolvable within the time and memory limits.
-    def __init__(self, name, domain, planners, planner_time_limit, random_seed, runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, SINGULARITY_SCRIPT, simulate=False):
+    def __init__(self, name, domain, planners, planner_time_limit, random_seed, runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, SINGULARITY_SCRIPT):
         self.name = name
         # We have three types of caches
         self.exact_cache = {}  # Cache the exact runtime so that the same configuration is never run twice
@@ -44,7 +44,6 @@ class Runner:
         self.GENERATORS_DIR = GENERATORS_DIR
         self.logging = logging
         self.SINGULARITY_SCRIPT = SINGULARITY_SCRIPT
-        self.simulate = simulate
 
         self.parameters_cache_key = domain.get_generator_attribute_names()
 
@@ -135,11 +134,6 @@ class Runner:
 
                 runtimes = []
                 for image in self.planners:
-                    if self.simulate:
-                        if random.randint(0, 2) < 2:
-                            runtimes.append(random.randint(0, 20))
-                        continue
-
                     image_path = planner_selection.IMAGES_DIR / f"{image}.img"
                     if not image_path.exists():
                         sys.exit(f"Error, image does not exist: {image_path}")
