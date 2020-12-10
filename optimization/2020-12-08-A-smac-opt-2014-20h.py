@@ -18,7 +18,7 @@ NUMERIC_ATTRIBUTES = [
     project.Attribute("evaluation_time", min_wins=False),
 ]
 ATTRIBUTES = NUMERIC_ATTRIBUTES + [
-    "error", "run_dir", "final_*", "shared_runs",
+    "error", "run_dir", "final_*",
 ]
 EXTRA_OPTIONS = ["--database", str(project.DIR / "results" / "2020-12-04-A-smac-opt-2014-10h.json")]
 if project.REMOTE:

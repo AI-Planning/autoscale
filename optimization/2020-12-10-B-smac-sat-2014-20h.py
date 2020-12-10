@@ -20,7 +20,7 @@ NUMERIC_ATTRIBUTES = [
 ATTRIBUTES = NUMERIC_ATTRIBUTES + [
     "error", "run_dir", "final_*",
 ]
-EXTRA_OPTIONS = ["--database", str(project.DIR / "results" / "2020-12-04-B-smac-sat-2014-10h.json")]
+EXTRA_OPTIONS = ["--database", str(project.DIR / "results" / "2020-12-08-B-smac-sat-2014-20h.json")]
 if project.REMOTE:
     SMAC_RUNS_PER_DOMAIN = 5
 else:
