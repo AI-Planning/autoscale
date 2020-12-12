@@ -73,9 +73,11 @@ class Runner:
                 )
 
 
-            num_runtimes = [len(x) for x in self.exact_cache.values()]
-
-        logging.info(f"Loaded data for {len(self.exact_cache)} instances, with min {min(num_runtimes)} max {max(num_runtimes)} avg {statistics.mean(num_runtimes)} runtimes")
+        num_runtimes = [len(x) for x in self.exact_cache.values()]
+        if num_runtimes:
+            logging.info(f"Loaded data for {len(self.exact_cache)} instances, with min {min(num_runtimes)} max {max(num_runtimes)} avg {statistics.mean(num_runtimes)} runtimes")
+        else:
+            logging.warning("Found no data in database")
 
     def is_solvable(self, parameters, time_limit):
         runtimes = self.run_planners(parameters, time_limit, 1)
