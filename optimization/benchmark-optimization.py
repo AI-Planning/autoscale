@@ -29,6 +29,8 @@ from domain_configuration import get_domains, compute_average
 from domain_configuration import EvaluatedSequence, EstimatedSequence
 from planner_selection import get_baseline_planner, get_sart_planners
 
+from penalty import evaluate_full_multiple_sequences
+
 from runner import Runner
 
 warnings.simplefilter(action="ignore", category=FutureWarning)
@@ -214,9 +216,15 @@ class CPLEXConstraint:
 SEQ_ID = 1
 previous_parameters_of_evaluated_instances = []
 class CPLEXSequence:
-    def __init__(self, sequence, domain, runtimes_baseline, rumtimes_sart):
+    def __init__(self, sequence, domain, runtimes_baseline, runtimes_sart):
         self.config = sequence['config']
-        self.penalty = sequence['penalty']
+
+        self.penalty_baseline = evaluate_full_multiple_sequences(runtimes_baseline, 5, 5)
+        self.penalty_sart = evaluate_full_multiple_sequences(runtimes_sart, 5, 5)
+        self.penalty = self.penalty_baseline + self.penalty_sart
+
+        if abs(self.penalty - sequence['penalty']) > 3:
+            print(f"Warning: re-computed penalty {self.penalty} = {self.penalty_baseline} + {self.penalty_baseline}  differs from SMAC penalty {sequence['penalty']}" )
 
         self.runtimes_baseline = list(map(lambda x : compute_average(x, 2*PLANNER_TIME_LIMIT), runtimes_baseline))
         self.runtimes_sart = list(map(lambda x : compute_average(x, 2*PLANNER_TIME_LIMIT), runtimes_sart))
@@ -284,7 +292,7 @@ class CPLEXSequence:
 
 
     def __str__(self):
-        return f"Sequence({self.seq_id}, penalty={self.penalty}, config={self.config}, runtimes_baseline={self.runtimes_baseline}, runtimes_sart={self.runtimes_sart}"
+        return f"Sequence({self.seq_id}, penalty={self.penalty}, penalty_baseline={self.penalty_baseline}, penalty_sart={self.penalty_sart}, config={self.config}, runtimes_baseline={self.runtimes_baseline}, runtimes_sart={self.runtimes_sart}"
 
     def __repr__(self):
         return str(self)
@@ -428,9 +436,6 @@ sequences_by_id = {}
 for sequence in STORED_VALID_SEQUENCES:
     logging.debug(f"Evaluate sequence {sequence['config']} with penalty {sequence['penalty']}")
 
-    if sequence['penalty'] > ARGS.minimum_quality:
-        continue
-
     Y = domain.get_configs(sequence['config'], ARGS.sequence_length)
 
     logging.debug("Configurations in sequence {}".format(Y))
@@ -441,6 +446,11 @@ for sequence in STORED_VALID_SEQUENCES:
     sart_eval = EvaluatedSequence(Y, RUNNER_SART, PLANNER_TIME_LIMIT)
     runtimes_sart = sart_eval.get_runtimes(ARGS.sequence_length, 0, PLANNER_TIME_LIMIT)
     logging.debug(f"Sart runtimes {runtimes_sart}")
+
+
+    if sequence['penalty'] > ARGS.minimum_quality:
+        continue
+
 
     if len(runtimes_sart) < 3:
         continue # We cannot accept sequences that have less than 3 points to interpolate

@@ -58,7 +58,6 @@ class EvaluatedSequence:
 
 
 
-
 class EstimatedSequence:
     def __init__(self, evaluated_sequence):
         assert evaluated_sequence.is_evaluated()

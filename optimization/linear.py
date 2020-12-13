@@ -58,8 +58,8 @@ from collections import defaultdict
 import domain_configuration
 from domain_configuration import get_domains
 from domain_configuration import EvaluatedSequence
-from domain_configuration import filter_unsolved
 
+from penalty import evaluate_runtimes_multiple_sequences
 
 from runner import Runner
 
@@ -283,57 +283,6 @@ if ARGS.database:
             RUNNER_SART.load_cache_from_log_file(content[ARGS.domain]["sart_runtimes"])
 
 
-
-def penalty_by_factor(factor):
-    if factor <= 1:  # Runtime is not increasing: maximum penalty of 1
-        return 1
-    elif factor <= 1.5:
-        return 3 - 2*factor
-    elif factor <= 2: # Runtime is increasing, but not very quickly
-        return 0
-    elif factor > 2: # Runtime is increasing too quickly
-        return 1 - (2 / factor)
-
-
-def evaluate_runtimes_multiple_sequences(sequence, num_expected_runtimes):
-    penalty = 0
-
-    if len(sequence) < num_expected_runtimes:
-        penalty += 2 * (num_expected_runtimes - len(sequence))
-
-    for i in range(1, len(sequence)):
-
-        solved = filter_unsolved(sequence[i-1])
-        solved2 = filter_unsolved(sequence[i])
-
-        num_total = len(sequence[i-1])*len(sequence[i])
-        num_solved = len(solved)*len(solved2)
-        num_unsolved =  num_total - num_solved
-
-        new_penalty = 0
-        for t, t2 in itertools.product(solved, solved2):
-            factor = t2 / t if t2 > t else t /t2
-            new_penalty += penalty_by_factor(factor)
-
-        penalty += (new_penalty + 2*num_unsolved)/num_total
-
-    return penalty
-
-# This can be used only if we sample a single runtime per sequence.
-def evaluate_runtimes_single_sequence(runtimes, num_expected_runtimes):
-    penalty = 0
-    sorted_runtimes = sorted(runtimes)
-
-    # The default scaling only works if all instances are solvable. For each unsolvable
-    # instance apply a double penalty.
-    if len(runtimes) < num_expected_runtimes:
-        penalty += 2 * (num_expected_runtimes - len(runtimes))
-
-    for i in range(1, len(runtimes)):
-        factor = sorted_runtimes[i] / sorted_runtimes[i - 1]
-        penalty += penalty_by_factor(factor)
-
-    return penalty
 
 
 def evaluate_cfg(cfg):
