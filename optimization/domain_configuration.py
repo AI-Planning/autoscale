@@ -370,6 +370,9 @@ class Domain:
             command.insert(0, sys.executable)
         return command
 
+    def get_domain_filename(self, generators_dir):
+        return os.path.abspath(os.path.join(generators_dir, self.name, "domain.pddl"))
+
     def generate_problem(self, command, problem_file, domain_file):
         # Some generators print to a file, others print to stdout.
         if TMP_PROBLEM in self.gen_command:

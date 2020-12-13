@@ -17,6 +17,7 @@ import sys
 import warnings
 import math
 import json
+import shutil
 
 try:
     import cplex
@@ -118,8 +119,7 @@ def parse_args():
         "--multiple_seeds", type=int, default=0, help="Generate the same instance multiple times with different random seeds (default: %(default)d)"
     )
 
-
-    parser.add_argument("--database", help="path to json file with the information needed")
+    parser.add_argument("--database", nargs="+", help="path to json file(s) with the information needed")
 
     parser.add_argument("--output", help="directory to create the new benchmark set")
 
@@ -397,20 +397,25 @@ RUNNER_BASELINE = Runner("baseline", DOMAINS[ARGS.domain], [get_baseline_planner
 
 RUNNER_SART = Runner("sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, YEAR, ARGS.domain), PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, SINGULARITY_SCRIPT)
 
-with open(ARGS.database) as f:
-    content = json.load(f)
-
-if "baseline_runtimes:" in content[ARGS.domain]:
-    logging.info (f"Loading cache data for baseline planners: {len(content[ARGS.domain]['baseline_runtimes:'])}")
-    RUNNER_BASELINE.load_cache_from_log_file(content[ARGS.domain]["baseline_runtimes:"])
-
-if "sart_runtimes" in content[ARGS.domain]:
-    logging.info (f"Loading cache data for sart planners: {len(content[ARGS.domain]['sart_runtimes'])}" )
-    RUNNER_SART.load_cache_from_log_file(content[ARGS.domain]["sart_runtimes"])
 
 domain = DOMAINS[ARGS.domain]
+STORED_VALID_SEQUENCES = []
+for database_file in ARGS.database:
+    with open(database_file) as f:
+        content = json.load(f)
 
-STORED_VALID_SEQUENCES = content[ARGS.domain]["sequences"]
+        if "baseline_runtimes:" in content[ARGS.domain]:
+            logging.info (f"Loading cache data for baseline planners: {len(content[ARGS.domain]['baseline_runtimes:'])}")
+            RUNNER_BASELINE.load_cache_from_log_file(content[ARGS.domain]["baseline_runtimes:"])
+
+        if "sart_runtimes" in content[ARGS.domain]:
+            logging.info (f"Loading cache data for sart planners: {len(content[ARGS.domain]['sart_runtimes'])}" )
+            RUNNER_SART.load_cache_from_log_file(content[ARGS.domain]["sart_runtimes"])
+
+        STORED_VALID_SEQUENCES += content[ARGS.domain]["sequences"]
+
+
+
 
 logging.info(f"Stored sequences: {len(STORED_VALID_SEQUENCES)}")
 
@@ -649,6 +654,11 @@ if ARGS.output:
     if not os.path.exists(f"{ARGS.output}"):
         os.mkdir (f"{ARGS.output}")
     os.mkdir (f"{ARGS.output}/{ARGS.domain}")
+
+    domain_file = domain.get_domain_filename(GENERATORS_DIR)
+    if os.path.isfile(domain_file):
+        shutil.copyfile(domain_file, f"{ARGS.output}/{ARGS.domain}/domain.pddl")
+
 
     seed = 2019
     # os.mkdir (f"{ARGS.output}/{ARGS.domain}")
