@@ -130,6 +130,13 @@ def parse_args():
         help="Maximum time for each planner run (default: %(default)ss)",
     )
 
+    parser.add_argument(
+        "--minimum-significant-time",
+        type=float,
+        default=5,
+        help="Minimum time for considering a runtime relevant (default: %(default)ss)",
+    )
+
     #parser.add_argument(
     #    "--intensification-percentage",
     #    type=float,
@@ -326,23 +333,16 @@ def evaluate_sequence(cfg, print_final_configuration=False):
     # and unsolved instances are assigned a score of 2
 
     baseline_eval = EvaluatedSequence(sequence, RUNNER_BASELINE, PLANNER_TIME_LIMIT)
-    baseline_times = baseline_eval.get_runtimes(ARGS.tasksbaseline, 5, PLANNER_TIME_LIMIT)
-    penalty = evaluate_runtimes_multiple_sequences(baseline_times, ARGS.tasksbaseline)
+    baseline_times = baseline_eval.get_runtimes(ARGS.tasksbaseline, ARGS.minimum_significant_time, PLANNER_TIME_LIMIT)
+    penalty_baseline = baseline_eval.get_penalty(ARGS.tasksbaseline, ARGS.minimum_significant_time, PLANNER_TIME_LIMIT)
 
     if ARGS.only_baseline:
         sart_eval = None
         sart_times = []
-        if baseline_eval.num_solved() > 20:
-            penalty += baseline_eval.num_solved() - 20
     else:
         sart_eval = EvaluatedSequence(sequence, RUNNER_SART, PLANNER_TIME_LIMIT)
-        sart_times = sart_eval.get_runtimes(ARGS.tasksbaseline, 5, PLANNER_TIME_LIMIT)
-        penalty += evaluate_runtimes_multiple_sequences(sart_times, ARGS.tasksbaseline)
-
-        if sart_eval.num_solved() > 20:
-            penalty += sart_eval.num_solved() - 20
-            if sart_eval.num_solved() == ARGS.tasksbaseline and baseline_eval.num_solved() > 20:
-                penalty += baseline_eval.num_solved() - 20
+        sart_times = sart_eval.get_runtimes(ARGS.tasks, ARGS.minimum_significant_time, PLANNER_TIME_LIMIT)
+        penalty += sart_eval.get_penalty(ARGS.tasks, ARGS.minimum_significant_time, PLANNER_TIME_LIMIT)
 
     results = {
         "baseline_times": baseline_times,

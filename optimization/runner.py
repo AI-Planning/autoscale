@@ -13,7 +13,7 @@ import sys
 
 import planner_selection
 
-from domain_configuration import compute_average
+from sequence import compute_average
 
 MIN_PLANNER_RUNTIME = 0.1
 PLANNER_MEMORY_LIMIT = 3 * 1024 ** 3  # 3 GiB in Bytes

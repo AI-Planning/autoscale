@@ -25,11 +25,11 @@ try:
 except ImportError:
     cplex = None
 
-from domain_configuration import get_domains, compute_average
-from domain_configuration import EvaluatedSequence, EstimatedSequence
+from domain_configuration import get_domains
 from planner_selection import get_baseline_planner, get_sart_planners
 
-from penalty import evaluate_full_multiple_sequences
+from sequence import EvaluatedSequence, EstimatedSequence
+from sequence import compute_average
 
 from runner import Runner
 
@@ -216,21 +216,32 @@ class CPLEXConstraint:
 SEQ_ID = 1
 previous_parameters_of_evaluated_instances = []
 class CPLEXSequence:
-    def __init__(self, sequence, domain, runtimes_baseline, runtimes_sart):
+    def __init__(self, sequence, domain, baseline_eval, sart_eval):
         self.config = sequence['config']
 
-        self.penalty_baseline = evaluate_full_multiple_sequences(runtimes_baseline, 5, 5)
-        self.penalty_sart = evaluate_full_multiple_sequences(runtimes_sart, 5, 5)
+        runtimes_baseline = baseline_eval.get_runtimes(ARGS.sequence_length, 0, PLANNER_TIME_LIMIT)
+        logging.debug(f"Baseline runtimes {runtimes_baseline}")
+        runtimes_sart = sart_eval.get_runtimes(ARGS.sequence_length, 0, PLANNER_TIME_LIMIT)
+        logging.debug(f"Sart runtimes {runtimes_sart}")
+
+        self.penalty_baseline = baseline_eval.get_penalty(5, 5, 180)
+        self.penalty_sart = sart_eval.get_penalty(5, 5, 180)
+
         self.penalty = self.penalty_baseline + self.penalty_sart
 
         if abs(self.penalty - sequence['penalty']) > 3:
-            print(f"Warning: re-computed penalty {self.penalty} = {self.penalty_baseline} + {self.penalty_baseline}  differs from SMAC penalty {sequence['penalty']}" )
+            print(f"Warning: re-computed penalty {self.penalty} = {self.penalty_baseline} + {self.penalty_sart}  differs from SMAC penalty {sequence['penalty']}" )
 
         self.runtimes_baseline = list(map(lambda x : compute_average(x, 2*PLANNER_TIME_LIMIT), runtimes_baseline))
         self.runtimes_sart = list(map(lambda x : compute_average(x, 2*PLANNER_TIME_LIMIT), runtimes_sart))
 
         self.trivial_instances = len([t for t in self.runtimes_baseline if t < 30])
         self.solved_instances = len(self.runtimes_sart)
+
+        if len(runtimes_sart) < 3:
+            logging.debug ("Warning: discarding sequence because it has not enough runtimes")
+            self.seq_id = -1
+            return
 
         if self.solved_instances < ARGS.sequence_length:
             self.runtimes = self.runtimes_sart
@@ -440,22 +451,10 @@ for sequence in STORED_VALID_SEQUENCES:
 
     logging.debug("Configurations in sequence {}".format(Y))
     baseline_eval = EvaluatedSequence(Y, RUNNER_BASELINE, PLANNER_TIME_LIMIT)
-    runtimes_baseline = baseline_eval.get_runtimes(ARGS.sequence_length, 0, PLANNER_TIME_LIMIT)
-    logging.debug(f"Baseline runtimes {runtimes_baseline}")
-
     sart_eval = EvaluatedSequence(Y, RUNNER_SART, PLANNER_TIME_LIMIT)
-    runtimes_sart = sart_eval.get_runtimes(ARGS.sequence_length, 0, PLANNER_TIME_LIMIT)
-    logging.debug(f"Sart runtimes {runtimes_sart}")
 
 
-    if sequence['penalty'] > ARGS.minimum_quality:
-        continue
-
-
-    if len(runtimes_sart) < 3:
-        continue # We cannot accept sequences that have less than 3 points to interpolate
-
-    new_seq = CPLEXSequence(sequence, domain, runtimes_baseline, runtimes_sart)
+    new_seq = CPLEXSequence(sequence, domain, baseline_eval, sart_eval)
     if new_seq.seq_id >= 0:
         evaluated_sequences.append(new_seq)
         sequences_by_id[new_seq.seq_id] = new_seq
