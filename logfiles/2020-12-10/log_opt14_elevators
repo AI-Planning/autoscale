@@ -1,0 +1,84 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-13 19:35:32,161 INFO     No run directory, so we will not run anything
+2020-12-13 19:35:32,327 INFO     Loading cache data for baseline planners: 258
+2020-12-13 19:35:32,338 INFO     Loaded data for 77 instances, with min 3 max 15 avg 10.051948051948052 runtimes
+2020-12-13 19:35:32,338 INFO     Loading cache data for sart planners: 408
+2020-12-13 19:35:32,357 INFO     Loaded data for 124 instances, with min 3 max 15 avg 9.870967741935484 runtimes
+2020-12-13 19:35:33,042 INFO     Loading cache data for baseline planners: 35
+2020-12-13 19:35:33,043 INFO     Loaded data for 88 instances, with min 3 max 15 avg 9.988636363636363 runtimes
+2020-12-13 19:35:33,043 INFO     Loading cache data for sart planners: 68
+2020-12-13 19:35:33,046 INFO     Loaded data for 152 instances, with min 3 max 15 avg 9.394736842105264 runtimes
+2020-12-13 19:35:33,619 INFO     Loading cache data for baseline planners: 184
+2020-12-13 19:35:33,630 INFO     Loaded data for 96 instances, with min 3 max 27 avg 14.90625 runtimes
+2020-12-13 19:35:33,630 INFO     Loading cache data for sart planners: 282
+2020-12-13 19:35:33,648 INFO     Loaded data for 156 instances, with min 3 max 27 avg 14.576923076923077 runtimes
+2020-12-13 19:35:33,648 INFO     Stored sequences: 1406
+Warning: re-computed penalty 14.611442951986646 = 7.873662165785073 + 6.737780786201573  differs from SMAC penalty 11.332221925272286
+Warning: re-computed penalty 12.979441481601743 = 7.873662165785073 + 5.10577931581667  differs from SMAC penalty 9.727449292705238
+Warning: re-computed penalty 12.979441481601743 = 7.873662165785073 + 5.10577931581667  differs from SMAC penalty 9.727449292705238
+Warning: re-computed penalty 14.611442951986646 = 7.873662165785073 + 6.737780786201573  differs from SMAC penalty 11.332221925272286
+Warning: re-computed penalty 12.979441481601743 = 7.873662165785073 + 5.10577931581667  differs from SMAC penalty 9.727449292705238
+Warning: re-computed penalty 14.611442951986646 = 7.873662165785073 + 6.737780786201573  differs from SMAC penalty 11.332221925272286
+Warning: re-computed penalty 12.979441481601743 = 7.873662165785073 + 5.10577931581667  differs from SMAC penalty 9.727449292705238
+Warning: re-computed penalty 14.611442951986646 = 7.873662165785073 + 6.737780786201573  differs from SMAC penalty 11.332221925272286
+Warning: re-computed penalty 14.275910327904352 = 8 + 6.275910327904352  differs from SMAC penalty 17.649696359557364
+Warning: re-computed penalty 14.275910327904352 = 8 + 6.275910327904352  differs from SMAC penalty 17.649696359557364
+2020-12-13 19:35:40,063 INFO     Different evaluated sequences: 122
+num_areas 2 95 29
+num_areas 3 17 7
+num_areas 4 10 5
+fast_elevators 1 70 23
+fast_elevators 2 35 12
+fast_elevators 3 17 6
+2020-12-13 19:35:40,121 INFO     Candidate sequences: 41
+2020-12-13 19:35:40,121 INFO     Using sart runtimes on CPLEX optimization
+2020-12-13 19:35:40,186 INFO     CPLEX solve
+
+2020-12-13 19:35:40,227 INFO     Solution status = 101: MIP_optimal
+2020-12-13 19:35:40,227 INFO     Solution value  = 39.058435616463676
+Selected: sequence 4, 11 instances from 0 to 10
+Configuration: {'area_size_b': 2, 'area_size_m': 0.8, 'area_size_optional_m': 'true', 'fast_elevators': 2, 'num_areas': 2, 'passengers_b': 4, 'passengers_m': 1.1}
+Penalty: 12.05
+Estimated runtimes: 1.6, 2.7, 9.7, 43, 86, 2.9e+02, 9.5e+02, 3.1e+03, 1e+04, 3.3e+04, 1.1e+05, 3.6e+05, 1.2e+06, 3.9e+06, 1.3e+07, 4.1e+07, 1.4e+08, 4.4e+08, 1.5e+09, 4.8e+09, 1.6e+10, 5.1e+10, 1.7e+11, 5.5e+11, 1.8e+12, 5.9e+12, 1.9e+13, 6.3e+13, 2.1e+14, 6.8e+14
+Selected: sequence 8, 13 instances from 0 to 12
+Configuration: {'area_size_b': 2, 'area_size_m': 0.9, 'area_size_optional_m': 'true', 'fast_elevators': 1, 'num_areas': 2, 'passengers_b': 4, 'passengers_m': 1.0}
+Penalty: 12.98
+Estimated runtimes: 1.1, 1.4, 1.8, 4.1, 12, 41, 1.4e+02, 3e+02, 9e+02, 2.7e+03, 8.1e+03, 2.4e+04, 7.2e+04, 2.1e+05, 6.4e+05, 1.9e+06, 5.7e+06, 1.7e+07, 5.1e+07, 1.5e+08, 4.6e+08, 1.4e+09, 4.1e+09, 1.2e+10, 3.6e+10, 1.1e+11, 3.2e+11, 9.7e+11, 2.9e+12, 8.6e+12
+Selected: sequence 38, 6 instances from 3 to 8
+Configuration: {'area_size_b': 2, 'area_size_m': 0.8, 'area_size_optional_m': 'true', 'fast_elevators': 2, 'num_areas': 3, 'passengers_b': 3, 'passengers_m': 1.2}
+Penalty: 12.03
+Estimated runtimes: 82, 2.7e+02, 9.9e+02, 3.7e+03, 1.4e+04, 5.1e+04, 1.9e+05, 6.9e+05, 2.6e+06, 9.5e+06, 3.5e+07, 1.3e+08, 4.9e+08, 1.8e+09, 6.7e+09, 2.5e+10, 9.2e+10, 3.4e+11, 1.3e+12, 4.7e+12, 1.7e+13, 6.4e+13, 2.4e+14, 8.8e+14, 3.3e+15, 1.2e+16, 4.5e+16
+  p01: {'num_areas': 2, 'area_size': 2, 'passengers': 4, 'fast_elevators': 2, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p02: {'num_areas': 2, 'area_size': 2, 'passengers': 5, 'fast_elevators': 2, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p03: {'num_areas': 2, 'area_size': 2, 'passengers': 6, 'fast_elevators': 2, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p04: {'num_areas': 2, 'area_size': 2, 'passengers': 7, 'fast_elevators': 2, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p05: {'num_areas': 2, 'area_size': 2, 'passengers': 8, 'fast_elevators': 2, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p06: {'num_areas': 2, 'area_size': 2, 'passengers': 9, 'fast_elevators': 2, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p07: {'num_areas': 2, 'area_size': 2, 'passengers': 10, 'fast_elevators': 2, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p08: {'num_areas': 2, 'area_size': 2, 'passengers': 11, 'fast_elevators': 2, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p09: {'num_areas': 2, 'area_size': 2, 'passengers': 12, 'fast_elevators': 2, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p10: {'num_areas': 2, 'area_size': 2, 'passengers': 13, 'fast_elevators': 2, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p11: {'num_areas': 2, 'area_size': 2, 'passengers': 14, 'fast_elevators': 2, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p12: {'num_areas': 2, 'area_size': 2, 'passengers': 4, 'fast_elevators': 1, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p13: {'num_areas': 2, 'area_size': 2, 'passengers': 5, 'fast_elevators': 1, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p14: {'num_areas': 2, 'area_size': 2, 'passengers': 6, 'fast_elevators': 1, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p15: {'num_areas': 2, 'area_size': 2, 'passengers': 7, 'fast_elevators': 1, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p16: {'num_areas': 2, 'area_size': 2, 'passengers': 8, 'fast_elevators': 1, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p17: {'num_areas': 2, 'area_size': 2, 'passengers': 9, 'fast_elevators': 1, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p18: {'num_areas': 2, 'area_size': 2, 'passengers': 10, 'fast_elevators': 1, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p19: {'num_areas': 2, 'area_size': 2, 'passengers': 11, 'fast_elevators': 1, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p20: {'num_areas': 2, 'area_size': 2, 'passengers': 12, 'fast_elevators': 1, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p21: {'num_areas': 2, 'area_size': 2, 'passengers': 13, 'fast_elevators': 1, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p22: {'num_areas': 2, 'area_size': 2, 'passengers': 14, 'fast_elevators': 1, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p23: {'num_areas': 2, 'area_size': 2, 'passengers': 15, 'fast_elevators': 1, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p24: {'num_areas': 2, 'area_size': 2, 'passengers': 16, 'fast_elevators': 1, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p25: {'num_areas': 3, 'area_size': 2, 'passengers': 6, 'fast_elevators': 2, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p26: {'num_areas': 3, 'area_size': 2, 'passengers': 7, 'fast_elevators': 2, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p27: {'num_areas': 3, 'area_size': 2, 'passengers': 9, 'fast_elevators': 2, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p28: {'num_areas': 3, 'area_size': 2, 'passengers': 10, 'fast_elevators': 2, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p29: {'num_areas': 3, 'area_size': 2, 'passengers': 11, 'fast_elevators': 2, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+  p30: {'num_areas': 3, 'area_size': 2, 'passengers': 12, 'fast_elevators': 2, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
+
+real	0m9.747s
+user	0m9.443s
+sys	0m1.010s

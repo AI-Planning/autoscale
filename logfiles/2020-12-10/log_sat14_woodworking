@@ -1,0 +1,80 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-13 20:07:48,149 INFO     No run directory, so we will not run anything
+2020-12-13 20:07:48,311 INFO     Loading cache data for baseline planners: 162
+2020-12-13 20:07:48,317 INFO     Loaded data for 97 instances, with min 3 max 15 avg 5.010309278350515 runtimes
+2020-12-13 20:07:48,317 INFO     Loading cache data for sart planners: 550
+2020-12-13 20:07:48,333 INFO     Loaded data for 354 instances, with min 3 max 15 avg 4.661016949152542 runtimes
+2020-12-13 20:07:48,771 INFO     Loading cache data for baseline planners: 202
+2020-12-13 20:07:48,778 INFO     Loaded data for 186 instances, with min 3 max 15 avg 5.870967741935484 runtimes
+2020-12-13 20:07:48,778 INFO     Loading cache data for sart planners: 735
+2020-12-13 20:07:48,800 INFO     Loaded data for 692 instances, with min 3 max 15 avg 5.570809248554913 runtimes
+2020-12-13 20:07:49,262 INFO     Loading cache data for baseline planners: 233
+2020-12-13 20:07:49,273 INFO     Loaded data for 213 instances, with min 3 max 30 avg 8.408450704225352 runtimes
+2020-12-13 20:07:49,273 INFO     Loading cache data for sart planners: 919
+2020-12-13 20:07:49,307 INFO     Loaded data for 779 instances, with min 3 max 30 avg 8.487804878048781 runtimes
+2020-12-13 20:07:49,307 INFO     Stored sequences: 306
+Warning: re-computed penalty 13.843272549357696 = 10 + 3.843272549357695  differs from SMAC penalty 23.38340211373056
+Warning: re-computed penalty 17.305737605601117 = 10 + 7.305737605601117  differs from SMAC penalty 13.610590773130985
+Warning: No temporary dir for Runner has been provided but I have no data for {'size': 80, 'num_machines': 2, 'wood_factor': 1.25}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'size': 63, 'num_machines': 3, 'wood_factor': 1.5}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 8.687853629482909 = 7.463105555981965 + 1.2247480735009444  differs from SMAC penalty 11.692497849858116
+Warning: No temporary dir for Runner has been provided but I have no data for {'size': 61, 'num_machines': 3, 'wood_factor': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'size': 63, 'num_machines': 3, 'wood_factor': 1.25}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'size': 61, 'num_machines': 3, 'wood_factor': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'size': 62, 'num_machines': 3, 'wood_factor': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'size': 89, 'num_machines': 1, 'wood_factor': 2.0}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 8.849351105445006 = 7.65144138507579 + 1.1979097203692166  differs from SMAC penalty 5.570018566979623
+Warning: re-computed penalty 16.692669093076777 = 4.56656277440991 + 12.126106318666867  differs from SMAC penalty 20.784153510440692
+2020-12-13 20:07:51,007 INFO     Different evaluated sequences: 277
+num_machines 1 52 50
+num_machines 2 141 100
+num_machines 3 80 71
+wood_factor 1.0 19 14
+wood_factor 1.25 31 29
+wood_factor 1.5 66 60
+wood_factor 2.0 157 100
+2020-12-13 20:07:51,715 INFO     Candidate sequences: 227
+2020-12-13 20:07:51,718 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 11 use baseline 216 use sart
+2020-12-13 20:07:51,719 INFO     Using sart runtimes on CPLEX optimization
+2020-12-13 20:07:52,549 INFO     CPLEX solve
+
+2020-12-13 20:07:53,867 INFO     Solution status = 101: MIP_optimal
+2020-12-13 20:07:53,868 INFO     Solution value  = 6.984391967038437
+Selected: sequence 177, 30 instances from 0 to 29
+Configuration: {'num_machines': 2, 'size_b': 6, 'size_m': 4.800000000000001, 'wood_factor': 2.0}
+Penalty: 6.98
+Estimated runtimes: 0.33, 0.66, 2.6, 5.5, 10, 17, 23, 34, 45, 62, 75, 90, 1.3e+02, 1.9e+02, 2.7e+02, 4e+02, 5.7e+02, 8.2e+02, 1.2e+03, 1.7e+03, 2.5e+03, 3.5e+03, 5.1e+03, 7.3e+03, 1.1e+04, 1.5e+04, 2.2e+04, 3.1e+04, 4.5e+04, 6.5e+04
+  p01: {'size': 6, 'num_machines': 2, 'wood_factor': 2.0}
+  p02: {'size': 10, 'num_machines': 2, 'wood_factor': 2.0}
+  p03: {'size': 15, 'num_machines': 2, 'wood_factor': 2.0}
+  p04: {'size': 20, 'num_machines': 2, 'wood_factor': 2.0}
+  p05: {'size': 25, 'num_machines': 2, 'wood_factor': 2.0}
+  p06: {'size': 30, 'num_machines': 2, 'wood_factor': 2.0}
+  p07: {'size': 34, 'num_machines': 2, 'wood_factor': 2.0}
+  p08: {'size': 39, 'num_machines': 2, 'wood_factor': 2.0}
+  p09: {'size': 44, 'num_machines': 2, 'wood_factor': 2.0}
+  p10: {'size': 49, 'num_machines': 2, 'wood_factor': 2.0}
+  p11: {'size': 54, 'num_machines': 2, 'wood_factor': 2.0}
+  p12: {'size': 58, 'num_machines': 2, 'wood_factor': 2.0}
+  p13: {'size': 63, 'num_machines': 2, 'wood_factor': 2.0}
+  p14: {'size': 68, 'num_machines': 2, 'wood_factor': 2.0}
+  p15: {'size': 73, 'num_machines': 2, 'wood_factor': 2.0}
+  p16: {'size': 77, 'num_machines': 2, 'wood_factor': 2.0}
+  p17: {'size': 82, 'num_machines': 2, 'wood_factor': 2.0}
+  p18: {'size': 87, 'num_machines': 2, 'wood_factor': 2.0}
+  p19: {'size': 92, 'num_machines': 2, 'wood_factor': 2.0}
+  p20: {'size': 97, 'num_machines': 2, 'wood_factor': 2.0}
+  p21: {'size': 101, 'num_machines': 2, 'wood_factor': 2.0}
+  p22: {'size': 106, 'num_machines': 2, 'wood_factor': 2.0}
+  p23: {'size': 111, 'num_machines': 2, 'wood_factor': 2.0}
+  p24: {'size': 116, 'num_machines': 2, 'wood_factor': 2.0}
+  p25: {'size': 121, 'num_machines': 2, 'wood_factor': 2.0}
+  p26: {'size': 125, 'num_machines': 2, 'wood_factor': 2.0}
+  p27: {'size': 130, 'num_machines': 2, 'wood_factor': 2.0}
+  p28: {'size': 135, 'num_machines': 2, 'wood_factor': 2.0}
+  p29: {'size': 140, 'num_machines': 2, 'wood_factor': 2.0}
+  p30: {'size': 145, 'num_machines': 2, 'wood_factor': 2.0}
+
+real	0m7.431s
+user	0m12.336s
+sys	0m1.296s

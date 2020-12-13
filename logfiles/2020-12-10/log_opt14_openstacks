@@ -1,0 +1,82 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-13 19:59:47,244 INFO     No run directory, so we will not run anything
+2020-12-13 19:59:47,381 INFO     Loading cache data for baseline planners: 575
+2020-12-13 19:59:47,398 INFO     Loaded data for 441 instances, with min 3 max 15 avg 3.9115646258503403 runtimes
+2020-12-13 19:59:47,399 INFO     Loading cache data for sart planners: 1539
+2020-12-13 19:59:47,445 INFO     Loaded data for 1259 instances, with min 3 max 15 avg 3.6671961874503576 runtimes
+2020-12-13 19:59:48,074 INFO     Loading cache data for baseline planners: 681
+2020-12-13 19:59:48,095 INFO     Loaded data for 913 instances, with min 3 max 15 avg 4.127053669222344 runtimes
+2020-12-13 19:59:48,095 INFO     Loading cache data for sart planners: 2911
+2020-12-13 19:59:48,182 INFO     Loaded data for 3610 instances, with min 3 max 15 avg 3.698060941828255 runtimes
+2020-12-13 19:59:48,764 INFO     Loading cache data for baseline planners: 673
+2020-12-13 19:59:48,790 INFO     Loaded data for 1230 instances, with min 3 max 18 avg 4.704878048780488 runtimes
+2020-12-13 19:59:48,790 INFO     Loading cache data for sart planners: 2168
+2020-12-13 19:59:48,859 INFO     Loaded data for 4868 instances, with min 3 max 18 avg 4.0784716516023005 runtimes
+2020-12-13 19:59:48,860 INFO     Stored sequences: 484
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 50, 'products': 54, 'orders': 43}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 4.231661496997042 = 2.065722054050159 + 2.1659394429468826  differs from SMAC penalty 9.428518884799221
+Warning: re-computed penalty 7.832710479969823 = 6.602373163021361 + 1.2303373169484622  differs from SMAC penalty 11.21948536283279
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 50, 'products': 169, 'orders': 21}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 33, 'products': 172, 'orders': 30}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 33, 'products': 173, 'orders': 29}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 20, 'products': 242, 'orders': 25}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 80, 'products': 30, 'orders': 68}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'density': 50, 'products': 42, 'orders': 67}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 6.438536548760372 = 4.82709940322702 + 1.6114371455333523  differs from SMAC penalty 2.95307254574832
+Warning: re-computed penalty 4.173463207815999 = 2.631474508547092 + 1.5419886992689076  differs from SMAC penalty 7.360792835252581
+Warning: re-computed penalty 17.82558218899409 = 2.518594105367564 + 15.306988083626525  differs from SMAC penalty 21.43792032051093
+Warning: re-computed penalty 4.735301853377738 = 3.2158529831901475 + 1.5194488701875901  differs from SMAC penalty 8.89508310018416
+Warning: re-computed penalty 4.654961444142922 = 3.2055512765150165 + 1.4494101676279052  differs from SMAC penalty 9.014566352082413
+Warning: re-computed penalty 5.159298841738338 = 3.4866493977824304 + 1.6726494439559076  differs from SMAC penalty 9.097689200283638
+2020-12-13 19:59:51,266 INFO     Different evaluated sequences: 464
+density 10 43 43
+density 20 53 53
+density 33 139 100
+density 50 185 100
+density 66 10 10
+density 80 34 34
+2020-12-13 19:59:51,911 INFO     Candidate sequences: 340
+2020-12-13 19:59:51,917 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 13 use baseline 327 use sart
+2020-12-13 19:59:51,920 INFO     Using sart runtimes on CPLEX optimization
+2020-12-13 19:59:53,890 INFO     CPLEX solve
+
+2020-12-13 19:59:54,978 INFO     Solution status = 101: MIP_optimal
+2020-12-13 19:59:54,978 INFO     Solution value  = 4.677559004556089
+Selected: sequence 462, 30 instances from 0 to 29
+Configuration: {'density': 80, 'orders_b': 6, 'orders_m': 4.4, 'products_b': 23, 'products_m': 0.6}
+Penalty: 4.68
+Estimated runtimes: 1.6, 2, 2.4, 2.8, 3.4, 4.1, 5.9, 9.3, 11, 19, 40, 56, 1.1e+02, 1.3e+02, 1.9e+02, 3e+02, 4.7e+02, 7.4e+02, 1.2e+03, 1.8e+03, 2.9e+03, 4.5e+03, 7.1e+03, 1.1e+04, 1.8e+04, 2.8e+04, 4.4e+04, 6.9e+04, 1.1e+05, 1.7e+05
+  p01: {'density': 80, 'products': 23, 'orders': 6}
+  p02: {'density': 80, 'products': 23, 'orders': 10}
+  p03: {'density': 80, 'products': 24, 'orders': 14}
+  p04: {'density': 80, 'products': 24, 'orders': 19}
+  p05: {'density': 80, 'products': 25, 'orders': 23}
+  p06: {'density': 80, 'products': 26, 'orders': 28}
+  p07: {'density': 80, 'products': 26, 'orders': 32}
+  p08: {'density': 80, 'products': 27, 'orders': 36}
+  p09: {'density': 80, 'products': 27, 'orders': 41}
+  p10: {'density': 80, 'products': 28, 'orders': 45}
+  p11: {'density': 80, 'products': 29, 'orders': 49}
+  p12: {'density': 80, 'products': 29, 'orders': 54}
+  p13: {'density': 80, 'products': 30, 'orders': 58}
+  p14: {'density': 80, 'products': 30, 'orders': 63}
+  p15: {'density': 80, 'products': 31, 'orders': 67}
+  p16: {'density': 80, 'products': 32, 'orders': 72}
+  p17: {'density': 80, 'products': 32, 'orders': 76}
+  p18: {'density': 80, 'products': 33, 'orders': 80}
+  p19: {'density': 80, 'products': 33, 'orders': 85}
+  p20: {'density': 80, 'products': 34, 'orders': 89}
+  p21: {'density': 80, 'products': 35, 'orders': 94}
+  p22: {'density': 80, 'products': 35, 'orders': 98}
+  p23: {'density': 80, 'products': 36, 'orders': 102}
+  p24: {'density': 80, 'products': 36, 'orders': 107}
+  p25: {'density': 80, 'products': 37, 'orders': 111}
+  p26: {'density': 80, 'products': 38, 'orders': 116}
+  p27: {'density': 80, 'products': 38, 'orders': 120}
+  p28: {'density': 80, 'products': 39, 'orders': 124}
+  p29: {'density': 80, 'products': 39, 'orders': 129}
+  p30: {'density': 80, 'products': 40, 'orders': 133}
+
+real	0m9.823s
+user	0m11.188s
+sys	0m1.504s

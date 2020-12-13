@@ -1,0 +1,419 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-13 19:36:34,235 INFO     No run directory, so we will not run anything
+2020-12-13 19:36:34,409 INFO     Loading cache data for baseline planners: 767
+2020-12-13 19:36:34,445 INFO     Loaded data for 399 instances, with min 3 max 15 avg 5.7669172932330826 runtimes
+2020-12-13 19:36:34,445 INFO     Loading cache data for sart planners: 1285
+2020-12-13 19:36:34,506 INFO     Loaded data for 615 instances, with min 3 max 15 avg 6.2682926829268295 runtimes
+2020-12-13 19:36:35,203 INFO     Loading cache data for baseline planners: 877
+2020-12-13 19:36:35,240 INFO     Loaded data for 847 instances, with min 3 max 15 avg 5.8229043683589135 runtimes
+2020-12-13 19:36:35,240 INFO     Loading cache data for sart planners: 2101
+2020-12-13 19:36:35,338 INFO     Loaded data for 1520 instances, with min 3 max 15 avg 6.682894736842106 runtimes
+2020-12-13 19:36:35,951 INFO     Loading cache data for baseline planners: 1173
+2020-12-13 19:36:36,010 INFO     Loaded data for 1240 instances, with min 3 max 30 avg 6.815322580645161 runtimes
+2020-12-13 19:36:36,010 INFO     Loading cache data for sart planners: 1999
+2020-12-13 19:36:36,132 INFO     Loaded data for 2094 instances, with min 3 max 30 avg 7.714899713467049 runtimes
+2020-12-13 19:36:36,132 INFO     Stored sequences: 1973
+Warning: re-computed penalty 7.173022504379853 = 3.5849131095415214 + 3.588109394838331  differs from SMAC penalty 11.121112723341737
+Warning: re-computed penalty 7.173022504379853 = 3.5849131095415214 + 3.588109394838331  differs from SMAC penalty 11.121112723341737
+Warning: re-computed penalty 7.4312741111230025 = 4.634269025623663 + 2.797005085499339  differs from SMAC penalty 12.169786411434067
+Warning: re-computed penalty 7.173022504379853 = 3.5849131095415214 + 3.588109394838331  differs from SMAC penalty 11.121112723341737
+Warning: re-computed penalty 7.173022504379853 = 3.5849131095415214 + 3.588109394838331  differs from SMAC penalty 11.121112723341737
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 4, 'y': 4, 'prob_key_in_goal': 0.5, 'shapes': 5, 'extra_keys': 15, 'percentage_cells_locked': 0.1, 'keys': 15, 'locks': 5}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 10.814170264750242 = 6.134227652369973 + 4.67994261238027  differs from SMAC penalty 14.21020103973534
+Warning: re-computed penalty 25.34161110199516 = 15.34161110199516 + 10  differs from SMAC penalty 14.805315845510158
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 3, 'y': 4, 'prob_key_in_goal': 0.75, 'shapes': 1, 'extra_keys': 7, 'percentage_cells_locked': 0.2, 'keys': 8, 'locks': 2}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 12.491574602074481 = 7.195584035558515 + 5.295990566515966  differs from SMAC penalty 16.143051485001457
+Warning: re-computed penalty 7.173022504379853 = 3.5849131095415214 + 3.588109394838331  differs from SMAC penalty 10.591822403076414
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 3, 'y': 5, 'prob_key_in_goal': 0.75, 'shapes': 1, 'extra_keys': 17, 'percentage_cells_locked': 0.1, 'keys': 14, 'locks': 1}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 9.770126494982634 = 4.332353911037757 + 5.437772583944878  differs from SMAC penalty 12.8377504838425
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 3, 'y': 3, 'prob_key_in_goal': 0.5, 'shapes': 5, 'extra_keys': 9, 'percentage_cells_locked': 0.1, 'keys': 8, 'locks': 5}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 10.22546981853234 = 5.882207613831218 + 4.34326220470112  differs from SMAC penalty 13.81227884626959
+Warning: re-computed penalty 7.173022504379853 = 3.5849131095415214 + 3.588109394838331  differs from SMAC penalty 11.02268388713494
+Warning: re-computed penalty 7.173022504379853 = 3.5849131095415214 + 3.588109394838331  differs from SMAC penalty 11.02268388713494
+Warning: re-computed penalty 10.22546981853234 = 5.882207613831218 + 4.34326220470112  differs from SMAC penalty 13.81227884626959
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 3, 'y': 3, 'prob_key_in_goal': 0.5, 'shapes': 5, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 8, 'locks': 5}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 30 = 20 + 10  differs from SMAC penalty 20
+Warning: re-computed penalty 9.054831763140097 = 5.82585339657119 + 3.2289783665689082  differs from SMAC penalty 12.85401910678932
+Warning: re-computed penalty 9.236951864680302 = 7.589605419467153 + 1.6473464452131492  differs from SMAC penalty 18
+Warning: re-computed penalty 13.17267349457694 = 8 + 5.172673494576941  differs from SMAC penalty 17.09933632055988
+Warning: re-computed penalty 15.081818516910591 = 7.08181851691059 + 8  differs from SMAC penalty 20
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 3, 'y': 4, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 5, 'percentage_cells_locked': 0.2, 'keys': 6, 'locks': 2}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 4, 'y': 4, 'prob_key_in_goal': 0.5, 'shapes': 4, 'extra_keys': 6, 'percentage_cells_locked': 0.1, 'keys': 10, 'locks': 4}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 17.127918879201346 = 7.127918879201346 + 10  differs from SMAC penalty 10.439602952207641
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 6, 'y': 9, 'prob_key_in_goal': 0.5, 'shapes': 2, 'extra_keys': 2, 'percentage_cells_locked': 0.1, 'keys': 4, 'locks': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 3, 'y': 3, 'prob_key_in_goal': 0.5, 'shapes': 5, 'extra_keys': 4, 'percentage_cells_locked': 0.1, 'keys': 8, 'locks': 5}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 11.90411877592561 = 7.16522797633574 + 4.73889079958987  differs from SMAC penalty 8.89227921673114
+Warning: re-computed penalty 7.496665361473291 = 4.791834467913544 + 2.7048308935597474  differs from SMAC penalty 16.497443183243092
+Warning: re-computed penalty 7.496665361473291 = 4.791834467913544 + 2.7048308935597474  differs from SMAC penalty 16.497443183243092
+Warning: re-computed penalty 7.496665361473291 = 4.791834467913544 + 2.7048308935597474  differs from SMAC penalty 16.497443183243092
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 6.59104107256206
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 6.59104107256206
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 6.59104107256206
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 6.59104107256206
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 6.59104107256206
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 6.59104107256206
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 6.59104107256206
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 6.59104107256206
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 6.59104107256206
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 6.59104107256206
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 6.59104107256206
+Warning: re-computed penalty 6.501652317722071 = 3.8700459828856126 + 2.6316063348364582  differs from SMAC penalty 11.266217672358053
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 3.6063049029456997
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 3.6063049029456997
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 3.6063049029456997
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 3.6063049029456997
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 4, 'y': 9, 'prob_key_in_goal': 1, 'shapes': 2, 'extra_keys': 3, 'percentage_cells_locked': 0.3, 'keys': 5, 'locks': 10}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 7.39837963379782 = 5.803624716547049 + 1.5947549172507705  differs from SMAC penalty 11.92589920072204
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 3.6063049029456997
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 3.6063049029456997
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 6, 'y': 10, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.3, 'keys': 5, 'locks': 18}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 10.426107831514173 = 6.406570773514779 + 4.019537057999395  differs from SMAC penalty 4.701694768627389
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 5, 'y': 10, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.3, 'keys': 5, 'locks': 15}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 11.052026150519014 = 6.406570773514779 + 4.645455377004235  differs from SMAC penalty 7.718024295626238
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 5, 'y': 10, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.3, 'keys': 5, 'locks': 15}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 11.052026150519014 = 6.406570773514779 + 4.645455377004235  differs from SMAC penalty 7.718024295626238
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 6, 'y': 10, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.3, 'keys': 5, 'locks': 18}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 10.426107831514173 = 6.406570773514779 + 4.019537057999395  differs from SMAC penalty 4.701694768627389
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 5, 'y': 10, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.3, 'keys': 5, 'locks': 15}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 11.052026150519014 = 6.406570773514779 + 4.645455377004235  differs from SMAC penalty 7.718024295626238
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 6, 'y': 10, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.3, 'keys': 5, 'locks': 18}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 10.469631564748006 = 7.490245322640959 + 2.979386242107048  differs from SMAC penalty 6.230545147234226
+Warning: re-computed penalty 9.565173883657945 = 2.997570206260776 + 6.567603677397168  differs from SMAC penalty 3.6063049029456997
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 3.6063049029456997
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 5, 'y': 10, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.3, 'keys': 5, 'locks': 15}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 11.052026150519014 = 6.406570773514779 + 4.645455377004235  differs from SMAC penalty 7.718024295626238
+Warning: re-computed penalty 7.565173883657944 = 2.997570206260776 + 4.567603677397168  differs from SMAC penalty 3.6063049029456997
+Warning: re-computed penalty 9.565173883657945 = 2.997570206260776 + 6.567603677397168  differs from SMAC penalty 3.6063049029456997
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 5, 'y': 10, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.3, 'keys': 5, 'locks': 15}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 11.052026150519014 = 6.406570773514779 + 4.645455377004235  differs from SMAC penalty 7.718024295626238
+Warning: re-computed penalty 9.565173883657945 = 2.997570206260776 + 6.567603677397168  differs from SMAC penalty 3.6063049029456997
+Warning: re-computed penalty 17.352542943789647 = 3.8805729291111524 + 13.471970014678494  differs from SMAC penalty 10.78039580767378
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 5, 'y': 9, 'prob_key_in_goal': 0.5, 'shapes': 3, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 7, 'locks': 9}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 5.887424078512101
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 5.887424078512101
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 5.887424078512101
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 5.887424078512101
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 5.887424078512101
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 5.887424078512101
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 5.887424078512101
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 5.887424078512101
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 5.887424078512101
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 4, 'y': 8, 'prob_key_in_goal': 0.75, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 6}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 5.887424078512101
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 5.887424078512101
+Warning: re-computed penalty 6.754017652739429 = 3.996283731100996 + 2.7577339216384327  differs from SMAC penalty 10.97055031875859
+Warning: re-computed penalty 16.207769349442966 = 3.8700459828856126 + 12.337723366557352  differs from SMAC penalty 8.893155212813546
+Warning: re-computed penalty 16.207769349442966 = 3.8700459828856126 + 12.337723366557352  differs from SMAC penalty 8.893155212813546
+Warning: re-computed penalty 6.754017652739429 = 3.996283731100996 + 2.7577339216384327  differs from SMAC penalty 10.97055031875859
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 5, 'y': 10, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 3, 'percentage_cells_locked': 0.1, 'keys': 4, 'locks': 5}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 6.947578542594519 = 3.852998522588252 + 3.094580020006267  differs from SMAC penalty 11.10482698759655
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 5.887424078512101
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 5.887424078512101
+Warning: re-computed penalty 11.351054302640136 = 6.4057774499560765 + 4.945276852684061  differs from SMAC penalty 7.801501303307191
+Warning: re-computed penalty 7.202424722140102 = 3.852998522588252 + 3.34942619955185  differs from SMAC penalty 10.997643162466257
+Warning: re-computed penalty 8.16168140875211 = 5.666290814419667 + 2.495390594332442  differs from SMAC penalty 11.683015967198203
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 5.887424078512101
+Warning: re-computed penalty 10.65308897144075 = 3.308374764990811 + 7.3447142064499396  differs from SMAC penalty 14.578218265905821
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 5.887424078512101
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 6, 'y': 10, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.3, 'keys': 5, 'locks': 18}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 10.426107831514173 = 6.406570773514779 + 4.019537057999395  differs from SMAC penalty 16
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 8, 'y': 10, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 16}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 6.714733473587838 = 4.073341915863581 + 2.6413915577242575  differs from SMAC penalty 12.312568729659407
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 6, 'y': 10, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.3, 'keys': 5, 'locks': 18}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 10.426107831514173 = 6.406570773514779 + 4.019537057999395  differs from SMAC penalty 16
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 6, 'y': 10, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.3, 'keys': 5, 'locks': 18}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 10.426107831514173 = 6.406570773514779 + 4.019537057999395  differs from SMAC penalty 16
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 5.887424078512101
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 6, 'y': 10, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.3, 'keys': 5, 'locks': 18}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 10.426107831514173 = 6.406570773514779 + 4.019537057999395  differs from SMAC penalty 16
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 6, 'y': 10, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.3, 'keys': 5, 'locks': 18}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 10.426107831514173 = 6.406570773514779 + 4.019537057999395  differs from SMAC penalty 16
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 6, 'y': 10, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.3, 'keys': 5, 'locks': 18}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 10.426107831514173 = 6.406570773514779 + 4.019537057999395  differs from SMAC penalty 16
+Warning: re-computed penalty 26.684075395963323 = 16.684075395963323 + 10  differs from SMAC penalty 16.684075395963323
+Warning: re-computed penalty 9.579450304458799 = 4.712752854966213 + 4.866697449492586  differs from SMAC penalty 15.472030765849091
+Warning: re-computed penalty 15.698880351674319 = 4.623425880121449 + 11.07545447155287  differs from SMAC penalty 12.62840447807477
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 6.089270716479453
+Warning: re-computed penalty 15.698880351674319 = 4.623425880121449 + 11.07545447155287  differs from SMAC penalty 12.62840447807477
+Warning: re-computed penalty 12.229634084735338 = 3.7565730923787197 + 8.473060992356618  differs from SMAC penalty 6.406705204378175
+Warning: re-computed penalty 9.184230005230265 = 6.536039486311501 + 2.6481905189187644  differs from SMAC penalty 13.157243702558723
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 5, 'y': 7, 'prob_key_in_goal': 0.5, 'shapes': 4, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 8, 'locks': 7}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 7.192287603299731 = 4.59643265875053 + 2.5958549445492016  differs from SMAC penalty 11.476352390985593
+Warning: re-computed penalty 9.184230005230265 = 6.536039486311501 + 2.6481905189187644  differs from SMAC penalty 13.157243702558723
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 5, 'y': 10, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.3, 'keys': 5, 'locks': 15}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 9.184230005230265 = 6.536039486311501 + 2.6481905189187644  differs from SMAC penalty 13.157243702558723
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 6.089270716479453
+Warning: re-computed penalty 9.184230005230265 = 6.536039486311501 + 2.6481905189187644  differs from SMAC penalty 13.157243702558723
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 6.089270716479453
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 6.089270716479453
+Warning: re-computed penalty 9.184230005230265 = 6.536039486311501 + 2.6481905189187644  differs from SMAC penalty 13.157243702558723
+Warning: re-computed penalty 9.184230005230265 = 6.536039486311501 + 2.6481905189187644  differs from SMAC penalty 13.157243702558723
+Warning: re-computed penalty 12.229634084735338 = 3.7565730923787197 + 8.473060992356618  differs from SMAC penalty 6.406705204378175
+Warning: re-computed penalty 8.214750151367586 = 5.091017431502578 + 3.123732719865009  differs from SMAC penalty 11.869459035254605
+Warning: re-computed penalty 6.534741249472212 = 3.8087237686561366 + 2.7260174808160755  differs from SMAC penalty 10.698499993803196
+Warning: re-computed penalty 8.83962018212561 = 3.6577895168018193 + 5.181830665323792  differs from SMAC penalty 18
+Warning: re-computed penalty 7.924587418579524 = 3.6577895168018193 + 4.2667979017777045  differs from SMAC penalty 14.072161470537571
+Warning: re-computed penalty 10.075665349289576 = 6.4057774499560765 + 3.6698878993335002  differs from SMAC penalty 13.371096152918316
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 4, 'y': 8, 'prob_key_in_goal': 1, 'shapes': 2, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 6, 'locks': 6}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 6.671471235772637 = 4.530423711615105 + 2.141047524157532  differs from SMAC penalty 12.048606849862907
+Warning: re-computed penalty 9.184230005230265 = 6.536039486311501 + 2.6481905189187644  differs from SMAC penalty 13.157243702558723
+Warning: re-computed penalty 9.184230005230265 = 6.536039486311501 + 2.6481905189187644  differs from SMAC penalty 13.157243702558723
+Warning: re-computed penalty 12.229634084735338 = 3.7565730923787197 + 8.473060992356618  differs from SMAC penalty 6.406705204378175
+Warning: re-computed penalty 7.924587418579524 = 3.6577895168018193 + 4.2667979017777045  differs from SMAC penalty 14.072161470537571
+Warning: re-computed penalty 9.184230005230265 = 6.536039486311501 + 2.6481905189187644  differs from SMAC penalty 13.157243702558723
+Warning: re-computed penalty 7.8338410839278225 = 4.530423711615105 + 3.303417372312717  differs from SMAC penalty 12.86947470747447
+Warning: re-computed penalty 7.192287603299731 = 4.59643265875053 + 2.5958549445492016  differs from SMAC penalty 11.476352390985593
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 6.089270716479453
+Warning: re-computed penalty 9.477548695375885 = 6.563884177277182 + 2.913664518098703  differs from SMAC penalty 12.561322489242608
+Warning: re-computed penalty 7.192287603299731 = 4.59643265875053 + 2.5958549445492016  differs from SMAC penalty 11.476352390985593
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 5, 'y': 10, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.3, 'keys': 5, 'locks': 15}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 4, 'y': 6, 'prob_key_in_goal': 1, 'shapes': 2, 'extra_keys': 3, 'percentage_cells_locked': 0.1, 'keys': 5, 'locks': 2}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 9.184230005230265 = 6.536039486311501 + 2.6481905189187644  differs from SMAC penalty 13.157243702558723
+Warning: re-computed penalty 7.22500160808813 = 3.839535402985255 + 3.385466205102875  differs from SMAC penalty 10.571886518324652
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 6.003037460904062
+Warning: re-computed penalty 16.207769349442966 = 3.8700459828856126 + 12.337723366557352  differs from SMAC penalty 20.45369573627724
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 5, 'y': 10, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 10}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 6.003037460904062
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 4.861313362613358
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 4.861313362613358
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 4.861313362613358
+Warning: re-computed penalty 28.059464656101618 = 11.689045723907103 + 16.370418932194514  differs from SMAC penalty 20.027298698844067
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 4.861313362613358
+Warning: re-computed penalty 7.924587418579524 = 3.6577895168018193 + 4.2667979017777045  differs from SMAC penalty 4.895186941586354
+Warning: re-computed penalty 15.698880351674319 = 4.623425880121449 + 11.07545447155287  differs from SMAC penalty 9.210044506722214
+Warning: re-computed penalty 10.224653721291142 = 6.794429760122359 + 3.430223961168784  differs from SMAC penalty 15.528509053423107
+Warning: re-computed penalty 8.908303751103325 = 5.0557268972595315 + 3.852576853843793  differs from SMAC penalty 12.248752216313596
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 4.861313362613358
+Warning: re-computed penalty 8.908303751103325 = 5.0557268972595315 + 3.852576853843793  differs from SMAC penalty 12.248752216313596
+Warning: re-computed penalty 9.565173883657945 = 2.997570206260776 + 6.567603677397168  differs from SMAC penalty 4.832048740330732
+Warning: re-computed penalty 15.698880351674319 = 4.623425880121449 + 11.07545447155287  differs from SMAC penalty 9.210044506722214
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 4, 'y': 7, 'prob_key_in_goal': 0.5, 'shapes': 2, 'extra_keys': 4, 'percentage_cells_locked': 0.3, 'keys': 6, 'locks': 8}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 8.908303751103325 = 5.0557268972595315 + 3.852576853843793  differs from SMAC penalty 12.248752216313596
+Warning: re-computed penalty 15.698880351674319 = 4.623425880121449 + 11.07545447155287  differs from SMAC penalty 9.210044506722214
+Warning: re-computed penalty 8.908303751103325 = 5.0557268972595315 + 3.852576853843793  differs from SMAC penalty 12.248752216313596
+Warning: re-computed penalty 9.702116939265482 = 5.564322821250596 + 4.137794118014885  differs from SMAC penalty 13.574284200061513
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 5, 'y': 10, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.3, 'keys': 5, 'locks': 15}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 6.003037460904062
+Warning: re-computed penalty 15.698880351674319 = 4.623425880121449 + 11.07545447155287  differs from SMAC penalty 9.210044506722214
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 4.861313362613358
+Warning: re-computed penalty 17.38104620286582 = 5.963397719554443 + 11.417648483311378  differs from SMAC penalty 13.197425985899162
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 4, 'y': 7, 'prob_key_in_goal': 0.5, 'shapes': 2, 'extra_keys': 4, 'percentage_cells_locked': 0.3, 'keys': 6, 'locks': 8}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 4.861313362613358
+Warning: re-computed penalty 7.251810648567755 = 3.852998522588252 + 3.3988121259795023  differs from SMAC penalty 11.912106931750982
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 4.861313362613358
+Warning: re-computed penalty 7.251810648567755 = 3.852998522588252 + 3.3988121259795023  differs from SMAC penalty 11.912106931750982
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 4.861313362613358
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 4.861313362613358
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 4.861313362613358
+Warning: re-computed penalty 11.265307699248101 = 4.6684670147509415 + 6.596840684497159  differs from SMAC penalty 14.460612798892543
+Warning: re-computed penalty 15.698880351674319 = 4.623425880121449 + 11.07545447155287  differs from SMAC penalty 9.210044506722214
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 4.861313362613358
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 6.003037460904062
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 4.861313362613358
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 6.003037460904062
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 4.861313362613358
+Warning: re-computed penalty 9.6167692144319 = 3.8115080143080116 + 5.805261200123888  differs from SMAC penalty 6.003037460904062
+Warning: re-computed penalty 9.545801110632446 = 3.8190709472676967 + 5.72673016336475  differs from SMAC penalty 4.369425547435537
+Warning: re-computed penalty 17.352542943789647 = 3.8805729291111524 + 13.471970014678494  differs from SMAC penalty 14.289579304574566
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 4, 'y': 8, 'prob_key_in_goal': 0.75, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 6}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 4.8862397895479495
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 4.8862397895479495
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 4.8862397895479495
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 6, 'y': 10, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.3, 'keys': 5, 'locks': 18}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 8.611386544053612 = 5.878890474962507 + 2.732496069091105  differs from SMAC penalty 12.129053210413534
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 4.8862397895479495
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 4.8862397895479495
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 4.8862397895479495
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 5, 'y': 10, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.3, 'keys': 5, 'locks': 15}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 6.754017652739429 = 3.996283731100996 + 2.7577339216384327  differs from SMAC penalty 12.353023400935136
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 5, 'y': 10, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.3, 'keys': 5, 'locks': 15}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 9.565173883657945 = 2.997570206260776 + 6.567603677397168  differs from SMAC penalty 5.4440741459945095
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 4, 'y': 8, 'prob_key_in_goal': 0.75, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 6}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 11.385957015621827 = 6.406570773514779 + 4.979386242107048  differs from SMAC penalty 8.374643979288566
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 4, 'y': 7, 'prob_key_in_goal': 0.5, 'shapes': 2, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 6, 'locks': 5}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 6.97513824704884 = 3.790858852992998 + 3.1842793940558423  differs from SMAC penalty 13.32048338825691
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 4.8862397895479495
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 4.8862397895479495
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 6, 'y': 10, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.3, 'keys': 5, 'locks': 18}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 9.565173883657945 = 2.997570206260776 + 6.567603677397168  differs from SMAC penalty 5.4440741459945095
+Warning: re-computed penalty 11.021621518273122 = 4.530423711615105 + 6.491197806658016  differs from SMAC penalty 6.809697454614367
+Warning: re-computed penalty 10.724300369625526 = 2.997570206260776 + 7.72673016336475  differs from SMAC penalty 4.8862397895479495
+Warning: re-computed penalty 12.565173883657945 = 2.997570206260776 + 9.567603677397168  differs from SMAC penalty 4.8862397895479495
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 9, 'y': 13, 'prob_key_in_goal': 0.75, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.1, 'keys': 5, 'locks': 11}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 8, 'y': 8, 'prob_key_in_goal': 0.75, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.1, 'keys': 2, 'locks': 6}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 5.036154559369599 = 3.3548986516310726 + 1.6812559077385272  differs from SMAC penalty 8.42737972706224
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 15, 'y': 18, 'prob_key_in_goal': 1, 'shapes': 2, 'extra_keys': 1, 'percentage_cells_locked': 0.1, 'keys': 3, 'locks': 27}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 5.036154559369599 = 3.3548986516310726 + 1.6812559077385272  differs from SMAC penalty 8.42737972706224
+Warning: re-computed penalty 5.313475744896438 = 2.8010722915807675 + 2.5124034533156707  differs from SMAC penalty 8.700248767015804
+Warning: re-computed penalty 7.20706603010436 = 4.2270431484301785 + 2.9800228816741816  differs from SMAC penalty 11.028177788154895
+Warning: re-computed penalty 9.515952907336361 = 2.6796304009103866 + 6.836322506425974  differs from SMAC penalty 4.83201069414817
+Warning: re-computed penalty 5.233836069607045 = 3.1749560584085117 + 2.058880011198533  differs from SMAC penalty 8.989954678148184
+Warning: re-computed penalty 9.515952907336361 = 2.6796304009103866 + 6.836322506425974  differs from SMAC penalty 4.83201069414817
+Warning: re-computed penalty 10.790582176602038 = 2.877441914717522 + 7.913140261884516  differs from SMAC penalty 5.897122132143713
+Warning: re-computed penalty 12.354017983778585 = 2.285924893550962 + 10.068093090227622  differs from SMAC penalty 6.955025932158312
+Warning: re-computed penalty 4.750563352417938 = 2.8010722915807675 + 1.94949106083717  differs from SMAC penalty 7.829636629384537
+Warning: re-computed penalty 5.0917291979362105 = 3.026063870891136 + 2.0656653270450747  differs from SMAC penalty 8.922562013573952
+Warning: re-computed penalty 31.999660126479213 = 11.999660126479215 + 20  differs from SMAC penalty 22.016229013143917
+Warning: re-computed penalty 6.115032803774869 = 4.246287421212585 + 1.8687453825622835  differs from SMAC penalty 10.805834480737875
+Warning: re-computed penalty 4.750563352417938 = 2.8010722915807675 + 1.94949106083717  differs from SMAC penalty 7.829636629384537
+Warning: re-computed penalty 10.790582176602038 = 2.877441914717522 + 7.913140261884516  differs from SMAC penalty 5.897122132143713
+Warning: re-computed penalty 10.790582176602038 = 2.877441914717522 + 7.913140261884516  differs from SMAC penalty 5.897122132143713
+Warning: re-computed penalty 10.558634976898922 = 6.372952392725521 + 4.1856825841734  differs from SMAC penalty 14.530241794448616
+Warning: re-computed penalty 7.618997541832712 = 4.99031593566127 + 2.628681606171442  differs from SMAC penalty 10.746596356826096
+Warning: re-computed penalty 10.790582176602038 = 2.877441914717522 + 7.913140261884516  differs from SMAC penalty 5.897122132143713
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 12, 'y': 14, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 2, 'percentage_cells_locked': 0.1, 'keys': 4, 'locks': 16}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 11.041517178462657 = 2.285924893550962 + 8.755592284911694  differs from SMAC penalty 7.95203835788486
+Warning: re-computed penalty 11.041517178462657 = 2.285924893550962 + 8.755592284911694  differs from SMAC penalty 7.95203835788486
+Warning: re-computed penalty 6.232952973358302 = 4.449386615112948 + 1.7835663582453538  differs from SMAC penalty 9.255706773512502
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 7, 'y': 12, 'prob_key_in_goal': 0.5, 'shapes': 2, 'extra_keys': 2, 'percentage_cells_locked': 0.1, 'keys': 4, 'locks': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 7, 'y': 9, 'prob_key_in_goal': 1, 'shapes': 3, 'extra_keys': 2, 'percentage_cells_locked': 0.1, 'keys': 5, 'locks': 6}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 5.6009078938763235 = 3.675671499995739 + 1.925236393880585  differs from SMAC penalty 10.127654043884263
+Warning: re-computed penalty 5.6009078938763235 = 3.675671499995739 + 1.925236393880585  differs from SMAC penalty 10.127654043884263
+Warning: re-computed penalty 7.1201691083805665 = 3.214754217086859 + 3.9054148912937077  differs from SMAC penalty 13.13766662126482
+Warning: re-computed penalty 6.438917629329374 = 4.151037984206354 + 2.28787964512302  differs from SMAC penalty 9.573304666944917
+Warning: re-computed penalty 5.966256889113758 = 3.1557879052851883 + 2.8104689838285704  differs from SMAC penalty 9.416926244411577
+Warning: re-computed penalty 7.1201691083805665 = 3.214754217086859 + 3.9054148912937077  differs from SMAC penalty 13.13766662126482
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 4, 'y': 8, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.1, 'keys': 2, 'locks': 3}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 7.1201691083805665 = 3.214754217086859 + 3.9054148912937077  differs from SMAC penalty 13.13766662126482
+Warning: re-computed penalty 6.207660343807768 = 4.282423949927183 + 1.925236393880585  differs from SMAC penalty 9.308811347587493
+Warning: re-computed penalty 6.955567598480132 = 4.197303871103894 + 2.7582637273762387  differs from SMAC penalty 11.012759092840106
+Warning: re-computed penalty 4.931216497768357 = 3.2526838244128937 + 1.678532673355463  differs from SMAC penalty 8.014805264047904
+Warning: re-computed penalty 11.117154371735921 = 4.238949363438339 + 6.878205008297582  differs from SMAC penalty 14.297622678071088
+Warning: re-computed penalty 9.049064123417498 = 5.205112912014807 + 3.8439512114026906  differs from SMAC penalty 5.752551814145244
+Warning: re-computed penalty 6.955567598480132 = 4.197303871103894 + 2.7582637273762387  differs from SMAC penalty 11.012759092840106
+Warning: re-computed penalty 6.967752961315874 = 3.9399039878204714 + 3.027848973495403  differs from SMAC penalty 10.22144231652398
+Warning: re-computed penalty 8.493873725576144 = 5.793196114573801 + 2.7006776110023427  differs from SMAC penalty 11.755257965192627
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 17, 'y': 17, 'prob_key_in_goal': 0.75, 'shapes': 1, 'extra_keys': 2, 'percentage_cells_locked': 0.1, 'keys': 3, 'locks': 28}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 26.935293844587804 = 6.935293844587802 + 20  differs from SMAC penalty 17.903136602978336
+Warning: re-computed penalty 7.578726824312107 = 4.853989424445983 + 2.7247373998661244  differs from SMAC penalty 10.8089913177013
+Warning: re-computed penalty 6.672491791837069 = 4.4970398816837855 + 2.175451910153283  differs from SMAC penalty 9.754632017847829
+Warning: re-computed penalty 6.813491135315288 = 4.864000074478118 + 1.94949106083717  differs from SMAC penalty 10.598179938998122
+Warning: re-computed penalty 6.809952879542605 = 4.323030141737403 + 2.486922737805202  differs from SMAC penalty 9.94209049624305
+Warning: re-computed penalty 7.490580759667279 = 2.3111285611050754 + 5.1794521985622035  differs from SMAC penalty 11.772639787799697
+Warning: re-computed penalty 11.379876186629904 = 4.770252857706151 + 6.609623328923753  differs from SMAC penalty 8.041157834028239
+Warning: re-computed penalty 8.661871487360076 = 2.7881101720369017 + 5.873761315323174  differs from SMAC penalty 5.517515594486292
+Warning: re-computed penalty 11.041517178462657 = 2.285924893550962 + 8.755592284911694  differs from SMAC penalty 2.803300691251339
+Warning: re-computed penalty 8.107302257313311 = 2.338966666354608 + 5.768335590958702  differs from SMAC penalty 4.320011790581367
+Warning: re-computed penalty 13.715674600070729 = 1.8952438216297087 + 11.82043077844102  differs from SMAC penalty 6.477168504373619
+Warning: re-computed penalty 12.354017983778585 = 2.285924893550962 + 10.068093090227622  differs from SMAC penalty 4.935781900809087
+Warning: re-computed penalty 12.334359807709102 = 2.800566837028435 + 9.533792970680668  differs from SMAC penalty 8.703659923222869
+Warning: re-computed penalty 11.041517178462657 = 2.285924893550962 + 8.755592284911694  differs from SMAC penalty 2.803300691251339
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 6, 'y': 10, 'prob_key_in_goal': 1, 'shapes': 4, 'extra_keys': 2, 'percentage_cells_locked': 0.1, 'keys': 6, 'locks': 6}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 11.041517178462657 = 2.285924893550962 + 8.755592284911694  differs from SMAC penalty 2.803300691251339
+Warning: re-computed penalty 11.28558404860443 = 2.338966666354608 + 8.946617382249823  differs from SMAC penalty 5.0613226430309215
+Warning: re-computed penalty 11.041517178462657 = 2.285924893550962 + 8.755592284911694  differs from SMAC penalty 2.803300691251339
+Warning: re-computed penalty 11.041517178462657 = 2.285924893550962 + 8.755592284911694  differs from SMAC penalty 2.803300691251339
+Warning: re-computed penalty 32.35046925366051 = 12.350469253660512 + 20  differs from SMAC penalty 24.416830736896372
+Warning: re-computed penalty 11.041517178462657 = 2.285924893550962 + 8.755592284911694  differs from SMAC penalty 2.803300691251339
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 7, 'y': 11, 'prob_key_in_goal': 1, 'shapes': 2, 'extra_keys': 2, 'percentage_cells_locked': 0.1, 'keys': 4, 'locks': 7}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 13.715674600070729 = 1.8952438216297087 + 11.82043077844102  differs from SMAC penalty 6.477168504373619
+Warning: re-computed penalty 12.354017983778585 = 2.285924893550962 + 10.068093090227622  differs from SMAC penalty 4.935781900809087
+Warning: re-computed penalty 17.319358509543182 = 7.319358509543182 + 10  differs from SMAC penalty 14.069649127563716
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 12, 'y': 17, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 2, 'percentage_cells_locked': 0.1, 'keys': 3, 'locks': 20}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 3, 'y': 8, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 2, 'percentage_cells_locked': 0.1, 'keys': 3, 'locks': 2}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 6, 'y': 11, 'prob_key_in_goal': 0.5, 'shapes': 4, 'extra_keys': 2, 'percentage_cells_locked': 0.1, 'keys': 6, 'locks': 6}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 10.55617384125311 = 6.398479317298421 + 4.157694523954687  differs from SMAC penalty 6.760297597673316
+Warning: re-computed penalty 6.732948410231133 = 5.1117371975442625 + 1.6212112126868705  differs from SMAC penalty 10.617855638222668
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 14, 'y': 16, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.1, 'keys': 2, 'locks': 22}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 9.515952907336361 = 2.6796304009103866 + 6.836322506425974  differs from SMAC penalty 4.947564865870874
+Warning: re-computed penalty 5.87866095590099 = 3.8978279172656394 + 1.9808330386353514  differs from SMAC penalty 9.044716479775735
+Warning: re-computed penalty 9.364542446068047 = 5.892102922651871 + 3.4724395234161762  differs from SMAC penalty 12.645408974545102
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 4, 'y': 8, 'prob_key_in_goal': 0.5, 'shapes': 2, 'extra_keys': 1, 'percentage_cells_locked': 0.1, 'keys': 3, 'locks': 3}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 7.943506087274178 = 3.9052183858235208 + 4.038287701450658  differs from SMAC penalty 11.738612090343398
+Warning: re-computed penalty 5.187698296251584 = 3.2533827825729285 + 1.934315513678656  differs from SMAC penalty 9.14023189964322
+Warning: re-computed penalty 4.918170457549717 = 2.719913007827816 + 2.1982574497219005  differs from SMAC penalty 9.376436872079083
+Warning: re-computed penalty 4.4354568150048355 = 2.7902447898910303 + 1.6452120251138054  differs from SMAC penalty 7.771651842836935
+Warning: re-computed penalty 9.515952907336361 = 2.6796304009103866 + 6.836322506425974  differs from SMAC penalty 4.947564865870874
+Warning: re-computed penalty 5.021973398766779 = 2.7621600059410873 + 2.259813392825691  differs from SMAC penalty 9.401570571368808
+Warning: re-computed penalty 9.27239453013422 = 5.10595156766829 + 4.166442962465929  differs from SMAC penalty 12.62492130676075
+Warning: re-computed penalty 8.598084130585328 = 2.760807750959807 + 5.83727637962552  differs from SMAC penalty 12.79184474558981
+Warning: re-computed penalty 5.187698296251584 = 3.2533827825729285 + 1.934315513678656  differs from SMAC penalty 9.14023189964322
+Warning: re-computed penalty 6.967752961315874 = 3.9399039878204714 + 3.027848973495403  differs from SMAC penalty 11.227391899575892
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 6, 'y': 11, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 2, 'percentage_cells_locked': 0.1, 'keys': 3, 'locks': 6}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 7.614241673269428 = 4.3035347982597 + 3.3107068750097275  differs from SMAC penalty 10.944753738970334
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 12, 'y': 14, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 2, 'percentage_cells_locked': 0.1, 'keys': 4, 'locks': 16}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 14.930007469645869 = 2.7822713067962477 + 12.147736162849622  differs from SMAC penalty 11.252627792250394
+Warning: re-computed penalty 6.5014296595903005 = 4.602749097304031 + 1.8986805622862701  differs from SMAC penalty 9.788665775666992
+Warning: re-computed penalty 6.362881891952121 = 2.967331813273833 + 3.395550078678288  differs from SMAC penalty 9.473655915977346
+Warning: re-computed penalty 7.660697318492286 = 2.1269043478116174 + 5.533792970680668  differs from SMAC penalty 3.3090090213906986
+Warning: re-computed penalty 6.268758139986018 = 4.3435429177835845 + 1.9252152222024337  differs from SMAC penalty 10.912727305660615
+Warning: re-computed penalty 6.801148095969919 = 4.2624577675954995 + 2.538690328374419  differs from SMAC penalty 10.21973703752783
+Warning: re-computed penalty 6.723800229580004 = 4.2624577675954995 + 2.461342461984504  differs from SMAC penalty 10.590939656357573
+Warning: re-computed penalty 20.2256570664381 = 8.657823488687105 + 11.567833577750994  differs from SMAC penalty 16.55429888093858
+Warning: re-computed penalty 8.968957686262495 = 3.1285299391294474 + 5.840427747133048  differs from SMAC penalty 12.037932571002596
+Warning: re-computed penalty 11.041517178462657 = 2.285924893550962 + 8.755592284911694  differs from SMAC penalty 6.85290580257391
+Warning: re-computed penalty 6.268758139986018 = 4.3435429177835845 + 1.9252152222024337  differs from SMAC penalty 10.912727305660615
+Warning: re-computed penalty 8.497082295383104 = 6.100638895051348 + 2.396443400331756  differs from SMAC penalty 13.198798817803407
+Warning: re-computed penalty 6.801148095969919 = 4.2624577675954995 + 2.538690328374419  differs from SMAC penalty 10.21973703752783
+Warning: re-computed penalty 6.723800229580004 = 4.2624577675954995 + 2.461342461984504  differs from SMAC penalty 10.590939656357573
+Warning: re-computed penalty 8.386869192625594 = 2.8088197709113985 + 5.578049421714196  differs from SMAC penalty 5.316325135797063
+Warning: re-computed penalty 11.041517178462657 = 2.285924893550962 + 8.755592284911694  differs from SMAC penalty 6.85290580257391
+Warning: re-computed penalty 11.041517178462657 = 2.285924893550962 + 8.755592284911694  differs from SMAC penalty 6.85290580257391
+Warning: re-computed penalty 7.614241673269428 = 4.3035347982597 + 3.3107068750097275  differs from SMAC penalty 10.944753738970334
+Warning: re-computed penalty 11.041517178462657 = 2.285924893550962 + 8.755592284911694  differs from SMAC penalty 6.85290580257391
+Warning: re-computed penalty 11.041517178462657 = 2.285924893550962 + 8.755592284911694  differs from SMAC penalty 6.85290580257391
+Warning: re-computed penalty 11.041517178462657 = 2.285924893550962 + 8.755592284911694  differs from SMAC penalty 6.85290580257391
+Warning: re-computed penalty 11.041517178462657 = 2.285924893550962 + 8.755592284911694  differs from SMAC penalty 6.85290580257391
+Warning: re-computed penalty 7.660697318492286 = 2.1269043478116174 + 5.533792970680668  differs from SMAC penalty 3.3090090213906986
+Warning: re-computed penalty 12.112830310232097 = 4.902927556048103 + 7.209902754183994  differs from SMAC penalty 16.10797370221015
+Warning: re-computed penalty 11.041517178462657 = 2.285924893550962 + 8.755592284911694  differs from SMAC penalty 6.85290580257391
+Warning: re-computed penalty 6.5014296595903005 = 4.602749097304031 + 1.8986805622862701  differs from SMAC penalty 9.788665775666992
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 6, 'y': 10, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 2, 'percentage_cells_locked': 0.1, 'keys': 4, 'locks': 6}, so I consider it unsolved within the time and memory limits
+2020-12-13 19:37:02,423 INFO     Different evaluated sequences: 801
+prob_key_in_goal 0.5 130 96
+prob_key_in_goal 0.75 167 100
+prob_key_in_goal 1 494 100
+percentage_cells_locked 0.1 583 100
+percentage_cells_locked 0.2 145 70
+percentage_cells_locked 0.3 40 14
+percentage_cells_locked 0.4 13 11
+percentage_cells_locked 0.5 10 9
+percentage_cells_locked 0.6 0 0
+percentage_cells_locked 0.7 0 0
+percentage_cells_locked 0.8 0 0
+percentage_cells_locked 0.9 0 0
+2020-12-13 19:37:04,367 INFO     Candidate sequences: 311
+2020-12-13 19:37:04,373 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 3 use baseline 308 use sart
+2020-12-13 19:37:04,376 INFO     Using sart runtimes on CPLEX optimization
+2020-12-13 19:37:06,319 INFO     CPLEX solve
+
+2020-12-13 19:37:07,260 INFO     Solution status = 101: MIP_optimal
+2020-12-13 19:37:07,260 INFO     Solution value  = 6.623976676269816
+Selected: sequence 208, 30 instances from 0 to 29
+Configuration: {'extra_keys_b': 4, 'extra_keys_m': 0.2, 'extra_keys_optional_m': 'true', 'grid_m': 1.3000000000000003, 'grid_maxdiff': 4, 'grid_x': 3, 'percentage_cells_locked': 0.2, 'prob_key_in_goal': 1, 'shapes_b': 1, 'shapes_m': 0.0, 'shapes_optional_m': 'false'}
+Penalty: 6.62
+Estimated runtimes: 1.1, 1.4, 2.4, 2.4, 4.2, 5.5, 8.1, 17, 36, 51, 91, 1.2e+02, 1.3e+02, 1.7e+02, 2.3e+02, 3.6e+02, 5.5e+02, 8.6e+02, 1.3e+03, 2.1e+03, 3.3e+03, 5.1e+03, 7.9e+03, 1.2e+04, 1.9e+04, 3e+04, 4.6e+04, 7.2e+04, 1.1e+05, 1.7e+05
+  p01: {'x': 3, 'y': 3, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 1}
+  p02: {'x': 3, 'y': 4, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 2}
+  p03: {'x': 3, 'y': 5, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 3}
+  p04: {'x': 4, 'y': 4, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 3}
+  p05: {'x': 4, 'y': 5, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 4}
+  p06: {'x': 3, 'y': 7, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 4}
+  p07: {'x': 4, 'y': 6, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 4}
+  p08: {'x': 4, 'y': 7, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 5}
+  p09: {'x': 5, 'y': 6, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 6}
+  p10: {'x': 4, 'y': 8, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 6}
+  p11: {'x': 6, 'y': 6, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 7}
+  p12: {'x': 5, 'y': 8, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 8}
+  p13: {'x': 6, 'y': 7, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 8}
+  p14: {'x': 5, 'y': 9, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 9}
+  p15: {'x': 7, 'y': 7, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 9}
+  p16: {'x': 6, 'y': 9, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 10}
+  p17: {'x': 7, 'y': 8, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 11}
+  p18: {'x': 7, 'y': 9, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 12}
+  p19: {'x': 8, 'y': 8, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 12}
+  p20: {'x': 7, 'y': 10, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 14}
+  p21: {'x': 7, 'y': 11, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 15}
+  p22: {'x': 8, 'y': 10, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 16}
+  p23: {'x': 9, 'y': 9, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 16}
+  p24: {'x': 8, 'y': 11, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 17}
+  p25: {'x': 8, 'y': 12, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 19}
+  p26: {'x': 9, 'y': 11, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 19}
+  p27: {'x': 10, 'y': 10, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 20}
+  p28: {'x': 10, 'y': 11, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 22}
+  p29: {'x': 9, 'y': 13, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 23}
+  p30: {'x': 10, 'y': 12, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 24}
+
+real	0m34.929s
+user	0m35.787s
+sys	0m1.307s

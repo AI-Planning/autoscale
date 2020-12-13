@@ -1,0 +1,67 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-13 19:59:57,066 INFO     No run directory, so we will not run anything
+2020-12-13 19:59:57,242 INFO     Loading cache data for baseline planners: 355
+2020-12-13 19:59:57,253 INFO     Loaded data for 206 instances, with min 3 max 15 avg 5.169902912621359 runtimes
+2020-12-13 19:59:57,253 INFO     Loading cache data for sart planners: 2975
+2020-12-13 19:59:57,343 INFO     Loaded data for 2517 instances, with min 3 max 15 avg 3.545887961859356 runtimes
+2020-12-13 19:59:57,885 INFO     Loading cache data for baseline planners: 204
+2020-12-13 19:59:57,893 INFO     Loaded data for 363 instances, with min 3 max 15 avg 4.619834710743802 runtimes
+2020-12-13 19:59:57,893 INFO     Loading cache data for sart planners: 2411
+2020-12-13 19:59:57,967 INFO     Loaded data for 4663 instances, with min 3 max 15 avg 3.465151190220888 runtimes
+2020-12-13 19:59:58,400 INFO     Loading cache data for baseline planners: 204
+2020-12-13 19:59:58,409 INFO     Loaded data for 434 instances, with min 3 max 30 avg 5.274193548387097 runtimes
+2020-12-13 19:59:58,409 INFO     Loading cache data for sart planners: 2461
+2020-12-13 19:59:58,484 INFO     Loaded data for 6698 instances, with min 3 max 30 avg 3.5146312332039416 runtimes
+2020-12-13 19:59:58,485 INFO     Stored sequences: 354
+2020-12-13 20:00:00,739 INFO     Different evaluated sequences: 322
+density 10 10 10
+density 20 10 10
+density 33 27 27
+density 50 10 10
+density 66 42 42
+density 80 15 15
+2020-12-13 20:00:00,784 INFO     Candidate sequences: 114
+2020-12-13 20:00:00,785 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 2 use baseline 112 use sart
+2020-12-13 20:00:00,786 INFO     Using sart runtimes on CPLEX optimization
+2020-12-13 20:00:01,101 INFO     CPLEX solve
+
+2020-12-13 20:00:01,410 INFO     Solution status = 101: MIP_optimal
+2020-12-13 20:00:01,410 INFO     Solution value  = 12.090784087596345
+Selected: sequence 170, 30 instances from 0 to 29
+Configuration: {'density': 20, 'orders_b': 5, 'orders_m': 29.900000000000002, 'products_b': 5, 'products_m': 1.7000000000000002}
+Penalty: 10.09
+Estimated runtimes: 0.23, 0.82, 3.3, 7, 13, 20, 31, 46, 60, 81, 1.1e+02, 1.3e+02, 1.6e+02, 2.3e+02, 3.3e+02, 4.7e+02, 6.7e+02, 9.6e+02, 1.4e+03, 2e+03, 2.8e+03, 4e+03, 5.7e+03, 8.2e+03, 1.2e+04, 1.7e+04, 2.4e+04, 3.4e+04, 4.8e+04, 6.9e+04
+  p01: {'density': 20, 'products': 5, 'orders': 5}
+  p02: {'density': 20, 'products': 6, 'orders': 34}
+  p03: {'density': 20, 'products': 8, 'orders': 64}
+  p04: {'density': 20, 'products': 10, 'orders': 94}
+  p05: {'density': 20, 'products': 11, 'orders': 124}
+  p06: {'density': 20, 'products': 13, 'orders': 154}
+  p07: {'density': 20, 'products': 15, 'orders': 184}
+  p08: {'density': 20, 'products': 16, 'orders': 214}
+  p09: {'density': 20, 'products': 18, 'orders': 244}
+  p10: {'density': 20, 'products': 20, 'orders': 274}
+  p11: {'density': 20, 'products': 21, 'orders': 304}
+  p12: {'density': 20, 'products': 23, 'orders': 333}
+  p13: {'density': 20, 'products': 25, 'orders': 363}
+  p14: {'density': 20, 'products': 27, 'orders': 393}
+  p15: {'density': 20, 'products': 28, 'orders': 423}
+  p16: {'density': 20, 'products': 30, 'orders': 453}
+  p17: {'density': 20, 'products': 32, 'orders': 483}
+  p18: {'density': 20, 'products': 33, 'orders': 513}
+  p19: {'density': 20, 'products': 35, 'orders': 543}
+  p20: {'density': 20, 'products': 37, 'orders': 573}
+  p21: {'density': 20, 'products': 39, 'orders': 602}
+  p22: {'density': 20, 'products': 40, 'orders': 632}
+  p23: {'density': 20, 'products': 42, 'orders': 662}
+  p24: {'density': 20, 'products': 44, 'orders': 692}
+  p25: {'density': 20, 'products': 45, 'orders': 722}
+  p26: {'density': 20, 'products': 47, 'orders': 752}
+  p27: {'density': 20, 'products': 49, 'orders': 782}
+  p28: {'density': 20, 'products': 50, 'orders': 812}
+  p29: {'density': 20, 'products': 52, 'orders': 842}
+  p30: {'density': 20, 'products': 54, 'orders': 872}
+
+real	0m7.171s
+user	0m7.307s
+sys	0m1.245s

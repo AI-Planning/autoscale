@@ -1,0 +1,125 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-13 19:33:54,584 INFO     No run directory, so we will not run anything
+2020-12-13 19:33:54,826 INFO     Loading cache data for baseline planners: 152
+2020-12-13 19:33:54,832 INFO     Loaded data for 96 instances, with min 3 max 15 avg 4.75 runtimes
+2020-12-13 19:33:54,832 INFO     Loading cache data for sart planners: 305
+2020-12-13 19:33:54,844 INFO     Loaded data for 198 instances, with min 3 max 15 avg 4.621212121212121 runtimes
+2020-12-13 19:33:55,536 INFO     Loading cache data for baseline planners: 418
+2020-12-13 19:33:55,551 INFO     Loaded data for 324 instances, with min 3 max 15 avg 5.277777777777778 runtimes
+2020-12-13 19:33:55,551 INFO     Loading cache data for sart planners: 691
+2020-12-13 19:33:55,576 INFO     Loaded data for 581 instances, with min 3 max 15 avg 5.142857142857143 runtimes
+2020-12-13 19:33:56,227 INFO     Loading cache data for baseline planners: 313
+2020-12-13 19:33:56,240 INFO     Loaded data for 441 instances, with min 3 max 30 avg 6.006802721088436 runtimes
+2020-12-13 19:33:56,240 INFO     Loading cache data for sart planners: 584
+2020-12-13 19:33:56,262 INFO     Loaded data for 824 instances, with min 3 max 30 avg 5.752427184466019 runtimes
+2020-12-13 19:33:56,262 INFO     Stored sequences: 640
+Warning: re-computed penalty 14.143807091331936 = 7.503200277868617 + 6.640606813463319  differs from SMAC penalty 17.719147979777148
+Warning: re-computed penalty 13.367792257564663 = 7.481063766158552 + 5.88672849140611  differs from SMAC penalty 10.319703561504149
+Warning: re-computed penalty 16 = 8 + 8  differs from SMAC penalty 20
+Warning: re-computed penalty 13.712145559405705 = 7.495451895213034 + 6.216693664192671  differs from SMAC penalty 10.3774134945278
+Warning: re-computed penalty 13.712145559405705 = 7.495451895213034 + 6.216693664192671  differs from SMAC penalty 10.3774134945278
+Warning: re-computed penalty 11.883082580458524 = 7.481063766158552 + 4.4020188142999706  differs from SMAC penalty 18
+Warning: re-computed penalty 11.853573478898475 = 7.481063766158552 + 4.372509712739923  differs from SMAC penalty 17.464996259658864
+Warning: re-computed penalty 12.221621563267028 = 7.481063766158552 + 4.740557797108476  differs from SMAC penalty 18
+Warning: re-computed penalty 11.883082580458524 = 7.481063766158552 + 4.4020188142999706  differs from SMAC penalty 15.317106537192553
+Warning: re-computed penalty 13.578229389689618 = 8 + 5.578229389689619  differs from SMAC penalty 17.036351244733808
+Warning: re-computed penalty 16 = 8 + 8  differs from SMAC penalty 20
+Warning: re-computed penalty 16 = 8 + 8  differs from SMAC penalty 20
+Warning: re-computed penalty 16 = 8 + 8  differs from SMAC penalty 20
+Warning: re-computed penalty 11.090261040596602 = 6.6828901874044835 + 4.407370853192119  differs from SMAC penalty 14.587503370185605
+Warning: re-computed penalty 11.246634487947867 = 6.817483998296908 + 4.429150489650959  differs from SMAC penalty 14.692479609770114
+Warning: re-computed penalty 12.369978762296364 = 8 + 4.369978762296364  differs from SMAC penalty 15.66288024577421
+Warning: re-computed penalty 9.55313770583711 = 4.730056168448602 + 4.823081537388507  differs from SMAC penalty 14.599856227034998
+Warning: re-computed penalty 8.757582698505486 = 4.472553605687753 + 4.285029092817733  differs from SMAC penalty 11.791571513808261
+Warning: re-computed penalty 13.203183498517497 = 8 + 5.203183498517496  differs from SMAC penalty 17.092621351484723
+Warning: re-computed penalty 11.23478455572616 = 6.8567504864562805 + 4.378034069269879  differs from SMAC penalty 14.700344971688835
+Warning: re-computed penalty 11.70030437632656 = 8 + 3.70030437632656  differs from SMAC penalty 17.546565309451907
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'tiny-network', 'layers': 3, 'extra_items': 9, 'extra_scripts': 18, 'items': 12, 'scripts': 28}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 10.983257155666161 = 6.902612347908628 + 4.080644807757533  differs from SMAC penalty 16
+Warning: re-computed penalty 11.393681881147891 = 6.664356109548446 + 4.729325771599445  differs from SMAC penalty 14.81162107865863
+Warning: re-computed penalty 10.825090728260522 = 6.168840854334698 + 4.656249873925823  differs from SMAC penalty 14.235051683925755
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'tiny-network', 'layers': 3, 'extra_items': 8, 'extra_scripts': 25, 'items': 11, 'scripts': 34}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'tiny-network', 'layers': 3, 'extra_items': 9, 'extra_scripts': 18, 'items': 12, 'scripts': 28}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'tiny-network', 'layers': 3, 'extra_items': 9, 'extra_scripts': 18, 'items': 12, 'scripts': 28}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 12.816405586622192 = 7.365247371496949 + 5.451158215125243  differs from SMAC penalty 16.16591939432335
+Warning: re-computed penalty 14.427553374552533 = 7.5523956864445445 + 6.875157688107988  differs from SMAC penalty 11.321894057467219
+Warning: re-computed penalty 13.363299456213472 = 8 + 5.363299456213471  differs from SMAC penalty 16.644988725500127
+Warning: re-computed penalty 11.75635017321845 = 7.245754241850252 + 4.510595931368198  differs from SMAC penalty 15.086913481547857
+Warning: re-computed penalty 10.714342162497921 = 5.616661057977284 + 5.097681104520637  differs from SMAC penalty 18
+Warning: re-computed penalty 9.278906157497945 = 4.730056168448602 + 4.548849989049343  differs from SMAC penalty 15.19144439940959
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'tiny-network', 'layers': 3, 'extra_items': 9, 'extra_scripts': 18, 'items': 12, 'scripts': 28}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 12.18502625039157 = 6.663949391094409 + 5.52107685929716  differs from SMAC penalty 16
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'tiny-network', 'layers': 3, 'extra_items': 10, 'extra_scripts': 52, 'items': 13, 'scripts': 63}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 4, 'extra_items': 3, 'extra_scripts': 5, 'items': 7, 'scripts': 10}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 10.598849007008901 = 5.625659499045816 + 4.973189507963086  differs from SMAC penalty 13.69760474518049
+Warning: re-computed penalty 12.5564006663351 = 6.427849654720392 + 6.128551011614709  differs from SMAC penalty 16.708273228805286
+Warning: re-computed penalty 8.323459748159609 = 5.174584731346858 + 3.1488750168127506  differs from SMAC penalty 14.308726711084896
+Warning: re-computed penalty 10.677103073500778 = 5.453588833364499 + 5.223514240136279  differs from SMAC penalty 13.971894437558095
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'tiny-network', 'layers': 4, 'extra_items': 7, 'extra_scripts': 8, 'items': 11, 'scripts': 17}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'tiny-network', 'layers': 2, 'extra_items': 9, 'extra_scripts': 40, 'items': 11, 'scripts': 49}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'tiny-network', 'layers': 4, 'extra_items': 8, 'extra_scripts': 26, 'items': 12, 'scripts': 36}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'tiny-network', 'layers': 4, 'extra_items': 7, 'extra_scripts': 25, 'items': 11, 'scripts': 34}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'tiny-network', 'layers': 3, 'extra_items': 8, 'extra_scripts': 47, 'items': 11, 'scripts': 56}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'tiny-network', 'layers': 4, 'extra_items': 6, 'extra_scripts': 21, 'items': 10, 'scripts': 29}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'tiny-network', 'layers': 4, 'extra_items': 6, 'extra_scripts': 21, 'items': 10, 'scripts': 29}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'tiny-network', 'layers': 4, 'extra_items': 6, 'extra_scripts': 21, 'items': 10, 'scripts': 29}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 12.151438680480062 = 6.278976216750301 + 5.872462463729761  differs from SMAC penalty 15.945162524524733
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'tiny-network', 'layers': 3, 'extra_items': 10, 'extra_scripts': 42, 'items': 13, 'scripts': 53}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 10.564124591715867 = 4.934819747313464 + 5.629304844402403  differs from SMAC penalty 14.08561034613029
+2020-12-13 19:33:58,446 INFO     Different evaluated sequences: 435
+network tiny-network 413 100
+network small-network 22 16
+network ring-network 0 0
+layers 2 89 68
+layers 3 271 100
+layers 4 38 30
+layers 5 31 19
+layers 6 6 5
+2020-12-13 19:33:59,447 INFO     Candidate sequences: 224
+2020-12-13 19:33:59,450 INFO     Using sart runtimes on CPLEX optimization
+2020-12-13 19:34:01,113 INFO     CPLEX solve
+
+2020-12-13 19:34:01,503 INFO     Solution status = 101: MIP_optimal
+2020-12-13 19:34:01,503 INFO     Solution value  = 18.032764269418152
+Selected: sequence 243, 14 instances from 0 to 13
+Configuration: {'extra_items_b': 2, 'extra_items_m': 1.0, 'extra_scripts_b': 9, 'extra_scripts_m': 3.4000000000000004, 'layers': 4, 'network': 'tiny-network'}
+Penalty: 8.32
+Estimated runtimes: 1.3, 7.4, 12, 21, 39, 1.7e+02, 2.7e+02, 6.1e+02, 1.4e+03, 3.1e+03, 7e+03, 1.6e+04, 3.5e+04, 7.9e+04, 1.8e+05, 4e+05, 9e+05, 2e+06, 4.6e+06, 1e+07, 2.3e+07, 5.2e+07, 1.2e+08, 2.6e+08, 5.9e+08, 1.3e+09, 3e+09, 6.8e+09, 1.5e+10, 3.4e+10
+Selected: sequence 141, 16 instances from 0 to 15
+Configuration: {'extra_items_b': 2, 'extra_items_m': 1.0, 'extra_scripts_b': 17, 'extra_scripts_m': 0.8, 'layers': 3, 'network': 'tiny-network'}
+Penalty: 9.71
+Estimated runtimes: 0.87, 8.1, 15, 23, 35, 1.1e+02, 2.3e+02, 4.6e+02, 9.2e+02, 1.9e+03, 3.8e+03, 7.6e+03, 1.5e+04, 3.1e+04, 6.2e+04, 1.2e+05, 2.5e+05, 5.1e+05, 1e+06, 2.1e+06, 4.2e+06, 8.4e+06, 1.7e+07, 3.4e+07, 6.9e+07, 1.4e+08, 2.8e+08, 5.6e+08, 1.1e+09, 2.3e+09
+  p01: {'network': 'tiny-network', 'layers': 4, 'extra_items': 2, 'extra_scripts': 9, 'items': 6, 'scripts': 13}
+  p02: {'network': 'tiny-network', 'layers': 4, 'extra_items': 3, 'extra_scripts': 12, 'items': 7, 'scripts': 17}
+  p03: {'network': 'tiny-network', 'layers': 4, 'extra_items': 4, 'extra_scripts': 15, 'items': 8, 'scripts': 21}
+  p04: {'network': 'tiny-network', 'layers': 4, 'extra_items': 5, 'extra_scripts': 19, 'items': 9, 'scripts': 26}
+  p05: {'network': 'tiny-network', 'layers': 4, 'extra_items': 6, 'extra_scripts': 22, 'items': 10, 'scripts': 30}
+  p06: {'network': 'tiny-network', 'layers': 4, 'extra_items': 7, 'extra_scripts': 26, 'items': 11, 'scripts': 35}
+  p07: {'network': 'tiny-network', 'layers': 4, 'extra_items': 8, 'extra_scripts': 29, 'items': 12, 'scripts': 39}
+  p08: {'network': 'tiny-network', 'layers': 4, 'extra_items': 9, 'extra_scripts': 32, 'items': 13, 'scripts': 43}
+  p09: {'network': 'tiny-network', 'layers': 4, 'extra_items': 10, 'extra_scripts': 36, 'items': 14, 'scripts': 48}
+  p10: {'network': 'tiny-network', 'layers': 4, 'extra_items': 11, 'extra_scripts': 39, 'items': 15, 'scripts': 52}
+  p11: {'network': 'tiny-network', 'layers': 4, 'extra_items': 12, 'extra_scripts': 42, 'items': 16, 'scripts': 56}
+  p12: {'network': 'tiny-network', 'layers': 4, 'extra_items': 13, 'extra_scripts': 46, 'items': 17, 'scripts': 61}
+  p13: {'network': 'tiny-network', 'layers': 4, 'extra_items': 14, 'extra_scripts': 49, 'items': 18, 'scripts': 65}
+  p14: {'network': 'tiny-network', 'layers': 4, 'extra_items': 15, 'extra_scripts': 53, 'items': 19, 'scripts': 70}
+  p15: {'network': 'tiny-network', 'layers': 3, 'extra_items': 2, 'extra_scripts': 17, 'items': 5, 'scripts': 20}
+  p16: {'network': 'tiny-network', 'layers': 3, 'extra_items': 3, 'extra_scripts': 17, 'items': 6, 'scripts': 21}
+  p17: {'network': 'tiny-network', 'layers': 3, 'extra_items': 4, 'extra_scripts': 18, 'items': 7, 'scripts': 23}
+  p18: {'network': 'tiny-network', 'layers': 3, 'extra_items': 5, 'extra_scripts': 19, 'items': 8, 'scripts': 25}
+  p19: {'network': 'tiny-network', 'layers': 3, 'extra_items': 6, 'extra_scripts': 20, 'items': 9, 'scripts': 27}
+  p20: {'network': 'tiny-network', 'layers': 3, 'extra_items': 7, 'extra_scripts': 21, 'items': 10, 'scripts': 29}
+  p21: {'network': 'tiny-network', 'layers': 3, 'extra_items': 8, 'extra_scripts': 21, 'items': 11, 'scripts': 30}
+  p22: {'network': 'tiny-network', 'layers': 3, 'extra_items': 9, 'extra_scripts': 22, 'items': 12, 'scripts': 32}
+  p23: {'network': 'tiny-network', 'layers': 3, 'extra_items': 10, 'extra_scripts': 23, 'items': 13, 'scripts': 34}
+  p24: {'network': 'tiny-network', 'layers': 3, 'extra_items': 11, 'extra_scripts': 24, 'items': 14, 'scripts': 36}
+  p25: {'network': 'tiny-network', 'layers': 3, 'extra_items': 12, 'extra_scripts': 25, 'items': 15, 'scripts': 38}
+  p26: {'network': 'tiny-network', 'layers': 3, 'extra_items': 13, 'extra_scripts': 25, 'items': 16, 'scripts': 39}
+  p27: {'network': 'tiny-network', 'layers': 3, 'extra_items': 14, 'extra_scripts': 26, 'items': 17, 'scripts': 41}
+  p28: {'network': 'tiny-network', 'layers': 3, 'extra_items': 15, 'extra_scripts': 27, 'items': 18, 'scripts': 43}
+  p29: {'network': 'tiny-network', 'layers': 3, 'extra_items': 16, 'extra_scripts': 28, 'items': 19, 'scripts': 45}
+  p30: {'network': 'tiny-network', 'layers': 3, 'extra_items': 17, 'extra_scripts': 29, 'items': 20, 'scripts': 47}
+
+real	0m14.488s
+user	0m18.105s
+sys	0m16.797s

@@ -1,0 +1,81 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-13 19:37:09,161 INFO     No run directory, so we will not run anything
+2020-12-13 19:37:09,367 INFO     Loading cache data for baseline planners: 491
+2020-12-13 19:37:09,385 INFO     Loaded data for 420 instances, with min 3 max 15 avg 3.507142857142857 runtimes
+2020-12-13 19:37:09,385 INFO     Loading cache data for sart planners: 1174
+2020-12-13 19:37:09,431 INFO     Loaded data for 1017 instances, with min 3 max 15 avg 3.4631268436578173 runtimes
+2020-12-13 19:37:10,010 INFO     Loading cache data for baseline planners: 549
+2020-12-13 19:37:10,029 INFO     Loaded data for 934 instances, with min 3 max 15 avg 3.3404710920770877 runtimes
+2020-12-13 19:37:10,029 INFO     Loading cache data for sart planners: 1468
+2020-12-13 19:37:10,083 INFO     Loaded data for 2443 instances, with min 3 max 15 avg 3.2443716741711013 runtimes
+2020-12-13 19:37:10,538 INFO     Loading cache data for baseline planners: 585
+2020-12-13 19:37:10,560 INFO     Loaded data for 1398 instances, with min 3 max 27 avg 3.4871244635193133 runtimes
+2020-12-13 19:37:10,560 INFO     Loading cache data for sart planners: 1393
+2020-12-13 19:37:10,616 INFO     Loaded data for 3615 instances, with min 3 max 27 avg 3.3485477178423237 runtimes
+2020-12-13 19:37:10,616 INFO     Stored sequences: 248
+Warning: No temporary dir for Runner has been provided but I have no data for {'x': 15, 'y': 16, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 5, 'percentage_cells_locked': 0.1, 'keys': 6, 'locks': 24}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 18.652811385647574 = 6.690489329377318 + 11.962322056270258  differs from SMAC penalty 22.595838830396236
+Warning: re-computed penalty 38 = 18 + 20  differs from SMAC penalty 28
+Warning: re-computed penalty 40 = 20 + 20  differs from SMAC penalty 30
+Warning: re-computed penalty 38 = 18 + 20  differs from SMAC penalty 28
+Warning: re-computed penalty 33.62863067050973 = 13.628630670509729 + 20  differs from SMAC penalty 23.62863067050973
+Warning: re-computed penalty 7.245712527519493 = 6.38377751935103 + 0.8619350081684628  differs from SMAC penalty 10.982237564385231
+Warning: re-computed penalty 18.652811385647574 = 6.690489329377318 + 11.962322056270258  differs from SMAC penalty 22.564686078569444
+2020-12-13 19:37:12,272 INFO     Different evaluated sequences: 228
+prob_key_in_goal 0.5 68 68
+prob_key_in_goal 0.75 77 77
+prob_key_in_goal 1 72 72
+percentage_cells_locked 0.1 111 100
+percentage_cells_locked 0.2 80 80
+percentage_cells_locked 0.3 22 22
+percentage_cells_locked 0.4 2 2
+percentage_cells_locked 0.5 0 0
+percentage_cells_locked 0.6 2 2
+percentage_cells_locked 0.7 0 0
+percentage_cells_locked 0.8 0 0
+percentage_cells_locked 0.9 0 0
+2020-12-13 19:37:12,781 INFO     Candidate sequences: 217
+2020-12-13 19:37:12,785 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 22 use baseline 195 use sart
+2020-12-13 19:37:12,787 INFO     Using sart runtimes on CPLEX optimization
+2020-12-13 19:37:13,500 INFO     CPLEX solve
+
+2020-12-13 19:37:13,932 INFO     Solution status = 101: MIP_optimal
+2020-12-13 19:37:13,932 INFO     Solution value  = 5.531686821477497
+Selected: sequence 142, 30 instances from 0 to 29
+Configuration: {'extra_keys_b': 2, 'extra_keys_m': 1.7000000000000002, 'extra_keys_optional_m': 'false', 'grid_m': 6.0, 'grid_maxdiff': 5, 'grid_x': 4, 'percentage_cells_locked': 0.2, 'prob_key_in_goal': 0.75, 'shapes_b': 2, 'shapes_m': 0.0, 'shapes_optional_m': 'true'}
+Penalty: 5.53
+Estimated runtimes: 0.59, 0.8, 2.1, 5.2, 8.5, 12, 20, 30, 41, 50, 62, 63, 1.2e+02, 1.8e+02, 2.7e+02, 4e+02, 5.9e+02, 8.7e+02, 1.3e+03, 1.9e+03, 2.8e+03, 4.2e+03, 6.2e+03, 9.2e+03, 1.4e+04, 2e+04, 3e+04, 4.4e+04, 6.6e+04, 9.7e+04
+  p01: {'x': 4, 'y': 4, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 2, 'percentage_cells_locked': 0.2, 'keys': 4, 'locks': 3}
+  p02: {'x': 4, 'y': 8, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 3, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 6}
+  p03: {'x': 5, 'y': 9, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 5, 'percentage_cells_locked': 0.2, 'keys': 7, 'locks': 9}
+  p04: {'x': 6, 'y': 10, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 7, 'percentage_cells_locked': 0.2, 'keys': 9, 'locks': 12}
+  p05: {'x': 7, 'y': 11, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 8, 'percentage_cells_locked': 0.2, 'keys': 10, 'locks': 15}
+  p06: {'x': 8, 'y': 12, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 10, 'percentage_cells_locked': 0.2, 'keys': 12, 'locks': 19}
+  p07: {'x': 9, 'y': 13, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 12, 'percentage_cells_locked': 0.2, 'keys': 14, 'locks': 23}
+  p08: {'x': 10, 'y': 14, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 13, 'percentage_cells_locked': 0.2, 'keys': 15, 'locks': 28}
+  p09: {'x': 11, 'y': 15, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 15, 'percentage_cells_locked': 0.2, 'keys': 17, 'locks': 33}
+  p10: {'x': 12, 'y': 16, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 17, 'percentage_cells_locked': 0.2, 'keys': 19, 'locks': 38}
+  p11: {'x': 13, 'y': 17, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 18, 'percentage_cells_locked': 0.2, 'keys': 20, 'locks': 44}
+  p12: {'x': 14, 'y': 18, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 20, 'percentage_cells_locked': 0.2, 'keys': 22, 'locks': 50}
+  p13: {'x': 15, 'y': 19, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 22, 'percentage_cells_locked': 0.2, 'keys': 24, 'locks': 57}
+  p14: {'x': 16, 'y': 20, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 24, 'percentage_cells_locked': 0.2, 'keys': 26, 'locks': 64}
+  p15: {'x': 17, 'y': 21, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 25, 'percentage_cells_locked': 0.2, 'keys': 27, 'locks': 71}
+  p16: {'x': 18, 'y': 22, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 27, 'percentage_cells_locked': 0.2, 'keys': 29, 'locks': 79}
+  p17: {'x': 19, 'y': 23, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 29, 'percentage_cells_locked': 0.2, 'keys': 31, 'locks': 87}
+  p18: {'x': 20, 'y': 24, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 30, 'percentage_cells_locked': 0.2, 'keys': 32, 'locks': 96}
+  p19: {'x': 21, 'y': 25, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 32, 'percentage_cells_locked': 0.2, 'keys': 34, 'locks': 105}
+  p20: {'x': 22, 'y': 26, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 34, 'percentage_cells_locked': 0.2, 'keys': 36, 'locks': 114}
+  p21: {'x': 23, 'y': 27, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 36, 'percentage_cells_locked': 0.2, 'keys': 38, 'locks': 124}
+  p22: {'x': 24, 'y': 28, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 37, 'percentage_cells_locked': 0.2, 'keys': 39, 'locks': 134}
+  p23: {'x': 25, 'y': 29, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 39, 'percentage_cells_locked': 0.2, 'keys': 41, 'locks': 145}
+  p24: {'x': 26, 'y': 30, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 41, 'percentage_cells_locked': 0.2, 'keys': 43, 'locks': 156}
+  p25: {'x': 27, 'y': 31, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 42, 'percentage_cells_locked': 0.2, 'keys': 44, 'locks': 167}
+  p26: {'x': 28, 'y': 32, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 44, 'percentage_cells_locked': 0.2, 'keys': 46, 'locks': 179}
+  p27: {'x': 29, 'y': 33, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 46, 'percentage_cells_locked': 0.2, 'keys': 48, 'locks': 191}
+  p28: {'x': 30, 'y': 34, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 47, 'percentage_cells_locked': 0.2, 'keys': 49, 'locks': 204}
+  p29: {'x': 31, 'y': 35, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 49, 'percentage_cells_locked': 0.2, 'keys': 51, 'locks': 217}
+  p30: {'x': 32, 'y': 36, 'prob_key_in_goal': 0.75, 'shapes': 2, 'extra_keys': 51, 'percentage_cells_locked': 0.2, 'keys': 53, 'locks': 230}
+
+real	0m8.211s
+user	0m9.054s
+sys	0m1.075s

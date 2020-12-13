@@ -1,0 +1,80 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-13 20:08:31,054 INFO     No run directory, so we will not run anything
+2020-12-13 20:08:31,217 INFO     Loading cache data for baseline planners: 441
+2020-12-13 20:08:31,230 INFO     Loaded data for 368 instances, with min 3 max 15 avg 3.595108695652174 runtimes
+2020-12-13 20:08:31,230 INFO     Loading cache data for sart planners: 648
+2020-12-13 20:08:31,247 INFO     Loaded data for 528 instances, with min 3 max 15 avg 3.6818181818181817 runtimes
+2020-12-13 20:08:31,661 INFO     Loading cache data for baseline planners: 452
+2020-12-13 20:08:31,674 INFO     Loaded data for 810 instances, with min 3 max 15 avg 3.3074074074074074 runtimes
+2020-12-13 20:08:31,674 INFO     Loading cache data for sart planners: 706
+2020-12-13 20:08:31,691 INFO     Loaded data for 1223 instances, with min 3 max 15 avg 3.321340964840556 runtimes
+2020-12-13 20:08:32,143 INFO     Loading cache data for baseline planners: 480
+2020-12-13 20:08:32,160 INFO     Loaded data for 1186 instances, with min 3 max 30 avg 3.473018549747049 runtimes
+2020-12-13 20:08:32,160 INFO     Loading cache data for sart planners: 864
+2020-12-13 20:08:32,185 INFO     Loaded data for 1924 instances, with min 3 max 30 avg 3.4584199584199586 runtimes
+2020-12-13 20:08:32,185 INFO     Stored sequences: 106
+Warning: re-computed penalty 34.92583304720529 = 14.92583304720529 + 20  differs from SMAC penalty 24.8491258773956
+Warning: re-computed penalty 38 = 18 + 20  differs from SMAC penalty 28
+Warning: re-computed penalty 40 = 20 + 20  differs from SMAC penalty 30
+Warning: re-computed penalty 20.158387075834124 = 7.797669412559304 + 12.36071766327482  differs from SMAC penalty 14.12940888976957
+Warning: re-computed penalty 40 = 20 + 20  differs from SMAC penalty 30
+Warning: re-computed penalty 40 = 20 + 20  differs from SMAC penalty 30
+Warning: re-computed penalty 21.191674449117897 = 8.696933379604209 + 12.494741069513688  differs from SMAC penalty 14.599768758096705
+Warning: re-computed penalty 29.36996807344545 = 12.625673575534568 + 16.74429449791088  differs from SMAC penalty 19.369968073445445
+Warning: re-computed penalty 31.45116821832501 = 11.451168218325009 + 20  differs from SMAC penalty 21.45116821832501
+Warning: re-computed penalty 33.27048369213723 = 13.270483692137235 + 20  differs from SMAC penalty 23.270483692137233
+Warning: re-computed penalty 31.805273371384068 = 11.80527337138407 + 20  differs from SMAC penalty 21.805273371384068
+Warning: re-computed penalty 25.93244629239459 = 13.235997799694387 + 12.696448492700204  differs from SMAC penalty 15.93244629239459
+Warning: re-computed penalty 40 = 20 + 20  differs from SMAC penalty 30
+Warning: re-computed penalty 34.76992799609581 = 14.769927996095808 + 20  differs from SMAC penalty 24.76992799609581
+Warning: re-computed penalty 19.06397353279498 = 7.260595366995914 + 11.803378165799064  differs from SMAC penalty 14.063973532794979
+Warning: No temporary dir for Runner has been provided but I have no data for {'planes': 20, 'people': 23, 'cities': 23}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 31.754148344632156 = 11.754148344632155 + 20  differs from SMAC penalty 21.754148344632156
+Warning: re-computed penalty 25.93244629239459 = 13.235997799694387 + 12.696448492700204  differs from SMAC penalty 15.93244629239459
+Warning: re-computed penalty 32.78944612752287 = 12.789446127522872 + 20  differs from SMAC penalty 22.791452495971694
+2020-12-13 20:08:32,897 INFO     Different evaluated sequences: 90
+2020-12-13 20:08:33,016 INFO     Candidate sequences: 90
+2020-12-13 20:08:33,018 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 28 use baseline 62 use sart
+2020-12-13 20:08:33,019 INFO     Using sart runtimes on CPLEX optimization
+2020-12-13 20:08:33,094 INFO     CPLEX solve
+
+2020-12-13 20:08:33,162 INFO     Solution status = 101: MIP_optimal
+2020-12-13 20:08:33,162 INFO     Solution value  = 0.8470456489025949
+Selected: sequence 34, 30 instances from 0 to 29
+Configuration: {'cities_b': 11, 'cities_m': 4.3, 'cities_optional_m': 'false', 'people_b': 17, 'people_m': 1.0, 'planes_b': 5, 'planes_m': 0.7000000000000001, 'planes_optional_m': 'false'}
+Penalty: 0.85
+Estimated runtimes: 0.65, 1.3, 2.6, 5.1, 9.5, 16, 29, 46, 71, 93, 1.1e+02, 1.4e+02, 2.1e+02, 3.1e+02, 4.6e+02, 6.8e+02, 1e+03, 1.5e+03, 2.2e+03, 3.3e+03, 4.9e+03, 7.2e+03, 1.1e+04, 1.6e+04, 2.4e+04, 3.5e+04, 5.2e+04, 7.7e+04, 1.1e+05, 1.7e+05
+  p01: {'planes': 5, 'people': 17, 'cities': 11}
+  p02: {'planes': 5, 'people': 18, 'cities': 15}
+  p03: {'planes': 6, 'people': 19, 'cities': 19}
+  p04: {'planes': 7, 'people': 20, 'cities': 23}
+  p05: {'planes': 7, 'people': 21, 'cities': 28}
+  p06: {'planes': 8, 'people': 22, 'cities': 32}
+  p07: {'planes': 9, 'people': 23, 'cities': 36}
+  p08: {'planes': 9, 'people': 24, 'cities': 41}
+  p09: {'planes': 10, 'people': 25, 'cities': 45}
+  p10: {'planes': 11, 'people': 26, 'cities': 49}
+  p11: {'planes': 11, 'people': 27, 'cities': 53}
+  p12: {'planes': 12, 'people': 28, 'cities': 58}
+  p13: {'planes': 13, 'people': 29, 'cities': 62}
+  p14: {'planes': 14, 'people': 30, 'cities': 66}
+  p15: {'planes': 14, 'people': 31, 'cities': 71}
+  p16: {'planes': 15, 'people': 32, 'cities': 75}
+  p17: {'planes': 16, 'people': 33, 'cities': 79}
+  p18: {'planes': 16, 'people': 34, 'cities': 84}
+  p19: {'planes': 17, 'people': 35, 'cities': 88}
+  p20: {'planes': 18, 'people': 36, 'cities': 92}
+  p21: {'planes': 18, 'people': 37, 'cities': 96}
+  p22: {'planes': 19, 'people': 38, 'cities': 101}
+  p23: {'planes': 20, 'people': 39, 'cities': 105}
+  p24: {'planes': 21, 'people': 40, 'cities': 109}
+  p25: {'planes': 21, 'people': 41, 'cities': 114}
+  p26: {'planes': 22, 'people': 42, 'cities': 118}
+  p27: {'planes': 23, 'people': 43, 'cities': 122}
+  p28: {'planes': 23, 'people': 44, 'cities': 127}
+  p29: {'planes': 24, 'people': 45, 'cities': 131}
+  p30: {'planes': 25, 'people': 46, 'cities': 135}
+
+real	0m2.872s
+user	0m2.900s
+sys	0m0.913s

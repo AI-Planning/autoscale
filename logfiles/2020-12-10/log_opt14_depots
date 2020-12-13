@@ -1,0 +1,251 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-13 19:34:22,092 INFO     No run directory, so we will not run anything
+2020-12-13 19:34:22,262 INFO     Loading cache data for baseline planners: 202
+2020-12-13 19:34:22,269 INFO     Loaded data for 129 instances, with min 3 max 15 avg 4.6976744186046515 runtimes
+2020-12-13 19:34:22,269 INFO     Loading cache data for sart planners: 379
+2020-12-13 19:34:22,284 INFO     Loaded data for 288 instances, with min 3 max 15 avg 3.9479166666666665 runtimes
+2020-12-13 19:34:22,998 INFO     Loading cache data for baseline planners: 361
+2020-12-13 19:34:23,013 INFO     Loaded data for 280 instances, with min 3 max 15 avg 6.0321428571428575 runtimes
+2020-12-13 19:34:23,014 INFO     Loading cache data for sart planners: 875
+2020-12-13 19:34:23,051 INFO     Loaded data for 707 instances, with min 3 max 15 avg 5.321074964639321 runtimes
+2020-12-13 19:34:23,637 INFO     Loading cache data for baseline planners: 260
+2020-12-13 19:34:23,649 INFO     Loaded data for 357 instances, with min 3 max 27 avg 6.915966386554622 runtimes
+2020-12-13 19:34:23,649 INFO     Loading cache data for sart planners: 534
+2020-12-13 19:34:23,675 INFO     Loaded data for 912 instances, with min 3 max 27 avg 5.881578947368421 runtimes
+2020-12-13 19:34:23,676 INFO     Stored sequences: 6996
+Warning: re-computed penalty 14.974018129450386 = 8 + 6.974018129450386  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 11.891899210472863
+Warning: re-computed penalty 13.042186900118226 = 8 + 5.042186900118226  differs from SMAC penalty 16.51258013852711
+Warning: re-computed penalty 14.639254709532018 = 8 + 6.639254709532018  differs from SMAC penalty 20
+Warning: No temporary dir for Runner has been provided but I have no data for {'depots': 4, 'distributors': 2, 'trucks': 2, 'pallets': 20, 'hoists': 3, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'depots': 4, 'distributors': 2, 'trucks': 2, 'pallets': 20, 'hoists': 3, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'depots': 4, 'distributors': 2, 'trucks': 2, 'pallets': 7, 'hoists': 5, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'depots': 4, 'distributors': 3, 'trucks': 2, 'pallets': 8, 'hoists': 3, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'depots': 4, 'distributors': 2, 'trucks': 2, 'pallets': 10, 'hoists': 3, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'depots': 4, 'distributors': 2, 'trucks': 2, 'pallets': 10, 'hoists': 3, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'depots': 4, 'distributors': 2, 'trucks': 2, 'pallets': 8, 'hoists': 3, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'depots': 4, 'distributors': 2, 'trucks': 2, 'pallets': 8, 'hoists': 3, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 13.614499623818947 = 6.797955536054827 + 6.816544087764121  differs from SMAC penalty 17.13133952489865
+Warning: No temporary dir for Runner has been provided but I have no data for {'depots': 4, 'distributors': 3, 'trucks': 2, 'pallets': 17, 'hoists': 3, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'depots': 4, 'distributors': 2, 'trucks': 2, 'pallets': 19, 'hoists': 2, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 14.844110754063086 = 8 + 6.844110754063086  differs from SMAC penalty 18
+Warning: No temporary dir for Runner has been provided but I have no data for {'depots': 4, 'distributors': 2, 'trucks': 2, 'pallets': 20, 'hoists': 4, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.978789842998717 = 8 + 6.978789842998717  differs from SMAC penalty 18
+Warning: re-computed penalty 14.912647138439528 = 8 + 6.912647138439529  differs from SMAC penalty 18
+Warning: No temporary dir for Runner has been provided but I have no data for {'depots': 4, 'distributors': 2, 'trucks': 2, 'pallets': 19, 'hoists': 6, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 14.844110754063086 = 8 + 6.844110754063086  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: No temporary dir for Runner has been provided but I have no data for {'depots': 4, 'distributors': 2, 'trucks': 2, 'pallets': 17, 'hoists': 2, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.844110754063086 = 8 + 6.844110754063086  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: No temporary dir for Runner has been provided but I have no data for {'depots': 4, 'distributors': 2, 'trucks': 2, 'pallets': 18, 'hoists': 8, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.912647138439528 = 8 + 6.912647138439529  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.912647138439528 = 8 + 6.912647138439529  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.844110754063086 = 8 + 6.844110754063086  differs from SMAC penalty 18
+Warning: re-computed penalty 14.978789842998717 = 8 + 6.978789842998717  differs from SMAC penalty 18
+Warning: re-computed penalty 14.912647138439528 = 8 + 6.912647138439529  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.844110754063086 = 8 + 6.844110754063086  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.844110754063086 = 8 + 6.844110754063086  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.978789842998717 = 8 + 6.978789842998717  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.978789842998717 = 8 + 6.978789842998717  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: No temporary dir for Runner has been provided but I have no data for {'depots': 4, 'distributors': 2, 'trucks': 2, 'pallets': 20, 'hoists': 3, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.912647138439528 = 8 + 6.912647138439529  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: No temporary dir for Runner has been provided but I have no data for {'depots': 4, 'distributors': 2, 'trucks': 2, 'pallets': 20, 'hoists': 3, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: No temporary dir for Runner has been provided but I have no data for {'depots': 4, 'distributors': 2, 'trucks': 2, 'pallets': 20, 'hoists': 3, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 14.980303638705621 = 8 + 6.980303638705621  differs from SMAC penalty 18
+Warning: No temporary dir for Runner has been provided but I have no data for {'depots': 3, 'distributors': 2, 'trucks': 3, 'pallets': 2, 'hoists': 3, 'crates': 6}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'depots': 3, 'distributors': 4, 'trucks': 2, 'pallets': 6, 'hoists': 2, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'depots': 3, 'distributors': 6, 'trucks': 2, 'pallets': 9, 'hoists': 4, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'depots': 4, 'distributors': 4, 'trucks': 2, 'pallets': 2, 'hoists': 6, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'depots': 4, 'distributors': 4, 'trucks': 2, 'pallets': 2, 'hoists': 6, 'crates': 7}, so I consider it unsolved within the time and memory limits
+2020-12-13 19:34:51,383 INFO     Different evaluated sequences: 525
+2020-12-13 19:34:51,553 INFO     Candidate sequences: 100
+2020-12-13 19:34:51,555 INFO     Using sart runtimes on CPLEX optimization
+2020-12-13 19:34:51,826 INFO     CPLEX solve
+
+2020-12-13 19:34:51,995 INFO     Solution status = 101: MIP_optimal
+2020-12-13 19:34:51,995 INFO     Solution value  = 39.529564455386385
+Selected: sequence 362, 10 instances from 0 to 9
+Configuration: {'crates_b': 3, 'crates_m': 1.1, 'depots_b': 4, 'depots_m': 0.7000000000000001, 'depots_optional_m': 'true', 'distributors_b': 3, 'distributors_m': 0.2, 'distributors_optional_m': 'true', 'hoists_b': 2, 'hoists_m': 0.8, 'hoists_optional_m': 'false', 'pallets_b': 2, 'pallets_m': 4.3999999999999995, 'pallets_optional_m': 'true', 'trucks_b': 2, 'trucks_m': 0.30000000000000004, 'trucks_optional_m': 'true'}
+Penalty: 12.38
+Estimated runtimes: 0.71, 0.95, 6.2, 19, 92, 3.6e+02, 1.4e+03, 5.7e+03, 2.3e+04, 9e+04, 3.6e+05, 1.4e+06, 5.6e+06, 2.2e+07, 8.8e+07, 3.5e+08, 1.4e+09, 5.5e+09, 2.2e+10, 8.6e+10, 3.4e+11, 1.4e+12, 5.4e+12, 2.1e+13, 8.4e+13, 3.3e+14, 1.3e+15, 5.2e+15, 2.1e+16, 8.2e+16
+Selected: sequence 86, 9 instances from 1 to 9
+Configuration: {'crates_b': 3, 'crates_m': 1.0, 'depots_b': 3, 'depots_m': 0.7000000000000001, 'depots_optional_m': 'true', 'distributors_b': 2, 'distributors_m': 1.1, 'distributors_optional_m': 'false', 'hoists_b': 2, 'hoists_m': 0.6, 'hoists_optional_m': 'true', 'pallets_b': 2, 'pallets_m': 2.7, 'pallets_optional_m': 'false', 'trucks_b': 2, 'trucks_m': 0.5, 'trucks_optional_m': 'true'}
+Penalty: 12.98
+Estimated runtimes: 0.93, 5.2, 70, 74, 1.3e+02, 6.9e+02, 3.8e+03, 2.1e+04, 1.1e+05, 6.2e+05, 3.4e+06, 1.8e+07, 1e+08, 5.5e+08, 3e+09, 1.6e+10, 9e+10, 4.9e+11, 2.7e+12, 1.5e+13, 8e+13, 4.4e+14, 2.4e+15, 1.3e+16, 7.1e+16, 3.9e+17, 2.1e+18, 1.2e+19, 6.3e+19
+Selected: sequence 287, 11 instances from 0 to 10
+Configuration: {'crates_b': 3, 'crates_m': 1.0, 'depots_b': 3, 'depots_m': 0.7000000000000001, 'depots_optional_m': 'false', 'distributors_b': 2, 'distributors_m': 1.0, 'distributors_optional_m': 'true', 'hoists_b': 2, 'hoists_m': 1.1, 'hoists_optional_m': 'true', 'pallets_b': 3, 'pallets_m': 2.7, 'pallets_optional_m': 'true', 'trucks_b': 2, 'trucks_m': 0.8, 'trucks_optional_m': 'true'}
+Penalty: 14.17
+Estimated runtimes: 0.63, 0.78, 4.1, 16, 46, 1.8e+02, 7e+02, 2.8e+03, 1.1e+04, 4.2e+04, 1.6e+05, 6.4e+05, 2.5e+06, 9.8e+06, 3.8e+07, 1.5e+08, 5.9e+08, 2.3e+09, 9e+09, 3.5e+10, 1.4e+11, 5.4e+11, 2.1e+12, 8.2e+12, 3.2e+13, 1.3e+14, 4.9e+14, 1.9e+15, 7.5e+15, 2.9e+16
+  p01: {'depots': 4, 'distributors': 3, 'trucks': 2, 'pallets': 2, 'hoists': 2, 'crates': 3}
+  p02: {'depots': 4, 'distributors': 3, 'trucks': 2, 'pallets': 2, 'hoists': 2, 'crates': 4}
+  p03: {'depots': 4, 'distributors': 3, 'trucks': 2, 'pallets': 2, 'hoists': 3, 'crates': 5}
+  p04: {'depots': 4, 'distributors': 3, 'trucks': 2, 'pallets': 2, 'hoists': 4, 'crates': 6}
+  p05: {'depots': 4, 'distributors': 3, 'trucks': 2, 'pallets': 2, 'hoists': 5, 'crates': 7}
+  p06: {'depots': 4, 'distributors': 3, 'trucks': 2, 'pallets': 2, 'hoists': 5, 'crates': 8}
+  p07: {'depots': 4, 'distributors': 3, 'trucks': 2, 'pallets': 2, 'hoists': 6, 'crates': 9}
+  p08: {'depots': 4, 'distributors': 3, 'trucks': 2, 'pallets': 2, 'hoists': 7, 'crates': 10}
+  p09: {'depots': 4, 'distributors': 3, 'trucks': 2, 'pallets': 2, 'hoists': 8, 'crates': 11}
+  p10: {'depots': 4, 'distributors': 3, 'trucks': 2, 'pallets': 2, 'hoists': 9, 'crates': 12}
+  p11: {'depots': 3, 'distributors': 3, 'trucks': 2, 'pallets': 4, 'hoists': 2, 'crates': 4}
+  p12: {'depots': 3, 'distributors': 4, 'trucks': 2, 'pallets': 7, 'hoists': 2, 'crates': 5}
+  p13: {'depots': 3, 'distributors': 5, 'trucks': 2, 'pallets': 10, 'hoists': 2, 'crates': 6}
+  p14: {'depots': 3, 'distributors': 6, 'trucks': 2, 'pallets': 12, 'hoists': 2, 'crates': 7}
+  p15: {'depots': 3, 'distributors': 7, 'trucks': 2, 'pallets': 15, 'hoists': 2, 'crates': 8}
+  p16: {'depots': 3, 'distributors': 8, 'trucks': 2, 'pallets': 18, 'hoists': 2, 'crates': 9}
+  p17: {'depots': 3, 'distributors': 9, 'trucks': 2, 'pallets': 20, 'hoists': 2, 'crates': 10}
+  p18: {'depots': 3, 'distributors': 10, 'trucks': 2, 'pallets': 23, 'hoists': 2, 'crates': 11}
+  p19: {'depots': 3, 'distributors': 11, 'trucks': 2, 'pallets': 26, 'hoists': 2, 'crates': 12}
+  p20: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 3, 'hoists': 2, 'crates': 3}
+  p21: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 3, 'hoists': 2, 'crates': 4}
+  p22: {'depots': 4, 'distributors': 2, 'trucks': 2, 'pallets': 3, 'hoists': 2, 'crates': 5}
+  p23: {'depots': 5, 'distributors': 2, 'trucks': 2, 'pallets': 3, 'hoists': 2, 'crates': 6}
+  p24: {'depots': 5, 'distributors': 2, 'trucks': 2, 'pallets': 3, 'hoists': 2, 'crates': 7}
+  p25: {'depots': 6, 'distributors': 2, 'trucks': 2, 'pallets': 3, 'hoists': 2, 'crates': 8}
+  p26: {'depots': 7, 'distributors': 2, 'trucks': 2, 'pallets': 3, 'hoists': 2, 'crates': 9}
+  p27: {'depots': 7, 'distributors': 2, 'trucks': 2, 'pallets': 3, 'hoists': 2, 'crates': 10}
+  p28: {'depots': 8, 'distributors': 2, 'trucks': 2, 'pallets': 3, 'hoists': 2, 'crates': 11}
+  p29: {'depots': 9, 'distributors': 2, 'trucks': 2, 'pallets': 3, 'hoists': 2, 'crates': 12}
+  p30: {'depots': 10, 'distributors': 2, 'trucks': 2, 'pallets': 3, 'hoists': 2, 'crates': 13}
+
+real	0m30.792s
+user	0m30.581s
+sys	0m1.042s

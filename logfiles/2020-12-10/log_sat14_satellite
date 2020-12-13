@@ -1,0 +1,75 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-13 20:00:50,170 INFO     No run directory, so we will not run anything
+2020-12-13 20:00:50,356 INFO     Loading cache data for baseline planners: 428
+2020-12-13 20:00:50,370 INFO     Loaded data for 368 instances, with min 3 max 15 avg 3.489130434782609 runtimes
+2020-12-13 20:00:50,370 INFO     Loading cache data for sart planners: 881
+2020-12-13 20:00:50,398 INFO     Loaded data for 761 instances, with min 3 max 15 avg 3.4730617608409986 runtimes
+2020-12-13 20:00:50,887 INFO     Loading cache data for baseline planners: 522
+2020-12-13 20:00:50,903 INFO     Loaded data for 888 instances, with min 3 max 15 avg 3.2094594594594597 runtimes
+2020-12-13 20:00:50,904 INFO     Loading cache data for sart planners: 1095
+2020-12-13 20:00:50,940 INFO     Loaded data for 1854 instances, with min 3 max 15 avg 3.197411003236246 runtimes
+2020-12-13 20:00:51,453 INFO     Loading cache data for baseline planners: 574
+2020-12-13 20:00:51,473 INFO     Loaded data for 1400 instances, with min 3 max 24 avg 3.2657142857142856 runtimes
+2020-12-13 20:00:51,473 INFO     Loading cache data for sart planners: 1200
+2020-12-13 20:00:51,512 INFO     Loaded data for 2944 instances, with min 3 max 24 avg 3.2364130434782608 runtimes
+2020-12-13 20:00:51,512 INFO     Stored sequences: 148
+Warning: re-computed penalty 25.04016304478416 = 11.601002042950368 + 13.439161001833792  differs from SMAC penalty 14.781314759881226
+Warning: re-computed penalty 40 = 20 + 20  differs from SMAC penalty 30
+Warning: re-computed penalty 3.3253154950706514 = 1.8130117025385757 + 1.5123037925320757  differs from SMAC penalty 8.284903461763932
+Warning: re-computed penalty 17.857099769626842 = 5.442467079101602 + 12.414632690525242  differs from SMAC penalty 13.652776113080407
+Warning: re-computed penalty 20.391320995933086 = 7.7237187996447405 + 12.667602196288346  differs from SMAC penalty 14.232551624883541
+Warning: re-computed penalty 40 = 20 + 20  differs from SMAC penalty 30
+Warning: re-computed penalty 18.12839870211294 = 5.601338049333554 + 12.527060652779387  differs from SMAC penalty 14.128398702112941
+Warning: re-computed penalty 32.66436625660221 = 12.664366256602204 + 20  differs from SMAC penalty 22.664366256602204
+Warning: re-computed penalty 40 = 20 + 20  differs from SMAC penalty 30
+Warning: re-computed penalty 25.072010976105574 = 12.080846159893355 + 12.99116481621222  differs from SMAC penalty 15.072010976105576
+Warning: re-computed penalty 25.060992891624004 = 11.829358339100052 + 13.23163455252395  differs from SMAC penalty 15.060992891624002
+Warning: re-computed penalty 25.90499241287317 = 12.558673042328586 + 13.346319370544586  differs from SMAC penalty 15.90499241287317
+Warning: re-computed penalty 26.2526663917365 = 13.088445367068845 + 13.164221024667656  differs from SMAC penalty 16.2526663917365
+Warning: re-computed penalty 19.170825357650248 = 6.469866160126434 + 12.700959197523815  differs from SMAC penalty 14.170825357650248
+2020-12-13 20:00:52,538 INFO     Different evaluated sequences: 137
+2020-12-13 20:00:52,697 INFO     Candidate sequences: 100
+2020-12-13 20:00:52,699 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 4 use baseline 96 use sart
+2020-12-13 20:00:52,700 INFO     Using sart runtimes on CPLEX optimization
+2020-12-13 20:00:52,876 INFO     CPLEX solve
+
+2020-12-13 20:00:53,026 INFO     Solution status = 101: MIP_optimal
+2020-12-13 20:00:53,026 INFO     Solution value  = 2.8110699640642647
+Selected: sequence 114, 30 instances from 0 to 29
+Configuration: {'modes_b': 2, 'modes_m': 0.4, 'modes_optional_m': 'false', 'observations_b': 39, 'observations_m': 8.4, 'satellites_b': 5, 'satellites_m': 0.9, 'satellites_optional_m': 'false', 'targets_b': 18, 'targets_m': 2.2}
+Penalty: 2.81
+Estimated runtimes: 3.1, 4.2, 6.5, 10, 13, 17, 25, 34, 43, 53, 69, 91, 99, 1.2e+02, 1.8e+02, 2.8e+02, 4.2e+02, 6.5e+02, 1e+03, 1.5e+03, 2.3e+03, 3.6e+03, 5.5e+03, 8.5e+03, 1.3e+04, 2e+04, 3.1e+04, 4.7e+04, 7.2e+04, 1.1e+05
+  p01: {'satellites': 5, 'targets': 18, 'modes': 2, 'observations': 39}
+  p02: {'satellites': 5, 'targets': 20, 'modes': 2, 'observations': 47}
+  p03: {'satellites': 6, 'targets': 22, 'modes': 2, 'observations': 55}
+  p04: {'satellites': 7, 'targets': 24, 'modes': 3, 'observations': 64}
+  p05: {'satellites': 8, 'targets': 26, 'modes': 3, 'observations': 72}
+  p06: {'satellites': 9, 'targets': 28, 'modes': 3, 'observations': 81}
+  p07: {'satellites': 10, 'targets': 31, 'modes': 4, 'observations': 89}
+  p08: {'satellites': 11, 'targets': 33, 'modes': 4, 'observations': 97}
+  p09: {'satellites': 12, 'targets': 35, 'modes': 5, 'observations': 106}
+  p10: {'satellites': 13, 'targets': 37, 'modes': 5, 'observations': 114}
+  p11: {'satellites': 14, 'targets': 40, 'modes': 6, 'observations': 123}
+  p12: {'satellites': 14, 'targets': 42, 'modes': 6, 'observations': 131}
+  p13: {'satellites': 15, 'targets': 44, 'modes': 6, 'observations': 139}
+  p14: {'satellites': 16, 'targets': 46, 'modes': 7, 'observations': 148}
+  p15: {'satellites': 17, 'targets': 48, 'modes': 7, 'observations': 156}
+  p16: {'satellites': 18, 'targets': 51, 'modes': 8, 'observations': 165}
+  p17: {'satellites': 19, 'targets': 53, 'modes': 8, 'observations': 173}
+  p18: {'satellites': 20, 'targets': 55, 'modes': 8, 'observations': 181}
+  p19: {'satellites': 21, 'targets': 57, 'modes': 9, 'observations': 190}
+  p20: {'satellites': 22, 'targets': 59, 'modes': 9, 'observations': 198}
+  p21: {'satellites': 22, 'targets': 62, 'modes': 10, 'observations': 207}
+  p22: {'satellites': 23, 'targets': 64, 'modes': 10, 'observations': 215}
+  p23: {'satellites': 24, 'targets': 66, 'modes': 10, 'observations': 223}
+  p24: {'satellites': 25, 'targets': 68, 'modes': 11, 'observations': 232}
+  p25: {'satellites': 26, 'targets': 70, 'modes': 11, 'observations': 240}
+  p26: {'satellites': 27, 'targets': 73, 'modes': 12, 'observations': 249}
+  p27: {'satellites': 28, 'targets': 75, 'modes': 12, 'observations': 257}
+  p28: {'satellites': 29, 'targets': 77, 'modes': 12, 'observations': 265}
+  p29: {'satellites': 30, 'targets': 79, 'modes': 13, 'observations': 274}
+  p30: {'satellites': 31, 'targets': 81, 'modes': 13, 'observations': 282}
+
+real	0m3.933s
+user	0m4.113s
+sys	0m1.050s

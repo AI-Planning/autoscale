@@ -1,0 +1,78 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-13 20:07:55,577 INFO     No run directory, so we will not run anything
+2020-12-13 20:07:55,702 INFO     Loading cache data for baseline planners: 157
+2020-12-13 20:07:55,707 INFO     Loaded data for 54 instances, with min 3 max 15 avg 8.722222222222221 runtimes
+2020-12-13 20:07:55,707 INFO     Loading cache data for sart planners: 564
+2020-12-13 20:07:55,724 INFO     Loaded data for 210 instances, with min 3 max 15 avg 8.057142857142857 runtimes
+2020-12-13 20:07:56,301 INFO     Loading cache data for baseline planners: 51
+2020-12-13 20:07:56,302 INFO     Loaded data for 74 instances, with min 3 max 15 avg 8.432432432432432 runtimes
+2020-12-13 20:07:56,302 INFO     Loading cache data for sart planners: 272
+2020-12-13 20:07:56,311 INFO     Loaded data for 318 instances, with min 3 max 15 avg 7.886792452830188 runtimes
+2020-12-13 20:07:56,844 INFO     Loading cache data for baseline planners: 195
+2020-12-13 20:07:56,855 INFO     Loaded data for 83 instances, with min 3 max 30 avg 14.566265060240964 runtimes
+2020-12-13 20:07:56,855 INFO     Loading cache data for sart planners: 723
+2020-12-13 20:07:56,886 INFO     Loaded data for 368 instances, with min 3 max 30 avg 12.709239130434783 runtimes
+2020-12-13 20:07:56,886 INFO     Stored sequences: 4280
+Warning: re-computed penalty 10.05456302397241 = 7.628858384234029 + 2.425704639738381  differs from SMAC penalty 14.362457850409175
+Warning: re-computed penalty 9.844731489528927 = 8 + 1.8447314895289266  differs from SMAC penalty 12.912440972698505
+Warning: re-computed penalty 12.718999659152642 = 4.718999659152642 + 8  differs from SMAC penalty 15.863656349086204
+Warning: re-computed penalty 7.966707906757501 = 5.847019140716696 + 2.119688766040805  differs from SMAC penalty 11.031770047955886
+Warning: re-computed penalty 7.828238258386124 = 5.847019140716696 + 1.9812191176694278  differs from SMAC penalty 11.460873612424287
+Warning: re-computed penalty 7.46180092896128 = 5.847019140716696 + 1.6147817882445845  differs from SMAC penalty 10.914255381029792
+Warning: re-computed penalty 7.828238258386124 = 5.847019140716696 + 1.9812191176694278  differs from SMAC penalty 11.460873612424287
+Warning: re-computed penalty 7.46180092896128 = 5.847019140716696 + 1.6147817882445845  differs from SMAC penalty 10.53710698333962
+Warning: re-computed penalty 7.46180092896128 = 5.847019140716696 + 1.6147817882445845  differs from SMAC penalty 10.914255381029792
+Warning: re-computed penalty 7.46180092896128 = 5.847019140716696 + 1.6147817882445845  differs from SMAC penalty 10.539954291478438
+Warning: re-computed penalty 7.719775495682311 = 5.847019140716696 + 1.872756354965615  differs from SMAC penalty 11.062133857133668
+Warning: re-computed penalty 8.754736971000739 = 6.3643197207295845 + 2.390417250271155  differs from SMAC penalty 12.08145637530134
+Warning: re-computed penalty 19.70270548953586 = 4.718999659152642 + 14.983705830383215  differs from SMAC penalty 24.566551828431486
+Warning: re-computed penalty 19.70270548953586 = 4.718999659152642 + 14.983705830383215  differs from SMAC penalty 24.566551828431486
+2020-12-13 20:08:29,334 INFO     Different evaluated sequences: 359
+2020-12-13 20:08:29,632 INFO     Candidate sequences: 100
+2020-12-13 20:08:29,634 INFO     Using sart runtimes on CPLEX optimization
+2020-12-13 20:08:29,899 INFO     CPLEX solve
+
+2020-12-13 20:08:30,177 INFO     Solution status = 101: MIP_optimal
+2020-12-13 20:08:30,177 INFO     Solution value  = 13.335794635659298
+Selected: sequence 98, 13 instances from 14 to 26
+Configuration: {'cities_b': 3, 'cities_m': 0.1, 'cities_optional_m': 'false', 'people_b': 7, 'people_m': 1.2, 'planes_b': 1, 'planes_m': 2.5000000000000004, 'planes_optional_m': 'true'}
+Penalty: 5.93
+Estimated runtimes: 45, 67, 1.8e+02, 3.4e+02, 6.3e+02, 1.2e+03, 2.1e+03, 3.9e+03, 7.3e+03, 1.3e+04, 2.5e+04, 4.6e+04, 8.4e+04, 1.6e+05, 2.9e+05, 5.3e+05
+Selected: sequence 19, 17 instances from 0 to 16
+Configuration: {'cities_b': 6, 'cities_m': 0.2, 'cities_optional_m': 'false', 'people_b': 6, 'people_m': 1.1, 'planes_b': 1, 'planes_m': 1.4000000000000001, 'planes_optional_m': 'true'}
+Penalty: 7.41
+Estimated runtimes: 1.1, 1.2, 1.4, 1.8, 2.1, 7.7, 15, 23, 45, 48, 3.1e+02, 8e+02, 2.1e+03, 5.4e+03, 1.4e+04, 3.6e+04, 9.3e+04, 2.4e+05, 6.2e+05, 1.6e+06, 4.1e+06, 1.1e+07, 2.8e+07, 7.2e+07, 1.9e+08, 4.8e+08, 1.2e+09, 3.2e+09, 8.3e+09, 2.1e+10
+  p01: {'planes': 1, 'people': 23, 'cities': 4}
+  p02: {'planes': 1, 'people': 24, 'cities': 4}
+  p03: {'planes': 1, 'people': 26, 'cities': 4}
+  p04: {'planes': 1, 'people': 27, 'cities': 4}
+  p05: {'planes': 1, 'people': 28, 'cities': 4}
+  p06: {'planes': 1, 'people': 29, 'cities': 4}
+  p07: {'planes': 1, 'people': 30, 'cities': 4}
+  p08: {'planes': 1, 'people': 32, 'cities': 5}
+  p09: {'planes': 1, 'people': 33, 'cities': 5}
+  p10: {'planes': 1, 'people': 34, 'cities': 5}
+  p11: {'planes': 1, 'people': 35, 'cities': 5}
+  p12: {'planes': 1, 'people': 37, 'cities': 5}
+  p13: {'planes': 1, 'people': 38, 'cities': 5}
+  p14: {'planes': 1, 'people': 6, 'cities': 6}
+  p15: {'planes': 1, 'people': 7, 'cities': 6}
+  p16: {'planes': 1, 'people': 8, 'cities': 6}
+  p17: {'planes': 1, 'people': 9, 'cities': 6}
+  p18: {'planes': 1, 'people': 10, 'cities': 6}
+  p19: {'planes': 1, 'people': 11, 'cities': 7}
+  p20: {'planes': 1, 'people': 12, 'cities': 7}
+  p21: {'planes': 1, 'people': 13, 'cities': 7}
+  p22: {'planes': 1, 'people': 14, 'cities': 7}
+  p23: {'planes': 1, 'people': 15, 'cities': 7}
+  p24: {'planes': 1, 'people': 16, 'cities': 8}
+  p25: {'planes': 1, 'people': 18, 'cities': 8}
+  p26: {'planes': 1, 'people': 19, 'cities': 8}
+  p27: {'planes': 1, 'people': 20, 'cities': 8}
+  p28: {'planes': 1, 'people': 21, 'cities': 8}
+  p29: {'planes': 1, 'people': 22, 'cities': 8}
+  p30: {'planes': 1, 'people': 23, 'cities': 9}
+
+real	0m35.483s
+user	0m35.905s
+sys	0m1.016s

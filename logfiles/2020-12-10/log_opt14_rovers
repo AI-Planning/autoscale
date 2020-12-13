@@ -1,0 +1,177 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-13 20:00:16,275 INFO     No run directory, so we will not run anything
+2020-12-13 20:00:16,413 INFO     Loading cache data for baseline planners: 571
+2020-12-13 20:00:16,431 INFO     Loaded data for 468 instances, with min 3 max 15 avg 3.66025641025641 runtimes
+2020-12-13 20:00:16,431 INFO     Loading cache data for sart planners: 1709
+2020-12-13 20:00:16,483 INFO     Loaded data for 1544 instances, with min 3 max 15 avg 3.3205958549222796 runtimes
+2020-12-13 20:00:17,123 INFO     Loading cache data for baseline planners: 998
+2020-12-13 20:00:17,158 INFO     Loaded data for 1132 instances, with min 3 max 15 avg 4.158127208480566 runtimes
+2020-12-13 20:00:17,158 INFO     Loading cache data for sart planners: 3738
+2020-12-13 20:00:17,286 INFO     Loaded data for 4268 instances, with min 3 max 15 avg 3.8287253983130274 runtimes
+2020-12-13 20:00:17,872 INFO     Loading cache data for baseline planners: 968
+2020-12-13 20:00:17,907 INFO     Loaded data for 1717 instances, with min 3 max 21 avg 4.432731508444962 runtimes
+2020-12-13 20:00:17,907 INFO     Loading cache data for sart planners: 3829
+2020-12-13 20:00:18,038 INFO     Loaded data for 6950 instances, with min 3 max 21 avg 4.0040287769784175 runtimes
+2020-12-13 20:00:18,038 INFO     Stored sequences: 672
+Warning: re-computed penalty 13.07987773932461 = 7.305532401574651 + 5.774345337749959  differs from SMAC penalty 17.795236442519467
+Warning: re-computed penalty 8.071793084572594 = 5.7919824120007375 + 2.279810672571857  differs from SMAC penalty 12.134405311207162
+Warning: re-computed penalty 8.476490725508441 = 4.904046349174931 + 3.572444376333511  differs from SMAC penalty 11.815737643768525
+Warning: re-computed penalty 9.109483903918242 = 4.774519847154516 + 4.3349640567637255  differs from SMAC penalty 12.555859095248401
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 6, 'cameras': 4, 'goals': 24, 'waypoints': 25}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 10.08471405234955 = 6.514703502474732 + 3.5700105498748194  differs from SMAC penalty 13.48928228204722
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 8, 'cameras': 6, 'goals': 19, 'waypoints': 21}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 8.213315112735849 = 5.564711896484607 + 2.648603216251241  differs from SMAC penalty 12.603002267895103
+Warning: re-computed penalty 10.521507131575085 = 7.307542348371621 + 3.2139647832034637  differs from SMAC penalty 13.866664513959375
+Warning: re-computed penalty 8.044587029848635 = 6.85782196377534 + 1.1867650660732951  differs from SMAC penalty 11.186765066073296
+Warning: re-computed penalty 12.585301514551364 = 5.935351003857677 + 6.649950510693689  differs from SMAC penalty 6.713185938422003
+Warning: re-computed penalty 12.670889441117943 = 4.202606700324627 + 8.468282740793315  differs from SMAC penalty 6.063186159968751
+Warning: re-computed penalty 8.746546085976039 = 6.992376239707776 + 1.7541698462682636  differs from SMAC penalty 16
+Warning: re-computed penalty 10.425843808214157 = 6.67211719723127 + 3.7537266109828886  differs from SMAC penalty 14.03903819347018
+Warning: re-computed penalty 11.021261201485704 = 5.3094855717312415 + 5.711775629754462  differs from SMAC penalty 15.441763920192646
+Warning: re-computed penalty 8.213315112735849 = 5.564711896484607 + 2.648603216251241  differs from SMAC penalty 12.63764864122487
+Warning: re-computed penalty 8.746546085976039 = 6.992376239707776 + 1.7541698462682636  differs from SMAC penalty 16
+Warning: re-computed penalty 7.375615611816935 = 4.447816965201026 + 2.9277986466159085  differs from SMAC penalty 13.332653295618552
+Warning: re-computed penalty 8.018768547126893 = 5.3094855717312415 + 2.7092829753956513  differs from SMAC penalty 11.180260716856212
+Warning: re-computed penalty 8.746546085976039 = 6.992376239707776 + 1.7541698462682636  differs from SMAC penalty 16
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 11, 'cameras': 11, 'goals': 18, 'waypoints': 23}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 12.670889441117943 = 4.202606700324627 + 8.468282740793315  differs from SMAC penalty 7.285232424853579
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 13, 'cameras': 11, 'goals': 19, 'waypoints': 22}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 5, 'cameras': 6, 'goals': 20, 'waypoints': 21}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 11.562810760873074 = 8 + 3.562810760873074  differs from SMAC penalty 16
+Warning: re-computed penalty 11.190980071703716 = 5.746040386695551 + 5.4449396850081655  differs from SMAC penalty 14.286021522685328
+Warning: re-computed penalty 10.562386789582597 = 6.992376239707776 + 3.5700105498748194  differs from SMAC penalty 13.755036554692548
+Warning: re-computed penalty 8.746546085976039 = 6.992376239707776 + 1.7541698462682636  differs from SMAC penalty 12.750944172893234
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 10, 'cameras': 4, 'goals': 20, 'waypoints': 21}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 19.55293082870596 = 5.810886886631274 + 13.742043942074687  differs from SMAC penalty 9.853590106205658
+Warning: re-computed penalty 9.31084437175938 = 6.096879588555916 + 3.2139647832034637  differs from SMAC penalty 13.719613455359603
+Warning: re-computed penalty 12.153999647567192 = 6.008914487315959 + 6.145085160251233  differs from SMAC penalty 7.348648040739245
+Warning: re-computed penalty 7.375615611816935 = 4.447816965201026 + 2.9277986466159085  differs from SMAC penalty 11.870668221372568
+Warning: re-computed penalty 13.004352785039188 = 7.752027762588482 + 5.252325022450705  differs from SMAC penalty 16.037446854661457
+Warning: re-computed penalty 8.213315112735849 = 5.564711896484607 + 2.648603216251241  differs from SMAC penalty 12.430763361256385
+Warning: re-computed penalty 8.213315112735849 = 5.564711896484607 + 2.648603216251241  differs from SMAC penalty 12.430763361256385
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 3, 'cameras': 7, 'goals': 5, 'waypoints': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 5, 'cameras': 6, 'goals': 23, 'waypoints': 24}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 13.452627508622854 = 7.307542348371621 + 6.145085160251233  differs from SMAC penalty 9.24726300835498
+Warning: re-computed penalty 12.270731560222757 = 6.237054387284459 + 6.0336771729382965  differs from SMAC penalty 8.460906555724371
+Warning: re-computed penalty 10.947130321507684 = 7.583162410771865 + 3.3639679107358185  differs from SMAC penalty 7.538669400971011
+Warning: re-computed penalty 10.069631960552531 = 7.049950673568317 + 3.019681286984214  differs from SMAC penalty 13.489554606896215
+Warning: re-computed penalty 9.635331605526428 = 5.813615580299883 + 3.8217160252265456  differs from SMAC penalty 13.622802744889361
+Warning: re-computed penalty 11.253780950515196 = 8 + 3.2537809505151953  differs from SMAC penalty 14.264854806824069
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 14, 'cameras': 4, 'goals': 7, 'waypoints': 8}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 9.303051389094701 = 5.015658698664426 + 4.287392690430275  differs from SMAC penalty 13.319854870160214
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 14, 'cameras': 4, 'goals': 7, 'waypoints': 8}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 9.518118574138217 = 6.230334122201874 + 3.287784451936342  differs from SMAC penalty 12.521438467914209
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 14, 'cameras': 4, 'goals': 7, 'waypoints': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 14, 'cameras': 4, 'goals': 7, 'waypoints': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 2, 'cameras': 8, 'goals': 7, 'waypoints': 10}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 9.009093934993018 = 4.571060642623023 + 4.438033292369994  differs from SMAC penalty 13.505288548481339
+Warning: re-computed penalty 7.374096373655404 = 4.928552118691506 + 2.445544254963898  differs from SMAC penalty 10.382665818550995
+Warning: re-computed penalty 10.07516567181949 = 4.101920897430735 + 5.973244774388756  differs from SMAC penalty 13.809088894009406
+Warning: re-computed penalty 9.096196880534382 = 5.925962313858099 + 3.1702345666762826  differs from SMAC penalty 13.568460547711284
+Warning: re-computed penalty 15.63774508078162 = 5.7855299003964005 + 9.85221518038522  differs from SMAC penalty 11.451132572642162
+Warning: re-computed penalty 7.586312376797116 = 4.9223342831380466 + 2.663978093659069  differs from SMAC penalty 11.65198136599675
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 12, 'cameras': 4, 'goals': 7, 'waypoints': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 35, 'cameras': 4, 'goals': 17, 'waypoints': 17}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 10.189273143097527 = 6.917578044612172 + 3.271695098485354  differs from SMAC penalty 13.541354880840222
+Warning: re-computed penalty 10.698269149508517 = 6.917578044612172 + 3.7806911048963445  differs from SMAC penalty 14.108375050890288
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 11, 'cameras': 4, 'goals': 7, 'waypoints': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 28, 'cameras': 18, 'goals': 14, 'waypoints': 15}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 14, 'cameras': 4, 'goals': 7, 'waypoints': 8}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 10.189273143097527 = 6.917578044612172 + 3.271695098485354  differs from SMAC penalty 13.541354880840222
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 14, 'cameras': 4, 'goals': 7, 'waypoints': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 15, 'cameras': 1, 'goals': 7, 'waypoints': 9}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 10.802245641445438 = 6.917578044612172 + 3.8846675968332667  differs from SMAC penalty 14.551642896161116
+Warning: re-computed penalty 9.311148090679142 = 7.310881989847437 + 2.0002661008317046  differs from SMAC penalty 13.737658673490175
+Warning: re-computed penalty 12.875285579106677 = 7.810801691064359 + 5.064483888042318  differs from SMAC penalty 16.539929773924822
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 12, 'cameras': 4, 'goals': 7, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 23, 'cameras': 3, 'goals': 16, 'waypoints': 18}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 12, 'cameras': 4, 'goals': 15, 'waypoints': 14}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 16, 'cameras': 3, 'goals': 19, 'waypoints': 21}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 12, 'cameras': 3, 'goals': 6, 'waypoints': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 25, 'cameras': 3, 'goals': 17, 'waypoints': 17}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 14.781003866451545 = 6.781003866451544 + 8  differs from SMAC penalty 18
+Warning: re-computed penalty 6.7986749218327125 = 5.479546326419366 + 1.3191285954133463  differs from SMAC penalty 9.811928091018599
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 17, 'cameras': 4, 'goals': 17, 'waypoints': 17}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 15.63774508078162 = 5.7855299003964005 + 9.85221518038522  differs from SMAC penalty 11.230765012389694
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 36, 'cameras': 5, 'goals': 17, 'waypoints': 17}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 35, 'cameras': 3, 'goals': 16, 'waypoints': 18}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 17, 'cameras': 4, 'goals': 6, 'waypoints': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 35, 'cameras': 4, 'goals': 17, 'waypoints': 17}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 12, 'cameras': 3, 'goals': 7, 'waypoints': 7}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 22, 'cameras': 3, 'goals': 18, 'waypoints': 17}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 20, 'cameras': 4, 'goals': 17, 'waypoints': 17}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 10, 'cameras': 4, 'goals': 7, 'waypoints': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 28, 'cameras': 4, 'goals': 18, 'waypoints': 17}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 13.74737444477718 = 6.814572187383136 + 6.9328022573940435  differs from SMAC penalty 16.932802257394044
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 3, 'cameras': 4, 'goals': 8, 'waypoints': 9}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 16, 'cameras': 3, 'goals': 22, 'waypoints': 23}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 9.98174927628569 = 6.260949245586955 + 3.720800030698734  differs from SMAC penalty 13.243293666639556
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 17, 'cameras': 4, 'goals': 17, 'waypoints': 17}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 9.701334505328115 = 8 + 1.701334505328115  differs from SMAC penalty 14.646947169178707
+Warning: re-computed penalty 9.701334505328115 = 8 + 1.701334505328115  differs from SMAC penalty 14.646947169178707
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 35, 'cameras': 4, 'goals': 17, 'waypoints': 17}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 23, 'cameras': 4, 'goals': 16, 'waypoints': 18}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 16, 'cameras': 2, 'goals': 21, 'waypoints': 20}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 11.39389823908287 = 4.332190012452989 + 7.06170822662988  differs from SMAC penalty 14.573257563911561
+Warning: re-computed penalty 9.169201390261653 = 5.925962313858099 + 3.2432390764035546  differs from SMAC penalty 14.41786552326783
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 11, 'cameras': 3, 'goals': 7, 'waypoints': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 18, 'cameras': 3, 'goals': 16, 'waypoints': 17}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 8.144073743372767 = 5.481422682948219 + 2.662651060424547  differs from SMAC penalty 13.29128337868267
+Warning: re-computed penalty 9.169201390261653 = 5.925962313858099 + 3.2432390764035546  differs from SMAC penalty 14.41786552326783
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 12, 'cameras': 4, 'goals': 7, 'waypoints': 8}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 1, 'objectives': 14, 'cameras': 4, 'goals': 7, 'waypoints': 8}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 10.189273143097527 = 6.917578044612172 + 3.271695098485354  differs from SMAC penalty 5.909446454080314
+Warning: re-computed penalty 10.189273143097527 = 6.917578044612172 + 3.271695098485354  differs from SMAC penalty 5.909446454080314
+Warning: re-computed penalty 10.664046307908245 = 6.917578044612172 + 3.7464682632960735  differs from SMAC penalty 6.365065599824408
+Warning: No temporary dir for Runner has been provided but I have no data for {'rovers': 2, 'objectives': 18, 'cameras': 4, 'goals': 8, 'waypoints': 10}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 15.63774508078162 = 5.7855299003964005 + 9.85221518038522  differs from SMAC penalty 10.559461007142655
+Warning: re-computed penalty 9.415816279801092 = 6.230334122201874 + 3.1854821575992176  differs from SMAC penalty 14.42369111020626
+2020-12-13 20:00:22,242 INFO     Different evaluated sequences: 523
+2020-12-13 20:00:22,518 INFO     Candidate sequences: 100
+2020-12-13 20:00:22,520 INFO     Using sart runtimes on CPLEX optimization
+2020-12-13 20:00:22,758 INFO     CPLEX solve
+
+2020-12-13 20:00:22,996 INFO     Solution status = 101: MIP_optimal
+2020-12-13 20:00:22,996 INFO     Solution value  = 12.12134084342835
+Selected: sequence 349, 21 instances from 3 to 23
+Configuration: {'cameras_b': 3, 'cameras_m': 2.2, 'cameras_optional_m': 'true', 'goals_b': 2, 'goals_m': 1.0, 'objectives_b': 2, 'objectives_m': 2.0, 'objectives_optional_m': 'false', 'rovers_b': 1, 'rovers_m': 0.5, 'rovers_optional_m': 'true', 'waypoints_b': 4, 'waypoints_m': 1.0}
+Penalty: 5.05
+Estimated runtimes: 1.5, 1.6, 2.1, 2.1, 3.1, 3.3, 3.8, 5.8, 5.9, 10, 20, 21, 1.2e+02, 1.4e+02, 3.1e+02, 7.3e+02, 1.7e+03, 3.9e+03, 9.2e+03, 2.1e+04, 5e+04, 1.2e+05, 2.7e+05, 6.2e+05, 1.4e+06, 3.4e+06, 7.8e+06
+Selected: sequence 330, 9 instances from 17 to 25
+Configuration: {'cameras_b': 4, 'cameras_m': 1.1, 'cameras_optional_m': 'true', 'goals_b': 2, 'goals_m': 1.0, 'objectives_b': 7, 'objectives_m': 2.0, 'objectives_optional_m': 'false', 'rovers_b': 1, 'rovers_m': 0.5, 'rovers_optional_m': 'true', 'waypoints_b': 4, 'waypoints_m': 1.0}
+Penalty: 7.07
+Estimated runtimes: 2.5e+02, 5.2e+02, 1.1e+03, 2.3e+03, 4.9e+03, 1e+04, 2.2e+04, 4.6e+04, 9.6e+04, 2e+05, 4.3e+05, 9e+05, 1.9e+06
+  p01: {'rovers': 1, 'objectives': 8, 'cameras': 3, 'goals': 5, 'waypoints': 7}
+  p02: {'rovers': 1, 'objectives': 10, 'cameras': 3, 'goals': 6, 'waypoints': 8}
+  p03: {'rovers': 1, 'objectives': 12, 'cameras': 3, 'goals': 7, 'waypoints': 9}
+  p04: {'rovers': 1, 'objectives': 14, 'cameras': 3, 'goals': 8, 'waypoints': 10}
+  p05: {'rovers': 1, 'objectives': 16, 'cameras': 3, 'goals': 9, 'waypoints': 11}
+  p06: {'rovers': 1, 'objectives': 18, 'cameras': 3, 'goals': 10, 'waypoints': 12}
+  p07: {'rovers': 1, 'objectives': 20, 'cameras': 3, 'goals': 11, 'waypoints': 13}
+  p08: {'rovers': 1, 'objectives': 22, 'cameras': 3, 'goals': 12, 'waypoints': 14}
+  p09: {'rovers': 1, 'objectives': 24, 'cameras': 3, 'goals': 13, 'waypoints': 15}
+  p10: {'rovers': 1, 'objectives': 26, 'cameras': 3, 'goals': 14, 'waypoints': 16}
+  p11: {'rovers': 1, 'objectives': 28, 'cameras': 3, 'goals': 15, 'waypoints': 17}
+  p12: {'rovers': 1, 'objectives': 30, 'cameras': 3, 'goals': 16, 'waypoints': 18}
+  p13: {'rovers': 1, 'objectives': 32, 'cameras': 3, 'goals': 17, 'waypoints': 19}
+  p14: {'rovers': 1, 'objectives': 34, 'cameras': 3, 'goals': 18, 'waypoints': 20}
+  p15: {'rovers': 1, 'objectives': 36, 'cameras': 3, 'goals': 19, 'waypoints': 21}
+  p16: {'rovers': 1, 'objectives': 38, 'cameras': 3, 'goals': 20, 'waypoints': 22}
+  p17: {'rovers': 1, 'objectives': 40, 'cameras': 3, 'goals': 21, 'waypoints': 23}
+  p18: {'rovers': 1, 'objectives': 42, 'cameras': 3, 'goals': 22, 'waypoints': 24}
+  p19: {'rovers': 1, 'objectives': 44, 'cameras': 3, 'goals': 23, 'waypoints': 25}
+  p20: {'rovers': 1, 'objectives': 46, 'cameras': 3, 'goals': 24, 'waypoints': 26}
+  p21: {'rovers': 1, 'objectives': 48, 'cameras': 3, 'goals': 25, 'waypoints': 27}
+  p22: {'rovers': 1, 'objectives': 41, 'cameras': 4, 'goals': 19, 'waypoints': 21}
+  p23: {'rovers': 1, 'objectives': 43, 'cameras': 4, 'goals': 20, 'waypoints': 22}
+  p24: {'rovers': 1, 'objectives': 45, 'cameras': 4, 'goals': 21, 'waypoints': 23}
+  p25: {'rovers': 1, 'objectives': 47, 'cameras': 4, 'goals': 22, 'waypoints': 24}
+  p26: {'rovers': 1, 'objectives': 49, 'cameras': 4, 'goals': 23, 'waypoints': 25}
+  p27: {'rovers': 1, 'objectives': 51, 'cameras': 4, 'goals': 24, 'waypoints': 26}
+  p28: {'rovers': 1, 'objectives': 53, 'cameras': 4, 'goals': 25, 'waypoints': 27}
+  p29: {'rovers': 1, 'objectives': 55, 'cameras': 4, 'goals': 26, 'waypoints': 28}
+  p30: {'rovers': 1, 'objectives': 57, 'cameras': 4, 'goals': 27, 'waypoints': 29}
+
+real	0m7.866s
+user	0m8.047s
+sys	0m1.111s

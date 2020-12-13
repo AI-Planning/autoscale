@@ -1,0 +1,65 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-13 19:36:02,336 INFO     No run directory, so we will not run anything
+2020-12-13 19:36:02,543 INFO     Loading cache data for baseline planners: 112
+2020-12-13 19:36:02,547 INFO     Loaded data for 33 instances, with min 3 max 15 avg 10.181818181818182 runtimes
+2020-12-13 19:36:02,547 INFO     Loading cache data for sart planners: 2063
+2020-12-13 19:36:02,637 INFO     Loaded data for 474 instances, with min 3 max 15 avg 13.056962025316455 runtimes
+2020-12-13 19:36:03,134 INFO     Loading cache data for baseline planners: 0
+2020-12-13 19:36:03,134 INFO     Loaded data for 33 instances, with min 3 max 15 avg 10.181818181818182 runtimes
+2020-12-13 19:36:03,134 INFO     Loading cache data for sart planners: 2
+2020-12-13 19:36:03,135 INFO     Loaded data for 475 instances, with min 3 max 15 avg 13.042105263157895 runtimes
+2020-12-13 19:36:03,629 INFO     Loading cache data for baseline planners: 0
+2020-12-13 19:36:03,629 INFO     Loaded data for 33 instances, with min 3 max 15 avg 10.181818181818182 runtimes
+2020-12-13 19:36:03,629 INFO     Loading cache data for sart planners: 0
+2020-12-13 19:36:03,630 INFO     Loaded data for 475 instances, with min 3 max 15 avg 13.042105263157895 runtimes
+2020-12-13 19:36:03,630 INFO     Stored sequences: 1312
+2020-12-13 19:36:13,987 INFO     Different evaluated sequences: 946
+num_robots 2 221 100
+num_robots 3 216 100
+num_robots 4 208 100
+num_robots 5 199 100
+2020-12-13 19:36:15,145 INFO     Candidate sequences: 400
+2020-12-13 19:36:15,151 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 4 use baseline 396 use sart
+2020-12-13 19:36:15,155 INFO     Using sart runtimes on CPLEX optimization
+2020-12-13 19:36:25,141 INFO     CPLEX solve
+
+2020-12-13 19:36:31,906 INFO     Solution status = 101: MIP_optimal
+2020-12-13 19:36:31,906 INFO     Solution value  = 10.380196227072403
+Selected: sequence 691, 30 instances from 0 to 29
+Configuration: {'grid_m': 6.9, 'grid_maxdiff': 4, 'grid_x': 2, 'num_robots': 5}
+Penalty: 8.38
+Estimated runtimes: 0.18, 0.25, 0.26, 0.38, 0.67, 1.2, 2.3, 3.8, 6.7, 11, 19, 26, 39, 64, 1.2e+02, 1.9e+02, 3.1e+02, 5e+02, 8.1e+02, 1.3e+03, 2.1e+03, 3.4e+03, 5.6e+03, 9e+03, 1.5e+04, 2.4e+04, 3.8e+04, 6.2e+04, 1e+05, 1.6e+05
+  p01: {'num_columns': 2, 'num_rows': 2, 'num_robots': 2}
+  p02: {'num_columns': 3, 'num_rows': 4, 'num_robots': 3}
+  p03: {'num_columns': 5, 'num_rows': 5, 'num_robots': 5}
+  p04: {'num_columns': 6, 'num_rows': 7, 'num_robots': 5}
+  p05: {'num_columns': 7, 'num_rows': 9, 'num_robots': 5}
+  p06: {'num_columns': 8, 'num_rows': 11, 'num_robots': 5}
+  p07: {'num_columns': 9, 'num_rows': 13, 'num_robots': 5}
+  p08: {'num_columns': 12, 'num_rows': 12, 'num_robots': 5}
+  p09: {'num_columns': 13, 'num_rows': 14, 'num_robots': 5}
+  p10: {'num_columns': 14, 'num_rows': 16, 'num_robots': 5}
+  p11: {'num_columns': 15, 'num_rows': 18, 'num_robots': 5}
+  p12: {'num_columns': 17, 'num_rows': 18, 'num_robots': 5}
+  p13: {'num_columns': 18, 'num_rows': 20, 'num_robots': 5}
+  p14: {'num_columns': 19, 'num_rows': 22, 'num_robots': 5}
+  p15: {'num_columns': 20, 'num_rows': 24, 'num_robots': 5}
+  p16: {'num_columns': 23, 'num_rows': 23, 'num_robots': 5}
+  p17: {'num_columns': 24, 'num_rows': 25, 'num_robots': 5}
+  p18: {'num_columns': 25, 'num_rows': 27, 'num_robots': 5}
+  p19: {'num_columns': 26, 'num_rows': 29, 'num_robots': 5}
+  p20: {'num_columns': 27, 'num_rows': 31, 'num_robots': 5}
+  p21: {'num_columns': 30, 'num_rows': 30, 'num_robots': 5}
+  p22: {'num_columns': 30, 'num_rows': 33, 'num_robots': 5}
+  p23: {'num_columns': 31, 'num_rows': 35, 'num_robots': 5}
+  p24: {'num_columns': 34, 'num_rows': 34, 'num_robots': 5}
+  p25: {'num_columns': 35, 'num_rows': 36, 'num_robots': 5}
+  p26: {'num_columns': 36, 'num_rows': 38, 'num_robots': 5}
+  p27: {'num_columns': 37, 'num_rows': 40, 'num_robots': 5}
+  p28: {'num_columns': 38, 'num_rows': 42, 'num_robots': 5}
+  p29: {'num_columns': 41, 'num_rows': 41, 'num_robots': 5}
+  p30: {'num_columns': 42, 'num_rows': 43, 'num_robots': 5}
+
+real	0m31.896s
+user	0m42.056s
+sys	0m2.664s
