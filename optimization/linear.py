@@ -57,9 +57,7 @@ from collections import defaultdict
 
 import domain_configuration
 from domain_configuration import get_domains
-from domain_configuration import EvaluatedSequence
-
-from penalty import evaluate_runtimes_multiple_sequences
+from sequence import EvaluatedSequence
 
 from runner import Runner
 
@@ -335,14 +333,16 @@ def evaluate_sequence(cfg, print_final_configuration=False):
     baseline_eval = EvaluatedSequence(sequence, RUNNER_BASELINE, PLANNER_TIME_LIMIT)
     baseline_times = baseline_eval.get_runtimes(ARGS.tasksbaseline, ARGS.minimum_significant_time, PLANNER_TIME_LIMIT)
     penalty_baseline = baseline_eval.get_penalty(ARGS.tasksbaseline, ARGS.minimum_significant_time, PLANNER_TIME_LIMIT)
-
+    penalty_sart = 0
     if ARGS.only_baseline:
         sart_eval = None
         sart_times = []
     else:
         sart_eval = EvaluatedSequence(sequence, RUNNER_SART, PLANNER_TIME_LIMIT)
         sart_times = sart_eval.get_runtimes(ARGS.tasks, ARGS.minimum_significant_time, PLANNER_TIME_LIMIT)
-        penalty += sart_eval.get_penalty(ARGS.tasks, ARGS.minimum_significant_time, PLANNER_TIME_LIMIT)
+        penalty_sart = sart_eval.get_penalty(ARGS.tasks, ARGS.minimum_significant_time, PLANNER_TIME_LIMIT)
+
+    penalty = penalty_sart + penalty_baseline
 
     results = {
         "baseline_times": baseline_times,

@@ -19,15 +19,14 @@ MIN_PLANNER_RUNTIME = 0.1
 PLANNER_MEMORY_LIMIT = 3 * 1024 ** 3  # 3 GiB in Bytes
 
 
-
-
 # This class is in charge of running instances, using a cache to store the results
 class Runner:
     # We need to provide a set of planners and which parameters are linear
     # (i.e., we may safely assume that larger values
     # imply larger runtimes).  Linear parameters are important because we will use them to
     # avoid running planners on very large values that are estimated to be unsolvable within the time and memory limits.
-    def __init__(self, name, domain, planners, planner_time_limit, random_seed, runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, SINGULARITY_SCRIPT):
+    def __init__(self, name, domain, planners, planner_time_limit, random_seed, runs_per_configuration, SMAC_OUTPUT_DIR,
+                 TMP_PLAN_DIR, GENERATORS_DIR, SINGULARITY_SCRIPT):
         self.name = name
         # We have three types of caches
         self.exact_cache = {}  # Cache the exact runtime so that the same configuration is never run twice
@@ -48,7 +47,7 @@ class Runner:
         self.parameters_cache_key = domain.get_generator_attribute_names()
 
     def get_next_random_seed(self):
-        return random.randint(0, 10**6)
+        return random.randint(0, 10 ** 6)
 
     def load_cache_from_log_file(self, runs):
         for run in runs:
@@ -56,26 +55,29 @@ class Runner:
             runtimes = run[1]
 
             cache_key = tuple([parameters[attr] for attr in self.parameters_cache_key])
-            non_linear_key = tuple([parameters[attr] for attr in self.parameters_cache_key if attr not in self.linear_attributes_names])
+            non_linear_key = tuple(
+                [parameters[attr] for attr in self.parameters_cache_key if attr not in self.linear_attributes_names])
 
             if cache_key not in self.exact_cache:
-                logging.debug (f"Loading {cache_key}: {runtimes}")
+                logging.debug(f"Loading {cache_key}: {runtimes}")
                 self.exact_cache[cache_key] = runtimes
                 self.frontier_cache[non_linear_key].append(
-                    ({linear_atr : parameters[linear_atr] for linear_atr in self.linear_attributes_names}, compute_average(runtimes))
+                    ({linear_atr: parameters[linear_atr] for linear_atr in self.linear_attributes_names},
+                     compute_average(runtimes))
                 )
             else:
-                logging.debug (f"Loading additional data for {cache_key}: {runtimes}")
+                logging.debug(f"Loading additional data for {cache_key}: {runtimes}")
                 self.exact_cache[cache_key] += runtimes
 
                 self.frontier_cache[non_linear_key].append(
-                    ({linear_atr : parameters[linear_atr] for linear_atr in self.linear_attributes_names}, compute_average(self.exact_cache[cache_key]))
+                    ({linear_atr: parameters[linear_atr] for linear_atr in self.linear_attributes_names},
+                     compute_average(self.exact_cache[cache_key]))
                 )
-
 
         num_runtimes = [len(x) for x in self.exact_cache.values()]
         if num_runtimes:
-            logging.info(f"Loaded data for {len(self.exact_cache)} instances, with min {min(num_runtimes)} max {max(num_runtimes)} avg {statistics.mean(num_runtimes)} runtimes")
+            logging.info(
+                f"Loaded data for {len(self.exact_cache)} instances, with min {min(num_runtimes)} max {max(num_runtimes)} avg {statistics.mean(num_runtimes)} runtimes")
         else:
             logging.warning("Found no data in database")
 
@@ -83,7 +85,6 @@ class Runner:
         runtimes = self.run_planners(parameters, time_limit, 1)
         avg_runtime = compute_average(runtimes)
         return avg_runtime is not None and avg_runtime <= time_limit
-
 
     def run_planners(self, parameters, time_limit=None, num_runs=None):
         if not time_limit:
@@ -99,14 +100,18 @@ class Runner:
             return self.exact_cache[cache_key]
 
         # Check the unsolvability cache to see if the problem is too hard
-        non_linear_key = tuple([parameters[attr] for attr in self.parameters_cache_key if attr not in self.linear_attributes_names])
+        non_linear_key = tuple(
+            [parameters[attr] for attr in self.parameters_cache_key if attr not in self.linear_attributes_names])
         if non_linear_key in self.frontier_cache:
             for values_linear_attributes, runtime in self.frontier_cache[non_linear_key]:
-                if (runtime is None or time_limit < runtime) and all(values_linear_attributes[linear_atr] <= parameters[linear_atr] for linear_atr in self.linear_attributes_names):
+                if (runtime is None or time_limit < runtime) and all(
+                        values_linear_attributes[linear_atr] <= parameters[linear_atr] for linear_atr in
+                        self.linear_attributes_names):
                     return None
 
         if self.SMAC_OUTPUT_DIR is None:
-            print(f"Warning: No temporary dir for Runner has been provided but I have no data for {parameters}, so I consider it unsolved within the time and memory limits" )
+            print(
+                f"Warning: No temporary dir for Runner has been provided but I have no data for {parameters}, so I consider it unsolved within the time and memory limits")
             return None
 
         results = []
@@ -126,13 +131,13 @@ class Runner:
 
                 # If the generator fails, print error message and count task as unsolved.
                 try:
-                    self.domain.generate_problem(command, problem_file, os.path.join(plan_dir,  "domain.pddl"))
+                    self.domain.generate_problem(command, problem_file, os.path.join(plan_dir, "domain.pddl"))
                 except subprocess.CalledProcessError as err:
                     print(err, file=sys.stderr)
                     return None
 
                 # Call planners.
-                instance_time_limit = time_limit # If an instance has been solved by a planner, use the solving time as new time limit
+                instance_time_limit = time_limit  # If an instance has been solved by a planner, use the solving time as new time limit
 
                 runtimes = []
                 for image in self.planners:
@@ -199,25 +204,24 @@ class Runner:
                 print(err, file=sys.stderr)
                 raise
 
-
-        if len(results) == num_runs: # All instances have been solved
+        if len(results) == num_runs:  # All instances have been solved
             result = statistics.mean(results)
-        elif results: # Some instances have been solved
+        elif results:  # Some instances have been solved
             num_false_results = num_runs - len(results)
             result = statistics.mean(results + [self.planner_time_limit] * num_false_results)
             results += ["unsolved"] * num_false_results
-        else: # No instance has been solved
+        else:  # No instance has been solved
             results = ["unsolved"] * num_runs
             result = None
 
-
         self.logging.debug(f"Computed runtimes for {self.runs_per_configuration} instances ({result}): {results}")
 
-        if len(results) == self.runs_per_configuration or (time_limit == self.planner_time_limit and num_runs == self.runs_per_configuration):
+        if len(results) == self.runs_per_configuration or (
+                time_limit == self.planner_time_limit and num_runs == self.runs_per_configuration):
             self.logging.info(f"{self.name} runtime for y={parameters}: {results}")
             self.exact_cache[cache_key] = results
             self.frontier_cache[non_linear_key].append(
-                ({linear_atr : parameters[linear_atr] for linear_atr in self.linear_attributes_names}, result)
+                ({linear_atr: parameters[linear_atr] for linear_atr in self.linear_attributes_names}, result)
             )
 
         return results
