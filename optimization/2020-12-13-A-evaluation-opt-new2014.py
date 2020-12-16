@@ -35,4 +35,6 @@ exp = project.get_evaluation_experiment(
     domains=DOMAINS,
     attributes=ATTRIBUTES)
 
+project.fetch_algorithms(exp, "2020-12-13-C-evaluation-opt-new2014-openstacks")
+
 exp.run_steps()
