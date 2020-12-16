@@ -1,0 +1,97 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-16 17:50:57,342 INFO     No run directory, so we will not run anything
+2020-12-16 17:50:57,519 INFO     Loading cache data for baseline planners: 1033
+2020-12-16 17:50:57,547 INFO     Loaded data for 952 instances, with min 3 max 15 avg 3.255252100840336 runtimes
+2020-12-16 17:50:57,547 INFO     Loading cache data for sart planners: 1887
+2020-12-16 17:50:57,594 INFO     Loaded data for 1760 instances, with min 3 max 15 avg 3.2164772727272726 runtimes
+2020-12-16 17:50:58,084 INFO     Loading cache data for baseline planners: 1337
+2020-12-16 17:50:58,125 INFO     Loaded data for 2280 instances, with min 3 max 15 avg 3.1184210526315788 runtimes
+2020-12-16 17:50:58,125 INFO     Loading cache data for sart planners: 3212
+2020-12-16 17:50:58,202 INFO     Loaded data for 4963 instances, with min 3 max 15 avg 3.082208341728793 runtimes
+2020-12-16 17:50:58,596 INFO     Loading cache data for baseline planners: 1982
+2020-12-16 17:50:58,646 INFO     Loaded data for 4138 instances, with min 3 max 24 avg 3.1551474142097633 runtimes
+2020-12-16 17:50:58,646 INFO     Loading cache data for sart planners: 3332
+2020-12-16 17:50:58,728 INFO     Loaded data for 8135 instances, with min 3 max 24 avg 3.109157959434542 runtimes
+2020-12-16 17:50:58,728 INFO     Stored sequences: 464
+Warning: re-computed penalty 32.28105097032702 = 12.281050970327021 + 20  differs from SMAC penalty 22.09293412476482
+Warning: re-computed penalty 32.70672021477118 = 12.706720214771183 + 20  differs from SMAC penalty 22.620963029375133
+Warning: re-computed penalty 18.887555770661983 = 5.6056444602964675 + 13.281911310365517  differs from SMAC penalty 14.887555770661985
+Warning: re-computed penalty 23.305683453582173 = 10.850767703487982 + 12.454915750094191  differs from SMAC penalty 17.48368548935497
+Warning: re-computed penalty 32.41712584537855 = 12.417125845378548 + 20  differs from SMAC penalty 22.41712584537855
+Warning: re-computed penalty 24.97450770022482 = 11.662705169775542 + 13.311802530449276  differs from SMAC penalty 14.77911973173264
+Warning: re-computed penalty 23.01203175278618 = 9.728006375397046 + 13.284025377389131  differs from SMAC penalty 16.012031752786175
+Warning: re-computed penalty 18.69827826626597 = 5.482156177661487 + 13.216122088604482  differs from SMAC penalty 14.69827826626597
+Warning: re-computed penalty 23.305683453582173 = 10.850767703487982 + 12.454915750094191  differs from SMAC penalty 16.490982654629033
+Warning: re-computed penalty 21.20425344681387 = 7.861118575043108 + 13.343134871770761  differs from SMAC penalty 15.204253446813869
+Warning: re-computed penalty 25.635298555539606 = 12.022238068951937 + 13.61306048658767  differs from SMAC penalty 15.635298555539606
+Warning: re-computed penalty 32.388647657319225 = 12.388647657319225 + 20  differs from SMAC penalty 22.388647657319225
+Warning: re-computed penalty 20.03959011419153 = 6.510217169777619 + 13.529372944413911  differs from SMAC penalty 15.03959011419153
+Warning: re-computed penalty 25.843120925915407 = 12.387508726096481 + 13.455612199818926  differs from SMAC penalty 15.843120925915407
+Warning: re-computed penalty 24.027611930846845 = 10.616379088561438 + 13.41123284228541  differs from SMAC penalty 15.027611930846845
+Warning: re-computed penalty 25.40789463337248 = 12.032933076634771 + 13.37496155673771  differs from SMAC penalty 15.40789463337248
+Warning: re-computed penalty 23.305683453582173 = 10.850767703487982 + 12.454915750094191  differs from SMAC penalty 17.09134798902266
+Warning: re-computed penalty 32.13894730773078 = 12.138947307730783 + 20  differs from SMAC penalty 22.13894730773078
+Warning: re-computed penalty 25.259530540447464 = 11.915945594733099 + 13.343584945714367  differs from SMAC penalty 15.259530540447464
+Warning: re-computed penalty 32.1877232108623 = 12.1877232108623 + 20  differs from SMAC penalty 22.187723210862302
+Warning: re-computed penalty 25.858437206081494 = 12.17951112214492 + 13.678926083936574  differs from SMAC penalty 15.858437206081492
+Warning: re-computed penalty 25.64248640392708 = 12.164031724623463 + 13.478454679303617  differs from SMAC penalty 15.64248640392708
+Warning: re-computed penalty 23.305683453582173 = 10.850767703487982 + 12.454915750094191  differs from SMAC penalty 16.73423521611935
+Warning: re-computed penalty 32.742736146464836 = 12.742736146464834 + 20  differs from SMAC penalty 22.742736146464836
+Warning: re-computed penalty 25.332703425990637 = 11.943951435383626 + 13.388751990607012  differs from SMAC penalty 15.332703425990639
+Warning: re-computed penalty 19.721118796437914 = 6.50429593893974 + 13.216822857498174  differs from SMAC penalty 14.721118796437914
+Warning: re-computed penalty 24.91752031292969 = 11.974869060824943 + 12.942651252104747  differs from SMAC penalty 14.91752031292969
+Warning: re-computed penalty 38 = 18 + 20  differs from SMAC penalty 28
+Warning: re-computed penalty 32.83227191484718 = 12.832271914847185 + 20  differs from SMAC penalty 23.011159091127674
+Warning: re-computed penalty 23.305683453582173 = 10.850767703487982 + 12.454915750094191  differs from SMAC penalty 16.45076278975914
+Warning: re-computed penalty 25.39100519757077 = 11.88809936496483 + 13.502905832605942  differs from SMAC penalty 15.391005197570772
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_airplanes': 1, 'num_cities': 11, 'city_size': 16, 'num_packages': 53, 'extra_trucks': 1, 'num_trucks': 12}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 21.41672227614432 = 8.680035060871877 + 12.736687215272442  differs from SMAC penalty 14.416722276144318
+2020-12-16 17:51:00,583 INFO     Different evaluated sequences: 449
+2020-12-16 17:51:00,703 INFO     Candidate sequences: 100
+2020-12-16 17:51:00,705 INFO     Using sart runtimes on CPLEX optimization
+2020-12-16 17:51:00,895 INFO     CPLEX solve
+
+2020-12-16 17:51:01,006 INFO     Solution status = 101: MIP_optimal
+2020-12-16 17:51:01,006 INFO     Solution value  = 5.552379227440909
+Selected: sequence 328, 13 instances from 10 to 22
+Configuration: {'city_size_b': 11, 'city_size_m': 1.2000000000000002, 'city_size_optional_m': 'false', 'extra_trucks_b': 8, 'extra_trucks_m': 1.5, 'extra_trucks_optional_m': 'true', 'num_airplanes_b': 1, 'num_airplanes_m': 1.3, 'num_airplanes_optional_m': 'true', 'num_cities_b': 3, 'num_cities_m': 0.6000000000000001, 'num_cities_optional_m': 'false', 'num_packages_b': 15, 'num_packages_m': 9.3}
+Penalty: 2.16
+Estimated runtimes: 18, 26, 35, 40, 52, 59, 1.8e+02, 5.5e+02, 1.7e+03, 5e+03, 1.5e+04, 4.6e+04, 1.4e+05, 4.3e+05, 1.3e+06, 3.9e+06, 1.2e+07, 3.6e+07, 1.1e+08, 3.3e+08
+Selected: sequence 291, 17 instances from 9 to 25
+Configuration: {'city_size_b': 11, 'city_size_m': 1.7000000000000002, 'city_size_optional_m': 'false', 'extra_trucks_b': 5, 'extra_trucks_m': 1.3, 'extra_trucks_optional_m': 'false', 'num_airplanes_b': 1, 'num_airplanes_m': 1.1, 'num_airplanes_optional_m': 'true', 'num_cities_b': 3, 'num_cities_m': 0.6000000000000001, 'num_cities_optional_m': 'false', 'num_packages_b': 15, 'num_packages_m': 9.3}
+Penalty: 3.39
+Estimated runtimes: 21, 24, 34, 48, 56, 73, 87, 1.8e+02, 3.7e+02, 7.8e+02, 1.6e+03, 3.4e+03, 7e+03, 1.4e+04, 3e+04, 6.2e+04, 1.3e+05, 2.7e+05, 5.6e+05, 1.2e+06, 2.4e+06
+  p01: {'num_airplanes': 1, 'num_cities': 8, 'city_size': 22, 'num_packages': 107, 'extra_trucks': 8, 'num_trucks': 16}
+  p02: {'num_airplanes': 1, 'num_cities': 9, 'city_size': 24, 'num_packages': 117, 'extra_trucks': 8, 'num_trucks': 17}
+  p03: {'num_airplanes': 1, 'num_cities': 10, 'city_size': 25, 'num_packages': 126, 'extra_trucks': 8, 'num_trucks': 18}
+  p04: {'num_airplanes': 1, 'num_cities': 10, 'city_size': 26, 'num_packages': 135, 'extra_trucks': 8, 'num_trucks': 18}
+  p05: {'num_airplanes': 1, 'num_cities': 11, 'city_size': 27, 'num_packages': 145, 'extra_trucks': 8, 'num_trucks': 19}
+  p06: {'num_airplanes': 1, 'num_cities': 11, 'city_size': 28, 'num_packages': 154, 'extra_trucks': 8, 'num_trucks': 19}
+  p07: {'num_airplanes': 1, 'num_cities': 12, 'city_size': 30, 'num_packages': 163, 'extra_trucks': 8, 'num_trucks': 20}
+  p08: {'num_airplanes': 1, 'num_cities': 13, 'city_size': 31, 'num_packages': 173, 'extra_trucks': 8, 'num_trucks': 21}
+  p09: {'num_airplanes': 1, 'num_cities': 13, 'city_size': 32, 'num_packages': 182, 'extra_trucks': 8, 'num_trucks': 21}
+  p10: {'num_airplanes': 1, 'num_cities': 14, 'city_size': 33, 'num_packages': 191, 'extra_trucks': 8, 'num_trucks': 22}
+  p11: {'num_airplanes': 1, 'num_cities': 14, 'city_size': 34, 'num_packages': 201, 'extra_trucks': 8, 'num_trucks': 22}
+  p12: {'num_airplanes': 1, 'num_cities': 15, 'city_size': 36, 'num_packages': 210, 'extra_trucks': 8, 'num_trucks': 23}
+  p13: {'num_airplanes': 1, 'num_cities': 16, 'city_size': 37, 'num_packages': 219, 'extra_trucks': 8, 'num_trucks': 24}
+  p14: {'num_airplanes': 1, 'num_cities': 8, 'city_size': 26, 'num_packages': 98, 'extra_trucks': 16, 'num_trucks': 24}
+  p15: {'num_airplanes': 1, 'num_cities': 8, 'city_size': 27, 'num_packages': 107, 'extra_trucks': 18, 'num_trucks': 26}
+  p16: {'num_airplanes': 1, 'num_cities': 9, 'city_size': 29, 'num_packages': 117, 'extra_trucks': 19, 'num_trucks': 28}
+  p17: {'num_airplanes': 1, 'num_cities': 10, 'city_size': 31, 'num_packages': 126, 'extra_trucks': 20, 'num_trucks': 30}
+  p18: {'num_airplanes': 1, 'num_cities': 10, 'city_size': 33, 'num_packages': 135, 'extra_trucks': 21, 'num_trucks': 31}
+  p19: {'num_airplanes': 1, 'num_cities': 11, 'city_size': 34, 'num_packages': 145, 'extra_trucks': 23, 'num_trucks': 34}
+  p20: {'num_airplanes': 1, 'num_cities': 11, 'city_size': 36, 'num_packages': 154, 'extra_trucks': 24, 'num_trucks': 35}
+  p21: {'num_airplanes': 1, 'num_cities': 12, 'city_size': 38, 'num_packages': 163, 'extra_trucks': 25, 'num_trucks': 37}
+  p22: {'num_airplanes': 1, 'num_cities': 13, 'city_size': 39, 'num_packages': 173, 'extra_trucks': 27, 'num_trucks': 40}
+  p23: {'num_airplanes': 1, 'num_cities': 13, 'city_size': 41, 'num_packages': 182, 'extra_trucks': 28, 'num_trucks': 41}
+  p24: {'num_airplanes': 1, 'num_cities': 14, 'city_size': 43, 'num_packages': 191, 'extra_trucks': 29, 'num_trucks': 43}
+  p25: {'num_airplanes': 1, 'num_cities': 14, 'city_size': 45, 'num_packages': 201, 'extra_trucks': 31, 'num_trucks': 45}
+  p26: {'num_airplanes': 1, 'num_cities': 15, 'city_size': 46, 'num_packages': 210, 'extra_trucks': 32, 'num_trucks': 47}
+  p27: {'num_airplanes': 1, 'num_cities': 16, 'city_size': 48, 'num_packages': 219, 'extra_trucks': 33, 'num_trucks': 49}
+  p28: {'num_airplanes': 1, 'num_cities': 16, 'city_size': 50, 'num_packages': 228, 'extra_trucks': 34, 'num_trucks': 50}
+  p29: {'num_airplanes': 1, 'num_cities': 17, 'city_size': 51, 'num_packages': 238, 'extra_trucks': 36, 'num_trucks': 53}
+  p30: {'num_airplanes': 1, 'num_cities': 18, 'city_size': 53, 'num_packages': 247, 'extra_trucks': 37, 'num_trucks': 55}
+
+real	0m4.468s
+user	0m4.509s
+sys	0m1.009s

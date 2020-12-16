@@ -1,0 +1,79 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-16 18:15:57,780 INFO     No run directory, so we will not run anything
+2020-12-16 18:15:57,902 INFO     Loading cache data for baseline planners: 285
+2020-12-16 18:15:57,910 INFO     Loaded data for 132 instances, with min 3 max 15 avg 6.4772727272727275 runtimes
+2020-12-16 18:15:57,910 INFO     Loading cache data for sart planners: 1034
+2020-12-16 18:15:57,940 INFO     Loaded data for 493 instances, with min 3 max 15 avg 6.292089249492901 runtimes
+2020-12-16 18:15:58,511 INFO     Loading cache data for baseline planners: 260
+2020-12-16 18:15:58,520 INFO     Loaded data for 227 instances, with min 3 max 15 avg 7.202643171806168 runtimes
+2020-12-16 18:15:58,520 INFO     Loading cache data for sart planners: 1812
+2020-12-16 18:15:58,577 INFO     Loaded data for 1237 instances, with min 3 max 15 avg 6.902182700080841 runtimes
+2020-12-16 18:15:59,108 INFO     Loading cache data for baseline planners: 150
+2020-12-16 18:15:59,115 INFO     Loaded data for 259 instances, with min 3 max 30 avg 8.05019305019305 runtimes
+2020-12-16 18:15:59,115 INFO     Loading cache data for sart planners: 475
+2020-12-16 18:15:59,135 INFO     Loaded data for 1346 instances, with min 3 max 30 avg 7.4019316493313525 runtimes
+2020-12-16 18:15:59,135 INFO     Stored sequences: 6310
+Warning: re-computed penalty 8.357728589200253 = 6.7406831628631565 + 1.6170454263370966  differs from SMAC penalty 11.54432134732233
+Warning: re-computed penalty 8.357728589200253 = 6.7406831628631565 + 1.6170454263370966  differs from SMAC penalty 11.54432134732233
+Warning: re-computed penalty 8.357728589200253 = 6.7406831628631565 + 1.6170454263370966  differs from SMAC penalty 11.54432134732233
+Warning: re-computed penalty 8.357728589200253 = 6.7406831628631565 + 1.6170454263370966  differs from SMAC penalty 11.54432134732233
+Warning: re-computed penalty 8.357728589200253 = 6.7406831628631565 + 1.6170454263370966  differs from SMAC penalty 11.54432134732233
+Warning: re-computed penalty 8.357728589200253 = 6.7406831628631565 + 1.6170454263370966  differs from SMAC penalty 11.54432134732233
+Warning: re-computed penalty 8.97693082851824 = 6.8204022259503985 + 2.1565286025678416  differs from SMAC penalty 12.578275197526313
+Warning: re-computed penalty 9.16897811332568 = 6.810102355182683 + 2.358875758142997  differs from SMAC penalty 12.628606813757171
+Warning: re-computed penalty 12.199957066889887 = 7.426306117756818 + 4.773650949133069  differs from SMAC penalty 15.762887129806119
+Warning: re-computed penalty 8.357728589200253 = 6.7406831628631565 + 1.6170454263370966  differs from SMAC penalty 13.043846710118494
+Warning: re-computed penalty 9.031995619230692 = 6.7406831628631565 + 2.2913124563675344  differs from SMAC penalty 12.97430204182377
+Warning: re-computed penalty 10.147997226418816 = 7.155388027971203 + 2.992609198447613  differs from SMAC penalty 13.39882077565727
+Warning: re-computed penalty 10.147997226418816 = 7.155388027971203 + 2.992609198447613  differs from SMAC penalty 13.39882077565727
+Warning: re-computed penalty 10.147997226418816 = 7.155388027971203 + 2.992609198447613  differs from SMAC penalty 13.39882077565727
+Warning: re-computed penalty 10.147997226418816 = 7.155388027971203 + 2.992609198447613  differs from SMAC penalty 13.39882077565727
+2020-12-16 18:16:30,788 INFO     Different evaluated sequences: 715
+2020-12-16 18:16:30,999 INFO     Candidate sequences: 100
+2020-12-16 18:16:31,000 INFO     Using sart runtimes on CPLEX optimization
+2020-12-16 18:16:31,202 INFO     CPLEX solve
+
+2020-12-16 18:16:31,369 INFO     Solution status = 101: MIP_optimal
+2020-12-16 18:16:31,369 INFO     Solution value  = 17.139935614008333
+Selected: sequence 313, 11 instances from 9 to 19
+Configuration: {'depots_b': 10, 'depots_m': 2.0, 'depots_optional_m': 'false', 'goods_b': 4, 'goods_m': 0.1, 'markets_b': 1, 'markets_m': 2.4000000000000004, 'markets_optional_m': 'true', 'products_b': 2, 'products_m': 1.2, 'trucks_b': 2, 'trucks_m': 4.6, 'trucks_optional_m': 'true'}
+Penalty: 8.28
+Estimated runtimes: 37, 1.7e+02, 3.6e+02, 7.5e+02, 1.6e+03, 3.4e+03, 7.1e+03, 1.5e+04, 3.2e+04, 6.7e+04, 1.4e+05, 3e+05, 6.4e+05, 1.4e+06, 2.9e+06, 6e+06, 1.3e+07, 2.7e+07, 5.7e+07, 1.2e+08, 2.6e+08
+Selected: sequence 31, 19 instances from 2 to 20
+Configuration: {'depots_b': 2, 'depots_m': 4.8, 'depots_optional_m': 'false', 'goods_b': 4, 'goods_m': 0.1, 'markets_b': 1, 'markets_m': 0.30000000000000004, 'markets_optional_m': 'true', 'products_b': 3, 'products_m': 1.1, 'trucks_b': 2, 'trucks_m': 3.8000000000000003, 'trucks_optional_m': 'true'}
+Penalty: 8.86
+Estimated runtimes: 2.4, 3, 5.5, 7.3, 11, 29, 37, 47, 1.5e+02, 2.8e+02, 5.5e+02, 1.1e+03, 2.1e+03, 4.1e+03, 8.1e+03, 1.6e+04, 3.1e+04, 6e+04, 1.2e+05, 2.3e+05, 4.5e+05, 8.7e+05, 1.7e+06, 3.3e+06, 6.5e+06, 1.3e+07, 2.5e+07, 4.8e+07
+  p01: {'products': 12, 'markets': 1, 'trucks': 2, 'depots': 28, 'goods': 4}
+  p02: {'products': 13, 'markets': 1, 'trucks': 2, 'depots': 30, 'goods': 4}
+  p03: {'products': 15, 'markets': 1, 'trucks': 2, 'depots': 32, 'goods': 5}
+  p04: {'products': 16, 'markets': 1, 'trucks': 2, 'depots': 34, 'goods': 5}
+  p05: {'products': 17, 'markets': 1, 'trucks': 2, 'depots': 36, 'goods': 5}
+  p06: {'products': 18, 'markets': 1, 'trucks': 2, 'depots': 38, 'goods': 5}
+  p07: {'products': 19, 'markets': 1, 'trucks': 2, 'depots': 40, 'goods': 5}
+  p08: {'products': 21, 'markets': 1, 'trucks': 2, 'depots': 42, 'goods': 5}
+  p09: {'products': 22, 'markets': 1, 'trucks': 2, 'depots': 44, 'goods': 5}
+  p10: {'products': 23, 'markets': 1, 'trucks': 2, 'depots': 46, 'goods': 5}
+  p11: {'products': 24, 'markets': 1, 'trucks': 2, 'depots': 48, 'goods': 5}
+  p12: {'products': 5, 'markets': 1, 'trucks': 2, 'depots': 11, 'goods': 4}
+  p13: {'products': 6, 'markets': 1, 'trucks': 2, 'depots': 16, 'goods': 4}
+  p14: {'products': 7, 'markets': 1, 'trucks': 2, 'depots': 21, 'goods': 4}
+  p15: {'products': 8, 'markets': 1, 'trucks': 2, 'depots': 26, 'goods': 4}
+  p16: {'products': 9, 'markets': 1, 'trucks': 2, 'depots': 30, 'goods': 4}
+  p17: {'products': 10, 'markets': 1, 'trucks': 2, 'depots': 35, 'goods': 4}
+  p18: {'products': 11, 'markets': 1, 'trucks': 2, 'depots': 40, 'goods': 4}
+  p19: {'products': 12, 'markets': 1, 'trucks': 2, 'depots': 45, 'goods': 4}
+  p20: {'products': 13, 'markets': 1, 'trucks': 2, 'depots': 49, 'goods': 4}
+  p21: {'products': 15, 'markets': 1, 'trucks': 2, 'depots': 54, 'goods': 5}
+  p22: {'products': 16, 'markets': 1, 'trucks': 2, 'depots': 59, 'goods': 5}
+  p23: {'products': 17, 'markets': 1, 'trucks': 2, 'depots': 64, 'goods': 5}
+  p24: {'products': 18, 'markets': 1, 'trucks': 2, 'depots': 69, 'goods': 5}
+  p25: {'products': 19, 'markets': 1, 'trucks': 2, 'depots': 73, 'goods': 5}
+  p26: {'products': 20, 'markets': 1, 'trucks': 2, 'depots': 78, 'goods': 5}
+  p27: {'products': 21, 'markets': 1, 'trucks': 2, 'depots': 83, 'goods': 5}
+  p28: {'products': 22, 'markets': 1, 'trucks': 2, 'depots': 88, 'goods': 5}
+  p29: {'products': 23, 'markets': 1, 'trucks': 2, 'depots': 93, 'goods': 5}
+  p30: {'products': 25, 'markets': 1, 'trucks': 2, 'depots': 97, 'goods': 5}
+
+real	0m34.487s
+user	0m34.471s
+sys	0m1.101s

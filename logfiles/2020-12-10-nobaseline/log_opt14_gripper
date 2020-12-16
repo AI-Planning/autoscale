@@ -1,0 +1,60 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-16 17:48:14,327 INFO     No run directory, so we will not run anything
+2020-12-16 17:48:14,462 INFO     Loading cache data for baseline planners: 59
+2020-12-16 17:48:14,464 INFO     Loaded data for 13 instances, with min 3 max 15 avg 13.615384615384615 runtimes
+2020-12-16 17:48:14,464 INFO     Loading cache data for sart planners: 59
+2020-12-16 17:48:14,466 INFO     Loaded data for 13 instances, with min 3 max 15 avg 13.615384615384615 runtimes
+2020-12-16 17:48:15,040 INFO     Loading cache data for baseline planners: 0
+2020-12-16 17:48:15,040 INFO     Loaded data for 13 instances, with min 3 max 15 avg 13.615384615384615 runtimes
+2020-12-16 17:48:15,040 INFO     Loading cache data for sart planners: 0
+2020-12-16 17:48:15,040 INFO     Loaded data for 13 instances, with min 3 max 15 avg 13.615384615384615 runtimes
+2020-12-16 17:48:15,577 INFO     Loading cache data for baseline planners: 0
+2020-12-16 17:48:15,577 INFO     Loaded data for 13 instances, with min 3 max 15 avg 13.615384615384615 runtimes
+2020-12-16 17:48:15,577 INFO     Loading cache data for sart planners: 0
+2020-12-16 17:48:15,577 INFO     Loaded data for 13 instances, with min 3 max 15 avg 13.615384615384615 runtimes
+2020-12-16 17:48:15,577 INFO     Stored sequences: 541
+2020-12-16 17:48:16,986 INFO     Different evaluated sequences: 24
+2020-12-16 17:48:16,986 INFO     Candidate sequences: 1
+2020-12-16 17:48:16,986 INFO     Using sart runtimes on CPLEX optimization
+2020-12-16 17:48:17,008 INFO     CPLEX solve
+
+2020-12-16 17:48:17,010 INFO     Solution status = 101: MIP_optimal
+2020-12-16 17:48:17,010 INFO     Solution value  = 21610649.649274305
+Selected: sequence 2, 30 instances from 0 to 29
+Configuration: {'n_b': 10, 'n_m': 0.2}
+Penalty: 2.33
+Estimated runtimes: 0.74, 1, 1.7, 3.3, 7, 15, 35, 79, 2.5e+02, 6.1e+02, 1.5e+03, 3.7e+03, 9e+03, 2.2e+04, 5.4e+04, 1.3e+05, 3.3e+05, 8e+05, 2e+06, 4.9e+06, 1.2e+07, 2.9e+07, 7.2e+07, 1.8e+08, 4.3e+08, 1.1e+09, 2.6e+09, 6.4e+09, 1.6e+10, 3.9e+10
+  p01: {'n': 10}
+  p02: {'n': 11}
+  p03: {'n': 12}
+  p04: {'n': 13}
+  p05: {'n': 14}
+  p06: {'n': 15}
+  p07: {'n': 16}
+  p08: {'n': 17}
+  p09: {'n': 18}
+  p10: {'n': 19}
+  p11: {'n': 20}
+  p12: {'n': 21}
+  p13: {'n': 22}
+  p14: {'n': 23}
+  p15: {'n': 24}
+  p16: {'n': 25}
+  p17: {'n': 26}
+  p18: {'n': 27}
+  p19: {'n': 28}
+  p20: {'n': 29}
+  p21: {'n': 30}
+  p22: {'n': 31}
+  p23: {'n': 32}
+  p24: {'n': 33}
+  p25: {'n': 34}
+  p26: {'n': 35}
+  p27: {'n': 36}
+  p28: {'n': 37}
+  p29: {'n': 38}
+  p30: {'n': 39}
+
+real	0m3.377s
+user	0m3.360s
+sys	0m0.870s

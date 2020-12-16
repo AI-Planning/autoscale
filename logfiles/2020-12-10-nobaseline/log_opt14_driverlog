@@ -1,0 +1,123 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-16 17:46:30,540 INFO     No run directory, so we will not run anything
+2020-12-16 17:46:30,664 INFO     Loading cache data for baseline planners: 319
+2020-12-16 17:46:30,673 INFO     Loaded data for 160 instances, with min 3 max 15 avg 5.98125 runtimes
+2020-12-16 17:46:30,673 INFO     Loading cache data for sart planners: 781
+2020-12-16 17:46:30,696 INFO     Loaded data for 441 instances, with min 3 max 15 avg 5.312925170068027 runtimes
+2020-12-16 17:46:31,253 INFO     Loading cache data for baseline planners: 263
+2020-12-16 17:46:31,262 INFO     Loaded data for 290 instances, with min 3 max 15 avg 6.020689655172414 runtimes
+2020-12-16 17:46:31,262 INFO     Loading cache data for sart planners: 1082
+2020-12-16 17:46:31,294 INFO     Loaded data for 992 instances, with min 3 max 15 avg 5.634072580645161 runtimes
+2020-12-16 17:46:31,814 INFO     Loading cache data for baseline planners: 273
+2020-12-16 17:46:31,827 INFO     Loaded data for 317 instances, with min 3 max 24 avg 8.091482649842272 runtimes
+2020-12-16 17:46:31,827 INFO     Loading cache data for sart planners: 911
+2020-12-16 17:46:31,862 INFO     Loaded data for 1169 instances, with min 3 max 24 avg 7.118905047048759 runtimes
+2020-12-16 17:46:31,862 INFO     Stored sequences: 3604
+Warning: re-computed penalty 11.792782372533658 = 6.878090598677674 + 4.914691773855985  differs from SMAC penalty 15.701875700480027
+Warning: No temporary dir for Runner has been provided but I have no data for {'drivers': 1, 'packages': 16, 'roadjunctions': 20, 'trucks': 1}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 10.46087141661643 = 6.020773492035765 + 4.440097924580664  differs from SMAC penalty 14.966040501372348
+Warning: re-computed penalty 11.186723869534475 = 6.687735162441051 + 4.498988707093424  differs from SMAC penalty 14.5940453239348
+Warning: re-computed penalty 11.964019368415737 = 6.966886892709301 + 4.997132475706437  differs from SMAC penalty 15.34608073630428
+Warning: No temporary dir for Runner has been provided but I have no data for {'drivers': 2, 'packages': 13, 'roadjunctions': 2, 'trucks': 3}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'drivers': 1, 'packages': 7, 'roadjunctions': 28, 'trucks': 4}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 15.986936304724688 = 4.5003458303569985 + 11.48659047436769  differs from SMAC penalty 20.26998601018289
+Warning: re-computed penalty 15.937528290192356 = 4.5003458303569985 + 11.437182459835357  differs from SMAC penalty 20.26998601018289
+Warning: re-computed penalty 19.43524512282478 = 4.695081642922064 + 14.740163479902716  differs from SMAC penalty 23.779671845699283
+Warning: re-computed penalty 15.937528290192356 = 4.5003458303569985 + 11.437182459835357  differs from SMAC penalty 20.26998601018289
+Warning: re-computed penalty 15.937528290192356 = 4.5003458303569985 + 11.437182459835357  differs from SMAC penalty 20.26998601018289
+Warning: re-computed penalty 15.937528290192356 = 4.5003458303569985 + 11.437182459835357  differs from SMAC penalty 20.26998601018289
+Warning: re-computed penalty 15.937528290192356 = 4.5003458303569985 + 11.437182459835357  differs from SMAC penalty 20.26998601018289
+Warning: re-computed penalty 15.937528290192356 = 4.5003458303569985 + 11.437182459835357  differs from SMAC penalty 20.26998601018289
+Warning: No temporary dir for Runner has been provided but I have no data for {'drivers': 1, 'packages': 13, 'roadjunctions': 10, 'trucks': 2}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 15.986936304724688 = 4.5003458303569985 + 11.48659047436769  differs from SMAC penalty 20.825990514855487
+Warning: re-computed penalty 15.937528290192356 = 4.5003458303569985 + 11.437182459835357  differs from SMAC penalty 19.142292614542733
+Warning: re-computed penalty 15.986936304724688 = 4.5003458303569985 + 11.48659047436769  differs from SMAC penalty 20.825990514855487
+Warning: re-computed penalty 15.937528290192356 = 4.5003458303569985 + 11.437182459835357  differs from SMAC penalty 19.142292614542733
+Warning: re-computed penalty 15.937528290192356 = 4.5003458303569985 + 11.437182459835357  differs from SMAC penalty 19.142292614542733
+Warning: re-computed penalty 15.937528290192356 = 4.5003458303569985 + 11.437182459835357  differs from SMAC penalty 19.142292614542733
+Warning: re-computed penalty 15.937528290192356 = 4.5003458303569985 + 11.437182459835357  differs from SMAC penalty 19.142292614542733
+Warning: re-computed penalty 15.937528290192356 = 4.5003458303569985 + 11.437182459835357  differs from SMAC penalty 19.142292614542733
+Warning: re-computed penalty 15.937528290192356 = 4.5003458303569985 + 11.437182459835357  differs from SMAC penalty 19.142292614542733
+Warning: re-computed penalty 15.937528290192356 = 4.5003458303569985 + 11.437182459835357  differs from SMAC penalty 19.142292614542733
+Warning: re-computed penalty 13.747602264948753 = 7.17270482679003 + 6.5748974381587235  differs from SMAC penalty 17.637588935418957
+Warning: re-computed penalty 13.747602264948753 = 7.17270482679003 + 6.5748974381587235  differs from SMAC penalty 17.637588935418957
+Warning: re-computed penalty 13.097705282896762 = 6.855519801941697 + 6.242185480955065  differs from SMAC penalty 9.323639190056038
+Warning: re-computed penalty 13.097705282896762 = 6.855519801941697 + 6.242185480955065  differs from SMAC penalty 9.323639190056038
+Warning: re-computed penalty 13.097705282896762 = 6.855519801941697 + 6.242185480955065  differs from SMAC penalty 9.323639190056038
+Warning: re-computed penalty 13.097705282896762 = 6.855519801941697 + 6.242185480955065  differs from SMAC penalty 9.323639190056038
+Warning: re-computed penalty 14.097705282896762 = 6.855519801941697 + 7.242185480955065  differs from SMAC penalty 10.323639190056038
+Warning: re-computed penalty 13.097705282896762 = 6.855519801941697 + 6.242185480955065  differs from SMAC penalty 9.323639190056038
+Warning: re-computed penalty 16.94858485433823 = 6.601087516084965 + 10.347497338253266  differs from SMAC penalty 11.238214254900743
+Warning: re-computed penalty 15.94858485433823 = 6.601087516084965 + 9.347497338253266  differs from SMAC penalty 10.238214254900743
+Warning: re-computed penalty 11.186723869534475 = 6.687735162441051 + 4.498988707093424  differs from SMAC penalty 14.426799491615704
+Warning: re-computed penalty 11.186723869534475 = 6.687735162441051 + 4.498988707093424  differs from SMAC penalty 14.426799491615704
+Warning: re-computed penalty 14.097705282896762 = 6.855519801941697 + 7.242185480955065  differs from SMAC penalty 10.323639190056038
+Warning: re-computed penalty 11.186723869534475 = 6.687735162441051 + 4.498988707093424  differs from SMAC penalty 14.426799491615704
+Warning: re-computed penalty 15.94858485433823 = 6.601087516084965 + 9.347497338253266  differs from SMAC penalty 10.238214254900743
+Warning: re-computed penalty 15.94858485433823 = 6.601087516084965 + 9.347497338253266  differs from SMAC penalty 10.238214254900743
+Warning: re-computed penalty 13.94858485433823 = 6.601087516084965 + 7.347497338253266  differs from SMAC penalty 10.238214254900743
+Warning: No temporary dir for Runner has been provided but I have no data for {'drivers': 1, 'packages': 17, 'roadjunctions': 7, 'trucks': 2}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 12.235410901890457 = 6.855519801941697 + 5.379891099948761  differs from SMAC penalty 16.946704892166917
+Warning: re-computed penalty 11.186723869534475 = 6.687735162441051 + 4.498988707093424  differs from SMAC penalty 14.742833446763182
+Warning: re-computed penalty 11.186723869534475 = 6.687735162441051 + 4.498988707093424  differs from SMAC penalty 14.742833446763182
+Warning: re-computed penalty 12.76431635827987 = 7.592594669723858 + 5.171721688556014  differs from SMAC penalty 18
+Warning: re-computed penalty 10.260401404372315 = 6.406555267645863 + 3.8538461367264523  differs from SMAC penalty 14.236374939927178
+Warning: re-computed penalty 10.260401404372315 = 6.406555267645863 + 3.8538461367264523  differs from SMAC penalty 14.236374939927178
+Warning: re-computed penalty 9.886843537905177 = 6.406555267645863 + 3.4802882702593148  differs from SMAC penalty 14.236374939927178
+Warning: re-computed penalty 9.886843537905177 = 6.406555267645863 + 3.4802882702593148  differs from SMAC penalty 14.236374939927178
+Warning: re-computed penalty 9.886843537905177 = 6.406555267645863 + 3.4802882702593148  differs from SMAC penalty 14.236374939927178
+Warning: re-computed penalty 11.286437264253362 = 6.406555267645863 + 4.879881996607498  differs from SMAC penalty 14.71513218190914
+Warning: re-computed penalty 10.260401404372315 = 6.406555267645863 + 3.8538461367264523  differs from SMAC penalty 13.620796569650775
+Warning: re-computed penalty 9.620763268070489 = 5.7828498296743875 + 3.8379134383961016  differs from SMAC penalty 13.025235161051658
+Warning: re-computed penalty 12.097705282896762 = 6.855519801941697 + 5.242185480955065  differs from SMAC penalty 15.105675833267703
+Warning: re-computed penalty 10.411640353478408 = 6.855519801941697 + 3.5561205515367114  differs from SMAC penalty 14.091861225367202
+Warning: re-computed penalty 13.94858485433823 = 6.601087516084965 + 7.347497338253266  differs from SMAC penalty 8.586553394002468
+2020-12-16 17:46:51,699 INFO     Different evaluated sequences: 443
+2020-12-16 17:46:51,778 INFO     Candidate sequences: 100
+2020-12-16 17:46:51,780 INFO     Using sart runtimes on CPLEX optimization
+2020-12-16 17:46:51,970 INFO     CPLEX solve
+
+2020-12-16 17:46:52,124 INFO     Solution status = 101: MIP_optimal
+2020-12-16 17:46:52,124 INFO     Solution value  = 16.310257013294645
+Selected: sequence 310, 12 instances from 18 to 29
+Configuration: {'drivers_b': 1, 'drivers_m': 4.6, 'drivers_optional_m': 'true', 'packages_b': 2, 'packages_m': 1.1, 'roadjunctions_b': 3, 'roadjunctions_m': 4.7, 'roadjunctions_optional_m': 'true', 'trucks_b': 0, 'trucks_m': 0.1, 'trucks_optional_m': 'false'}
+Penalty: 7.22
+Estimated runtimes: 66, 1.1e+02, 2.1e+02, 4e+02, 7.6e+02, 1.5e+03, 2.8e+03, 5.4e+03, 1e+04, 2e+04, 3.8e+04, 7.3e+04
+Selected: sequence 7, 18 instances from 10 to 27
+Configuration: {'drivers_b': 1, 'drivers_m': 0.4, 'drivers_optional_m': 'true', 'packages_b': 2, 'packages_m': 1.0, 'roadjunctions_b': 4, 'roadjunctions_m': 0.8, 'roadjunctions_optional_m': 'true', 'trucks_b': 1, 'trucks_m': 0.6000000000000001, 'trucks_optional_m': 'true'}
+Penalty: 9.09
+Estimated runtimes: 2.9, 9.2, 17, 37, 47, 1e+02, 1.9e+02, 3.4e+02, 6.4e+02, 1.2e+03, 2.2e+03, 4.1e+03, 7.6e+03, 1.4e+04, 2.6e+04, 4.9e+04, 9e+04, 1.7e+05, 3.1e+05, 5.8e+05
+  p01: {'drivers': 1, 'packages': 21, 'roadjunctions': 3, 'trucks': 2}
+  p02: {'drivers': 1, 'packages': 22, 'roadjunctions': 3, 'trucks': 2}
+  p03: {'drivers': 1, 'packages': 24, 'roadjunctions': 3, 'trucks': 3}
+  p04: {'drivers': 1, 'packages': 25, 'roadjunctions': 3, 'trucks': 3}
+  p05: {'drivers': 1, 'packages': 26, 'roadjunctions': 3, 'trucks': 3}
+  p06: {'drivers': 1, 'packages': 27, 'roadjunctions': 3, 'trucks': 3}
+  p07: {'drivers': 1, 'packages': 28, 'roadjunctions': 3, 'trucks': 3}
+  p08: {'drivers': 1, 'packages': 29, 'roadjunctions': 3, 'trucks': 3}
+  p09: {'drivers': 1, 'packages': 30, 'roadjunctions': 3, 'trucks': 3}
+  p10: {'drivers': 1, 'packages': 31, 'roadjunctions': 3, 'trucks': 3}
+  p11: {'drivers': 1, 'packages': 32, 'roadjunctions': 3, 'trucks': 3}
+  p12: {'drivers': 1, 'packages': 33, 'roadjunctions': 3, 'trucks': 3}
+  p13: {'drivers': 1, 'packages': 12, 'roadjunctions': 4, 'trucks': 2}
+  p14: {'drivers': 1, 'packages': 13, 'roadjunctions': 4, 'trucks': 2}
+  p15: {'drivers': 1, 'packages': 14, 'roadjunctions': 4, 'trucks': 2}
+  p16: {'drivers': 1, 'packages': 15, 'roadjunctions': 4, 'trucks': 2}
+  p17: {'drivers': 1, 'packages': 16, 'roadjunctions': 4, 'trucks': 2}
+  p18: {'drivers': 1, 'packages': 17, 'roadjunctions': 4, 'trucks': 2}
+  p19: {'drivers': 1, 'packages': 18, 'roadjunctions': 4, 'trucks': 2}
+  p20: {'drivers': 1, 'packages': 19, 'roadjunctions': 4, 'trucks': 2}
+  p21: {'drivers': 1, 'packages': 20, 'roadjunctions': 4, 'trucks': 2}
+  p22: {'drivers': 1, 'packages': 21, 'roadjunctions': 4, 'trucks': 2}
+  p23: {'drivers': 1, 'packages': 22, 'roadjunctions': 4, 'trucks': 2}
+  p24: {'drivers': 1, 'packages': 23, 'roadjunctions': 4, 'trucks': 2}
+  p25: {'drivers': 1, 'packages': 24, 'roadjunctions': 4, 'trucks': 2}
+  p26: {'drivers': 1, 'packages': 25, 'roadjunctions': 4, 'trucks': 2}
+  p27: {'drivers': 1, 'packages': 26, 'roadjunctions': 4, 'trucks': 2}
+  p28: {'drivers': 1, 'packages': 27, 'roadjunctions': 4, 'trucks': 2}
+  p29: {'drivers': 1, 'packages': 28, 'roadjunctions': 4, 'trucks': 2}
+  p30: {'drivers': 1, 'packages': 29, 'roadjunctions': 4, 'trucks': 2}
+
+real	0m22.414s
+user	0m22.579s
+sys	0m0.931s

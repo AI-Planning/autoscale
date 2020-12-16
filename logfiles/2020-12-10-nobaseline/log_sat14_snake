@@ -1,0 +1,136 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-16 18:14:42,063 INFO     No run directory, so we will not run anything
+2020-12-16 18:14:42,231 INFO     Loading cache data for baseline planners: 370
+2020-12-16 18:14:42,244 INFO     Loaded data for 94 instances, with min 3 max 15 avg 11.808510638297872 runtimes
+2020-12-16 18:14:42,244 INFO     Loading cache data for sart planners: 483
+2020-12-16 18:14:42,260 INFO     Loaded data for 124 instances, with min 3 max 15 avg 11.685483870967742 runtimes
+2020-12-16 18:14:42,695 INFO     Loading cache data for baseline planners: 46
+2020-12-16 18:14:42,696 INFO     Loaded data for 110 instances, with min 3 max 15 avg 11.345454545454546 runtimes
+2020-12-16 18:14:42,696 INFO     Loading cache data for sart planners: 54
+2020-12-16 18:14:42,696 INFO     Loaded data for 141 instances, with min 3 max 15 avg 11.425531914893616 runtimes
+2020-12-16 18:14:43,161 INFO     Loading cache data for baseline planners: 471
+2020-12-16 18:14:43,184 INFO     Loaded data for 116 instances, with min 3 max 30 avg 22.939655172413794 runtimes
+2020-12-16 18:14:43,184 INFO     Loading cache data for sart planners: 604
+2020-12-16 18:14:43,210 INFO     Loaded data for 146 instances, with min 3 max 30 avg 23.445205479452056 runtimes
+2020-12-16 18:14:43,210 INFO     Stored sequences: 4322
+Warning: re-computed penalty 8.6644921194371 = 6.6110491789376225 + 2.053442940499477  differs from SMAC penalty 5.269136141731428
+Warning: re-computed penalty 4.908501595663829 = 3.0397454340179886 + 1.8687561616458406  differs from SMAC penalty 8.05216869829752
+Warning: re-computed penalty 4.058888750480376 = 1.7849069552918568 + 2.273981795188519  differs from SMAC penalty 7.16018760278424
+Warning: re-computed penalty 3.349334987655802 = 1.8943584554959445 + 1.4549765321598573  differs from SMAC penalty 7.52556260179666
+Warning: re-computed penalty 11.059863833445355 = 6.8527446057393995 + 4.207119227705957  differs from SMAC penalty 14.361881420451583
+Warning: re-computed penalty 4.07229450335195 = 2.873183678267533 + 1.1991108250844165  differs from SMAC penalty 7.148999925562276
+Warning: re-computed penalty 4.187392680404489 = 2.7324161482446314 + 1.4549765321598573  differs from SMAC penalty 7.52556260179666
+Warning: re-computed penalty 7.348972275990307 = 4.774601932254091 + 2.5743703437362155  differs from SMAC penalty 12.268040514738814
+Warning: re-computed penalty 7.92064479733212 = 5.159422298980813 + 2.7612224983513065  differs from SMAC penalty 11.187294760761738
+Warning: re-computed penalty 6.620830404192979 = 5.015424533448477 + 1.6054058707445025  differs from SMAC penalty 9.928859954175103
+Warning: re-computed penalty 6.4041914201597585 = 5.154443119583375 + 1.2497483005763832  differs from SMAC penalty 3.396072750626155
+Warning: re-computed penalty 16.389659307740864 = 4.875633301315405 + 11.514026006425457  differs from SMAC penalty 12.882899449267857
+Warning: re-computed penalty 16.389659307740864 = 4.875633301315405 + 11.514026006425457  differs from SMAC penalty 12.882899449267857
+Warning: re-computed penalty 16.389659307740864 = 4.875633301315405 + 11.514026006425457  differs from SMAC penalty 12.882899449267857
+Warning: re-computed penalty 16.389659307740864 = 4.875633301315405 + 11.514026006425457  differs from SMAC penalty 12.882899449267857
+Warning: re-computed penalty 16.389659307740864 = 4.875633301315405 + 11.514026006425457  differs from SMAC penalty 12.882899449267857
+Warning: re-computed penalty 16.389659307740864 = 4.875633301315405 + 11.514026006425457  differs from SMAC penalty 12.882899449267857
+Warning: re-computed penalty 16.389659307740864 = 4.875633301315405 + 11.514026006425457  differs from SMAC penalty 12.882899449267857
+Warning: re-computed penalty 16.389659307740864 = 4.875633301315405 + 11.514026006425457  differs from SMAC penalty 12.882899449267857
+Warning: re-computed penalty 16.389659307740864 = 4.875633301315405 + 11.514026006425457  differs from SMAC penalty 12.882899449267857
+Warning: re-computed penalty 16.389659307740864 = 4.875633301315405 + 11.514026006425457  differs from SMAC penalty 12.882899449267857
+Warning: re-computed penalty 16.677059008565944 = 10 + 6.677059008565944  differs from SMAC penalty 20
+Warning: re-computed penalty 16.854027796049024 = 10 + 6.854027796049024  differs from SMAC penalty 20
+Warning: re-computed penalty 16.95484608652046 = 10 + 6.954846086520463  differs from SMAC penalty 20
+Warning: re-computed penalty 13.813305774701657 = 10 + 3.8133057747016563  differs from SMAC penalty 20
+Warning: re-computed penalty 15.855828114839454 = 10 + 5.855828114839453  differs from SMAC penalty 20
+Warning: re-computed penalty 11.76283417188486 = 10 + 1.76283417188486  differs from SMAC penalty 20
+Warning: re-computed penalty 16.854027796049024 = 10 + 6.854027796049024  differs from SMAC penalty 20
+Warning: re-computed penalty 16.854027796049024 = 10 + 6.854027796049024  differs from SMAC penalty 20
+Warning: re-computed penalty 15.502248415430824 = 10 + 5.502248415430823  differs from SMAC penalty 20
+Warning: re-computed penalty 16.95484608652046 = 10 + 6.954846086520463  differs from SMAC penalty 20
+Warning: re-computed penalty 15.482803831172598 = 10 + 5.482803831172598  differs from SMAC penalty 20
+Warning: re-computed penalty 11.76283417188486 = 10 + 1.76283417188486  differs from SMAC penalty 20
+Warning: re-computed penalty 16.854027796049024 = 10 + 6.854027796049024  differs from SMAC penalty 20
+Warning: re-computed penalty 16.854027796049024 = 10 + 6.854027796049024  differs from SMAC penalty 20
+Warning: re-computed penalty 7.200949054761066 = 4.74741427607836 + 2.453534778682706  differs from SMAC penalty 11.367426384242439
+Warning: re-computed penalty 3.680179541020766 = 2.25344938384761 + 1.426730157173156  differs from SMAC penalty 6.796538093385548
+Warning: re-computed penalty 11.76283417188486 = 10 + 1.76283417188486  differs from SMAC penalty 5.11480738739152
+Warning: re-computed penalty 11.76283417188486 = 10 + 1.76283417188486  differs from SMAC penalty 5.11480738739152
+Warning: re-computed penalty 8.406060149996396 = 5.963491958250437 + 2.442568191745959  differs from SMAC penalty 12.554159732127271
+Warning: re-computed penalty 16.796061641669837 = 10 + 6.796061641669835  differs from SMAC penalty 11.460718481673645
+Warning: re-computed penalty 11.059863833445355 = 6.8527446057393995 + 4.207119227705957  differs from SMAC penalty 14.330214632820129
+Warning: re-computed penalty 8.406060149996396 = 5.963491958250437 + 2.442568191745959  differs from SMAC penalty 12.554159732127271
+Warning: re-computed penalty 18 = 10 + 8  differs from SMAC penalty 14.373508115002602
+Warning: re-computed penalty 18 = 10 + 8  differs from SMAC penalty 14.373508115002602
+Warning: re-computed penalty 18 = 10 + 8  differs from SMAC penalty 14.633885061688737
+Warning: re-computed penalty 15.482803831172598 = 10 + 5.482803831172598  differs from SMAC penalty 11.661108958596287
+Warning: re-computed penalty 15.442253156718877 = 10 + 5.442253156718877  differs from SMAC penalty 10.900635315986623
+Warning: re-computed penalty 4.880615529005791 = 3.283238522452195 + 1.5973770065535953  differs from SMAC penalty 8.33880631571342
+Warning: re-computed penalty 12.095832700874857 = 10 + 2.095832700874856  differs from SMAC penalty 8.239130936566719
+Warning: re-computed penalty 8.406060149996396 = 5.963491958250437 + 2.442568191745959  differs from SMAC penalty 12.554159732127271
+Warning: re-computed penalty 8.406060149996396 = 5.963491958250437 + 2.442568191745959  differs from SMAC penalty 12.554159732127271
+Warning: re-computed penalty 18 = 10 + 8  differs from SMAC penalty 14.373508115002602
+Warning: re-computed penalty 18 = 10 + 8  differs from SMAC penalty 14.373508115002602
+Warning: re-computed penalty 8.406060149996396 = 5.963491958250437 + 2.442568191745959  differs from SMAC penalty 12.554159732127271
+Warning: re-computed penalty 3.772492154522995 = 2.3697993057210094 + 1.4026928488019854  differs from SMAC penalty 7.3687359514974204
+Warning: re-computed penalty 15.728057620499335 = 10 + 5.728057620499335  differs from SMAC penalty 12.536900592103706
+Warning: re-computed penalty 8.138987541968884 = 3.9973564520353517 + 4.141631089933533  differs from SMAC penalty 11.260386379278348
+Warning: re-computed penalty 18 = 10 + 8  differs from SMAC penalty 14.425974422780115
+Warning: re-computed penalty 12.086221132654828 = 10 + 2.086221132654827  differs from SMAC penalty 7.597815492049679
+Warning: re-computed penalty 13.9225317064631 = 10 + 3.9225317064631016  differs from SMAC penalty 9.971963941797565
+Warning: re-computed penalty 5.514696853072431 = 3.890636560872996 + 1.6240602921994356  differs from SMAC penalty 8.894698509105258
+Warning: re-computed penalty 7.191268871645494 = 4.6480968772963465 + 2.543171994349148  differs from SMAC penalty 10.358238523279553
+Warning: re-computed penalty 5.7350432684331505 = 4.451462150077304 + 1.2835811183558472  differs from SMAC penalty 1.7813277526420948
+Warning: re-computed penalty 6.619322602152805 = 4.6480968772963465 + 1.9712257248564586  differs from SMAC penalty 9.90322992320597
+Warning: re-computed penalty 9.42074391577302 = 5.226075014000704 + 4.194668901772316  differs from SMAC penalty 13.21315049990508
+Warning: re-computed penalty 11.76283417188486 = 10 + 1.76283417188486  differs from SMAC penalty 7.035626708060796
+2020-12-16 18:15:16,542 INFO     Different evaluated sequences: 630
+num_spawn_apples 40% 254 38
+num_spawn_apples 55% 168 11
+num_spawn_apples 70% 77 1
+num_spawn_apples 85% 71 1
+num_spawn_apples 100% 60 12
+2020-12-16 18:15:16,674 INFO     Candidate sequences: 63
+2020-12-16 18:15:16,675 INFO     Using sart runtimes on CPLEX optimization
+2020-12-16 18:15:16,839 INFO     CPLEX solve
+
+2020-12-16 18:15:16,979 INFO     Solution status = 101: MIP_optimal
+2020-12-16 18:15:16,979 INFO     Solution value  = 5.674512613148955
+Selected: sequence 108, 17 instances from 7 to 23
+Configuration: {'grid_m': 1.8000000000000003, 'grid_maxdiff': 5, 'grid_x': 4, 'num_spawn_apples': '40%'}
+Penalty: 2.71
+Estimated runtimes: 10, 15, 20, 52, 52, 62, 1.2e+02, 2.4e+02, 4e+02, 6.7e+02, 1.1e+03, 1.9e+03, 3.2e+03, 5.3e+03, 9e+03, 1.5e+04, 2.5e+04, 4.2e+04, 7.1e+04, 1.2e+05, 2e+05, 3.4e+05, 5.7e+05
+Selected: sequence 299, 13 instances from 16 to 28
+Configuration: {'grid_m': 1.2000000000000002, 'grid_maxdiff': 5, 'grid_x': 4, 'num_spawn_apples': '55%'}
+Penalty: 2.97
+Estimated runtimes: 2.4e+02, 3.9e+02, 6.3e+02, 1e+03, 1.6e+03, 2.7e+03, 4.3e+03, 7e+03, 1.1e+04, 1.8e+04, 3e+04, 4.9e+04, 7.9e+04, 1.3e+05
+  p01: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 9, 'num_spawn_apples': '40%', 'board': 'empty-5x9'}
+  p02: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 7, 'y_grid': 7, 'num_spawn_apples': '40%', 'board': 'empty-7x7'}
+  p03: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 9, 'num_spawn_apples': '40%', 'board': 'empty-6x9'}
+  p04: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 10, 'num_spawn_apples': '40%', 'board': 'empty-6x10'}
+  p05: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 7, 'y_grid': 9, 'num_spawn_apples': '40%', 'board': 'empty-7x9'}
+  p06: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 11, 'num_spawn_apples': '40%', 'board': 'empty-6x11'}
+  p07: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 8, 'y_grid': 9, 'num_spawn_apples': '40%', 'board': 'empty-8x9'}
+  p08: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 8, 'y_grid': 10, 'num_spawn_apples': '40%', 'board': 'empty-8x10'}
+  p09: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 7, 'y_grid': 12, 'num_spawn_apples': '40%', 'board': 'empty-7x12'}
+  p10: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 8, 'y_grid': 11, 'num_spawn_apples': '40%', 'board': 'empty-8x11'}
+  p11: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 8, 'y_grid': 12, 'num_spawn_apples': '40%', 'board': 'empty-8x12'}
+  p12: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 10, 'y_grid': 10, 'num_spawn_apples': '40%', 'board': 'empty-10x10'}
+  p13: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 9, 'y_grid': 12, 'num_spawn_apples': '40%', 'board': 'empty-9x12'}
+  p14: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 9, 'y_grid': 13, 'num_spawn_apples': '40%', 'board': 'empty-9x13'}
+  p15: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 10, 'y_grid': 12, 'num_spawn_apples': '40%', 'board': 'empty-10x12'}
+  p16: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 9, 'y_grid': 14, 'num_spawn_apples': '40%', 'board': 'empty-9x14'}
+  p17: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 11, 'y_grid': 12, 'num_spawn_apples': '40%', 'board': 'empty-11x12'}
+  p18: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 7, 'y_grid': 9, 'num_spawn_apples': '55%', 'board': 'empty-7x9'}
+  p19: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 8, 'y_grid': 8, 'num_spawn_apples': '55%', 'board': 'empty-8x8'}
+  p20: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 11, 'num_spawn_apples': '55%', 'board': 'empty-6x11'}
+  p21: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 7, 'y_grid': 10, 'num_spawn_apples': '55%', 'board': 'empty-7x10'}
+  p22: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 8, 'y_grid': 9, 'num_spawn_apples': '55%', 'board': 'empty-8x9'}
+  p23: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 8, 'y_grid': 10, 'num_spawn_apples': '55%', 'board': 'empty-8x10'}
+  p24: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 9, 'y_grid': 9, 'num_spawn_apples': '55%', 'board': 'empty-9x9'}
+  p25: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 7, 'y_grid': 12, 'num_spawn_apples': '55%', 'board': 'empty-7x12'}
+  p26: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 8, 'y_grid': 11, 'num_spawn_apples': '55%', 'board': 'empty-8x11'}
+  p27: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 9, 'y_grid': 10, 'num_spawn_apples': '55%', 'board': 'empty-9x10'}
+  p28: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 9, 'y_grid': 11, 'num_spawn_apples': '55%', 'board': 'empty-9x11'}
+  p29: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 10, 'y_grid': 10, 'num_spawn_apples': '55%', 'board': 'empty-10x10'}
+  p30: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 8, 'y_grid': 13, 'num_spawn_apples': '55%', 'board': 'empty-8x13'}
+
+real	0m36.476s
+user	0m36.337s
+sys	0m1.169s

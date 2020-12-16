@@ -1,0 +1,100 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-16 17:45:55,338 INFO     No run directory, so we will not run anything
+2020-12-16 17:45:55,503 INFO     Loading cache data for baseline planners: 180
+2020-12-16 17:45:55,509 INFO     Loaded data for 126 instances, with min 3 max 15 avg 4.285714285714286 runtimes
+2020-12-16 17:45:55,509 INFO     Loading cache data for sart planners: 799
+2020-12-16 17:45:55,533 INFO     Loaded data for 625 instances, with min 3 max 15 avg 3.8352 runtimes
+2020-12-16 17:45:55,956 INFO     Loading cache data for baseline planners: 145
+2020-12-16 17:45:55,961 INFO     Loaded data for 223 instances, with min 3 max 15 avg 4.37219730941704 runtimes
+2020-12-16 17:45:55,961 INFO     Loading cache data for sart planners: 871
+2020-12-16 17:45:55,986 INFO     Loaded data for 1284 instances, with min 3 max 15 avg 3.9018691588785046 runtimes
+2020-12-16 17:45:56,455 INFO     Loading cache data for baseline planners: 301
+2020-12-16 17:45:56,467 INFO     Loaded data for 355 instances, with min 3 max 30 avg 5.290140845070423 runtimes
+2020-12-16 17:45:56,467 INFO     Loading cache data for sart planners: 1028
+2020-12-16 17:45:56,500 INFO     Loaded data for 1843 instances, with min 3 max 30 avg 4.391752577319588 runtimes
+2020-12-16 17:45:56,500 INFO     Stored sequences: 166
+Warning: re-computed penalty 18.8648102331755 = 6.990353361380617 + 11.874456871794884  differs from SMAC penalty 24.874052450518587
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 30, 'extra_scripts': 16, 'items': 32, 'scripts': 46}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 18.8648102331755 = 6.990353361380617 + 11.874456871794884  differs from SMAC penalty 23.953822218456875
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 30, 'extra_scripts': 91, 'items': 32, 'scripts': 121}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 18.8648102331755 = 6.990353361380617 + 11.874456871794884  differs from SMAC penalty 22.139611132860114
+Warning: re-computed penalty 18.8648102331755 = 6.990353361380617 + 11.874456871794884  differs from SMAC penalty 22.93741135927701
+Warning: re-computed penalty 9.39082327058204 = 4.013919791192609 + 5.37690347938943  differs from SMAC penalty 13.951647617762406
+Warning: re-computed penalty 18.8648102331755 = 6.990353361380617 + 11.874456871794884  differs from SMAC penalty 23.660007075662755
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 3, 'extra_items': 9, 'extra_scripts': 3, 'items': 12, 'scripts': 13}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 31, 'extra_scripts': 16, 'items': 33, 'scripts': 47}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 9.793566685372078 = 8 + 1.7935666853720778  differs from SMAC penalty 13.195383626850944
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 3, 'extra_items': 6, 'extra_scripts': 4, 'items': 9, 'scripts': 11}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 3, 'extra_items': 8, 'extra_scripts': 3, 'items': 11, 'scripts': 12}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 8.431336635753077 = 6.017326445892953 + 2.4140101898601243  differs from SMAC penalty 12.414010189860125
+Warning: re-computed penalty 10.581656871011353 = 8 + 2.581656871011353  differs from SMAC penalty 13.67604665219249
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 35, 'extra_scripts': 16, 'items': 37, 'scripts': 51}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 34, 'extra_scripts': 15, 'items': 36, 'scripts': 49}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 34, 'extra_scripts': 15, 'items': 36, 'scripts': 49}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 6.410952295457406 = 4.575664523104754 + 1.8352877723526524  differs from SMAC penalty 10.05473712474702
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 14, 'extra_scripts': 42, 'items': 16, 'scripts': 56}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 33, 'extra_scripts': 9, 'items': 35, 'scripts': 42}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 4, 'extra_items': 7, 'extra_scripts': 13, 'items': 11, 'scripts': 22}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 18.8648102331755 = 6.990353361380617 + 11.874456871794884  differs from SMAC penalty 24.870979223488106
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 32, 'extra_scripts': 19, 'items': 34, 'scripts': 51}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 30, 'extra_scripts': 26, 'items': 32, 'scripts': 56}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 18.8648102331755 = 6.990353361380617 + 11.874456871794884  differs from SMAC penalty 22.80623955744315
+Warning: No temporary dir for Runner has been provided but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 33, 'extra_scripts': 43, 'items': 35, 'scripts': 76}, so I consider it unsolved within the time and memory limits
+2020-12-16 17:45:57,445 INFO     Different evaluated sequences: 154
+network tiny-network 4 4
+network small-network 5 5
+network ring-network 139 100
+layers 2 109 100
+layers 3 14 14
+layers 4 8 8
+layers 5 6 6
+layers 6 11 11
+2020-12-16 17:45:58,305 INFO     Candidate sequences: 139
+2020-12-16 17:45:58,308 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 11 use baseline 128 use sart
+2020-12-16 17:45:58,309 INFO     Using sart runtimes on CPLEX optimization
+2020-12-16 17:45:58,780 INFO     CPLEX solve
+
+2020-12-16 17:45:59,471 INFO     Solution status = 101: MIP_optimal
+2020-12-16 17:45:59,471 INFO     Solution value  = 11.17692733837485
+Selected: sequence 92, 12 instances from 17 to 28
+Configuration: {'extra_items_b': 2, 'extra_items_m': 1.7000000000000002, 'extra_scripts_b': 2, 'extra_scripts_m': 1.5, 'layers': 2, 'network': 'ring-network'}
+Penalty: 5.55
+Estimated runtimes: 1.8e+02, 2.5e+02, 3.9e+02, 6.1e+02, 9.6e+02, 1.5e+03, 2.4e+03, 3.7e+03, 5.8e+03, 9.1e+03, 1.4e+04, 2.3e+04, 3.5e+04
+Selected: sequence 113, 18 instances from 12 to 29
+Configuration: {'extra_items_b': 2, 'extra_items_m': 1.6, 'extra_scripts_b': 2, 'extra_scripts_m': 1.5, 'layers': 2, 'network': 'ring-network'}
+Penalty: 5.63
+Estimated runtimes: 14, 30, 31, 40, 57, 67, 2.5e+02, 4.1e+02, 6.5e+02, 1e+03, 1.7e+03, 2.7e+03, 4.3e+03, 7e+03, 1.1e+04, 1.8e+04, 2.9e+04, 4.6e+04
+  p01: {'network': 'ring-network', 'layers': 2, 'extra_items': 30, 'extra_scripts': 27, 'items': 32, 'scripts': 57}
+  p02: {'network': 'ring-network', 'layers': 2, 'extra_items': 32, 'extra_scripts': 29, 'items': 34, 'scripts': 61}
+  p03: {'network': 'ring-network', 'layers': 2, 'extra_items': 34, 'extra_scripts': 30, 'items': 36, 'scripts': 64}
+  p04: {'network': 'ring-network', 'layers': 2, 'extra_items': 36, 'extra_scripts': 32, 'items': 38, 'scripts': 68}
+  p05: {'network': 'ring-network', 'layers': 2, 'extra_items': 37, 'extra_scripts': 33, 'items': 39, 'scripts': 70}
+  p06: {'network': 'ring-network', 'layers': 2, 'extra_items': 39, 'extra_scripts': 35, 'items': 41, 'scripts': 74}
+  p07: {'network': 'ring-network', 'layers': 2, 'extra_items': 41, 'extra_scripts': 36, 'items': 43, 'scripts': 77}
+  p08: {'network': 'ring-network', 'layers': 2, 'extra_items': 42, 'extra_scripts': 38, 'items': 44, 'scripts': 80}
+  p09: {'network': 'ring-network', 'layers': 2, 'extra_items': 44, 'extra_scripts': 39, 'items': 46, 'scripts': 83}
+  p10: {'network': 'ring-network', 'layers': 2, 'extra_items': 46, 'extra_scripts': 41, 'items': 48, 'scripts': 87}
+  p11: {'network': 'ring-network', 'layers': 2, 'extra_items': 47, 'extra_scripts': 42, 'items': 49, 'scripts': 89}
+  p12: {'network': 'ring-network', 'layers': 2, 'extra_items': 49, 'extra_scripts': 44, 'items': 51, 'scripts': 93}
+  p13: {'network': 'ring-network', 'layers': 2, 'extra_items': 21, 'extra_scripts': 20, 'items': 23, 'scripts': 41}
+  p14: {'network': 'ring-network', 'layers': 2, 'extra_items': 22, 'extra_scripts': 21, 'items': 24, 'scripts': 43}
+  p15: {'network': 'ring-network', 'layers': 2, 'extra_items': 24, 'extra_scripts': 23, 'items': 26, 'scripts': 47}
+  p16: {'network': 'ring-network', 'layers': 2, 'extra_items': 26, 'extra_scripts': 24, 'items': 28, 'scripts': 50}
+  p17: {'network': 'ring-network', 'layers': 2, 'extra_items': 27, 'extra_scripts': 26, 'items': 29, 'scripts': 53}
+  p18: {'network': 'ring-network', 'layers': 2, 'extra_items': 29, 'extra_scripts': 27, 'items': 31, 'scripts': 56}
+  p19: {'network': 'ring-network', 'layers': 2, 'extra_items': 30, 'extra_scripts': 29, 'items': 32, 'scripts': 59}
+  p20: {'network': 'ring-network', 'layers': 2, 'extra_items': 32, 'extra_scripts': 30, 'items': 34, 'scripts': 62}
+  p21: {'network': 'ring-network', 'layers': 2, 'extra_items': 34, 'extra_scripts': 32, 'items': 36, 'scripts': 66}
+  p22: {'network': 'ring-network', 'layers': 2, 'extra_items': 35, 'extra_scripts': 33, 'items': 37, 'scripts': 68}
+  p23: {'network': 'ring-network', 'layers': 2, 'extra_items': 37, 'extra_scripts': 35, 'items': 39, 'scripts': 72}
+  p24: {'network': 'ring-network', 'layers': 2, 'extra_items': 38, 'extra_scripts': 36, 'items': 40, 'scripts': 74}
+  p25: {'network': 'ring-network', 'layers': 2, 'extra_items': 40, 'extra_scripts': 38, 'items': 42, 'scripts': 78}
+  p26: {'network': 'ring-network', 'layers': 2, 'extra_items': 42, 'extra_scripts': 39, 'items': 44, 'scripts': 81}
+  p27: {'network': 'ring-network', 'layers': 2, 'extra_items': 43, 'extra_scripts': 41, 'items': 45, 'scripts': 84}
+  p28: {'network': 'ring-network', 'layers': 2, 'extra_items': 45, 'extra_scripts': 42, 'items': 47, 'scripts': 87}
+  p29: {'network': 'ring-network', 'layers': 2, 'extra_items': 46, 'extra_scripts': 44, 'items': 48, 'scripts': 90}
+  p30: {'network': 'ring-network', 'layers': 2, 'extra_items': 48, 'extra_scripts': 45, 'items': 50, 'scripts': 93}
+
+real	0m11.247s
+user	0m18.171s
+sys	0m19.572s

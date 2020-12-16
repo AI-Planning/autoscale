@@ -1,0 +1,72 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-16 17:47:14,430 INFO     No run directory, so we will not run anything
+2020-12-16 17:47:14,556 INFO     Loading cache data for baseline planners: 56
+2020-12-16 17:47:14,558 INFO     Loaded data for 16 instances, with min 3 max 15 avg 10.5 runtimes
+2020-12-16 17:47:14,558 INFO     Loading cache data for sart planners: 179
+2020-12-16 17:47:14,562 INFO     Loaded data for 45 instances, with min 3 max 15 avg 11.933333333333334 runtimes
+2020-12-16 17:47:15,126 INFO     Loading cache data for baseline planners: 0
+2020-12-16 17:47:15,126 INFO     Loaded data for 16 instances, with min 3 max 15 avg 10.5 runtimes
+2020-12-16 17:47:15,126 INFO     Loading cache data for sart planners: 0
+2020-12-16 17:47:15,126 INFO     Loaded data for 45 instances, with min 3 max 15 avg 11.933333333333334 runtimes
+2020-12-16 17:47:15,654 INFO     Loading cache data for baseline planners: 0
+2020-12-16 17:47:15,654 INFO     Loaded data for 16 instances, with min 3 max 15 avg 10.5 runtimes
+2020-12-16 17:47:15,654 INFO     Loading cache data for sart planners: 0
+2020-12-16 17:47:15,654 INFO     Loaded data for 45 instances, with min 3 max 15 avg 11.933333333333334 runtimes
+2020-12-16 17:47:15,654 INFO     Stored sequences: 869
+2020-12-16 17:47:18,243 INFO     Different evaluated sequences: 109
+num_robots 2 62 1
+num_robots 3 29 1
+num_robots 4 10 4
+num_robots 5 8 4
+2020-12-16 17:47:18,249 INFO     Candidate sequences: 10
+2020-12-16 17:47:18,250 INFO     Using sart runtimes on CPLEX optimization
+2020-12-16 17:47:18,272 INFO     CPLEX solve
+
+2020-12-16 17:47:18,292 INFO     Solution status = 101: MIP_optimal
+2020-12-16 17:47:18,292 INFO     Solution value  = 28.50693228513066
+Selected: sequence 14, 16 instances from 12 to 27
+Configuration: {'grid_m': 1.0, 'grid_maxdiff': 5, 'grid_x': 2, 'num_robots': 2}
+Penalty: 6.27
+Estimated runtimes: 3.8, 4.7, 11, 20, 27, 30, 75, 2.9e+02, 6.2e+02, 1.3e+03, 2.9e+03, 6.2e+03, 1.3e+04, 2.9e+04, 6.2e+04, 1.3e+05, 2.9e+05, 6.2e+05
+Selected: sequence 25, 9 instances from 12 to 20
+Configuration: {'grid_m': 0.30000000000000004, 'grid_maxdiff': 5, 'grid_x': 2, 'num_robots': 3}
+Penalty: 9.11
+Estimated runtimes: 53, 57, 1.8e+02, 5.6e+02, 1.8e+03, 5.5e+03, 1.7e+04, 5.4e+04, 1.7e+05, 5.3e+05, 1.7e+06, 5.2e+06, 1.6e+07, 5.1e+07, 1.6e+08, 5e+08, 1.6e+09, 4.9e+09
+Selected: sequence 52, 5 instances from 6 to 10
+Configuration: {'grid_m': 2.7, 'grid_maxdiff': 5, 'grid_x': 2, 'num_robots': 5}
+Penalty: 13.12
+Estimated runtimes: 2.5e+02, 1.1e+03, 4.9e+03, 2.1e+04, 9.4e+04, 4.1e+05, 1.8e+06, 7.9e+06, 3.5e+07, 1.5e+08, 6.7e+08, 2.9e+09, 1.3e+10, 5.7e+10, 2.5e+11, 1.1e+12, 4.8e+12, 2.1e+13, 9.2e+13, 4.1e+14, 1.8e+15, 7.8e+15, 3.4e+16, 1.5e+17
+  p01: {'num_columns': 3, 'num_rows': 7, 'num_robots': 2}
+  p02: {'num_columns': 3, 'num_rows': 8, 'num_robots': 2}
+  p03: {'num_columns': 4, 'num_rows': 6, 'num_robots': 2}
+  p04: {'num_columns': 5, 'num_rows': 5, 'num_robots': 2}
+  p05: {'num_columns': 4, 'num_rows': 7, 'num_robots': 2}
+  p06: {'num_columns': 5, 'num_rows': 6, 'num_robots': 2}
+  p07: {'num_columns': 4, 'num_rows': 8, 'num_robots': 2}
+  p08: {'num_columns': 5, 'num_rows': 7, 'num_robots': 2}
+  p09: {'num_columns': 4, 'num_rows': 9, 'num_robots': 2}
+  p10: {'num_columns': 6, 'num_rows': 6, 'num_robots': 2}
+  p11: {'num_columns': 5, 'num_rows': 8, 'num_robots': 2}
+  p12: {'num_columns': 6, 'num_rows': 7, 'num_robots': 2}
+  p13: {'num_columns': 5, 'num_rows': 9, 'num_robots': 2}
+  p14: {'num_columns': 6, 'num_rows': 8, 'num_robots': 2}
+  p15: {'num_columns': 7, 'num_rows': 7, 'num_robots': 2}
+  p16: {'num_columns': 5, 'num_rows': 10, 'num_robots': 2}
+  p17: {'num_columns': 3, 'num_rows': 7, 'num_robots': 3}
+  p18: {'num_columns': 3, 'num_rows': 8, 'num_robots': 3}
+  p19: {'num_columns': 4, 'num_rows': 6, 'num_robots': 3}
+  p20: {'num_columns': 5, 'num_rows': 5, 'num_robots': 3}
+  p21: {'num_columns': 4, 'num_rows': 7, 'num_robots': 3}
+  p22: {'num_columns': 5, 'num_rows': 6, 'num_robots': 3}
+  p23: {'num_columns': 4, 'num_rows': 8, 'num_robots': 3}
+  p24: {'num_columns': 5, 'num_rows': 7, 'num_robots': 3}
+  p25: {'num_columns': 4, 'num_rows': 9, 'num_robots': 3}
+  p26: {'num_columns': 4, 'num_rows': 7, 'num_robots': 4}
+  p27: {'num_columns': 4, 'num_rows': 8, 'num_robots': 4}
+  p28: {'num_columns': 6, 'num_rows': 6, 'num_robots': 5}
+  p29: {'num_columns': 5, 'num_rows': 9, 'num_robots': 5}
+  p30: {'num_columns': 7, 'num_rows': 7, 'num_robots': 5}
+
+real	0m5.020s
+user	0m4.923s
+sys	0m1.004s

@@ -1,0 +1,63 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-16 18:13:34,151 INFO     No run directory, so we will not run anything
+2020-12-16 18:13:34,324 INFO     Loading cache data for baseline planners: 208
+2020-12-16 18:13:34,333 INFO     Loaded data for 48 instances, with min 3 max 15 avg 13 runtimes
+2020-12-16 18:13:34,333 INFO     Loading cache data for sart planners: 367
+2020-12-16 18:13:34,346 INFO     Loaded data for 78 instances, with min 3 max 15 avg 14.115384615384615 runtimes
+2020-12-16 18:13:34,784 INFO     Loading cache data for baseline planners: 0
+2020-12-16 18:13:34,784 INFO     Loaded data for 48 instances, with min 3 max 15 avg 13 runtimes
+2020-12-16 18:13:34,784 INFO     Loading cache data for sart planners: 2
+2020-12-16 18:13:34,784 INFO     Loaded data for 79 instances, with min 3 max 15 avg 14.012658227848101 runtimes
+2020-12-16 18:13:35,255 INFO     Loading cache data for baseline planners: 0
+2020-12-16 18:13:35,255 INFO     Loaded data for 48 instances, with min 3 max 15 avg 13 runtimes
+2020-12-16 18:13:35,255 INFO     Loading cache data for sart planners: 0
+2020-12-16 18:13:35,255 INFO     Loaded data for 79 instances, with min 3 max 15 avg 14.012658227848101 runtimes
+2020-12-16 18:13:35,255 INFO     Stored sequences: 1082
+2020-12-16 18:13:39,555 INFO     Different evaluated sequences: 481
+cars_diff 0 153 18
+cars_diff -1 173 20
+cars_diff -2 155 25
+2020-12-16 18:13:39,607 INFO     Candidate sequences: 63
+2020-12-16 18:13:39,608 INFO     Using sart runtimes on CPLEX optimization
+2020-12-16 18:13:39,715 INFO     CPLEX solve
+
+2020-12-16 18:13:39,809 INFO     Solution status = 101: MIP_optimal
+2020-12-16 18:13:39,809 INFO     Solution value  = 5.344348455578325
+Selected: sequence 9, 30 instances from 0 to 29
+Configuration: {'cars_diff': 0, 'curbs_b': 9, 'curbs_m': 1.2}
+Penalty: 3.34
+Estimated runtimes: 2.8, 4, 5.6, 7.9, 11, 14, 25, 35, 48, 62, 75, 1.3e+02, 1.6e+02, 2e+02, 2.7e+02, 3.8e+02, 5.3e+02, 7.3e+02, 1e+03, 1.4e+03, 2e+03, 2.7e+03, 3.8e+03, 5.3e+03, 7.3e+03, 1e+04, 1.4e+04, 2e+04, 2.7e+04, 3.8e+04
+  p01: {'curbs': 9, 'cars': 16}
+  p02: {'curbs': 10, 'cars': 18}
+  p03: {'curbs': 11, 'cars': 20}
+  p04: {'curbs': 12, 'cars': 22}
+  p05: {'curbs': 13, 'cars': 24}
+  p06: {'curbs': 14, 'cars': 26}
+  p07: {'curbs': 16, 'cars': 30}
+  p08: {'curbs': 17, 'cars': 32}
+  p09: {'curbs': 18, 'cars': 34}
+  p10: {'curbs': 19, 'cars': 36}
+  p11: {'curbs': 20, 'cars': 38}
+  p12: {'curbs': 22, 'cars': 42}
+  p13: {'curbs': 23, 'cars': 44}
+  p14: {'curbs': 24, 'cars': 46}
+  p15: {'curbs': 25, 'cars': 48}
+  p16: {'curbs': 26, 'cars': 50}
+  p17: {'curbs': 28, 'cars': 54}
+  p18: {'curbs': 29, 'cars': 56}
+  p19: {'curbs': 30, 'cars': 58}
+  p20: {'curbs': 31, 'cars': 60}
+  p21: {'curbs': 32, 'cars': 62}
+  p22: {'curbs': 34, 'cars': 66}
+  p23: {'curbs': 35, 'cars': 68}
+  p24: {'curbs': 36, 'cars': 70}
+  p25: {'curbs': 37, 'cars': 72}
+  p26: {'curbs': 39, 'cars': 76}
+  p27: {'curbs': 40, 'cars': 78}
+  p28: {'curbs': 41, 'cars': 80}
+  p29: {'curbs': 42, 'cars': 82}
+  p30: {'curbs': 43, 'cars': 84}
+
+real	0m6.974s
+user	0m6.782s
+sys	0m1.039s

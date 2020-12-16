@@ -1,0 +1,93 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-16 17:45:12,782 INFO     No run directory, so we will not run anything
+2020-12-16 17:45:12,944 INFO     Loading cache data for baseline planners: 279
+2020-12-16 17:45:12,953 INFO     Loaded data for 128 instances, with min 3 max 15 avg 6.5390625 runtimes
+2020-12-16 17:45:12,954 INFO     Loading cache data for sart planners: 978
+2020-12-16 17:45:12,981 INFO     Loaded data for 563 instances, with min 3 max 15 avg 5.211367673179396 runtimes
+2020-12-16 17:45:13,398 INFO     Loading cache data for baseline planners: 193
+2020-12-16 17:45:13,404 INFO     Loaded data for 243 instances, with min 3 max 15 avg 5.827160493827161 runtimes
+2020-12-16 17:45:13,404 INFO     Loading cache data for sart planners: 1267
+2020-12-16 17:45:13,438 INFO     Loaded data for 1514 instances, with min 3 max 15 avg 4.448480845442536 runtimes
+2020-12-16 17:45:13,883 INFO     Loading cache data for baseline planners: 295
+2020-12-16 17:45:13,895 INFO     Loaded data for 312 instances, with min 3 max 30 avg 7.375 runtimes
+2020-12-16 17:45:13,895 INFO     Loading cache data for sart planners: 1358
+2020-12-16 17:45:13,939 INFO     Loaded data for 2061 instances, with min 3 max 30 avg 5.244541484716157 runtimes
+2020-12-16 17:45:13,939 INFO     Stored sequences: 371
+Warning: re-computed penalty 8.70968139622881 = 2.152963627967539 + 6.556717768261271  differs from SMAC penalty 15.315545612901927
+Warning: re-computed penalty 4.832037726045528 = 2.4337874918125673 + 2.398250234232961  differs from SMAC penalty 9.14273273890198
+Warning: re-computed penalty 4.895626248037403 = 3.5337725089129752 + 1.361853739124428  differs from SMAC penalty 8.185955700264683
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 47, 'num_shots': 48, 'num_ingredients': 3}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 4.333701038427314 = 3.097972898186715 + 1.2357281402405986  differs from SMAC penalty 7.651597769687491
+Warning: re-computed penalty 11.812153990716908 = 6.557579115795141 + 5.254574874921766  differs from SMAC penalty 6.500938763952583
+Warning: re-computed penalty 3.997718650051043 = 2.6171938659764122 + 1.380524784074631  differs from SMAC penalty 7.309335240069455
+Warning: re-computed penalty 12.049563738642565 = 1.4733054609821858 + 10.57625827766038  differs from SMAC penalty 5.741508514717556
+Warning: re-computed penalty 12.049563738642565 = 1.4733054609821858 + 10.57625827766038  differs from SMAC penalty 5.741508514717556
+Warning: re-computed penalty 13.596769928420017 = 2.0740854690497086 + 11.522684459370307  differs from SMAC penalty 16.709377014485405
+Warning: re-computed penalty 9.632883201117057 = 1.9156306687338036 + 7.717252532383254  differs from SMAC penalty 6.594215200603292
+Warning: re-computed penalty 9.331297773537852 = 8 + 1.3312977735378517  differs from SMAC penalty 12.446143913965969
+Warning: re-computed penalty 3.810632711480177 = 1.508567700019045 + 2.3020650114611323  differs from SMAC penalty 7.50163176215842
+Warning: re-computed penalty 2.7141910120500654 = 1.508567700019045 + 1.2056233120310207  differs from SMAC penalty 8.150254114639553
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 46, 'num_shots': 81, 'num_ingredients': 3}, so I consider it unsolved within the time and memory limits
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_cocktails': 46, 'num_shots': 79, 'num_ingredients': 3}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 4.982264509938025 = 2.5337091770847 + 2.448555332853325  differs from SMAC penalty 8.173137204466904
+Warning: re-computed penalty 4.935452365001203 = 3.394827674139953 + 1.54062469086125  differs from SMAC penalty 7.935940594413697
+Warning: re-computed penalty 3.92466359698446 = 1.5669702464156476 + 2.3576933505688125  differs from SMAC penalty 10.13198624383255
+Warning: re-computed penalty 4.945158336029731 = 3.6658360008994118 + 1.2793223351303193  differs from SMAC penalty 8.465944347546937
+Warning: re-computed penalty 4.945158336029731 = 3.6658360008994118 + 1.2793223351303193  differs from SMAC penalty 8.465944347546937
+Warning: re-computed penalty 4.935893266698464 = 3.6658360008994118 + 1.2700572657990525  differs from SMAC penalty 8.912064624244383
+Warning: re-computed penalty 5.838259002591951 = 4.531384963878189 + 1.3068740387137623  differs from SMAC penalty 9.259449062014188
+2020-12-16 17:45:16,133 INFO     Different evaluated sequences: 274
+num_ingredients 2 162 100
+num_ingredients 3 90 82
+num_ingredients 4 13 13
+num_ingredients 5 6 6
+num_ingredients 6 1 1
+2020-12-16 17:45:16,510 INFO     Candidate sequences: 202
+2020-12-16 17:45:16,514 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 11 use baseline 191 use sart
+2020-12-16 17:45:16,515 INFO     Using sart runtimes on CPLEX optimization
+2020-12-16 17:45:17,166 INFO     CPLEX solve
+
+2020-12-16 17:45:17,879 INFO     Solution status = 101: MIP_optimal
+2020-12-16 17:45:17,879 INFO     Solution value  = 8.786521951058742
+Selected: sequence 79, 18 instances from 12 to 29
+Configuration: {'num_cocktails_b': 4, 'num_cocktails_m': 3.1, 'num_ingredients': 2, 'num_shots_b': 5, 'num_shots_m': 4.5, 'num_shots_optional_m': 'true'}
+Penalty: 3.71
+Estimated runtimes: 26, 27, 29, 56, 63, 85, 1e+02, 1e+02, 1.8e+02, 3.2e+02, 5.6e+02, 1e+03, 1.8e+03, 3.1e+03, 5.6e+03, 9.8e+03, 1.7e+04, 3.1e+04
+Selected: sequence 228, 12 instances from 12 to 23
+Configuration: {'num_cocktails_b': 3, 'num_cocktails_m': 4.3, 'num_ingredients': 2, 'num_shots_b': 3, 'num_shots_m': 0.1, 'num_shots_optional_m': 'true'}
+Penalty: 5.07
+Estimated runtimes: 1.6e+02, 2.5e+02, 4e+02, 6.5e+02, 1e+03, 1.7e+03, 2.7e+03, 4.3e+03, 6.9e+03, 1.1e+04, 1.8e+04, 2.8e+04, 4.6e+04, 7.3e+04, 1.2e+05, 1.9e+05, 3e+05, 4.9e+05
+  p01: {'num_cocktails': 41, 'num_shots': 46, 'num_ingredients': 2}
+  p02: {'num_cocktails': 44, 'num_shots': 49, 'num_ingredients': 2}
+  p03: {'num_cocktails': 47, 'num_shots': 52, 'num_ingredients': 2}
+  p04: {'num_cocktails': 50, 'num_shots': 55, 'num_ingredients': 2}
+  p05: {'num_cocktails': 53, 'num_shots': 58, 'num_ingredients': 2}
+  p06: {'num_cocktails': 56, 'num_shots': 61, 'num_ingredients': 2}
+  p07: {'num_cocktails': 59, 'num_shots': 64, 'num_ingredients': 2}
+  p08: {'num_cocktails': 62, 'num_shots': 67, 'num_ingredients': 2}
+  p09: {'num_cocktails': 66, 'num_shots': 71, 'num_ingredients': 2}
+  p10: {'num_cocktails': 69, 'num_shots': 74, 'num_ingredients': 2}
+  p11: {'num_cocktails': 72, 'num_shots': 77, 'num_ingredients': 2}
+  p12: {'num_cocktails': 75, 'num_shots': 80, 'num_ingredients': 2}
+  p13: {'num_cocktails': 78, 'num_shots': 83, 'num_ingredients': 2}
+  p14: {'num_cocktails': 81, 'num_shots': 86, 'num_ingredients': 2}
+  p15: {'num_cocktails': 84, 'num_shots': 89, 'num_ingredients': 2}
+  p16: {'num_cocktails': 87, 'num_shots': 92, 'num_ingredients': 2}
+  p17: {'num_cocktails': 90, 'num_shots': 95, 'num_ingredients': 2}
+  p18: {'num_cocktails': 93, 'num_shots': 98, 'num_ingredients': 2}
+  p19: {'num_cocktails': 54, 'num_shots': 57, 'num_ingredients': 2}
+  p20: {'num_cocktails': 58, 'num_shots': 61, 'num_ingredients': 2}
+  p21: {'num_cocktails': 63, 'num_shots': 66, 'num_ingredients': 2}
+  p22: {'num_cocktails': 67, 'num_shots': 70, 'num_ingredients': 2}
+  p23: {'num_cocktails': 71, 'num_shots': 74, 'num_ingredients': 2}
+  p24: {'num_cocktails': 76, 'num_shots': 79, 'num_ingredients': 2}
+  p25: {'num_cocktails': 80, 'num_shots': 83, 'num_ingredients': 2}
+  p26: {'num_cocktails': 84, 'num_shots': 87, 'num_ingredients': 2}
+  p27: {'num_cocktails': 88, 'num_shots': 91, 'num_ingredients': 2}
+  p28: {'num_cocktails': 93, 'num_shots': 96, 'num_ingredients': 2}
+  p29: {'num_cocktails': 97, 'num_shots': 100, 'num_ingredients': 2}
+  p30: {'num_cocktails': 101, 'num_shots': 104, 'num_ingredients': 2}
+
+real	0m6.363s
+user	0m7.778s
+sys	0m1.141s

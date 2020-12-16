@@ -1,0 +1,79 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-16 17:50:53,067 INFO     No run directory, so we will not run anything
+2020-12-16 17:50:53,194 INFO     Loading cache data for baseline planners: 378
+2020-12-16 17:50:53,204 INFO     Loaded data for 284 instances, with min 3 max 15 avg 3.992957746478873 runtimes
+2020-12-16 17:50:53,204 INFO     Loading cache data for sart planners: 739
+2020-12-16 17:50:53,223 INFO     Loaded data for 595 instances, with min 3 max 15 avg 3.7260504201680673 runtimes
+2020-12-16 17:50:53,785 INFO     Loading cache data for baseline planners: 575
+2020-12-16 17:50:53,802 INFO     Loaded data for 663 instances, with min 3 max 15 avg 4.3122171945701355 runtimes
+2020-12-16 17:50:53,802 INFO     Loading cache data for sart planners: 1449
+2020-12-16 17:50:53,841 INFO     Loaded data for 1638 instances, with min 3 max 15 avg 4.007326007326007 runtimes
+2020-12-16 17:50:54,363 INFO     Loading cache data for baseline planners: 560
+2020-12-16 17:50:54,382 INFO     Loaded data for 979 instances, with min 3 max 18 avg 4.636363636363637 runtimes
+2020-12-16 17:50:54,382 INFO     Loading cache data for sart planners: 1150
+2020-12-16 17:50:54,416 INFO     Loaded data for 2347 instances, with min 3 max 21 avg 4.266723476778867 runtimes
+2020-12-16 17:50:54,416 INFO     Stored sequences: 447
+Warning: re-computed penalty 11.077421433018813 = 6.572382370951492 + 4.50503906206732  differs from SMAC penalty 14.198004829292996
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_airplanes': 4, 'num_cities': 2, 'city_size': 2, 'num_packages': 8, 'extra_trucks': 11, 'num_trucks': 13}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 11.252238059157037 = 8 + 3.2522380591570372  differs from SMAC penalty 14.816089632614464
+Warning: re-computed penalty 11.252238059157037 = 8 + 3.2522380591570372  differs from SMAC penalty 14.816089632614464
+Warning: re-computed penalty 14.210273194559925 = 10 + 4.2102731945599245  differs from SMAC penalty 17.719902288465168
+Warning: re-computed penalty 11.775160563727148 = 8 + 3.7751605637271473  differs from SMAC penalty 15.50206403226823
+Warning: re-computed penalty 11.252238059157037 = 8 + 3.2522380591570372  differs from SMAC penalty 14.816089632614464
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_airplanes': 1, 'num_cities': 2, 'city_size': 2, 'num_packages': 9, 'extra_trucks': 8, 'num_trucks': 10}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 11.775160563727148 = 8 + 3.7751605637271473  differs from SMAC penalty 15.50206403226823
+Warning: re-computed penalty 10.048602011715833 = 7.665452670390433 + 2.3831493413254003  differs from SMAC penalty 13.05677352807454
+Warning: re-computed penalty 11.252238059157037 = 8 + 3.2522380591570372  differs from SMAC penalty 14.362926267281889
+Warning: re-computed penalty 9.811561532177167 = 6.511670226382268 + 3.299891305794899  differs from SMAC penalty 16.480521834193894
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_airplanes': 5, 'num_cities': 2, 'city_size': 2, 'num_packages': 13, 'extra_trucks': 3, 'num_trucks': 5}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 11.586823959540823 = 7.266778130396826 + 4.320045829143997  differs from SMAC penalty 16.20209690106458
+Warning: No temporary dir for Runner has been provided but I have no data for {'num_airplanes': 2, 'num_cities': 2, 'city_size': 2, 'num_packages': 17, 'extra_trucks': 6, 'num_trucks': 8}, so I consider it unsolved within the time and memory limits
+2020-12-16 17:50:55,949 INFO     Different evaluated sequences: 342
+2020-12-16 17:50:56,022 INFO     Candidate sequences: 100
+2020-12-16 17:50:56,024 INFO     Using sart runtimes on CPLEX optimization
+2020-12-16 17:50:56,219 INFO     CPLEX solve
+
+2020-12-16 17:50:56,422 INFO     Solution status = 101: MIP_optimal
+2020-12-16 17:50:56,422 INFO     Solution value  = 18.74004396763555
+Selected: sequence 155, 14 instances from 13 to 26
+Configuration: {'city_size_b': 2, 'city_size_m': 0.0, 'city_size_optional_m': 'false', 'extra_trucks_b': 4, 'extra_trucks_m': 0.9, 'extra_trucks_optional_m': 'false', 'num_airplanes_b': 1, 'num_airplanes_m': 1.0, 'num_airplanes_optional_m': 'true', 'num_cities_b': 2, 'num_cities_m': 0.5, 'num_cities_optional_m': 'true', 'num_packages_b': 1, 'num_packages_m': 1.0}
+Penalty: 9.29
+Estimated runtimes: 6, 8.1, 22, 69, 1.2e+02, 1.4e+02, 2.9e+02, 6.2e+02, 1.3e+03, 2.9e+03, 6.3e+03, 1.4e+04, 2.9e+04, 6.3e+04, 1.4e+05, 3e+05, 6.4e+05
+Selected: sequence 230, 16 instances from 8 to 23
+Configuration: {'city_size_b': 3, 'city_size_m': 0.5, 'city_size_optional_m': 'true', 'extra_trucks_b': 3, 'extra_trucks_m': 0.0, 'extra_trucks_optional_m': 'false', 'num_airplanes_b': 2, 'num_airplanes_m': 1.1, 'num_airplanes_optional_m': 'true', 'num_cities_b': 2, 'num_cities_m': 0.2, 'num_cities_optional_m': 'true', 'num_packages_b': 2, 'num_packages_m': 1.0}
+Penalty: 9.45
+Estimated runtimes: 29, 31, 42, 1.2e+02, 1.2e+02, 2.3e+02, 4.2e+02, 7.8e+02, 1.5e+03, 2.7e+03, 5e+03, 9.3e+03, 1.7e+04, 3.2e+04, 6e+04, 1.1e+05, 2.1e+05, 3.8e+05, 7.1e+05, 1.3e+06, 2.4e+06, 4.5e+06
+  p01: {'num_airplanes': 1, 'num_cities': 2, 'city_size': 2, 'num_packages': 14, 'extra_trucks': 15, 'num_trucks': 17}
+  p02: {'num_airplanes': 1, 'num_cities': 2, 'city_size': 2, 'num_packages': 15, 'extra_trucks': 16, 'num_trucks': 18}
+  p03: {'num_airplanes': 1, 'num_cities': 2, 'city_size': 2, 'num_packages': 16, 'extra_trucks': 17, 'num_trucks': 19}
+  p04: {'num_airplanes': 1, 'num_cities': 2, 'city_size': 2, 'num_packages': 17, 'extra_trucks': 18, 'num_trucks': 20}
+  p05: {'num_airplanes': 1, 'num_cities': 2, 'city_size': 2, 'num_packages': 18, 'extra_trucks': 19, 'num_trucks': 21}
+  p06: {'num_airplanes': 1, 'num_cities': 2, 'city_size': 2, 'num_packages': 19, 'extra_trucks': 20, 'num_trucks': 22}
+  p07: {'num_airplanes': 1, 'num_cities': 2, 'city_size': 2, 'num_packages': 20, 'extra_trucks': 21, 'num_trucks': 23}
+  p08: {'num_airplanes': 1, 'num_cities': 2, 'city_size': 2, 'num_packages': 21, 'extra_trucks': 21, 'num_trucks': 23}
+  p09: {'num_airplanes': 1, 'num_cities': 2, 'city_size': 2, 'num_packages': 22, 'extra_trucks': 22, 'num_trucks': 24}
+  p10: {'num_airplanes': 1, 'num_cities': 2, 'city_size': 2, 'num_packages': 23, 'extra_trucks': 23, 'num_trucks': 25}
+  p11: {'num_airplanes': 1, 'num_cities': 2, 'city_size': 2, 'num_packages': 24, 'extra_trucks': 24, 'num_trucks': 26}
+  p12: {'num_airplanes': 1, 'num_cities': 2, 'city_size': 2, 'num_packages': 25, 'extra_trucks': 25, 'num_trucks': 27}
+  p13: {'num_airplanes': 1, 'num_cities': 2, 'city_size': 2, 'num_packages': 26, 'extra_trucks': 26, 'num_trucks': 28}
+  p14: {'num_airplanes': 1, 'num_cities': 2, 'city_size': 2, 'num_packages': 27, 'extra_trucks': 27, 'num_trucks': 29}
+  p15: {'num_airplanes': 2, 'num_cities': 2, 'city_size': 3, 'num_packages': 10, 'extra_trucks': 3, 'num_trucks': 5}
+  p16: {'num_airplanes': 2, 'num_cities': 2, 'city_size': 3, 'num_packages': 11, 'extra_trucks': 3, 'num_trucks': 5}
+  p17: {'num_airplanes': 2, 'num_cities': 2, 'city_size': 3, 'num_packages': 12, 'extra_trucks': 3, 'num_trucks': 5}
+  p18: {'num_airplanes': 2, 'num_cities': 2, 'city_size': 3, 'num_packages': 13, 'extra_trucks': 3, 'num_trucks': 5}
+  p19: {'num_airplanes': 2, 'num_cities': 2, 'city_size': 3, 'num_packages': 14, 'extra_trucks': 3, 'num_trucks': 5}
+  p20: {'num_airplanes': 2, 'num_cities': 2, 'city_size': 3, 'num_packages': 15, 'extra_trucks': 3, 'num_trucks': 5}
+  p21: {'num_airplanes': 2, 'num_cities': 2, 'city_size': 3, 'num_packages': 16, 'extra_trucks': 3, 'num_trucks': 5}
+  p22: {'num_airplanes': 2, 'num_cities': 2, 'city_size': 3, 'num_packages': 17, 'extra_trucks': 3, 'num_trucks': 5}
+  p23: {'num_airplanes': 2, 'num_cities': 2, 'city_size': 3, 'num_packages': 18, 'extra_trucks': 3, 'num_trucks': 5}
+  p24: {'num_airplanes': 2, 'num_cities': 2, 'city_size': 3, 'num_packages': 19, 'extra_trucks': 3, 'num_trucks': 5}
+  p25: {'num_airplanes': 2, 'num_cities': 2, 'city_size': 3, 'num_packages': 20, 'extra_trucks': 3, 'num_trucks': 5}
+  p26: {'num_airplanes': 2, 'num_cities': 2, 'city_size': 3, 'num_packages': 21, 'extra_trucks': 3, 'num_trucks': 5}
+  p27: {'num_airplanes': 2, 'num_cities': 2, 'city_size': 3, 'num_packages': 22, 'extra_trucks': 3, 'num_trucks': 5}
+  p28: {'num_airplanes': 2, 'num_cities': 2, 'city_size': 3, 'num_packages': 23, 'extra_trucks': 3, 'num_trucks': 5}
+  p29: {'num_airplanes': 2, 'num_cities': 2, 'city_size': 3, 'num_packages': 24, 'extra_trucks': 3, 'num_trucks': 5}
+  p30: {'num_airplanes': 2, 'num_cities': 2, 'city_size': 3, 'num_packages': 25, 'extra_trucks': 3, 'num_trucks': 5}
+
+real	0m4.225s
+user	0m4.502s
+sys	0m1.060s

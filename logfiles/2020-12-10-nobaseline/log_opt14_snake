@@ -1,0 +1,187 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-16 18:14:21,776 INFO     No run directory, so we will not run anything
+2020-12-16 18:14:21,900 INFO     Loading cache data for baseline planners: 393
+2020-12-16 18:14:21,912 INFO     Loaded data for 97 instances, with min 3 max 15 avg 12.154639175257731 runtimes
+2020-12-16 18:14:21,912 INFO     Loading cache data for sart planners: 389
+2020-12-16 18:14:21,923 INFO     Loaded data for 95 instances, with min 3 max 15 avg 12.284210526315789 runtimes
+2020-12-16 18:14:22,494 INFO     Loading cache data for baseline planners: 12
+2020-12-16 18:14:22,494 INFO     Loaded data for 102 instances, with min 3 max 15 avg 11.911764705882353 runtimes
+2020-12-16 18:14:22,494 INFO     Loading cache data for sart planners: 30
+2020-12-16 18:14:22,495 INFO     Loaded data for 105 instances, with min 3 max 15 avg 11.971428571428572 runtimes
+2020-12-16 18:14:23,035 INFO     Loading cache data for baseline planners: 357
+2020-12-16 18:14:23,052 INFO     Loaded data for 104 instances, with min 3 max 27 avg 21.98076923076923 runtimes
+2020-12-16 18:14:23,052 INFO     Loading cache data for sart planners: 358
+2020-12-16 18:14:23,066 INFO     Loaded data for 106 instances, with min 3 max 27 avg 21.99056603773585 runtimes
+2020-12-16 18:14:23,066 INFO     Stored sequences: 3540
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 12.550404799885227
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 12.550404799885227
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 10.111919486224988
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.25331653487627
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.67456810898961
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.25331653487627
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 14.927884643865884
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.25331653487627
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 14.927884643865884
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 14.927884643865884
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.70655179282449
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 14.927884643865884
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.25331653487627
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.25331653487627
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.864369035962888
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 12.6740735710123
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.25331653487627
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.25331653487627
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.25331653487627
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.25331653487627
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.25331653487627
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 12.6740735710123
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 14.927884643865884
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.25331653487627
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.25331653487627
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.25331653487627
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.25331653487627
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.25331653487627
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.25331653487627
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 12.723815586030643
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 14.927884643865884
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 14.927884643865884
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 14.927884643865884
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.25331653487627
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 12.723815586030643
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.67456810898961
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.25331653487627
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.25331653487627
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 14.927884643865884
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 14.392629996673517
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 14.927884643865884
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 12.723815586030643
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.67456810898961
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 12.719954441022239
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 14.88776200781602
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.61208677633858
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 14.927884643865884
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.25331653487627
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.25331653487627
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 12.719954441022239
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.864369035962888
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 14.927884643865884
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 12.719954441022239
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.25331653487627
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.864369035962888
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.25331653487627
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.67456810898961
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.25331653487627
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.864369035962888
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.25331653487627
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.67456810898961
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.67456810898961
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 12.799893318874059
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.864369035962888
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.25331653487627
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.25331653487627
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.864369035962888
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 14.927884643865884
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 14.772560978014571
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 14.772560978014571
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.38549985005313
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.38549985005313
+Warning: re-computed penalty 16 = 8 + 8  differs from SMAC penalty 20
+Warning: re-computed penalty 16 = 8 + 8  differs from SMAC penalty 20
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 14.772560978014571
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.657572254731917
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.38549985005313
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 14.772560978014571
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.38549985005313
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16.38549985005313
+Warning: re-computed penalty 16 = 8 + 8  differs from SMAC penalty 20
+Warning: re-computed penalty 16 = 8 + 8  differs from SMAC penalty 20
+Warning: re-computed penalty 16 = 8 + 8  differs from SMAC penalty 20
+Warning: re-computed penalty 16 = 8 + 8  differs from SMAC penalty 20
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 12.391286268885828
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 12.391286268885828
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 8.833276404174764
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 12.391286268885828
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16
+Warning: re-computed penalty 16 = 8 + 8  differs from SMAC penalty 20
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 8.833276404174764
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 8.833276404174764
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 12.391286268885828
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16
+Warning: re-computed penalty 20 = 10 + 10  differs from SMAC penalty 16
+Warning: re-computed penalty 16 = 8 + 8  differs from SMAC penalty 20
+2020-12-16 18:14:40,474 INFO     Different evaluated sequences: 315
+num_spawn_apples 40% 128 11
+num_spawn_apples 55% 99 1
+num_spawn_apples 70% 45 3
+num_spawn_apples 85% 40 1
+num_spawn_apples 100% 3 1
+2020-12-16 18:14:40,503 INFO     Candidate sequences: 17
+2020-12-16 18:14:40,504 INFO     Using sart runtimes on CPLEX optimization
+2020-12-16 18:14:40,535 INFO     CPLEX solve
+
+2020-12-16 18:14:40,585 INFO     Solution status = 101: MIP_optimal
+2020-12-16 18:14:40,586 INFO     Solution value  = 10.666013412304775
+Selected: sequence 11, 20 instances from 6 to 25
+Configuration: {'grid_m': 0.30000000000000004, 'grid_maxdiff': 5, 'grid_x': 3, 'num_spawn_apples': '55%'}
+Penalty: 2.93
+Estimated runtimes: 2.3, 3.2, 3.4, 3.8, 6.4, 10, 17, 75, 1e+02, 1.1e+02, 2.1e+02, 4.2e+02, 8.5e+02, 1.7e+03, 3.4e+03, 6.8e+03, 1.4e+04, 2.7e+04, 5.5e+04, 1.1e+05, 2.2e+05, 4.4e+05, 8.9e+05, 1.8e+06
+Selected: sequence 171, 10 instances from 10 to 19
+Configuration: {'grid_m': 1.1, 'grid_maxdiff': 5, 'grid_x': 3, 'num_spawn_apples': '85%'}
+Penalty: 5.73
+Estimated runtimes: 77, 1.8e+02, 4.2e+02, 9.7e+02, 2.3e+03, 5.3e+03, 1.2e+04, 2.9e+04, 6.6e+04, 1.5e+05, 3.6e+05, 8.4e+05, 1.9e+06, 4.5e+06, 1.1e+07, 2.4e+07, 5.7e+07, 1.3e+08, 3.1e+08, 7.2e+08
+  p01: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 3, 'y_grid': 7, 'num_spawn_apples': '55%', 'board': 'empty-3x7'}
+  p02: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 3, 'y_grid': 8, 'num_spawn_apples': '55%', 'board': 'empty-3x8'}
+  p03: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 4, 'y_grid': 6, 'num_spawn_apples': '55%', 'board': 'empty-4x6'}
+  p04: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 5, 'num_spawn_apples': '55%', 'board': 'empty-5x5'}
+  p05: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 4, 'y_grid': 7, 'num_spawn_apples': '55%', 'board': 'empty-4x7'}
+  p06: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 6, 'num_spawn_apples': '55%', 'board': 'empty-5x6'}
+  p07: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 4, 'y_grid': 8, 'num_spawn_apples': '55%', 'board': 'empty-4x8'}
+  p08: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 7, 'num_spawn_apples': '55%', 'board': 'empty-5x7'}
+  p09: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 4, 'y_grid': 9, 'num_spawn_apples': '55%', 'board': 'empty-4x9'}
+  p10: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 6, 'num_spawn_apples': '55%', 'board': 'empty-6x6'}
+  p11: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 8, 'num_spawn_apples': '55%', 'board': 'empty-5x8'}
+  p12: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 7, 'num_spawn_apples': '55%', 'board': 'empty-6x7'}
+  p13: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 9, 'num_spawn_apples': '55%', 'board': 'empty-5x9'}
+  p14: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 8, 'num_spawn_apples': '55%', 'board': 'empty-6x8'}
+  p15: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 7, 'y_grid': 7, 'num_spawn_apples': '55%', 'board': 'empty-7x7'}
+  p16: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 10, 'num_spawn_apples': '55%', 'board': 'empty-5x10'}
+  p17: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 9, 'num_spawn_apples': '55%', 'board': 'empty-6x9'}
+  p18: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 7, 'y_grid': 8, 'num_spawn_apples': '55%', 'board': 'empty-7x8'}
+  p19: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 10, 'num_spawn_apples': '55%', 'board': 'empty-6x10'}
+  p20: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 7, 'y_grid': 9, 'num_spawn_apples': '55%', 'board': 'empty-7x9'}
+  p21: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 4, 'y_grid': 7, 'num_spawn_apples': '85%', 'board': 'empty-4x7'}
+  p22: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 4, 'y_grid': 8, 'num_spawn_apples': '85%', 'board': 'empty-4x8'}
+  p23: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 7, 'num_spawn_apples': '85%', 'board': 'empty-5x7'}
+  p24: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 4, 'y_grid': 9, 'num_spawn_apples': '85%', 'board': 'empty-4x9'}
+  p25: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 6, 'num_spawn_apples': '85%', 'board': 'empty-6x6'}
+  p26: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 8, 'num_spawn_apples': '85%', 'board': 'empty-5x8'}
+  p27: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 7, 'num_spawn_apples': '85%', 'board': 'empty-6x7'}
+  p28: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 9, 'num_spawn_apples': '85%', 'board': 'empty-5x9'}
+  p29: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 8, 'num_spawn_apples': '85%', 'board': 'empty-6x8'}
+  p30: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 7, 'y_grid': 7, 'num_spawn_apples': '85%', 'board': 'empty-7x7'}
+
+real	0m20.285s
+user	0m20.223s
+sys	0m1.054s

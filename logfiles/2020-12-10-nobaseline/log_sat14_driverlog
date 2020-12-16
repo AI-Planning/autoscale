@@ -1,0 +1,101 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-16 17:46:52,955 INFO     No run directory, so we will not run anything
+2020-12-16 17:46:53,119 INFO     Loading cache data for baseline planners: 790
+2020-12-16 17:46:53,141 INFO     Loaded data for 722 instances, with min 3 max 15 avg 3.2825484764542936 runtimes
+2020-12-16 17:46:53,141 INFO     Loading cache data for sart planners: 1317
+2020-12-16 17:46:53,174 INFO     Loaded data for 1175 instances, with min 3 max 15 avg 3.362553191489362 runtimes
+2020-12-16 17:46:53,665 INFO     Loading cache data for baseline planners: 878
+2020-12-16 17:46:53,695 INFO     Loaded data for 1543 instances, with min 3 max 15 avg 3.2430330524951394 runtimes
+2020-12-16 17:46:53,695 INFO     Loading cache data for sart planners: 1719
+2020-12-16 17:46:53,738 INFO     Loaded data for 2823 instances, with min 3 max 15 avg 3.226354941551541 runtimes
+2020-12-16 17:46:54,136 INFO     Loading cache data for baseline planners: 775
+2020-12-16 17:46:54,160 INFO     Loaded data for 2212 instances, with min 3 max 30 avg 3.3132911392405062 runtimes
+2020-12-16 17:46:54,160 INFO     Loading cache data for sart planners: 1770
+2020-12-16 17:46:54,206 INFO     Loaded data for 4401 instances, with min 3 max 30 avg 3.276073619631902 runtimes
+2020-12-16 17:46:54,206 INFO     Stored sequences: 232
+Warning: re-computed penalty 15.284698120908537 = 8 + 7.284698120908536  differs from SMAC penalty 12.245971227771822
+Warning: re-computed penalty 24.40973478913569 = 12.39111140879846 + 12.018623380337232  differs from SMAC penalty 13.51152462338651
+Warning: re-computed penalty 38 = 20 + 18  differs from SMAC penalty 28
+Warning: re-computed penalty 19.08113172378762 = 7.747879668012667 + 11.333252055774953  differs from SMAC penalty 14.930969525043984
+Warning: re-computed penalty 40 = 20 + 20  differs from SMAC penalty 30
+Warning: re-computed penalty 32.46223010986401 = 12.462230109864013 + 20  differs from SMAC penalty 23.469151070067166
+Warning: re-computed penalty 15.284698120908537 = 8 + 7.284698120908536  differs from SMAC penalty 19.26006941840693
+Warning: re-computed penalty 21.18442497314512 = 9.626180603827676 + 11.558244369317446  differs from SMAC penalty 14.32802521017226
+Warning: re-computed penalty 40 = 20 + 20  differs from SMAC penalty 30
+Warning: re-computed penalty 17.594154748654972 = 6.5127591065030455 + 11.081395642151929  differs from SMAC penalty 13.761708856498204
+Warning: re-computed penalty 29.388079098938626 = 11.388079098938626 + 18  differs from SMAC penalty 19.38105231344688
+Warning: re-computed penalty 34.012676493330076 = 14.012676493330076 + 20  differs from SMAC penalty 22.711382990164775
+Warning: re-computed penalty 40 = 20 + 20  differs from SMAC penalty 30
+Warning: re-computed penalty 32.52213843725738 = 12.522138437257379 + 20  differs from SMAC penalty 22.52213843725738
+Warning: re-computed penalty 40 = 20 + 20  differs from SMAC penalty 30
+Warning: re-computed penalty 29.49496557440399 = 11.49496557440399 + 18  differs from SMAC penalty 20.891803902256854
+Warning: re-computed penalty 31.959246470350866 = 11.959246470350866 + 20  differs from SMAC penalty 21.959246470350866
+Warning: re-computed penalty 8.519341854050124 = 3.1213541770171993 + 5.3979876770329245  differs from SMAC penalty 3.120684833493085
+Warning: re-computed penalty 28.81925808900992 = 10.81925808900992 + 18  differs from SMAC penalty 18.81925808900992
+Warning: re-computed penalty 33.06800194381578 = 13.06800194381578 + 20  differs from SMAC penalty 23.06800194381578
+Warning: re-computed penalty 18.992048628091887 = 7.707213061203115 + 11.284835566888773  differs from SMAC penalty 13.992048628091887
+Warning: re-computed penalty 31.72739324463914 = 11.727393244639138 + 20  differs from SMAC penalty 21.72739324463914
+Warning: re-computed penalty 31.791833453920617 = 11.791833453920617 + 20  differs from SMAC penalty 21.791833453920617
+Warning: re-computed penalty 26.193806016458215 = 6.193806016458215 + 20  differs from SMAC penalty 22.193806016458215
+Warning: re-computed penalty 40 = 20 + 20  differs from SMAC penalty 30
+Warning: re-computed penalty 32.41608809388721 = 12.416088093887215 + 20  differs from SMAC penalty 22.416088093887215
+Warning: re-computed penalty 32.173725955976224 = 12.173725955976222 + 20  differs from SMAC penalty 22.173725955976224
+Warning: re-computed penalty 7.122757567907389 = 3.868964877714741 + 3.2537926901926477  differs from SMAC penalty 3.6827744408550562
+Warning: re-computed penalty 32.30893863770238 = 12.308938637702381 + 20  differs from SMAC penalty 22.308938637702383
+Warning: re-computed penalty 25.71800269161852 = 7.718002691618519 + 18  differs from SMAC penalty 21.71800269161852
+Warning: re-computed penalty 34.667546450604675 = 14.667546450604673 + 20  differs from SMAC penalty 24.667546450604675
+Warning: re-computed penalty 33.06800194381578 = 13.06800194381578 + 20  differs from SMAC penalty 23.06800194381578
+Warning: re-computed penalty 31.72739324463914 = 11.727393244639138 + 20  differs from SMAC penalty 21.72739324463914
+Warning: re-computed penalty 31.791833453920617 = 11.791833453920617 + 20  differs from SMAC penalty 21.791833453920617
+Warning: re-computed penalty 40 = 20 + 20  differs from SMAC penalty 30
+Warning: re-computed penalty 23.87737379061437 = 7.10214144544683 + 16.77523234516754  differs from SMAC penalty 19.537164317073398
+Warning: re-computed penalty 15.284698120908537 = 8 + 7.284698120908536  differs from SMAC penalty 11.891011821917616
+2020-12-16 17:46:55,354 INFO     Different evaluated sequences: 207
+2020-12-16 17:46:55,450 INFO     Candidate sequences: 100
+2020-12-16 17:46:55,452 INFO     Using sart runtimes on CPLEX optimization
+2020-12-16 17:46:55,604 INFO     CPLEX solve
+
+2020-12-16 17:46:55,823 INFO     Solution status = 102: optimal_tolerance
+2020-12-16 17:46:55,823 INFO     Solution value  = 9.096156524606348
+Selected: sequence 44, 24 instances from 6 to 29
+Configuration: {'drivers_b': 2, 'drivers_m': 2.7, 'drivers_optional_m': 'false', 'packages_b': 13, 'packages_m': 2.5, 'roadjunctions_b': 4, 'roadjunctions_m': 0.2, 'roadjunctions_optional_m': 'true', 'trucks_b': 1, 'trucks_m': 0.9, 'trucks_optional_m': 'false'}
+Penalty: 4.35
+Estimated runtimes: 8, 14, 16, 25, 41, 43, 74, 75, 1.9e+02, 3e+02, 4.7e+02, 7.2e+02, 1.1e+03, 1.8e+03, 2.7e+03, 4.3e+03, 6.6e+03, 1e+04, 1.6e+04, 2.5e+04, 3.9e+04, 6.1e+04, 9.5e+04, 1.5e+05
+Selected: sequence 104, 6 instances from 13 to 18
+Configuration: {'drivers_b': 10, 'drivers_m': 1.9000000000000001, 'drivers_optional_m': 'false', 'packages_b': 6, 'packages_m': 4.7, 'roadjunctions_b': 3, 'roadjunctions_m': 3.8000000000000003, 'roadjunctions_optional_m': 'true', 'trucks_b': 0, 'trucks_m': 0.2, 'trucks_optional_m': 'false'}
+Penalty: 4.75
+Estimated runtimes: 2e+02, 6e+02, 1.8e+03, 5.5e+03, 1.7e+04, 5.1e+04, 1.5e+05, 4.7e+05, 1.4e+06, 4.3e+06, 1.3e+07, 4e+07, 1.2e+08, 3.7e+08, 1.1e+09, 3.4e+09, 1e+10
+  p01: {'drivers': 18, 'packages': 28, 'roadjunctions': 4, 'trucks': 24}
+  p02: {'drivers': 20, 'packages': 30, 'roadjunctions': 4, 'trucks': 27}
+  p03: {'drivers': 23, 'packages': 33, 'roadjunctions': 4, 'trucks': 31}
+  p04: {'drivers': 26, 'packages': 35, 'roadjunctions': 4, 'trucks': 35}
+  p05: {'drivers': 28, 'packages': 38, 'roadjunctions': 4, 'trucks': 38}
+  p06: {'drivers': 31, 'packages': 40, 'roadjunctions': 4, 'trucks': 41}
+  p07: {'drivers': 34, 'packages': 43, 'roadjunctions': 4, 'trucks': 45}
+  p08: {'drivers': 37, 'packages': 45, 'roadjunctions': 4, 'trucks': 49}
+  p09: {'drivers': 39, 'packages': 48, 'roadjunctions': 4, 'trucks': 52}
+  p10: {'drivers': 42, 'packages': 50, 'roadjunctions': 4, 'trucks': 56}
+  p11: {'drivers': 45, 'packages': 53, 'roadjunctions': 4, 'trucks': 60}
+  p12: {'drivers': 47, 'packages': 55, 'roadjunctions': 4, 'trucks': 63}
+  p13: {'drivers': 50, 'packages': 58, 'roadjunctions': 4, 'trucks': 67}
+  p14: {'drivers': 53, 'packages': 60, 'roadjunctions': 4, 'trucks': 71}
+  p15: {'drivers': 56, 'packages': 63, 'roadjunctions': 4, 'trucks': 75}
+  p16: {'drivers': 58, 'packages': 65, 'roadjunctions': 4, 'trucks': 77}
+  p17: {'drivers': 61, 'packages': 68, 'roadjunctions': 4, 'trucks': 81}
+  p18: {'drivers': 64, 'packages': 70, 'roadjunctions': 4, 'trucks': 85}
+  p19: {'drivers': 66, 'packages': 73, 'roadjunctions': 4, 'trucks': 88}
+  p20: {'drivers': 69, 'packages': 75, 'roadjunctions': 4, 'trucks': 92}
+  p21: {'drivers': 72, 'packages': 78, 'roadjunctions': 4, 'trucks': 96}
+  p22: {'drivers': 74, 'packages': 80, 'roadjunctions': 4, 'trucks': 99}
+  p23: {'drivers': 77, 'packages': 83, 'roadjunctions': 4, 'trucks': 103}
+  p24: {'drivers': 80, 'packages': 85, 'roadjunctions': 4, 'trucks': 107}
+  p25: {'drivers': 34, 'packages': 67, 'roadjunctions': 3, 'trucks': 36}
+  p26: {'drivers': 36, 'packages': 71, 'roadjunctions': 3, 'trucks': 38}
+  p27: {'drivers': 38, 'packages': 76, 'roadjunctions': 3, 'trucks': 41}
+  p28: {'drivers': 40, 'packages': 81, 'roadjunctions': 3, 'trucks': 43}
+  p29: {'drivers': 42, 'packages': 85, 'roadjunctions': 3, 'trucks': 45}
+  p30: {'drivers': 44, 'packages': 90, 'roadjunctions': 3, 'trucks': 47}
+
+real	0m3.626s
+user	0m4.254s
+sys	0m0.973s

@@ -1,0 +1,78 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-16 17:45:07,424 INFO     No run directory, so we will not run anything
+2020-12-16 17:45:07,549 INFO     Loading cache data for baseline planners: 129
+2020-12-16 17:45:07,552 INFO     Loaded data for 45 instances, with min 3 max 15 avg 8.6 runtimes
+2020-12-16 17:45:07,552 INFO     Loading cache data for sart planners: 206
+2020-12-16 17:45:07,557 INFO     Loaded data for 79 instances, with min 3 max 15 avg 7.822784810126582 runtimes
+2020-12-16 17:45:08,140 INFO     Loading cache data for baseline planners: 110
+2020-12-16 17:45:08,144 INFO     Loaded data for 77 instances, with min 3 max 15 avg 9.311688311688311 runtimes
+2020-12-16 17:45:08,144 INFO     Loading cache data for sart planners: 209
+2020-12-16 17:45:08,151 INFO     Loaded data for 136 instances, with min 3 max 15 avg 9.154411764705882 runtimes
+2020-12-16 17:45:08,689 INFO     Loading cache data for baseline planners: 86
+2020-12-16 17:45:08,693 INFO     Loaded data for 78 instances, with min 3 max 27 avg 12.5 runtimes
+2020-12-16 17:45:08,693 INFO     Loading cache data for sart planners: 169
+2020-12-16 17:45:08,701 INFO     Loaded data for 140 instances, with min 3 max 27 avg 12.514285714285714 runtimes
+2020-12-16 17:45:08,701 INFO     Stored sequences: 1403
+Warning: re-computed penalty 16 = 8 + 8  differs from SMAC penalty 20
+2020-12-16 17:45:11,420 INFO     Different evaluated sequences: 139
+num_ingredients 2 37 9
+num_ingredients 3 34 8
+num_ingredients 4 25 7
+num_ingredients 5 23 8
+num_ingredients 6 20 10
+2020-12-16 17:45:11,429 INFO     Candidate sequences: 42
+2020-12-16 17:45:11,430 INFO     Using sart runtimes on CPLEX optimization
+2020-12-16 17:45:11,552 INFO     CPLEX solve
+
+2020-12-16 17:45:11,625 INFO     Solution status = 101: MIP_optimal
+2020-12-16 17:45:11,625 INFO     Solution value  = 46.9615659003756
+Selected: sequence 30, 7 instances from 6 to 12
+Configuration: {'num_cocktails_b': 1, 'num_cocktails_m': 0.1, 'num_ingredients': 2, 'num_shots_b': 2, 'num_shots_m': 1.1, 'num_shots_optional_m': 'false'}
+Penalty: 11.52
+Estimated runtimes: 1.2e+02, 2.8e+02, 9.3e+02, 3.2e+03, 1.1e+04, 3.6e+04, 1.2e+05, 4.1e+05, 1.4e+06, 4.7e+06, 1.6e+07, 5.3e+07, 1.8e+08, 6.1e+08, 2.1e+09, 6.9e+09, 2.3e+10, 7.9e+10, 2.7e+11, 9e+11, 3e+12, 1e+13, 3.5e+13, 1.2e+14
+Selected: sequence 52, 6 instances from 4 to 9
+Configuration: {'num_cocktails_b': 2, 'num_cocktails_m': 0.1, 'num_ingredients': 3, 'num_shots_b': 1, 'num_shots_m': 0.8, 'num_shots_optional_m': 'false'}
+Penalty: 11.62
+Estimated runtimes: 67, 2.6e+02, 1e+03, 3.9e+03, 1.5e+04, 5.8e+04, 2.3e+05, 8.8e+05, 3.4e+06, 1.3e+07, 5.1e+07, 2e+08, 7.6e+08, 3e+09, 1.1e+10, 4.4e+10, 1.7e+11, 6.7e+11, 2.6e+12, 1e+13, 3.9e+13, 1.5e+14, 5.8e+14, 2.2e+15, 8.7e+15, 3.4e+16
+Selected: sequence 26, 11 instances from 0 to 10
+Configuration: {'num_cocktails_b': 1, 'num_cocktails_m': 0.1, 'num_ingredients': 4, 'num_shots_b': 1, 'num_shots_m': 0.7000000000000001, 'num_shots_optional_m': 'false'}
+Penalty: 11.54
+Estimated runtimes: 1.9, 2.4, 3, 5.2, 10, 62, 2.5e+02, 9.9e+02, 4e+03, 1.6e+04, 6.4e+04, 2.6e+05, 1e+06, 4.1e+06, 1.6e+07, 6.6e+07, 2.7e+08, 1.1e+09, 4.3e+09, 1.7e+10, 6.8e+10, 2.7e+11, 1.1e+12, 4.4e+12, 1.8e+13, 7.1e+13, 2.8e+14, 1.1e+15, 4.6e+15, 1.8e+16
+Selected: sequence 40, 6 instances from 5 to 10
+Configuration: {'num_cocktails_b': 1, 'num_cocktails_m': 0.2, 'num_ingredients': 5, 'num_shots_b': 2, 'num_shots_m': 0.9, 'num_shots_optional_m': 'false'}
+Penalty: 12.28
+Estimated runtimes: 2e+02, 6.6e+02, 2.1e+03, 7e+03, 2.3e+04, 7.4e+04, 2.4e+05, 7.9e+05, 2.6e+06, 8.4e+06, 2.7e+07, 8.9e+07, 2.9e+08, 9.5e+08, 3.1e+09, 1e+10, 3.3e+10, 1.1e+11, 3.5e+11, 1.1e+12, 3.7e+12, 1.2e+13, 3.9e+13, 1.3e+14, 4.2e+14
+  p01: {'num_cocktails': 1, 'num_shots': 9, 'num_ingredients': 2}
+  p02: {'num_cocktails': 1, 'num_shots': 10, 'num_ingredients': 2}
+  p03: {'num_cocktails': 1, 'num_shots': 11, 'num_ingredients': 2}
+  p04: {'num_cocktails': 1, 'num_shots': 12, 'num_ingredients': 2}
+  p05: {'num_cocktails': 2, 'num_shots': 14, 'num_ingredients': 2}
+  p06: {'num_cocktails': 2, 'num_shots': 16, 'num_ingredients': 2}
+  p07: {'num_cocktails': 2, 'num_shots': 17, 'num_ingredients': 2}
+  p08: {'num_cocktails': 2, 'num_shots': 7, 'num_ingredients': 3}
+  p09: {'num_cocktails': 2, 'num_shots': 8, 'num_ingredients': 3}
+  p10: {'num_cocktails': 2, 'num_shots': 9, 'num_ingredients': 3}
+  p11: {'num_cocktails': 2, 'num_shots': 10, 'num_ingredients': 3}
+  p12: {'num_cocktails': 3, 'num_shots': 12, 'num_ingredients': 3}
+  p13: {'num_cocktails': 3, 'num_shots': 13, 'num_ingredients': 3}
+  p14: {'num_cocktails': 1, 'num_shots': 2, 'num_ingredients': 4}
+  p15: {'num_cocktails': 1, 'num_shots': 3, 'num_ingredients': 4}
+  p16: {'num_cocktails': 1, 'num_shots': 4, 'num_ingredients': 4}
+  p17: {'num_cocktails': 1, 'num_shots': 5, 'num_ingredients': 4}
+  p18: {'num_cocktails': 1, 'num_shots': 6, 'num_ingredients': 4}
+  p19: {'num_cocktails': 1, 'num_shots': 7, 'num_ingredients': 4}
+  p20: {'num_cocktails': 1, 'num_shots': 8, 'num_ingredients': 4}
+  p21: {'num_cocktails': 2, 'num_shots': 10, 'num_ingredients': 4}
+  p22: {'num_cocktails': 2, 'num_shots': 11, 'num_ingredients': 4}
+  p23: {'num_cocktails': 2, 'num_shots': 12, 'num_ingredients': 4}
+  p24: {'num_cocktails': 2, 'num_shots': 13, 'num_ingredients': 4}
+  p25: {'num_cocktails': 2, 'num_shots': 9, 'num_ingredients': 5}
+  p26: {'num_cocktails': 2, 'num_shots': 10, 'num_ingredients': 5}
+  p27: {'num_cocktails': 2, 'num_shots': 11, 'num_ingredients': 5}
+  p28: {'num_cocktails': 2, 'num_shots': 12, 'num_ingredients': 5}
+  p29: {'num_cocktails': 3, 'num_shots': 14, 'num_ingredients': 5}
+  p30: {'num_cocktails': 3, 'num_shots': 15, 'num_ingredients': 5}
+
+real	0m5.390s
+user	0m5.318s
+sys	0m0.999s

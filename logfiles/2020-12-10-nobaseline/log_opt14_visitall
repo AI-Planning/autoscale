@@ -1,0 +1,223 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-16 18:17:50,166 INFO     No run directory, so we will not run anything
+2020-12-16 18:17:50,296 INFO     Loading cache data for baseline planners: 250
+2020-12-16 18:17:50,305 INFO     Loaded data for 54 instances, with min 3 max 15 avg 13.88888888888889 runtimes
+2020-12-16 18:17:50,305 INFO     Loading cache data for sart planners: 450
+2020-12-16 18:17:50,322 INFO     Loaded data for 107 instances, with min 3 max 15 avg 12.616822429906541 runtimes
+2020-12-16 18:17:50,897 INFO     Loading cache data for baseline planners: 0
+2020-12-16 18:17:50,898 INFO     Loaded data for 54 instances, with min 3 max 15 avg 13.88888888888889 runtimes
+2020-12-16 18:17:50,898 INFO     Loading cache data for sart planners: 0
+2020-12-16 18:17:50,898 INFO     Loaded data for 107 instances, with min 3 max 15 avg 12.616822429906541 runtimes
+2020-12-16 18:17:51,439 INFO     Loading cache data for baseline planners: 0
+2020-12-16 18:17:51,439 INFO     Loaded data for 54 instances, with min 3 max 15 avg 13.88888888888889 runtimes
+2020-12-16 18:17:51,439 INFO     Loading cache data for sart planners: 0
+2020-12-16 18:17:51,439 INFO     Loaded data for 107 instances, with min 3 max 15 avg 12.616822429906541 runtimes
+2020-12-16 18:17:51,439 INFO     Stored sequences: 2109
+Warning: re-computed penalty 16.949987004158647 = 4.224851894808302 + 12.725135109350344  differs from SMAC penalty 10.813321723523725
+Warning: re-computed penalty 16.949987004158647 = 4.224851894808302 + 12.725135109350344  differs from SMAC penalty 10.813321723523725
+Warning: re-computed penalty 16.949987004158647 = 4.224851894808302 + 12.725135109350344  differs from SMAC penalty 10.813321723523725
+Warning: re-computed penalty 16.949987004158647 = 4.224851894808302 + 12.725135109350344  differs from SMAC penalty 10.813321723523725
+Warning: re-computed penalty 12.134366518211811 = 8 + 4.134366518211811  differs from SMAC penalty 15.467019469015602
+Warning: re-computed penalty 15.949987004158647 = 4.224851894808302 + 11.725135109350344  differs from SMAC penalty 9.813321723523725
+Warning: re-computed penalty 6.328442251532946 = 3.71016751394315 + 2.618274737589797  differs from SMAC penalty 9.757442378251106
+Warning: re-computed penalty 10.663296150950666 = 6.458980456990709 + 4.204315693959957  differs from SMAC penalty 13.73920246598669
+Warning: re-computed penalty 14.203452464518328 = 6.130913107663102 + 8.072539356855225  differs from SMAC penalty 10.188052409007973
+Warning: re-computed penalty 13.856048217013445 = 6.130913107663102 + 7.725135109350344  differs from SMAC penalty 10.188052409007973
+Warning: re-computed penalty 10.157462148792703 = 4.848010460202129 + 5.309451688590575  differs from SMAC penalty 13.249525677176514
+Warning: re-computed penalty 10.157462148792703 = 4.848010460202129 + 5.309451688590575  differs from SMAC penalty 13.249525677176514
+Warning: re-computed penalty 13.800898932077954 = 8 + 5.8008989320779545  differs from SMAC penalty 18
+Warning: re-computed penalty 10.663296150950666 = 6.458980456990709 + 4.204315693959957  differs from SMAC penalty 13.73920246598669
+Warning: re-computed penalty 10.725135109350344 = 8 + 2.7251351093503433  differs from SMAC penalty 14.65779725227766
+Warning: re-computed penalty 14.203452464518328 = 6.130913107663102 + 8.072539356855225  differs from SMAC penalty 10.188052409007973
+Warning: re-computed penalty 10.663296150950666 = 6.458980456990709 + 4.204315693959957  differs from SMAC penalty 13.73920246598669
+Warning: re-computed penalty 5.372998176526518 = 2.754723438936721 + 2.618274737589797  differs from SMAC penalty 9.185559714934568
+Warning: re-computed penalty 7.162476042401668 = 2.732766621281858 + 4.429709421119809  differs from SMAC penalty 10.432216907745303
+Warning: re-computed penalty 12.072539356855225 = 8 + 4.072539356855225  differs from SMAC penalty 16
+Warning: re-computed penalty 12.963881602757496 = 6.130913107663102 + 6.832968495094394  differs from SMAC penalty 16.156041901393845
+Warning: re-computed penalty 12.883020768792539 = 8 + 4.883020768792539  differs from SMAC penalty 16
+Warning: re-computed penalty 8.328442251532946 = 3.71016751394315 + 4.618274737589797  differs from SMAC penalty 12.234481023154903
+Warning: re-computed penalty 5.208313108894822 = 3.083952170159873 + 2.1243609387349487  differs from SMAC penalty 9.145223935655824
+Warning: re-computed penalty 10.856048217013445 = 6.130913107663102 + 4.725135109350344  differs from SMAC penalty 16.04069171709815
+Warning: re-computed penalty 6.328442251532946 = 3.71016751394315 + 2.618274737589797  differs from SMAC penalty 10.234481023154903
+Warning: re-computed penalty 6.372998176526518 = 2.754723438936721 + 3.618274737589797  differs from SMAC penalty 10.27197139763856
+Warning: re-computed penalty 6.328442251532946 = 3.71016751394315 + 2.618274737589797  differs from SMAC penalty 10.234481023154903
+Warning: re-computed penalty 10.901715155860332 = 8 + 2.9017151558603325  differs from SMAC penalty 18
+Warning: re-computed penalty 8.158799966367644 = 4.2217951164188525 + 3.9370048499487913  differs from SMAC penalty 12.007831039780177
+Warning: re-computed penalty 8.747519230157838 = 4.810514380209046 + 3.9370048499487913  differs from SMAC penalty 12.694672100732319
+Warning: re-computed penalty 10.856048217013445 = 6.130913107663102 + 4.725135109350344  differs from SMAC penalty 16.04069171709815
+Warning: re-computed penalty 5.70222690774967 = 3.083952170159873 + 2.618274737589797  differs from SMAC penalty 9.27197139763856
+Warning: re-computed penalty 12.143793608242587 = 8 + 4.1437936082425875  differs from SMAC penalty 18
+Warning: re-computed penalty 12.970995735303129 = 8 + 4.970995735303129  differs from SMAC penalty 16
+Warning: re-computed penalty 14.832968495094395 = 8 + 6.832968495094394  differs from SMAC penalty 18
+Warning: re-computed penalty 10.203452464518328 = 6.130913107663102 + 4.072539356855225  differs from SMAC penalty 16.04069171709815
+Warning: re-computed penalty 5.208313108894822 = 3.083952170159873 + 2.1243609387349487  differs from SMAC penalty 9.145223935655824
+Warning: re-computed penalty 10.163280908993205 = 6.474796234628242 + 3.6884846743649637  differs from SMAC penalty 16.53034076261119
+Warning: re-computed penalty 6.328442251532946 = 3.71016751394315 + 2.618274737589797  differs from SMAC penalty 10.234481023154903
+Warning: re-computed penalty 10.856048217013445 = 6.130913107663102 + 4.725135109350344  differs from SMAC penalty 16.04069171709815
+Warning: re-computed penalty 10.203452464518328 = 6.130913107663102 + 4.072539356855225  differs from SMAC penalty 16.04069171709815
+Warning: re-computed penalty 6.328442251532946 = 3.71016751394315 + 2.618274737589797  differs from SMAC penalty 10.234481023154903
+Warning: re-computed penalty 6.372998176526518 = 2.754723438936721 + 3.618274737589797  differs from SMAC penalty 10.27197139763856
+Warning: re-computed penalty 14.71127102993232 = 8 + 6.711271029932321  differs from SMAC penalty 18
+Warning: re-computed penalty 8.328442251532946 = 3.71016751394315 + 4.618274737589797  differs from SMAC penalty 12.234481023154903
+Warning: re-computed penalty 5.70222690774967 = 3.083952170159873 + 2.618274737589797  differs from SMAC penalty 9.27197139763856
+Warning: re-computed penalty 14.71127102993232 = 8 + 6.711271029932321  differs from SMAC penalty 18
+Warning: re-computed penalty 11.030203922875787 = 5.676661105211682 + 5.3535428176641044  differs from SMAC penalty 14.221760986549299
+Warning: re-computed penalty 12.842184137595423 = 6.130913107663102 + 6.711271029932321  differs from SMAC penalty 16.04069171709815
+Warning: re-computed penalty 11.359862627105414 = 8 + 3.3598626271054144  differs from SMAC penalty 18
+Warning: re-computed penalty 7.9473895447971525 = 4.2217951164188525 + 3.7255944283783  differs from SMAC penalty 12.179810191511596
+Warning: re-computed penalty 5.70222690774967 = 3.083952170159873 + 2.618274737589797  differs from SMAC penalty 9.27197139763856
+Warning: re-computed penalty 14.794875176729857 = 8 + 6.794875176729857  differs from SMAC penalty 18
+Warning: re-computed penalty 8.328442251532946 = 3.71016751394315 + 4.618274737589797  differs from SMAC penalty 12.234481023154903
+Warning: re-computed penalty 8.747519230157838 = 4.810514380209046 + 3.9370048499487913  differs from SMAC penalty 12.694672100732319
+Warning: re-computed penalty 9.273620470602918 = 5.3366156206541255 + 3.9370048499487913  differs from SMAC penalty 12.694672100732319
+Warning: re-computed penalty 6.766072055697581 = 3.652013956017207 + 3.114058099680374  differs from SMAC penalty 9.975007769265954
+Warning: re-computed penalty 12.842184137595423 = 6.130913107663102 + 6.711271029932321  differs from SMAC penalty 16.04069171709815
+Warning: re-computed penalty 11.372998176526519 = 2.754723438936721 + 8.618274737589797  differs from SMAC penalty 15.27197139763856
+Warning: re-computed penalty 8.747519230157838 = 4.810514380209046 + 3.9370048499487913  differs from SMAC penalty 12.694672100732319
+Warning: re-computed penalty 12.842184137595423 = 6.130913107663102 + 6.711271029932321  differs from SMAC penalty 16.04069171709815
+Warning: re-computed penalty 14.74434504468139 = 8 + 6.74434504468139  differs from SMAC penalty 18
+Warning: re-computed penalty 9.626114141250168 = 4.810514380209046 + 4.815599761041122  differs from SMAC penalty 13.219643639894903
+Warning: re-computed penalty 10.203452464518328 = 6.130913107663102 + 4.072539356855225  differs from SMAC penalty 16.04069171709815
+Warning: re-computed penalty 14.71127102993232 = 8 + 6.711271029932321  differs from SMAC penalty 18
+Warning: re-computed penalty 16 = 8 + 8  differs from SMAC penalty 20
+Warning: re-computed penalty 12.483732286774595 = 2.359371348039646 + 10.124360938734949  differs from SMAC penalty 17.51223537839767
+Warning: re-computed penalty 6.483732286774595 = 2.359371348039646 + 4.124360938734949  differs from SMAC penalty 11.512235378397667
+Warning: re-computed penalty 14.686361555786267 = 8 + 6.686361555786267  differs from SMAC penalty 18
+Warning: re-computed penalty 14.900758007235003 = 8 + 6.900758007235003  differs from SMAC penalty 18
+Warning: re-computed penalty 4.483732286774595 = 2.359371348039646 + 2.1243609387349487  differs from SMAC penalty 9.031534372522604
+Warning: re-computed penalty 6.328442251532946 = 3.71016751394315 + 2.618274737589797  differs from SMAC penalty 10.234481023154903
+Warning: re-computed penalty 6.372998176526518 = 2.754723438936721 + 3.618274737589797  differs from SMAC penalty 10.27197139763856
+Warning: re-computed penalty 8.747519230157838 = 4.810514380209046 + 3.9370048499487913  differs from SMAC penalty 12.694672100732319
+Warning: re-computed penalty 6.483732286774595 = 2.359371348039646 + 4.124360938734949  differs from SMAC penalty 11.512235378397667
+Warning: re-computed penalty 10.203452464518328 = 6.130913107663102 + 4.072539356855225  differs from SMAC penalty 16.04069171709815
+Warning: re-computed penalty 12.072539356855225 = 8 + 4.072539356855225  differs from SMAC penalty 18
+Warning: re-computed penalty 11.372998176526519 = 2.754723438936721 + 8.618274737589797  differs from SMAC penalty 15.27197139763856
+Warning: re-computed penalty 11.076539914965771 = 5.722997097301666 + 5.3535428176641044  differs from SMAC penalty 14.221760986549299
+Warning: re-computed penalty 13.239570861760832 = 8 + 5.239570861760832  differs from SMAC penalty 18
+Warning: re-computed penalty 6.930407816638528 = 3.71016751394315 + 3.2202403026953776  differs from SMAC penalty 10.990700626743743
+Warning: re-computed penalty 8.747519230157838 = 4.810514380209046 + 3.9370048499487913  differs from SMAC penalty 12.694672100732319
+Warning: re-computed penalty 5.208313108894822 = 3.083952170159873 + 2.1243609387349487  differs from SMAC penalty 9.145223935655824
+Warning: re-computed penalty 6.856389107577064 = 3.675257409545441 + 3.1811316980316224  differs from SMAC penalty 10.773636441939846
+Warning: re-computed penalty 12.072539356855225 = 8 + 4.072539356855225  differs from SMAC penalty 18
+Warning: re-computed penalty 14.866874529668305 = 8 + 6.866874529668304  differs from SMAC penalty 18
+Warning: re-computed penalty 5.70222690774967 = 3.083952170159873 + 2.618274737589797  differs from SMAC penalty 9.27197139763856
+Warning: re-computed penalty 16 = 8 + 8  differs from SMAC penalty 20
+Warning: re-computed penalty 7.144189530064841 = 3.71016751394315 + 3.4340220161216912  differs from SMAC penalty 10.234481023154903
+Warning: re-computed penalty 8.328442251532946 = 3.71016751394315 + 4.618274737589797  differs from SMAC penalty 12.234481023154903
+Warning: re-computed penalty 5.208313108894822 = 3.083952170159873 + 2.1243609387349487  differs from SMAC penalty 9.145223935655824
+Warning: re-computed penalty 10.38957848373272 = 5.394065269790753 + 4.995513213941968  differs from SMAC penalty 13.391157844379872
+Warning: re-computed penalty 12.842184137595423 = 6.130913107663102 + 6.711271029932321  differs from SMAC penalty 16.04069171709815
+Warning: re-computed penalty 10.856048217013445 = 6.130913107663102 + 4.725135109350344  differs from SMAC penalty 16.04069171709815
+Warning: re-computed penalty 5.208313108894822 = 3.083952170159873 + 2.1243609387349487  differs from SMAC penalty 9.145223935655824
+Warning: re-computed penalty 5.50056943684643 = 3.0708600157266206 + 2.429709421119809  differs from SMAC penalty 10.212259250182782
+Warning: re-computed penalty 8.747519230157838 = 4.810514380209046 + 3.9370048499487913  differs from SMAC penalty 12.694672100732319
+Warning: re-computed penalty 14.01667465412056 = 8 + 6.01667465412056  differs from SMAC penalty 18
+Warning: re-computed penalty 8.747519230157838 = 4.810514380209046 + 3.9370048499487913  differs from SMAC penalty 12.694672100732319
+Warning: re-computed penalty 10.856048217013445 = 6.130913107663102 + 4.725135109350344  differs from SMAC penalty 16.04069171709815
+Warning: re-computed penalty 6.328442251532946 = 3.71016751394315 + 2.618274737589797  differs from SMAC penalty 10.234481023154903
+Warning: re-computed penalty 10.725135109350344 = 8 + 2.7251351093503433  differs from SMAC penalty 18
+Warning: re-computed penalty 11.736432440412177 = 8 + 3.7364324404121776  differs from SMAC penalty 18
+Warning: re-computed penalty 12.842184137595423 = 6.130913107663102 + 6.711271029932321  differs from SMAC penalty 16.04069171709815
+Warning: re-computed penalty 16.740751832864106 = 10 + 6.740751832864104  differs from SMAC penalty 20
+Warning: re-computed penalty 8.856048217013445 = 6.130913107663102 + 2.7251351093503433  differs from SMAC penalty 16.04069171709815
+Warning: re-computed penalty 10.826377351947052 = 6.01077759090593 + 4.815599761041122  differs from SMAC penalty 14.058955742068251
+Warning: re-computed penalty 6.328442251532946 = 3.71016751394315 + 2.618274737589797  differs from SMAC penalty 10.234481023154903
+Warning: re-computed penalty 5.922256836452312 = 2.754723438936721 + 3.167533397515591  differs from SMAC penalty 10.990700626743743
+Warning: re-computed penalty 10.647744058127543 = 5.3366156206541255 + 5.311128437473417  differs from SMAC penalty 13.874887493112869
+Warning: re-computed penalty 10.856048217013445 = 6.130913107663102 + 4.725135109350344  differs from SMAC penalty 16.04069171709815
+Warning: re-computed penalty 12.483732286774595 = 2.359371348039646 + 10.124360938734949  differs from SMAC penalty 17.51223537839767
+Warning: re-computed penalty 12.842184137595423 = 6.130913107663102 + 6.711271029932321  differs from SMAC penalty 16.04069171709815
+Warning: re-computed penalty 8.328442251532946 = 3.71016751394315 + 4.618274737589797  differs from SMAC penalty 12.234481023154903
+Warning: re-computed penalty 10.934175642268382 = 8 + 2.9341756422683827  differs from SMAC penalty 18
+Warning: re-computed penalty 11.652496429181438 = 8 + 3.652496429181438  differs from SMAC penalty 18
+Warning: re-computed penalty 9.539510495488912 = 5.676661105211682 + 3.86284939027723  differs from SMAC penalty 12.772026222460624
+Warning: re-computed penalty 8.747519230157838 = 4.810514380209046 + 3.9370048499487913  differs from SMAC penalty 12.694672100732319
+Warning: re-computed penalty 11.372998176526519 = 2.754723438936721 + 8.618274737589797  differs from SMAC penalty 15.27197139763856
+Warning: re-computed penalty 6.483732286774595 = 2.359371348039646 + 4.124360938734949  differs from SMAC penalty 10.158281834505338
+Warning: re-computed penalty 10.856048217013445 = 6.130913107663102 + 4.725135109350344  differs from SMAC penalty 16.04069171709815
+Warning: re-computed penalty 6.388537438864738 = 2.7702627012749415 + 3.618274737589797  differs from SMAC penalty 10.031534372522604
+Warning: re-computed penalty 8.094741746742002 = 4.184299036425769 + 3.910442710316234  differs from SMAC penalty 11.659895107185951
+Warning: re-computed penalty 6.328442251532946 = 3.71016751394315 + 2.618274737589797  differs from SMAC penalty 10.234481023154903
+Warning: re-computed penalty 13.594684300786428 = 8 + 5.594684300786428  differs from SMAC penalty 18
+Warning: re-computed penalty 11.372998176526519 = 2.754723438936721 + 8.618274737589797  differs from SMAC penalty 15.27197139763856
+Warning: re-computed penalty 8.328442251532946 = 3.71016751394315 + 4.618274737589797  differs from SMAC penalty 12.234481023154903
+Warning: re-computed penalty 6.328442251532946 = 3.71016751394315 + 2.618274737589797  differs from SMAC penalty 10.234481023154903
+Warning: re-computed penalty 5.689134753316417 = 3.0708600157266206 + 2.618274737589797  differs from SMAC penalty 10.111283499811908
+Warning: re-computed penalty 12.940237013878367 = 6.474796234628242 + 6.465440779250125  differs from SMAC penalty 16.53034076261119
+Warning: re-computed penalty 12.321107529401306 = 6.474796234628242 + 5.8463112947730655  differs from SMAC penalty 16.53034076261119
+Warning: re-computed penalty 12.842184137595423 = 6.130913107663102 + 6.711271029932321  differs from SMAC penalty 16.04069171709815
+Warning: re-computed penalty 8.328442251532946 = 3.71016751394315 + 4.618274737589797  differs from SMAC penalty 12.234481023154903
+Warning: re-computed penalty 6.483732286774595 = 2.359371348039646 + 4.124360938734949  differs from SMAC penalty 11.512235378397667
+Warning: re-computed penalty 12.427652795880821 = 8 + 4.427652795880821  differs from SMAC penalty 18
+Warning: re-computed penalty 13.035206932588665 = 8 + 5.035206932588664  differs from SMAC penalty 18
+Warning: re-computed penalty 12.842184137595423 = 6.130913107663102 + 6.711271029932321  differs from SMAC penalty 16.04069171709815
+Warning: re-computed penalty 11.856048217013445 = 6.130913107663102 + 5.725135109350344  differs from SMAC penalty 16.04069171709815
+Warning: re-computed penalty 16.694417993618767 = 10 + 6.694417993618766  differs from SMAC penalty 20
+Warning: re-computed penalty 8.747519230157838 = 4.810514380209046 + 3.9370048499487913  differs from SMAC penalty 12.694672100732319
+Warning: re-computed penalty 11.738229906626401 = 6.01077759090593 + 5.727452315720471  differs from SMAC penalty 14.89618373964192
+Warning: re-computed penalty 11.892166614255949 = 8 + 3.8921666142559492  differs from SMAC penalty 16
+Warning: re-computed penalty 14.239145410819859 = 8 + 6.239145410819859  differs from SMAC penalty 18
+Warning: re-computed penalty 11.101267377126323 = 8 + 3.101267377126323  differs from SMAC penalty 16
+Warning: re-computed penalty 10.203452464518328 = 6.130913107663102 + 4.072539356855225  differs from SMAC penalty 14.192375698030924
+Warning: re-computed penalty 12.143793608242587 = 8 + 4.1437936082425875  differs from SMAC penalty 16
+Warning: re-computed penalty 16 = 8 + 8  differs from SMAC penalty 20
+Warning: re-computed penalty 10.856048217013445 = 6.130913107663102 + 4.725135109350344  differs from SMAC penalty 14.192375698030924
+Warning: re-computed penalty 14.794875176729857 = 8 + 6.794875176729857  differs from SMAC penalty 18
+Warning: re-computed penalty 10.856048217013445 = 6.130913107663102 + 4.725135109350344  differs from SMAC penalty 14.192375698030924
+Warning: re-computed penalty 8.856048217013445 = 6.130913107663102 + 2.7251351093503433  differs from SMAC penalty 14.192375698030924
+Warning: re-computed penalty 16.949987004158647 = 4.224851894808302 + 12.725135109350344  differs from SMAC penalty 13.281702729446419
+Warning: re-computed penalty 11.882505346519734 = 8 + 3.882505346519734  differs from SMAC penalty 16
+Warning: re-computed penalty 16 = 8 + 8  differs from SMAC penalty 20
+Warning: re-computed penalty 10.203452464518328 = 6.130913107663102 + 4.072539356855225  differs from SMAC penalty 14.192375698030924
+2020-12-16 18:18:04,909 INFO     Different evaluated sequences: 326
+r 0.5 144 9
+r 0.75 44 1
+r 1 138 22
+2020-12-16 18:18:04,942 INFO     Candidate sequences: 32
+2020-12-16 18:18:04,943 INFO     Using sart runtimes on CPLEX optimization
+2020-12-16 18:18:04,997 INFO     CPLEX solve
+
+2020-12-16 18:18:05,099 INFO     Solution status = 101: MIP_optimal
+2020-12-16 18:18:05,099 INFO     Solution value  = 13.33978050378804
+Selected: sequence 212, 18 instances from 11 to 28
+Configuration: {'grid_m': 1.2000000000000002, 'grid_maxdiff': 5, 'grid_x': 4, 'r': 0.5}
+Penalty: 4.48
+Estimated runtimes: 4.8, 5.5, 13, 15, 26, 56, 1.5e+02, 2e+02, 3.7e+02, 7e+02, 1.3e+03, 2.5e+03, 4.8e+03, 9.1e+03, 1.7e+04, 3.2e+04, 6.1e+04, 1.2e+05, 2.2e+05
+Selected: sequence 93, 12 instances from 18 to 29
+Configuration: {'grid_m': 1.2000000000000002, 'grid_maxdiff': 4, 'grid_x': 4, 'r': 1}
+Penalty: 8.86
+Estimated runtimes: 2.4e+02, 3.8e+02, 5.9e+02, 9.2e+02, 1.4e+03, 2.3e+03, 3.5e+03, 5.5e+03, 8.6e+03, 1.3e+04, 2.1e+04, 3.3e+04
+  p01: {'x': 6, 'y': 8, 'r': 0.5}
+  p02: {'x': 7, 'y': 7, 'r': 0.5}
+  p03: {'x': 5, 'y': 10, 'r': 0.5}
+  p04: {'x': 6, 'y': 9, 'r': 0.5}
+  p05: {'x': 7, 'y': 8, 'r': 0.5}
+  p06: {'x': 7, 'y': 9, 'r': 0.5}
+  p07: {'x': 8, 'y': 8, 'r': 0.5}
+  p08: {'x': 6, 'y': 11, 'r': 0.5}
+  p09: {'x': 7, 'y': 10, 'r': 0.5}
+  p10: {'x': 8, 'y': 9, 'r': 0.5}
+  p11: {'x': 8, 'y': 10, 'r': 0.5}
+  p12: {'x': 9, 'y': 9, 'r': 0.5}
+  p13: {'x': 7, 'y': 12, 'r': 0.5}
+  p14: {'x': 8, 'y': 11, 'r': 0.5}
+  p15: {'x': 9, 'y': 10, 'r': 0.5}
+  p16: {'x': 9, 'y': 11, 'r': 0.5}
+  p17: {'x': 10, 'y': 10, 'r': 0.5}
+  p18: {'x': 8, 'y': 13, 'r': 0.5}
+  p19: {'x': 7, 'y': 11, 'r': 1}
+  p20: {'x': 8, 'y': 10, 'r': 1}
+  p21: {'x': 9, 'y': 9, 'r': 1}
+  p22: {'x': 9, 'y': 10, 'r': 1}
+  p23: {'x': 8, 'y': 12, 'r': 1}
+  p24: {'x': 9, 'y': 11, 'r': 1}
+  p25: {'x': 10, 'y': 10, 'r': 1}
+  p26: {'x': 9, 'y': 12, 'r': 1}
+  p27: {'x': 9, 'y': 13, 'r': 1}
+  p28: {'x': 10, 'y': 12, 'r': 1}
+  p29: {'x': 11, 'y': 11, 'r': 1}
+  p30: {'x': 10, 'y': 13, 'r': 1}
+
+real	0m15.834s
+user	0m15.848s
+sys	0m1.056s

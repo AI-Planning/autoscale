@@ -1,0 +1,104 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-16 17:52:57,278 INFO     No run directory, so we will not run anything
+2020-12-16 17:52:57,404 INFO     Loading cache data for baseline planners: 272
+2020-12-16 17:52:57,411 INFO     Loaded data for 129 instances, with min 3 max 15 avg 6.325581395348837 runtimes
+2020-12-16 17:52:57,411 INFO     Loading cache data for sart planners: 670
+2020-12-16 17:52:57,431 INFO     Loaded data for 317 instances, with min 3 max 15 avg 6.340694006309148 runtimes
+2020-12-16 17:52:58,004 INFO     Loading cache data for baseline planners: 267
+2020-12-16 17:52:58,013 INFO     Loaded data for 199 instances, with min 3 max 15 avg 8.125628140703517 runtimes
+2020-12-16 17:52:58,013 INFO     Loading cache data for sart planners: 1256
+2020-12-16 17:52:58,057 INFO     Loaded data for 664 instances, with min 3 max 15 avg 8.701807228915662 runtimes
+2020-12-16 17:52:58,591 INFO     Loading cache data for baseline planners: 477
+2020-12-16 17:52:58,615 INFO     Loaded data for 201 instances, with min 3 max 30 avg 15.164179104477611 runtimes
+2020-12-16 17:52:58,615 INFO     Loading cache data for sart planners: 1270
+2020-12-16 17:52:58,672 INFO     Loaded data for 709 instances, with min 3 max 30 avg 13.52327221438646 runtimes
+2020-12-16 17:52:58,672 INFO     Stored sequences: 1267
+Warning: re-computed penalty 10.088519513738 = 7.480344366172034 + 2.6081751475659662  differs from SMAC penalty 14.148972425459494
+Warning: re-computed penalty 10.29895683326998 = 7.748357830580231 + 2.5505990026897494  differs from SMAC penalty 13.895000990436223
+Warning: re-computed penalty 11.644689029275813 = 8 + 3.644689029275813  differs from SMAC penalty 14.716014009630793
+Warning: re-computed penalty 10.500302402631428 = 8 + 2.500302402631428  differs from SMAC penalty 14.291216032900913
+Warning: re-computed penalty 11.80037586899211 = 7.80055334179838 + 3.9998225271937287  differs from SMAC penalty 16
+Warning: re-computed penalty 11.533590943286079 = 6.608378065273264 + 4.9252128780128155  differs from SMAC penalty 15.481563121540741
+Warning: re-computed penalty 9.8193419251574 = 7.278998612372451 + 2.5403433127849473  differs from SMAC penalty 13.177228697650355
+Warning: re-computed penalty 10.19773116359828 = 6.467599786685932 + 3.7301313769123494  differs from SMAC penalty 13.413462738628752
+Warning: re-computed penalty 11.636718674418965 = 7.171434682215072 + 4.4652839922038945  differs from SMAC penalty 15.571478015470461
+Warning: re-computed penalty 11.43824844519835 = 7.879956413661593 + 3.558292031536758  differs from SMAC penalty 15.12369725828436
+Warning: re-computed penalty 10.54253645031841 = 6.822617270531342 + 3.719919179787068  differs from SMAC penalty 13.662492409457041
+Warning: re-computed penalty 10.76019967981845 = 7.874694184837817 + 2.885505494980634  differs from SMAC penalty 14.037230822037017
+Warning: re-computed penalty 11.480554632939416 = 7.76837256384333 + 3.7121820690960874  differs from SMAC penalty 15.689710606904214
+Warning: re-computed penalty 11.141963880205124 = 7.587676595297344 + 3.5542872849077796  differs from SMAC penalty 14.332099813191027
+Warning: re-computed penalty 11.485475636340288 = 7.872323055269645 + 3.6131525810706435  differs from SMAC penalty 16.535180120783643
+Warning: re-computed penalty 10.108168688682689 = 7.640495407262966 + 2.467673281419722  differs from SMAC penalty 13.741307639093131
+Warning: re-computed penalty 11.926473722243582 = 8 + 3.926473722243581  differs from SMAC penalty 16
+Warning: re-computed penalty 9.799900540700476 = 6.218221301527611 + 3.5816792391728653  differs from SMAC penalty 13.657611799956715
+Warning: re-computed penalty 10.262169513394044 = 6.630544706230267 + 3.6316248071637776  differs from SMAC penalty 14.570970076908177
+Warning: re-computed penalty 12.075065113344406 = 8 + 4.075065113344406  differs from SMAC penalty 15.335710829886185
+Warning: re-computed penalty 12.369996300966259 = 8 + 4.369996300966259  differs from SMAC penalty 18
+Warning: re-computed penalty 10.144357946213741 = 6.822617270531342 + 3.321740675682398  differs from SMAC penalty 13.86029895057097
+Warning: re-computed penalty 10.185680695708557 = 6.68237837347727 + 3.5033023222312867  differs from SMAC penalty 13.39049081888212
+Warning: re-computed penalty 11.451091729441496 = 7.369190360068874 + 4.081901369372622  differs from SMAC penalty 15.175569917682333
+Warning: re-computed penalty 12.055794612417902 = 8 + 4.055794612417903  differs from SMAC penalty 15.67007725180802
+Warning: re-computed penalty 10.159611503173277 = 6.49068890647833 + 3.668922596694948  differs from SMAC penalty 13.256392834712273
+Warning: re-computed penalty 8.592063184015029 = 6.68237837347727 + 1.9096848105377577  differs from SMAC penalty 12.302129089702817
+Warning: re-computed penalty 8.592063184015029 = 6.68237837347727 + 1.9096848105377577  differs from SMAC penalty 12.302129089702817
+Warning: re-computed penalty 13.093500776328256 = 7.680188766668511 + 5.4133120096597445  differs from SMAC penalty 17.138151055328294
+Warning: re-computed penalty 10.912818042878797 = 7.511175073751636 + 3.4016429691271606  differs from SMAC penalty 14.13794592495437
+Warning: re-computed penalty 11.354149800404008 = 8 + 3.354149800404008  differs from SMAC penalty 15.707434052757794
+Warning: re-computed penalty 12.096793112832984 = 8 + 4.096793112832984  differs from SMAC penalty 15.429389268262355
+Warning: re-computed penalty 10.68833708671575 = 7.386813712617637 + 3.3015233740981125  differs from SMAC penalty 13.785808480260702
+Warning: re-computed penalty 11.84597299169285 = 7.0192100951702905 + 4.82676289652256  differs from SMAC penalty 15.210309326751815
+Warning: re-computed penalty 10.96259001586862 = 8 + 2.962590015868621  differs from SMAC penalty 14.04094383046433
+Warning: re-computed penalty 13.874948401430064 = 8 + 5.874948401430064  differs from SMAC penalty 16.968581922597515
+Warning: re-computed penalty 9.79719517456141 = 6.91394207297158 + 2.883253101589828  differs from SMAC penalty 12.871666078127165
+2020-12-16 17:53:05,492 INFO     Different evaluated sequences: 993
+constrainedness 1.1 324 100
+constrainedness 1.5 348 100
+constrainedness 2.0 321 100
+2020-12-16 17:53:06,193 INFO     Candidate sequences: 300
+2020-12-16 17:53:06,197 INFO     Using sart runtimes on CPLEX optimization
+2020-12-16 17:53:07,687 INFO     CPLEX solve
+
+2020-12-16 17:53:08,423 INFO     Solution status = 101: MIP_optimal
+2020-12-16 17:53:08,423 INFO     Solution value  = 16.518668416112682
+Selected: sequence 130, 14 instances from 16 to 29
+Configuration: {'constrainedness': 1.5, 'locations_b': 3, 'locations_m': 0.1, 'packages_b': 5, 'packages_m': 1.0}
+Penalty: 7.93
+Estimated runtimes: 75, 1.2e+02, 1.9e+02, 3.4e+02, 6e+02, 1.1e+03, 1.9e+03, 3.4e+03, 6.1e+03, 1.1e+04, 2e+04, 3.5e+04, 6.3e+04, 1.1e+05
+Selected: sequence 748, 16 instances from 9 to 24
+Configuration: {'constrainedness': 1.5, 'locations_b': 3, 'locations_m': 0.2, 'packages_b': 8, 'packages_m': 1.0}
+Penalty: 8.59
+Estimated runtimes: 7, 21, 47, 68, 86, 1.5e+02, 1.6e+02, 2.9e+02, 5.2e+02, 9.3e+02, 1.7e+03, 3e+03, 5.4e+03, 9.7e+03, 1.7e+04, 3.1e+04, 5.6e+04, 1e+05, 1.8e+05, 3.3e+05, 5.9e+05
+  p01: {'locations': 4, 'packages': 21, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p02: {'locations': 4, 'packages': 22, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p03: {'locations': 4, 'packages': 23, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p04: {'locations': 4, 'packages': 24, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p05: {'locations': 4, 'packages': 25, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p06: {'locations': 5, 'packages': 26, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p07: {'locations': 5, 'packages': 27, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p08: {'locations': 5, 'packages': 28, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p09: {'locations': 5, 'packages': 29, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p10: {'locations': 5, 'packages': 30, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p11: {'locations': 5, 'packages': 31, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p12: {'locations': 5, 'packages': 32, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p13: {'locations': 5, 'packages': 33, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p14: {'locations': 5, 'packages': 34, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p15: {'locations': 4, 'packages': 17, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p16: {'locations': 5, 'packages': 18, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p17: {'locations': 5, 'packages': 19, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p18: {'locations': 5, 'packages': 20, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p19: {'locations': 5, 'packages': 21, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p20: {'locations': 5, 'packages': 22, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p21: {'locations': 6, 'packages': 23, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p22: {'locations': 6, 'packages': 24, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p23: {'locations': 6, 'packages': 25, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p24: {'locations': 6, 'packages': 26, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p25: {'locations': 6, 'packages': 27, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p26: {'locations': 7, 'packages': 28, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p27: {'locations': 7, 'packages': 29, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p28: {'locations': 7, 'packages': 30, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p29: {'locations': 7, 'packages': 31, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+  p30: {'locations': 7, 'packages': 32, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
+
+real	0m12.159s
+user	0m12.678s
+sys	0m1.183s

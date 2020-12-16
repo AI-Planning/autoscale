@@ -1,0 +1,90 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-16 18:14:01,989 INFO     No run directory, so we will not run anything
+2020-12-16 18:14:02,117 INFO     Loading cache data for baseline planners: 264
+2020-12-16 18:14:02,124 INFO     Loaded data for 207 instances, with min 3 max 15 avg 3.8260869565217392 runtimes
+2020-12-16 18:14:02,124 INFO     Loading cache data for sart planners: 944
+2020-12-16 18:14:02,149 INFO     Loaded data for 777 instances, with min 3 max 15 avg 3.6447876447876446 runtimes
+2020-12-16 18:14:02,716 INFO     Loading cache data for baseline planners: 532
+2020-12-16 18:14:02,733 INFO     Loaded data for 586 instances, with min 3 max 15 avg 4.075085324232082 runtimes
+2020-12-16 18:14:02,733 INFO     Loading cache data for sart planners: 2343
+2020-12-16 18:14:02,799 INFO     Loaded data for 2411 instances, with min 3 max 15 avg 4.090004147656574 runtimes
+2020-12-16 18:14:03,332 INFO     Loading cache data for baseline planners: 537
+2020-12-16 18:14:03,355 INFO     Loaded data for 821 instances, with min 3 max 18 avg 4.870889159561511 runtimes
+2020-12-16 18:14:03,355 INFO     Loading cache data for sart planners: 2710
+2020-12-16 18:14:03,442 INFO     Loaded data for 3646 instances, with min 3 max 21 avg 4.934448710916072 runtimes
+2020-12-16 18:14:03,443 INFO     Stored sequences: 870
+Warning: re-computed penalty 8.782290231041468 = 5.564850158226829 + 3.2174400728146395  differs from SMAC penalty 5.25085478600101
+Warning: re-computed penalty 6.31220951695213 = 3.618207401207079 + 2.694002115745051  differs from SMAC penalty 13.339277008792731
+Warning: re-computed penalty 6.4856078364418215 = 3.5872255338522465 + 2.898382302589575  differs from SMAC penalty 10.412578694695238
+Warning: re-computed penalty 9.08270728970976 = 3.365248228687773 + 5.7174590610219855  differs from SMAC penalty 12.590537632708585
+Warning: re-computed penalty 6.871821629467979 = 4.517156662308508 + 2.3546649671594704  differs from SMAC penalty 12.03556662765329
+Warning: re-computed penalty 7.4645019488699145 = 5.264202409309809 + 2.2002995395601053  differs from SMAC penalty 12.250980659304444
+Warning: re-computed penalty 7.6128299844967975 = 4.779000532711924 + 2.833829451784873  differs from SMAC penalty 12.483592047492788
+Warning: re-computed penalty 5.8755085201455355 = 4.1533454790374265 + 1.7221630411081095  differs from SMAC penalty 10.56670181755625
+Warning: re-computed penalty 11.728032957432397 = 5.622438397393145 + 6.105594560039251  differs from SMAC penalty 7.3959393622673755
+Warning: re-computed penalty 8.4362909064014 = 4.904061778693464 + 3.5322291277079363  differs from SMAC penalty 4.921543039722135
+Warning: re-computed penalty 6.263400947583232 = 4.438208452744844 + 1.825192494838388  differs from SMAC penalty 9.33682177267108
+Warning: re-computed penalty 8.4362909064014 = 4.904061778693464 + 3.5322291277079363  differs from SMAC penalty 4.921543039722135
+Warning: re-computed penalty 8.440094852904544 = 4.978385643430563 + 3.46170920947398  differs from SMAC penalty 11.464393395193213
+Warning: re-computed penalty 8.4362909064014 = 4.904061778693464 + 3.5322291277079363  differs from SMAC penalty 4.921543039722135
+Warning: re-computed penalty 8.4362909064014 = 4.904061778693464 + 3.5322291277079363  differs from SMAC penalty 4.921543039722135
+Warning: re-computed penalty 8.4362909064014 = 4.904061778693464 + 3.5322291277079363  differs from SMAC penalty 4.921543039722135
+Warning: re-computed penalty 8.4362909064014 = 4.904061778693464 + 3.5322291277079363  differs from SMAC penalty 4.921543039722135
+Warning: re-computed penalty 8.4362909064014 = 4.904061778693464 + 3.5322291277079363  differs from SMAC penalty 4.921543039722135
+Warning: re-computed penalty 8.4362909064014 = 4.904061778693464 + 3.5322291277079363  differs from SMAC penalty 4.921543039722135
+Warning: re-computed penalty 8.4362909064014 = 4.904061778693464 + 3.5322291277079363  differs from SMAC penalty 4.921543039722135
+Warning: re-computed penalty 8.4362909064014 = 4.904061778693464 + 3.5322291277079363  differs from SMAC penalty 4.921543039722135
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 2, 'targets': 16, 'modes': 5, 'observations': 8}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 6.300449565025108 = 4.904061778693464 + 1.3963877863316445  differs from SMAC penalty 9.760529770144426
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 2, 'targets': 18, 'modes': 4, 'observations': 8}, so I consider it unsolved within the time and memory limits
+Warning: re-computed penalty 5.207264903495736 = 3.834143947935539 + 1.3731209555601973  differs from SMAC penalty 8.989910614677868
+Warning: No temporary dir for Runner has been provided but I have no data for {'satellites': 2, 'targets': 22, 'modes': 2, 'observations': 9}, so I consider it unsolved within the time and memory limits
+2020-12-16 18:14:09,114 INFO     Different evaluated sequences: 476
+2020-12-16 18:14:09,410 INFO     Candidate sequences: 100
+2020-12-16 18:14:09,413 INFO     Using sart runtimes on CPLEX optimization
+2020-12-16 18:14:09,636 INFO     CPLEX solve
+
+2020-12-16 18:14:09,843 INFO     Solution status = 101: MIP_optimal
+2020-12-16 18:14:09,844 INFO     Solution value  = 9.923112614070028
+Selected: sequence 69, 19 instances from 11 to 29
+Configuration: {'modes_b': 3, 'modes_m': 1.0, 'modes_optional_m': 'true', 'observations_b': 5, 'observations_m': 1.2, 'satellites_b': 2, 'satellites_m': 0.2, 'satellites_optional_m': 'true', 'targets_b': 17, 'targets_m': 1.4}
+Penalty: 4.91
+Estimated runtimes: 6.7, 11, 11, 30, 40, 88, 1e+02, 1.4e+02, 2.2e+02, 3.6e+02, 5.8e+02, 9.4e+02, 1.5e+03, 2.4e+03, 4e+03, 6.4e+03, 1e+04, 1.7e+04, 2.7e+04
+Selected: sequence 115, 11 instances from 19 to 29
+Configuration: {'modes_b': 3, 'modes_m': 1.0, 'modes_optional_m': 'true', 'observations_b': 5, 'observations_m': 1.2, 'satellites_b': 2, 'satellites_m': 0.5, 'satellites_optional_m': 'true', 'targets_b': 19, 'targets_m': 1.7000000000000002}
+Penalty: 5.01
+Estimated runtimes: 2.4e+02, 3.7e+02, 5.8e+02, 9e+02, 1.4e+03, 2.2e+03, 3.4e+03, 5.2e+03, 8.1e+03, 1.3e+04, 2e+04
+  p01: {'satellites': 2, 'targets': 32, 'modes': 3, 'observations': 18}
+  p02: {'satellites': 2, 'targets': 33, 'modes': 3, 'observations': 19}
+  p03: {'satellites': 2, 'targets': 35, 'modes': 3, 'observations': 20}
+  p04: {'satellites': 2, 'targets': 36, 'modes': 3, 'observations': 21}
+  p05: {'satellites': 2, 'targets': 37, 'modes': 3, 'observations': 22}
+  p06: {'satellites': 2, 'targets': 39, 'modes': 3, 'observations': 24}
+  p07: {'satellites': 2, 'targets': 40, 'modes': 3, 'observations': 25}
+  p08: {'satellites': 2, 'targets': 42, 'modes': 3, 'observations': 26}
+  p09: {'satellites': 2, 'targets': 43, 'modes': 3, 'observations': 27}
+  p10: {'satellites': 2, 'targets': 44, 'modes': 3, 'observations': 28}
+  p11: {'satellites': 2, 'targets': 46, 'modes': 3, 'observations': 30}
+  p12: {'satellites': 2, 'targets': 47, 'modes': 3, 'observations': 31}
+  p13: {'satellites': 2, 'targets': 49, 'modes': 3, 'observations': 32}
+  p14: {'satellites': 2, 'targets': 50, 'modes': 3, 'observations': 33}
+  p15: {'satellites': 2, 'targets': 51, 'modes': 3, 'observations': 34}
+  p16: {'satellites': 2, 'targets': 53, 'modes': 3, 'observations': 36}
+  p17: {'satellites': 2, 'targets': 54, 'modes': 3, 'observations': 37}
+  p18: {'satellites': 2, 'targets': 56, 'modes': 3, 'observations': 38}
+  p19: {'satellites': 2, 'targets': 57, 'modes': 3, 'observations': 39}
+  p20: {'satellites': 2, 'targets': 51, 'modes': 3, 'observations': 27}
+  p21: {'satellites': 2, 'targets': 53, 'modes': 3, 'observations': 28}
+  p22: {'satellites': 2, 'targets': 54, 'modes': 3, 'observations': 30}
+  p23: {'satellites': 2, 'targets': 56, 'modes': 3, 'observations': 31}
+  p24: {'satellites': 2, 'targets': 58, 'modes': 3, 'observations': 32}
+  p25: {'satellites': 2, 'targets': 59, 'modes': 3, 'observations': 33}
+  p26: {'satellites': 2, 'targets': 61, 'modes': 3, 'observations': 34}
+  p27: {'satellites': 2, 'targets': 63, 'modes': 3, 'observations': 36}
+  p28: {'satellites': 2, 'targets': 64, 'modes': 3, 'observations': 37}
+  p29: {'satellites': 2, 'targets': 66, 'modes': 3, 'observations': 38}
+  p30: {'satellites': 2, 'targets': 68, 'modes': 3, 'observations': 39}
+
+real	0m8.739s
+user	0m8.851s
+sys	0m1.080s

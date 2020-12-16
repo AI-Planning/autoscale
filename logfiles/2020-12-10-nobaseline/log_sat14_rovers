@@ -1,0 +1,78 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-16 18:13:48,200 INFO     No run directory, so we will not run anything
+2020-12-16 18:13:48,365 INFO     Loading cache data for baseline planners: 1145
+2020-12-16 18:13:48,397 INFO     Loaded data for 1076 instances, with min 3 max 15 avg 3.192379182156134 runtimes
+2020-12-16 18:13:48,397 INFO     Loading cache data for sart planners: 2338
+2020-12-16 18:13:48,456 INFO     Loaded data for 2196 instances, with min 3 max 15 avg 3.1939890710382515 runtimes
+2020-12-16 18:13:48,958 INFO     Loading cache data for baseline planners: 1666
+2020-12-16 18:13:49,010 INFO     Loaded data for 2733 instances, with min 3 max 15 avg 3.0856201975850714 runtimes
+2020-12-16 18:13:49,010 INFO     Loading cache data for sart planners: 3114
+2020-12-16 18:13:49,087 INFO     Loaded data for 5301 instances, with min 3 max 15 avg 3.0854555744199206 runtimes
+2020-12-16 18:13:49,495 INFO     Loading cache data for baseline planners: 962
+2020-12-16 18:13:49,524 INFO     Loaded data for 3670 instances, with min 3 max 21 avg 3.0841961852861037 runtimes
+2020-12-16 18:13:49,524 INFO     Loading cache data for sart planners: 2178
+2020-12-16 18:13:49,580 INFO     Loaded data for 7418 instances, with min 3 max 21 avg 3.0857373955244003 runtimes
+2020-12-16 18:13:49,580 INFO     Stored sequences: 258
+Warning: re-computed penalty 40 = 20 + 20  differs from SMAC penalty 30
+Warning: re-computed penalty 15.48997271798969 = 3.764618234443332 + 11.72535448354636  differs from SMAC penalty 19.63139153578242
+Warning: re-computed penalty 19.6472379479902 = 7.485395178797887 + 12.161842769192312  differs from SMAC penalty 14.069479723431478
+Warning: re-computed penalty 15.48997271798969 = 3.764618234443332 + 11.72535448354636  differs from SMAC penalty 19.22221714752942
+Warning: re-computed penalty 15.48997271798969 = 3.764618234443332 + 11.72535448354636  differs from SMAC penalty 20.75812594004035
+Warning: re-computed penalty 21.713397115376058 = 8.786227210359737 + 12.92716990501632  differs from SMAC penalty 15.500158933416117
+Warning: re-computed penalty 32.704395885612016 = 12.70439588561202 + 20  differs from SMAC penalty 22.662418704060798
+Warning: re-computed penalty 27.478083706622037 = 7.478083706622035 + 20  differs from SMAC penalty 22.478083706622037
+Warning: re-computed penalty 20.058178456249436 = 7.555597389679024 + 12.50258106657041  differs from SMAC penalty 14.058178456249435
+Warning: re-computed penalty 19.569770090938295 = 6.99679716287848 + 12.572972928059816  differs from SMAC penalty 14.569770090938295
+Warning: re-computed penalty 36 = 18 + 18  differs from SMAC penalty 26
+Warning: re-computed penalty 24.19094014817522 = 8.669799479676884 + 15.521140668498335  differs from SMAC penalty 17.19094014817522
+Warning: re-computed penalty 15.48997271798969 = 3.764618234443332 + 11.72535448354636  differs from SMAC penalty 20.07832577128909
+Warning: re-computed penalty 28.613834917993593 = 8.613834917993591 + 20  differs from SMAC penalty 23.613834917993593
+Warning: re-computed penalty 40 = 20 + 20  differs from SMAC penalty 30
+Warning: re-computed penalty 18.275028249012884 = 5.916203956186857 + 12.358824292826025  differs from SMAC penalty 15.275028249012882
+Warning: re-computed penalty 21.404159959118022 = 8.514298532963785 + 12.889861426154237  differs from SMAC penalty 15.40415995911802
+2020-12-16 18:13:51,258 INFO     Different evaluated sequences: 248
+2020-12-16 18:13:51,457 INFO     Candidate sequences: 100
+2020-12-16 18:13:51,460 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 84 use baseline 16 use sart
+2020-12-16 18:13:51,462 INFO     Using sart runtimes on CPLEX optimization
+2020-12-16 18:13:51,486 INFO     CPLEX solve
+
+2020-12-16 18:13:51,503 INFO     Solution status = 101: MIP_optimal
+2020-12-16 18:13:51,503 INFO     Solution value  = 1720.3248106442154
+Selected: sequence 215, 30 instances from 0 to 29
+Configuration: {'cameras_b': 6, 'cameras_m': 3.9000000000000004, 'cameras_optional_m': 'false', 'goals_b': 6, 'goals_m': 4.4, 'objectives_b': 6, 'objectives_m': 4.3, 'objectives_optional_m': 'false', 'rovers_b': 2, 'rovers_m': 1.7000000000000002, 'rovers_optional_m': 'false', 'waypoints_b': 6, 'waypoints_m': 1.0}
+Penalty: 14.75
+Estimated runtimes: 0.59, 0.74, 1.1, 1.7, 2, 3.7, 5.1, 6.7, 8.3, 11, 13, 16, 19, 27, 30, 36, 48, 59, 74, 84, 89, 1e+02, 1.1e+02, 1.2e+02, 1.8e+02, 2.7e+02, 4e+02, 5.9e+02, 8.8e+02, 1.3e+03
+  p01: {'rovers': 2, 'objectives': 6, 'cameras': 6, 'goals': 6, 'waypoints': 6}
+  p02: {'rovers': 3, 'objectives': 10, 'cameras': 9, 'goals': 10, 'waypoints': 7}
+  p03: {'rovers': 5, 'objectives': 14, 'cameras': 13, 'goals': 14, 'waypoints': 8}
+  p04: {'rovers': 7, 'objectives': 18, 'cameras': 17, 'goals': 19, 'waypoints': 9}
+  p05: {'rovers': 8, 'objectives': 23, 'cameras': 21, 'goals': 23, 'waypoints': 10}
+  p06: {'rovers': 10, 'objectives': 27, 'cameras': 25, 'goals': 28, 'waypoints': 11}
+  p07: {'rovers': 12, 'objectives': 31, 'cameras': 29, 'goals': 32, 'waypoints': 12}
+  p08: {'rovers': 13, 'objectives': 36, 'cameras': 33, 'goals': 36, 'waypoints': 13}
+  p09: {'rovers': 15, 'objectives': 40, 'cameras': 37, 'goals': 41, 'waypoints': 14}
+  p10: {'rovers': 17, 'objectives': 44, 'cameras': 41, 'goals': 45, 'waypoints': 15}
+  p11: {'rovers': 18, 'objectives': 48, 'cameras': 44, 'goals': 49, 'waypoints': 16}
+  p12: {'rovers': 20, 'objectives': 53, 'cameras': 48, 'goals': 54, 'waypoints': 17}
+  p13: {'rovers': 22, 'objectives': 57, 'cameras': 52, 'goals': 58, 'waypoints': 18}
+  p14: {'rovers': 24, 'objectives': 61, 'cameras': 56, 'goals': 63, 'waypoints': 19}
+  p15: {'rovers': 25, 'objectives': 66, 'cameras': 60, 'goals': 67, 'waypoints': 20}
+  p16: {'rovers': 27, 'objectives': 70, 'cameras': 64, 'goals': 72, 'waypoints': 21}
+  p17: {'rovers': 29, 'objectives': 74, 'cameras': 68, 'goals': 76, 'waypoints': 22}
+  p18: {'rovers': 30, 'objectives': 79, 'cameras': 72, 'goals': 80, 'waypoints': 23}
+  p19: {'rovers': 32, 'objectives': 83, 'cameras': 76, 'goals': 85, 'waypoints': 24}
+  p20: {'rovers': 34, 'objectives': 87, 'cameras': 80, 'goals': 89, 'waypoints': 25}
+  p21: {'rovers': 36, 'objectives': 91, 'cameras': 84, 'goals': 94, 'waypoints': 26}
+  p22: {'rovers': 37, 'objectives': 96, 'cameras': 87, 'goals': 98, 'waypoints': 27}
+  p23: {'rovers': 39, 'objectives': 100, 'cameras': 91, 'goals': 102, 'waypoints': 28}
+  p24: {'rovers': 41, 'objectives': 104, 'cameras': 95, 'goals': 107, 'waypoints': 29}
+  p25: {'rovers': 42, 'objectives': 109, 'cameras': 99, 'goals': 111, 'waypoints': 30}
+  p26: {'rovers': 44, 'objectives': 113, 'cameras': 103, 'goals': 116, 'waypoints': 31}
+  p27: {'rovers': 46, 'objectives': 117, 'cameras': 107, 'goals': 120, 'waypoints': 32}
+  p28: {'rovers': 47, 'objectives': 122, 'cameras': 111, 'goals': 124, 'waypoints': 33}
+  p29: {'rovers': 49, 'objectives': 126, 'cameras': 115, 'goals': 129, 'waypoints': 34}
+  p30: {'rovers': 51, 'objectives': 130, 'cameras': 119, 'goals': 133, 'waypoints': 35}
+
+real	0m13.790s
+user	0m13.625s
+sys	0m1.033s

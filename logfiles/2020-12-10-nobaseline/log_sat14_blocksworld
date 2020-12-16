@@ -1,0 +1,95 @@
+Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singularity.sh
+2020-12-16 17:45:21,428 INFO     No run directory, so we will not run anything
+2020-12-16 17:45:21,589 INFO     Loading cache data for baseline planners: 120
+2020-12-16 17:45:21,594 INFO     Loaded data for 28 instances, with min 3 max 15 avg 12.857142857142858 runtimes
+2020-12-16 17:45:21,594 INFO     Loading cache data for sart planners: 485
+2020-12-16 17:45:21,611 INFO     Loaded data for 106 instances, with min 3 max 15 avg 13.726415094339623 runtimes
+2020-12-16 17:45:22,026 INFO     Loading cache data for baseline planners: 0
+2020-12-16 17:45:22,026 INFO     Loaded data for 28 instances, with min 3 max 15 avg 12.857142857142858 runtimes
+2020-12-16 17:45:22,026 INFO     Loading cache data for sart planners: 1
+2020-12-16 17:45:22,026 INFO     Loaded data for 107 instances, with min 3 max 15 avg 13.626168224299066 runtimes
+2020-12-16 17:45:22,462 INFO     Loading cache data for baseline planners: 0
+2020-12-16 17:45:22,462 INFO     Loaded data for 28 instances, with min 3 max 15 avg 12.857142857142858 runtimes
+2020-12-16 17:45:22,462 INFO     Loading cache data for sart planners: 0
+2020-12-16 17:45:22,462 INFO     Loaded data for 107 instances, with min 3 max 15 avg 13.626168224299066 runtimes
+2020-12-16 17:45:22,462 INFO     Stored sequences: 506
+Warning: re-computed penalty 14.806188722119849 = 7.435553642922031 + 7.370635079197819  differs from SMAC penalty 9.029844933426261
+Warning: re-computed penalty 16.889970798510625 = 5.375173792008405 + 11.51479700650222  differs from SMAC penalty 24.355837089778035
+Warning: re-computed penalty 16.91296962630411 = 5.375173792008405 + 11.537795834295705  differs from SMAC penalty 26
+Warning: re-computed penalty 16.71931090916602 = 7.435553642922031 + 9.283757266243988  differs from SMAC penalty 13.581792035702541
+Warning: re-computed penalty 17.184263459556167 = 5.610985302861951 + 11.573278156694215  differs from SMAC penalty 20.26844179023913
+Warning: re-computed penalty 21.75052140742801 = 5.381030676181604 + 16.369490731246408  differs from SMAC penalty 16.203816933788808
+Warning: re-computed penalty 25.381030676181602 = 5.381030676181604 + 20  differs from SMAC penalty 19.273311395574474
+Warning: re-computed penalty 16.824046392473143 = 7.243071095736911 + 9.580975296736232  differs from SMAC penalty 12.4971150849978
+Warning: re-computed penalty 24.753877213484508 = 4.753877213484509 + 20  differs from SMAC penalty 19.75631217992487
+Warning: re-computed penalty 18.633229121128846 = 7.23937440360464 + 11.393854717524206  differs from SMAC penalty 14.744041468239853
+Warning: re-computed penalty 19.51186764465838 = 4.72862367401598 + 14.783243970642399  differs from SMAC penalty 15.774909246974058
+Warning: re-computed penalty 22.728623674015978 = 4.72862367401598 + 18  differs from SMAC penalty 17.31770067772151
+Warning: re-computed penalty 11.783152821191965 = 7.435553642922031 + 4.347599178269935  differs from SMAC penalty 8.760097912620054
+Warning: re-computed penalty 24.481822353402052 = 4.48182235340205 + 20  differs from SMAC penalty 19.62110884178374
+Warning: re-computed penalty 12.878126830459536 = 7.435553642922031 + 5.442573187537506  differs from SMAC penalty 9.796549105340045
+Warning: re-computed penalty 20.149836044982955 = 5.375173792008405 + 14.77466225297455  differs from SMAC penalty 15.591807973967226
+Warning: re-computed penalty 17.745207093860465 = 7.435553642922031 + 10.309653450938434  differs from SMAC penalty 13.716006451659126
+Warning: re-computed penalty 20.91987319751653 = 4.500264499727285 + 16.419608697789243  differs from SMAC penalty 17.880504779750815
+Warning: re-computed penalty 21.10015347041331 = 4.72862367401598 + 16.371529796397333  differs from SMAC penalty 16.204215844164015
+Warning: re-computed penalty 24.923335439321008 = 4.923335439321006 + 20  differs from SMAC penalty 20.708580589900308
+Warning: re-computed penalty 24.481822353402052 = 4.48182235340205 + 20  differs from SMAC penalty 21.342699874026184
+Warning: re-computed penalty 13.590670274006847 = 7.243071095736911 + 6.347599178269935  differs from SMAC penalty 9.17477748904394
+Warning: re-computed penalty 13.788911787725244 = 7.455210253448742 + 6.333701534276503  differs from SMAC penalty 9.848417239284107
+Warning: re-computed penalty 12.897783440986249 = 7.455210253448742 + 5.442573187537506  differs from SMAC penalty 8.734632595487312
+Warning: re-computed penalty 13.878126830459536 = 7.435553642922031 + 6.442573187537506  differs from SMAC penalty 7.6721587243324185
+Warning: re-computed penalty 14.443891879875746 = 6.928920449345651 + 7.514971430530094  differs from SMAC penalty 11.340028453412504
+Warning: re-computed penalty 16.378025645455732 = 4.858204179951758 + 11.519821465503975  differs from SMAC penalty 23.15501079760277
+Warning: re-computed penalty 18.065795302744135 = 4.858204179951758 + 13.207591122792376  differs from SMAC penalty 24.80543024188014
+Warning: re-computed penalty 24.02998400071465 = 4.02998400071465 + 20  differs from SMAC penalty 27.43464879446327
+Warning: re-computed penalty 12.856935682369334 = 7.435553642922031 + 5.421382039447304  differs from SMAC penalty 16.5226292603933
+2020-12-16 17:45:27,319 INFO     Different evaluated sequences: 231
+2020-12-16 17:45:27,608 INFO     Candidate sequences: 100
+2020-12-16 17:45:27,610 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 37 use baseline 63 use sart
+2020-12-16 17:45:27,611 INFO     Using sart runtimes on CPLEX optimization
+2020-12-16 17:45:27,795 INFO     CPLEX solve
+
+2020-12-16 17:45:28,138 INFO     Solution status = 101: MIP_optimal
+2020-12-16 17:45:28,138 INFO     Solution value  = 16.252410923441673
+Selected: sequence 133, 19 instances from 10 to 28
+Configuration: {'n_b': 10, 'n_m': 4.6}
+Penalty: 7.81
+Estimated runtimes: 5.5, 9.1, 18, 23, 30, 37, 78, 86, 1.8e+02, 2.9e+02, 4.6e+02, 7.2e+02, 1.1e+03, 1.8e+03, 2.9e+03, 4.6e+03, 7.3e+03, 1.2e+04, 1.8e+04, 2.9e+04
+Selected: sequence 64, 11 instances from 18 to 28
+Configuration: {'n_b': 5, 'n_m': 4.9}
+Penalty: 8.44
+Estimated runtimes: 1.2e+02, 2.6e+02, 4.4e+02, 7.4e+02, 1.3e+03, 2.1e+03, 3.6e+03, 6e+03, 1e+04, 1.7e+04, 2.9e+04, 4.8e+04
+  p01: {'n': 56}
+  p02: {'n': 60}
+  p03: {'n': 65}
+  p04: {'n': 69}
+  p05: {'n': 74}
+  p06: {'n': 78}
+  p07: {'n': 83}
+  p08: {'n': 88}
+  p09: {'n': 92}
+  p10: {'n': 97}
+  p11: {'n': 101}
+  p12: {'n': 106}
+  p13: {'n': 111}
+  p14: {'n': 115}
+  p15: {'n': 120}
+  p16: {'n': 124}
+  p17: {'n': 129}
+  p18: {'n': 134}
+  p19: {'n': 138}
+  p20: {'n': 93}
+  p21: {'n': 98}
+  p22: {'n': 103}
+  p23: {'n': 107}
+  p24: {'n': 112}
+  p25: {'n': 117}
+  p26: {'n': 122}
+  p27: {'n': 127}
+  p28: {'n': 132}
+  p29: {'n': 137}
+  p30: {'n': 142}
+
+real	0m7.597s
+user	0m7.875s
+sys	0m1.055s
