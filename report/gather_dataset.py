@@ -1,3 +1,4 @@
+#!/bin/python3
 import os
 import json
 import itertools
@@ -95,7 +96,7 @@ for name, filenames in FILENAMES.items():
     for filename in filenames:
         new_runs = read_runs(os.path.join(DIR, "results", filename))
         new_runs = [group_domains(run) for run in new_runs]
-        new_runs = [run for run in new_runs if run["domain"] in DOMAINS]
+        new_runs = [run for run in new_runs if run and  run["domain"] in DOMAINS]
 
         for run in new_runs:
             run["dataset"] = name
@@ -109,10 +110,21 @@ def compute_coverage (properties, atr_name, runs, time_limit=100000):
             coverage[run["algorithm"]] += 1
     properties[atr_name] = coverage
 
+def compute_coverage_range (properties, atr_name, cov_atr_name, plannerset):
+    coverage = properties[cov_atr_name]
+    min_coverage = min([c for p, c in coverage.items() if p in plannerset])
+    max_coverage = max([c for p, c in coverage.items() if p in plannerset])
+    properties[atr_name] = f"{min_coverage}-{max_coverage}"
+
 
 def compute_comparisons (properties, comp_atr_name, cov_atr_name, planners):
     coverage = properties[cov_atr_name]
     properties[comp_atr_name] = sum ([1 for (p1, p2) in itertools.combinations(planners, 2) if coverage[p1] != coverage[p2]])
+
+
+def compute_comparisons_pair (properties, comp_atr_name, cov_atr_name, planners, planners2):
+    coverage = properties[cov_atr_name]
+    properties[comp_atr_name] = sum ([1 for (p1, p2) in itertools.product(planners, planners2) if coverage[p1] != coverage[p2]])
 
 
 def compute_runtimes (properties, atr_name, runs, planners):
@@ -138,33 +150,49 @@ for dataset, domain in all_runs:
 
     properties_dataset[(dataset, domain)] ["track"] = dataset
     properties_dataset[(dataset, domain)] ["domain"] = domain
-    compute_coverage(properties_dataset[(dataset, domain)], "coverage", all_runs[(dataset, domain)])
-    compute_coverage(properties_dataset[(dataset, domain)], "coverage30s", all_runs[(dataset, domain)], 30)
-    compute_coverage(properties_dataset[(dataset, domain)], "coverage300s", all_runs[(dataset, domain)], 300)
 
     compute_runtimes(properties_dataset[(dataset, domain)], "runtimes-training", all_runs[(dataset, domain)], TRAINING_PLANNERS[dataset])
     compute_runtimes(properties_dataset[(dataset, domain)], "runtimes-eval", all_runs[(dataset, domain)], EVALUATION_PLANNERS[dataset])
 
+    compute_coverage(properties_dataset[(dataset, domain)], "coverage", all_runs[(dataset, domain)])
     compute_coverage(properties_dataset[(dataset, domain)], "coverage-ipc", all_runs[(ipcdataset, domain)])
-    compute_coverage(properties_dataset[(dataset, domain)], "coverage30s-ipc", all_runs[(ipcdataset, domain)], 30)
-    compute_coverage(properties_dataset[(dataset, domain)], "coverage300s-ipc", all_runs[(ipcdataset, domain)], 300)
 
+    compute_coverage_range(properties_dataset[(dataset, domain)], "covrange-training", "coverage", TRAINING_PLANNERS[dataset])
+    compute_coverage_range(properties_dataset[(dataset, domain)], "covrange-ipc-training", "coverage-ipc", TRAINING_PLANNERS[dataset])
+
+    compute_coverage_range(properties_dataset[(dataset, domain)], "covrange-eval", "coverage", EVALUATION_PLANNERS[dataset])
+    compute_coverage_range(properties_dataset[(dataset, domain)], "covrange-ipc-eval", "coverage-ipc", EVALUATION_PLANNERS[dataset]
+)
     compute_comparisons(properties_dataset[(dataset, domain)], "comparisons-training", "coverage", TRAINING_PLANNERS[dataset])
     compute_comparisons(properties_dataset[(dataset, domain)], "comparisons-eval", "coverage", EVALUATION_PLANNERS[dataset])
-    compute_comparisons(properties_dataset[(dataset, domain)], "comparisons30s-training", "coverage30s", TRAINING_PLANNERS[dataset])
-    compute_comparisons(properties_dataset[(dataset, domain)], "comparisons30s-eval", "coverage30s", EVALUATION_PLANNERS[dataset])
-    compute_comparisons(properties_dataset[(dataset, domain)], "comparisons300s-training", "coverage300s", TRAINING_PLANNERS[dataset])
-    compute_comparisons(properties_dataset[(dataset, domain)], "comparisons300s-eval", "coverage300s", EVALUATION_PLANNERS[dataset])
+    compute_comparisons_pair(properties_dataset[(dataset, domain)], "comparisons-treval", "coverage", TRAINING_PLANNERS[dataset], EVALUATION_PLANNERS[dataset])
+    compute_comparisons(properties_dataset[(dataset, domain)], "comparisons-all", "coverage", TRAINING_PLANNERS[dataset] + EVALUATION_PLANNERS[dataset])
 
     compute_comparisons(properties_dataset[(dataset, domain)], "comparisons-training-ipc", "coverage-ipc", TRAINING_PLANNERS[dataset])
     compute_comparisons(properties_dataset[(dataset, domain)], "comparisons-eval-ipc", "coverage-ipc", EVALUATION_PLANNERS[dataset])
-    compute_comparisons(properties_dataset[(dataset, domain)], "comparisons30s-training-ipc", "coverage30s-ipc", TRAINING_PLANNERS[dataset])
-    compute_comparisons(properties_dataset[(dataset, domain)], "comparisons30s-eval-ipc", "coverage30s-ipc", EVALUATION_PLANNERS[dataset])
-    compute_comparisons(properties_dataset[(dataset, domain)], "comparisons300s-training-ipc", "coverage300s-ipc", TRAINING_PLANNERS[dataset])
-    compute_comparisons(properties_dataset[(dataset, domain)], "comparisons300s-eval-ipc", "coverage300s-ipc", EVALUATION_PLANNERS[dataset])
+    compute_comparisons_pair(properties_dataset[(dataset, domain)], "comparisons-treval-ipc", "coverage-ipc", TRAINING_PLANNERS[dataset], EVALUATION_PLANNERS[dataset])
+    compute_comparisons(properties_dataset[(dataset, domain)], "comparisons-all-ipc", "coverage-ipc", TRAINING_PLANNERS[dataset] + EVALUATION_PLANNERS[dataset])
 
-    for x in ["comparisons-training", "comparisons-eval", "comparisons300s-training", "comparisons300s-eval" ]:
-        properties_dataset[(dataset, domain)][f"{x}-ipcdiff"] = properties_dataset[(dataset, domain)][x] - properties_dataset[(dataset, domain)][f"{x}-ipc"]
+    for y in ["comparisons-training","comparisons-treval", "comparisons-eval", "comparisons-all"]:
+        properties_dataset[(dataset, domain)][f"{y}-ipcdiff"] = properties_dataset[(dataset, domain)][y] - properties_dataset[(dataset, domain)][f"{y}-ipc"]
+
+    for x in [30, 300]:
+        compute_coverage(properties_dataset[(dataset, domain)], f"coverage{x}s", all_runs[(dataset, domain)], x)
+        compute_coverage(properties_dataset[(dataset, domain)], f"coverage{x}s-ipc", all_runs[(ipcdataset, domain)], x)
+
+        compute_comparisons(properties_dataset[(dataset, domain)], f"comparisons{x}s-training", f"coverage{x}s", TRAINING_PLANNERS[dataset])
+        compute_comparisons(properties_dataset[(dataset, domain)], f"comparisons{x}s-eval", f"coverage{x}s", EVALUATION_PLANNERS[dataset])
+        compute_comparisons_pair(properties_dataset[(dataset, domain)], f"comparisons{x}s-treval", f"coverage{x}s", TRAINING_PLANNERS[dataset], EVALUATION_PLANNERS[dataset])
+
+        compute_comparisons(properties_dataset[(dataset, domain)], f"comparisons{x}s-training-ipc", f"coverage{x}s-ipc", TRAINING_PLANNERS[dataset])
+        compute_comparisons(properties_dataset[(dataset, domain)], f"comparisons{x}s-eval-ipc", f"coverage{x}s-ipc", EVALUATION_PLANNERS[dataset])
+        compute_comparisons_pair(properties_dataset[(dataset, domain)], f"comparisons{x}s-treval-ipc", f"coverage{x}s-ipc", TRAINING_PLANNERS[dataset], EVALUATION_PLANNERS[dataset])
+
+
+
+        for y in [f"comparisons{x}s-training",f"comparisons{x}s-treval", f"comparisons{x}s-eval"]:
+            properties_dataset[(dataset, domain)][f"{y}-ipcdiff"] = properties_dataset[(dataset, domain)][y] - properties_dataset[(dataset, domain)][f"{y}-ipc"]
+
 
 
         LOGDIRS = {"1204" : "../logfiles/2020-12-04/",

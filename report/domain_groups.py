@@ -24,7 +24,9 @@ DOMAIN_GROUPS = {
     "mprime": ["mprime"],
     "mystery": ["mystery"],
     "nomystery": ["nomystery-opt11-strips", "nomystery-sat11-strips"],
-    "openstacks": ["openstacks", "openstacks-strips", "openstacks-opt08-strips", "openstacks-opt11-strips", "openstacks-opt14-strips", "openstacks-sat08-adl", "openstacks-sat08-strips", "openstacks-sat11-strips", "openstacks-sat14-strips", "openstacks-opt08-adl", "openstacks-sat08-adl"],
+    "openstacks": ["openstacks-opt08-strips", "openstacks-opt11-strips", "openstacks-opt14-strips", "openstacks-sat08-strips", "openstacks-sat11-strips", "openstacks-sat14-strips"],
+    "openstacks-adl": ["openstacks-opt08-adl", "openstacks-sat08-adl",],
+    "openstacks-unit": ["openstacks", "openstacks-strips"],
     "optical-telegraphs": ["optical-telegraphs"],
     "parcprinter": ["parcprinter-08-strips", "parcprinter-opt11-strips", "parcprinter-sat11-strips"],
     "parking": ["parking-opt11-strips", "parking-opt14-strips", "parking-sat11-strips", "parking-sat14-strips"],
@@ -76,6 +78,8 @@ for group_name in DOMAIN_GROUPS:
 
 def group_domains(run):
     old_domain = run["domain"]
+    if not old_domain in DOMAIN_RENAMINGS:
+        return None
     run["domain"] = DOMAIN_RENAMINGS[old_domain]
     run["problem"] = old_domain + "-" + run["problem"]
     run["id"][2] = run["problem"]
