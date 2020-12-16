@@ -35,10 +35,8 @@ from runner import Runner
 
 warnings.simplefilter(action="ignore", category=FutureWarning)
 
-
 DIR = os.path.abspath(os.path.dirname(__file__))
 REPO = os.path.dirname(DIR)
-
 
 def parse_args():
     parser = argparse.ArgumentParser()
@@ -116,6 +114,7 @@ def parse_args():
         help="Directory where to store logs and temporary files (default: %(default)s)",
     )
 
+    parser.add_argument("--no-baseline", action="store_true", help="avoid using the runtimes of the baseline, and use the state of the art runtimes instead")
 
     parser.add_argument(
         "--multiple_seeds", type=int, default=0, help="Generate the same instance multiple times with different random seeds (default: %(default)d)"
@@ -219,10 +218,14 @@ class CPLEXSequence:
     def __init__(self, sequence, domain, baseline_eval, sart_eval):
         self.config = sequence['config']
 
-        runtimes_baseline = baseline_eval.get_runtimes(ARGS.sequence_length, 0, PLANNER_TIME_LIMIT)
-        logging.debug(f"Baseline runtimes {runtimes_baseline}")
         runtimes_sart = sart_eval.get_runtimes(ARGS.sequence_length, 0, PLANNER_TIME_LIMIT)
         logging.debug(f"Sart runtimes {runtimes_sart}")
+
+        if ARGS.no_baseline:
+            runtimes_baseline = runtimes_sart
+        else:
+            runtimes_baseline = baseline_eval.get_runtimes(ARGS.sequence_length, 0, PLANNER_TIME_LIMIT)
+            logging.debug(f"Baseline runtimes {runtimes_baseline}")
 
         self.penalty_baseline = baseline_eval.get_penalty(5, 5, 180)
         self.penalty_sart = sart_eval.get_penalty(5, 5, 180)
@@ -249,7 +252,7 @@ class CPLEXSequence:
         else:
             # All instances were solved by the baseline so we switch to use baseline runtimes instead
             self.solved_instances = len(self.runtimes_baseline)
-            self.runtimes = sorted(self.runtimes_baseline)
+            self.runtimes = self.runtimes_baseline
             self.use_baseline_instead_of_sart = True
 
         self.sorted_runtimes = sorted(self.runtimes)
