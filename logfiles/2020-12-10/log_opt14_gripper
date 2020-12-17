@@ -23,6 +23,8 @@ Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singu
 Selected: sequence 2, 30 instances from 0 to 29
 Configuration: {'n_b': 10, 'n_m': 0.2}
 Penalty: 2.33
+Penalty sart: 1.17
+Penalty baseline: 1.17
 Estimated runtimes: 0.74, 1, 1.7, 3.3, 7, 15, 35, 79, 2.5e+02, 6.1e+02, 1.5e+03, 3.7e+03, 9e+03, 2.2e+04, 5.4e+04, 1.3e+05, 3.3e+05, 8e+05, 2e+06, 4.9e+06, 1.2e+07, 2.9e+07, 7.2e+07, 1.8e+08, 4.3e+08, 1.1e+09, 2.6e+09, 6.4e+09, 1.6e+10, 3.9e+10
   p01: {'n': 10}
   p02: {'n': 11}

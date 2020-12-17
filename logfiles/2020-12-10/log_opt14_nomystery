@@ -63,10 +63,14 @@ constrainedness 2.0 328 100
 Selected: sequence 130, 13 instances from 17 to 29
 Configuration: {'constrainedness': 1.5, 'locations_b': 3, 'locations_m': 0.1, 'packages_b': 5, 'packages_m': 1.0}
 Penalty: 7.93
+Penalty sart: 2.28
+Penalty baseline: 5.65
 Estimated runtimes: 1.2e+02, 1.9e+02, 3.4e+02, 6e+02, 1.1e+03, 1.9e+03, 3.4e+03, 6.1e+03, 1.1e+04, 2e+04, 3.5e+04, 6.3e+04, 1.1e+05
 Selected: sequence 140, 17 instances from 0 to 16
 Configuration: {'constrainedness': 2.0, 'locations_b': 9, 'locations_m': 0.1, 'packages_b': 3, 'packages_m': 1.1}
 Penalty: 8.47
+Penalty sart: 1.69
+Penalty baseline: 6.78
 Estimated runtimes: 1.6, 1.7, 1.9, 2.5, 3.8, 5.1, 6.2, 8.7, 16, 19, 24, 2e+02, 6.2e+02, 1.9e+03, 6.1e+03, 1.9e+04, 6.1e+04, 1.9e+05, 6e+05, 1.9e+06, 6e+06, 1.9e+07, 5.9e+07, 1.9e+08, 5.8e+08, 1.8e+09, 5.8e+09, 1.8e+10, 5.7e+10, 1.8e+11
   p01: {'locations': 4, 'packages': 22, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}
   p02: {'locations': 4, 'packages': 23, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}

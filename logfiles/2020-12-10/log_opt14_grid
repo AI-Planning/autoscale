@@ -382,6 +382,8 @@ percentage_cells_locked 0.9 0 0
 Selected: sequence 208, 30 instances from 0 to 29
 Configuration: {'extra_keys_b': 4, 'extra_keys_m': 0.2, 'extra_keys_optional_m': 'true', 'grid_m': 1.3000000000000003, 'grid_maxdiff': 4, 'grid_x': 3, 'percentage_cells_locked': 0.2, 'prob_key_in_goal': 1, 'shapes_b': 1, 'shapes_m': 0.0, 'shapes_optional_m': 'false'}
 Penalty: 6.62
+Penalty sart: 1.91
+Penalty baseline: 4.71
 Estimated runtimes: 1.1, 1.4, 2.4, 2.4, 4.2, 5.5, 8.1, 17, 36, 51, 91, 1.2e+02, 1.3e+02, 1.7e+02, 2.3e+02, 3.6e+02, 5.5e+02, 8.6e+02, 1.3e+03, 2.1e+03, 3.3e+03, 5.1e+03, 7.9e+03, 1.2e+04, 1.9e+04, 3e+04, 4.6e+04, 7.2e+04, 1.1e+05, 1.7e+05
   p01: {'x': 3, 'y': 3, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 1}
   p02: {'x': 3, 'y': 4, 'prob_key_in_goal': 1, 'shapes': 1, 'extra_keys': 4, 'percentage_cells_locked': 0.2, 'keys': 5, 'locks': 2}

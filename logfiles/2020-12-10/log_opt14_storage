@@ -229,10 +229,14 @@ Warning: re-computed penalty 14.885482061558129 = 8 + 6.88548206155813  differs 
 Selected: sequence 16, 13 instances from 4 to 16
 Configuration: {'crates_b': 2, 'crates_m': 1.1, 'depots_b': 2, 'depots_m': 1.0, 'depots_optional_m': 'false', 'hoists_b': 2, 'hoists_m': 2.3000000000000003, 'hoists_optional_m': 'true', 'store_areas_b': 0, 'store_areas_m': 0.5, 'store_areas_optional_m': 'false'}
 Penalty: 11.58
+Penalty sart: 4.08
+Penalty baseline: 7.50
 Estimated runtimes: 1.9, 8, 27, 38, 1.3e+02, 2.1e+02, 5e+02, 1.2e+03, 3e+03, 7.3e+03, 1.8e+04, 4.4e+04, 1.1e+05, 2.6e+05, 6.4e+05, 1.6e+06, 3.8e+06, 9.2e+06, 2.3e+07, 5.5e+07, 1.3e+08, 3.3e+08, 8e+08, 2e+09, 4.8e+09, 1.2e+10
 Selected: sequence 64, 17 instances from 0 to 16
 Configuration: {'crates_b': 2, 'crates_m': 1.0, 'depots_b': 1, 'depots_m': 1.0, 'depots_optional_m': 'false', 'hoists_b': 2, 'hoists_m': 1.9000000000000001, 'hoists_optional_m': 'true', 'store_areas_b': 0, 'store_areas_m': 0.1, 'store_areas_optional_m': 'true'}
 Penalty: 12.53
+Penalty sart: 4.53
+Penalty baseline: 8.00
 Estimated runtimes: 0.54, 0.54, 0.58, 0.67, 0.99, 1.7, 4.1, 13, 34, 99, 2.9e+02, 8.2e+02, 2.4e+03, 6.9e+03, 2e+04, 5.8e+04, 1.7e+05, 4.8e+05, 1.4e+06, 4e+06, 1.2e+07, 3.4e+07, 9.8e+07, 2.8e+08, 8.2e+08, 2.4e+09, 6.8e+09, 2e+10, 5.7e+10, 1.7e+11
   p01: {'crates': 6, 'hoists': 2, 'store_areas': 8, 'depots': 6, 'containers': 2}
   p02: {'crates': 7, 'hoists': 2, 'store_areas': 9, 'depots': 7, 'containers': 2}

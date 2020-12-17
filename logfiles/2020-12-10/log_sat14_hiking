@@ -130,10 +130,14 @@ Warning: re-computed penalty 5.611079006879658 = 4.608667956637234 + 1.002411050
 Selected: sequence 40, 17 instances from 1 to 17
 Configuration: {'n_cars_b': 4, 'n_cars_m': 0.1, 'n_cars_optional_m': 'false', 'n_couples_b': 1, 'n_couples_m': 0.2, 'n_couples_optional_m': 'true', 'n_places_b': 2, 'n_places_m': 1.2000000000000002}
 Penalty: 0.49
+Penalty sart: 0.26
+Penalty baseline: 0.24
 Estimated runtimes: 0.25, 0.37, 0.9, 1.5, 6.1, 13, 30, 57, 1e+02, 2.1e+02, 4.4e+02, 8.9e+02, 1.8e+03, 3.7e+03, 7.5e+03, 1.5e+04, 3.1e+04, 6.4e+04, 1.3e+05, 2.7e+05, 5.4e+05, 1.1e+06, 2.3e+06, 4.6e+06, 9.4e+06, 1.9e+07, 3.9e+07, 8e+07, 1.6e+08
 Selected: sequence 370, 13 instances from 15 to 27
 Configuration: {'n_cars_b': 1, 'n_cars_m': 0.1, 'n_cars_optional_m': 'false', 'n_couples_b': 1, 'n_couples_m': 0.1, 'n_couples_optional_m': 'true', 'n_places_b': 3, 'n_places_m': 1.2000000000000002}
 Penalty: 0.73
+Penalty sart: 0.35
+Penalty baseline: 0.39
 Estimated runtimes: 2.4e+02, 4.1e+02, 7e+02, 1.2e+03, 2.1e+03, 3.5e+03, 6.1e+03, 1e+04, 1.8e+04, 3.1e+04, 5.3e+04, 9e+04, 1.5e+05, 2.6e+05, 4.5e+05
   p01: {'n_couples': 1, 'n_places': 3, 'n_cars': 5}
   p02: {'n_couples': 1, 'n_places': 4, 'n_cars': 5}

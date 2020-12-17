@@ -28,6 +28,8 @@ num_robots 5 199 100
 Selected: sequence 691, 30 instances from 0 to 29
 Configuration: {'grid_m': 6.9, 'grid_maxdiff': 4, 'grid_x': 2, 'num_robots': 5}
 Penalty: 8.38
+Penalty sart: 0.38
+Penalty baseline: 8.00
 Estimated runtimes: 0.18, 0.25, 0.26, 0.38, 0.67, 1.2, 2.3, 3.8, 6.7, 11, 19, 26, 39, 64, 1.2e+02, 1.9e+02, 3.1e+02, 5e+02, 8.1e+02, 1.3e+03, 2.1e+03, 3.4e+03, 5.6e+03, 9e+03, 1.5e+04, 2.4e+04, 3.8e+04, 6.2e+04, 1e+05, 1.6e+05
   p01: {'num_columns': 2, 'num_rows': 2, 'num_robots': 2}
   p02: {'num_columns': 3, 'num_rows': 4, 'num_robots': 3}

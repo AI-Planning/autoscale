@@ -84,10 +84,14 @@ layers 6 6 5
 Selected: sequence 243, 14 instances from 0 to 13
 Configuration: {'extra_items_b': 2, 'extra_items_m': 1.0, 'extra_scripts_b': 9, 'extra_scripts_m': 3.4000000000000004, 'layers': 4, 'network': 'tiny-network'}
 Penalty: 8.32
+Penalty sart: 3.15
+Penalty baseline: 5.17
 Estimated runtimes: 1.3, 7.4, 12, 21, 39, 1.7e+02, 2.7e+02, 6.1e+02, 1.4e+03, 3.1e+03, 7e+03, 1.6e+04, 3.5e+04, 7.9e+04, 1.8e+05, 4e+05, 9e+05, 2e+06, 4.6e+06, 1e+07, 2.3e+07, 5.2e+07, 1.2e+08, 2.6e+08, 5.9e+08, 1.3e+09, 3e+09, 6.8e+09, 1.5e+10, 3.4e+10
 Selected: sequence 141, 16 instances from 0 to 15
 Configuration: {'extra_items_b': 2, 'extra_items_m': 1.0, 'extra_scripts_b': 17, 'extra_scripts_m': 0.8, 'layers': 3, 'network': 'tiny-network'}
 Penalty: 9.71
+Penalty sart: 2.77
+Penalty baseline: 6.94
 Estimated runtimes: 0.87, 8.1, 15, 23, 35, 1.1e+02, 2.3e+02, 4.6e+02, 9.2e+02, 1.9e+03, 3.8e+03, 7.6e+03, 1.5e+04, 3.1e+04, 6.2e+04, 1.2e+05, 2.5e+05, 5.1e+05, 1e+06, 2.1e+06, 4.2e+06, 8.4e+06, 1.7e+07, 3.4e+07, 6.9e+07, 1.4e+08, 2.8e+08, 5.6e+08, 1.1e+09, 2.3e+09
   p01: {'network': 'tiny-network', 'layers': 4, 'extra_items': 2, 'extra_scripts': 9, 'items': 6, 'scripts': 13}
   p02: {'network': 'tiny-network', 'layers': 4, 'extra_items': 3, 'extra_scripts': 12, 'items': 7, 'scripts': 17}

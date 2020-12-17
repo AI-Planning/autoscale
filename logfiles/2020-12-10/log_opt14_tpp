@@ -38,10 +38,14 @@ Warning: re-computed penalty 10.147997226418816 = 7.155388027971203 + 2.99260919
 Selected: sequence 205, 10 instances from 6 to 15
 Configuration: {'depots_b': 10, 'depots_m': 2.9000000000000004, 'depots_optional_m': 'false', 'goods_b': 4, 'goods_m': 0.1, 'markets_b': 1, 'markets_m': 0.4, 'markets_optional_m': 'true', 'products_b': 2, 'products_m': 1.3, 'trucks_b': 2, 'trucks_m': 1.1, 'trucks_optional_m': 'true'}
 Penalty: 7.83
+Penalty sart: 0.81
+Penalty baseline: 7.02
 Estimated runtimes: 9.7, 16, 47, 52, 1.8e+02, 6.2e+02, 2.1e+03, 7.4e+03, 2.5e+04, 8.7e+04, 3e+05, 1e+06, 3.6e+06, 1.2e+07, 4.2e+07, 1.5e+08, 5e+08, 1.7e+09, 6e+09, 2e+10, 7.1e+10, 2.4e+11, 8.4e+11, 2.9e+12
 Selected: sequence 314, 20 instances from 0 to 19
 Configuration: {'depots_b': 10, 'depots_m': 2.0, 'depots_optional_m': 'false', 'goods_b': 4, 'goods_m': 0.1, 'markets_b': 1, 'markets_m': 2.4000000000000004, 'markets_optional_m': 'true', 'products_b': 2, 'products_m': 1.2, 'trucks_b': 2, 'trucks_m': 4.6, 'trucks_optional_m': 'true'}
 Penalty: 8.28
+Penalty sart: 1.47
+Penalty baseline: 6.81
 Estimated runtimes: 1.2, 1.7, 2.2, 2.8, 3.4, 7.8, 12, 12, 23, 37, 1.7e+02, 3.6e+02, 7.5e+02, 1.6e+03, 3.4e+03, 7.1e+03, 1.5e+04, 3.2e+04, 6.7e+04, 1.4e+05, 3e+05, 6.4e+05, 1.4e+06, 2.9e+06, 6e+06, 1.3e+07, 2.7e+07, 5.7e+07, 1.2e+08, 2.6e+08
   p01: {'products': 9, 'markets': 1, 'trucks': 2, 'depots': 27, 'goods': 4}
   p02: {'products': 11, 'markets': 1, 'trucks': 2, 'depots': 30, 'goods': 4}

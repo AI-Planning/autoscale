@@ -59,6 +59,8 @@ layers 6 11 11
 Selected: sequence 104, 30 instances from 0 to 29
 Configuration: {'extra_items_b': 2, 'extra_items_m': 1.7000000000000002, 'extra_scripts_b': 2, 'extra_scripts_m': 0.6000000000000001, 'layers': 2, 'network': 'ring-network'}
 Penalty: 6.76
+Penalty sart: 2.12
+Penalty baseline: 4.64
 Estimated runtimes: 0.9, 1.1, 1.4, 1.9, 2.7, 3.8, 5.7, 7.4, 10, 14, 36, 38, 41, 79, 98, 1.8e+02, 2.9e+02, 4.5e+02, 7e+02, 1.1e+03, 1.7e+03, 2.7e+03, 4.2e+03, 6.5e+03, 1e+04, 1.6e+04, 2.5e+04, 3.9e+04, 6e+04, 9.4e+04
   p01: {'network': 'ring-network', 'layers': 2, 'extra_items': 2, 'extra_scripts': 2, 'items': 4, 'scripts': 4}
   p02: {'network': 'ring-network', 'layers': 2, 'extra_items': 3, 'extra_scripts': 2, 'items': 5, 'scripts': 5}

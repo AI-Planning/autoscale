@@ -136,10 +136,14 @@ Warning: re-computed penalty 9.415816279801092 = 6.230334122201874 + 3.185482157
 Selected: sequence 349, 21 instances from 3 to 23
 Configuration: {'cameras_b': 3, 'cameras_m': 2.2, 'cameras_optional_m': 'true', 'goals_b': 2, 'goals_m': 1.0, 'objectives_b': 2, 'objectives_m': 2.0, 'objectives_optional_m': 'false', 'rovers_b': 1, 'rovers_m': 0.5, 'rovers_optional_m': 'true', 'waypoints_b': 4, 'waypoints_m': 1.0}
 Penalty: 5.05
+Penalty sart: 1.65
+Penalty baseline: 3.40
 Estimated runtimes: 1.5, 1.6, 2.1, 2.1, 3.1, 3.3, 3.8, 5.8, 5.9, 10, 20, 21, 1.2e+02, 1.4e+02, 3.1e+02, 7.3e+02, 1.7e+03, 3.9e+03, 9.2e+03, 2.1e+04, 5e+04, 1.2e+05, 2.7e+05, 6.2e+05, 1.4e+06, 3.4e+06, 7.8e+06
 Selected: sequence 330, 9 instances from 17 to 25
 Configuration: {'cameras_b': 4, 'cameras_m': 1.1, 'cameras_optional_m': 'true', 'goals_b': 2, 'goals_m': 1.0, 'objectives_b': 7, 'objectives_m': 2.0, 'objectives_optional_m': 'false', 'rovers_b': 1, 'rovers_m': 0.5, 'rovers_optional_m': 'true', 'waypoints_b': 4, 'waypoints_m': 1.0}
 Penalty: 7.07
+Penalty sart: 2.15
+Penalty baseline: 4.92
 Estimated runtimes: 2.5e+02, 5.2e+02, 1.1e+03, 2.3e+03, 4.9e+03, 1e+04, 2.2e+04, 4.6e+04, 9.6e+04, 2e+05, 4.3e+05, 9e+05, 1.9e+06
   p01: {'rovers': 1, 'objectives': 8, 'cameras': 3, 'goals': 5, 'waypoints': 7}
   p02: {'rovers': 1, 'objectives': 10, 'cameras': 3, 'goals': 6, 'waypoints': 8}

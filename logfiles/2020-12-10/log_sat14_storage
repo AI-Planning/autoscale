@@ -427,6 +427,8 @@ Warning: re-computed penalty 11.2330368329694 = 5.631999099623582 + 5.6010377333
 Selected: sequence 237, 30 instances from 0 to 29
 Configuration: {'crates_b': 3, 'crates_m': 1.0, 'depots_b': 1, 'depots_m': 0.5, 'depots_optional_m': 'true', 'hoists_b': 3, 'hoists_m': 2.0, 'hoists_optional_m': 'true', 'store_areas_b': 7, 'store_areas_m': 3.8000000000000003, 'store_areas_optional_m': 'false'}
 Penalty: 9.06
+Penalty sart: 1.06
+Penalty baseline: 8.00
 Estimated runtimes: 0.25, 0.26, 0.41, 0.63, 1.1, 2, 3.7, 5.8, 8.9, 12, 22, 29, 75, 81, 1.1e+02, 1.1e+02, 1.8e+02, 2.8e+02, 4.4e+02, 6.9e+02, 1.1e+03, 1.7e+03, 2.7e+03, 4.2e+03, 6.6e+03, 1e+04, 1.6e+04, 2.5e+04, 4e+04, 6.2e+04
   p01: {'crates': 3, 'hoists': 3, 'store_areas': 10, 'depots': 1, 'containers': 1}
   p02: {'crates': 4, 'hoists': 3, 'store_areas': 14, 'depots': 1, 'containers': 1}

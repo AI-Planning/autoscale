@@ -43,6 +43,8 @@ wood_factor 2.0 157 100
 Selected: sequence 177, 30 instances from 0 to 29
 Configuration: {'num_machines': 2, 'size_b': 6, 'size_m': 4.800000000000001, 'wood_factor': 2.0}
 Penalty: 6.98
+Penalty sart: 1.08
+Penalty baseline: 5.91
 Estimated runtimes: 0.33, 0.66, 2.6, 5.5, 10, 17, 23, 34, 45, 62, 75, 90, 1.3e+02, 1.9e+02, 2.7e+02, 4e+02, 5.7e+02, 8.2e+02, 1.2e+03, 1.7e+03, 2.5e+03, 3.5e+03, 5.1e+03, 7.3e+03, 1.1e+04, 1.5e+04, 2.2e+04, 3.1e+04, 4.5e+04, 6.5e+04
   p01: {'size': 6, 'num_machines': 2, 'wood_factor': 2.0}
   p02: {'size': 10, 'num_machines': 2, 'wood_factor': 2.0}

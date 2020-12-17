@@ -756,10 +756,14 @@ Warning: No temporary dir for Runner has been provided but I have no data for {'
 Selected: sequence 1722, 22 instances from 0 to 21
 Configuration: {'floors_b': 7, 'floors_m': 1.8000000000000003, 'floors_optional_m': 'false', 'passengers_b': 9, 'passengers_m': 1.3000000000000003}
 Penalty: 7.61
+Penalty sart: 2.39
+Penalty baseline: 5.21
 Estimated runtimes: 0.52, 0.53, 0.54, 0.58, 0.7, 0.84, 1.7, 5, 5.5, 7.6, 7.8, 41, 47, 65, 97, 2.2e+02, 5.2e+02, 1.2e+03, 2.7e+03, 6.4e+03, 1.5e+04, 3.4e+04, 7.8e+04, 1.8e+05, 4.2e+05, 9.6e+05, 2.2e+06, 5.1e+06, 1.2e+07, 2.7e+07
 Selected: sequence 836, 8 instances from 17 to 24
 Configuration: {'floors_b': 7, 'floors_m': 0.6, 'floors_optional_m': 'false', 'passengers_b': 8, 'passengers_m': 1.5000000000000002}
 Penalty: 9.17
+Penalty sart: 2.27
+Penalty baseline: 6.90
 Estimated runtimes: 3e+02, 5.4e+02, 9.8e+02, 1.8e+03, 3.2e+03, 5.8e+03, 1.1e+04, 1.9e+04, 3.5e+04, 6.3e+04, 1.1e+05, 2.1e+05, 3.8e+05
   p01: {'passengers': 9, 'floors': 7}
   p02: {'passengers': 10, 'floors': 8}

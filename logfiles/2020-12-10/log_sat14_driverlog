@@ -60,6 +60,8 @@ Warning: re-computed penalty 15.284698120908537 = 8 + 7.284698120908536  differs
 Selected: sequence 45, 30 instances from 0 to 29
 Configuration: {'drivers_b': 2, 'drivers_m': 2.7, 'drivers_optional_m': 'false', 'packages_b': 13, 'packages_m': 2.5, 'roadjunctions_b': 4, 'roadjunctions_m': 0.2, 'roadjunctions_optional_m': 'true', 'trucks_b': 1, 'trucks_m': 0.9, 'trucks_optional_m': 'false'}
 Penalty: 4.35
+Penalty sart: 1.20
+Penalty baseline: 3.15
 Estimated runtimes: 0.55, 0.71, 0.97, 1.6, 2.3, 3.4, 8, 14, 16, 25, 41, 43, 74, 75, 1.9e+02, 3e+02, 4.7e+02, 7.2e+02, 1.1e+03, 1.8e+03, 2.7e+03, 4.3e+03, 6.6e+03, 1e+04, 1.6e+04, 2.5e+04, 3.9e+04, 6.1e+04, 9.5e+04, 1.5e+05
   p01: {'drivers': 2, 'packages': 13, 'roadjunctions': 4, 'trucks': 3}
   p02: {'drivers': 4, 'packages': 15, 'roadjunctions': 4, 'trucks': 5}

@@ -24,10 +24,14 @@ Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singu
 Selected: sequence 16, 18 instances from 0 to 17
 Configuration: {'n_cars_b': 1, 'n_cars_m': 4.9, 'n_cars_optional_m': 'true', 'n_couples_b': 1, 'n_couples_m': 0.5, 'n_couples_optional_m': 'true', 'n_places_b': 12, 'n_places_m': 2.2}
 Penalty: 0.39
+Penalty sart: 0.20
+Penalty baseline: 0.19
 Estimated runtimes: 6.2, 11, 19, 42, 70, 1.2e+02, 2.1e+02, 3.8e+02, 6.8e+02, 1.2e+03, 2.2e+03, 4e+03, 7.2e+03, 1.3e+04, 2.4e+04, 4.2e+04, 7.7e+04, 1.4e+05, 2.5e+05, 4.5e+05, 8.1e+05, 1.5e+06, 2.6e+06, 4.8e+06, 8.6e+06, 1.5e+07, 2.8e+07, 5e+07, 9.1e+07, 1.6e+08
 Selected: sequence 21, 12 instances from 7 to 18
 Configuration: {'n_cars_b': 2, 'n_cars_m': 4.5, 'n_cars_optional_m': 'true', 'n_couples_b': 1, 'n_couples_m': 3.9000000000000004, 'n_couples_optional_m': 'true', 'n_places_b': 7, 'n_places_m': 0.5}
 Penalty: 0.48
+Penalty sart: 0.36
+Penalty baseline: 0.12
 Estimated runtimes: 1.4e+02, 3.1e+02, 5.5e+02, 1e+03, 1.8e+03, 3.3e+03, 6e+03, 1.1e+04, 2e+04, 3.6e+04, 6.5e+04, 1.2e+05, 2.1e+05, 3.9e+05, 7e+05, 1.3e+06, 2.3e+06, 4.2e+06, 7.6e+06, 1.4e+07, 2.5e+07, 4.5e+07, 8.2e+07
   p01: {'n_couples': 1, 'n_places': 12, 'n_cars': 2}
   p02: {'n_couples': 1, 'n_places': 14, 'n_cars': 2}

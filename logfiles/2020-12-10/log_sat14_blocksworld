@@ -54,6 +54,8 @@ Warning: re-computed penalty 12.856935682369334 = 7.435553642922031 + 5.42138203
 Selected: sequence 46, 30 instances from 0 to 29
 Configuration: {'n_b': 9, 'n_m': 4.9}
 Penalty: 8.72
+Penalty sart: 1.38
+Penalty baseline: 7.34
 Estimated runtimes: 0.25, 0.31, 0.43, 0.73, 1.1, 1.5, 2.1, 2.7, 4, 8.8, 9.5, 11, 13, 26, 35, 1.3e+02, 1.3e+02, 1.8e+02, 3.1e+02, 5.2e+02, 8.7e+02, 1.5e+03, 2.5e+03, 4.2e+03, 7.1e+03, 1.2e+04, 2e+04, 3.4e+04, 5.7e+04, 9.7e+04
   p01: {'n': 9}
   p02: {'n': 13}

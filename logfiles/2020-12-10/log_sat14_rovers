@@ -41,6 +41,8 @@ Warning: re-computed penalty 21.404159959118022 = 8.514298532963785 + 12.8898614
 Selected: sequence 217, 30 instances from 0 to 29
 Configuration: {'cameras_b': 6, 'cameras_m': 3.9000000000000004, 'cameras_optional_m': 'false', 'goals_b': 6, 'goals_m': 4.4, 'objectives_b': 6, 'objectives_m': 4.3, 'objectives_optional_m': 'false', 'rovers_b': 2, 'rovers_m': 1.7000000000000002, 'rovers_optional_m': 'false', 'waypoints_b': 6, 'waypoints_m': 1.0}
 Penalty: 14.75
+Penalty sart: 6.75
+Penalty baseline: 8.00
 Estimated runtimes: 0.59, 0.74, 1.1, 1.7, 2, 3.7, 5.1, 6.7, 8.3, 11, 13, 16, 19, 27, 30, 36, 48, 59, 74, 84, 89, 1e+02, 1.1e+02, 1.2e+02, 1.8e+02, 2.7e+02, 4e+02, 5.9e+02, 8.8e+02, 1.3e+03
   p01: {'rovers': 2, 'objectives': 6, 'cameras': 6, 'goals': 6, 'waypoints': 6}
   p02: {'rovers': 3, 'objectives': 10, 'cameras': 9, 'goals': 10, 'waypoints': 7}

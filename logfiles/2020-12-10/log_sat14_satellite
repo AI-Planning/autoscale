@@ -38,6 +38,8 @@ Warning: re-computed penalty 19.170825357650248 = 6.469866160126434 + 12.7009591
 Selected: sequence 114, 30 instances from 0 to 29
 Configuration: {'modes_b': 2, 'modes_m': 0.4, 'modes_optional_m': 'false', 'observations_b': 39, 'observations_m': 8.4, 'satellites_b': 5, 'satellites_m': 0.9, 'satellites_optional_m': 'false', 'targets_b': 18, 'targets_m': 2.2}
 Penalty: 2.81
+Penalty sart: 0.90
+Penalty baseline: 1.92
 Estimated runtimes: 3.1, 4.2, 6.5, 10, 13, 17, 25, 34, 43, 53, 69, 91, 99, 1.2e+02, 1.8e+02, 2.8e+02, 4.2e+02, 6.5e+02, 1e+03, 1.5e+03, 2.3e+03, 3.6e+03, 5.5e+03, 8.5e+03, 1.3e+04, 2e+04, 3.1e+04, 4.7e+04, 7.2e+04, 1.1e+05
   p01: {'satellites': 5, 'targets': 18, 'modes': 2, 'observations': 39}
   p02: {'satellites': 5, 'targets': 20, 'modes': 2, 'observations': 47}

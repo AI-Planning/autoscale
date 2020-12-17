@@ -29,14 +29,20 @@ num_ingredients 6 20 10
 Selected: sequence 30, 13 instances from 0 to 12
 Configuration: {'num_cocktails_b': 1, 'num_cocktails_m': 0.1, 'num_ingredients': 2, 'num_shots_b': 2, 'num_shots_m': 1.1, 'num_shots_optional_m': 'false'}
 Penalty: 11.52
+Penalty sart: 4.67
+Penalty baseline: 6.85
 Estimated runtimes: 1.8, 2.2, 2.9, 4.5, 8.3, 26, 1.2e+02, 2.8e+02, 9.3e+02, 3.2e+03, 1.1e+04, 3.6e+04, 1.2e+05, 4.1e+05, 1.4e+06, 4.7e+06, 1.6e+07, 5.3e+07, 1.8e+08, 6.1e+08, 2.1e+09, 6.9e+09, 2.3e+10, 7.9e+10, 2.7e+11, 9e+11, 3e+12, 1e+13, 3.5e+13, 1.2e+14
 Selected: sequence 26, 6 instances from 5 to 10
 Configuration: {'num_cocktails_b': 1, 'num_cocktails_m': 0.1, 'num_ingredients': 4, 'num_shots_b': 1, 'num_shots_m': 0.7000000000000001, 'num_shots_optional_m': 'false'}
 Penalty: 11.54
+Penalty sart: 4.20
+Penalty baseline: 7.34
 Estimated runtimes: 62, 2.5e+02, 9.9e+02, 4e+03, 1.6e+04, 6.4e+04, 2.6e+05, 1e+06, 4.1e+06, 1.6e+07, 6.6e+07, 2.7e+08, 1.1e+09, 4.3e+09, 1.7e+10, 6.8e+10, 2.7e+11, 1.1e+12, 4.4e+12, 1.8e+13, 7.1e+13, 2.8e+14, 1.1e+15, 4.6e+15, 1.8e+16
 Selected: sequence 40, 11 instances from 0 to 10
 Configuration: {'num_cocktails_b': 1, 'num_cocktails_m': 0.2, 'num_ingredients': 5, 'num_shots_b': 2, 'num_shots_m': 0.9, 'num_shots_optional_m': 'false'}
 Penalty: 12.28
+Penalty sart: 4.85
+Penalty baseline: 7.43
 Estimated runtimes: 2.8, 3.7, 6.1, 16, 62, 2e+02, 6.6e+02, 2.1e+03, 7e+03, 2.3e+04, 7.4e+04, 2.4e+05, 7.9e+05, 2.6e+06, 8.4e+06, 2.7e+07, 8.9e+07, 2.9e+08, 9.5e+08, 3.1e+09, 1e+10, 3.3e+10, 1.1e+11, 3.5e+11, 1.1e+12, 3.7e+12, 1.2e+13, 3.9e+13, 1.3e+14, 4.2e+14
   p01: {'num_cocktails': 1, 'num_shots': 3, 'num_ingredients': 2}
   p02: {'num_cocktails': 1, 'num_shots': 4, 'num_ingredients': 2}

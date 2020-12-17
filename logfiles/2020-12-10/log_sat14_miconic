@@ -4325,6 +4325,8 @@ Warning: re-computed penalty 26.79580307347298 = 14.425619310408017 + 12.3701837
 Selected: sequence 88, 30 instances from 0 to 29
 Configuration: {'floors_b': 5, 'floors_m': 4.9, 'floors_optional_m': 'false', 'passengers_b': 15, 'passengers_m': 4.9}
 Penalty: 23.05
+Penalty sart: 11.46
+Penalty baseline: 11.58
 Estimated runtimes: 0.54, 0.58, 0.6, 0.6, 0.65, 0.79, 0.84, 0.95, 1.1, 1.2, 1.4, 1.7, 2, 2.3, 2.7, 2.9, 3.5, 3.7, 4.2, 5, 5.6, 5.8, 7.5, 8.1, 11, 12, 13, 18, 19, 21
   p01: {'passengers': 15, 'floors': 5}
   p02: {'passengers': 19, 'floors': 9}

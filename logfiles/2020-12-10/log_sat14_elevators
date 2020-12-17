@@ -45,6 +45,8 @@ fast_elevators 3 178 100
 Selected: sequence 361, 30 instances from 0 to 29
 Configuration: {'area_size_b': 2, 'area_size_m': 1.0, 'area_size_optional_m': 'false', 'fast_elevators': 3, 'num_areas': 4, 'passengers_b': 3, 'passengers_m': 4.1}
 Penalty: 9.12
+Penalty sart: 1.12
+Penalty baseline: 8.00
 Estimated runtimes: 0.68, 1, 1.1, 1.8, 2.4, 4.8, 5.5, 8.1, 19, 20, 44, 48, 83, 1.3e+02, 1.4e+02, 2.3e+02, 3.7e+02, 5.8e+02, 9.3e+02, 1.5e+03, 2.4e+03, 3.8e+03, 6e+03, 9.6e+03, 1.5e+04, 2.4e+04, 3.9e+04, 6.2e+04, 9.9e+04, 1.6e+05
   p01: {'num_areas': 4, 'area_size': 2, 'passengers': 3, 'fast_elevators': 3, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}
   p02: {'num_areas': 4, 'area_size': 3, 'passengers': 7, 'fast_elevators': 3, 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2}

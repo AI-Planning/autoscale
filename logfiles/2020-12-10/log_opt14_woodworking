@@ -42,14 +42,20 @@ wood_factor 2.0 41 3
 Selected: sequence 7, 13 instances from 0 to 12
 Configuration: {'num_machines': 1, 'size_b': 3, 'size_m': 1.1, 'wood_factor': 1.25}
 Penalty: 12.92
+Penalty sart: 5.12
+Penalty baseline: 7.80
 Estimated runtimes: 1.3, 1.6, 2.2, 2.9, 10, 27, 1.6e+02, 2.6e+02, 9e+02, 3.1e+03, 1.1e+04, 3.6e+04, 1.2e+05, 4.2e+05, 1.4e+06, 4.9e+06, 1.7e+07, 5.7e+07, 2e+08, 6.7e+08, 2.3e+09, 7.8e+09, 2.7e+10, 9.1e+10, 3.1e+11, 1.1e+12, 3.6e+12, 1.2e+13, 4.2e+13, 1.4e+14
 Selected: sequence 51, 10 instances from 3 to 12
 Configuration: {'num_machines': 3, 'size_b': 2, 'size_m': 1.0, 'wood_factor': 1.25}
 Penalty: 12.43
+Penalty sart: 4.95
+Penalty baseline: 7.48
 Estimated runtimes: 3.2, 7.1, 25, 1.6e+02, 2.1e+02, 7.7e+02, 2.9e+03, 1.1e+04, 3.9e+04, 1.5e+05, 5.5e+05, 2e+06, 7.5e+06, 2.8e+07, 1e+08, 3.9e+08, 1.4e+09, 5.4e+09, 2e+10, 7.4e+10, 2.8e+11, 1e+12, 3.8e+12, 1.4e+13, 5.3e+13, 2e+14, 7.3e+14
 Selected: sequence 56, 7 instances from 6 to 12
 Configuration: {'num_machines': 3, 'size_b': 2, 'size_m': 1.0, 'wood_factor': 2.0}
 Penalty: 13.15
+Penalty sart: 5.35
+Penalty baseline: 7.80
 Estimated runtimes: 1.4e+02, 2.8e+02, 9.8e+02, 3.5e+03, 1.2e+04, 4.4e+04, 1.6e+05, 5.6e+05, 2e+06, 7.2e+06, 2.6e+07, 9.1e+07, 3.2e+08, 1.2e+09, 4.1e+09, 1.5e+10, 5.2e+10, 1.9e+11, 6.6e+11, 2.4e+12, 8.4e+12, 3e+13, 1.1e+14, 3.8e+14
   p01: {'size': 3, 'num_machines': 1, 'wood_factor': 1.25}
   p02: {'size': 4, 'num_machines': 1, 'wood_factor': 1.25}

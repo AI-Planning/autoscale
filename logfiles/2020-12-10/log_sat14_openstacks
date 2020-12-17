@@ -30,6 +30,8 @@ density 80 15 15
 Selected: sequence 170, 30 instances from 0 to 29
 Configuration: {'density': 20, 'orders_b': 5, 'orders_m': 29.900000000000002, 'products_b': 5, 'products_m': 1.7000000000000002}
 Penalty: 10.09
+Penalty sart: 0.09
+Penalty baseline: 10.00
 Estimated runtimes: 0.23, 0.82, 3.3, 7, 13, 20, 31, 46, 60, 81, 1.1e+02, 1.3e+02, 1.6e+02, 2.3e+02, 3.3e+02, 4.7e+02, 6.7e+02, 9.6e+02, 1.4e+03, 2e+03, 2.8e+03, 4e+03, 5.7e+03, 8.2e+03, 1.2e+04, 1.7e+04, 2.4e+04, 3.4e+04, 4.8e+04, 6.9e+04
   p01: {'density': 20, 'products': 5, 'orders': 5}
   p02: {'density': 20, 'products': 6, 'orders': 34}

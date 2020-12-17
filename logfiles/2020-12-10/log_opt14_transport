@@ -38,6 +38,8 @@ generator three-cities-generator.py 24 19
 Selected: sequence 126, 30 instances from 0 to 29
 Configuration: {'degree': 3, 'generator': 'city-generator.py', 'nodes_b': 2, 'nodes_m': 0.7000000000000001, 'nodes_optional_m': 'true', 'packages_b': 6, 'packages_m': 1.6, 'trucks_b': 2, 'trucks_m': 2.2, 'trucks_optional_m': 'true'}
 Penalty: 8.48
+Penalty sart: 1.27
+Penalty baseline: 7.20
 Estimated runtimes: 0.95, 1, 1.2, 1.4, 2.1, 2.6, 4.2, 7, 8.7, 15, 25, 29, 51, 67, 1.3e+02, 2.1e+02, 3.3e+02, 5.2e+02, 8.3e+02, 1.3e+03, 2.1e+03, 3.3e+03, 5.3e+03, 8.5e+03, 1.3e+04, 2.1e+04, 3.4e+04, 5.4e+04, 8.6e+04, 1.4e+05
   p01: {'size': 1000, 'mindistance': 100, 'nodes': 2, 'packages': 6, 'trucks': 2, 'degree': 3, 'generator': 'city-generator.py'}
   p02: {'size': 1000, 'mindistance': 100, 'nodes': 2, 'packages': 7, 'trucks': 2, 'degree': 3, 'generator': 'city-generator.py'}

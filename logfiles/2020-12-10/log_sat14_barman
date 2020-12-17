@@ -52,6 +52,8 @@ num_ingredients 6 1 1
 Selected: sequence 211, 30 instances from 0 to 29
 Configuration: {'num_cocktails_b': 3, 'num_cocktails_m': 4.2, 'num_ingredients': 2, 'num_shots_b': 4, 'num_shots_m': 0.30000000000000004, 'num_shots_optional_m': 'true'}
 Penalty: 4.95
+Penalty sart: 1.28
+Penalty baseline: 3.67
 Estimated runtimes: 0.73, 1, 1.6, 2.6, 4.2, 8.6, 14, 15, 16, 25, 42, 65, 1.4e+02, 1.5e+02, 2e+02, 2.9e+02, 4.2e+02, 6e+02, 8.8e+02, 1.3e+03, 1.8e+03, 2.7e+03, 3.9e+03, 5.6e+03, 8.1e+03, 1.2e+04, 1.7e+04, 2.5e+04, 3.6e+04, 5.2e+04
   p01: {'num_cocktails': 3, 'num_shots': 7, 'num_ingredients': 2}
   p02: {'num_cocktails': 7, 'num_shots': 11, 'num_ingredients': 2}

@@ -146,10 +146,14 @@ num_spawn_apples 100% 3 1
 Selected: sequence 12, 20 instances from 6 to 25
 Configuration: {'grid_m': 0.30000000000000004, 'grid_maxdiff': 5, 'grid_x': 3, 'num_spawn_apples': '55%'}
 Penalty: 2.93
+Penalty sart: 1.51
+Penalty baseline: 1.42
 Estimated runtimes: 2.3, 3.2, 3.4, 3.8, 6.4, 10, 17, 75, 1e+02, 1.1e+02, 2.1e+02, 4.2e+02, 8.5e+02, 1.7e+03, 3.4e+03, 6.8e+03, 1.4e+04, 2.7e+04, 5.5e+04, 1.1e+05, 2.2e+05, 4.4e+05, 8.9e+05, 1.8e+06
 Selected: sequence 176, 10 instances from 10 to 19
 Configuration: {'grid_m': 1.1, 'grid_maxdiff': 5, 'grid_x': 3, 'num_spawn_apples': '85%'}
 Penalty: 5.73
+Penalty sart: 2.83
+Penalty baseline: 2.90
 Estimated runtimes: 77, 1.8e+02, 4.2e+02, 9.7e+02, 2.3e+03, 5.3e+03, 1.2e+04, 2.9e+04, 6.6e+04, 1.5e+05, 3.6e+05, 8.4e+05, 1.9e+06, 4.5e+06, 1.1e+07, 2.4e+07, 5.7e+07, 1.3e+08, 3.1e+08, 7.2e+08
   p01: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 3, 'y_grid': 7, 'num_spawn_apples': '55%', 'board': 'empty-3x7'}
   p02: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 3, 'y_grid': 8, 'num_spawn_apples': '55%', 'board': 'empty-3x8'}

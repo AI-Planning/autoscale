@@ -220,15 +220,17 @@ class CPLEXSequence:
 
         runtimes_sart = sart_eval.get_runtimes(ARGS.sequence_length, 0, PLANNER_TIME_LIMIT)
         logging.debug(f"Sart runtimes {runtimes_sart}")
+        self.penalty_sart = sart_eval.get_penalty(5, 5, 180)
 
         if ARGS.no_baseline:
             runtimes_baseline = runtimes_sart
+            self.penalty_baseline = self.penalty_sart
         else:
             runtimes_baseline = baseline_eval.get_runtimes(ARGS.sequence_length, 0, PLANNER_TIME_LIMIT)
             logging.debug(f"Baseline runtimes {runtimes_baseline}")
 
-        self.penalty_baseline = baseline_eval.get_penalty(5, 5, 180)
-        self.penalty_sart = sart_eval.get_penalty(5, 5, 180)
+            self.penalty_baseline = baseline_eval.get_penalty(5, 5, 180)
+
 
         self.penalty = self.penalty_baseline + self.penalty_sart
 
@@ -646,6 +648,8 @@ for seq in candidate_sequences:
                         print (f"Selected: sequence {seq_id}, {endi+1-i} instances from {i} to {endi}")
                         print(f"Configuration: {sequences_by_id[seq_id].config}")
                         print(f"Penalty: {'{:.2f}'.format(sequences_by_id[seq_id].penalty)}")
+                        print(f"Penalty sart: {'{:.2f}'.format(sequences_by_id[seq_id].penalty_sart)}")
+                        print(f"Penalty baseline: {'{:.2f}'.format(sequences_by_id[seq_id].penalty_baseline)}")
                         print (f"Estimated runtimes: {runtimes}")
 
                         final_selection += sequences_by_id[seq_id].get_instances(i, endi+1)

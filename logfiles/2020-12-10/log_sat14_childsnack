@@ -255,10 +255,14 @@ gluten_factor 0.8 343 24
 Selected: sequence 7, 18 instances from 1 to 18
 Configuration: {'const_ratio': 1, 'gluten_factor': 0.8, 'num_children_b': 4, 'num_children_m': 1.1, 'num_trays': 3}
 Penalty: 9.81
+Penalty sart: 3.56
+Penalty baseline: 6.25
 Estimated runtimes: 0.35, 0.45, 0.62, 1.8, 6.8, 7.4, 25, 1.3e+02, 1.4e+02, 1.7e+02, 2.9e+02, 7.2e+02, 1.8e+03, 4.5e+03, 1.1e+04, 2.8e+04, 7.1e+04, 1.8e+05, 4.4e+05, 1.1e+06, 2.8e+06, 6.9e+06, 1.7e+07, 4.3e+07, 1.1e+08, 2.7e+08, 6.7e+08, 1.7e+09, 4.2e+09
 Selected: sequence 25, 12 instances from 8 to 19
 Configuration: {'const_ratio': 1.3, 'gluten_factor': 0.8, 'num_children_b': 4, 'num_children_m': 1.1, 'num_trays': 4}
 Penalty: 10.66
+Penalty sart: 3.32
+Penalty baseline: 7.34
 Estimated runtimes: 1.6e+02, 1.9e+02, 3.6e+02, 6.8e+02, 1.3e+03, 2.4e+03, 4.5e+03, 8.6e+03, 1.6e+04, 3.1e+04, 5.8e+04, 1.1e+05, 2.1e+05, 3.9e+05, 7.3e+05, 1.4e+06, 2.6e+06, 4.9e+06, 9.3e+06, 1.8e+07, 3.3e+07, 6.3e+07
   p01: {'num_children': 5, 'const_ratio': 1, 'num_trays': 3, 'gluten_factor': 0.8}
   p02: {'num_children': 6, 'const_ratio': 1, 'num_trays': 3, 'gluten_factor': 0.8}

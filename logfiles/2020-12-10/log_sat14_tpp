@@ -23,6 +23,8 @@ Singularity script: /home/alvaro/projects/benchmarks/code/optimization/run-singu
 Selected: sequence 60, 30 instances from 0 to 29
 Configuration: {'depots_b': 10, 'depots_m': 1.5000000000000002, 'depots_optional_m': 'true', 'goods_b': 10, 'goods_m': 1.3000000000000003, 'markets_b': 1, 'markets_m': 1.5000000000000002, 'markets_optional_m': 'true', 'products_b': 3, 'products_m': 1.0, 'trucks_b': 2, 'trucks_m': 0.5, 'trucks_optional_m': 'true'}
 Penalty: 1.85
+Penalty sart: 0.79
+Penalty baseline: 1.06
 Estimated runtimes: 2.4, 3.6, 5.2, 7.6, 12, 16, 22, 30, 39, 51, 72, 1e+02, 1.4e+02, 1.5e+02, 2e+02, 2.7e+02, 3.7e+02, 5e+02, 6.7e+02, 9.1e+02, 1.2e+03, 1.7e+03, 2.2e+03, 3e+03, 4.1e+03, 5.6e+03, 7.5e+03, 1e+04, 1.4e+04, 1.9e+04
   p01: {'products': 3, 'markets': 1, 'trucks': 2, 'depots': 10, 'goods': 10}
   p02: {'products': 4, 'markets': 1, 'trucks': 2, 'depots': 10, 'goods': 11}

@@ -38,10 +38,14 @@ Warning: No temporary dir for Runner has been provided but I have no data for {'
 Selected: sequence 238, 19 instances from 0 to 18
 Configuration: {'city_size_b': 2, 'city_size_m': 0.6000000000000001, 'city_size_optional_m': 'true', 'extra_trucks_b': 5, 'extra_trucks_m': 0.0, 'extra_trucks_optional_m': 'false', 'num_airplanes_b': 2, 'num_airplanes_m': 1.1, 'num_airplanes_optional_m': 'true', 'num_cities_b': 2, 'num_cities_m': 0.2, 'num_cities_optional_m': 'true', 'num_packages_b': 2, 'num_packages_m': 1.1}
 Penalty: 9.22
+Penalty sart: 3.05
+Penalty baseline: 6.17
 Estimated runtimes: 0.48, 0.49, 0.49, 0.5, 0.6, 0.66, 0.7, 0.75, 4.8, 6.5, 6.7, 59, 79, 1.3e+02, 5.1e+02, 2e+03, 8e+03, 3.1e+04, 1.2e+05, 4.9e+05, 1.9e+06, 7.6e+06, 3e+07, 1.2e+08, 4.7e+08, 1.9e+09, 7.3e+09, 2.9e+10, 1.1e+11, 4.5e+11
 Selected: sequence 236, 11 instances from 13 to 23
 Configuration: {'city_size_b': 3, 'city_size_m': 0.5, 'city_size_optional_m': 'true', 'extra_trucks_b': 3, 'extra_trucks_m': 0.0, 'extra_trucks_optional_m': 'false', 'num_airplanes_b': 2, 'num_airplanes_m': 1.1, 'num_airplanes_optional_m': 'true', 'num_cities_b': 2, 'num_cities_m': 0.2, 'num_cities_optional_m': 'true', 'num_packages_b': 2, 'num_packages_m': 1.0}
 Penalty: 9.45
+Penalty sart: 2.86
+Penalty baseline: 6.59
 Estimated runtimes: 2.3e+02, 4.2e+02, 7.8e+02, 1.5e+03, 2.7e+03, 5e+03, 9.3e+03, 1.7e+04, 3.2e+04, 6e+04, 1.1e+05, 2.1e+05, 3.8e+05, 7.1e+05, 1.3e+06, 2.4e+06, 4.5e+06
   p01: {'num_airplanes': 2, 'num_cities': 2, 'city_size': 2, 'num_packages': 2, 'extra_trucks': 5, 'num_trucks': 7}
   p02: {'num_airplanes': 2, 'num_cities': 2, 'city_size': 2, 'num_packages': 3, 'extra_trucks': 5, 'num_trucks': 7}
