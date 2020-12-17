@@ -209,12 +209,18 @@ def parse_CPLEX_log(content):
     regex_float = [re.compile(x) for x in [".*Solution value  = (?P<solution_value>(.*))",]]
 
     penalties = [float(l.split(":")[-1]) for l in content if l.startswith("Penalty: ")]
+    penalties_baseline = [float(l.split(":")[-1]) for l in content if l.startswith("Penalty baseline: ")]
+    penalties_sart = [float(l.split(":")[-1]) for l in content if l.startswith("Penalty sart: ")]
 
     data = {
             "sart_runtimes" : False,
             "num_sequences" : 0,
             "min_penalty" : min(penalties) if penalties else "-",
             "max_penalty" : max(penalties) if penalties else "-",
+            "min_penalty_baseline" : min(penalties_baseline) if penalties_baseline else "-",
+            "max_penalty_baseline" : max(penalties_baseline) if penalties_baseline else "-",
+            "min_penalty_sart" : min(penalties_sart) if penalties_sart else "-",
+            "max_penalty_sart" : max(penalties_sart) if penalties_sart else "-",
             "runtimes-estimated" : []
            }
     for l in content:
