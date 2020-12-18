@@ -105,6 +105,16 @@ for name, filenames in FILENAMES.items():
             all_runs[(name, run["domain"])].append(run)
 
 
+def compute_instances (properties, atr_name, runs, time_limit=100000):
+    num_instances = Counter()
+    for run in runs:
+        num_instances[run["algorithm"]] += 1
+
+    num_instances = set([v for v in num_instances.values()])
+    assert len(num_instances) == 1, f"Different number of instances per planner {num_instances}"
+
+    properties[atr_name] = next(iter(num_instances))
+
 def compute_coverage (properties, atr_name, runs, time_limit=100000):
     coverage = Counter()
     for run in runs:
@@ -159,6 +169,8 @@ for dataset, domain in all_runs:
     for planner in TRAINING_PLANNERS[dataset] + EVALUATION_PLANNERS[dataset]:
         compute_runtimes(properties_dataset[(dataset, domain)], f"runtimes-{planner}", all_runs[(dataset, domain)], [planner])
 
+
+    compute_instances(properties_dataset[(dataset, domain)], "num-ipc-instances", all_runs[(ipcdataset, domain)])
 
     compute_coverage(properties_dataset[(dataset, domain)], "coverage", all_runs[(dataset, domain)])
     compute_coverage(properties_dataset[(dataset, domain)], "coverage-ipc", all_runs[(ipcdataset, domain)])
