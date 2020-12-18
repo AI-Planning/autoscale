@@ -92,9 +92,11 @@ def read_runs(filename):
 # Step 1: gather all runs and label them by dataset and domain
 all_runs = defaultdict(list)
 for name, filenames in FILENAMES.items():
-
     for filename in filenames:
         new_runs = read_runs(os.path.join(DIR, "results", filename))
+        # Hack, remove IPC openstacks because it is the ADL version which should not be compared to our openstacks which is the strips version
+        if "-ipc" in name:
+            new_runs = [run for run in new_runs if run["domain"] != "openstacks"]
         new_runs = [group_domains(run) for run in new_runs]
         new_runs = [run for run in new_runs if run and  run["domain"] in DOMAINS]
 
@@ -139,13 +141,13 @@ def compute_runtimes (properties, atr_name, runs, planners):
 
     properties[atr_name] = [minimum_runtime[p] if p in minimum_runtime else "unsolved" for p in range(1, 31)]
 
-
-
 # Step 2: Compute all aggregated properties for a dataset
 properties_dataset = defaultdict(dict)
 for dataset, domain in all_runs:
     if "-ipc" in dataset:
         continue
+
+
     ipcdataset = dataset.split("-")[0] + "-ipc"
 
     properties_dataset[(dataset, domain)] ["track"] = dataset
@@ -153,6 +155,10 @@ for dataset, domain in all_runs:
 
     compute_runtimes(properties_dataset[(dataset, domain)], "runtimes-training", all_runs[(dataset, domain)], TRAINING_PLANNERS[dataset])
     compute_runtimes(properties_dataset[(dataset, domain)], "runtimes-eval", all_runs[(dataset, domain)], EVALUATION_PLANNERS[dataset])
+
+    for planner in TRAINING_PLANNERS[dataset] + EVALUATION_PLANNERS[dataset]:
+        compute_runtimes(properties_dataset[(dataset, domain)], f"runtimes-{planner}", all_runs[(dataset, domain)], [planner])
+
 
     compute_coverage(properties_dataset[(dataset, domain)], "coverage", all_runs[(dataset, domain)])
     compute_coverage(properties_dataset[(dataset, domain)], "coverage-ipc", all_runs[(ipcdataset, domain)])
@@ -293,13 +299,17 @@ def compute_smoothness(properties, atr_name, runtimes):
 
 for dataset, domain in properties_dataset:
     properties_dataset[(dataset, domain)] = compute_smoothness(properties_dataset[(dataset, domain)], "estimated", properties_dataset[(dataset, domain)]["runtimes-estimated"])
-    properties_dataset[(dataset, domain)] = compute_smoothness(properties_dataset[(dataset, domain)], "training", properties_dataset[(dataset, domain)]["runtimes-training"])
-    properties_dataset[(dataset, domain)] = compute_smoothness(properties_dataset[(dataset, domain)], "eval", properties_dataset[(dataset, domain)]["runtimes-eval"])
+    if "runtimes-training" in properties_dataset[(dataset, domain)]:
+        properties_dataset[(dataset, domain)] = compute_smoothness(properties_dataset[(dataset, domain)], "training", properties_dataset[(dataset, domain)]["runtimes-training"])
+    if "runtimes-eval" in properties_dataset[(dataset, domain)]:
+        properties_dataset[(dataset, domain)] = compute_smoothness(properties_dataset[(dataset, domain)], "eval", properties_dataset[(dataset, domain)]["runtimes-eval"])
 
 
 import statistics
 
 def estimated_error(properties):
+    if "runtimes-training" not in properties:
+        return
     properties["coverage-estimated"] = len([r   for r in properties["runtimes-estimated"] if r < 1800])
     properties["coverage-training"] = len([r  for r in properties["runtimes-training"] if r != "unsolved"])
     properties["estimated-error-coverage"] = abs(properties["coverage-estimated"] - properties["coverage-training"])
@@ -359,9 +369,10 @@ def compute_runtime_penalty(properties, atr_name, runtimes):
     properties [f"{atr_name}"] = penalty
 
 for dataset, domain in properties_dataset:
-    compute_runtime_penalty(properties_dataset[(dataset, domain)], "penalty-estimated", properties_dataset[(dataset, domain)]["runtimes-estimated"])
-    compute_runtime_penalty(properties_dataset[(dataset, domain)], "penalty-training", properties_dataset[(dataset, domain)]["runtimes-training"])
-    compute_runtime_penalty(properties_dataset[(dataset, domain)], "penalty-eval", properties_dataset[(dataset, domain)]["runtimes-eval"])
+    if "runtimes-training" in properties_dataset[(dataset, domain)]:
+        compute_runtime_penalty(properties_dataset[(dataset, domain)], "penalty-estimated", properties_dataset[(dataset, domain)]["runtimes-estimated"])
+        compute_runtime_penalty(properties_dataset[(dataset, domain)], "penalty-training", properties_dataset[(dataset, domain)]["runtimes-training"])
+        compute_runtime_penalty(properties_dataset[(dataset, domain)], "penalty-eval", properties_dataset[(dataset, domain)]["runtimes-eval"])
 
 
 with open("dataset.json", "w") as outfile:
