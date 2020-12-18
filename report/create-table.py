@@ -11,14 +11,14 @@ columns = [
     "covrange-ipc-eval", "covrange-eval", "comparisons-eval", "comparisons-eval-ipcdiff",
 ]
 columns_to_display = {
-    "num_sequences": "#s",
+    "num_sequences": "\#s",
     "covrange-ipc-training": "IPC",
-    "covrange-training": "?",
-    "comparisons-training": "?",
+    "covrange-training": "New",
+    "comparisons-training": "New",
     "comparisons-training-ipcdiff": "dif",
     "covrange-ipc-eval": "IPC",
-    "covrange-eval": "?",
-    "comparisons-eval": "?",
+    "covrange-eval": "New",
+    "comparisons-eval": "New",
     "comparisons-eval-ipcdiff": "dif",
 }
 
@@ -33,14 +33,18 @@ def latexify_row(row):
         if isinstance(value, str) and '-' in value:
             row[index] = value.replace('-', '--')
         # HACK: these are the comparison columns
-        if index in [3, 4, 7, 8]:
+        if index in [4, 8]:
             assert isinstance(value, int)
             if value > 0:
                 row[index] = str(f"+{value}")
-            # elif value < 0:
+                row[index] = "{\color{blue}" + row[index] + "}"
+            elif value < 0:
+                row[index] = "{\color{red}" + str(f"{value}") + "}"
                 # row[index] = str(f"-{value}")
 
-table_header = ["Optimal", "#IPC"] + [columns_to_display[col] for col in columns] + [columns_to_display[col] for col in columns]
+
+
+table_header = ["Optimal", "\#IPC"] + [columns_to_display[col] for col in columns] + [columns_to_display[col] for col in columns]
 table_rows = []
 for domain in sorted(domains):
     row = [domain]
@@ -63,7 +67,7 @@ paper_table = pd.DataFrame(table_rows)
 latex_table = paper_table.to_latex(
     header=table_header,
     index=False,
-    column_format='lrrrrrrrrrrrrrrrrrrr',
+    column_format='l@{}rr|rrrr|rrrr|r|rrrr|rrrr',escape=False
 )
 
 # Some hacky printing of the table
@@ -74,12 +78,12 @@ print(
 "& & \multicolumn{9}{c}{optimal} & \multicolumn{9}{c}{satisficing/agile} \\\\\n" \
 "\cmidrule[\lightrulewidth](){3-11}\n" \
 "\cmidrule[\lightrulewidth](l){12-20}\n" \
-"& & & \multicolumn{4}{c}{traininig} & \multicolumn{4}{c}{evaluation} & \multicolumn{4}{c}{traininig} & \multicolumn{4}{c}{evaluation}\\\\\n" \
+"& & & \multicolumn{4}{c}{training} & \multicolumn{4}{c}{evaluation} & \multicolumn{4}{c}{training} & \multicolumn{4}{c}{evaluation}\\\\\n" \
 "\cmidrule[\lightrulewidth](){4-7}\n" \
 "\cmidrule[\lightrulewidth](l){8-11}\n" \
 "\cmidrule[\lightrulewidth](){13-16}\n" \
 "\cmidrule[\lightrulewidth](l){17-20}\n" \
-"& & & \multicolumn{2}{c}{cov range} & \multicolumn{2}{c}{comp} & \multicolumn{2}{c}{cov range} & \multicolumn{2}{c}{comp} & & \multicolumn{2}{c}{cov range} & \multicolumn{2}{c}{comp} & \multicolumn{2}{c}{cov range} & \multicolumn{2}{c}{comp} \\\\\n" \
+"& & & \multicolumn{2}{c}{cov range} & \multicolumn{2}{c}{comp (15)} & \multicolumn{2}{c}{cov range} & \multicolumn{2}{c}{comp (28)} & & \multicolumn{2}{c}{cov range} & \multicolumn{2}{c}{comp (15)} & \multicolumn{2}{c}{cov range} & \multicolumn{2}{c}{comp (28)} \\\\\n" \
 "\cmidrule[\lightrulewidth](){4-5}\n" \
 "\cmidrule[\lightrulewidth](l){6-7}\n" \
 "\cmidrule[\lightrulewidth](l){8-9}\n" \
