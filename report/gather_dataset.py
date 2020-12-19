@@ -124,7 +124,7 @@ def compute_coverage (properties, atr_name, runs, time_limit=100000):
 
 def compute_coverage_range (properties, atr_name, cov_atr_name, plannerset):
     coverage = properties[cov_atr_name]
-    min_coverage = min([c for p, c in coverage.items() if p in plannerset])
+    min_coverage = min([coverage[p] if p in coverage else 0 for p in plannerset])
     max_coverage = max([c for p, c in coverage.items() if p in plannerset])
     properties[atr_name] = f"{min_coverage}-{max_coverage}"
 
