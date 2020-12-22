@@ -52,22 +52,15 @@ EVALUATION_PLANNERS_SAT = [
     "ipc2018-agl-cerberus",
 ]
 
+BENCHMARKS = [f"{track}-{version}" for track in ["opt", "sat"]  for version in ["ipc", "1204", "1210", "1210nobaseline"]]
+
 TRAINING_PLANNERS = {
-        "opt-ipc" : TRAINING_PLANNERS_OPT,
-        "opt-1204": TRAINING_PLANNERS_OPT,
-        "opt-1210": TRAINING_PLANNERS_OPT,
-        "sat-ipc": TRAINING_PLANNERS_SAT,
-        "sat-1204": TRAINING_PLANNERS_SAT,
-        "sat-1210": TRAINING_PLANNERS_SAT,
+    benchmark : TRAINING_PLANNERS_OPT if benchmark.startswith("opt") else TRAINING_PLANNERS_SAT for benchmark in BENCHMARKS
 }
 
+
 EVALUATION_PLANNERS = {
-        "opt-ipc" : EVALUATION_PLANNERS_OPT,
-        "opt-1204": EVALUATION_PLANNERS_OPT,
-        "opt-1210": EVALUATION_PLANNERS_OPT,
-        "sat-ipc": EVALUATION_PLANNERS_SAT,
-        "sat-1204": EVALUATION_PLANNERS_SAT,
-        "sat-1210": EVALUATION_PLANNERS_SAT,
+    benchmark : EVALUATION_PLANNERS_OPT if benchmark.startswith("opt") else EVALUATION_PLANNERS_SAT for benchmark in BENCHMARKS
 }
 
 
@@ -78,6 +71,10 @@ FILENAMES = {
         "sat-1204": ["2020-12-05-D-evaluation-sat-new2014-properties.json"],
         "opt-1210": ["2020-12-13-A-evaluation-opt-new2014-properties.json"],
         "sat-1210": ["2020-12-13-B-evaluation-sat-new2014-properties.json"],
+        "opt-1210": ["2020-12-13-A-evaluation-opt-new2014-properties.json"],
+        "sat-1210": ["2020-12-13-B-evaluation-sat-new2014-properties.json"],
+        "opt-1210nobaseline" : ["2020-12-13-E-evaluation-opt-new2014-nobaseline-properties.json"],
+        "sat-1210nobaseline": ["2020-12-13-F-evaluation-sat-new2014-nobaseline-properties.json"],
     }
 
 def read_runs(filename):
@@ -214,7 +211,8 @@ for dataset, domain in all_runs:
 
 
         LOGDIRS = {"1204" : "../logfiles/2020-12-04/",
-           "1210" : "../logfiles/2020-12-10/"
+                   "1210" : "../logfiles/2020-12-10/",
+                   "1210nobaseline" : "../logfiles/2020-12-10-nobaseline/"
           }
 import os
 import re
