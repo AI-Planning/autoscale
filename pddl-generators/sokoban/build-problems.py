@@ -1,8 +1,7 @@
-#! /usr/bin/env python
+#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import itertools
-
 
 def split_into_blocks(lines):
     block = []
@@ -15,7 +14,6 @@ def split_into_blocks(lines):
             block = []
     if block:
         yield block
-
 
 def split_descriptions(lines):
     comments = []
@@ -32,16 +30,13 @@ def split_descriptions(lines):
             maze = []
             comments = []
 
-
 class Direction(object):
     def __init__(self, name, dy=0, dx=0):
         self.name = name
         self.dy = dy
         self.dx = dx
-
     def __call__(self, row, col):
         return (row + self.dy, col + self.dx)
-
 
 def create_pddl(filename, prob_name, desc, track, hex):
     assert track in ["sequential", "temporal"], track
@@ -66,14 +61,14 @@ def create_pddl(filename, prob_name, desc, track, hex):
             Direction("dir-northeast", dx=+1, dy=-1),
             Direction("dir-east", dx=+2),
             Direction("dir-southeast", dx=+1, dy=+1),
-        ]
+            ]
     else:
         dirs = [
             Direction("dir-up", dy=-1),
             Direction("dir-down", dy=+1),
             Direction("dir-left", dx=-1),
             Direction("dir-right", dx=+1),
-        ]
+            ]
 
     def pos_name(row, col):
         width = len(str(max(num_rows, num_cols)))
@@ -117,7 +112,8 @@ def create_pddl(filename, prob_name, desc, track, hex):
                 if 0 <= col2 < num_cols and 0 <= row2 < num_rows:
                     if not is_wall and maze[row2][col2] != "#":
                         pos2 = pos_name(row2, col2)
-                        init.append("(MOVE-DIR %s %s %s)" % (pos, pos2, direction.name))
+                        init.append("(MOVE-DIR %s %s %s)" % (
+                            pos, pos2, direction.name))
     for direction in dirs:
         objects.append("%s - direction" % direction.name)
 
@@ -160,8 +156,8 @@ def translate_suite(suite, hex=False):
             name = "p%03d-%s-%s" % (no + 1, suite, track)
             create_pddl("pddl/%s.pddl" % name, name, desc, track, hex)
 
-
 if __name__ == "__main__":
     translate_suite("microban")
     translate_suite("multiban")
     translate_suite("hexoban", hex=True)
+
