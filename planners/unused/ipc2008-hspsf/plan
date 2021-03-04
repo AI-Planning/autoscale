@@ -1,5 +1,0 @@
-#!/bin/bash
-
-PLANNERDIR=$(dirname "$0")
-
-${PLANNERDIR}/hsp_f -strict -dba-semantics -rm -cost -rAH -use-lse -bfs -v 0 -ipc $1 $2 > $3 2>/dev/null

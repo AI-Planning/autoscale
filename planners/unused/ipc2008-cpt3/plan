@@ -1,8 +1,0 @@
-#!/bin/bash
-
-PLANNERDIR=$(dirname "$0")
-
-RES=$2.solution
-[ -f $RES ] && rm $RES
-${PLANNERDIR}/cpt -o $1 -f $2 -seq -G -out $RES
-[ -f $RES ] && mv $RES $3
