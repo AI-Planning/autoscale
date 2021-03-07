@@ -14,10 +14,12 @@ files for all planners used in the paper.
 * Directory "scripts" contains scripts for generating all Singularity
 containers (aka. images) from the planners in the planners directory.
 
-* TODO: logfiles
+* Directory "logfiles" contains the logs of the benchmark-optimization.py script for the
+  results of the paper.
 
-* TODO: report
-
+* Directory "report" contains some additional scripts and jupyter notebooks used to
+  manually inspect the results of preliminar experiments. They can show some interesting
+  additional data, but they are not intended to be maintained.
 
 
 # Requirements
