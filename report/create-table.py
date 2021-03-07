@@ -1,4 +1,5 @@
 #! /usr/bin/python3
+# This script can be used to generate the table of results from a properties file with the experimental results.
 
 import pandas as pd
 

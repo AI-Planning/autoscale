@@ -1,4 +1,7 @@
 #!/bin/python3
+# This script can be used to gather the experimental results from different benchmarks in order to compute several attributes. 
+# The result is a json file that can be read with other scripts which visualize or print the data.
+
 import os
 import json
 import itertools

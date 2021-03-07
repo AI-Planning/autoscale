@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+# Script to generate some dat files that can be read with pgfplots to do some total time scatter plots.
+
 
 import json
 import  sys
@@ -18,9 +20,6 @@ pareto_front_len = defaultdict()
 highlighting = defaultdict(int)
 
 domains_per_category = defaultdict(set)
-algorithm_list = ['baseline-lmcut', 'ss-lmcut', 'ss-lmcut-ubreuse', 'ss-up-lmcut-ubreuse', 'ss-lmcut-up-ubreuse-cbfflb-1s', 'baseline-sbd', 'ss-sbd', 'ss-sbd-ubreuse', 'ss-sbd-up-ubreuse-tlim', 'ss-sbd-up-ubreuse-cbfflb-1s']
-
-
 
 instances = defaultdict(int)
 algorithms = set()
