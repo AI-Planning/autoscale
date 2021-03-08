@@ -3,22 +3,22 @@ described in the ICAPS 2021 paper "Automatic Instance Generation for Classical P
 by Álvaro Torralba, Jendrik Seipp and Silvan Sievers.
 
 * Directory "optimization" contains the main bulk of the experiment scripts for all phases
-of the instance generation approach described in the paper. See Usage instructions below.
+ of the instance generation approach described in the paper. See Usage instructions below.
 
 * Directoy "pddl-generators" contains all available generator of IPC
-domains that were used for this paper (and possibly more).
+ domains that were used for this paper (and possibly more).
 
 * Directory "planners" contains source code as well as Singularity recipe
-files for all planners used in the paper.
+ files for all planners used in the paper.
 
 * Directory "scripts" contains scripts for generating all Singularity
-containers (aka. images) from the planners in the planners directory.
+ containers (aka. images) from the planners in the planners directory.
 
 * Directory "logfiles" contains the logs of the benchmark-optimization.py script for the
   results of the paper.
 
 * Directory "report" contains some additional scripts and jupyter notebooks used to
-  manually inspect the results of preliminar experiments. They can show some interesting
+  manually inspect the results of preliminary experiments. They can show some interesting
   additional data, but they are not intended to be maintained.
 
 
