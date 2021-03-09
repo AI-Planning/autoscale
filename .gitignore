@@ -30,9 +30,9 @@ pddl-generators/grippers/grippers
 pddl-generators/hanoi/hanoi
 pddl-generators/logistics/logistics
 pddl-generators/maintenance/maintenance
-pddl-generators/miconic-adl/miconic
-pddl-generators/miconic-simple/miconic
-pddl-generators/miconic-strips/miconic
+pddl-generators/miconic-fulladl/miconic
+pddl-generators/miconic-simpleadl/miconic
+pddl-generators/miconic/miconic
 pddl-generators/movie/movie
 pddl-generators/mprime/mprime
 pddl-generators/mystery/mystery
@@ -50,7 +50,7 @@ pddl-generators/npuzzle/n-puzzle-generator
 pddl-generators/openstacks/generate_pddl
 pddl-generators/openstacks/generate_problems
 pddl-generators/pathways/pathways
-pddl-generators/rover/rovgen
+pddl-generators/rovers/rovgen
 pddl-generators/satellite/satgen
 pddl-generators/schedule/schedule
 pddl-generators/storage/storage
