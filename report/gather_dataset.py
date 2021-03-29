@@ -1,5 +1,5 @@
 #!/bin/python3
-# This script can be used to gather the experimental results from different benchmarks in order to compute several attributes. 
+# This script can be used to gather the experimental results from different benchmarks in order to compute several attributes.
 # The result is a json file that can be read with other scripts which visualize or print the data.
 
 import os
@@ -55,7 +55,7 @@ EVALUATION_PLANNERS_SAT = [
     "ipc2018-agl-cerberus",
 ]
 
-BENCHMARKS = [f"{track}-{version}" for track in ["opt", "sat"]  for version in ["ipc", "1204", "1210", "1210nobaseline"]]
+BENCHMARKS = [f"{track}-{version}" for track in ["opt", "sat"]  for version in ["ipc", "1210"]]
 
 TRAINING_PLANNERS = {
     benchmark : TRAINING_PLANNERS_OPT if benchmark.startswith("opt") else TRAINING_PLANNERS_SAT for benchmark in BENCHMARKS
@@ -69,15 +69,11 @@ EVALUATION_PLANNERS = {
 
 FILENAMES = {
         "opt-ipc": ["2020-11-23-A-optimization-planners-ipc-properties.json", "2020-12-05-A-evaluation-opt-ipc-properties.json"],
-        "opt-1204": ["2020-12-05-C-evaluation-opt-new2014-properties.json"],
         "sat-ipc": ["2020-11-23-D-optimization-planners-sat-ipc-properties.json","2020-12-05-B-evaluation-sat-ipc-properties.json"],
-        "sat-1204": ["2020-12-05-D-evaluation-sat-new2014-properties.json"],
         "opt-1210": ["2020-12-13-A-evaluation-opt-new2014-properties.json"],
         "sat-1210": ["2020-12-13-B-evaluation-sat-new2014-properties.json"],
         "opt-1210": ["2020-12-13-A-evaluation-opt-new2014-properties.json"],
         "sat-1210": ["2020-12-13-B-evaluation-sat-new2014-properties.json"],
-        "opt-1210nobaseline" : ["2020-12-13-E-evaluation-opt-new2014-nobaseline-properties.json"],
-        "sat-1210nobaseline": ["2020-12-13-F-evaluation-sat-new2014-nobaseline-properties.json"],
     }
 
 def read_runs(filename):
@@ -213,10 +209,8 @@ for dataset, domain in all_runs:
 
 
 
-        LOGDIRS = {"1204" : "../logfiles/2020-12-04/",
-                   "1210" : "../logfiles/2020-12-10/",
-                   "1210nobaseline" : "../logfiles/2020-12-10-nobaseline/"
-          }
+        LOGDIRS = {"1210" : "../logfiles/2020-12-10/",
+        }
 import os
 import re
 

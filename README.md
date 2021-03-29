@@ -26,6 +26,7 @@ Silvan Sievers.
 # Requirements
  - Singularity
  - SMAC
+ - CPLEX
 
 TODO: Provide details here? Link? Installation instructions?
 
@@ -47,6 +48,16 @@ Then, the following two steps must be performed:
 
 3. Run benchmark-optimization.py to generate benchmark set. The --database is used to provide the properties file obtained from step 2.
      generate-benchmarks-2020-12-10.sh contains an example on how this script was
+
+
+
+
+# Experiments data
+
+The optimization/results folder contains json files with the results of the experiments.
+The results table in the paper is generated via the scripts report-gather-dataset.py and
+report-create-table.py
+
 
 
 ===================
