@@ -58,8 +58,9 @@ source](https://sylabs.io/guides/3.5/user-guide/).
 
 ## CPLEX
 
-TODO (Should we add the cplex package to requirements.txt?)
-
+Install CPLEX 12.10 and add the python/3.7/ subfolder to the PYTHONPATH. By default this
+is installed in "/opt/ibm/ILOG/CPLEX_Studio1210", so one has to set PYTHONPATH to
+":/opt/ibm/ILOG/CPLEX_Studio1210/cplex/python/3.7/x86-64_linux/"
 
 # Usage
 
@@ -74,7 +75,12 @@ Then, the following two steps must be performed:
 1. Run `linear.py` to perform the SMAC optimization and generate sequences.
    The `*smac*.py` scripts show how to parallelize this step on a computer cluster with Lab.
 
+   Note that the --database option allows to provide the JSON file from a previous SMAC
+   run to re-use all precomputed times for previously tested parameter configurations.
+   (see 2020-12-08-A-smac-opt-2014-20h.py for example)
+
 2. Gather all results from one or multiple SMAC runs into a single properties JSON file.
+   This is done by running the last step of the `*smac*.py` scripts.
 
 3. Run benchmark-optimization.py to generate a benchmark set. Use the `--database` option to provide
    the properties file obtained from step 2.
