@@ -12,7 +12,7 @@ from ConfigSpace.hyperparameters import CategoricalHyperparameter
 
 TMP_PROBLEM = "tmp-problem.pddl"
 TMP_DOMAIN = "tmp-domain.pddl"
-PRECISION = None
+PRECISION = None  # Set via command line.
 
 
 class LinearAttr:
@@ -152,6 +152,7 @@ class GridAttr:
 
             val += m
 
+
 class ConstantAttr:
     def __init__(self, name, value):
         self.name = name
@@ -169,6 +170,7 @@ class ConstantAttr:
 
     def has_lowest_value(self, cfg):
         return True
+
 
 class EnumAttr:
     def __init__(self, name, values):
@@ -189,19 +191,20 @@ class EnumAttr:
     def get_values(self):
         return self.values
 
+
 def eliminate_duplicates(l):
     seen = set()
     seen_add = seen.add
     return [x for x in l if not (tuple(x.items()) in seen or seen_add(tuple(x.items())))]
 
-# Function that scales linear attributes, ensuring that all instances have different
-# values
+
+# Scale linear attributes, ensuring that all instances have different values.
 def get_linear_scaling_values(linear_attrs, cfg, num_values, base={}, name_base=None):
-    assert(len(linear_attrs) > 0)
+    assert linear_attrs
     num_generated = num_values
 
-    for i in range(20): # Attempt this 20 times
-        result = [base.copy() for i in range(num_generated)]
+    for _ in range(20): # Attempt this 20 times
+        result = [base.copy() for _ in range(num_generated)]
         for attr in linear_attrs:
             attr.set_values(cfg, result, name_base)
 
@@ -212,21 +215,26 @@ def get_linear_scaling_values(linear_attrs, cfg, num_values, base={}, name_base=
 
         num_generated *= 2
 
-    print ("Warning: we cannot generate different attributes", cfg, linear_attrs)
+    print("Warning: we cannot generate different attributes", cfg, linear_attrs)
 
-    result = [base.copy() for i in range(num_values)]
+    result = [base.copy() for _ in range(num_values)]
     for attr in linear_attrs:
         attr.set_values(cfg, result, name_base)
     return result
 
+
 class Domain:
-    def __init__(self, name, gen_command, linear_attrs, adapt_f=None,  num_sequences_linear_hierarchy=3, penalty_for_instances_with_duplicated_parameters=100):
+    def __init__(
+            self, name, gen_command, linear_attrs, adapt_f=None,  num_sequences_linear_hierarchy=3,
+            penalty_for_instances_with_duplicated_parameters=100):
         self.name = name
         self.linear_attributes = linear_attrs
         self.gen_command = gen_command
         self.adapt_f = adapt_f
         self.num_sequences_linear_hierarchy = num_sequences_linear_hierarchy
-        self.generator_attribute_names = [fn for _, fn, _, _ in Formatter().parse(self.gen_command) if fn is not None and fn != "seed"]
+        self.generator_attribute_names = [
+                fn for _, fn, _, _ in Formatter().parse(self.gen_command)
+                if fn is not None and fn != "seed"]
 
         self.penalty_for_instances_with_duplicated_parameters = penalty_for_instances_with_duplicated_parameters
 
@@ -234,13 +242,18 @@ class Domain:
         return self.penalty_for_instances_with_duplicated_parameters
 
     def allow_instances_with_duplicated_parameters(self):
-        return self.penalty_for_instances_with_duplicated_parameters != None and self.penalty_for_instances_with_duplicated_parameters != math.inf
+        return (
+            self.penalty_for_instances_with_duplicated_parameters is not None
+            and self.penalty_for_instances_with_duplicated_parameters != math.inf)
 
     def get_domain_file(self, GENERATORS_DIR):
         return os.path.join(GENERATORS_DIR, self.name, "domain.pddl")
 
     def get_linear_attributes_names(self):
-        return [a.name for a in self.linear_attributes if isinstance(a, LinearAttr)] + [a.name_x for a in self.linear_attributes if isinstance(a, GridAttr)] + [a.name_y for a in self.linear_attributes if isinstance(a, GridAttr)]
+        return (
+            [a.name for a in self.linear_attributes if isinstance(a, LinearAttr)] +
+            [a.name_x for a in self.linear_attributes if isinstance(a, GridAttr)] +
+            [a.name_y for a in self.linear_attributes if isinstance(a, GridAttr)])
 
     def has_lowest_linear_values(self, cfg):
         for linear_attr in self.linear_attributes:
@@ -287,7 +300,6 @@ class Domain:
         if self.generated_domain_file():
             shutil.move(TMP_DOMAIN, domain_file)
 
-
     def get_enum_parameters(self):
         return [x for x in self.linear_attributes if isinstance(x, EnumAttr)]
 
@@ -298,11 +310,9 @@ class Domain:
         return TMP_DOMAIN in self.gen_command
 
 
-
 def adapt_parameters_floortile(parameters):
     parameters ["num_robots"] = min(parameters ["num_robots"], parameters ["num_columns"])
     return parameters
-
 
 
 def adapt_parameters_grid(parameters):
@@ -318,6 +328,7 @@ def adapt_parameters_datanetwork(parameters):
     parameters ["scripts"] = max(1, parameters ["items"] - 2) + parameters ["extra_scripts"]
     return parameters
 
+
 def adapt_parameters_logistics(parameters):
     parameters ["num_trucks"] = parameters ["num_cities"] + parameters ["extra_trucks"]
     return parameters
@@ -326,13 +337,11 @@ def adapt_parameters_logistics(parameters):
 def adapt_parameters_parking(parameters):
     curbs = parameters["curbs"]
     cars = 2*(curbs -1) + int(parameters["cars_diff"])
-
     return {"curbs" : curbs, "cars" : cars}
 
 
 def adapt_parameters_storage(parameters):
     crates, hoists, store_areas, depots = parameters["crates"], parameters["hoists"], parameters["store_areas"], parameters["depots"]
-
     depots = min(depots, 36)
     parameters["depots"] = depots
     parameters["store_areas"] = store_areas + max(depots, hoists, crates)
@@ -346,7 +355,6 @@ def adapt_parameters_snake(parameters):
     ygrid = int(parameters["y_grid"])
 
     percentage = int(parameters["num_spawn_apples"][:-1])/100.0
-
     parameters["board"] = "empty-{}x{}".format(xgrid, ygrid)
 
     if xgrid*ygrid*percentage < int(parameters["num_initial_apples"]):
@@ -570,9 +578,6 @@ DOMAIN_LIST = [
            adapt_f=adapt_parameters_grid
     ),
 
-    #   Domain("agricola", "GenAgricola.py --num_workers {num_workers} --num_ints {num_ints} --num_rounds {num_rounds} {last_stage} {seed}",
-    #          [Linearattr("n", lower_b=5, upper_b=10, lower_m=0.1, upper_m=2)]),
-
     Domain("data-network",
            "generator/generator.py {items} {layers} {scripts} {network} {seed}",
            [EnumAttr ("network", ["tiny-network", "small-network", "ring-network"]),
@@ -583,9 +588,12 @@ DOMAIN_LIST = [
            adapt_f =adapt_parameters_datanetwork
     ),
 
+    #   Domain("agricola", "GenAgricola.py --num_workers {num_workers} --num_ints {num_ints} --num_rounds {num_rounds} {last_stage} {seed}",
+    #          [Linearattr("n", lower_b=5, upper_b=10, lower_m=0.1, upper_m=2)]),
+
     # Domain("termes",
     #        "",
-    #        [] # TODO
+    #        []
     # ),
 
     ]
