@@ -1,11 +1,10 @@
 #! /usr/bin/env python3
-# def evaluate_benchmark(cfg):
-#     # Now we need to combine the sequences into a good benchmark. The requirements for a good benchmark are:
-#     # 1) At most 10-15 instances solved by state of the art planner (under the 3m time limit).
-#     # 2) The fewer sequences selected the better => Avoids problems of redundant difficulty
-#     # 3) We need to have 30 instances. Each sequence will estimate the continuation and avoid generating instances that are extremely hard
-#     # 4) Sequences must finish -> they must go beyond the capabilities of the state of the art planners.
-#     used_enum_parameters = set()
+
+# Now we need to combine the sequences into a good benchmark. The requirements for a good benchmark are:
+# 1) At most 10-15 instances solved by state of the art planner (under the 3m time limit).
+# 2) The fewer sequences selected the better => Avoids problems of redundant difficulty
+# 3) We need to have 30 instances. Each sequence will estimate the continuation and avoid generating instances that are extremely hard
+# 4) Sequences must finish -> they must go beyond the capabilities of the state of the art planners.
 
 import argparse
 from collections import defaultdict
@@ -28,10 +27,11 @@ except ImportError:
 from domain_configuration import get_domains
 from planner_selection import get_baseline_planner, get_sart_planners
 
-from sequence import EvaluatedSequence, EstimatedSequence
+from sequence import EvaluatedSequence
 from sequence import compute_average
 
 from runner import Runner
+import utils
 
 warnings.simplefilter(action="ignore", category=FutureWarning)
 
@@ -140,40 +140,8 @@ SMAC_OUTPUT_DIR = ARGS.smac_output_dir
 GENERATORS_DIR = ARGS.generators_dir
 TMP_PLAN_DIR = "plan"
 SINGULARITY_SCRIPT = os.path.join(DIR, "run-singularity.sh")
-print("Singularity script:", SINGULARITY_SCRIPT)
 
-def setup_logging():
-    """
-    Print DEBUG and INFO messages to stdout and higher levels to stderr.
-    """
-    # Python adds a default handler if some log is generated before here.
-    # Remove all handlers that have been added automatically.
-    logger = logging.getLogger("")
-    for handler in logger.handlers:
-        logger.removeHandler(handler)
-
-    class InfoFilter(logging.Filter):
-        def filter(self, rec):
-            return rec.levelno in (logging.DEBUG, logging.INFO)
-
-    logger.setLevel(logging.DEBUG if ARGS.debug else logging.INFO)
-
-    formatter = logging.Formatter("%(asctime)s %(levelname)-8s %(message)s")
-
-    h1 = logging.StreamHandler(sys.stdout)
-    h1.setLevel(logging.DEBUG)
-    h1.addFilter(InfoFilter())
-    h1.setFormatter(formatter)
-
-    h2 = logging.StreamHandler()
-    h2.setLevel(logging.WARNING)
-    h2.setFormatter(formatter)
-
-    logger.addHandler(h1)
-    logger.addHandler(h2)
-
-
-setup_logging()
+utils.setup_logging(ARGS.debug)
 
 DOMAINS = get_domains()
 
@@ -183,7 +151,7 @@ if not SMAC_OUTPUT_DIR:
 elif os.path.exists(SMAC_OUTPUT_DIR):
     sys.exit("Error: SMAC output directory already exists")
 else:
-    os.mkdir (SMAC_OUTPUT_DIR)
+    os.mkdir(SMAC_OUTPUT_DIR)
 
 logging.debug("{} domains available: {}".format(len(DOMAINS), sorted(DOMAINS)))
 
@@ -208,8 +176,6 @@ class CPLEXConstraint:
         self.cplex_problem.linear_constraints.add(lin_expr=[[self.variables, self.coeficients]], senses=[self.sense], rhs=[self.rhs])
         if self.penalty_vars:
             self.cplex_problem.linear_constraints.add(lin_expr=[[self.penalty_vars, [1 for p in self.penalty_vars]]], senses=["L"], rhs=[1])
-
-
 
 
 SEQ_ID = 1
@@ -290,9 +256,9 @@ class CPLEXSequence:
         self.parameters_of_instances = domain.get_configs(self.config, len(self.sorted_runtimes))
 
         # Identify which instances are actually relevant
-        evaluated_instances = set([i for i, t  in enumerate (self.runtimes_baseline) if t >= 2 and t <= PLANNER_TIME_LIMIT] + \
-                                  [i for i, t  in enumerate (self.runtimes_sart) if t >= 2 and t <= PLANNER_TIME_LIMIT])
-
+        evaluated_instances = set(
+            [i for i, t  in enumerate (self.runtimes_baseline) if t >= 2 and t <= PLANNER_TIME_LIMIT] + \
+            [i for i, t  in enumerate (self.runtimes_sart) if t >= 2 and t <= PLANNER_TIME_LIMIT])
 
         self.parameters_of_evaluated_instances = [self.parameters_of_instances[i] for i in evaluated_instances]
 
@@ -306,7 +272,6 @@ class CPLEXSequence:
             SEQ_ID += 1
             previous_parameters_of_evaluated_instances.append(self.parameters_of_evaluated_instances)
 
-
     def __str__(self):
         return f"Sequence({self.seq_id}, penalty={self.penalty}, penalty_baseline={self.penalty_baseline}, penalty_sart={self.penalty_sart}, config={self.config}, runtimes_baseline={self.runtimes_baseline}, runtimes_sart={self.runtimes_sart}"
 
@@ -316,13 +281,8 @@ class CPLEXSequence:
     def has_enum_value(self, name, value):
         return self.config[name] == value
 
-
     def get_instances(self, i, endi):
         return self.parameters_of_instances[i:endi]
-
-    # def get_extra_instances(self, n):
-    #     return self.parameters_of_instances[self.num_instances:self.num_instances+n]
-
 
     def intersection (self, other):
         result = []
@@ -331,12 +291,15 @@ class CPLEXSequence:
                 result.append((self.parameters_of_instances.index(c), other.parameters_of_instances.index(c)))
         return result
 
-    # Returns the number of instances that are different among those instances that
-    # mattered for the evaluation of both sequences
+    # Return the number of instances that are different among those
+    # instances that mattered for the evaluation of both sequences.
     def compare_redundancy (self, other):
-        percentage_in_other = sum([1.0 for c in self.parameters_of_evaluated_instances if c in other.parameters_of_instances])/len(self.parameters_of_evaluated_instances)
-        percentage_in_me = sum([1.0 for c in other.parameters_of_evaluated_instances if c in self.parameters_of_instances])/len(other.parameters_of_evaluated_instances)
-
+        percentage_in_other = sum([
+            1.0 for c in self.parameters_of_evaluated_instances
+            if c in other.parameters_of_instances])/len(self.parameters_of_evaluated_instances)
+        percentage_in_me = sum([
+            1.0 for c in other.parameters_of_evaluated_instances
+            if c in self.parameters_of_instances])/len(other.parameters_of_evaluated_instances)
         return max(percentage_in_other, percentage_in_me)
 
     def add_cplex_variables(self, cplex_problem):
@@ -345,7 +308,10 @@ class CPLEXSequence:
         self.start_var_names = ["seq-{}-{}".format(self.seq_id, i) for i in range (self.latest_start)]
         var_types = [t.binary for v in self.start_var_names]
         objective_values = [self.penalty for v in self.start_var_names] # Add penalty for including this sequence
-        self.start_var_index = {self.start_var_names[i] : index for i, index in enumerate(cplex_problem.variables.add(obj=objective_values,types=var_types,names=self.start_var_names))}
+        self.start_var_index = {
+            self.start_var_names[i] : index
+            for i, index in enumerate(cplex_problem.variables.add(
+                obj=objective_values, types=var_types, names=self.start_var_names))}
 
         self.end_var_names = ["end-{}-{}".format(self.seq_id, i) for i in range (self.earliest_end, self.latest_end)]
         var_types = [t.binary for v in self.end_var_names]
@@ -364,11 +330,11 @@ class CPLEXSequence:
 
         # print ("XXX", [i for i, ind in self.start_var_index.items()] + [i for i, ind in self.end_var_index.items()], [1 for i in self.start_var_index] + [-1 for i in self.end_var_index], "E", 0)
 
-        return [CPLEXConstraint(cplex_problem, [ind for i, ind in self.start_var_index.items()], [1 for i in self.start_var_index],"L", 1),
-                CPLEXConstraint(cplex_problem, [ind for i, ind in self.end_var_index.items()], [1 for i in self.end_var_index],"L", 1),
-                CPLEXConstraint(cplex_problem, [i for i, ind in self.start_var_index.items()] + [i for i, ind in self.end_var_index.items()], [1 for i in self.start_var_index] + [-1 for i in self.end_var_index], "E", 0),
-
-                ]
+        return [
+            CPLEXConstraint(cplex_problem, [ind for i, ind in self.start_var_index.items()], [1 for i in self.start_var_index],"L", 1),
+            CPLEXConstraint(cplex_problem, [ind for i, ind in self.end_var_index.items()], [1 for i in self.end_var_index],"L", 1),
+            CPLEXConstraint(cplex_problem, [i for i, ind in self.start_var_index.items()] + [i for i, ind in self.end_var_index.items()], [1 for i in self.start_var_index] + [-1 for i in self.end_var_index], "E", 0),
+        ]
 
     def get_cplex_start_index(self):
         return self.start_var_index
@@ -437,8 +403,6 @@ for database_file in ARGS.database:
             RUNNER_SART.load_cache_from_log_file(content[ARGS.domain]["sart_runtimes"])
 
         STORED_VALID_SEQUENCES += content[ARGS.domain]["sequences"]
-
-
 
 
 logging.info(f"Stored sequences: {len(STORED_VALID_SEQUENCES)}")
@@ -541,10 +505,8 @@ if any (using_baseline) and not all (using_baseline):
     # exit(0)
 
 
-
 if ARGS.no_cplex:
-    exit(0)
-
+    sys.exit()
 
 
 try:
@@ -617,8 +579,7 @@ try:
     cplex_problem.solve()
 except CplexError as exc:
     print(exc)
-    exit(0)
-
+    sys.exit(0)
 
 
 print()
@@ -631,9 +592,7 @@ logging.info("Solution value  = {}".format(str( cplex_problem.solution.get_objec
 
 x = cplex_problem.solution.get_values()
 
-# print (x)
 final_selection = []
-# final_sequences = []
 for seq in candidate_sequences:
         for name, idt in seq.get_cplex_start_index().items():
             if x [idt] > 0.9:
@@ -658,13 +617,10 @@ for seq in candidate_sequences:
 
         for name, idt in seq.get_cplex_end_index().items():
             if x [idt] > 0.9:
-                logging.debug ("END: {} {}".format(name, idt))
+                logging.debug("END: {} {}".format(name, idt))
 
 
-
-
-
-print ("  " + "\n  ".join([f"p{i+1:02d}: {config}" for (i, config) in enumerate(final_selection)]))
+print("  " + "\n  ".join([f"p{i+1:02d}: {config}" for (i, config) in enumerate(final_selection)]))
 
 if ARGS.output:
     if not os.path.exists(f"{ARGS.output}"):
@@ -675,9 +631,7 @@ if ARGS.output:
     if os.path.isfile(domain_file):
         shutil.copyfile(domain_file, f"{ARGS.output}/{ARGS.domain}/domain.pddl")
 
-
     seed = 2019
-    # os.mkdir (f"{ARGS.output}/{ARGS.domain}")
 
     for numseed in range(0, max(1, ARGS.multiple_seeds)):
         i = 1

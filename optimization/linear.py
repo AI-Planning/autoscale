@@ -54,12 +54,11 @@ import warnings
 import json
 
 import domain_configuration
-from domain_configuration import get_domains
-from sequence import EvaluatedSequence
-
-from runner import Runner
-
 from planner_selection import get_baseline_planner, get_sart_planners
+from runner import Runner
+from sequence import EvaluatedSequence
+import utils
+
 
 warnings.simplefilter(action="ignore", category=FutureWarning)
 
@@ -197,54 +196,20 @@ PLANNER_MEMORY_LIMIT = 3 * 1024 ** 3  # 3 GiB in Bytes
 MIN_PLANNER_RUNTIME = 0.1
 domain_configuration.PRECISION = ARGS.precision
 YEAR = int(ARGS.year)
-if YEAR == "2020":
-    sys.exit("2020 selection of planners no longer availabe")
 
 
 SMAC_OUTPUT_DIR = ARGS.smac_output_dir
 GENERATORS_DIR = ARGS.generators_dir
 TMP_PLAN_DIR = "plan"
 SINGULARITY_SCRIPT = os.path.join(DIR, "run-singularity.sh")
-# print("Singularity script:", SINGULARITY_SCRIPT)
 
 
-def setup_logging():
-    """
-    Print DEBUG and INFO messages to stdout and higher levels to stderr.
-    """
-    # Python adds a default handler if some log is generated before here.
-    # Remove all handlers that have been added automatically.
-    logger = logging.getLogger("")
-    for handler in logger.handlers:
-        logger.removeHandler(handler)
-
-    class InfoFilter(logging.Filter):
-        def filter(self, rec):
-            return rec.levelno in (logging.DEBUG, logging.INFO)
-
-    logger.setLevel(logging.DEBUG if ARGS.debug else logging.INFO)
-
-    formatter = logging.Formatter("%(asctime)s %(levelname)-8s %(message)s")
-
-    h1 = logging.StreamHandler(sys.stdout)
-    h1.setLevel(logging.DEBUG)
-    h1.addFilter(InfoFilter())
-    h1.setFormatter(formatter)
-
-    h2 = logging.StreamHandler()
-    h2.setLevel(logging.WARNING)
-    h2.setFormatter(formatter)
-
-    logger.addHandler(h1)
-    logger.addHandler(h2)
-
-
-setup_logging()
+utils.setup_logging(ARGS.debug)
 
 if ARGS.tasks < ARGS.tasksbaseline:
     sys.exit("Error: number of tasks must be at least as large as the number of tasks for the baseline")
 
-DOMAINS = get_domains()
+DOMAINS = domain_configuration.get_domains()
 
 logging.debug("{} domains available: {}".format(len(DOMAINS), sorted(DOMAINS)))
 
@@ -265,7 +230,6 @@ RUNNER_SART = Runner(
     "sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, YEAR, ARGS.domain), PLANNER_TIME_LIMIT,
     ARGS.random_seed, ARGS.runs_per_configuration, "<set later>", TMP_PLAN_DIR, GENERATORS_DIR,
     SINGULARITY_SCRIPT)
-
 
 
 if ARGS.database:
