@@ -50,32 +50,6 @@ class EvaluatedSequence:
         return penalty
 
 
-class EstimatedSequence:
-    def __init__(self, evaluated_sequence):
-        assert evaluated_sequence.is_evaluated()
-        self.problems = evaluated_sequence.seq
-        self.sorted_runtimes  = sorted(evaluated_sequence.runtimes)
-
-        first_index = 0
-        while first_index < len(self.sorted_runtimes) - 2 and self.sorted_runtimes[first_index] < 5:
-            first_index += 1
-
-        factors = [self.sorted_runtimes[i]/self.sorted_runtimes[i-1] for i in range (first_index, len(self.sorted_runtimes))]
-        average_factor = float(sum(factors))/float(len(factors))
-
-        while len(self.sorted_runtimes) < len(self.problems):
-            self.sorted_runtimes.append(self.sorted_runtimes[-1]*average_factor)
-
-        self.i = 0
-
-    def time_next_config(self):
-        return self.runtimes[self.i]
-
-    def pop_next_config(self):
-        self.i += 1
-        return self.problems[self.i-1]
-
-
 def penalty_by_factor(factor):
     if factor <= 1:  # Runtime is not increasing: maximum penalty of 1
         return 1

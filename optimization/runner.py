@@ -199,7 +199,6 @@ class Runner:
                 if runtimes:
                     results.append(min(runtimes))
 
-
             except Exception as err:
                 print(err, file=sys.stderr)
                 raise
