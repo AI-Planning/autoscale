@@ -177,7 +177,7 @@ void printSfma(Sfma *f) {
   case Sconj: printf("(and "); printSfmalist(f->juncts); printf(")"); break;
   case Sforall: printf("(forall "); printtypedvars(f->ss); printSfma(f->f); printf(")"); break;
   case Sforsome: printf("(exists "); printtypedvars(f->ss); printSfma(f->f); printf(")"); break;
-    
+
   }
 }
 
@@ -446,7 +446,7 @@ void checkrequirements(intlist *l) {
     }
 
     if(strcmp(symbol(l->hd),":action-costs") == 0) {
-      fprintf(stderr,"WARNING: will ignore action costs\n");
+      fprintf(stdout,"WARNING: will ignore action costs\n");
     }
 
     l = l->tl;
@@ -597,7 +597,7 @@ void processtypes() {
     }
   }
 
-  /* Add objects of a type to all its supertypes. */  
+  /* Add objects of a type to all its supertypes. */
   for(i=0;i<nOfTypes;i++) {
     il = Stypes[i].elements;
     while(il != NULL) {
