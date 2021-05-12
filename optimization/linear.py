@@ -132,13 +132,6 @@ def parse_args():
         help="Minimum time for considering a runtime relevant (default: %(default)ss)",
     )
 
-    #parser.add_argument(
-    #    "--intensification-percentage",
-    #    type=float,
-    #    default=0.5,
-    #    help="Percentage of SMAC overhead from total runtime (default: %(default)f)",
-    #)
-
     parser.add_argument(
         "--smac-challengers",
         type=int,
@@ -185,7 +178,10 @@ def parse_args():
         help="only consider the baseline planner",
     )
 
-    parser.add_argument("--database", default=None, help="path to json file with the information needed")
+    parser.add_argument(
+        "--database",
+        default=None,
+        help="path to json file with the information needed. Useful for \"resuming\" SMAC runs.")
 
     return parser.parse_args()
 
@@ -250,10 +246,9 @@ if ARGS.database:
             RUNNER_SART.load_cache_from_log_file(content[ARGS.domain]["sart_runtimes"])
 
 
-
-
 def evaluate_cfg(cfg):
     return evaluate_sequence(cfg)
+
 
 previous_subsequences = {}
 def evaluate_sequence(cfg, print_final_configuration=False):
@@ -400,7 +395,6 @@ RUNNER_SART.SMAC_OUTPUT_DIR = smac.output_dir
 # See https://github.com/automl/SMAC3/issues/636#issuecomment-609446077
 # Experiments showed that the value of 1e-10 is actually preferable (we tested
 # this for optimal planners), so we keep the default value.
-#smac.scenario.intensification_percentage = ARGS.intensification_percentage
 print("Intensification percentage:", smac.scenario.intensification_percentage)
 
 incumbent = smac.optimize()
