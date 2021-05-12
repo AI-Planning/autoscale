@@ -11,7 +11,7 @@ import statistics
 import subprocess
 import sys
 
-import planner_selection
+import planners
 
 from sequence import compute_average
 
@@ -141,7 +141,7 @@ class Runner:
 
                 runtimes = []
                 for image in self.planners:
-                    image_path = planner_selection.IMAGES_DIR / f"{image}.img"
+                    image_path = planners.IMAGES_DIR / f"{image}.img"
                     if not image_path.exists():
                         sys.exit(f"Error, image does not exist: {image_path}")
 

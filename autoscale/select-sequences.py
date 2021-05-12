@@ -24,8 +24,8 @@ try:
 except ImportError:
     cplex = None
 
-from domain_configuration import get_domains
-from planner_selection import get_baseline_planner, get_sart_planners
+from domains import get_domains
+from planners import get_baseline_planner, get_sart_planners
 
 from sequence import EvaluatedSequence
 from sequence import compute_average

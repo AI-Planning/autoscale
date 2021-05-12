@@ -322,7 +322,7 @@ def get_smac_experiment(
     for domain in domains:
         for seed in range(runs_per_domain):
             run = exp.add_run()
-            cmd = (["python3", str(DIR / "linear.py"),
+            cmd = (["python3", str(DIR.parent / "autoscale" / "optimize-sequences.py"),
                 "--optimization-time-limit", str(smac_time_limit),
                 "--random-seed", str(seed),
                 "--runs-per-configuration", str(runs_per_config),
@@ -398,7 +398,7 @@ def get_evaluation_experiment(
         planner, image = get_image(planner_nick)
         exp.add_resource(planner, image, symlink=True)
 
-    singularity_script = DIR / "run-singularity.sh"
+    singularity_script = DIR.parent / "autoscale" / "run-singularity.sh"
     exp.add_resource("run_singularity", singularity_script)
 
     suite = []

@@ -53,8 +53,8 @@ import sys
 import warnings
 import json
 
-import domain_configuration
-from planner_selection import get_baseline_planner, get_sart_planners
+import domains
+from planners import get_baseline_planner, get_sart_planners
 from runner import Runner
 from sequence import EvaluatedSequence
 import utils
@@ -142,7 +142,7 @@ def parse_args():
     parser.add_argument(
         "--precision",
         type=float,
-        default=domain_configuration.PRECISION,
+        default=domains.PRECISION,
         help="precision of float domain parameters (default: %(default)s)",
     )
 
@@ -190,7 +190,7 @@ ARGS = parse_args()
 PLANNER_TIME_LIMIT = ARGS.planner_time_limit
 PLANNER_MEMORY_LIMIT = 3 * 1024 ** 3  # 3 GiB in Bytes
 MIN_PLANNER_RUNTIME = 0.1
-domain_configuration.PRECISION = ARGS.precision
+domains.PRECISION = ARGS.precision
 YEAR = int(ARGS.year)
 
 
@@ -205,7 +205,7 @@ utils.setup_logging(ARGS.debug)
 if ARGS.tasks < ARGS.tasksbaseline:
     sys.exit("Error: number of tasks must be at least as large as the number of tasks for the baseline")
 
-DOMAINS = domain_configuration.get_domains()
+DOMAINS = domains.get_domains()
 
 logging.debug("{} domains available: {}".format(len(DOMAINS), sorted(DOMAINS)))
 
