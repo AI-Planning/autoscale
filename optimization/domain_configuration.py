@@ -41,7 +41,7 @@ class SelectedConfiguration:
         return result
 
 class LinearAttr:
-    def __init__(self, name, base_atr=None, level="false",lower_b=1, upper_b=20, lower_m=0.1, upper_m=5.0, default_m=1.0, optional_m = False):
+    def __init__(self, name, base_atr=None, level="false", lower_b=1, upper_b=20, lower_m=0.1, upper_m=5.0, default_m=1.0, optional_m = False):
         self.name = name
         self.lower_b = lower_b
         self.upper_b = upper_b
@@ -385,16 +385,16 @@ DOMAIN_LIST = [
     Domain("gripper", "gripper -n {n}", [LinearAttr("n", lower_b=8, upper_b=20)], penalty_for_instances_with_duplicated_parameters=math.inf),
     Domain("miconic",
         "miconic -f {floors} -p {passengers}",
-        [LinearAttr("passengers", lower_b=5, upper_b=20, lower_m=0.1, upper_m=5),  #level="true"
-         LinearAttr("floors", lower_b=5, upper_b=15, lower_m=0.1, upper_m=5, optional_m=True)], # level="choose"
+        [LinearAttr("passengers", lower_b=5, upper_b=20, lower_m=0.1, upper_m=5),
+         LinearAttr("floors", lower_b=5, upper_b=15, lower_m=0.1, upper_m=5, optional_m=True)],
     ),
     Domain("rovers",
         "rovgen {seed} {rovers} {waypoints} {objectives} {cameras} {goals}",
         [
-            LinearAttr("rovers", upper_b=10, upper_m=2, optional_m=True), # level="choose"
-            LinearAttr("objectives", upper_b=10, optional_m=True), # level="choose"
-            LinearAttr("cameras", upper_b=10, optional_m=True), # level="choose"
-            LinearAttr("goals", upper_b=20, lower_m=1), # level="choose"
+            LinearAttr("rovers", upper_b=10, upper_m=2, optional_m=True),
+            LinearAttr("objectives", upper_b=10, optional_m=True),
+            LinearAttr("cameras", upper_b=10, optional_m=True),
+            LinearAttr("goals", upper_b=20, lower_m=1),
             LinearAttr("waypoints", lower_b=4, upper_b=20, lower_m=0.5, upper_m=1),
         ],
     ),
@@ -436,7 +436,7 @@ DOMAIN_LIST = [
         "ztravel {seed} {cities} {planes} {people}",
         [LinearAttr("planes", lower_b=1, upper_b=20, optional_m=True),
          LinearAttr("people", lower_b=5, upper_b=20, lower_m=1, upper_m=10),
-         LinearAttr("cities", lower_b=3, upper_b=30, optional_m=True)], # level="choose"
+         LinearAttr("cities", lower_b=3, upper_b=30, optional_m=True)],
     ),
     Domain("parking",
            "./parking-generator.pl prob {curbs} {cars} seq",
@@ -446,7 +446,7 @@ DOMAIN_LIST = [
     ),
     Domain("driverlog",
            "dlgen {seed} {roadjunctions} {drivers} {packages} {trucks}",
-           [LinearAttr("drivers", lower_b=1, upper_b=10, default_m=0.2, optional_m=True), # level="choose"
+           [LinearAttr("drivers", lower_b=1, upper_b=10, default_m=0.2, optional_m=True),
             LinearAttr("packages", lower_m=1, upper_m=5, lower_b=2, upper_b=15),
             LinearAttr("roadjunctions", lower_b=2, upper_b=10, optional_m=True),
             LinearAttr("trucks", base_atr="drivers", lower_b=0, upper_b=1, lower_m=0, upper_m=1, optional_m=True)]
@@ -461,7 +461,7 @@ DOMAIN_LIST = [
 
     Domain("depots",
            "depots -e {depots} -i {distributors} -t {trucks} -p {pallets} -h {hoists} -c {crates} -s {seed}",
-           [LinearAttr("depots", lower_b=3, upper_b=10, optional_m=True), # level="choose"
+           [LinearAttr("depots", lower_b=3, upper_b=10, optional_m=True),
             LinearAttr("distributors", lower_b=2, upper_b=10, optional_m=True),
             LinearAttr("trucks", lower_b=2, upper_b=10, optional_m=True),
             LinearAttr("pallets", lower_b=2, upper_b=20, optional_m=True),
@@ -496,7 +496,7 @@ DOMAIN_LIST = [
            [LinearAttr("crates", lower_b=2, upper_b=15, lower_m=1, upper_m=5),
             LinearAttr("hoists", lower_b=2, upper_b=5, optional_m=True),
             LinearAttr("store_areas", lower_b=0, upper_b=10, optional_m=True),
-            LinearAttr("depots", lower_b=1, upper_b=5, upper_m=1, optional_m=True),   #level="true"
+            LinearAttr("depots", lower_b=1, upper_b=5, upper_m=1, optional_m=True),
            ], adapt_f = adapt_parameters_storage),
 
     Domain("transport",
@@ -596,31 +596,8 @@ DOMAIN_LIST = [
            adapt_f=adapt_parameters_grid
     ),
 
-
-
-
- #   Domain("agricola", "GenAgricola.py --num_workers {num_workers} --num_ints {num_ints} --num_rounds {num_rounds} {last_stage} {seed}",
- #          [LinearAtr("n", lower_b=5, upper_b=10, lower_m=0.1, upper_m=2)]),
-
-
-    # Domain("mystery",
-    #        "mystery -l {locations} -c {cargos} -v {vehicles} -f {fuel} -s {space}",
-    #        [LinearAtr("locations", lower_b=2, upper_b=10),
-    #         LinearAtr("cargos", lower_b=2, upper_b=10),
-    #        ]
-    # ),
-
-
-    # Domain("maintenance",
-    #        "maintenance {days} {planes} {mechanics} {cities} {visits} {instances} {seed}",
-    #        [LinearAtr("days", lower_b = 5),
-    #         LinearAtr("planes", base_atr="days"),
-    #         ConstantAtr("mechanics", 1),
-    #         ConstantAtr("hubs", 3),
-    #         ConstantAtr("visits", 20),
-    #         ConstantAtr("instances", 1),
-    #        ]
-    # ),
+    #   Domain("agricola", "GenAgricola.py --num_workers {num_workers} --num_ints {num_ints} --num_rounds {num_rounds} {last_stage} {seed}",
+    #          [LinearAtr("n", lower_b=5, upper_b=10, lower_m=0.1, upper_m=2)]),
 
     Domain("data-network",
            "generator/generator.py {items} {layers} {scripts} {network} {seed}",
@@ -632,18 +609,9 @@ DOMAIN_LIST = [
            adapt_f =adapt_parameters_datanetwork
     ),
 
-
-
-
     # Domain("termes",
     #        "",
     #        [] # TODO
-    # ),
-
-
-    # Domain("tetris",
-    #        "generator.py {grid_size} {conf_blocks}",
-    #        [] # TODO ** Take care, generator can return unsolvable instances!! **
     # ),
 
     ]
