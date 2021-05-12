@@ -82,8 +82,8 @@ def parse_args():
     )
 
     parser.add_argument(
-        'year', choices=['2014', '2020'],
-        help="Choose the latest planner year to include: 2014 or 2020."
+        'year', choices=['2014', '2018'],
+        help="Choose the latest planner year to include: 2014 or 2018."
     )
 
     parser.add_argument(
