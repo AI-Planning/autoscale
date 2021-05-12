@@ -16,14 +16,14 @@ PRECISION = None
 
 
 class LinearAttr:
-    def __init__(self, name, base_atr=None, level="false", lower_b=1, upper_b=20, lower_m=0.1, upper_m=5.0, default_m=1.0, optional_m = False):
+    def __init__(self, name, base_attr=None, level="false", lower_b=1, upper_b=20, lower_m=0.1, upper_m=5.0, default_m=1.0, optional_m = False):
         self.name = name
         self.lower_b = lower_b
         self.upper_b = upper_b
         self.lower_m = lower_m
         self.upper_m = upper_m
         self.default_m = default_m
-        self.base_atr = base_atr
+        self.base_attr = base_attr
         self.level_enum = level
         self.optional_m = optional_m
 
@@ -39,16 +39,16 @@ class LinearAttr:
             return self.level_enum
 
     def get_hyperparameters(self, modifier=None):
-        atr = "{}_{}".format(modifier, self.name) if modifier else self.name
+        attr = "{}_{}".format(modifier, self.name) if modifier else self.name
 
         H = []
         if self.lower_b != self.upper_b:
-            H.append(UniformIntegerHyperparameter("{}_b".format(atr), lower=self.lower_b, upper=self.upper_b, default_value=self.lower_b))
+            H.append(UniformIntegerHyperparameter("{}_b".format(attr), lower=self.lower_b, upper=self.upper_b, default_value=self.lower_b))
 
         if self.level_enum == "choose":
             # It does not make sense to have enum parameters and hierarchical linear attributes
             assert modifier is None
-            H.append(CategoricalHyperparameter("{}_level".format(atr), ["true", "false"], default_value="false"))
+            H.append(CategoricalHyperparameter("{}_level".format(attr), ["true", "false"], default_value="false"))
 
         if self.optional_m:
             H.append(CategoricalHyperparameter("{}_optional_m".format(self.name), ["true", "false"], default_value="false"))
@@ -56,33 +56,33 @@ class LinearAttr:
         if self.lower_m != self.upper_m:
             H += [
                 UniformFloatHyperparameter(
-                    "{}_m".format(atr), lower=self.lower_m, upper=self.upper_m, default_value=self.default_m, q=PRECISION
+                    "{}_m".format(attr), lower=self.lower_m, upper=self.upper_m, default_value=self.default_m, q=PRECISION
                 ),
             ]
 
         return H
 
     def set_values(self, cfg, Y, modifier=None):
-        atr = "{}_{}".format(modifier, self.name) if modifier else self.name
+        attr = "{}_{}".format(modifier, self.name) if modifier else self.name
 
-        val = self.lower_b if self.lower_b == self.upper_b else int(cfg.get("{}_b".format(atr)))
+        val = self.lower_b if self.lower_b == self.upper_b else int(cfg.get("{}_b".format(attr)))
 
-        use_m = cfg.get("{}_optional_m".format(atr)) == "false" if self.optional_m else True
+        use_m = cfg.get("{}_optional_m".format(attr)) == "false" if self.optional_m else True
 
         try:
-            m = self.lower_m if self.lower_m == self.upper_m else float(cfg.get("{}_m".format(atr)))
+            m = self.lower_m if self.lower_m == self.upper_m else float(cfg.get("{}_m".format(attr)))
         except:
             m = self.default_m
 
-        m2 = 0 if self.lower_m == self.upper_m or "{}_m2".format(atr) not in cfg else float(cfg.get("{}_m2".format(atr)))
+        m2 = 0 if self.lower_m == self.upper_m or "{}_m2".format(attr) not in cfg else float(cfg.get("{}_m2".format(attr)))
 
         if m2:
-            mb = int(cfg.get("{}_mb".format(atr)))
+            mb = int(cfg.get("{}_mb".format(attr)))
 
         for i, Yi in enumerate(Y):
             Yi[self.name] = int(val)
-            if self.base_atr:
-                Yi[self.name] += Yi[self.base_atr]
+            if self.base_attr:
+                Yi[self.name] += Yi[self.base_attr]
 
             if use_m:
                 val += m
@@ -116,25 +116,25 @@ class GridAttr:
         return self.lower_x == cfg[f"{self.name}_x"]
 
     def get_hyperparameters(self, modifier=None):
-        atr = "{}_{}".format(modifier, self.name) if modifier else self.name
+        attr = "{}_{}".format(modifier, self.name) if modifier else self.name
 
-        H = [UniformIntegerHyperparameter("{}_x".format(atr), lower=self.lower_x, upper=self.upper_x, default_value=self.lower_x),
-             UniformIntegerHyperparameter("{}_maxdiff".format(atr), lower=0, upper=5, default_value=3),
-             UniformFloatHyperparameter("{}_m".format(atr), lower=self.lower_m, upper=self.upper_m, default_value=self.default_m, q=PRECISION)
+        H = [UniformIntegerHyperparameter("{}_x".format(attr), lower=self.lower_x, upper=self.upper_x, default_value=self.lower_x),
+             UniformIntegerHyperparameter("{}_maxdiff".format(attr), lower=0, upper=5, default_value=3),
+             UniformFloatHyperparameter("{}_m".format(attr), lower=self.lower_m, upper=self.upper_m, default_value=self.default_m, q=PRECISION)
         ]
 
         if self.level_enum == "choose":
             assert (modifier is None) # It does not make sense to have enum parameters and hierarchical linear attributes
-            H.append(CategoricalHyperparameter("{}_level".format(atr), ["true", "false"], default_value="false"))
+            H.append(CategoricalHyperparameter("{}_level".format(attr), ["true", "false"], default_value="false"))
 
         return H
 
     def set_values(self, cfg, Y, modifier=None):
-        atr = "{}_{}".format(modifier, self.name) if modifier else self.name
+        attr = "{}_{}".format(modifier, self.name) if modifier else self.name
 
-        val_x = self.lower_x if self.lower_x == self.upper_x else int(cfg.get("{}_x".format(atr)))
-        m =  float(cfg.get("{}_m".format(atr)))
-        maxdiff = self.lower_x if self.lower_x == self.upper_x else int(cfg.get("{}_maxdiff".format(atr)))
+        val_x = self.lower_x if self.lower_x == self.upper_x else int(cfg.get("{}_x".format(attr)))
+        m =  float(cfg.get("{}_m".format(attr)))
+        maxdiff = self.lower_x if self.lower_x == self.upper_x else int(cfg.get("{}_maxdiff".format(attr)))
         grid_values = []
         for i in range(len(Y)*int(math.ceil(1 + m) + 2)):
             for j in range(maxdiff + 1):
@@ -196,14 +196,14 @@ def eliminate_duplicates(l):
 
 # Function that scales linear attributes, ensuring that all instances have different
 # values
-def get_linear_scaling_values(linear_atrs, cfg, num_values, base={}, name_base=None):
-    assert(len(linear_atrs) > 0)
+def get_linear_scaling_values(linear_attrs, cfg, num_values, base={}, name_base=None):
+    assert(len(linear_attrs) > 0)
     num_generated = num_values
 
     for i in range(20): # Attempt this 20 times
         result = [base.copy() for i in range(num_generated)]
-        for atr in linear_atrs:
-            atr.set_values(cfg, result, name_base)
+        for attr in linear_attrs:
+            attr.set_values(cfg, result, name_base)
 
         result = eliminate_duplicates(result)
 
@@ -212,17 +212,17 @@ def get_linear_scaling_values(linear_atrs, cfg, num_values, base={}, name_base=N
 
         num_generated *= 2
 
-    print ("Warning: we cannot generate different attributes", cfg, linear_atrs)
+    print ("Warning: we cannot generate different attributes", cfg, linear_attrs)
 
     result = [base.copy() for i in range(num_values)]
-    for atr in linear_atrs:
-        atr.set_values(cfg, result, name_base)
+    for attr in linear_attrs:
+        attr.set_values(cfg, result, name_base)
     return result
 
 class Domain:
-    def __init__(self, name, gen_command, linear_atrs, adapt_f=None,  num_sequences_linear_hierarchy=3, penalty_for_instances_with_duplicated_parameters=100):
+    def __init__(self, name, gen_command, linear_attrs, adapt_f=None,  num_sequences_linear_hierarchy=3, penalty_for_instances_with_duplicated_parameters=100):
         self.name = name
-        self.linear_attributes = linear_atrs
+        self.linear_attributes = linear_attrs
         self.gen_command = gen_command
         self.adapt_f = adapt_f
         self.num_sequences_linear_hierarchy = num_sequences_linear_hierarchy
@@ -243,10 +243,10 @@ class Domain:
         return [a.name for a in self.linear_attributes if isinstance(a, LinearAttr)] + [a.name_x for a in self.linear_attributes if isinstance(a, GridAttr)] + [a.name_y for a in self.linear_attributes if isinstance(a, GridAttr)]
 
     def has_lowest_linear_values(self, cfg):
-        for linear_atr in self.linear_attributes:
-            if isinstance(linear_atr, EnumAttr):
+        for linear_attr in self.linear_attributes:
+            if isinstance(linear_attr, EnumAttr):
                 continue
-            if not linear_atr.has_lowest_value(cfg):
+            if not linear_attr.has_lowest_value(cfg):
                 return False
         return True
 
@@ -262,7 +262,7 @@ class Domain:
         return result
 
     def get_hyperparameters(self):
-        return [a for atr in self.linear_attributes for a in atr.get_hyperparameters()]
+        return [a for attr in self.linear_attributes for a in attr.get_hyperparameters()]
 
     def get_generator_command(self, generators_dir, parameters):
         command = shlex.split(self.gen_command.format(**parameters))
@@ -424,12 +424,12 @@ DOMAIN_LIST = [
            [LinearAttr("drivers", lower_b=1, upper_b=10, default_m=0.2, optional_m=True),
             LinearAttr("packages", lower_m=1, upper_m=5, lower_b=2, upper_b=15),
             LinearAttr("roadjunctions", lower_b=2, upper_b=10, optional_m=True),
-            LinearAttr("trucks", base_atr="drivers", lower_b=0, upper_b=1, lower_m=0, upper_m=1, optional_m=True)]
+            LinearAttr("trucks", base_attr="drivers", lower_b=0, upper_b=1, lower_m=0, upper_m=1, optional_m=True)]
     ),
     Domain("barman",
            "barman-generator.py {num_cocktails} {num_ingredients} {num_shots} {seed}",
            [LinearAttr("num_cocktails", lower_b=1, upper_b=10),
-            LinearAttr("num_shots", base_atr="num_cocktails", lower_b=1, upper_b=5, optional_m=True),
+            LinearAttr("num_shots", base_attr="num_cocktails", lower_b=1, upper_b=5, optional_m=True),
             EnumAttr("num_ingredients", [2,3,4,5,6])
            ],
     ),
@@ -456,7 +456,7 @@ DOMAIN_LIST = [
            "generator.py {n_couples} {n_cars} {n_places} {seed}",
            [LinearAttr("n_couples", lower_b=1, upper_b=10,lower_m=0.1, default_m=0.5,optional_m=True),
             LinearAttr("n_places", lower_b=2, upper_b=20,default_m=1),
-            LinearAttr("n_cars", base_atr="n_couples", lower_b=1, upper_b=5, default_m=0.1, optional_m=True)]
+            LinearAttr("n_cars", base_attr="n_couples", lower_b=1, upper_b=5, default_m=0.1, optional_m=True)]
     ),
 
     Domain("floortile",
@@ -501,7 +501,6 @@ DOMAIN_LIST = [
             GridAttr("grid", "x_grid", "y_grid", lower_x=3, upper_x=8),
             EnumAttr("num_spawn_apples", [f"{sp}%" for sp in [40,55,70,85,100]])
            ],
-           # enum_values=[MultiSequenceAtr(f"yinc{yinc}-sp{sp}", {"num_spawn_apples" : f"{sp}%", "yinc" : yinc}) for sp in [40,55,70,85,100] for yinc in [0,1]],
            adapt_f=adapt_parameters_snake
     ),
 
@@ -572,7 +571,7 @@ DOMAIN_LIST = [
     ),
 
     #   Domain("agricola", "GenAgricola.py --num_workers {num_workers} --num_ints {num_ints} --num_rounds {num_rounds} {last_stage} {seed}",
-    #          [LinearAtr("n", lower_b=5, upper_b=10, lower_m=0.1, upper_m=2)]),
+    #          [Linearattr("n", lower_b=5, upper_b=10, lower_m=0.1, upper_m=2)]),
 
     Domain("data-network",
            "generator/generator.py {items} {layers} {scripts} {network} {seed}",
