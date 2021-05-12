@@ -383,7 +383,7 @@ def evaluate_sequence(cfg, print_final_configuration=False):
 cs = ConfigurationSpace()
 
 domain = DOMAINS[ARGS.domain]
-cs.add_hyperparameters(domain.get_hyperparameters(ARGS.only_baseline))
+cs.add_hyperparameters(domain.get_hyperparameters())
 
 scenario = Scenario(
     {

@@ -63,7 +63,7 @@ class LinearAttr:
         else:
             return self.level_enum
 
-    def get_hyperparameters(self, only_baseline, modifier=None):
+    def get_hyperparameters(self, modifier=None):
         atr = "{}_{}".format(modifier, self.name) if modifier else self.name
 
         H = []
@@ -140,7 +140,7 @@ class GridAttr:
     def has_lowest_value(self, cfg):
         return self.lower_x == cfg[f"{self.name}_x"]
 
-    def get_hyperparameters(self, only_baseline, modifier=None):
+    def get_hyperparameters(self, modifier=None):
         atr = "{}_{}".format(modifier, self.name) if modifier else self.name
 
         H = [UniformIntegerHyperparameter("{}_x".format(atr), lower=self.lower_x, upper=self.upper_x, default_value=self.lower_x),
@@ -182,7 +182,7 @@ class ConstantAttr:
         self.name = name
         self.value = value
 
-    def get_hyperparameters(self, only_baseline, modifier=None):
+    def get_hyperparameters(self, modifier=None):
         return []
 
     def get_level_enum(self, cfg):
@@ -200,7 +200,7 @@ class EnumAttr:
         self.values = values
         self.name = name
 
-    def get_hyperparameters(self, only_baseline):
+    def get_hyperparameters(self):
         return [CategoricalHyperparameter(self.name, self.values)]
 
     def get_level_enum(self, cfg):
@@ -286,8 +286,8 @@ class Domain:
 
         return result
 
-    def get_hyperparameters(self, only_baseline):
-        return [a for atr in self.linear_attributes for a in atr.get_hyperparameters(only_baseline)]
+    def get_hyperparameters(self):
+        return [a for atr in self.linear_attributes for a in atr.get_hyperparameters()]
 
     def get_generator_command(self, generators_dir, parameters):
         command = shlex.split(self.gen_command.format(**parameters))
