@@ -52,8 +52,6 @@ import resource
 import sys
 import warnings
 import json
-import itertools
-from collections import defaultdict
 
 import domain_configuration
 from domain_configuration import get_domains
