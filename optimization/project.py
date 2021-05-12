@@ -371,7 +371,7 @@ def get_smac_experiment(
 
 
 def get_evaluation_experiment(
-    planners, benchmarks_dir, domains, attributes, environment=None):
+    planners, benchmarks_dir, domains, attributes, environment=None, time_limit=1800):
     """
     *bechmarks_dir* can either be an absolute path or a directory name under ^/benchmarks/.
     """
@@ -392,7 +392,7 @@ def get_evaluation_experiment(
         assert image.is_file(), image
         return resource_name, image
 
-    time_limit = 1800 if REMOTE else 1
+    time_limit = time_limit if REMOTE else 1
 
     for planner_nick in planners:
         planner, image = get_image(planner_nick)
