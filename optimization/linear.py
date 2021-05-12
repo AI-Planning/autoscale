@@ -246,7 +246,7 @@ setup_logging()
 if ARGS.tasks < ARGS.tasksbaseline:
     sys.exit("Error: number of tasks must be at least as large as the number of tasks for the baseline")
 
-DOMAINS = get_domains(ARGS.track)
+DOMAINS = get_domains()
 
 logging.debug("{} domains available: {}".format(len(DOMAINS), sorted(DOMAINS)))
 

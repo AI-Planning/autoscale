@@ -175,7 +175,7 @@ def setup_logging():
 
 setup_logging()
 
-DOMAINS = get_domains(ARGS.track)
+DOMAINS = get_domains()
 
 # SMAC moves old directories out of the way, but we want a completely pristine directory to safeguard against errors.
 if not SMAC_OUTPUT_DIR:
