@@ -17,7 +17,7 @@ OPT_DOMAINS = [
     'blocksworld',
     'childsnack',
     'data-network',
-    'depot',
+    'depots',
     'driverlog',
     'elevators',
     'floortile',
@@ -55,7 +55,7 @@ OPT_DOMAINS = [
     # 'tidybot',
     'tpp',
     'transport',
-    'trucks-strips',
+    # 'trucks-strips',
     'visitall',
     'woodworking',
     'zenotravel'
@@ -75,7 +75,7 @@ SAT_DOMAINS = [
     'childsnack',
     # 'citycar',
     'data-network',
-    'depot',
+    'depots',
     'driverlog',
     'elevators',
     # 'flashfill',
@@ -123,7 +123,7 @@ SAT_DOMAINS = [
     'tpp',
     'transport',
     # 'trucks-adl',
-    'trucks-strips',
+    # 'trucks-strips',
     'visitall',
     'woodworking',
     'zenotravel'
@@ -132,8 +132,8 @@ SAT_DOMAINS = [
 
 PREFIX = "    "
 TRACK_TO_NAME = {
-    "sat": "PLANNER_SELECTION_SAT_2014",
-    "opt": "PLANNER_SELECTION_OPT_2014",
+    "sat": "PLANNER_SELECTION_SAT",
+    "opt": "PLANNER_SELECTION_OPT",
 }
 
 
@@ -263,6 +263,11 @@ def select_fastest_algorithms(
         # planner removed. Stop if all problems are covered or the
         # maximum number of planners has been selected.
         considered_algos = set(algos) - excluded_algos
+        if not considered_algos:
+            print(PREFIX + f"# WARNING! Excluded all algorithms for {domain}!")
+            selected_algos[domain] = []
+            continue
+
         problem_algo_to_runtime  = { problem : {k: v for k, v in algo_to_runtime.items() if k in  considered_algos} for problem, algo_to_runtime in problem_algo_to_runtime.items()}
 
         uncovered_problems = set([problem for problem, algo_to_runtime in problem_algo_to_runtime.items() if min(algo_to_runtime.values()) < time_out])

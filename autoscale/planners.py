@@ -179,9 +179,231 @@ PLANNER_SELECTION_SAT_2014 = {
 for domain, planners in PLANNER_SELECTION_SAT_2014.items():
     assert set(planners).issubset(SAT_2014_PLANNERS), (domain, planners, SAT_2014_PLANNERS)
 
+OPT_2018_PLANNERS = {
+    "ipc2018-opt-complementary2-3584mb",
+    "ipc2018-opt-decstar",
+    "ipc2018-opt-delfi-blind",
+    "ipc2018-opt-delfi-celmcut",
+    "ipc2018-opt-delfi-ipdb",
+    "ipc2018-opt-delfi-mas-miasm",
+    "ipc2018-opt-delfi-mas-sccdfp",
+    "ipc2018-opt-scorpion",
+}
+
+# This selection was generated through ./select-best-planner-per-domain.py results/2020-12-05-A-evaluation-opt-ipc-properties.json --time-out 3600 --epsilon-runtime 1.0 --epsilon-factor-runtime 5.0 --delta 0.0 --exclude-runtime 30 --max-planners 3 --track opt
+PLANNER_SELECTION_OPT_2018 = {
+    # ipc2018-opt-delfi-mas-miasm: 11,
+    'barman': ['ipc2018-opt-delfi-mas-miasm'],
+    # ipc2018-opt-delfi-ipdb: 28, ipc2018-opt-complementary2-3584mb: 2,
+    'blocksworld': ['ipc2018-opt-delfi-ipdb', 'ipc2018-opt-complementary2-3584mb'],
+    # ipc2018-opt-decstar: 6,
+    'childsnack': ['ipc2018-opt-decstar'],
+    # ipc2018-opt-decstar: 12, ipc2018-opt-scorpion: 2,
+    'data-network': ['ipc2018-opt-decstar', 'ipc2018-opt-scorpion'],
+    # ipc2018-opt-delfi-ipdb: 10, ipc2018-opt-scorpion: 4,
+    'depots': ['ipc2018-opt-delfi-ipdb', 'ipc2018-opt-scorpion'],
+    # ipc2018-opt-delfi-celmcut: 13, ipc2018-opt-decstar: 1, ipc2018-opt-complementary2-3584mb: 1,
+    'driverlog': ['ipc2018-opt-delfi-celmcut', 'ipc2018-opt-decstar', 'ipc2018-opt-complementary2-3584mb'],
+    # ipc2018-opt-delfi-ipdb: 36, ipc2018-opt-scorpion: 6, ipc2018-opt-decstar: 2,
+    'elevators': ['ipc2018-opt-delfi-ipdb', 'ipc2018-opt-scorpion', 'ipc2018-opt-decstar'],
+    # ipc2018-opt-delfi-celmcut: 34,
+    'floortile': ['ipc2018-opt-delfi-celmcut'],
+    # ipc2018-opt-delfi-ipdb: 3,
+    'grid': ['ipc2018-opt-delfi-ipdb'],
+    # WARNING! Excluding ipc2018-opt-complementary2-3584mb from gripper because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-opt-decstar from gripper because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-opt-delfi-blind from gripper because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-opt-delfi-celmcut from gripper because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-opt-delfi-ipdb from gripper because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-opt-delfi-mas-sccdfp from gripper because it solves all tasks in under 30 seconds!
+    # ipc2018-opt-delfi-mas-miasm: 20, excluded algos: ipc2018-opt-decstar, ipc2018-opt-delfi-celmcut, ipc2018-opt-delfi-ipdb, ipc2018-opt-delfi-blind, ipc2018-opt-complementary2-3584mb, ipc2018-opt-delfi-mas-sccdfp,
+    'gripper': ['ipc2018-opt-delfi-mas-miasm'],
+    # ipc2018-opt-delfi-mas-sccdfp: 19,
+    'hiking': ['ipc2018-opt-delfi-mas-sccdfp'],
+    # ipc2018-opt-decstar: 34, ipc2018-opt-scorpion: 2,
+    'logistics': ['ipc2018-opt-decstar', 'ipc2018-opt-scorpion'],
+    # ipc2018-opt-delfi-celmcut: 140, ipc2018-opt-complementary2-3584mb: 3, ipc2018-opt-scorpion: 1,
+    'miconic': ['ipc2018-opt-delfi-celmcut', 'ipc2018-opt-complementary2-3584mb', 'ipc2018-opt-scorpion'],
+    # ipc2018-opt-decstar: 20,
+    'nomystery': ['ipc2018-opt-decstar'],
+    # ipc2018-opt-complementary2-3584mb: 69, ipc2018-opt-delfi-ipdb: 5,
+    'openstacks': ['ipc2018-opt-complementary2-3584mb', 'ipc2018-opt-delfi-ipdb'],
+    # ipc2018-opt-delfi-ipdb: 13, ipc2018-opt-scorpion: 2,
+    'parking': ['ipc2018-opt-delfi-ipdb', 'ipc2018-opt-scorpion'],
+    # ipc2018-opt-decstar: 5,
+    'pathways': ['ipc2018-opt-decstar'],
+    # ipc2018-opt-complementary2-3584mb: 12, ipc2018-opt-delfi-blind: 1,
+    'rovers': ['ipc2018-opt-complementary2-3584mb', 'ipc2018-opt-delfi-blind'],
+    # ipc2018-opt-decstar: 13, ipc2018-opt-delfi-celmcut: 1,
+    'satellite': ['ipc2018-opt-decstar', 'ipc2018-opt-delfi-celmcut'],
+    # ipc2018-opt-delfi-celmcut: 27, ipc2018-opt-delfi-ipdb: 7,
+    'scanalyzer': ['ipc2018-opt-delfi-celmcut', 'ipc2018-opt-delfi-ipdb'],
+    # ipc2018-opt-delfi-blind: 12, ipc2018-opt-scorpion: 2,
+    'snake': ['ipc2018-opt-delfi-blind', 'ipc2018-opt-scorpion'],
+    # ipc2018-opt-delfi-ipdb: 49, ipc2018-opt-decstar: 1,
+    'sokoban': ['ipc2018-opt-delfi-ipdb', 'ipc2018-opt-decstar'],
+    # ipc2018-opt-delfi-celmcut: 18,
+    'storage': ['ipc2018-opt-delfi-celmcut'],
+    # ipc2018-opt-delfi-ipdb: 12, ipc2018-opt-complementary2-3584mb: 3,
+    'termes': ['ipc2018-opt-delfi-ipdb', 'ipc2018-opt-complementary2-3584mb'],
+    # ipc2018-opt-delfi-blind: 12, ipc2018-opt-complementary2-3584mb: 1,
+    'tetris': ['ipc2018-opt-delfi-blind', 'ipc2018-opt-complementary2-3584mb'],
+    # ipc2018-opt-decstar: 20,
+    'tpp': ['ipc2018-opt-decstar'],
+    # ipc2018-opt-delfi-ipdb: 25, ipc2018-opt-scorpion: 10,
+    'transport': ['ipc2018-opt-delfi-ipdb', 'ipc2018-opt-scorpion'],
+    # ipc2018-opt-delfi-ipdb: 28, ipc2018-opt-scorpion: 2,
+    'visitall': ['ipc2018-opt-delfi-ipdb', 'ipc2018-opt-scorpion'],
+    # ipc2018-opt-delfi-celmcut: 50,
+    'woodworking': ['ipc2018-opt-delfi-celmcut'],
+    # ipc2018-opt-delfi-celmcut: 13,
+    'zenotravel': ['ipc2018-opt-delfi-celmcut'],
+    # Total planners selected: 51
+}
+
+for domain, planners in PLANNER_SELECTION_OPT_2018.items():
+    assert set(planners).issubset(OPT_2018_PLANNERS), (domain, planners, OPT_2018_PLANNERS)
+
+SAT_2018_PLANNERS = {
+    "ipc2018-agl-decstar",
+    "ipc2018-agl-fd-remix",
+    "ipc2018-agl-lapkt-dual-bfws",
+    "ipc2018-agl-lapkt-bfws-pref",
+    "ipc2018-agl-lapkt-poly-bfws",
+    "ipc2018-agl-olcff",
+    "ipc2018-agl-saarplan",
+    "ipc2018-agl-cerberus",
+}
+
+# This selection was generated through ./select-best-planner-per-domain.py results/2020-12-05-B-evaluation-sat-ipc-properties.json --time-out 3600 --epsilon-runtime 1.0 --epsilon-factor-runtime 5.0 --delta 0.0 --exclude-runtime 30 --max-planners 3 --track sat
+PLANNER_SELECTION_SAT_2018 = {
+    # WARNING! Excluding ipc2018-agl-fd-remix from barman because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-lapkt-bfws-pref from barman because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-lapkt-poly-bfws from barman because it solves all tasks in under 30 seconds!
+    # ipc2018-agl-decstar: 35, ipc2018-agl-lapkt-dual-bfws: 5, excluded algos: ipc2018-agl-lapkt-bfws-pref, ipc2018-agl-lapkt-poly-bfws, ipc2018-agl-fd-remix,
+    'barman': ['ipc2018-agl-decstar', 'ipc2018-agl-lapkt-dual-bfws'],
+    # WARNING! Excluding ipc2018-agl-cerberus from blocksworld because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-decstar from blocksworld because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-fd-remix from blocksworld because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-lapkt-bfws-pref from blocksworld because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-lapkt-dual-bfws from blocksworld because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-lapkt-poly-bfws from blocksworld because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-olcff from blocksworld because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-saarplan from blocksworld because it solves all tasks in under 30 seconds!
+    # WARNING! Excluded all algorithms for blocksworld!
+    # ipc2018-agl-decstar: 20,
+    'childsnack': ['ipc2018-agl-decstar'],
+    # ipc2018-agl-saarplan: 18, ipc2018-agl-fd-remix: 1,
+    'data-network': ['ipc2018-agl-saarplan', 'ipc2018-agl-fd-remix'],
+    # WARNING! Excluding ipc2018-agl-lapkt-bfws-pref from depots because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-olcff from depots because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-saarplan from depots because it solves all tasks in under 30 seconds!
+    # ipc2018-agl-lapkt-poly-bfws: 20, ipc2018-agl-cerberus: 2, excluded algos: ipc2018-agl-saarplan, ipc2018-agl-olcff, ipc2018-agl-lapkt-bfws-pref,
+    'depots': ['ipc2018-agl-lapkt-poly-bfws', 'ipc2018-agl-cerberus'],
+    # WARNING! Excluding ipc2018-agl-fd-remix from driverlog because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-lapkt-bfws-pref from driverlog because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-lapkt-dual-bfws from driverlog because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-lapkt-poly-bfws from driverlog because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-saarplan from driverlog because it solves all tasks in under 30 seconds!
+    # ipc2018-agl-decstar: 19, ipc2018-agl-cerberus: 1, excluded algos: ipc2018-agl-saarplan, ipc2018-agl-fd-remix, ipc2018-agl-lapkt-poly-bfws, ipc2018-agl-lapkt-dual-bfws, ipc2018-agl-lapkt-bfws-pref,
+    'driverlog': ['ipc2018-agl-decstar', 'ipc2018-agl-cerberus'],
+    # ipc2018-agl-lapkt-poly-bfws: 50,
+    'elevators': ['ipc2018-agl-lapkt-poly-bfws'],
+    # WARNING! Excluding ipc2018-agl-cerberus from floortile because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-fd-remix from floortile because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-olcff from floortile because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-saarplan from floortile because it solves all tasks in under 30 seconds!
+    # ipc2018-agl-decstar: 40, excluded algos: ipc2018-agl-fd-remix, ipc2018-agl-saarplan, ipc2018-agl-olcff, ipc2018-agl-cerberus,
+    'floortile': ['ipc2018-agl-decstar'],
+    # WARNING! Excluding ipc2018-agl-cerberus from grid because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-decstar from grid because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-fd-remix from grid because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-lapkt-bfws-pref from grid because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-lapkt-dual-bfws from grid because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-lapkt-poly-bfws from grid because it solves all tasks in under 30 seconds!
+    # ipc2018-agl-olcff: 5, excluded algos: ipc2018-agl-decstar, ipc2018-agl-fd-remix, ipc2018-agl-cerberus, ipc2018-agl-lapkt-poly-bfws, ipc2018-agl-lapkt-dual-bfws, ipc2018-agl-lapkt-bfws-pref,
+    'grid': ['ipc2018-agl-olcff'],
+    # WARNING! Excluding ipc2018-agl-cerberus from gripper because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-decstar from gripper because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-fd-remix from gripper because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-lapkt-bfws-pref from gripper because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-lapkt-dual-bfws from gripper because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-lapkt-poly-bfws from gripper because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-olcff from gripper because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-saarplan from gripper because it solves all tasks in under 30 seconds!
+    # WARNING! Excluded all algorithms for gripper!
+    # WARNING! Excluding ipc2018-agl-saarplan from hiking because it solves all tasks in under 30 seconds!
+    # ipc2018-agl-fd-remix: 20, excluded algos: ipc2018-agl-saarplan,
+    'hiking': ['ipc2018-agl-fd-remix'],
+    # ipc2018-agl-saarplan: 63,
+    'logistics': ['ipc2018-agl-saarplan'],
+    # WARNING! Excluding ipc2018-agl-cerberus from miconic because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-decstar from miconic because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-fd-remix from miconic because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-lapkt-bfws-pref from miconic because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-lapkt-dual-bfws from miconic because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-lapkt-poly-bfws from miconic because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-olcff from miconic because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-saarplan from miconic because it solves all tasks in under 30 seconds!
+    # WARNING! Excluded all algorithms for miconic!
+    # ipc2018-agl-decstar: 20,
+    'nomystery': ['ipc2018-agl-decstar'],
+    # ipc2018-agl-fd-remix: 158, ipc2018-agl-saarplan: 2,
+    'openstacks': ['ipc2018-agl-fd-remix', 'ipc2018-agl-saarplan'],
+    # ipc2018-agl-lapkt-poly-bfws: 40,
+    'parking': ['ipc2018-agl-lapkt-poly-bfws'],
+    # WARNING! Excluding ipc2018-agl-fd-remix from pathways because it solves all tasks in under 30 seconds!
+    # ipc2018-agl-olcff: 29, ipc2018-agl-lapkt-dual-bfws: 1, excluded algos: ipc2018-agl-fd-remix,
+    'pathways': ['ipc2018-agl-olcff', 'ipc2018-agl-lapkt-dual-bfws'],
+    # ipc2018-agl-decstar: 40,
+    'rovers': ['ipc2018-agl-decstar'],
+    # ipc2018-agl-fd-remix: 36,
+    'satellite': ['ipc2018-agl-fd-remix'],
+    # ipc2018-agl-lapkt-poly-bfws: 50,
+    'scanalyzer': ['ipc2018-agl-lapkt-poly-bfws'],
+    # ipc2018-agl-lapkt-bfws-pref: 17,
+    'snake': ['ipc2018-agl-lapkt-bfws-pref'],
+    # ipc2018-agl-decstar: 46, ipc2018-agl-lapkt-poly-bfws: 2, ipc2018-agl-fd-remix: 2,
+    'sokoban': ['ipc2018-agl-decstar', 'ipc2018-agl-lapkt-poly-bfws', 'ipc2018-agl-fd-remix'],
+    # ipc2018-agl-lapkt-poly-bfws: 30,
+    'storage': ['ipc2018-agl-lapkt-poly-bfws'],
+    # ipc2018-agl-olcff: 14, ipc2018-agl-fd-remix: 2,
+    'termes': ['ipc2018-agl-olcff', 'ipc2018-agl-fd-remix'],
+    # ipc2018-agl-lapkt-bfws-pref: 20,
+    'tetris': ['ipc2018-agl-lapkt-bfws-pref'],
+    # WARNING! Excluding ipc2018-agl-fd-remix from tpp because it solves all tasks in under 30 seconds!
+    # ipc2018-agl-olcff: 30, excluded algos: ipc2018-agl-fd-remix,
+    'tpp': ['ipc2018-agl-olcff'],
+    # ipc2018-agl-lapkt-poly-bfws: 70,
+    'transport': ['ipc2018-agl-lapkt-poly-bfws'],
+    # ipc2018-agl-lapkt-dual-bfws: 40,
+    'visitall': ['ipc2018-agl-lapkt-dual-bfws'],
+    # WARNING! Excluding ipc2018-agl-decstar from woodworking because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-fd-remix from woodworking because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-olcff from woodworking because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-saarplan from woodworking because it solves all tasks in under 30 seconds!
+    # ipc2018-agl-cerberus: 45, ipc2018-agl-lapkt-dual-bfws: 5, excluded algos: ipc2018-agl-fd-remix, ipc2018-agl-saarplan, ipc2018-agl-olcff, ipc2018-agl-decstar,
+    'woodworking': ['ipc2018-agl-cerberus', 'ipc2018-agl-lapkt-dual-bfws'],
+    # WARNING! Excluding ipc2018-agl-decstar from zenotravel because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-fd-remix from zenotravel because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-lapkt-bfws-pref from zenotravel because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-lapkt-dual-bfws from zenotravel because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-lapkt-poly-bfws from zenotravel because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-olcff from zenotravel because it solves all tasks in under 30 seconds!
+    # WARNING! Excluding ipc2018-agl-saarplan from zenotravel because it solves all tasks in under 30 seconds!
+    # ipc2018-agl-cerberus: 20, excluded algos: ipc2018-agl-decstar, ipc2018-agl-saarplan, ipc2018-agl-olcff, ipc2018-agl-fd-remix, ipc2018-agl-lapkt-poly-bfws, ipc2018-agl-lapkt-dual-bfws, ipc2018-agl-lapkt-bfws-pref,
+    'zenotravel': ['ipc2018-agl-cerberus'],
+    # Total planners selected: 37
+}
+
+for domain, planners in PLANNER_SELECTION_SAT_2018.items():
+    assert set(planners).issubset(SAT_2018_PLANNERS), (domain, planners, SAT_2018_PLANNERS)
+
 PLANNER_SELECTION = {
     ("opt", 2014): PLANNER_SELECTION_OPT_2014,
     ("sat", 2014): PLANNER_SELECTION_SAT_2014,
+    ("opt", 2018): PLANNER_SELECTION_OPT_2018,
+    ("sat", 2018): PLANNER_SELECTION_SAT_2018,
 }
 
 
@@ -201,6 +423,10 @@ def get_sart_planners(track, year, domain):
 
 
 def verify_planner_selection():
+    for track, domain_to_planners in PLANNER_SELECTION.items():
+        print(f"track: {track}")
+        print(f"available domains: {sorted(domain_to_planners.keys())}")
+        print(len(domain_to_planners))
     assert len(set(len(setting) for setting in PLANNER_SELECTION.values())) == 1
     valid_domains = [d for d in sorted(os.listdir(GENERATORS_DIR)) if (GENERATORS_DIR / d).is_dir()]
     valid_images = os.listdir(IMAGES_DIR)
