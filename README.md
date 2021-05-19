@@ -42,7 +42,6 @@ libraries and install the required Python packages (including SMAC).
 
     conda create --name autoscale python=3.7 gxx_linux-64 gcc_linux-64 swig
     conda activate autoscale
-    cd optimization
     pip install -r requirements.txt
 
 ## Singularity

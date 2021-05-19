@@ -1,32 +1,8 @@
 #! /usr/bin/env python3
 
 """
-Usage:
-
-# Install SMAC3 in virtualenv (https://automl.github.io/SMAC3/master/installation.html)
-sudo apt install python3-venv swig
-python3 -m venv --prompt smac .venv
-source .venv/bin/activate
-pip install -U pip wheel
-pip install -r requirements.txt
-python3 linear.py
-
-Installation on Basel grid (use Anaconda since it provides a SWIG package):
-
-# Put into ~/.profile:
-# Anaconda Python 3.7.3, GCC 8.2, CMake 3.9.5
-module purge
-module -q load CMake/3.9.5-GCC-8.2.0-2.31.1
-module -q load Anaconda3/2019.03 # Python 3.7.3 (the other Anaconda versions load Python 2 and 3.6)
-
-source ~/.profile
-conda create --name smac-conda python=3.7 gxx_linux-64 gcc_linux-64 swig
-conda activate smac-conda
-pip install -r requirements.txt
-
-
 To avoid lots of output due to stale file handles we patch the load_json() method in the file
-smac/runhistory/runhistory.py as follows:
+<venv>/lib/python3.7/site-packages/smac/runhistory/runhistory.py as follows:
 
     try:
         with open(fn) as fp:
