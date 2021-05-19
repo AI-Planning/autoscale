@@ -4,6 +4,7 @@ import argparse
 from collections import defaultdict
 import json
 import pathlib
+import sys
 
 from domain_groups import group_domains
 
@@ -163,14 +164,31 @@ def process_files(files):
 def process_data(data, time_out):
     domain_problem_algo_to_runtime = defaultdict(dict)
     domains = set()
+    domain_to_problems = defaultdict(set)
     algos = set()
     for run in data:
-        domains.add(run['domain'])
-        algos.add(run['algorithm'])
-        if run['problem'] not in domain_problem_algo_to_runtime[run['domain']]:
-            domain_problem_algo_to_runtime[run['domain']][run['problem']] = dict()
-        domain_problem_algo_to_runtime[run['domain']][run['problem']][run['algorithm']] = \
+        domain = run['domain']
+        problem = run['problem']
+        algo = run['algorithm']
+        domains.add(domain)
+        domain_to_problems[domain].add(problem)
+        algos.add(algo)
+        if problem not in domain_problem_algo_to_runtime[domain]:
+            domain_problem_algo_to_runtime[domain][problem] = dict()
+        domain_problem_algo_to_runtime[domain][problem][algo] = \
             run.get('runtime', time_out)
+    # print(f"domains: {sorted(domains)}")
+    # print(f"algos: {sorted(algos)}")
+    for domain in domains:
+        # print(f"{domain} has the following problems: {sorted(domain_to_problems[domain])}")
+        missing_data = set()
+        for problem, algo_to_runtime in domain_problem_algo_to_runtime[domain].items():
+            for algo in algos:
+                if algo not in algo_to_runtime.keys():
+                    missing_data.add(algo)
+                    # print(f"{algo} has no data for {problem} of {domain}")
+        if missing_data:
+            print(f"{domain} is missing data from {sorted(missing_data)}")
     return domain_problem_algo_to_runtime, sorted(domains), sorted(algos)
 
 
@@ -264,9 +282,7 @@ def select_fastest_algorithms(
         # maximum number of planners has been selected.
         considered_algos = set(algos) - excluded_algos
         if not considered_algos:
-            print(PREFIX + f"# WARNING! Excluded all algorithms for {domain}!")
-            selected_algos[domain] = []
-            continue
+            sys.exit(f"Excluded all algorithms for {domain}!")
 
         problem_algo_to_runtime  = { problem : {k: v for k, v in algo_to_runtime.items() if k in  considered_algos} for problem, algo_to_runtime in problem_algo_to_runtime.items()}
 
