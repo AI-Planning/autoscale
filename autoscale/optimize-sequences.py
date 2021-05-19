@@ -1,14 +1,14 @@
 #! /usr/bin/env python3
 
 """
-To avoid lots of output due to stale file handles we patch the load_json() method in the file
-<venv>/lib/python3.7/site-packages/smac/runhistory/runhistory.py as follows:
+To avoid lots of stderr output due to stale file handles we patch the load_json() method
+in the file <venv>/lib/python3.7/site-packages/smac/runhistory/runhistory.py as follows:
 
     try:
         with open(fn) as fp:
             all_data = json.load(fp, object_hook=StatusType.enum_hook)
     except Exception as e:
-        print(f"Failed to read runhistory from {fn}: {e}")  # PATCHED
+        self.logger.info(f"Failed to read runhistory from {fn}: {e}")  # PATCHED
         return  # PATCHED
         self.logger.warning(
             'Encountered exception %s while reading runhistory from %s. '
@@ -62,6 +62,8 @@ def parse_args():
         help="Choose the latest planner year to include: 2014 or 2018."
     )
 
+    parser.add_argument("domain", help="Domain name")
+
     parser.add_argument(
         "--tasks", type=int, default=30, help="Number of tasks to generate in each round (default: %(default)s)"
     )
@@ -70,28 +72,28 @@ def parse_args():
         "--tasksbaseline",
         type=int,
         default=5,
-        help="Number of tasks that are used to evaluate the runtime scaling for baseline and/or state of the art planners (default: %(default)s)",
+        help="Number of tasks that are used to evaluate the runtime scaling for baseline planners (default: %(default)s)",
     )
 
     parser.add_argument(
         "--evaluations",
         type=int,
         default=sys.maxsize,
-        help="Maximum number of configurations to evaluate (default: %(default)s)",
+        help="Maximum number of sequences to evaluate (default: %(default)s)",
     )
 
     parser.add_argument(
-        "--runs-per-configuration",
+        "--runs-per-sequence",
         type=int,
         default=1,
-        help="Number of runs for each parameter configuration, we take the average runtime among those (default: %(default)s)",
+        help="Number of runs with different random seeds for each sequence; we take the average runtime among those (default: %(default)s)",
     )
 
     parser.add_argument(
         "--optimization-time-limit",
         type=float,
         default=20 * 60 * 60,
-        help="Maximum total time running planners (default: %(default)ss)",
+        help="Maximum total time for optimizing sequences (default: %(default)ss)",
     )
 
     parser.add_argument(
@@ -112,14 +114,14 @@ def parse_args():
         "--smac-challengers",
         type=int,
         default=1000,
-        help="scenario value for acq_opt_challengers (default: %(default)s)",
+        help="SMAC scenario value for acq_opt_challengers (default: %(default)s)",
     )
 
     parser.add_argument(
         "--precision",
         type=float,
         default=domains.PRECISION,
-        help="precision of float domain parameters (default: %(default)s)",
+        help="Precision of float domain parameters (default: %(default)s)",
     )
 
     parser.add_argument("--debug", action="store_true", help="Print debug info")
@@ -134,14 +136,7 @@ def parse_args():
     parser.add_argument(
         "--generators-dir",
         default=os.path.join(REPO, "pddl-generators"),
-        help="path to directory containing the generators")
-
-    parser.add_argument(
-        "--log-file",
-        default=os.path.join(REPO, "pddl-generators"),
-        help="path to directory containing the generators")
-
-    parser.add_argument("domain", help="Domain name")
+        help="Path to directory containing the generators (default: %(default)s)")
 
     parser.add_argument(
         "--smac-output-dir",
@@ -151,13 +146,13 @@ def parse_args():
 
     parser.add_argument(
         "--only-baseline", action="store_true",
-        help="only consider the baseline planner",
+        help="Only consider the baseline planner",
     )
 
     parser.add_argument(
         "--database",
         default=None,
-        help="path to json file with the information needed. Useful for \"resuming\" SMAC runs.")
+        help="Path to JSON file with results from previous optimization run. Useful for \"resuming\" optimization runs.")
 
     return parser.parse_args()
 
@@ -195,12 +190,12 @@ logging.info(f"Running optimization for track {ARGS.track}, domain {ARGS.domain}
 # We got the configurations. They should be sorted from easier to harder.
 RUNNER_BASELINE = Runner(
     "baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT,
-    ARGS.random_seed, ARGS.runs_per_configuration, "<set later>", TMP_PLAN_DIR, GENERATORS_DIR,
+    ARGS.random_seed, ARGS.runs_per_sequence, "<set later>", TMP_PLAN_DIR, GENERATORS_DIR,
     SINGULARITY_SCRIPT)
 
 RUNNER_SART = Runner(
     "sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, YEAR, ARGS.domain), PLANNER_TIME_LIMIT,
-    ARGS.random_seed, ARGS.runs_per_configuration, "<set later>", TMP_PLAN_DIR, GENERATORS_DIR,
+    ARGS.random_seed, ARGS.runs_per_sequence, "<set later>", TMP_PLAN_DIR, GENERATORS_DIR,
     SINGULARITY_SCRIPT)
 
 
@@ -229,14 +224,19 @@ def evaluate_cfg(cfg):
 previous_subsequences = {}
 def evaluate_sequence(cfg, print_final_configuration=False):
     peak_memory = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
-    logging.info(f"[{peak_memory} KB] Evaluate configuration {cfg.get_dictionary()}")
+    logging.info(f"[{peak_memory} KB] Evaluate sequence {cfg.get_dictionary()}")
     domain = DOMAINS[ARGS.domain]
     sequence = domain.get_configs(cfg, ARGS.tasks)
 
     logging.debug(f"Y: {sequence}")
 
+    # Test for the "design principles" that describe how a good benchmark
+    # selection is. This is organized in tests, sorted by how hard they
+    # are to compute. As soon as a test fails, we return a high penalty
+    # and the rest of the tests are not evaluated.
+
     # First test: Does the baseline solve the first three configurations in less than 10s,
-    # 60s, and the planner time limit? If not, return a high error right away
+    # 60s, and the planner time limit? If not, return a high error right away.
     if not print_final_configuration and not domain.has_lowest_linear_values(cfg):
         if not RUNNER_BASELINE.is_solvable(sequence[0], time_limit=10):
             logging.info("First instance was not solved by the baseline planner in less than 10 seconds")
@@ -251,17 +251,12 @@ def evaluate_sequence(cfg, print_final_configuration=False):
             return 10 ** 6 - 2 * 10 ** 5
 
 
-    # Changed the way to evaluate, to make it consistent with the "design principles" that
-    # describe how a good benchmark selection is. This is organized in tests, sorted by
-    # how hard are they to compute. As soon as a test fails, we return a high penalty and
-    # the rest of the tests are not evaluated.
-
     # Now, we check the entire scaling with respect to the baseline. What is important is
     # the relative time with respect to the previous instance. Ideally, this would be
-    # around 2. However, ratio larger than two is also fine under 30s
+    # around 2. However, ratio larger than two is also fine under 30s.
 
     # We compute a penalty, where each solved instance is assigned a score between 0 and 1
-    # and unsolved instances are assigned a score of 2
+    # and unsolved instances are assigned a score of 2.
 
     baseline_eval = EvaluatedSequence(sequence, RUNNER_BASELINE, PLANNER_TIME_LIMIT)
     baseline_times = baseline_eval.get_runtimes(ARGS.tasksbaseline, ARGS.minimum_significant_time, PLANNER_TIME_LIMIT)
@@ -284,7 +279,7 @@ def evaluate_sequence(cfg, print_final_configuration=False):
         "config": cfg.get_dictionary(),
     }
 
-    # Identify which instances are actually relevant
+    # Identify which instances are actually relevant.
     evaluated_instances = set(baseline_eval.get_index_with_runtimes(2, 179.9) + sart_eval.get_index_with_runtimes(2, 179.9) )
     relevant_subsequence = tuple([tuple ([sequence[i][atr] for atr in domain.get_generator_attribute_names() ]) for i in sorted(evaluated_instances)])
 
