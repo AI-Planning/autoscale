@@ -75,8 +75,6 @@ PLANNER_SELECTION_OPT_2014 = {
     'tpp': ['ipc2014-opt-symba1'],
     # ipc2014-opt-symba1: 68, uncovered problems: 5
     'transport': ['ipc2014-opt-symba1'],
-    # ipc2014-opt-symba1: 12,
-    'trucks': ['ipc2014-opt-symba1'],
     # ipc2014-opt-symba1: 53, fd1906-fdss1-mas1-60s: 24,
     'visitall': ['ipc2014-opt-symba1', 'fd1906-fdss1-mas1-60s'],
     # ipc2014-opt-symba1: 73, uncovered problems: 3
@@ -165,8 +163,6 @@ PLANNER_SELECTION_SAT_2014 = {
     'tpp': ['fd1906-lama-first', 'ipc2014-agl-mercury'],
     # ipc2014-agl-mercury: 126,
     'transport': ['ipc2014-agl-mercury'],
-    # ipc2014-agl-jasper: 14, ipc2014-agl-mpc: 5, ipc2014-agl-mercury: 2, uncovered problems: 1
-    'trucks': ['ipc2014-agl-jasper', 'ipc2014-agl-mpc', 'ipc2014-agl-mercury'],
     # fd1906-lama-first: 98,
     'visitall': ['fd1906-lama-first'],
     # ipc2014-agl-jasper: 87, ipc2014-agl-mpc: 9, ipc2014-agl-mercury: 6, uncovered problems: 1
@@ -418,12 +414,10 @@ def get_sart_planners(track, year, domain):
 
 
 def verify_planner_selection():
-    # for track, domain_to_planners in PLANNER_SELECTION.items():
-        # print(f"track: {track}")
-        # print(f"available domains: {sorted(domain_to_planners.keys())}")
-        # print(len(domain_to_planners))
     if len(set(len(setting) for setting in PLANNER_SELECTION.values())) != 1:
         print("WARNING! There are different numbers of domains for different tracks. Verify that this is not a problem.")
+        for track, domain_to_planners in PLANNER_SELECTION.items():
+            print(f"track {track} has {len(domain_to_planners)} domains: {sorted(domain_to_planners.keys())}")
     valid_domains = [d for d in sorted(os.listdir(GENERATORS_DIR)) if (GENERATORS_DIR / d).is_dir()]
     valid_images = os.listdir(IMAGES_DIR)
     for selection in PLANNER_SELECTION.values():
@@ -434,8 +428,5 @@ def verify_planner_selection():
             for name in names:
                 image = name + ".img"
                 assert image in valid_images, f"image {image} is missing"
-                # We allow the baseline planner to be state of the art.
-                # assert name != get_baseline_planner("opt"), name
-                # assert name != get_baseline_planner("sat"), name
 
 verify_planner_selection()
