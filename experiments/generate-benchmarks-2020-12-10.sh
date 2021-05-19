@@ -15,8 +15,8 @@ for domain in barman blocksworld childsnack data-network depots driverlog elevat
 do
     echo $domain;
 
-    (time python3 "$SCRIPT" --database $JSON_OPT_14 --output $OUTPUT_FOLDER_PREFIX-new14-opt opt 2014 $domain) &> $LOGS_FOLDER_PREFIX/log_opt14_$domain ;
+    (time python3 "$SCRIPT" --database $JSON_OPT_14 --output $OUTPUT_FOLDER_PREFIX-new14-opt opt 2014 $domain) | tee $LOGS_FOLDER_PREFIX/log_opt14_$domain ;
 
-    (time python3 "$SCRIPT" --database $JSON_SAT_14 --output $OUTPUT_FOLDER_PREFIX-new14-sat  sat 2014 $domain) &> $LOGS_FOLDER_PREFIX/log_sat14_$domain ;
+    (time python3 "$SCRIPT" --database $JSON_SAT_14 --output $OUTPUT_FOLDER_PREFIX-new14-sat  sat 2014 $domain) | tee $LOGS_FOLDER_PREFIX/log_sat14_$domain ;
 
 done
