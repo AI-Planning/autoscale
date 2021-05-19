@@ -3,7 +3,10 @@ benchmarks as described in the ICAPS 2021 paper "Automatic Instance
 Generation for Classical Planning" by Álvaro Torralba, Jendrik Seipp and
 Silvan Sievers.
 
-* Directory "optimization" contains the main bulk of the experiment
+* Directory "autoscale" contains the main scripts for optimizing and
+  selecting sequences.
+
+* Directory "experiments" contains the main bulk of the experiment
   scripts for all phases of the instance generation approach described in
   the paper. See usage instructions below.
 
@@ -14,7 +17,7 @@ Silvan Sievers.
   files for all planners used in the paper. It also contains two scripts
   for building all the corresponding Singularity images.
 
-* Directory "logfiles" contains the logs of the `benchmark-optimization.py`
+* Directory "logfiles" contains the logs of the `select-sequences.py`
   script for the results of the paper.
 
 * Directory "report" contains some additional scripts and Jupyter
@@ -50,7 +53,7 @@ package](https://packages.debian.org/singularity-container). If that
 doesn't work, you might have to [compile Singularity from
 source](https://sylabs.io/guides/3.5/user-guide/).
 
-# Build planner images:
+## Build planner images:
 
     export DOWNWARD_BENCHMARKS=<path/to/benchmarks/repo>
     cd planners
@@ -68,14 +71,14 @@ the `PYTHONPATH` environment variable. By default, CPLEX is installed in
 # Usage
 
 Before running the optimization, the following steps are needed:
-* Edit `domain_configuration.py` to add the description of any new domain that you want to configure.
+* Edit `domains.py` to add the description of any new domain that you want to configure.
 
-* Edit `planner_selection.py` to add the state-of-the-art planners that are relevant for
+* Edit `planners.py` to add the state-of-the-art planners that are relevant for
   each domain. The script `select-best-planner-per-domain.py` can help to automatically
   select a set of planners per domain from the results of earlier experiments.
 
 Then, the following two steps must be performed:
-1. Run `linear.py` to perform the SMAC optimization and generate sequences.
+1. Run `optimize-sequences.py` to perform the SMAC optimization and generate sequences.
    The `*smac*.py` scripts show how to parallelize this step on a computer cluster with Lab.
 
    Note that the `--database` option allows to provide the JSON file from a previous SMAC
@@ -85,7 +88,7 @@ Then, the following two steps must be performed:
 2. Gather all results from one or multiple SMAC runs into a single properties JSON file.
    This is done by running the last step of the `*smac*.py` scripts.
 
-3. Run `benchmark-optimization.py` to generate a benchmark set. Use the `--database` option to provide
+3. Run `select-sequences.py` to generate a benchmark set. Use the `--database` option to provide
    the properties file obtained from step 2.
    `generate-benchmarks-2020-12-10.sh` contains an example on how to run the script.
 
