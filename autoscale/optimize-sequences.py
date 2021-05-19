@@ -83,10 +83,10 @@ def parse_args():
     )
 
     parser.add_argument(
-        "--runs-per-sequence",
+        "--runs-per-configuration",
         type=int,
         default=1,
-        help="Number of runs with different random seeds for each sequence; we take the average runtime among those (default: %(default)s)",
+        help="Number of runs (with different random seeds) for each parameter configuration; we take the average runtime among those (default: %(default)s)",
     )
 
     parser.add_argument(
@@ -190,12 +190,12 @@ logging.info(f"Running optimization for track {ARGS.track}, domain {ARGS.domain}
 # We got the configurations. They should be sorted from easier to harder.
 RUNNER_BASELINE = Runner(
     "baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT,
-    ARGS.random_seed, ARGS.runs_per_sequence, "<set later>", TMP_PLAN_DIR, GENERATORS_DIR,
+    ARGS.random_seed, ARGS.runs_per_configuration, "<set later>", TMP_PLAN_DIR, GENERATORS_DIR,
     SINGULARITY_SCRIPT)
 
 RUNNER_SART = Runner(
     "sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, YEAR, ARGS.domain), PLANNER_TIME_LIMIT,
-    ARGS.random_seed, ARGS.runs_per_sequence, "<set later>", TMP_PLAN_DIR, GENERATORS_DIR,
+    ARGS.random_seed, ARGS.runs_per_configuration, "<set later>", TMP_PLAN_DIR, GENERATORS_DIR,
     SINGULARITY_SCRIPT)
 
 

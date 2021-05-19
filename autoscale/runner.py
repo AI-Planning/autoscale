@@ -25,7 +25,7 @@ class Runner:
     # (i.e., we may safely assume that larger values
     # imply larger runtimes).  Linear parameters are important because we will use them to
     # avoid running planners on very large values that are estimated to be unsolvable within the time and memory limits.
-    def __init__(self, name, domain, planners, planner_time_limit, random_seed, runs_per_sequence, SMAC_OUTPUT_DIR,
+    def __init__(self, name, domain, planners, planner_time_limit, random_seed, runs_per_configuration, SMAC_OUTPUT_DIR,
                  TMP_PLAN_DIR, GENERATORS_DIR, SINGULARITY_SCRIPT):
         self.name = name
         # We have three types of caches
@@ -37,7 +37,7 @@ class Runner:
         self.planners = planners
         self.planner_time_limit = planner_time_limit
         self.domain = domain
-        self.runs_per_sequence = runs_per_sequence
+        self.runs_per_configuration = runs_per_configuration
         self.SMAC_OUTPUT_DIR = SMAC_OUTPUT_DIR
         self.TMP_PLAN_DIR = TMP_PLAN_DIR
         self.GENERATORS_DIR = GENERATORS_DIR
@@ -90,7 +90,7 @@ class Runner:
         if not time_limit:
             time_limit = self.planner_time_limit
         if not num_runs:
-            num_runs = self.runs_per_sequence
+            num_runs = self.runs_per_configuration
 
         # Check the cache to see if we already know the runtime for this attribute configuration
         cache_key = tuple([parameters[attr] for attr in self.parameters_cache_key])
@@ -213,10 +213,10 @@ class Runner:
             results = ["unsolved"] * num_runs
             result = None
 
-        self.logging.debug(f"Computed runtimes for {self.runs_per_sequence} instances ({result}): {results}")
+        self.logging.debug(f"Computed runtimes for {self.runs_per_configuration} instances ({result}): {results}")
 
-        if len(results) == self.runs_per_sequence or (
-                time_limit == self.planner_time_limit and num_runs == self.runs_per_sequence):
+        if len(results) == self.runs_per_configuration or (
+                time_limit == self.planner_time_limit and num_runs == self.runs_per_configuration):
             self.logging.info(f"{self.name} runtime for y={parameters}: {results}")
             self.exact_cache[cache_key] = results
             self.frontier_cache[non_linear_key].append(

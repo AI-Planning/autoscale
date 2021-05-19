@@ -52,10 +52,10 @@ def parse_args():
         "--tasks", type=int, default=30, help="Number of tasks to generate in each round (default: %(default)s)"
     )
     parser.add_argument(
-        "--runs-per-sequence",
+        "--runs-per-configuration",
         type=int,
         default=1,
-        help="Number of runs for each sequence; we take the average runtime among those (default: %(default)s)",
+        help="Number of runs for each parameter configuration, we take the average runtime among those (default: %(default)s)",
     )
     parser.add_argument("--debug", action="store_true", help="Print debug info")
     parser.add_argument(
@@ -383,9 +383,9 @@ def select_best_k(candidates, K, already_selected):
     return new_selected
 
 
-RUNNER_BASELINE = Runner("baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.runs_per_sequence, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, SINGULARITY_SCRIPT)
+RUNNER_BASELINE = Runner("baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, SINGULARITY_SCRIPT)
 
-RUNNER_SART = Runner("sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, YEAR, ARGS.domain), PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.runs_per_sequence, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, SINGULARITY_SCRIPT)
+RUNNER_SART = Runner("sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, YEAR, ARGS.domain), PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR, SINGULARITY_SCRIPT)
 
 
 domain = DOMAINS[ARGS.domain]
