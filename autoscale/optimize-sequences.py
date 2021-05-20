@@ -24,6 +24,7 @@ import argparse
 import logging
 import os
 import os.path
+from pathlib import Path
 import resource
 import sys
 import warnings
@@ -46,8 +47,8 @@ from smac.facade.smac_hpo_facade import SMAC4HPO
 from smac.initial_design.default_configuration_design import DefaultConfiguration
 
 
-DIR = os.path.abspath(os.path.dirname(__file__))
-REPO = os.path.dirname(DIR)
+DIR = Path(__file__).resolve().parent
+REPO = DIR.parent
 
 
 def parse_args():
@@ -168,7 +169,6 @@ YEAR = int(ARGS.year)
 SMAC_OUTPUT_DIR = ARGS.smac_output_dir
 GENERATORS_DIR = ARGS.generators_dir
 TMP_PLAN_DIR = "plan"
-SINGULARITY_SCRIPT = os.path.join(DIR, "run-singularity.sh")
 
 
 utils.setup_logging(ARGS.debug)
@@ -190,13 +190,11 @@ logging.info(f"Running optimization for track {ARGS.track}, domain {ARGS.domain}
 # We got the configurations. They should be sorted from easier to harder.
 RUNNER_BASELINE = Runner(
     "baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT,
-    ARGS.random_seed, ARGS.runs_per_configuration, "<set later>", TMP_PLAN_DIR, GENERATORS_DIR,
-    SINGULARITY_SCRIPT)
+    ARGS.random_seed, ARGS.runs_per_configuration, "<set later>", TMP_PLAN_DIR, GENERATORS_DIR)
 
 RUNNER_SART = Runner(
     "sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, YEAR, ARGS.domain), PLANNER_TIME_LIMIT,
-    ARGS.random_seed, ARGS.runs_per_configuration, "<set later>", TMP_PLAN_DIR, GENERATORS_DIR,
-    SINGULARITY_SCRIPT)
+    ARGS.random_seed, ARGS.runs_per_configuration, "<set later>", TMP_PLAN_DIR, GENERATORS_DIR)
 
 
 if ARGS.database:

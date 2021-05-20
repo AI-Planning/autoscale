@@ -3,6 +3,7 @@ from collections import defaultdict
 import logging
 import os
 import os.path
+from pathlib import Path
 import random
 import re
 import resource
@@ -15,18 +16,25 @@ import planners
 
 from sequence import compute_average
 
+DIR = Path(__file__).resolve().parent
+SINGULARITY_SCRIPT = DIR / "run-singularity.sh"
 MIN_PLANNER_RUNTIME = 0.1
 PLANNER_MEMORY_LIMIT = 3 * 1024 ** 3  # 3 GiB in Bytes
 
 
-# This class is in charge of running instances, using a cache to store the results
 class Runner:
-    # We need to provide a set of planners and which parameters are linear
-    # (i.e., we may safely assume that larger values
-    # imply larger runtimes).  Linear parameters are important because we will use them to
-    # avoid running planners on very large values that are estimated to be unsolvable within the time and memory limits.
+    """
+    This class is in charge of running instances, using a cache to store
+    the results.
+
+    We need to provide a set of planners and which parameters are linear
+    (i.e., we may safely assume that larger values imply larger runtimes).
+    Linear parameters are important because we will use them to avoid
+    running planners on very large values that are estimated to be
+    unsolvable within the time and memory limits.
+    """
     def __init__(self, name, domain, planners, planner_time_limit, random_seed, runs_per_configuration, SMAC_OUTPUT_DIR,
-                 TMP_PLAN_DIR, GENERATORS_DIR, SINGULARITY_SCRIPT):
+                 TMP_PLAN_DIR, GENERATORS_DIR):
         self.name = name
         # We have three types of caches
         self.exact_cache = {}  # Cache the exact runtime so that the same configuration is never run twice
@@ -42,7 +50,6 @@ class Runner:
         self.TMP_PLAN_DIR = TMP_PLAN_DIR
         self.GENERATORS_DIR = GENERATORS_DIR
         self.logging = logging
-        self.SINGULARITY_SCRIPT = SINGULARITY_SCRIPT
 
         self.parameters_cache_key = domain.get_generator_attribute_names()
 
@@ -166,12 +173,13 @@ class Runner:
                         set_limit(resource.RLIMIT_AS, PLANNER_MEMORY_LIMIT)
                         set_limit(resource.RLIMIT_CORE, 0)
 
-                    self.logging.debug([self.SINGULARITY_SCRIPT, image_path, "domain.pddl", "problem.pddl", "sas_plan"])
+                    cmd = [SINGULARITY_SCRIPT, image_path, "domain.pddl", "problem.pddl", "sas_plan"]
+                    self.logging.debug(cmd)
                     # Outcomes:
                     #  plan found -> append runtime
                     #  out of memory, out of time, unsolvable, planner bug -> skip
                     p = subprocess.Popen(
-                        [self.SINGULARITY_SCRIPT, image_path, "domain.pddl", "problem.pddl", "sas_plan"],
+                        cmd,
                         cwd=planner_dir,
                         stdout=subprocess.PIPE,
                         preexec_fn=prepare_call,
