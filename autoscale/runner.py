@@ -34,8 +34,8 @@ class Runner:
     running planners on very large values that are estimated to be
     unsolvable within the time and memory limits.
     """
-    def __init__(self, name, domain, planners, planner_time_limit, random_seed, runs_per_configuration, SMAC_OUTPUT_DIR,
-                 GENERATORS_DIR):
+    def __init__(self, name, domain, planners, planner_time_limit, random_seed, runs_per_configuration,
+                 GENERATORS_DIR, output_dir = None):
         self.name = name
         # We have three types of caches
         self.exact_cache = {}  # Cache the exact runtime so that the same configuration is never run twice
@@ -47,7 +47,7 @@ class Runner:
         self.planner_time_limit = planner_time_limit
         self.domain = domain
         self.runs_per_configuration = runs_per_configuration
-        self.SMAC_OUTPUT_DIR = SMAC_OUTPUT_DIR
+        self.output_dir = output_dir
         self.GENERATORS_DIR = GENERATORS_DIR
         self.logging = logging
 
@@ -116,9 +116,9 @@ class Runner:
                         self.linear_attributes_names):
                     return None
 
-        if self.SMAC_OUTPUT_DIR is None:
+        if self.output_dir is None:
             print(
-                f"Warning: No temporary dir for Runner has been provided but I have no data for {parameters}, so I consider it unsolved within the time and memory limits")
+                f"Warning: No output dir has been provided for Runner but I have no data for {parameters}, so I consider it unsolved within the time and memory limits")
             return None
 
         results = []
@@ -129,7 +129,7 @@ class Runner:
             # Exceptions are silently swallowed, so we catch them ourselves.
             try:
                 # Write problem file.
-                plan_dir = os.path.join(self.SMAC_OUTPUT_DIR, TMP_PLAN_DIR)
+                plan_dir = os.path.join(self.output_dir, TMP_PLAN_DIR)
                 shutil.rmtree(plan_dir, ignore_errors=True)
                 os.mkdir(plan_dir)
                 problem_file = os.path.join(plan_dir, "problem.pddl")

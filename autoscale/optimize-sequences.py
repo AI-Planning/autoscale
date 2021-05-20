@@ -164,9 +164,6 @@ PLANNER_MEMORY_LIMIT = 3 * 1024 ** 3  # 3 GiB in Bytes
 MIN_PLANNER_RUNTIME = 0.1
 domains.PRECISION = ARGS.precision
 YEAR = int(ARGS.year)
-
-
-SMAC_OUTPUT_DIR = ARGS.smac_output_dir
 GENERATORS_DIR = ARGS.generators_dir
 
 
@@ -189,11 +186,11 @@ logging.info(f"Running optimization for track {ARGS.track}, domain {ARGS.domain}
 # We got the configurations. They should be sorted from easier to harder.
 RUNNER_BASELINE = Runner(
     "baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT,
-    ARGS.random_seed, ARGS.runs_per_configuration, "<set later>",  GENERATORS_DIR)
+    ARGS.random_seed, ARGS.runs_per_configuration, GENERATORS_DIR)
 
 RUNNER_SART = Runner(
     "sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, YEAR, ARGS.domain), PLANNER_TIME_LIMIT,
-    ARGS.random_seed, ARGS.runs_per_configuration, "<set later>", GENERATORS_DIR)
+    ARGS.random_seed, ARGS.runs_per_configuration, GENERATORS_DIR)
 
 
 if ARGS.database:
@@ -322,13 +319,13 @@ scenario = Scenario(
         "memory_limit": None,
         # time limit for evaluate_cfg (we cut off planner runs ourselves)
         "cutoff": None,
-        "output_dir": SMAC_OUTPUT_DIR,
+        "output_dir": "smac",
         #"acq_opt_challengers": 1000,  # Overriden in SMAC4HPO constructor.
         # Disable pynisher.
         "limit_resources": False,
         # Run SMAC in parallel.
         "shared_model": True,
-        "input_psmac_dirs": os.path.join(ARGS.smac_output_dir, "run_*"),
+        "input_psmac_dirs": os.path.join("smac", "run_*"),
     }
 )
 
@@ -350,11 +347,10 @@ smac = SMAC4HPO(
 # a fixed value of 10000, so we set it here (see https://github.com/automl/SMAC3/issues/561).
 smac.solver.scenario.acq_opt_challengers = ARGS.smac_challengers
 print("SMAC challengers:", smac.solver.scenario.acq_opt_challengers)
-print("Output dir:", SMAC_OUTPUT_DIR)
 print("SMAC output dir:", smac.output_dir)
 
-RUNNER_BASELINE.SMAC_OUTPUT_DIR = smac.output_dir
-RUNNER_SART.SMAC_OUTPUT_DIR = smac.output_dir
+RUNNER_BASELINE.output_dir = smac.output_dir
+RUNNER_SART.output_dir = smac.output_dir
 
 # Bug in SMAC: SMAC4HPO and deterministic SMAC4AC scenarios without tuner timeout
 # hardcode the intensification_percentage to 1e-10, but we could set the desired

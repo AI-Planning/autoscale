@@ -109,7 +109,7 @@ def parse_args():
     parser.add_argument("domain", help="Domain name")
 
     parser.add_argument(
-        "--smac_output_dir",
+        "--output-dir",
         default=None,
         help="Directory where to store logs and temporary files (default: %(default)s)",
     )
@@ -136,7 +136,6 @@ PLANNER_MEMORY_LIMIT = 3 * 1024 ** 3  # 3 GiB in Bytes
 MIN_PLANNER_RUNTIME = 0.1
 PLANNER_TIME_LIMIT = ARGS.planner_time_limit
 YEAR = int(ARGS.year)
-SMAC_OUTPUT_DIR = ARGS.smac_output_dir
 GENERATORS_DIR = ARGS.generators_dir
 
 utils.setup_logging(ARGS.debug)
@@ -144,12 +143,12 @@ utils.setup_logging(ARGS.debug)
 DOMAINS = get_domains()
 
 # SMAC moves old directories out of the way, but we want a completely pristine directory to safeguard against errors.
-if not SMAC_OUTPUT_DIR:
+if not ARGS.output_dir:
     logging.info ("No run directory, so we will not run anything")
-elif os.path.exists(SMAC_OUTPUT_DIR):
+elif os.path.exists(ARGS.output_dir):
     sys.exit("Error: SMAC output directory already exists")
 else:
-    os.mkdir(SMAC_OUTPUT_DIR)
+    os.mkdir(ARGS.output_dir)
 
 logging.debug("{} domains available: {}".format(len(DOMAINS), sorted(DOMAINS)))
 
@@ -381,9 +380,11 @@ def select_best_k(candidates, K, already_selected):
     return new_selected
 
 
-RUNNER_BASELINE = Runner("baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, GENERATORS_DIR)
+RUNNER_BASELINE = Runner("baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.runs_per_configuration, GENERATORS_DIR)
+RUNNER_BASELINE.output_dir = ARGS.output_dir
 
-RUNNER_SART = Runner("sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, YEAR, ARGS.domain), PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, GENERATORS_DIR)
+RUNNER_SART = Runner("sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, YEAR, ARGS.domain), PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.runs_per_configuration, GENERATORS_DIR)
+RUNNER_SART.output_dir = ARGS.output_dir
 
 
 domain = DOMAINS[ARGS.domain]
