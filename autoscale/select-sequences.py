@@ -138,7 +138,6 @@ PLANNER_TIME_LIMIT = ARGS.planner_time_limit
 YEAR = int(ARGS.year)
 SMAC_OUTPUT_DIR = ARGS.smac_output_dir
 GENERATORS_DIR = ARGS.generators_dir
-TMP_PLAN_DIR = "plan"
 
 utils.setup_logging(ARGS.debug)
 
@@ -382,9 +381,9 @@ def select_best_k(candidates, K, already_selected):
     return new_selected
 
 
-RUNNER_BASELINE = Runner("baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR)
+RUNNER_BASELINE = Runner("baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, GENERATORS_DIR)
 
-RUNNER_SART = Runner("sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, YEAR, ARGS.domain), PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, TMP_PLAN_DIR, GENERATORS_DIR)
+RUNNER_SART = Runner("sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, YEAR, ARGS.domain), PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.runs_per_configuration, SMAC_OUTPUT_DIR, GENERATORS_DIR)
 
 
 domain = DOMAINS[ARGS.domain]

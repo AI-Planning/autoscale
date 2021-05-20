@@ -18,6 +18,7 @@ from sequence import compute_average
 
 DIR = Path(__file__).resolve().parent
 SINGULARITY_SCRIPT = DIR / "run-singularity.sh"
+TMP_PLAN_DIR = "plan"
 MIN_PLANNER_RUNTIME = 0.1
 PLANNER_MEMORY_LIMIT = 3 * 1024 ** 3  # 3 GiB in Bytes
 
@@ -34,7 +35,7 @@ class Runner:
     unsolvable within the time and memory limits.
     """
     def __init__(self, name, domain, planners, planner_time_limit, random_seed, runs_per_configuration, SMAC_OUTPUT_DIR,
-                 TMP_PLAN_DIR, GENERATORS_DIR):
+                 GENERATORS_DIR):
         self.name = name
         # We have three types of caches
         self.exact_cache = {}  # Cache the exact runtime so that the same configuration is never run twice
@@ -47,7 +48,6 @@ class Runner:
         self.domain = domain
         self.runs_per_configuration = runs_per_configuration
         self.SMAC_OUTPUT_DIR = SMAC_OUTPUT_DIR
-        self.TMP_PLAN_DIR = TMP_PLAN_DIR
         self.GENERATORS_DIR = GENERATORS_DIR
         self.logging = logging
 
@@ -129,7 +129,7 @@ class Runner:
             # Exceptions are silently swallowed, so we catch them ourselves.
             try:
                 # Write problem file.
-                plan_dir = os.path.join(self.SMAC_OUTPUT_DIR, self.TMP_PLAN_DIR)
+                plan_dir = os.path.join(self.SMAC_OUTPUT_DIR, TMP_PLAN_DIR)
                 shutil.rmtree(plan_dir, ignore_errors=True)
                 os.mkdir(plan_dir)
                 problem_file = os.path.join(plan_dir, "problem.pddl")
