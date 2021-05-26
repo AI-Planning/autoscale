@@ -1,8 +1,6 @@
 from collections import defaultdict
 
 import logging
-import os
-import os.path
 from pathlib import Path
 import random
 import re
@@ -37,18 +35,21 @@ class Runner:
     def __init__(self, name, domain, planners, planner_time_limit, runs_per_configuration,
                  generators_dir, output_dir = None):
         self.name = name
-        # We have three types of caches
-        self.exact_cache = {}  # Cache the exact runtime so that the same configuration is never run twice
-        # Caches configurations that can be solved under the time limit, any harder configuration will take longer (only useful for the quicker tests that run the planner less time)
-        self.frontier_cache = defaultdict(list)
-        self.linear_attributes_names = domain.get_linear_attributes_names()
+        self.domain = domain
         self.planners = planners
         self.planner_time_limit = planner_time_limit
-        self.domain = domain
         self.runs_per_configuration = runs_per_configuration
-        self.output_dir = output_dir
         self.generators_dir = generators_dir
+        self.output_dir = output_dir
 
+        # Cache the exact runtime so that the same configuration is never run twice.
+        self.exact_cache = {}
+        # Cache configurations that can be solved within the time limit.
+        # Any harder configuration will take longer (only useful for the
+        # quicker tests that run the planner with a lower time limit).
+        self.frontier_cache = defaultdict(list)
+
+        self.linear_attributes_names = domain.get_linear_attributes_names()
         self.parameters_cache_key = domain.get_generator_attribute_names()
 
     def get_next_random_seed(self):
@@ -92,10 +93,8 @@ class Runner:
         return avg_runtime is not None and avg_runtime <= time_limit
 
     def run_planners(self, parameters, time_limit=None, num_runs=None):
-        if not time_limit:
-            time_limit = self.planner_time_limit
-        if not num_runs:
-            num_runs = self.runs_per_configuration
+        time_limit = time_limit or self.planner_time_limit
+        num_runs = num_runs or self.runs_per_configuration
 
         # Check the cache to see if we already know the runtime for this attribute configuration
         cache_key = tuple([parameters[attr] for attr in self.parameters_cache_key])
@@ -116,7 +115,8 @@ class Runner:
 
         if self.output_dir is None:
             print(
-                f"Warning: No output dir has been provided for Runner but I have no data for {parameters}, so I consider it unsolved within the time and memory limits")
+                f"Warning: No output dir has been provided for Runner but I have no data for "
+                f"{parameters}, so I consider it unsolved within the time and memory limits")
             return None
 
         results = []
@@ -124,19 +124,19 @@ class Runner:
             # Ensure that each run uses a different random seed.
             parameters["seed"] = self.get_next_random_seed()
 
-            # Exceptions are silently swallowed, so we catch them ourselves.
+            # Exceptions are silently swallowed by SMAC, so we catch them ourselves.
             try:
                 # Write problem file.
-                plan_dir = os.path.join(self.output_dir, TMP_PLAN_DIR)
+                plan_dir = Path(self.output_dir) / TMP_PLAN_DIR
                 shutil.rmtree(plan_dir, ignore_errors=True)
-                os.mkdir(plan_dir)
-                problem_file = os.path.join(plan_dir, "problem.pddl")
+                plan_dir.mkdir()
+                problem_file = plan_dir / "problem.pddl"
                 command = self.domain.get_generator_command(self.generators_dir, parameters)
                 logging.debug("Generator command: {}".format(" ".join(command)))
 
                 # If the generator fails, print error message and count task as unsolved.
                 try:
-                    self.domain.generate_problem(command, problem_file, os.path.join(plan_dir, "domain.pddl"))
+                    self.domain.generate_problem(command, problem_file, plan_dir / "domain.pddl")
                 except subprocess.CalledProcessError as err:
                     print(err, file=sys.stderr)
                     return None
@@ -151,17 +151,17 @@ class Runner:
                         sys.exit(f"Error, image does not exist: {image_path}")
 
                     logging.debug(f"Run image {image} at {image_path} with time limit of {instance_time_limit}")
-                    planner_dir = os.path.join(plan_dir, image)
-                    os.mkdir(planner_dir)
+                    planner_dir = plan_dir / image
+                    planner_dir.mkdir()
 
                     # Copy domain and problem into temporary dir.
-                    domain_file = os.path.join(planner_dir, "domain.pddl")
+                    domain_file = planner_dir / "domain.pddl"
 
-                    if os.path.exists(os.path.join(plan_dir, "domain.pddl")):
-                        shutil.copy2(os.path.join(plan_dir, "domain.pddl"), domain_file)
+                    if (plan_dir / "domain.pddl").is_file():
+                        shutil.copy2(plan_dir / "domain.pddl", domain_file)
                     else:
                         shutil.copy2(self.domain.get_domain_file(self.generators_dir), domain_file)
-                    shutil.copy2(problem_file, os.path.join(planner_dir, "problem.pddl"))
+                    shutil.copy2(problem_file, planner_dir / "problem.pddl")
 
                     def set_limit(limit_type, limit):
                         resource.setrlimit(limit_type, (limit, limit))

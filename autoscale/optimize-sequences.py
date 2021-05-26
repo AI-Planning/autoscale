@@ -24,7 +24,6 @@ Optimize sequences with SMAC.
 import argparse
 import logging
 import os
-import os.path
 from pathlib import Path
 import random
 import resource
@@ -166,7 +165,7 @@ PLANNER_MEMORY_LIMIT = 3 * 1024 ** 3  # 3 GiB in Bytes
 MIN_PLANNER_RUNTIME = 0.1
 domains.PRECISION = ARGS.precision
 YEAR = int(ARGS.year)
-GENERATORS_DIR = ARGS.generators_dir
+GENERATORS_DIR = Path(ARGS.generators_dir)
 random.seed(ARGS.random_seed)
 
 
@@ -180,7 +179,8 @@ DOMAINS = domains.get_domains()
 logging.debug("{} domains available: {}".format(len(DOMAINS), sorted(DOMAINS)))
 
 for domain in DOMAINS:
-    assert os.path.exists(os.path.join(ARGS.generators_dir, domain, "domain.pddl")) or DOMAINS[domain].generated_domain_file(), f"domain.pddl missing for {domain}"
+    if not (GENERATORS_DIR / domain / "domain.pddl").is_file() and not DOMAINS[domain].generated_domain_file():
+        sys.exit(f"Error: domain.pddl missing for {domain}")
 
 logging.info(f"Running optimization for track {ARGS.track}, domain {ARGS.domain}, year {YEAR}; baseline: {get_baseline_planner(ARGS.track)}; state of the art: {', '.join(get_sart_planners(ARGS.track, YEAR, ARGS.domain))}")
 
@@ -328,7 +328,7 @@ scenario = Scenario(
         "limit_resources": False,
         # Run SMAC in parallel.
         "shared_model": True,
-        "input_psmac_dirs": os.path.join("smac", "run_*"),
+        "input_psmac_dirs": "smac/run_*",
     }
 )
 

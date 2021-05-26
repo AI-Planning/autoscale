@@ -1,5 +1,5 @@
 import math
-import os
+from pathlib import Path
 import shlex
 import shutil
 from string import Formatter
@@ -246,8 +246,8 @@ class Domain:
             self.penalty_for_instances_with_duplicated_parameters is not None
             and self.penalty_for_instances_with_duplicated_parameters != math.inf)
 
-    def get_domain_file(self, GENERATORS_DIR):
-        return os.path.join(GENERATORS_DIR, self.name, "domain.pddl")
+    def get_domain_file(self, generators_dir):
+        return Path(generators_dir) / self.name / "domain.pddl"
 
     def get_linear_attributes_names(self):
         return (
@@ -279,14 +279,14 @@ class Domain:
 
     def get_generator_command(self, generators_dir, parameters):
         command = shlex.split(self.gen_command.format(**parameters))
-        command[0] = os.path.abspath(os.path.join(generators_dir, self.name, command[0]))
+        command[0] = str((Path(generators_dir) / self.name / command[0]).resolve())
         # Call Python scripts with the correct Python interpreter.
         if command[0].endswith(".py"):
             command.insert(0, sys.executable)
         return command
 
     def get_domain_filename(self, generators_dir):
-        return os.path.abspath(os.path.join(generators_dir, self.name, "domain.pddl"))
+        return (Path(generators_dir) / self.name / "domain.pddl").resolve()
 
     def generate_problem(self, command, problem_file, domain_file):
         # Some generators print to a file, others print to stdout.
