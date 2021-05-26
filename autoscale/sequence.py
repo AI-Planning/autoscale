@@ -22,16 +22,18 @@ class EvaluatedSequence:
         self.seq = sequence
         self.runtimes = []
         self.next_lb_runtime = [0]
-        while self.next_lb_runtime is not None and len(filter_unsolved(self.next_lb_runtime)) > 0 and len(self.runtimes) < len(self.seq) and compute_average(self.next_lb_runtime, time_limit*2) < time_limit:
+        while self.next_lb_runtime is not None and filter_unsolved(self.next_lb_runtime) and len(self.runtimes) < len(self.seq) and compute_average(self.next_lb_runtime, time_limit*2) < time_limit:
             self.next_lb_runtime = runner.run_planners(self.seq[len(self.runtimes)])
-            if self.next_lb_runtime and len(filter_unsolved(self.next_lb_runtime)) > 0: # and self.next_lb_runtime < time_limit:
+            if self.next_lb_runtime and filter_unsolved(self.next_lb_runtime):
                 self.runtimes.append(self.next_lb_runtime)
 
     def get_runtimes(self, n, larger_than, lower_than):
+        return sorted(
+            (t for t in self.runtimes
+            if filter_unsolved(t) and compute_average(t) <= lower_than and compute_average(t) >= larger_than),
+            key=lambda t : compute_average(t))[:n]
 
-        return sorted((t for t in self.runtimes if len(filter_unsolved(t)) > 0 and compute_average(t) <= lower_than and compute_average(t) >= larger_than), key=lambda t : compute_average(t))[:n]
-
-    def num_solved (self):
+    def num_solved(self):
         return len(self.runtimes)
 
     def get_index_with_runtimes (self, lower, upper):
@@ -62,9 +64,9 @@ def penalty_by_factor(factor):
 
 
 def evaluate_full_multiple_sequences(sequence, num_expected_runtimes, min_runtime):
-
-    runtimes = sorted((t for t in sequence if len(filter_unsolved(t)) > 0 and compute_average(t) >= min_runtime),
-                       key=lambda t : compute_average(t))[:num_expected_runtimes]
+    runtimes = sorted(
+        (t for t in sequence if filter_unsolved(t) and compute_average(t) >= min_runtime),
+        key=lambda t : compute_average(t))[:num_expected_runtimes]
     return evaluate_runtimes_multiple_sequences(runtimes, num_expected_runtimes)
 
 
