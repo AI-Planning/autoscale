@@ -62,8 +62,8 @@ class LinearAttr:
 
         return H
 
-    def set_values(self, cfg, Y, modifier=None):
-        attr = f"{modifier}_{self.name}" if modifier else self.name
+    def set_values(self, cfg, Y):
+        attr = self.name
 
         val = self.lower_b if self.lower_b == self.upper_b else int(cfg.get(f"{attr}_b"))
 
@@ -129,8 +129,8 @@ class GridAttr:
 
         return H
 
-    def set_values(self, cfg, Y, modifier=None):
-        attr = f"{modifier}_{self.name}" if modifier else self.name
+    def set_values(self, cfg, Y):
+        attr = self.name
 
         val_x = self.lower_x if self.lower_x == self.upper_x else int(cfg.get(f"{attr}_x"))
         m =  float(cfg.get(f"{attr}_m"))
@@ -164,7 +164,7 @@ class ConstantAttr:
     def get_level_enum(self, cfg):
         return "false"
 
-    def set_values(self, cfg, Y, modifier=None):
+    def set_values(self, cfg, Y):
         for i, Yi in enumerate(Y):
             Yi[self.name] = self.value
 
@@ -183,7 +183,7 @@ class EnumAttr:
     def get_level_enum(self, cfg):
         return "false"
 
-    def set_values(self, cfg, Y, modifier=None):
+    def set_values(self, cfg, Y):
         value = cfg.get(self.name)
         for i, Yi in enumerate(Y):
             Yi[self.name] = value
@@ -199,27 +199,28 @@ def eliminate_duplicates(l):
 
 
 # Scale linear attributes, ensuring that all instances have different values.
-def get_linear_scaling_values(linear_attrs, cfg, num_values, base={}, name_base=None):
+def get_linear_scaling_values(linear_attrs, cfg, num_tasks):
     assert linear_attrs
-    num_generated = num_values
+    num_generated = num_tasks
 
-    for _ in range(20): # Attempt this 20 times
-        result = [base.copy() for _ in range(num_generated)]
+    # Attempt this 20 times, each time generating twice as many configurations.
+    for _ in range(20):
+        result = [{} for _ in range(num_generated)]
         for attr in linear_attrs:
-            attr.set_values(cfg, result, name_base)
+            attr.set_values(cfg, result)
 
         result = eliminate_duplicates(result)
 
-        if len(result) >= num_values:
-            return result[:num_values]
+        if len(result) >= num_tasks:
+            return result[:num_tasks]
 
         num_generated *= 2
 
     print("Warning: we cannot generate different attributes", cfg, linear_attrs)
 
-    result = [base.copy() for _ in range(num_values)]
+    result = [{} for _ in range(num_tasks)]
     for attr in linear_attrs:
-        attr.set_values(cfg, result, name_base)
+        attr.set_values(cfg, result)
     return result
 
 
