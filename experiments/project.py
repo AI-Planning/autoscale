@@ -45,7 +45,7 @@ User = namedtuple("User", ["email", "scp_login", "remote_user", "repos"])
 USERS = {
     "jendrik": User(
         email=None,
-        scp_login="seipp@login.scicore.unibas.ch",
+        scp_login="seipp@login-infai.scicore.unibas.ch",
         remote_user="seipp",
         repos="/home/jendrik/projects/Downward"),
     "silvan": User(
@@ -406,8 +406,8 @@ def get_evaluation_experiment(
     for domain in domains:
         suite.extend(suites.build_suite(abs_benchmarks_dir, [domain]))
     if not REMOTE:
-        suite = [task for task in suite if task.problem == "p01.pddl"]
-        planners = planners[:1]
+        suite = [task for task in suite if task.problem in {"p06.pddl", "p16.pddl"}]
+        planners = planners[:2]
 
     for planner_nick in planners:
         planner, _ = get_image(planner_nick)
