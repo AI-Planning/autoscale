@@ -34,14 +34,13 @@ class Runner:
     running planners on very large values that are estimated to be
     unsolvable within the time and memory limits.
     """
-    def __init__(self, name, domain, planners, planner_time_limit, random_seed, runs_per_configuration,
+    def __init__(self, name, domain, planners, planner_time_limit, runs_per_configuration,
                  generators_dir, output_dir = None):
         self.name = name
         # We have three types of caches
         self.exact_cache = {}  # Cache the exact runtime so that the same configuration is never run twice
         # Caches configurations that can be solved under the time limit, any harder configuration will take longer (only useful for the quicker tests that run the planner less time)
         self.frontier_cache = defaultdict(list)
-        random.seed(random_seed)
         self.linear_attributes_names = domain.get_linear_attributes_names()
         self.planners = planners
         self.planner_time_limit = planner_time_limit
@@ -121,7 +120,7 @@ class Runner:
             return None
 
         results = []
-        for i in range(num_runs):
+        for _ in range(num_runs):
             # Ensure that each run uses a different random seed.
             parameters["seed"] = self.get_next_random_seed()
 

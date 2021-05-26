@@ -12,6 +12,7 @@ import itertools
 import logging
 import os
 import os.path
+import random
 import sys
 import warnings
 import math
@@ -137,6 +138,7 @@ MIN_PLANNER_RUNTIME = 0.1
 PLANNER_TIME_LIMIT = ARGS.planner_time_limit
 YEAR = int(ARGS.year)
 GENERATORS_DIR = ARGS.generators_dir
+random.seed(ARGS.random_seed)
 
 utils.setup_logging(ARGS.debug)
 
@@ -380,10 +382,14 @@ def select_best_k(candidates, K, already_selected):
     return new_selected
 
 
-RUNNER_BASELINE = Runner("baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)], PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.runs_per_configuration, GENERATORS_DIR)
+RUNNER_BASELINE = Runner(
+    "baseline", DOMAINS[ARGS.domain], [get_baseline_planner(ARGS.track)],
+    PLANNER_TIME_LIMIT, ARGS.runs_per_configuration, GENERATORS_DIR)
 RUNNER_BASELINE.output_dir = ARGS.output_dir
 
-RUNNER_SART = Runner("sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, YEAR, ARGS.domain), PLANNER_TIME_LIMIT, ARGS.random_seed, ARGS.runs_per_configuration, GENERATORS_DIR)
+RUNNER_SART = Runner(
+    "sart", DOMAINS[ARGS.domain], get_sart_planners(ARGS.track, YEAR, ARGS.domain),
+    PLANNER_TIME_LIMIT,  ARGS.runs_per_configuration, GENERATORS_DIR)
 RUNNER_SART.output_dir = ARGS.output_dir
 
 
