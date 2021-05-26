@@ -35,7 +35,7 @@ class Runner:
     unsolvable within the time and memory limits.
     """
     def __init__(self, name, domain, planners, planner_time_limit, random_seed, runs_per_configuration,
-                 GENERATORS_DIR, output_dir = None):
+                 generators_dir, output_dir = None):
         self.name = name
         # We have three types of caches
         self.exact_cache = {}  # Cache the exact runtime so that the same configuration is never run twice
@@ -48,8 +48,7 @@ class Runner:
         self.domain = domain
         self.runs_per_configuration = runs_per_configuration
         self.output_dir = output_dir
-        self.GENERATORS_DIR = GENERATORS_DIR
-        self.logging = logging
+        self.generators_dir = generators_dir
 
         self.parameters_cache_key = domain.get_generator_attribute_names()
 
@@ -133,8 +132,8 @@ class Runner:
                 shutil.rmtree(plan_dir, ignore_errors=True)
                 os.mkdir(plan_dir)
                 problem_file = os.path.join(plan_dir, "problem.pddl")
-                command = self.domain.get_generator_command(self.GENERATORS_DIR, parameters)
-                self.logging.debug("Generator command: {}".format(" ".join(command)))
+                command = self.domain.get_generator_command(self.generators_dir, parameters)
+                logging.debug("Generator command: {}".format(" ".join(command)))
 
                 # If the generator fails, print error message and count task as unsolved.
                 try:
@@ -152,7 +151,7 @@ class Runner:
                     if not image_path.exists():
                         sys.exit(f"Error, image does not exist: {image_path}")
 
-                    self.logging.debug(f"Run image {image} at {image_path} with time limit of {instance_time_limit}")
+                    logging.debug(f"Run image {image} at {image_path} with time limit of {instance_time_limit}")
                     planner_dir = os.path.join(plan_dir, image)
                     os.mkdir(planner_dir)
 
@@ -162,7 +161,7 @@ class Runner:
                     if os.path.exists(os.path.join(plan_dir, "domain.pddl")):
                         shutil.copy2(os.path.join(plan_dir, "domain.pddl"), domain_file)
                     else:
-                        shutil.copy2(self.domain.get_domain_file(self.GENERATORS_DIR), domain_file)
+                        shutil.copy2(self.domain.get_domain_file(self.generators_dir), domain_file)
                     shutil.copy2(problem_file, os.path.join(planner_dir, "problem.pddl"))
 
                     def set_limit(limit_type, limit):
@@ -174,7 +173,7 @@ class Runner:
                         set_limit(resource.RLIMIT_CORE, 0)
 
                     cmd = [SINGULARITY_SCRIPT, image_path, "domain.pddl", "problem.pddl", "sas_plan"]
-                    self.logging.debug(cmd)
+                    logging.debug(cmd)
                     # Outcomes:
                     #  plan found -> append runtime
                     #  out of memory, out of time, unsolvable, planner bug -> skip
@@ -191,18 +190,18 @@ class Runner:
                         raise
                     else:
                         output = output.decode("utf-8")
-                        self.logging.debug(f"\n\n\n\n{output}\n\n\n\n")
+                        logging.debug(f"\n\n\n\n{output}\n\n\n\n")
                         if "Found plan file." in output:
                             match = re.search("Singularity runtime: (.+?)s", output)
                             runtime = float(match.group(1))
                             runtime = max(MIN_PLANNER_RUNTIME, runtime)  # log(0) is undefined.
                             instance_time_limit = min(instance_time_limit, runtime)
                             runtimes.append(runtime)
-                            self.logging.debug(f"{image} found plan in {runtime} seconds.")
+                            logging.debug(f"{image} found plan in {runtime} seconds.")
                         else:
-                            self.logging.debug(f"{image} failed to find a plan.")
+                            logging.debug(f"{image} failed to find a plan.")
 
-                self.logging.debug(f"Runtimes for y={parameters}: {runtimes}")
+                logging.debug(f"Runtimes for y={parameters}: {runtimes}")
 
                 if runtimes:
                     results.append(min(runtimes))
@@ -221,11 +220,11 @@ class Runner:
             results = ["unsolved"] * num_runs
             result = None
 
-        self.logging.debug(f"Computed runtimes for {self.runs_per_configuration} instances ({result}): {results}")
+        logging.debug(f"Computed runtimes for {self.runs_per_configuration} instances ({result}): {results}")
 
         if len(results) == self.runs_per_configuration or (
                 time_limit == self.planner_time_limit and num_runs == self.runs_per_configuration):
-            self.logging.info(f"{self.name} runtime for y={parameters}: {results}")
+            logging.info(f"{self.name} runtime for y={parameters}: {results}")
             self.exact_cache[cache_key] = results
             self.frontier_cache[non_linear_key].append(
                 ({linear_atr: parameters[linear_atr] for linear_atr in self.linear_attributes_names}, result)

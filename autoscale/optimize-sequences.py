@@ -1,24 +1,25 @@
 #! /usr/bin/env python3
 
 """
-To avoid lots of stderr output due to stale file handles we patch the load_json() method
-in the file <venv>/lib/python3.7/site-packages/smac/runhistory/runhistory.py as follows:
-
-    try:
-        with open(fn) as fp:
-            all_data = json.load(fp, object_hook=StatusType.enum_hook)
-    except Exception as e:
-        self.logger.info(f"Failed to read runhistory from {fn}: {e}")  # PATCHED
-        return  # PATCHED
-        self.logger.warning(
-            'Encountered exception %s while reading runhistory from %s. '
-            'Not adding any runs!',
-            e,
-            fn,
-        )
-        return
-
+Optimize sequences with SMAC.
 """
+
+# To avoid lots of stderr output due to stale file handles we patch the load_json() method
+# in the file <venv>/lib/python3.7/site-packages/smac/runhistory/runhistory.py as follows:
+#
+#     try:
+#         with open(fn) as fp:
+#             all_data = json.load(fp, object_hook=StatusType.enum_hook)
+#     except Exception as e:
+#         self.logger.info(f"Failed to read runhistory from {fn}: {e}")  # PATCHED
+#         return  # PATCHED
+#         self.logger.warning(
+#             'Encountered exception %s while reading runhistory from %s. '
+#             'Not adding any runs!',
+#             e,
+#             fn,
+#         )
+#         return
 
 import argparse
 import logging
@@ -136,7 +137,7 @@ def parse_args():
 
     parser.add_argument(
         "--generators-dir",
-        default=os.path.join(REPO, "pddl-generators"),
+        default=REPO / "pddl-generators",
         help="Path to directory containing the generators (default: %(default)s)")
 
     parser.add_argument(
