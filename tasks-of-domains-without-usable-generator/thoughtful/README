@@ -1,0 +1,10 @@
+files from learning IPC 08 https://ipc08.icaps-conference.org/learning/pages/domain_descriptions.html
+
+target-typed-01.pddl through target-typed-30.pddl: learning distribution (IPC 08)
+thoughtful_*-typed.pddl: testing distribution learning distribution (IPC 08)
+
+files from IPC 14, satisficing track:
+
+bootstrap-typed-01.pddl - bootstrap-typed-06.pddl
+p*-typed.pddl
+leaving out target-typed-21.pddl through target-typed-28.pddl because they are the same as those from learning IPC 08

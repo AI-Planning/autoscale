@@ -1,0 +1,27 @@
+The tasks stem from opt and sat tracks of IPCs 08 and 11.
+
+In the following list, each line represents a list of identical files.
+We only kept the last element of each "class" of equivalent tasks.
+['ipc08-p20.pddl', 'ipc11opt-p08.pddl', 'ipc11sat-p10.pddl']
+['ipc08-p13.pddl', 'ipc11sat-p13.pddl']
+['ipc08-p22.pddl', 'ipc11opt-p11.pddl']
+['domain.ipc08-pddl', 'domain.ipc11opt-pddl', 'domain.ipc11sat-pddl']
+['ipc08-p17.pddl', 'ipc11opt-p02.pddl', 'ipc11sat-p01.pddl']
+['ipc08-p14.pddl', 'ipc11sat-p15.pddl']
+['ipc11opt-p12.pddl', 'ipc11sat-p08.pddl']
+['ipc08-p19.pddl', 'ipc11opt-p04.pddl', 'ipc11sat-p03.pddl']
+['ipc08-p23.pddl', 'ipc11opt-p13.pddl', 'ipc11sat-p12.pddl']
+['ipc08-p30.pddl', 'ipc11opt-p20.pddl', 'ipc11sat-p20.pddl']
+['ipc08-p29.pddl', 'ipc11opt-p19.pddl', 'ipc11sat-p19.pddl']
+['ipc08-p24.pddl', 'ipc11opt-p14.pddl', 'ipc11sat-p09.pddl']
+['ipc11opt-p05.pddl', 'ipc11sat-p04.pddl']
+['ipc08-p21.pddl', 'ipc11opt-p10.pddl', 'ipc11sat-p11.pddl']
+['ipc08-p27.pddl', 'ipc11opt-p17.pddl', 'ipc11sat-p17.pddl']
+['ipc11opt-p06.pddl', 'ipc11sat-p05.pddl']
+['ipc08-p25.pddl', 'ipc11opt-p15.pddl', 'ipc11sat-p14.pddl']
+['ipc08-p18.pddl', 'ipc11opt-p03.pddl', 'ipc11sat-p02.pddl']
+['ipc08-p26.pddl', 'ipc11opt-p16.pddl', 'ipc11sat-p16.pddl']
+['ipc08-p28.pddl', 'ipc11opt-p18.pddl', 'ipc11sat-p18.pddl']
+['ipc11opt-p09.pddl', 'ipc11sat-p07.pddl']
+['ipc11opt-p07.pddl', 'ipc11sat-p06.pddl']
+
