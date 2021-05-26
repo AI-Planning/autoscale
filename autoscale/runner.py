@@ -60,9 +60,9 @@ class Runner:
             parameters = run[0]
             runtimes = run[1]
 
-            cache_key = tuple([parameters[attr] for attr in self.parameters_cache_key])
+            cache_key = tuple(parameters[attr] for attr in self.parameters_cache_key)
             non_linear_key = tuple(
-                [parameters[attr] for attr in self.parameters_cache_key if attr not in self.linear_attributes_names])
+                parameters[attr] for attr in self.parameters_cache_key if attr not in self.linear_attributes_names)
 
             if cache_key not in self.exact_cache:
                 logging.debug(f"Loading {cache_key}: {runtimes}")
@@ -97,7 +97,7 @@ class Runner:
         num_runs = num_runs or self.runs_per_configuration
 
         # Check the cache to see if we already know the runtime for this attribute configuration
-        cache_key = tuple([parameters[attr] for attr in self.parameters_cache_key])
+        cache_key = tuple(parameters[attr] for attr in self.parameters_cache_key)
 
         if cache_key in self.exact_cache:
             logging.debug(f"Data from cache: {self.exact_cache[cache_key]}")
@@ -105,7 +105,7 @@ class Runner:
 
         # Check the unsolvability cache to see if the problem is too hard
         non_linear_key = tuple(
-            [parameters[attr] for attr in self.parameters_cache_key if attr not in self.linear_attributes_names])
+            parameters[attr] for attr in self.parameters_cache_key if attr not in self.linear_attributes_names)
         if non_linear_key in self.frontier_cache:
             for values_linear_attributes, runtime in self.frontier_cache[non_linear_key]:
                 if (runtime is None or time_limit < runtime) and all(

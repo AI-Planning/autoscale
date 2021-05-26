@@ -176,7 +176,7 @@ if ARGS.tasks < ARGS.tasksbaseline:
 
 DOMAINS = domains.get_domains()
 
-logging.debug("{} domains available: {}".format(len(DOMAINS), sorted(DOMAINS)))
+logging.debug(f"{len(DOMAINS)} domains available: {sorted(DOMAINS)}")
 
 for domain in DOMAINS:
     if not (GENERATORS_DIR / domain / "domain.pddl").is_file() and not DOMAINS[domain].generated_domain_file():
@@ -278,7 +278,7 @@ def evaluate_sequence(cfg, print_final_configuration=False):
 
     # Identify which instances are actually relevant.
     evaluated_instances = set(baseline_eval.get_index_with_runtimes(2, 179.9) + sart_eval.get_index_with_runtimes(2, 179.9) )
-    relevant_subsequence = tuple([tuple ([sequence[i][atr] for atr in domain.get_generator_attribute_names() ]) for i in sorted(evaluated_instances)])
+    relevant_subsequence = tuple(tuple(sequence[i][attr] for attr in domain.get_generator_attribute_names()) for i in sorted(evaluated_instances))
 
     global previous_subsequences
     is_duplicate = relevant_subsequence in previous_subsequences and previous_subsequences[relevant_subsequence]["penalty"] < penalty
@@ -366,5 +366,5 @@ print("Intensification percentage:", smac.scenario.intensification_percentage)
 
 incumbent = smac.optimize()
 
-print("Final configuration: {}".format(incumbent.get_dictionary()))
+print(f"Final configuration: {incumbent.get_dictionary()}")
 evaluate_sequence(incumbent, print_final_configuration=True)

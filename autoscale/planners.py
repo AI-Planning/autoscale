@@ -414,7 +414,7 @@ def get_sart_planners(track, year, domain):
 
 
 def verify_planner_selection():
-    if len(set(len(setting) for setting in PLANNER_SELECTION.values())) != 1:
+    if len({len(setting) for setting in PLANNER_SELECTION.values()}) != 1:
         print("WARNING! There are different numbers of domains for different tracks. Verify that this is not a problem.")
         for track, domain_to_planners in PLANNER_SELECTION.items():
             print(f"track {track} has {len(domain_to_planners)} domains: {sorted(domain_to_planners.keys())}")

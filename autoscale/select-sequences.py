@@ -152,7 +152,7 @@ elif os.path.exists(ARGS.output_dir):
 else:
     os.mkdir(ARGS.output_dir)
 
-logging.debug("{} domains available: {}".format(len(DOMAINS), sorted(DOMAINS)))
+logging.debug(f"{len(DOMAINS)} domains available: {sorted(DOMAINS)}")
 
 
 class CPLEXConstraint:
@@ -293,18 +293,18 @@ class CPLEXSequence:
     # Return the number of instances that are different among those
     # instances that mattered for the evaluation of both sequences.
     def compare_redundancy (self, other):
-        percentage_in_other = sum([
+        percentage_in_other = sum(
             1.0 for c in self.parameters_of_evaluated_instances
-            if c in other.parameters_of_instances])/len(self.parameters_of_evaluated_instances)
-        percentage_in_me = sum([
+            if c in other.parameters_of_instances)/len(self.parameters_of_evaluated_instances)
+        percentage_in_me = sum(
             1.0 for c in other.parameters_of_evaluated_instances
-            if c in self.parameters_of_instances])/len(other.parameters_of_evaluated_instances)
+            if c in self.parameters_of_instances)/len(other.parameters_of_evaluated_instances)
         return max(percentage_in_other, percentage_in_me)
 
     def add_cplex_variables(self, cplex_problem):
         t = cplex_problem.variables.type
 
-        self.start_var_names = ["seq-{}-{}".format(self.seq_id, i) for i in range (self.latest_start)]
+        self.start_var_names = [f"seq-{self.seq_id}-{i}" for i in range (self.latest_start)]
         var_types = [t.binary for v in self.start_var_names]
         objective_values = [self.penalty for v in self.start_var_names] # Add penalty for including this sequence
         self.start_var_index = {
@@ -312,7 +312,7 @@ class CPLEXSequence:
             for i, index in enumerate(cplex_problem.variables.add(
                 obj=objective_values, types=var_types, names=self.start_var_names))}
 
-        self.end_var_names = ["end-{}-{}".format(self.seq_id, i) for i in range (self.earliest_end, self.latest_end)]
+        self.end_var_names = [f"end-{self.seq_id}-{i}" for i in range (self.earliest_end, self.latest_end)]
         var_types = [t.binary for v in self.end_var_names]
 
         def penalty_termination (time):
@@ -342,10 +342,10 @@ class CPLEXSequence:
         return self.end_var_index
 
     def get_info_per_option(self):
-        return [(self.start_var_index["seq-{}-{}".format(self.seq_id, i)], self.earliest_end-i, max(0, self.solved_instances - i), max(0, self.trivial_instances - i))  for i in range (self.latest_start)] + [(self.end_var_index["end-{}-{}".format(self.seq_id, i)], i + 1 - self.earliest_end, 0, 0)  for i in range (self.earliest_end, self.latest_end)]
+        return [(self.start_var_index[f"seq-{self.seq_id}-{i}"], self.earliest_end-i, max(0, self.solved_instances - i), max(0, self.trivial_instances - i))  for i in range (self.latest_start)] + [(self.end_var_index[f"end-{self.seq_id}-{i}"], i + 1 - self.earliest_end, 0, 0)  for i in range (self.earliest_end, self.latest_end)]
 
     def get_start_vars_per_option(self):
-        return [self.start_var_index["seq-{}-{}".format(self.seq_id, i)] for i in range (self.latest_start)]
+        return [self.start_var_index[f"seq-{self.seq_id}-{i}"] for i in range (self.latest_start)]
 
     def get_runtimes(self, i, endi):
         return self.sorted_runtimes[i:]
@@ -423,7 +423,7 @@ for sequence in STORED_VALID_SEQUENCES:
 
     Y = domain.get_configs(sequence['config'], ARGS.sequence_length)
 
-    logging.debug("Configurations in sequence {}".format(Y))
+    logging.debug(f"Configurations in sequence {Y}")
     baseline_eval = EvaluatedSequence(Y, RUNNER_BASELINE, PLANNER_TIME_LIMIT)
     sart_eval = EvaluatedSequence(Y, RUNNER_SART, PLANNER_TIME_LIMIT)
 
@@ -491,8 +491,8 @@ if any (using_baseline) and not all (using_baseline):
 
     # Right now printing and error because I don't think this will ever happen
     logging.info(f"Warning: some sequences use the state of the art and some the baseline runtimes: {num_sequences_using_baseline} use baseline {num_sequences_using_sart} use sart")
-    logging.debug("Sart invalid runtimes: {}".format(str([seq.runtimes_sart for seq in candidate_sequences if seq.use_baseline_instead_of_sart ])))
-    logging.debug("Sart valid runtimes: {}".format(str([seq.runtimes_sart for seq in candidate_sequences if not seq.use_baseline_instead_of_sart ])))
+    logging.debug(f"Sart invalid runtimes: {str([seq.runtimes_sart for seq in candidate_sequences if seq.use_baseline_instead_of_sart ])}")
+    logging.debug(f"Sart valid runtimes: {str([seq.runtimes_sart for seq in candidate_sequences if not seq.use_baseline_instead_of_sart ])}")
 
     if num_sequences_using_sart >= min(5, num_sequences_using_baseline):
         logging.info(f"Using sart runtimes on CPLEX optimization")
@@ -589,11 +589,11 @@ except CplexError as exc:
 
 print()
 # solution.get_status() returns an integer code
-logging.info("Solution status = {}: {}".format(str(cplex_problem.solution.get_status()), str(cplex_problem.solution.status[cplex_problem.solution.get_status()])))
+logging.info(f"Solution status = {str(cplex_problem.solution.get_status())}: {str(cplex_problem.solution.status[cplex_problem.solution.get_status()])}")
 if cplex_problem.solution.get_status() == 103:
     sys.exit()
 
-logging.info("Solution value  = {}".format(str( cplex_problem.solution.get_objective_value())))
+logging.info(f"Solution value  = {str( cplex_problem.solution.get_objective_value())}")
 
 x = cplex_problem.solution.get_values()
 
@@ -601,7 +601,7 @@ final_selection = []
 for seq in candidate_sequences:
         for name, idt in seq.get_cplex_start_index().items():
             if x [idt] > 0.9:
-                logging.debug ("START: {} {}".format(name, idt))
+                logging.debug (f"START: {name} {idt}")
                 for nameend, idtend in seq.get_cplex_end_index().items():
                     if x [idtend] > 0.9 :
                         seq_id, i = map(int, name.split("-")[1:])
@@ -622,10 +622,10 @@ for seq in candidate_sequences:
 
         for name, idt in seq.get_cplex_end_index().items():
             if x [idt] > 0.9:
-                logging.debug("END: {} {}".format(name, idt))
+                logging.debug(f"END: {name} {idt}")
 
 
-print("  " + "\n  ".join([f"p{i+1:02d}: {config}" for (i, config) in enumerate(final_selection)]))
+print("  " + "\n  ".join(f"p{i+1:02d}: {config}" for (i, config) in enumerate(final_selection)))
 
 if ARGS.output:
     if not os.path.exists(f"{ARGS.output}"):

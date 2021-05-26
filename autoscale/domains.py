@@ -34,50 +34,50 @@ class LinearAttr:
 
     def get_level_enum(self, cfg):
         if self.level_enum == "choose":
-            return cfg["{}_level".format(self.name)]
+            return cfg[f"{self.name}_level"]
         else:
             return self.level_enum
 
     def get_hyperparameters(self, modifier=None):
-        attr = "{}_{}".format(modifier, self.name) if modifier else self.name
+        attr = f"{modifier}_{self.name}" if modifier else self.name
 
         H = []
         if self.lower_b != self.upper_b:
-            H.append(UniformIntegerHyperparameter("{}_b".format(attr), lower=self.lower_b, upper=self.upper_b, default_value=self.lower_b))
+            H.append(UniformIntegerHyperparameter(f"{attr}_b", lower=self.lower_b, upper=self.upper_b, default_value=self.lower_b))
 
         if self.level_enum == "choose":
             # It does not make sense to have enum parameters and hierarchical linear attributes
             assert modifier is None
-            H.append(CategoricalHyperparameter("{}_level".format(attr), ["true", "false"], default_value="false"))
+            H.append(CategoricalHyperparameter(f"{attr}_level", ["true", "false"], default_value="false"))
 
         if self.optional_m:
-            H.append(CategoricalHyperparameter("{}_optional_m".format(self.name), ["true", "false"], default_value="false"))
+            H.append(CategoricalHyperparameter(f"{self.name}_optional_m", ["true", "false"], default_value="false"))
 
         if self.lower_m != self.upper_m:
             H += [
                 UniformFloatHyperparameter(
-                    "{}_m".format(attr), lower=self.lower_m, upper=self.upper_m, default_value=self.default_m, q=PRECISION
+                    f"{attr}_m", lower=self.lower_m, upper=self.upper_m, default_value=self.default_m, q=PRECISION
                 ),
             ]
 
         return H
 
     def set_values(self, cfg, Y, modifier=None):
-        attr = "{}_{}".format(modifier, self.name) if modifier else self.name
+        attr = f"{modifier}_{self.name}" if modifier else self.name
 
-        val = self.lower_b if self.lower_b == self.upper_b else int(cfg.get("{}_b".format(attr)))
+        val = self.lower_b if self.lower_b == self.upper_b else int(cfg.get(f"{attr}_b"))
 
-        use_m = cfg.get("{}_optional_m".format(attr)) == "false" if self.optional_m else True
+        use_m = cfg.get(f"{attr}_optional_m") == "false" if self.optional_m else True
 
         try:
-            m = self.lower_m if self.lower_m == self.upper_m else float(cfg.get("{}_m".format(attr)))
+            m = self.lower_m if self.lower_m == self.upper_m else float(cfg.get(f"{attr}_m"))
         except:
             m = self.default_m
 
-        m2 = 0 if self.lower_m == self.upper_m or "{}_m2".format(attr) not in cfg else float(cfg.get("{}_m2".format(attr)))
+        m2 = 0 if self.lower_m == self.upper_m or f"{attr}_m2" not in cfg else float(cfg.get(f"{attr}_m2"))
 
         if m2:
-            mb = int(cfg.get("{}_mb".format(attr)))
+            mb = int(cfg.get(f"{attr}_mb"))
 
         for i, Yi in enumerate(Y):
             Yi[self.name] = int(val)
@@ -108,7 +108,7 @@ class GridAttr:
 
     def get_level_enum(self, cfg):
         if self.level_enum == "choose":
-            return cfg["{}_level".format(self.name)]
+            return cfg[f"{self.name}_level"]
         else:
             return self.level_enum
 
@@ -116,25 +116,25 @@ class GridAttr:
         return self.lower_x == cfg[f"{self.name}_x"]
 
     def get_hyperparameters(self, modifier=None):
-        attr = "{}_{}".format(modifier, self.name) if modifier else self.name
+        attr = f"{modifier}_{self.name}" if modifier else self.name
 
-        H = [UniformIntegerHyperparameter("{}_x".format(attr), lower=self.lower_x, upper=self.upper_x, default_value=self.lower_x),
-             UniformIntegerHyperparameter("{}_maxdiff".format(attr), lower=0, upper=5, default_value=3),
-             UniformFloatHyperparameter("{}_m".format(attr), lower=self.lower_m, upper=self.upper_m, default_value=self.default_m, q=PRECISION)
+        H = [UniformIntegerHyperparameter(f"{attr}_x", lower=self.lower_x, upper=self.upper_x, default_value=self.lower_x),
+             UniformIntegerHyperparameter(f"{attr}_maxdiff", lower=0, upper=5, default_value=3),
+             UniformFloatHyperparameter(f"{attr}_m", lower=self.lower_m, upper=self.upper_m, default_value=self.default_m, q=PRECISION)
         ]
 
         if self.level_enum == "choose":
             assert (modifier is None) # It does not make sense to have enum parameters and hierarchical linear attributes
-            H.append(CategoricalHyperparameter("{}_level".format(attr), ["true", "false"], default_value="false"))
+            H.append(CategoricalHyperparameter(f"{attr}_level", ["true", "false"], default_value="false"))
 
         return H
 
     def set_values(self, cfg, Y, modifier=None):
-        attr = "{}_{}".format(modifier, self.name) if modifier else self.name
+        attr = f"{modifier}_{self.name}" if modifier else self.name
 
-        val_x = self.lower_x if self.lower_x == self.upper_x else int(cfg.get("{}_x".format(attr)))
-        m =  float(cfg.get("{}_m".format(attr)))
-        maxdiff = self.lower_x if self.lower_x == self.upper_x else int(cfg.get("{}_maxdiff".format(attr)))
+        val_x = self.lower_x if self.lower_x == self.upper_x else int(cfg.get(f"{attr}_x"))
+        m =  float(cfg.get(f"{attr}_m"))
+        maxdiff = self.lower_x if self.lower_x == self.upper_x else int(cfg.get(f"{attr}_maxdiff"))
         grid_values = []
         for i in range(len(Y)*int(math.ceil(1 + m) + 2)):
             for j in range(maxdiff + 1):
@@ -355,7 +355,7 @@ def adapt_parameters_snake(parameters):
     ygrid = int(parameters["y_grid"])
 
     percentage = int(parameters["num_spawn_apples"][:-1])/100.0
-    parameters["board"] = "empty-{}x{}".format(xgrid, ygrid)
+    parameters["board"] = f"empty-{xgrid}x{ygrid}"
 
     if xgrid*ygrid*percentage < int(parameters["num_initial_apples"]):
         parameters["num_initial_apples"] = int(xgrid*ygrid*percentage)
