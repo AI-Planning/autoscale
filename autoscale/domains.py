@@ -225,15 +225,15 @@ def get_linear_scaling_values(linear_attrs, cfg, num_values, base={}, name_base=
 
 class Domain:
     def __init__(
-            self, name, gen_command, linear_attrs, adapt_f=None,  num_sequences_linear_hierarchy=3,
+            self, name, generator_command, attributes, adapt_parameters=None, num_sequences_linear_hierarchy=3,
             penalty_for_instances_with_duplicated_parameters=100):
         self.name = name
-        self.linear_attributes = linear_attrs
-        self.gen_command = gen_command
-        self.adapt_f = adapt_f
+        self.attributes = attributes
+        self.generator_command = generator_command
+        self.adapt_parameters = adapt_parameters
         self.num_sequences_linear_hierarchy = num_sequences_linear_hierarchy
         self.generator_attribute_names = [
-                fn for _, fn, _, _ in Formatter().parse(self.gen_command)
+                fn for _, fn, _, _ in Formatter().parse(self.generator_command)
                 if fn is not None and fn != "seed"]
 
         self.penalty_for_instances_with_duplicated_parameters = penalty_for_instances_with_duplicated_parameters
@@ -251,12 +251,12 @@ class Domain:
 
     def get_linear_attributes_names(self):
         return (
-            [a.name for a in self.linear_attributes if isinstance(a, LinearAttr)] +
-            [a.name_x for a in self.linear_attributes if isinstance(a, GridAttr)] +
-            [a.name_y for a in self.linear_attributes if isinstance(a, GridAttr)])
+            [a.name for a in self.attributes if isinstance(a, LinearAttr)] +
+            [a.name_x for a in self.attributes if isinstance(a, GridAttr)] +
+            [a.name_y for a in self.attributes if isinstance(a, GridAttr)])
 
     def has_lowest_linear_values(self, cfg):
-        for linear_attr in self.linear_attributes:
+        for linear_attr in self.attributes:
             if isinstance(linear_attr, EnumAttr):
                 continue
             if not linear_attr.has_lowest_value(cfg):
@@ -267,18 +267,18 @@ class Domain:
         return self.generator_attribute_names
 
     def get_configs(self, cfg, num_tasks):
-        result = get_linear_scaling_values(self.linear_attributes, cfg, num_tasks)
+        result = get_linear_scaling_values(self.attributes, cfg, num_tasks)
 
-        if self.adapt_f:
-            result = [self.adapt_f(config) for config in result ]
+        if self.adapt_parameters:
+            result = [self.adapt_parameters(config) for config in result ]
 
         return result
 
     def get_hyperparameters(self):
-        return [a for attr in self.linear_attributes for a in attr.get_hyperparameters()]
+        return [param for attr in self.attributes for param in attr.get_hyperparameters()]
 
     def get_generator_command(self, generators_dir, parameters):
-        command = shlex.split(self.gen_command.format(**parameters))
+        command = shlex.split(self.generator_command.format(**parameters))
         command[0] = str((Path(generators_dir) / self.name / command[0]).resolve())
         # Call Python scripts with the correct Python interpreter.
         if command[0].endswith(".py"):
@@ -290,7 +290,7 @@ class Domain:
 
     def generate_problem(self, command, problem_file, domain_file):
         # Some generators print to a file, others print to stdout.
-        if TMP_PROBLEM in self.gen_command:
+        if TMP_PROBLEM in self.generator_command:
             subprocess.run(command, check=True)
             shutil.move(TMP_PROBLEM, problem_file)
         else:
@@ -301,13 +301,13 @@ class Domain:
             shutil.move(TMP_DOMAIN, domain_file)
 
     def get_enum_parameters(self):
-        return [x for x in self.linear_attributes if isinstance(x, EnumAttr)]
+        return [attr for attr in self.attributes if isinstance(attr, EnumAttr)]
 
     def has_enum_parameter(self):
         return len(self.get_enum_parameters()) > 0
 
     def generated_domain_file(self):
-        return TMP_DOMAIN in self.gen_command
+        return TMP_DOMAIN in self.generator_command
 
 
 def adapt_parameters_floortile(parameters):
@@ -425,7 +425,7 @@ DOMAIN_LIST = [
            "./parking-generator.pl prob {curbs} {cars} seq",
            [LinearAttr("curbs", lower_b=3, upper_b=20, lower_m=1),
             EnumAttr("cars_diff", [0, -1, -2])],
-           adapt_f = adapt_parameters_parking,
+           adapt_parameters = adapt_parameters_parking,
     ),
     Domain("driverlog",
            "dlgen {seed} {roadjunctions} {drivers} {packages} {trucks}",
@@ -471,7 +471,7 @@ DOMAIN_LIST = [
            "floortile-generator.py name {num_rows} {num_columns} {num_robots} seq {seed}",
            [GridAttr("grid", "num_columns", "num_rows", lower_x=2, upper_x=10, upper_m=10),
             EnumAttr("num_robots", [2, 3, 4, 5])
-           ], adapt_f=adapt_parameters_floortile
+           ], adapt_parameters=adapt_parameters_floortile
     ),
 
     Domain("storage",
@@ -480,7 +480,7 @@ DOMAIN_LIST = [
             LinearAttr("hoists", lower_b=2, upper_b=5, optional_m=True),
             LinearAttr("store_areas", lower_b=0, upper_b=10, optional_m=True),
             LinearAttr("depots", lower_b=1, upper_b=5, upper_m=1, optional_m=True),
-           ], adapt_f = adapt_parameters_storage),
+           ], adapt_parameters = adapt_parameters_storage),
 
     Domain("transport",
            "{generator} {nodes} {size} {degree} {mindistance} {trucks} {packages} {seed}",
@@ -509,7 +509,7 @@ DOMAIN_LIST = [
             GridAttr("grid", "x_grid", "y_grid", lower_x=3, upper_x=8),
             EnumAttr("num_spawn_apples", [f"{sp}%" for sp in [40,55,70,85,100]])
            ],
-           adapt_f=adapt_parameters_snake
+           adapt_parameters=adapt_parameters_snake
     ),
 
     Domain("pathways",
@@ -562,7 +562,7 @@ DOMAIN_LIST = [
             LinearAttr("num_packages", lower_b=1, upper_b=30, lower_m=1, default_m=2, upper_m=10), # scale between 1 and 2 packages per problem. More than that is too big for optimal planners
             LinearAttr("extra_trucks", lower_b=1, upper_b=10, lower_m=0, default_m=0.5, upper_m=2, optional_m=True),
         ],
-           adapt_f=adapt_parameters_logistics # num_trucks should be as large as num_cities
+           adapt_parameters=adapt_parameters_logistics # num_trucks should be as large as num_cities
     ),
 
     # The main parameter to scale here is the grid. We should find what percentage of cells should be locked,
@@ -575,7 +575,7 @@ DOMAIN_LIST = [
             LinearAttr("extra_keys", lower_b=1, upper_b=5, lower_m=0, default_m=1, upper_m=3, optional_m=True),
             EnumAttr("percentage_cells_locked", [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]),
            ],
-           adapt_f=adapt_parameters_grid
+           adapt_parameters=adapt_parameters_grid
     ),
 
     Domain("data-network",
@@ -585,7 +585,7 @@ DOMAIN_LIST = [
             LinearAttr("extra_items", lower_b=2, upper_b=20, lower_m=1, default_m=1, upper_m=5), #"[number of layers] must be smaller than [number of data items]"
             LinearAttr("extra_scripts", lower_b=2, upper_b=25,  lower_m=0, upper_m=5, default_m=1),#"[number of scripts] must be larger or equal than [number of data items]-2"
            ],
-           adapt_f =adapt_parameters_datanetwork
+           adapt_parameters =adapt_parameters_datanetwork
     ),
 
     #   Domain("agricola", "GenAgricola.py --num_workers {num_workers} --num_ints {num_ints} --num_rounds {num_rounds} {last_stage} {seed}",
