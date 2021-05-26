@@ -72,11 +72,6 @@ class LinearAttr:
         except:
             m = self.default_m
 
-        m2 = 0 if self.lower_m == self.upper_m or f"{attr}_m2" not in cfg else float(cfg.get(f"{attr}_m2"))
-
-        if m2:
-            mb = int(cfg.get(f"{attr}_mb"))
-
         for i, Yi in enumerate(Y):
             Yi[self.name] = int(val)
             if self.base_attr:
@@ -84,8 +79,6 @@ class LinearAttr:
 
             if use_m:
                 val += m
-                if m2 and i >= mb:
-                    val += m2
 
 
 class GridAttr:
