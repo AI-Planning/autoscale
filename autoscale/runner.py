@@ -141,9 +141,10 @@ class Runner:
                     print(err, file=sys.stderr)
                     return None
 
-                # Call planners.
-                instance_time_limit = time_limit  # If an instance has been solved by a planner, use the solving time as new time limit
+                # If an instance has been solved by a planner, use the solving time as new time limit.
+                instance_time_limit = time_limit
 
+                # Call planners.
                 runtimes = []
                 for image in self.planners:
                     image_path = planners.IMAGES_DIR / f"{image}.img"
