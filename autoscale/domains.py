@@ -64,9 +64,7 @@ class LinearAttr:
 
     def set_values(self, cfg, Y):
         attr = self.name
-
         val = self.lower_b if self.lower_b == self.upper_b else int(cfg.get(f"{attr}_b"))
-
         use_m = cfg.get(f"{attr}_optional_m") == "false" if self.optional_m else True
 
         try:
@@ -271,7 +269,7 @@ class Domain:
         result = get_linear_scaling_values(self.attributes, cfg, num_tasks)
 
         if self.adapt_parameters:
-            result = [self.adapt_parameters(config) for config in result ]
+            result = [self.adapt_parameters(config) for config in result]
 
         return result
 
