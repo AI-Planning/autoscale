@@ -14,7 +14,9 @@ fi
 
 set +e
 /usr/bin/time -o /dev/stdout -f "Singularity runtime: %es real, %Us user, %Ss sys" \
-  singularity run -C -H $PWD $1 $PWD/$2 $PWD/$3 $4
+  singularity run -C -H $PWD $1 $PWD/$2 $PWD/$3 $4 2> \
+  # Ignore some "expected" stderr output.
+  >(grep -v "CPU time limit exceeded\|WARNING: will ignore action costs\|differs from the one in the portfolio file" >&2)
 set -e
 
 printf "\nRun VAL\n\n"
