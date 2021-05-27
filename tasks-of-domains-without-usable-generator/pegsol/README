@@ -1,4 +1,5 @@
-The tasks stem from opt and sat tracks of IPCs 08 and 11.
+The tasks stem from opt and sat tracks of IPCs 08 and 11 and from
+the pddl-generator repository.
 
 In the following list, each line represents a list of identical files.
 We only kept the last element of each "class" of equivalent tasks.
