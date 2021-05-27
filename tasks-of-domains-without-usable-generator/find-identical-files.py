@@ -76,13 +76,14 @@ def print_duplicates(equivalence_partition):
             print([str(problem) for problem in sorted(partition)])
             to_delete.extend(sorted(partition)[:-1])
 
-    print("delete the following files to only keep the last problem of each class:")
-    deletion_string = "rm"
-    for problem in to_delete:
-        deletion_string += f" {problem.task_file.name}"
-        if problem.domain_file:
-            deletion_string += f" {problem.domain_file.name}"
-    print(deletion_string)
+    if to_delete:
+        print("delete the following files to only keep the last problem of each class:")
+        deletion_string = "rm"
+        for problem in to_delete:
+            deletion_string += f" {problem.task_file.name}"
+            if problem.domain_file:
+                deletion_string += f" {problem.domain_file.name}"
+        print(deletion_string)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
