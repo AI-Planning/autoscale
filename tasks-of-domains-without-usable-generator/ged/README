@@ -1,1 +1,5 @@
-IPC instances taken from aibasel benchmarks repo
+IPC instances taken from aibasel benchmarks repo (named without
+prefix). There are two additional sets (prefixes ds1 and ds2nd) from
+Patrik Haslum's website
+(http://users.cecs.anu.edu.au/~patrik/pddl/ged.tar.bz2). We excluded
+duplicate tasks from ds2nd which were already present in the IPC set.
