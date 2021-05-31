@@ -28,9 +28,9 @@ def move (grid, loc, loc2):
         return "(move-down {} n{} {} n{})".format( get_location(*loc), height, get_location(*loc2), new_height)
     elif height < new_height:
         return "(move-up {} n{} {} n{})".format( get_location(*loc), height, get_location(*loc2), new_height)
-    else: 
+    else:
         return "(move {} {} n{})".format(get_location(*loc), get_location(*loc2), new_height)
-    
+
 def print_grid(grid):
     for row in grid:
         print (" ".join(map(str, row)))
@@ -50,7 +50,7 @@ def accessible (i_grid, x, y, place_block):
             if i_grid[y][x] == i_grid[y+yp][x+xp]:
                 return True
 
-    
+
     return False
 
 def get_shortest_path (i_grid, ini_loc, goal_loc, place_block, order_grid):
@@ -80,7 +80,7 @@ def get_shortest_path (i_grid, ini_loc, goal_loc, place_block, order_grid):
                 if not place_block and i_grid[y][x] - i_grid[y+yp][x+xp] >= 0 and (x+xp, y+yp) == goal_loc:
                     continue # The goal must be reached from a location at one height below
 
-                
+
                 if abs(i_grid[y][x] - i_grid[y+yp][x+xp]) <= 1 and (x+xp, y+yp) not in parent_ptr:
                     parent_ptr [(x+xp, y+yp)] = (x,y)
                     queue.append((x+xp, y+yp))
@@ -92,11 +92,11 @@ def get_shortest_path (i_grid, ini_loc, goal_loc, place_block, order_grid):
     print(place_block)
 
     print(closed)
-    
+
     return None
 
 
-def solve(grid_size_x, grid_size_y, max_height, robots, depots, i_grid, g_grid, timeout=100000):
+def solve(grid_size_x, grid_size_y, max_height, robots, depots, i_grid, g_grid, minimize=True, timeout=100000):
     i_grid = deepcopy(i_grid)
     #print ("Solving: ",  grid_size_x, grid_size_y, max_height, robots, depots, i_grid, g_grid)
     assert(grid_size_y == len(i_grid))
@@ -108,7 +108,7 @@ def solve(grid_size_x, grid_size_y, max_height, robots, depots, i_grid, g_grid, 
         for y in range (grid_size_y):
             if x > 0:
                 adjacent [(x, y)].append((x-1, y))
-                
+
             if y > 0:
                 adjacent [(x, y)].append((x, y-1))
 
@@ -117,7 +117,7 @@ def solve(grid_size_x, grid_size_y, max_height, robots, depots, i_grid, g_grid, 
 
             if y < grid_size_y - 1:
                 adjacent [(x, y)].append((x, y+1))
-                
+
 
     intermediate_board=[[Int('intermediate%d-%d' % (c, r)) for c in range(grid_size_x)] for r in range(grid_size_y)]
     target_board=[[Int('target%d-%d' % (c, r)) for c in range(grid_size_x)] for r in range(grid_size_y)]
@@ -132,12 +132,12 @@ def solve(grid_size_x, grid_size_y, max_height, robots, depots, i_grid, g_grid, 
             for (xp, yp) in adjacent[(x,y)]:
                 supporter_variables[(x, y, xp, yp)] = Bool('supporter%d-%d-%d-%d' % (x, y, xp, yp))
 
-           
+
     all_intermediate_board = [cell for column in intermediate_board for cell in column ]
     s = Optimize()
-    #s.set("timeout", timeout)
-    
-    
+    # s.set("timeout", timeout)
+
+
     for (y, row) in enumerate(g_grid):
         for (x, tile) in enumerate (row):
             if (x, y) in depots:
@@ -146,7 +146,7 @@ def solve(grid_size_x, grid_size_y, max_height, robots, depots, i_grid, g_grid, 
             else:
                 s.add (order[y][x] > 0)
                 s.add (target_board[y][x] == tile)
-            
+
                 s.add(intermediate_board[y][x] <= max_height) # Intermediate_Board cannot have more height than max_height
                 s.add(intermediate_board[y][x] >= max(tile, i_grid[y][x])) # Intermediate_Board cannot have negative height
 
@@ -155,8 +155,8 @@ def solve(grid_size_x, grid_size_y, max_height, robots, depots, i_grid, g_grid, 
 
                 s.add (is_supported[y][x] == Or (*[supporter_variables[(x, y, xp, yp)] == True for (xp, yp) in adjacent[(x, y)]]))
                 s.add (is_supporter[y][x] == Or (*[supporter_variables[(xp, yp, x, y)] == True for (xp, yp) in adjacent[(x, y)]]))
-                s.add (Implies(is_supporter[y][x], is_supported[y][x])) 
-                for (xp, yp) in adjacent[(x, y)]:                
+                s.add (Implies(is_supporter[y][x], is_supported[y][x]))
+                for (xp, yp) in adjacent[(x, y)]:
                     # A cell cannot support its supporter (there is a total order of supporters)
                     s.add(Implies(supporter_variables[(x, y, xp, yp)], order[yp][xp] < order[y][x]))
 
@@ -164,25 +164,27 @@ def solve(grid_size_x, grid_size_y, max_height, robots, depots, i_grid, g_grid, 
                     s.add(Or(supporter_variables[(x, y, xp, yp)] == False, intermediate_board[y][x] == intermediate_board[yp][xp], intermediate_board[y][x] == intermediate_board[yp][xp] + 1))
 
                     # The supporter must give access to remove the cell
-                    s.add(Implies(supporter_variables[(x, y, xp, yp)], target_board[y][x] >= target_board[yp][xp])) 
+                    s.add(Implies(supporter_variables[(x, y, xp, yp)], target_board[y][x] >= target_board[yp][xp]))
 
 
-                    #s.add(Or(is_supporter[y][x] == False, is_supported[y][x] == False, is_supporter[yp][xp] == False, is_supported[yp][xp] == False, order[y][x] == order[yp][xp], order[y][x] == order[yp][xp] + 1, order[y][x] == order[yp][xp] - 1)) 
+                    #s.add(Or(is_supporter[y][x] == False, is_supported[y][x] == False, is_supporter[yp][xp] == False, is_supported[yp][xp] == False, order[y][x] == order[yp][xp], order[y][x] == order[yp][xp] + 1, order[y][x] == order[yp][xp] - 1))
 
 
                     #s.add (intermediate_board[0][0] == 0)
-    h=s.minimize(Sum(*all_intermediate_board)*1000 + Sum([cell for column in order for cell in column ]))
+    if minimize:
+        h=s.minimize(Sum(*all_intermediate_board)*1000 + Sum([cell for column in order for cell in column ]))
     s_result = s.check()
     # print(s)
-    print(s_result)
+    #print(s_result)
     if str(s_result).strip() == "unsat":
         #print(s)
-        exit()
+        #exit()
         return None
-
+    if str(s_result).strip() == "unknown":
+        return None
     m = s.model()
 
-    
+
     # for r in range(grid_size_y):
     #     sys.stdout.write ("; ")
 
@@ -203,7 +205,7 @@ def solve(grid_size_x, grid_size_y, max_height, robots, depots, i_grid, g_grid, 
 
     # print ("Order:")
     # print_grid(order_grid)
-    
+
 
     # for x in range(grid_size_x):
     #     for y in range (grid_size_y):
@@ -224,8 +226,8 @@ def solve(grid_size_x, grid_size_y, max_height, robots, depots, i_grid, g_grid, 
             print ()
             print_grid(target_grid)
             exit()
-        (x, y) = min(different_positions, key=lambda x, y : (i_grid[y][x], -order_grid[y][x]))
-        
+        (x, y) = min(different_positions, key=lambda w : (i_grid[w[1]][w[0]], -order_grid[w[1]][w[0]]))
+
         plan.append("(create-block {})".format(depot_loc))
 
         path = get_shortest_path(i_grid, depots[0], (x, y), True, order_grid)
@@ -235,19 +237,19 @@ def solve(grid_size_x, grid_size_y, max_height, robots, depots, i_grid, g_grid, 
         for loc in path[1:-1]:
             plan.append(move(i_grid, prev_loc, loc))
             prev_loc = loc
-            
+
         plan.append(place_block(i_grid, path[-2], path[-1]))
-                    
+
 
         for loc in  path[::-1][2:]:
             plan.append(move(i_grid, prev_loc, loc))
             prev_loc = loc
-        
+
         i_grid[y][x] += 1
-        
+
 
     while i_grid != g_grid:
-        
+
         # Pick highest position that is different
         different_positions = [(x, y) for x in range(grid_size_x) for y in range (grid_size_y) if i_grid[y][x] != g_grid[y][x] if accessible(i_grid, x, y, False)]
 
@@ -258,7 +260,7 @@ def solve(grid_size_x, grid_size_y, max_height, robots, depots, i_grid, g_grid, 
             print_grid(g_grid)
             exit()
 
-        (x, y) = max(different_positions, key=lambda x, y : (i_grid[y][x], -order_grid[y][x]))
+        (x, y) = max(different_positions, key=lambda w : (i_grid[w[1]][w[0]], -order_grid[w[1]][w[0]]))
         # print("Current grid")
         # print_grid(i_grid)
         # print("Goal grid")
@@ -273,27 +275,27 @@ def solve(grid_size_x, grid_size_y, max_height, robots, depots, i_grid, g_grid, 
         for loc in path[1:-1]:
             plan.append(move(i_grid, prev_loc, loc))
             prev_loc = loc
-            
+
         plan.append(remove_block(i_grid, path[-2], path[-1]))
-                    
+
 
         for loc in  path[::-1][2:]:
             plan.append(move(i_grid, prev_loc, loc))
             prev_loc = loc
 
         i_grid[y][x] -= 1
-        
+
         plan.append("(destroy-block {})".format(depot_loc))
 
 
     while plan[-1].startswith("(move"):
         plan.pop()
 
-    
+
     return (plan)
 
-        
-        
+
+
 
 def parse_grid_line(line, robots, depots, y):
     content = line.replace("  ", " ").replace("  ", " ").replace(" \n", "")[1:].split(" ")
@@ -301,13 +303,13 @@ def parse_grid_line(line, robots, depots, y):
     for (x, t) in enumerate(content):
         if "R" in t:
             robots.append((x, y))
-            
+
         if "D" in t:
             depots.append((x, y))
 
-            
+
     return map(lambda x : int(x.replace("R", "").replace("D", "")), content)
-    
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("raw_instance", type=argparse.FileType('r'))
@@ -317,7 +319,7 @@ def main():
     g_grid = []
     robots = []
     depots = []
-    
+
     lines = args.raw_instance.readlines()
     instance_name = lines[0][:-1]
 
@@ -337,7 +339,7 @@ def main():
     while not lines[i].startswith("Maximal height:"):
         g_grid.append(parse_grid_line(lines[i], [], [], 0))
         i += 1
-        
+
     grid_size_y = len(i_grid)
     grid_size_x = len(i_grid[0])
     max_height = int(lines[i].split(":")[1].strip())
@@ -348,8 +350,7 @@ def main():
 
     plan = solve(grid_size_x, grid_size_y, max_height, robots, depots, i_grid, g_grid)
     print ("\n".join(plan))
-        
+
 
 if __name__ == "__main__":
     main()
-
