@@ -13,9 +13,9 @@ if [ -f $PWD/$4 ]; then
 fi
 
 set +e
+# Ignore some "expected" stderr output.
 /usr/bin/time -o /dev/stdout -f "Singularity runtime: %es real, %Us user, %Ss sys" \
-  singularity run -C -H $PWD $1 $PWD/$2 $PWD/$3 $4 2> \
-  # Ignore some "expected" stderr output.
+  singularity run -C -H "$PWD" "$1" "$PWD/$2" "$PWD/$3" "$4" 2> \
   >(grep -v "CPU time limit exceeded\|WARNING: will ignore action costs\|differs from the one in the portfolio file" >&2)
 set -e
 
@@ -23,8 +23,8 @@ printf "\nRun VAL\n\n"
 
 if [ -f $PWD/$4 ]; then
     echo "Found plan file."
-    validate $PWD/$2 $PWD/$3 $PWD/$4
+    validate "$PWD/$2" "$PWD/$3" "$PWD/$4"
 else
     echo "No plan file."
-    validate $PWD/$2 $PWD/$3
+    validate "$PWD/$2" "$PWD/$3"
 fi
