@@ -19,6 +19,8 @@ OPT_2014_PLANNERS = {
 
 # This selection was generated through ./select-best-planner-per-domain.py results/2020-11-23-A-optimization-planners-ipc-properties.json results/2020-11-23-B-optimization-planners-opt-2014-properties.json results/2020-11-23-C-optimization-planners-opt-2020-properties.json --time-out 3600 --epsilon-runtime 5.0 --epsilon-factor-runtime 1.0 --delta 0.05 --exclude-runtime 30 --max-planners 5 --track opt
 PLANNER_SELECTION_OPT_2014 = {
+    # ipc2014-opt-symba1: 13,
+    'agricola': ['ipc2014-opt-symba1'],
     # ipc2014-opt-symba1: 44,
     'barman': ['ipc2014-opt-symba1'],
     # ipc2014-opt-symba1: 50, fd1906-fdss1-mas1-60s: 7, uncovered problems: 1
@@ -98,6 +100,8 @@ SAT_2014_PLANNERS = {
 
 # This selection was generated through ./select-best-planner-per-domain.py results/2020-11-23-D-optimization-planners-sat-ipc-properties.json results/2020-11-23-E-optimization-planners-sat-2014-properties.json results/2020-11-23-F-optimization-planners-sat-2020-properties.json --time-out 3600 --epsilon-runtime 5.0 --epsilon-factor-runtime 1.0 --delta 0.05 --exclude-runtime 30 --max-planners 3 --track sat
 PLANNER_SELECTION_SAT_2014 = {
+    # fd1906-lama-first: 6, ipc2014-agl-mercury: 3, ipc2014-agl-jasper: 3, uncovered problems: 1
+    'agricola': ['fd1906-lama-first', 'ipc2014-agl-mercury', 'ipc2014-agl-jasper'],
     # fd1906-lama-first: 84, ipc2014-agl-jasper: 11, uncovered problems: 3
     'barman': ['fd1906-lama-first', 'ipc2014-agl-jasper'],
     # fd1906-lama-first: 79, ipc2014-agl-probe: 4, ipc2014-agl-mercury: 3, uncovered problems: 3
@@ -201,6 +205,8 @@ OPT_2018_PLANNERS = set(OPT_2014_PLANNERS) | {
 
 # This selection was generated through ./select-best-planner-per-domain.py results/combined_2020-11-23-A-optimization-planners-ipc-properties_2020-12-05-A-evaluation-opt-ipc-properties.json results/2020-12-13-A-evaluation-opt-new2014-properties.json --time-out 3600 --epsilon-runtime 1.0 --epsilon-factor-runtime 5.0 --delta 0.0 --exclude-runtime 30 --max-planners 3 --track opt
 PLANNER_SELECTION_OPT_2018 = {
+    # ipc2014-opt-symba1: 13,
+    'agricola': ['ipc2014-opt-symba1'],
     # ipc2014-opt-symba1: 28, ipc2018-opt-delfi-celmcut: 2, ipc2018-opt-delfi-mas-miasm: 2,
     'barman': ['ipc2014-opt-symba1', 'ipc2018-opt-delfi-celmcut', 'ipc2018-opt-delfi-mas-miasm'],
     # ipc2014-opt-symba1: 43, fd1906-fdss1-mas1-60s: 3, ipc2018-opt-scorpion: 1,
@@ -301,6 +307,8 @@ SAT_2018_PLANNERS = set(SAT_2014_PLANNERS) | {
 
 # This selection was generated through ./select-best-planner-per-domain.py results/combined_2020-11-23-D-optimization-planners-sat-ipc-properties_2020-12-05-B-evaluation-sat-ipc-properties.json results/2020-12-13-B-evaluation-sat-new2014-properties.json --time-out 3600 --epsilon-runtime 1.0 --epsilon-factor-runtime 5.0 --delta 0.0 --exclude-runtime 30 --max-planners 3 --track opt
 PLANNER_SELECTION_SAT_2018 = {
+    # ipc2014-agl-mercury: 14, ipc2018-agl-olcff: 2,
+    'agricola': ['ipc2014-agl-mercury', 'ipc2018-agl-olcff'],
     # fd1906-lama-first: 64, ipc2014-agl-probe: 4,
     'barman': ['fd1906-lama-first', 'ipc2014-agl-probe'],
     # fd1906-lama-first: 62,

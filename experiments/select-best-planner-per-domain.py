@@ -12,7 +12,7 @@ from domain_groups import group_domains
 # List of all domains available from 2020-11-23-* experiments.
 # Uncommented are those that we optimize.
 OPT_DOMAINS = [
-    # 'agricola',
+    'agricola',
     # 'airport',
     'barman',
     'blocksworld',
@@ -66,7 +66,7 @@ OPT_DOMAINS = [
 # List of all domains available from 2020-11-23-* experiments.
 # Uncommented are those that we optimize.
 SAT_DOMAINS = [
-    # 'agricola',
+    'agricola',
     # 'airport',
     # 'assembly',
     'barman',
