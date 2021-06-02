@@ -164,11 +164,13 @@ class Runner:
                         shutil.copy2(self.domain.get_domain_file(self.generators_dir), domain_file)
                     shutil.copy2(problem_file, planner_dir / "problem.pddl")
 
-                    def set_limit(limit_type, limit):
-                        resource.setrlimit(limit_type, (limit, limit))
+                    def set_limit(limit_type, soft, hard=None):
+                        if hard is None:
+                            hard = soft
+                        resource.setrlimit(limit_type, (soft, hard))
 
                     def prepare_call():
-                        set_limit(resource.RLIMIT_CPU, instance_time_limit)
+                        set_limit(resource.RLIMIT_CPU, instance_time_limit, instance_time_limit + 1)
                         set_limit(resource.RLIMIT_AS, PLANNER_MEMORY_LIMIT)
                         set_limit(resource.RLIMIT_CORE, 0)
 
