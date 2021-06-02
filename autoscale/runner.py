@@ -183,14 +183,19 @@ class Runner:
                         cmd,
                         cwd=planner_dir,
                         stdout=subprocess.PIPE,
+                        stderr=subprocess.PIPE,
                         preexec_fn=prepare_call,
                     )
                     try:
-                        output, _ = p.communicate()
+                        output, error_output = p.communicate()
                     except subprocess.SubprocessError as err:
                         print(f"Calling the Singularity script (but not the planner) failed: {err}", file=sys.stderr)
                         raise
                     else:
+                        error_output = error_output.decode("utf-8")
+                        for line in error_output.splitlines():
+                            if "CPU time limit exceeded" not in line and "Killed" not in line:
+                                print(line, file=sys.stderr)
                         output = output.decode("utf-8")
                         logging.debug(f"\n\n\n\n{output}\n\n\n\n")
                         if "Found plan file." in output:

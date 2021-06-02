@@ -304,7 +304,7 @@ def get_smac_experiment(
     if REMOTE:
         environment = BaselSlurmEnvironment(
             email=USER.email,
-            partition="infai_1")
+            partition="infai_2")
     else:
         environment = LocalEnvironment(processes=2)
 
@@ -316,8 +316,8 @@ def get_smac_experiment(
     assert ("opt" in exp.name) ^ ("sat" in exp.name)
     TRACK = "opt" if "opt" in exp.name else "sat"
 
-    assert ("-2014-" in exp.name) ^ ("-2020-" in exp.name)
-    YEAR = "2014" if "-2014-" in exp.name else "2020"
+    assert ("-2014-" in exp.name) ^ ("-2018-" in exp.name)
+    YEAR = "2014" if "-2014-" in exp.name else "2018"
 
     for domain in domains:
         for seed in range(runs_per_domain):

@@ -12,6 +12,9 @@ if [ -f $PWD/$4 ]; then
     exit 2
 fi
 
+# Ensure that the strings "CPU time limit exceeded" and "Killed" are in English.
+export LANG=C
+
 set +e
 # Ignore some "expected" stderr output.
 /usr/bin/time -o /dev/stdout -f "Singularity runtime: %es real, %Us user, %Ss sys" \
