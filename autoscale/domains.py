@@ -333,8 +333,7 @@ def adapt_parameters_parking(parameters):
 
 
 def adapt_parameters_agricola(parameters):
-    parameters ["all_workers_flag"] = "--must_create_workers" if parameters["all_workers"] == "true" else ""
-
+    parameters["all_workers_flag"] = "--must_create_workers" if parameters["all_workers"] == "true" else ""
     return parameters
 
 
@@ -342,6 +341,7 @@ def adapt_parameters_termes(parameters):
     if parameters["min_height"] < 0:
         parameters["min_height"] += parameters["max_height"]
     return parameters
+
 
 def adapt_parameters_storage(parameters):
     crates, hoists, store_areas, depots = parameters["crates"], parameters["hoists"], parameters["store_areas"], parameters["depots"]
@@ -595,7 +595,7 @@ DOMAIN_LIST = [
              # --num_ints {num_ints} --num_rounds {num_rounds}  num ints, num rounds excluded because they were not used in IPC'18
              [LinearAttr("stages", lower_b=3, upper_b=7, lower_m=0.1, upper_m=2),
               LinearAttr("workers", lower_b=3, upper_b=7, lower_m=0.1, upper_m=2),
-              EnumAttr ("all_workers", ["false", "true"]),
+              EnumAttr("all_workers", ["false", "true"]),
              ],
              adapt_parameters=adapt_parameters_agricola
       ),
@@ -606,7 +606,8 @@ DOMAIN_LIST = [
            LinearAttr("max_height", lower_b=1, upper_b=5, lower_m=0.1, upper_m=1),
            EnumAttr ("min_height", [1, 2, -1, -2]), #min height of -x means that we set it to max_height - x
            LinearAttr("num_towers", lower_b=1, upper_b=4, lower_m=0.1, upper_m=2),
-           ],          adapt_parameters=adapt_parameters_termes)
+           ],
+           adapt_parameters=adapt_parameters_termes)
 ]
 
 

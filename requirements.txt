@@ -24,3 +24,4 @@ six==1.15.0
 smac==0.12.3
 threadpoolctl==2.1.0
 txt2tags==3.7
+z3-solver==4.8.10.0
