@@ -14,18 +14,22 @@ to_stamp_L_right = ""
 rows = 4
 
 
+def print_error(msg):
+    print(msg, file=sys.stderr)
+
+
 def help():
-    print(f"usage: {sys.argv[0]} <grid_size> <block_type>")
-    print(
+    print_error(f"usage: {sys.argv[0]} <grid_size> <block_type>")
+    print_error(
         "  grid_size: defines the number of rows. "
         "Only even numbers are accepted. "
         "The number of columns is fixed at 4."
     )
-    print("  block_type:")
-    print("    1 -> only 1x1 square blocks")
-    print("    2 -> only 2x1 blocks")
-    print("    3 -> only L-shaped blocks")
-    print("    4 -> mix of blocks")
+    print_error("  block_type:")
+    print_error("    1 -> only 1x1 square blocks")
+    print_error("    2 -> only 2x1 blocks")
+    print_error("    3 -> only L-shaped blocks")
+    print_error("    4 -> mix of blocks")
     sys.exit(2)
 
 
@@ -60,13 +64,13 @@ if len(sys.argv) != 3:
 size_grid = int(sys.argv[1])
 conf_blocks = int(sys.argv[2])
 if size_grid < 2:
-    print("grid_size must be at least 2.")
+    print_error("grid_size must be at least 2.")
     help()
 if size_grid % 2 != 0:
-    print("Only even values for grid_size are accepted.")
+    print_error("Only even values for grid_size are accepted.")
     help()
 if conf_blocks < 1 and conf_blocks > 4:
-    print("Invalid block configuration. Valid configurations: 1 -- 4.")
+    print_error("Invalid block configuration. Valid configurations: 1 -- 4.")
     help()
 
 # hey, everything is ok. Let's start to do something.
