@@ -26,10 +26,10 @@ printf "\nRun VAL\n\n"
 
 if [ -f $PWD/$4 ]; then
     echo "Found plan file."
-    validate "$PWD/$2" "$PWD/$3" "$PWD/$4"
+    validate -v "$PWD/$2" "$PWD/$3" "$PWD/$4"
     exit 0
 else
     echo "No plan file."
-    validate "$PWD/$2" "$PWD/$3"
+    validate -v "$PWD/$2" "$PWD/$3"
     exit 99
 fi
