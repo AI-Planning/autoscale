@@ -68,7 +68,7 @@ class LinearAttr:
 
 
 class GridAttr:
-    def __init__(self, name, name_x, name_y, lower_x, upper_x, lower_m=0.1, upper_m=3.0, default_m=1.0):
+    def __init__(self, name, name_x, name_y, lower_x, upper_x, lower_m=0.1, upper_m=3.0, default_m=1.0, optional_m = False):
         self.name = name
         self.name_x = name_x
         self.name_y = name_y
@@ -76,6 +76,7 @@ class GridAttr:
         self.lower_m = lower_m
         self.upper_m = upper_m
         self.default_m = default_m
+        self.optional_m = optional_m
 
         self.lower_x = lower_x
         self.upper_x = upper_x
@@ -91,13 +92,21 @@ class GridAttr:
              UniformFloatHyperparameter(f"{attr}_m", lower=self.lower_m, upper=self.upper_m, default_value=self.default_m, q=PRECISION)
         ]
 
+        if self.optional_m:
+            H.append(CategoricalHyperparameter(f"{attr}_optional_m", ["true", "false"], default_value="false"))
+
+
         return H
 
     def set_values(self, cfg, Y):
         attr = self.name
 
         val_x = self.lower_x if self.lower_x == self.upper_x else int(cfg.get(f"{attr}_x"))
-        m =  float(cfg.get(f"{attr}_m"))
+        use_m = cfg.get(f"{attr}_optional_m") == "false" if self.optional_m else True
+
+        m =  float(cfg.get(f"{attr}_m")) if use_m else 0
+
+
         maxdiff = self.lower_x if self.lower_x == self.upper_x else int(cfg.get(f"{attr}_maxdiff"))
         grid_values = []
         for i in range(len(Y)*int(math.ceil(1 + m) + 2)):
@@ -301,11 +310,6 @@ def adapt_parameters_parking(parameters):
 
 def adapt_parameters_agricola(parameters):
     parameters["all_workers_flag"] = "--must_create_workers" if parameters["all_workers"] == "true" else ""
-    return parameters
-
-
-def adapt_parameters_termes(parameters):
-    parameters["max_height"] = parameters["min_height"] + parameters["diff_height"]
     return parameters
 
 
@@ -568,12 +572,11 @@ DOMAIN_LIST = [
 
     Domain("termes",
            "./generate-autoscale.py {seed} pddl --size_x {x} --size_y {y} --min_height {min_height} --max_height {max_height} --num_towers {num_towers} --ensure_plan --dont_remove_slack" ,
-           [GridAttr("grid", "x", "y", lower_x=3, upper_x=10, lower_m=0, upper_m=5),
-            LinearAttr("diff_height", lower_b=0, upper_b=5, lower_m=0.1, upper_m=1, optional_m=True),
-            LinearAttr("min_height", lower_b=1, upper_b=5, upper_m=1, optional_m=True),
-            LinearAttr("num_towers", lower_b=1, upper_b=4, lower_m=0.1, upper_m=2),
-           ],
-           adapt_parameters=adapt_parameters_termes)
+           [GridAttr("grid", "x", "y", lower_x=3, upper_x=10, lower_m=0, upper_m=5, optional_m=True),
+            LinearAttr("min_height", lower_b=1, upper_b=5, lower_m=0, upper_m=1, default_m=0, optional_m=True),
+            LinearAttr("max_height", lower_b=0, upper_b=5, lower_m=0.1, upper_m=1, optional_m=True, base_attr="min_height"),
+            LinearAttr("num_towers", lower_b=1, upper_b=4, lower_m=0.1, upper_m=2, optional_m=True),
+           ])
 ]
 
 
