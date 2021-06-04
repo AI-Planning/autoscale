@@ -161,6 +161,9 @@ def place_depots(grid_size_x, grid_size_y, init_grid, goal_grid):
 
 def main():
     args = parse()
+
+    assert (args.min_height <= args.max_height)
+
     rng = numpy.random.default_rng(args.random_seed)
 
     increase_x = args.size_x < args.size_y
@@ -169,7 +172,7 @@ def main():
     tries = 0
     while not plan:
         tries += 1
-        if tries > args.ensure_plan_tries:
+        if tries > args.ensure_plan_tries or args.num_towers > args.size_x * args.size_y:
             tries = 0
             if increase_x:
                 args.size_x += 1

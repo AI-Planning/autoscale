@@ -338,8 +338,7 @@ def adapt_parameters_agricola(parameters):
 
 
 def adapt_parameters_termes(parameters):
-    if parameters["min_height"] < 0:
-        parameters["min_height"] += parameters["max_height"]
+    parameters["max_height"] = parameters["min_height"] + parameters["diff_height"]
     return parameters
 
 
@@ -603,9 +602,9 @@ DOMAIN_LIST = [
     Domain("termes",
            "./generate-autoscale.py {seed} pddl --size_x {x} --size_y {y} --min_height {min_height} --max_height {max_height} --num_towers {num_towers} --ensure_plan --dont_remove_slack" ,
            [GridAttr("grid", "x", "y", lower_x=3, upper_x=10, lower_m=0, upper_m=5),
-           LinearAttr("max_height", lower_b=1, upper_b=5, lower_m=0.1, upper_m=1),
-           EnumAttr ("min_height", [1, 2, -1, -2]), #min height of -x means that we set it to max_height - x
-           LinearAttr("num_towers", lower_b=1, upper_b=4, lower_m=0.1, upper_m=2),
+            LinearAttr("diff_height", lower_b=0, upper_b=5, lower_m=0.1, upper_m=1, optional_m=True),
+            LinearAttr("min_height", lower_b=1, upper_b=5, upper_m=1, optional_m=True),
+            LinearAttr("num_towers", lower_b=1, upper_b=4, lower_m=0.1, upper_m=2),
            ],
            adapt_parameters=adapt_parameters_termes)
 ]
