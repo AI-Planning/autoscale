@@ -16,7 +16,7 @@ PRECISION = None  # Set via command line.
 
 
 class LinearAttr:
-    def __init__(self, name, base_attr=None, level="false", lower_b=1, upper_b=20, lower_m=0.1, upper_m=5.0, default_m=1.0, optional_m = False):
+    def __init__(self, name, base_attr=None, lower_b=1, upper_b=20, lower_m=0.1, upper_m=5.0, default_m=1.0, optional_m = False):
         self.name = name
         self.lower_b = lower_b
         self.upper_b = upper_b
@@ -24,19 +24,10 @@ class LinearAttr:
         self.upper_m = upper_m
         self.default_m = default_m
         self.base_attr = base_attr
-        self.level_enum = level
         self.optional_m = optional_m
-
-        assert self.level_enum in ["false", "true", "choose"]
 
     def has_lowest_value(self, cfg):
         return self.lower_b == cfg[f"{self.name}_b"]
-
-    def get_level_enum(self, cfg):
-        if self.level_enum == "choose":
-            return cfg[f"{self.name}_level"]
-        else:
-            return self.level_enum
 
     def get_hyperparameters(self, modifier=None):
         attr = f"{modifier}_{self.name}" if modifier else self.name
@@ -44,11 +35,6 @@ class LinearAttr:
         H = []
         if self.lower_b != self.upper_b:
             H.append(UniformIntegerHyperparameter(f"{attr}_b", lower=self.lower_b, upper=self.upper_b, default_value=self.lower_b))
-
-        if self.level_enum == "choose":
-            # It does not make sense to have enum parameters and hierarchical linear attributes
-            assert modifier is None
-            H.append(CategoricalHyperparameter(f"{attr}_level", ["true", "false"], default_value="false"))
 
         if self.optional_m:
             H.append(CategoricalHyperparameter(f"{self.name}_optional_m", ["true", "false"], default_value="false"))
@@ -82,7 +68,7 @@ class LinearAttr:
 
 
 class GridAttr:
-    def __init__(self, name, name_x, name_y, lower_x, upper_x, lower_m=0.1, upper_m=3.0, default_m=1.0, level="false"):
+    def __init__(self, name, name_x, name_y, lower_x, upper_x, lower_m=0.1, upper_m=3.0, default_m=1.0):
         self.name = name
         self.name_x = name_x
         self.name_y = name_y
@@ -93,15 +79,6 @@ class GridAttr:
 
         self.lower_x = lower_x
         self.upper_x = upper_x
-        self.level_enum = level
-
-        assert self.level_enum in ["false", "true", "choose"]
-
-    def get_level_enum(self, cfg):
-        if self.level_enum == "choose":
-            return cfg[f"{self.name}_level"]
-        else:
-            return self.level_enum
 
     def has_lowest_value(self, cfg):
         return self.lower_x == cfg[f"{self.name}_x"]
@@ -113,10 +90,6 @@ class GridAttr:
              UniformIntegerHyperparameter(f"{attr}_maxdiff", lower=0, upper=5, default_value=3),
              UniformFloatHyperparameter(f"{attr}_m", lower=self.lower_m, upper=self.upper_m, default_value=self.default_m, q=PRECISION)
         ]
-
-        if self.level_enum == "choose":
-            assert (modifier is None) # It does not make sense to have enum parameters and hierarchical linear attributes
-            H.append(CategoricalHyperparameter(f"{attr}_level", ["true", "false"], default_value="false"))
 
         return H
 
@@ -152,9 +125,6 @@ class ConstantAttr:
     def get_hyperparameters(self, modifier=None):
         return []
 
-    def get_level_enum(self, cfg):
-        return "false"
-
     def set_values(self, cfg, Y):
         for i, Yi in enumerate(Y):
             Yi[self.name] = self.value
@@ -170,9 +140,6 @@ class EnumAttr:
 
     def get_hyperparameters(self):
         return [CategoricalHyperparameter(self.name, self.values)]
-
-    def get_level_enum(self, cfg):
-        return "false"
 
     def set_values(self, cfg, Y):
         value = cfg.get(self.name)
