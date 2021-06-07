@@ -196,18 +196,15 @@ RUNNER_SART = Runner(
 
 
 if ARGS.database:
-    f = open(ARGS.database)
-    content = json.loads(f.read())
+    with open(ARGS.database) as f:
+        content = json.load(f)
     if ARGS.domain in content:
-
         if "baseline_runtimes" in content[ARGS.domain]:
             logging.info (f"Loading cache data for baseline planners: {len(content[ARGS.domain]['baseline_runtimes'])}")
             RUNNER_BASELINE.load_cache_from_log_file(content[ARGS.domain]["baseline_runtimes"])
-
-        if "baseline_runtimes:" in content[ARGS.domain]:
+        if "baseline_runtimes:" in content[ARGS.domain]:  # Handle typo in data.
             logging.info (f"Loading cache data for baseline planners: {len(content[ARGS.domain]['baseline_runtimes:'])}")
             RUNNER_BASELINE.load_cache_from_log_file(content[ARGS.domain]["baseline_runtimes:"])
-
         if "sart_runtimes" in content[ARGS.domain]:
             logging.info (f"Loading cache data for sart planners: {len(content[ARGS.domain]['sart_runtimes'])}" )
             RUNNER_SART.load_cache_from_log_file(content[ARGS.domain]["sart_runtimes"])
