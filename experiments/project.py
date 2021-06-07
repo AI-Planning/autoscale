@@ -433,10 +433,6 @@ def get_evaluation_experiment(
     exp.add_report(BaseReport(attributes=attributes, filter=[group_domains]), outfile=report)
     exp.add_step("open-report", subprocess.call, ["xdg-open", report])
     exp.add_step("publish-report", subprocess.call, ["publish", report])
-    exp.add_report(
-        CoverageData(filter=[group_domains]),
-        outfile=DIR / "results" / f"{exp.name}-coverage.json",
-    )
     exp.add_report(FilterReport(), outfile=DIR / "results" / f"{exp.name}-properties.json")
     return exp
 
@@ -457,17 +453,3 @@ def add_base_report(exp, attributes=None, outfile=None):
     exp.add_report(BaseReport(attributes=attributes), outfile=outfile)
     #exp.add_step('open-report', subprocess.call, ['xdg-open', outfile])
     #exp.add_step('publish-report', subprocess.call, ['publish', outfile])
-
-
-def add_evaluation_reports(exp):
-    add_base_report(exp)
-
-    exp.add_report(FilterReport(), outfile=DIR / "results" / f"{exp.name}-properties.json")
-
-    exp.add_report(
-        CoverageData(filter=[group_domains]),
-        outfile=DIR / "results" / f"{exp.name}-coverage.json")
-
-    exp.add_report(
-        PerTaskAggregation(function=min),
-        outfile=DIR / "results" / f"{exp.name}-min-runtimes.json")
