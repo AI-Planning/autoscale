@@ -1,4 +1,6 @@
+import json
 import logging
+import lzma
 import sys
 
 
@@ -31,3 +33,9 @@ def setup_logging(debug):
 
     logger.addHandler(h1)
     logger.addHandler(h2)
+
+
+def read_database(database_path):
+    open_func = lzma.open if database_path.endswith(".xz") else open
+    with open_func(database_path) as f:
+        return json.load(f)

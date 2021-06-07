@@ -396,8 +396,7 @@ RUNNER_SART.output_dir = ARGS.output_dir
 domain = DOMAINS[ARGS.domain]
 STORED_VALID_SEQUENCES = []
 for database_file in ARGS.database:
-    with open(database_file) as f:
-        content = json.load(f)
+    content = utils.read_database(database_file)
 
     if "baseline_runtimes" in content[ARGS.domain]:
         RUNNER_BASELINE.load_cache_from_log_file(content[ARGS.domain]["baseline_runtimes"])

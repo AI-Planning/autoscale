@@ -196,8 +196,7 @@ RUNNER_SART = Runner(
 
 
 if ARGS.database:
-    with open(ARGS.database) as f:
-        content = json.load(f)
+    content = utils.read_database(ARGS.database)
     if ARGS.domain in content:
         if "baseline_runtimes" in content[ARGS.domain]:
             RUNNER_BASELINE.load_cache_from_log_file(content[ARGS.domain]["baseline_runtimes"])
