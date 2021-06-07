@@ -399,15 +399,14 @@ for database_file in ARGS.database:
     with open(database_file) as f:
         content = json.load(f)
 
-        if "baseline_runtimes:" in content[ARGS.domain]:
-            logging.info (f"Loading cache data for baseline planners: {len(content[ARGS.domain]['baseline_runtimes:'])}")
-            RUNNER_BASELINE.load_cache_from_log_file(content[ARGS.domain]["baseline_runtimes:"])
+    if "baseline_runtimes" in content[ARGS.domain]:
+        logging.info (f"Loading cache data for baseline planners: {len(content[ARGS.domain]['baseline_runtimes'])}")
+        RUNNER_BASELINE.load_cache_from_log_file(content[ARGS.domain]["baseline_runtimes"])
+    if "sart_runtimes" in content[ARGS.domain]:
+        logging.info (f"Loading cache data for sart planners: {len(content[ARGS.domain]['sart_runtimes'])}" )
+        RUNNER_SART.load_cache_from_log_file(content[ARGS.domain]["sart_runtimes"])
 
-        if "sart_runtimes" in content[ARGS.domain]:
-            logging.info (f"Loading cache data for sart planners: {len(content[ARGS.domain]['sart_runtimes'])}" )
-            RUNNER_SART.load_cache_from_log_file(content[ARGS.domain]["sart_runtimes"])
-
-        STORED_VALID_SEQUENCES += content[ARGS.domain]["sequences"]
+    STORED_VALID_SEQUENCES += content[ARGS.domain]["sequences"]
 
 
 logging.info(f"Stored sequences: {len(STORED_VALID_SEQUENCES)}")

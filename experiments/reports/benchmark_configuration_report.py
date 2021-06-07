@@ -28,7 +28,7 @@ class BenchmarkConfigurationReport(PlanningReport):
         for domain in domains:
             result[domain] = {
                 "sequences": sequences[domain],
-                "baseline_runtimes:": baseline_average_runtimes[domain],
+                "baseline_runtimes": baseline_average_runtimes[domain],
                 "sart_runtimes": sart_average_runtimes[domain]}
 
         return json.dumps(result, sort_keys=True)
