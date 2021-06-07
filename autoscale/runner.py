@@ -56,6 +56,7 @@ class Runner:
         return random.randint(0, 10 ** 6)
 
     def load_cache_from_log_file(self, runs):
+        logging.info (f"Loading cache data for {self.name} planners: {len(runs)}")
         for run in runs:
             parameters = run[0]
             runtimes = run[1]

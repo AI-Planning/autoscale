@@ -400,10 +400,8 @@ for database_file in ARGS.database:
         content = json.load(f)
 
     if "baseline_runtimes" in content[ARGS.domain]:
-        logging.info (f"Loading cache data for baseline planners: {len(content[ARGS.domain]['baseline_runtimes'])}")
         RUNNER_BASELINE.load_cache_from_log_file(content[ARGS.domain]["baseline_runtimes"])
     if "sart_runtimes" in content[ARGS.domain]:
-        logging.info (f"Loading cache data for sart planners: {len(content[ARGS.domain]['sart_runtimes'])}" )
         RUNNER_SART.load_cache_from_log_file(content[ARGS.domain]["sart_runtimes"])
 
     STORED_VALID_SEQUENCES += content[ARGS.domain]["sequences"]
