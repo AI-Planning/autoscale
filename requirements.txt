@@ -1,5 +1,5 @@
 certifi==2020.6.20
-ConfigSpace==0.4.13
+ConfigSpace==0.4.19
 cycler==0.10.0
 Cython==0.29.21
 docutils==0.16

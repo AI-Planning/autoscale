@@ -322,7 +322,7 @@ def get_smac_experiment(
     for domain in domains:
         for seed in range(runs_per_domain):
             run = exp.add_run()
-            cmd = (["python3", str(DIR.parent / "autoscale" / "optimize-sequences.py"),
+            cmd = ([sys.executable, str(DIR.parent / "autoscale" / "optimize-sequences.py"),
                 "--optimization-time-limit", str(smac_time_limit),
                 "--random-seed", str(seed),
                 "--runs-per-configuration", str(runs_per_config),
