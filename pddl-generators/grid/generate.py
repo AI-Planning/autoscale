@@ -9,7 +9,7 @@ from collections import defaultdict
 import sys
 
 
-def parse():        
+def parse():
     parser = argparse.ArgumentParser()
 
     parser.add_argument("x", type=int, help="x scale (minimal 2)")
@@ -24,7 +24,7 @@ def parse():
     parser.add_argument("--seed", type=int, default=1, help="random seed")
 
     parser.add_argument("--output", default=None)
-       
+
     return parser.parse_args()
 
 def backslash_join(x):
@@ -34,7 +34,7 @@ def adjacent_positions (x, y, positions):
     return [adj_pos for adj_pos in [(x+1, y), (x, y+1),(x-1, y), (x, y-1)] if adj_pos in positions]
 
 def pos_name(p):
-    return f"pos{p[0]}-{p[1]}" 
+    return f"pos{p[0]}-{p[1]}"
 
 def main():
     args = parse()
@@ -50,7 +50,7 @@ def main():
     assert args.prob_goal <= 1.0, "Goal probability cannot be greater than 1.0"
     assert args.prob_goal > 0.0, "Goal probability cannot be 0.0"
 
-    locked_positions = random.sample([p for p in positions], k=args.locks)    
+    locked_positions = random.sample([p for p in positions], k=args.locks)
     open_positions = [p for p in positions if p not in locked_positions]
     robot_pos = random.choice(open_positions)
 
@@ -84,7 +84,7 @@ def main():
             for pos in adj:
                 if pos in reachable_locations:
                     continue
-            
+
                 if pos in unlocked_positions:
                     reachable_locations.append(pos)
                 else:
@@ -98,8 +98,12 @@ def main():
             all_keys_shape = shape_to_keys[shape]
             sure_key = random.choice(all_keys_shape)
             for key in all_keys_shape:
+                assert (not key in key_positions)
                 key_positions[key] = random.choice(reachable_locations)  if key == sure_key else random.choice(positions)
 
+            for pos in positions:
+                if pos in locked_pos_to_shape and  locked_pos_to_shape[pos]==shape:
+                    unlocked_positions.append(pos)
 
             to_remove = []
             for r in reachable_locked:
@@ -109,13 +113,9 @@ def main():
 
             for r in to_remove:
                 reachable_locked.remove(r)
-                    
-                    
-                    
-                
-            
 
-            
+
+
 
     if args.typed:
         place_facts = []
@@ -127,15 +127,13 @@ def main():
         key_facts = [f"(key {key})" for key in keys]
 
     conn_facts= [f"(conn {pos_name(p1)} {pos_name(p2)})" for p1 in positions for p2 in adjacent_positions(p1[0], p1[1], positions)]
-    
+
     key_shape_facts= [f"(key-shape  {keys[i]} {key_shapes[i]})" for i in range(args.keys)]
-    
+
     open_facts= [f"(open {pos_name(pos)})" for pos in open_positions]
     locked_facts= [f"(locked {pos_name(pos)})" for pos in locked_positions]
-    lock_shape_facts= [f"(lock-shape  {pos_name(locked_positions[i])} {locked_shapes[i]})" for i in range(len(locked_positions))]        
+    lock_shape_facts= [f"(lock-shape  {pos_name(locked_positions[i])} {locked_shapes[i]})" for i in range(len(locked_positions))]
 
-        
-    
     key_at_facts= [f"(at {key} {pos_name(key_positions[key])})" for key in keys]
 
     at_robot_fact = f"(at-robot {pos_name(robot_pos)})"
@@ -147,10 +145,16 @@ def main():
             p = random.choice([p for p in positions if p != key_positions[keys[k]]])
             goal_facts.append(f"(at {keys[k]} {pos_name(p)})")
 
+    if not goal_facts:
+        k = random.choice(range(args.keys))
+        p = random.choice([p for p in positions if p != key_positions[keys[k]]])
+        goal_facts.append(f"(at {keys[k]} {pos_name(p)})")
+
+
     print (f"""(define (problem {instance_name})
     (:domain grid)
     (:objects
-    {" ".join(nodes)} 
+    {" ".join(nodes)}
     {" ".join(shapes)}
     {" ".join(keys)}
     )
@@ -178,7 +182,7 @@ def main():
     """)
 
 
-    
+
 
 if __name__ == "__main__":
     main()
