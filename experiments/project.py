@@ -16,7 +16,7 @@ from lab.environments import LocalEnvironment, BaselSlurmEnvironment
 from lab.experiment import Experiment, ARGPARSER
 from lab.reports import Attribute, geometric_mean
 from lab.reports.filter import FilterReport
-from lab import tools
+from lab import experiment, tools
 
 from downward.experiment import FastDownwardExperiment
 from downward.reports.absolute import AbsoluteReport
@@ -302,21 +302,24 @@ def get_smac_experiment(
     safety_time_limit = 23 * 60 * 60
     memory_limit = 3584
 
-    exp = Experiment(environment=LocalEnvironment(processes=2))
+    expname = experiment._get_default_experiment_name()
 
-    smac_time_limit = int(re.match(r".*-(\d+)h", exp.name).group(1)) * 60 * 60
+    smac_time_limit = int(re.match(r".*-(\d+)h", expname).group(1)) * 60 * 60
 
-    assert ("opt" in exp.name) ^ ("sat" in exp.name)
-    track = "opt" if "opt" in exp.name else "sat"
+    assert ("opt" in expname) ^ ("sat" in expname)
+    track = "opt" if "opt" in expname else "sat"
 
-    assert ("-2014-" in exp.name) ^ ("-2018-" in exp.name)
-    year = "2014" if "-2014-" in exp.name else "2018"
+    assert ("-2014-" in expname) ^ ("-2018-" in expname)
+    year = "2014" if "-2014-" in expname else "2018"
 
+    environment = LocalEnvironment(processes=2)
     if REMOTE:
         partition = "infai_1" if track == "opt" else "infai_2"
-        exp.environment = BaselSlurmEnvironment(
+        environment = BaselSlurmEnvironment(
             email=USER.email,
             partition=partition)
+
+    exp = Experiment(environment=environment)
 
     exp.add_parser("exp-parser.py")
 
