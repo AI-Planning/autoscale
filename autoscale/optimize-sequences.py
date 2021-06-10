@@ -165,6 +165,7 @@ MIN_PLANNER_RUNTIME = 0.1
 domains.PRECISION = ARGS.precision
 YEAR = int(ARGS.year)
 GENERATORS_DIR = Path(ARGS.generators_dir)
+SMAC_OUTPUT_DIR = Path(ARGS.smac_output_dir)
 random.seed(ARGS.random_seed)
 
 
@@ -312,13 +313,13 @@ scenario = Scenario(
         "memory_limit": None,
         # time limit for evaluate_cfg (we cut off planner runs ourselves)
         "cutoff": None,
-        "output_dir": "smac",
+        "output_dir": SMAC_OUTPUT_DIR,
         #"acq_opt_challengers": 1000,  # Overriden in SMAC4HPO constructor.
         # Disable pynisher.
         "limit_resources": False,
         # Run SMAC in parallel.
         "shared_model": True,
-        "input_psmac_dirs": "smac/run_*",
+        "input_psmac_dirs": f"{SMAC_OUTPUT_DIR}/run_*",
     }
 )
 

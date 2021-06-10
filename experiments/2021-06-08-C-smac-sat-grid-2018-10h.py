@@ -4,7 +4,7 @@ import project
 
 
 DOMAINS = [
-    "termes",
+    "grid",
 ]
 NUMERIC_ATTRIBUTES = [
     project.Attribute("final_value", min_wins=True),

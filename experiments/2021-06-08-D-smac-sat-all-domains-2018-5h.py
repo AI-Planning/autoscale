@@ -4,7 +4,11 @@ import project
 
 
 DOMAINS = [
-    "termes",
+    "barman", "blocksworld", "childsnack", "data-network", "depots", "driverlog",
+    "elevators", "floortile", "grid", "gripper", "hiking", "logistics", "miconic",
+    "nomystery", "openstacks", "parking", "rovers", "satellite",
+    "scanalyzer", "snake", "storage", "termes", "tpp", "transport",
+    "visitall", "woodworking", "zenotravel",
 ]
 NUMERIC_ATTRIBUTES = [
     project.Attribute("final_value", min_wins=True),
@@ -18,7 +22,7 @@ ATTRIBUTES = NUMERIC_ATTRIBUTES + [
 ]
 EXTRA_OPTIONS = []
 if project.REMOTE:
-    SMAC_RUNS_PER_DOMAIN = 10
+    SMAC_RUNS_PER_DOMAIN = 3
 else:
     SMAC_RUNS_PER_DOMAIN = 2
     EXTRA_OPTIONS += ["--debug", "--evaluations", "3", "--tasks", "3", "--tasksbaseline", "3"]
