@@ -199,9 +199,9 @@ class Runner:
                                 print(line, file=sys.stderr)
                         output = output.decode("utf-8")
                         logging.debug(f"\n\n\n\n{output}\n\n\n\n")
-                        # TODO: temporary check for possibly unsolvable tasks. Too fragile to keep permanently.
-                        if "no solution" in output.lower():
-                            sys.exit(f"Error: task in {planner_dir} is possibly unsolvable:\n\n{output}")
+                        # Poor man's check for unsolvable tasks.
+                        if "Completely explored state space -- no solution!" in output:
+                            logging.error(f"Task in {planner_dir} is possibly unsolvable:\n\n{output}")
                         if "Found plan file." in output:
                             match = re.search("Singularity runtime: (.+?)s", output)
                             runtime = float(match.group(1))
