@@ -179,6 +179,7 @@ def main():
             else:
                 args.size_y += 1
             increase_x = not increase_x
+            continue
 
         problem = gen_problem(args, rng)
         if problem:
