@@ -301,23 +301,24 @@ def get_smac_experiment(
     runs_per_config = 3
     safety_time_limit = 23 * 60 * 60
     memory_limit = 3584
-    if REMOTE:
-        environment = BaselSlurmEnvironment(
-            email=USER.email,
-            partition="infai_2")
-    else:
-        environment = LocalEnvironment(processes=2)
 
-    exp = Experiment(environment=environment)
-    exp.add_parser("exp-parser.py")
+    exp = Experiment(environment=LocalEnvironment(processes=2))
 
     smac_time_limit = int(re.match(r".*-(\d+)h", exp.name).group(1)) * 60 * 60
 
     assert ("opt" in exp.name) ^ ("sat" in exp.name)
-    TRACK = "opt" if "opt" in exp.name else "sat"
+    track = "opt" if "opt" in exp.name else "sat"
 
     assert ("-2014-" in exp.name) ^ ("-2018-" in exp.name)
-    YEAR = "2014" if "-2014-" in exp.name else "2018"
+    year = "2014" if "-2014-" in exp.name else "2018"
+
+    if REMOTE:
+        partition = "infai_1" if track == "opt" else "infai_2"
+        exp.environment = BaselSlurmEnvironment(
+            email=USER.email,
+            partition=partition)
+
+    exp.add_parser("exp-parser.py")
 
     for domain in domains:
         for seed in range(runs_per_domain):
@@ -327,7 +328,7 @@ def get_smac_experiment(
                 "--random-seed", str(seed),
                 "--runs-per-configuration", str(runs_per_config),
                 "--smac-output-dir", str(Path(exp.path) / f"smac-output-{domain}")]
-                + [TRACK, YEAR, domain, "--precision", str(smac_precision)] + extra_smac_options)
+                + [track, year, domain, "--precision", str(smac_precision)] + extra_smac_options)
             run.add_command(
                 "optimize",
                 cmd,
