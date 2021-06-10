@@ -235,6 +235,8 @@ def main():
     else:
         num_spawn_apples = int(args.num_spawn_apples)
 
+    if board.num_clear_positions() % 2 == 1 and num_spawn_apples == int(board.num_clear_positions()*percentage) - 1 - args.snake_size - args.num_initial_apples:
+        num_spawn_apples -= 1
 
     instance_name = "snake-%s-%s-%s-%d-%s" % (board_name, args.snake_size, num_initial_apples, num_spawn_apples, args.random_seed)
 
