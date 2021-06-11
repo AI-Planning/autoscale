@@ -2,6 +2,8 @@ The tasks stem from opt and sat tracks of IPCs 08 and 11.
 
 In the following list, each line represents a list of identical problem+domain file combinations.
 We only kept the last element of each "class" of equivalent tasks.
+(In the meantime, domain files have been renamed to start with domain-
+instead of ending with -domain)
 ['ipc08-p02.pddl+ipc08-p02-domain.pddl', 'ipc11opt-p02.pddl+ipc11opt-p02-domain.pddl']
 ['ipc08-p04.pddl+ipc08-p04-domain.pddl', 'ipc11opt-p04.pddl+ipc11opt-p04-domain.pddl']
 ['ipc08-p05.pddl+ipc08-p05-domain.pddl', 'ipc11opt-p07.pddl+ipc11opt-p07-domain.pddl']
