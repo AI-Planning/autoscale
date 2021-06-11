@@ -375,7 +375,7 @@ def get_smac_experiment(
 
 
 def get_evaluation_experiment(
-    planners, benchmarks_dir, domains, attributes, environment=None, time_limit=1800):
+    planners, benchmarks_dir, domains, attributes, environment=None, time_limit=1800, abs_benchmarks_dir=None):
     """
     *bechmarks_dir* can either be an absolute path or a directory name under ^/benchmarks/.
     """
@@ -406,7 +406,8 @@ def get_evaluation_experiment(
     exp.add_resource("run_singularity", singularity_script)
 
     suite = []
-    abs_benchmarks_dir = (Path(REPO) / "benchmarks" / benchmarks_dir).resolve()
+    if not abs_benchmarks_dir:
+        abs_benchmarks_dir = (Path(REPO) / "benchmarks" / benchmarks_dir).resolve()
     for domain in domains:
         suite.extend(suites.build_suite(abs_benchmarks_dir, [domain]))
     if not REMOTE:
