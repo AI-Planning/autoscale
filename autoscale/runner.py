@@ -201,7 +201,9 @@ class Runner:
                         logging.debug(f"\n\n\n\n{output}\n\n\n\n")
                         # Poor man's check for unsolvable tasks.
                         if "Completely explored state space -- no solution!" in output:
-                            logging.error(f"Task in {planner_dir} is possibly unsolvable:\n\n{output}")
+                            sys.exit(
+                                f"Task in {planner_dir} is possibly unsolvable.\n\n"
+                                f"Generator command: {' '.join(command)}\n\n{output}\n\n{error_output}")
                         if "Found plan file." in output:
                             match = re.search("Singularity runtime: (.+?)s", output)
                             runtime = float(match.group(1))
