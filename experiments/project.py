@@ -410,6 +410,9 @@ def get_evaluation_experiment(
         abs_benchmarks_dir = (Path(REPO) / "benchmarks" / benchmarks_dir).resolve()
     for domain in domains:
         suite.extend(suites.build_suite(abs_benchmarks_dir, [domain]))
+    # Lab treats every file in a directory as a problem file. Exclude
+    # README files for the obvious reason.
+    suite = [problem for problem in suite if problem.problem != "README"]
     if not REMOTE:
         suite = [task for task in suite if task.problem in {"p06.pddl", "p16.pddl"}]
         planners = planners[:2]

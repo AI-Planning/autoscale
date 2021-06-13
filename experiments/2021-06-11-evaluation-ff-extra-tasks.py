@@ -6,10 +6,24 @@ import pathlib
 
 BENCHMARKS_DIR = (pathlib.Path(project.REPO) / "tasks-of-domains-without-usable-generator").resolve()
 DOMAINS = [
-    "agricola", "airport", "caldera", "freecell", "ged", "mprime",
-    "mystery", "organic-synthesis-split", "parcprinter", "pathways",
-    "pegsol", "pipesworld-notankage", "pipesworld-tankage",
-    "psr-small", "sokoban", "tetris", "thoughtful", "tidybot"
+    "agricola",
+    "airport",
+    "caldera",
+    "freecell",
+    "ged",
+    "mprime",
+    "mystery",
+    "organic-synthesis-split",
+    "parcprinter",
+    "pathways",
+    "pegsol",
+    "pipesworld-notankage",
+    "pipesworld-tankage",
+    "psr-small",
+    "sokoban",
+    "tetris",
+    "thoughtful",
+    "tidybot",
 ]
 PLANNER = [
     "fd1906-gbfs-ff",
