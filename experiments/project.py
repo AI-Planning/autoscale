@@ -375,7 +375,8 @@ def get_smac_experiment(
 
 
 def get_evaluation_experiment(
-    planners, benchmarks_dir, domains, attributes, environment=None, time_limit=1800, abs_benchmarks_dir=None):
+    planners, benchmarks_dir, domains, attributes, environment=None,
+    time_limit=1800, memory_limit=3584, abs_benchmarks_dir=None):
     """
     *bechmarks_dir* can either be an absolute path or a directory name under ^/benchmarks/.
     """
@@ -427,7 +428,7 @@ def get_evaluation_experiment(
                 "run-planner",
                 ["{run_singularity}", f"{{{planner}}}", "{domain}", "{problem}", "sas_plan"],
                 time_limit=time_limit,
-                memory_limit=3584,
+                memory_limit=memory_limit,
             )
             run.add_command("rm-tmp-files", ["rm", "-f", "output.sas", "output"])
             run.set_property("domain", task.domain)

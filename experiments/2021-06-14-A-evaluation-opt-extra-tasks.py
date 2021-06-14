@@ -26,16 +26,32 @@ DOMAINS = [
     "tidybot",
 ]
 PLANNER = [
-    "fd1906-gbfs-ff",
+    "fd1906-blind",
+    "fd1906-fdss1-mas1-60s",
+    "fd1906-fdss1-mas2-60s",
+    "fd1906-bjolp",
+    "fd1906-lmcut",
+    "ipc2014-opt-symba1",
+
+    "ipc2018-opt-complementary2-3584mb",
+    "ipc2018-opt-decstar",
+    "ipc2018-opt-delfi-blind",
+    "ipc2018-opt-delfi-celmcut",
+    "ipc2018-opt-delfi-ipdb",
+    "ipc2018-opt-delfi-mas-miasm",
+    "ipc2018-opt-delfi-mas-sccdfp",
+    "ipc2018-opt-scorpion",
 ]
-ATTRIBUTES = ["cost", "coverage", "error", "run_dir", "runtime", "unsolvable"]
+ATTRIBUTES = ["cost", "coverage", "error", "run_dir", "runtime", "unsolvable", "completely_explored"]
 
 exp = project.get_evaluation_experiment(
     planners=PLANNER,
     benchmarks_dir="",
     domains=DOMAINS,
     attributes=ATTRIBUTES,
-    time_limit=60,
-    abs_benchmarks_dir=BENCHMARKS_DIR)
+    time_limit=18000, # 5h
+    memory_limit=6144, # 6 GiB
+    abs_benchmarks_dir=BENCHMARKS_DIR,
+    )
 
 exp.run_steps()

@@ -59,6 +59,14 @@ def unsolvable(content, props):
     props["unsolvable"] = int("unsolvable" in content.lower())
 
 
+def completely_explored(content, props):
+    props["completely_explored"] = False
+    for line in content.splitlines():
+        if 'Completely explored state space -- no solution!' in line:
+            props["completely_explored"] = True
+    return props
+
+
 def error(content, props):
     if props.get('planner_exit_code') == 0:
         props['error'] = 'none'
@@ -95,6 +103,7 @@ def main():
     parser.add_pattern("delfi_planner", r"Chose (.+)\n", type=str)
     parser.add_function(coverage)
     parser.add_function(unsolvable)
+    parser.add_function(completely_explored)
     parser.add_function(error)
     parser.parse()
 

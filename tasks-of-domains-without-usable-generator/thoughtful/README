@@ -1,9 +1,11 @@
-files from learning IPC 08 https://ipc08.icaps-conference.org/learning/pages/domain_descriptions.html
+* files from learning IPC 08 https://ipc08.icaps-conference.org/learning/pages/domain_descriptions.html
 
 target-typed-01.pddl through target-typed-30.pddl: learning distribution (IPC 08)
 thoughtful_*-typed.pddl: testing distribution learning distribution (IPC 08)
 
-files from IPC 14, satisficing track:
+adapted to domain.pddl from IPC 14 (change predicate suit -> suittype)
+
+* files from IPC 14, satisficing track:
 
 bootstrap-typed-01.pddl - bootstrap-typed-06.pddl
 p*-typed.pddl
