@@ -42,14 +42,16 @@ PLANNER = [
     "ipc2018-agl-saarplan",
     "ipc2018-agl-cerberus",
 ]
-ATTRIBUTES = ["cost", "coverage", "error", "run_dir", "runtime", "unsolvable"]
+ATTRIBUTES = ["cost", "coverage", "error", "run_dir", "runtime", "unsolvable", "completely_explored"]
 
 exp = project.get_evaluation_experiment(
     planners=PLANNER,
     benchmarks_dir="",
     domains=DOMAINS,
     attributes=ATTRIBUTES,
-    time_limit=60,
-    abs_benchmarks_dir=BENCHMARKS_DIR)
+    time_limit=18000, # 5h
+    memory_limit=6144, # 6 GiB
+    abs_benchmarks_dir=BENCHMARKS_DIR,
+    )
 
 exp.run_steps()
