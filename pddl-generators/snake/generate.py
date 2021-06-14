@@ -168,6 +168,8 @@ def print_pddl(instance_name, board, snake, apples, spawn_apples):
                              ["(nextSpawn {} dummyPoint)".format(pos_name(spawn_apples[-1]))]
         if len(spawn_apples) > 1:
             spawn_apples_facts += ["(nextSpawn {} {})".format(pos_name(spawn_apples[i]), pos_name(spawn_apples[i+1])) for i in range (0, len(spawn_apples)-1)]
+    else:
+        spawn_apples_facts = ["(spawn dummyPoint)"]
 
     next_point_facts = "\n ".join(spawn_apples_facts)
 
