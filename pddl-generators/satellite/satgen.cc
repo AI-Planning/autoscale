@@ -375,7 +375,7 @@ ostream & operator<<(ostream & o,const problem & p)
 	return o;
 };
 
-observation::observation() : direction(), type(rnd(3)), interesting(rnd(10) < 9)
+observation::observation() : direction(), type(rnd(3)), interesting(true) // (rnd(10) < 9) We prefer to make all observations interesting so that there is always a goal
 {
 	int ims = 1+rnd(mode::howMany()/3);
 	problem::instance()->modes.selectSeveral(images,ims);
