@@ -1,0 +1,10 @@
+# To update requirements.txt run:
+#
+# pip install pip-tools
+# pip-compile
+
+lab==6.3
+pandas==1.2.4
+smac==0.13.1
+wheel
+z3-solver==4.8.10.0
