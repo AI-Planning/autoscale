@@ -268,7 +268,9 @@ def evaluate_sequence(cfg, print_final_configuration=False):
     }
 
     # Identify which instances are actually relevant.
-    evaluated_instances = set(baseline_eval.get_index_with_runtimes(2, 179.9) + sart_eval.get_index_with_runtimes(2, 179.9) )
+    evaluated_instances = set(baseline_eval.get_index_with_runtimes(2, 179.9))
+    if sart_eval:
+        evaluated_instances |= set(sart_eval.get_index_with_runtimes(2, 179.9))
     relevant_subsequence = tuple(tuple(sequence[i][attr] for attr in domain.get_generator_attribute_names()) for i in sorted(evaluated_instances))
 
     global previous_subsequences
@@ -280,7 +282,16 @@ def evaluate_sequence(cfg, print_final_configuration=False):
     logging.info(f"Previous subsequences: {len(previous_subsequences)}, {sys.getsizeof(previous_subsequences) / 1024:.2} KB")
     for name, myrunner in [("baseline", RUNNER_BASELINE), ("sart", RUNNER_SART)]:
         logging.info(f"{name} runner memory: {sys.getsizeof(myrunner) / 1024:.2} KB")
-        logging.info(f"{name} runner frontier cache: {len(myrunner.frontier_cache)}, {sys.getsizeof(myrunner.frontier_cache) / 1024:.2} KB")
+        logging.info(
+            f"{name} runner exact cache: "
+            f"{len(myrunner.exact_cache)} entries, "
+            f"{sys.getsizeof(myrunner.exact_cache) / 1024:.2} KB, "
+            f"cache hits: {myrunner.exact_cache_hits}")
+        logging.info(
+            f"{name} runner frontier cache: "
+            f"{len(myrunner.frontier_cache)} entries, "
+            f"{sys.getsizeof(myrunner.frontier_cache) / 1024:.2} KB, "
+            f"cache hits: {myrunner.frontier_cache_hits}")
 
     if print_final_configuration:
         logging.info(f"Final sequence: {results}")

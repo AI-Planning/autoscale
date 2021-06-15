@@ -49,6 +49,9 @@ class Runner:
         # quicker tests that run the planner with a lower time limit).
         self.frontier_cache = defaultdict(list)
 
+        self.exact_cache_hits = 0
+        self.frontier_cache_hits = 0
+
         self.linear_attributes_names = domain.get_linear_attributes_names()
         self.parameters_cache_key = domain.get_generator_attribute_names()
 
@@ -101,7 +104,9 @@ class Runner:
         cache_key = tuple(parameters[attr] for attr in self.parameters_cache_key)
 
         if cache_key in self.exact_cache:
-            logging.debug(f"Data from cache: {self.exact_cache[cache_key]}")
+            logging.debug(f"Exact {self.name} cache hit for {cache_key}")
+            logging.debug(f"Data from {self.name} cache: {self.exact_cache[cache_key]}")
+            self.exact_cache_hits += 1
             return self.exact_cache[cache_key]
 
         # Check the unsolvability cache to see if the problem is too hard
@@ -112,6 +117,7 @@ class Runner:
                 if (runtime is None or time_limit < runtime) and all(
                         values_linear_attributes[linear_atr] <= parameters[linear_atr] for linear_atr in
                         self.linear_attributes_names):
+                    self.frontier_cache_hits += 1
                     return None
 
         if self.output_dir is None:
@@ -238,6 +244,7 @@ class Runner:
         if len(results) == self.runs_per_configuration or (
                 time_limit == self.planner_time_limit and num_runs == self.runs_per_configuration):
             logging.info(f"{self.name} runtime for y={parameters}: {results}")
+            logging.info(f"Store results in {self.name} exact cache with key {cache_key}")
             self.exact_cache[cache_key] = results
             self.frontier_cache[non_linear_key].append(
                 ({linear_atr: parameters[linear_atr] for linear_atr in self.linear_attributes_names}, result)
