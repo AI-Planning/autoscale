@@ -4,18 +4,18 @@
  * (C) Copyright 2001 Albert Ludwigs University Freiburg
  *     Institute of Computer Science
  *
- * All rights reserved. Use of this software is permitted for 
- * non-commercial research purposes, and it may be copied only 
+ * All rights reserved. Use of this software is permitted for
+ * non-commercial research purposes, and it may be copied only
  * for that use.  All copies must include this copyright message.
  * This software is made available AS IS, and neither the authors
  * nor the  Albert Ludwigs University Freiburg make any warranty
- * about the software or its performance. 
+ * about the software or its performance.
  *********************************************************************/
 
 
 
 
-/* 
+/*
  * C code for generating randomized schedule problems...
  */
 
@@ -96,7 +96,7 @@ int main( int argc, char *argv[] )
 
   sprintf( gashape[0], "CYLINDRICAL");
   sprintf( gashape[1], "CIRCULAR");
-  sprintf( gashape[2], "OBLONG");  
+  sprintf( gashape[2], "OBLONG");
   sprintf( gcolour[0], "BLUE");
   sprintf( gcolour[1], "YELLOW");
   sprintf( gcolour[2], "RED");
@@ -154,7 +154,7 @@ int main( int argc, char *argv[] )
 
   /* header
    */
-  printf("(define (problem schedule-p%d-s%d-c%d-w%d-o%d)", 
+  printf("(define (problem schedule-p%d-s%d-c%d-w%d-o%d)",
 	 gparts, gashapes, gcolours, gwidths, ganorients);
   printf("\n(:domain schedule)");
 
@@ -212,8 +212,8 @@ int main( int argc, char *argv[] )
   exit( 0 );
 
 }
-  
-  
+
+
 
 
 
@@ -340,7 +340,7 @@ void print_random_I( void )
       printf("\n(PAINTED P%d %s)", i, gcolour[gI_colour[i]]);
     }
     if ( gI_width[i] > -1 ) {
-      printf("\n(HAS-HOLE P%d %s %s)", i, 
+      printf("\n(HAS-HOLE P%d %s %s)", i,
 	     gwidth[gI_width[i]],
 	     ganorient[gI_anorient[i]]);
     }
@@ -368,7 +368,7 @@ void print_random_G( void )
       printf("\n(PAINTED P%d %s)", i, gcolour[gG_colour[i]]);
     }
     if ( gG_width[i] > -1 ) {
-      printf("\n(HAS-HOLE P%d %s %s)", i, 
+      printf("\n(HAS-HOLE P%d %s %s)", i,
 	     gwidth[gG_width[i]],
 	     ganorient[gG_anorient[i]]);
     }
@@ -377,7 +377,7 @@ void print_random_G( void )
 }
 
 
-  
+
 
 
 
@@ -415,7 +415,7 @@ void usage( void )
   printf("-E <num>    probability of colour in G (preset: %d)\n\n", gp_G_colour);
   printf("-R <num>    probability of hole in I (preset: %d)\n", gp_I_hole);
   printf("-T <num>    probability of hole in G (preset: %d)\n", gp_G_hole);
-  printf("-Y <num>    probability of surface condition in G (preset: %d)\n\n", 
+  printf("-Y <num>    probability of surface condition in G (preset: %d)\n\n",
 	 gp_G_surface);
 
 }
