@@ -25,7 +25,6 @@
 
 #include <stdlib.h>
 #include <stdio.h>
-#include <sys/timeb.h>
 
 
 
@@ -72,6 +71,7 @@ Bool process_command_line( int argc, char *argv[] );
  */
 int gparts, gashapes, gcolours, gwidths, ganorients;
 int gp_G_cylindrical, gp_I_colour, gp_G_colour, gp_I_hole, gp_G_hole, gp_G_surface;
+int grandom_seed;
 
 
 /* random values
@@ -87,12 +87,6 @@ int main( int argc, char *argv[] )
 {
 
   int i;
-
-  /* seed the random() function
-   */
-  struct timeb tp;
-  ftime( &tp );
-  srandom( tp.millitm );
 
   sprintf( gashape[0], "CYLINDRICAL");
   sprintf( gashape[1], "CIRCULAR");
@@ -123,6 +117,7 @@ int main( int argc, char *argv[] )
   gp_I_hole = 50;
   gp_G_hole = 80;
   gp_G_surface = 50;
+  grandom_seed = -1;
 
   if ( argc == 1 || ( argc == 2 && *++argv[0] == '?' ) ) {
     usage();
@@ -132,6 +127,11 @@ int main( int argc, char *argv[] )
     usage();
     exit( 1 );
   }
+
+  if (grandom_seed == -1) {
+    grandom_seed = time(NULL);
+  }
+  srand(grandom_seed);
 
   gI_ashape = ( int * ) calloc( gparts, sizeof( int ) );
   gI_surface = ( int * ) calloc( gparts, sizeof( int ) );
@@ -415,8 +415,9 @@ void usage( void )
   printf("-E <num>    probability of colour in G (preset: %d)\n\n", gp_G_colour);
   printf("-R <num>    probability of hole in I (preset: %d)\n", gp_I_hole);
   printf("-T <num>    probability of hole in G (preset: %d)\n", gp_G_hole);
-  printf("-Y <num>    probability of surface condition in G (preset: %d)\n\n",
+  printf("-Y <num>    probability of surface condition in G (preset: %d)\n",
 	 gp_G_surface);
+  printf("-r <num>    random seed (minimal 1, optional)\n\n");
 
 }
 
@@ -470,6 +471,9 @@ Bool process_command_line( int argc, char *argv[] )
 	case 'Y':
 	  sscanf( *argv, "%d", &gp_G_surface );
 	  break;
+  case 'r':
+    sscanf( *argv, "%d", &grandom_seed );
+    break;
 	default:
 	  printf( "\n\nunknown option: %c entered\n\n", option );
 	  return FALSE;
