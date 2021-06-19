@@ -25,6 +25,8 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
+#include <time.h>
 
 
 
@@ -244,22 +246,22 @@ void create_random_I( void )
   int i, r;
 
   for ( i = 0; i < gparts; i++ ) {
-    r = random() % (gashapes + 1);
+    r = rand() % (gashapes + 1);
     gI_ashape[i] = r;
-    r = random() % 3;
+    r = rand() % 3;
     gI_surface[i] = r;
-    r = random() % 100;
+    r = rand() % 100;
     if ( r < gp_I_colour ) {
-      r = random() % gcolours;
+      r = rand() % gcolours;
       gI_colour[i] = r;
     } else {
       gI_colour[i] = -1;
     }
-    r = random() % 100;
+    r = rand() % 100;
     if ( r < gp_I_hole ) {
-      r = random() % gwidths;
+      r = rand() % gwidths;
       gI_width[i] = r;
-      r = random() % ganorients;
+      r = rand() % ganorients;
       gI_anorient[i] = r;
     } else {
       gI_width[i] = -1;
@@ -278,31 +280,31 @@ void create_random_G( void )
   int i, r;
 
   for ( i = 0; i < gparts; i++ ) {
-    r = random() % 100;
+    r = rand() % 100;
     if ( r < gp_G_cylindrical ) {
       gG_ashape[i] = 0;
     } else {
       gG_ashape[i] = -1;
     }
-    r = random() % 100;
+    r = rand() % 100;
     if ( r < gp_G_surface ) {
-      r = random() % 3;
+      r = rand() % 3;
       gG_surface[i] = r;
     } else {
       gG_surface[i] = -1;
     }
-    r = random() % 100;
+    r = rand() % 100;
     if ( r < gp_G_colour ) {
-      r = random() % gcolours;
+      r = rand() % gcolours;
       gG_colour[i] = r;
     } else {
       gG_colour[i] = -1;
     }
-    r = random() % 100;
+    r = rand() % 100;
     if ( r < gp_G_hole ) {
-      r = random() % gwidths;
+      r = rand() % gwidths;
       gG_width[i] = r;
-      r = random() % ganorients;
+      r = rand() % ganorients;
       gG_anorient[i] = r;
     } else {
       gG_width[i] = -1;
