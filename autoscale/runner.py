@@ -202,10 +202,8 @@ class Runner:
                                 print(line, file=sys.stderr)
                         output = output.decode("utf-8")
                         logging.debug(f"\n\n\n\n{output}\n\n\n\n")
-                        # Poor man's check for unsolvable tasks. This
-                        # assumes that portfolios stop after finding the
-                        # first plan.
-                        if "Completely explored state space -- no solution!" in output:
+                        # Poor man's check for unsolvable tasks.
+                        if "-opt-" in image and "Completely explored state space -- no solution!" in output:
                             sys.exit(
                                 f"Task in {planner_dir} is possibly unsolvable.\n\n"
                                 f"Generator command: {' '.join(command)}\n\n{output}\n\n{error_output}")
