@@ -60,10 +60,7 @@ class Runner:
 
     def load_cache_from_log_file(self, runs):
         logging.info (f"Loading cache data for {self.name} planners: {len(runs)}")
-        for run in runs:
-            parameters = run[0]
-            runtimes = run[1]
-
+        for parameters, runtimes in runs:
             cache_key = tuple(parameters[attr] for attr in self.parameters_cache_key)
             non_linear_key = tuple(
                 parameters[attr] for attr in self.parameters_cache_key if attr not in self.linear_attributes_names)
@@ -206,7 +203,7 @@ class Runner:
                         output = output.decode("utf-8")
                         logging.debug(f"\n\n\n\n{output}\n\n\n\n")
                         # Poor man's check for unsolvable tasks.
-                        if "Completely explored state space -- no solution!" in output:
+                        if "-opt-" in image and "Completely explored state space -- no solution!" in output:
                             sys.exit(
                                 f"Task in {planner_dir} is possibly unsolvable.\n\n"
                                 f"Generator command: {' '.join(command)}\n\n{output}\n\n{error_output}")
