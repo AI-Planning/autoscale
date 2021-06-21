@@ -101,15 +101,34 @@ struct Camera{
 };
 
 struct Objective{
-	vector<int> vis_from;
+	set<int> vis_from;
 	vector<int> requests;
 	Objective(int locs) {
 		int x = rnd1(locs);
 		for(int i = 0;i<x;i++){
 			int y = rnd(locs);
-			vis_from.push_back(y);
-		}
-	}
+			vis_from.insert(y);
+                }
+        }
+
+    void make_visible_from(const set<int> & locations){
+        for(int loc1: vis_from){
+            for(int loc2: locations){
+                if(loc1 == loc2) return;
+            }
+        }
+
+
+        //Make it visible from a random location. Selecting the yth random element from a set in
+        // a bit of a hacky way
+        int y = rnd(locations.size());
+        for(int loc2: locations){
+            if (y-- == 0){
+                vis_from.insert(loc2);
+                return;
+            }
+        }
+    }
 };
 
 
@@ -222,6 +241,9 @@ struct Rover{
 	bool soil;
 	bool rock;
 	bool image;
+
+        set<int> reachable_locs;
+
 	Rover(int locs,Map & m) : location(rnd(locs)){
 		rechargerate=rnd1(10)+10;
 		int x = rnd(7);
@@ -233,12 +255,11 @@ struct Rover{
 
 		int radius = locs/3 + rnd(locs);
 		vector<int> reachables;
-
+                reachable_locs.insert(location);
 		reachables.push_back(location);
 		while(radius && !reachables.empty()){
-
-
 				int l = reachables.front();
+
 				reachables.erase(reachables.begin());
 
 				for(int i = 0;i<locs;i++){
@@ -255,6 +276,7 @@ struct Rover{
 								travs.push_back(make_pair(l,i));
 								travs.push_back(make_pair(i,l));
 								reachables.push_back(i);
+                                                                reachable_locs.insert(i);
 							}
 						}
 					}
@@ -350,11 +372,11 @@ vector<pair<int,int> > getsuitable(vector<Rover> rovers,vector<Objective> object
 	for(int k = 0;k<rovers.size();++k){
 
 		for(int v =0;v<objectives.size();++v){
-			for(vector<int>::iterator w = objectives[v].vis_from.begin();w!=objectives[v].vis_from.end();++w){
+                    for(auto loc_vis_from :  objectives[v].vis_from){
 				vector<pair<int,int> >::const_iterator vi = rovers[k].travs.begin();
 				for(;(vi != rovers[k].travs.end());++vi){
 
-					if(vi->second == *w || vi->first == *w){
+                                    if(vi->second == loc_vis_from || vi->first == loc_vis_from){
 
 						if(!rovers[k].cams.empty()){
 							ps.push_back(make_pair(v,k));
@@ -504,7 +526,6 @@ public:
 
 			r.makeVisible(GP,mp);
 			rovers.push_back(r);
-
 		};
 		for(int i = 0;i < numCameras;++i)
 		{
@@ -604,6 +625,12 @@ public:
 
 			}
 		}
+
+                //Ensure that all cameras can be calibrated
+                for (const Camera & c : cameras) {
+                    objectives[c.cal_targ].make_visible_from(rovers[c.onboard].reachable_locs);
+                }
+
 		vector<pair<int,int> > image_suitable_rovers = getsuitable(rovers,objectives);
 		numimagegoals = min((int)image_suitable_rovers.size(),numimagegoals);
 		for(int i = 0;i<numimagegoals;++i){
@@ -813,8 +840,8 @@ public:
 
 			};
 
-			for(int j = 0;j<objectives[i].vis_from.size();++j){
-				o << "\t(visible_from objective" << i << " waypoint" << objectives[i].vis_from[j] << ")\n";
+			for(int loc_vis_from : objectives[i].vis_from){
+				o << "\t(visible_from objective" << i << " waypoint" << loc_vis_from << ")\n";
 			}
 		};
 
