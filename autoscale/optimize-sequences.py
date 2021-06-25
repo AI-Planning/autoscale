@@ -70,6 +70,10 @@ def parse_args():
     )
 
     parser.add_argument(
+        "--taskssart", type=int, default=5, help="Number of tasks that are used to evaluate the runtime scaling for sart planners (default: %(default)s)"
+    )
+
+    parser.add_argument(
         "--tasksbaseline",
         type=int,
         default=5,
@@ -174,6 +178,9 @@ utils.setup_logging(ARGS.debug)
 if ARGS.tasks < ARGS.tasksbaseline:
     sys.exit("Error: number of tasks must be at least as large as the number of tasks for the baseline")
 
+if ARGS.tasks < ARGS.taskssart:
+    sys.exit("Error: number of tasks must be at least as large as the number of tasks for the sart planners")
+
 DOMAINS = domains.get_domains()
 
 logging.debug(f"{len(DOMAINS)} domains available: {sorted(DOMAINS)}")
@@ -255,8 +262,8 @@ def evaluate_sequence(cfg, print_final_configuration=False):
         sart_times = []
     else:
         sart_eval = EvaluatedSequence(sequence, RUNNER_SART, PLANNER_TIME_LIMIT)
-        sart_times = sart_eval.get_runtimes(ARGS.tasks, ARGS.minimum_significant_time, PLANNER_TIME_LIMIT)
-        penalty_sart = sart_eval.get_penalty(ARGS.tasks, ARGS.minimum_significant_time, PLANNER_TIME_LIMIT)
+        sart_times = sart_eval.get_runtimes(ARGS.taskssart, ARGS.minimum_significant_time, PLANNER_TIME_LIMIT)
+        penalty_sart = sart_eval.get_penalty(ARGS.taskssart, ARGS.minimum_significant_time, PLANNER_TIME_LIMIT)
 
     penalty = penalty_sart + penalty_baseline
 
