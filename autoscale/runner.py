@@ -43,7 +43,7 @@ class Runner:
         self.output_dir = output_dir
 
         # Cache the exact runtime so that the same configuration is never run twice.
-        self.exact_cache = {}
+        self.exact_cache = defaultdict(list)
         # Cache configurations that can be solved within the time limit.
         # Any harder configuration will take longer (only useful for the
         # quicker tests that run the planner with a lower time limit).
@@ -65,21 +65,14 @@ class Runner:
             non_linear_key = tuple(
                 parameters[attr] for attr in self.parameters_cache_key if attr not in self.linear_attributes_names)
 
-            if cache_key not in self.exact_cache:
-                logging.debug(f"Loading {cache_key}: {runtimes}")
-                self.exact_cache[cache_key] = runtimes
-                self.frontier_cache[non_linear_key].append(
-                    ({linear_atr: parameters[linear_atr] for linear_atr in self.linear_attributes_names},
-                     compute_average(runtimes))
-                )
-            else:
-                logging.debug(f"Loading additional data for {cache_key}: {runtimes}")
-                self.exact_cache[cache_key] += runtimes
+            additional = "additional " if cache_key in self.exact_cache else ""
+            logging.debug(f"Loading {additional}data for {cache_key}: {runtimes}")
 
-                self.frontier_cache[non_linear_key].append(
-                    ({linear_atr: parameters[linear_atr] for linear_atr in self.linear_attributes_names},
-                     compute_average(self.exact_cache[cache_key]))
-                )
+            self.exact_cache[cache_key] += runtimes
+            self.frontier_cache[non_linear_key].append(
+                ({linear_atr: parameters[linear_atr] for linear_atr in self.linear_attributes_names},
+                    compute_average(self.exact_cache[cache_key]))
+            )
 
         num_runtimes = [len(x) for x in self.exact_cache.values()]
         if num_runtimes:
