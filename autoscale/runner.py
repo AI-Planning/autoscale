@@ -59,7 +59,7 @@ class Runner:
         return random.randint(0, 10 ** 6)
 
     def load_cache_from_log_file(self, runs):
-        logging.info (f"Loading cache data for {self.name} planners: {len(runs)}")
+        logging.info(f"Loading cache data for {self.name} planners: {len(runs)}")
         for parameters, runtimes in runs:
             cache_key = tuple(parameters[attr] for attr in self.parameters_cache_key)
             non_linear_key = tuple(

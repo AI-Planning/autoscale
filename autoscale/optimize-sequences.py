@@ -156,8 +156,9 @@ def parse_args():
 
     parser.add_argument(
         "--database",
-        default=None,
-        help="Path to JSON file with results from previous optimization run. Useful for \"resuming\" optimization runs.")
+        nargs="+",
+        default=[],
+        help="Path(s) to JSON file with results from previous optimization run(s). Useful for \"resuming\" optimization runs.")
 
     return parser.parse_args()
 
@@ -203,13 +204,11 @@ RUNNER_SART = Runner(
     ARGS.runs_per_configuration, GENERATORS_DIR)
 
 
-if ARGS.database:
-    content = utils.read_database(ARGS.database)
-    if ARGS.domain in content:
-        if "baseline_runtimes" in content[ARGS.domain]:
-            RUNNER_BASELINE.load_cache_from_log_file(content[ARGS.domain]["baseline_runtimes"])
-        if "sart_runtimes" in content[ARGS.domain]:
-            RUNNER_SART.load_cache_from_log_file(content[ARGS.domain]["sart_runtimes"])
+for database_file in ARGS.database:
+    content = utils.read_database(database_file)
+    domain_data = content.get(ARGS.domain, {})
+    RUNNER_BASELINE.load_cache_from_log_file(domain_data.get("baseline_runtimes", []))
+    RUNNER_SART.load_cache_from_log_file(domain_data.get("sart_runtimes", []))
 
 
 def evaluate_cfg(cfg):
