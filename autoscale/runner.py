@@ -66,7 +66,7 @@ class Runner:
                 parameters[attr] for attr in self.parameters_cache_key if attr not in self.linear_attributes_names)
 
             additional = "additional " if cache_key in self.exact_cache else ""
-            logging.debug(f"Loading {additional}data for {cache_key}: {runtimes}")
+            logging.debug(f"Loading {additional}{self.name} data for {cache_key}: {runtimes}")
 
             self.exact_cache[cache_key] += runtimes
             self.frontier_cache[non_linear_key].append(
@@ -77,9 +77,9 @@ class Runner:
         num_runtimes = [len(x) for x in self.exact_cache.values()]
         if num_runtimes:
             logging.info(
-                f"Loaded data for {len(self.exact_cache)} instances, with min {min(num_runtimes)} max {max(num_runtimes)} avg {statistics.mean(num_runtimes)} runtimes")
+                f"{self.name} cache contains data for {len(self.exact_cache)} parameter values, with min {min(num_runtimes)} max {max(num_runtimes)} avg {statistics.mean(num_runtimes)} runtimes")
         else:
-            logging.warning("Found no data in database")
+            logging.warning("Found no {self.name} data in database")
 
     def is_solvable(self, parameters, time_limit):
         runtimes = self.run_planners(parameters, time_limit, 1)
