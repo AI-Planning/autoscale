@@ -20,12 +20,16 @@ NUMERIC_ATTRIBUTES = [
 ATTRIBUTES = NUMERIC_ATTRIBUTES + [
     "error", "run_dir", "final_*", "max_shared_runs",
 ]
-EXTRA_OPTIONS = ["--database", project.DIR / "results" / "2021-06-10-A-smac-opt-2018-20h.json"]
+EXTRA_OPTIONS = [
+    "--database",
+    project.DIR / "results" / "2021-06-10-B-smac-sat-2018-20h.json",
+    project.DIR / "results" / "2021-06-18-B-smac-sat-2018-20h.json",
+]
 if project.REMOTE:
     SMAC_RUNS_PER_DOMAIN = 5
 else:
     SMAC_RUNS_PER_DOMAIN = 2
-    EXTRA_OPTIONS += ["--debug", "--evaluations", "1", "--tasks", "3", "--tasksbaseline", "3"]
+    EXTRA_OPTIONS += ["--debug", "--evaluations", "1", "--tasks", "5"]
     DOMAINS = ["driverlog"]
 
 
