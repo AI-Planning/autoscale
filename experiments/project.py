@@ -43,6 +43,12 @@ REMOTE = NODE.endswith(".scicore.unibas.ch") or NODE.endswith(".cluster.bc2.ch")
 User = namedtuple("User", ["email", "scp_login", "remote_user", "repos"])
 
 USERS = {
+       "alvaro": User(
+        email=None,
+        scp_login="",
+        remote_user="",
+        repos="/home/alvaro/planners/downward"),
+
     "jendrik": User(
         email=None,
         scp_login="seipp@login-infai.scicore.unibas.ch",

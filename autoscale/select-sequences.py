@@ -128,6 +128,9 @@ def parse_args():
     parser.add_argument(
         "--no-cplex",  action="store_true",
     )
+    parser.add_argument(
+        "--skip-check-penalty",  action="store_true", help="Disables the warning for penalties (recommended in case known differences exist)"
+    )
 
     return parser.parse_args()
 
@@ -199,7 +202,7 @@ class CPLEXSequence:
 
         self.penalty = self.penalty_baseline + self.penalty_sart
 
-        if abs(self.penalty - sequence['penalty']) > 3:
+        if not ARGS.skip_check_penalty and abs(self.penalty - sequence['penalty']) > 3:
             print(f"Warning: re-computed penalty {self.penalty} = {self.penalty_baseline} + {self.penalty_sart}  differs from SMAC penalty {sequence['penalty']}" )
 
         self.runtimes_baseline = list(map(lambda x : compute_average(x, 2*PLANNER_TIME_LIMIT), runtimes_baseline))
