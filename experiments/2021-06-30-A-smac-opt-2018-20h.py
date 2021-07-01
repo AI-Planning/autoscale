@@ -22,8 +22,9 @@ ATTRIBUTES = NUMERIC_ATTRIBUTES + [
 ]
 EXTRA_OPTIONS = [
     "--database",
-    project.DIR / "results" / "2021-06-10-B-smac-sat-2018-20h.json",
-    project.DIR / "results" / "2021-06-18-B-smac-sat-2018-20h.json",
+    project.DIR / "results" / "2021-06-10-A-smac-opt-2018-20h.json",
+    project.DIR / "results" / "2021-06-18-A-smac-opt-2018-20h.json",
+    project.DIR / "results" / "2021-06-26-A-smac-opt-2018-20h.json",
 ]
 if project.REMOTE:
     SMAC_RUNS_PER_DOMAIN = 5
