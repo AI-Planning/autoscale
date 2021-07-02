@@ -403,7 +403,8 @@ def get_evaluation_experiment(
     def get_image(nick):
         resource_name = nick.replace("-", "_")
         image = IMAGES_DIR / f"{nick}.img"
-        assert image.is_file(), image
+        if not REMOTE:
+            assert image.is_file(), image
         return resource_name, image
 
     time_limit = time_limit if REMOTE else 1
