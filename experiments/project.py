@@ -320,7 +320,7 @@ def get_smac_experiment(
 
     environment = LocalEnvironment(processes=2)
     if REMOTE:
-        partition = "infai_2" #"infai_1" if track == "opt" else "infai_2"
+        partition = "infai_1" if track == "opt" else "infai_2"
         environment = BaselSlurmEnvironment(
             email=USER.email,
             partition=partition)
