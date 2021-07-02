@@ -36,9 +36,12 @@ from domain_groups import group_domains
 
 DIR = Path(__file__).resolve().parent
 REPO = DIR.parent
-IMAGES_DIR = REPO / "images"
 NODE = platform.node()
 REMOTE = NODE.endswith(".scicore.unibas.ch") or NODE.endswith(".cluster.bc2.ch")
+IMAGES_DIR = REPO / "images"
+
+if REMOTE:
+    IMAGES_DIR = Path("/scratch/singularity/autoscale-images")
 
 User = namedtuple("User", ["email", "scp_login", "remote_user", "repos"])
 
