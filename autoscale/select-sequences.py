@@ -46,8 +46,8 @@ def parse_args():
         help="Choose the track to optimize for: satisficing or optimal."
     )
     parser.add_argument(
-        'year', choices=['2014', '2020'],
-        help="Choose the latest planner year to include: 2014 or 2020."
+        'year', choices=['2014', '2018'],
+        help="Choose the latest planner year to include: 2014 or 2018."
     )
     parser.add_argument(
         "--tasks", type=int, default=30, help="Number of tasks to generate in each round (default: %(default)s)"
@@ -74,7 +74,7 @@ def parse_args():
     )
 
     parser.add_argument(
-        "--max_sequences_per_enum", type=int, default=100, help="Number of sequences that will be allowed per value of each enum parameter  (default: %(default)d)"
+        "--max_sequences_per_enum", type=int, default=1000, help="Number of sequences that will be allowed per value of each enum parameter  (default: %(default)d)"
     )
 
     parser.add_argument(
@@ -302,7 +302,8 @@ class CPLEXSequence:
         percentage_in_me = sum(
             1.0 for c in other.parameters_of_evaluated_instances
             if c in self.parameters_of_instances)/len(other.parameters_of_evaluated_instances)
-        return max(percentage_in_other, percentage_in_me)
+
+        return min(percentage_in_other, percentage_in_me)
 
     def add_cplex_variables(self, cplex_problem):
         t = cplex_problem.variables.type
@@ -400,7 +401,8 @@ domain = DOMAINS[ARGS.domain]
 STORED_VALID_SEQUENCES = []
 for database_file in ARGS.database:
     content = utils.read_database(database_file)
-
+    if ARGS.domain not in content:
+        continue
     if "baseline_runtimes" in content[ARGS.domain]:
         RUNNER_BASELINE.load_cache_from_log_file(content[ARGS.domain]["baseline_runtimes"])
     if "sart_runtimes" in content[ARGS.domain]:
@@ -419,6 +421,15 @@ sequences_by_id = {}
 
 for sequence in STORED_VALID_SEQUENCES:
     logging.debug(f"Evaluate sequence {sequence['config']} with penalty {sequence['penalty']}")
+
+    if ARGS.domain == 'termes': # and sequence['config']['num_towers']
+        m_height = [float(sequence['config'][f"{atr}_m"])  for atr in ['min_height', 'max_height'] if sequence['config'][f"{atr}_optional_m"]  == 'false']
+        m_blocks = [float(sequence['config'][f"{atr}_m"])  for atr in ['min_height', 'max_height', 'num_towers'] if sequence['config'][f"{atr}_optional_m"]  == 'false']
+        if not m_height or (sum(m_height) < 0.3):
+            continue
+        if not m_blocks or (max(m_blocks) < 0.3 and sum(m_blocks) < 0.5):
+            continue
+
 
     Y = domain.get_configs(sequence['config'], ARGS.sequence_length)
 
