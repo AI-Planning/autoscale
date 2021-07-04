@@ -79,7 +79,7 @@ class Runner:
             logging.info(
                 f"{self.name} cache contains data for {len(self.exact_cache)} parameter values, with min {min(num_runtimes)} max {max(num_runtimes)} avg {statistics.mean(num_runtimes)} runtimes")
         else:
-            logging.warning("Found no {self.name} data in database")
+            logging.warning(f"Found no {self.name} data in database")
 
     def is_solvable(self, parameters, time_limit):
         runtimes = self.run_planners(parameters, time_limit, 1)
