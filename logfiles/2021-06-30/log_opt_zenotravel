@@ -1,0 +1,63 @@
+2021-07-04 20:11:29,000 INFO     No run directory, so we will not run anything
+2021-07-04 20:11:29,619 INFO     Loading cache data for baseline planners: 405
+2021-07-04 20:11:29,645 INFO     baseline cache contains data for 80 parameter values, with min 3 max 39 avg 15.1875 runtimes
+2021-07-04 20:11:29,646 INFO     Loading cache data for sart planners: 3008
+2021-07-04 20:11:29,835 INFO     sart cache contains data for 739 parameter values, with min 3 max 39 avg 12.211096075778078 runtimes
+2021-07-04 20:11:31,582 INFO     Loading cache data for baseline planners: 11
+2021-07-04 20:11:31,583 INFO     baseline cache contains data for 84 parameter values, with min 3 max 39 avg 14.857142857142858 runtimes
+2021-07-04 20:11:31,583 INFO     Loading cache data for sart planners: 580
+2021-07-04 20:11:31,610 INFO     sart cache contains data for 1022 parameter values, with min 3 max 39 avg 10.53228962818004 runtimes
+2021-07-04 20:11:33,455 INFO     Loading cache data for baseline planners: 2
+2021-07-04 20:11:33,455 INFO     baseline cache contains data for 86 parameter values, with min 3 max 39 avg 14.581395348837209 runtimes
+2021-07-04 20:11:33,455 INFO     Loading cache data for sart planners: 34
+2021-07-04 20:11:33,457 INFO     sart cache contains data for 1049 parameter values, with min 3 max 39 avg 10.358436606291706 runtimes
+2021-07-04 20:11:35,232 INFO     Loading cache data for baseline planners: 35
+2021-07-04 20:11:35,234 INFO     baseline cache contains data for 98 parameter values, with min 3 max 39 avg 13.86734693877551 runtimes
+2021-07-04 20:11:35,234 INFO     Loading cache data for sart planners: 278
+2021-07-04 20:11:35,248 INFO     sart cache contains data for 1197 parameter values, with min 3 max 39 avg 9.774436090225564 runtimes
+2021-07-04 20:11:35,248 INFO     Stored sequences: 5861
+Warning: No output dir has been provided for Runner but I have no data for {'planes': 3, 'people': 16, 'cities': 5}, so I consider it unsolved within the time and memory limits
+2021-07-04 20:12:37,074 INFO     Different evaluated sequences: 805
+2021-07-04 20:12:46,986 INFO     Candidate sequences: 702
+2021-07-04 20:12:47,001 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 59 use baseline 643 use sart
+2021-07-04 20:12:47,008 INFO     Using sart runtimes on CPLEX optimization
+2021-07-04 20:13:01,796 INFO     CPLEX solve
+
+2021-07-04 20:13:20,215 INFO     Solution status = 101: MIP_optimal
+2021-07-04 20:13:20,215 INFO     Solution value  = 10.428515077282352
+Selected: sequence 613, 30 instances from 0 to 29
+Configuration: {'cities_b': 3, 'cities_m': 0.8, 'cities_optional_m': 'true', 'people_b': 5, 'people_m': 1.3, 'planes_b': 3, 'planes_m': 0.4, 'planes_optional_m': 'false'}
+Penalty: 8.43
+Penalty sart: 2.64
+Penalty baseline: 5.79
+Estimated runtimes: 0.61, 0.63, 0.67, 0.92, 1.1, 1.7, 2, 2.1, 8, 18, 32, 45, 72, 82, 1.5e+02, 1.9e+02, 3e+02, 4.9e+02, 7.8e+02, 1.3e+03, 2e+03, 3.2e+03, 5.2e+03, 8.4e+03, 1.3e+04, 2.2e+04, 3.5e+04, 5.6e+04, 8.9e+04, 1.4e+05
+  p01: {'planes': 3, 'people': 5, 'cities': 3}
+  p02: {'planes': 3, 'people': 6, 'cities': 3}
+  p03: {'planes': 3, 'people': 7, 'cities': 3}
+  p04: {'planes': 4, 'people': 8, 'cities': 3}
+  p05: {'planes': 4, 'people': 10, 'cities': 3}
+  p06: {'planes': 5, 'people': 11, 'cities': 3}
+  p07: {'planes': 5, 'people': 12, 'cities': 3}
+  p08: {'planes': 5, 'people': 14, 'cities': 3}
+  p09: {'planes': 6, 'people': 15, 'cities': 3}
+  p10: {'planes': 6, 'people': 16, 'cities': 3}
+  p11: {'planes': 7, 'people': 18, 'cities': 3}
+  p12: {'planes': 7, 'people': 19, 'cities': 3}
+  p13: {'planes': 7, 'people': 20, 'cities': 3}
+  p14: {'planes': 8, 'people': 21, 'cities': 3}
+  p15: {'planes': 8, 'people': 23, 'cities': 3}
+  p16: {'planes': 9, 'people': 24, 'cities': 3}
+  p17: {'planes': 9, 'people': 25, 'cities': 3}
+  p18: {'planes': 9, 'people': 27, 'cities': 3}
+  p19: {'planes': 10, 'people': 28, 'cities': 3}
+  p20: {'planes': 10, 'people': 29, 'cities': 3}
+  p21: {'planes': 11, 'people': 31, 'cities': 3}
+  p22: {'planes': 11, 'people': 32, 'cities': 3}
+  p23: {'planes': 11, 'people': 33, 'cities': 3}
+  p24: {'planes': 12, 'people': 34, 'cities': 3}
+  p25: {'planes': 12, 'people': 36, 'cities': 3}
+  p26: {'planes': 13, 'people': 37, 'cities': 3}
+  p27: {'planes': 13, 'people': 38, 'cities': 3}
+  p28: {'planes': 13, 'people': 40, 'cities': 3}
+  p29: {'planes': 14, 'people': 41, 'cities': 3}
+  p30: {'planes': 14, 'people': 42, 'cities': 3}

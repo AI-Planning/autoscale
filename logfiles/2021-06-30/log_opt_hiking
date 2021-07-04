@@ -1,0 +1,68 @@
+2021-07-04 19:41:38,713 INFO     No run directory, so we will not run anything
+2021-07-04 19:41:39,352 INFO     Loading cache data for baseline planners: 947
+2021-07-04 19:41:39,406 INFO     baseline cache contains data for 170 parameter values, with min 3 max 39 avg 16.711764705882352 runtimes
+2021-07-04 19:41:39,406 INFO     Loading cache data for sart planners: 1925
+2021-07-04 19:41:39,514 INFO     sart cache contains data for 523 parameter values, with min 3 max 39 avg 11.042065009560229 runtimes
+2021-07-04 19:41:41,271 INFO     Loading cache data for baseline planners: 31
+2021-07-04 19:41:41,273 INFO     baseline cache contains data for 185 parameter values, with min 3 max 39 avg 15.85945945945946 runtimes
+2021-07-04 19:41:41,273 INFO     Loading cache data for sart planners: 515
+2021-07-04 19:41:41,301 INFO     sart cache contains data for 673 parameter values, with min 3 max 39 avg 10.87667161961367 runtimes
+2021-07-04 19:41:43,131 INFO     Loading cache data for baseline planners: 0
+2021-07-04 19:41:43,132 INFO     baseline cache contains data for 185 parameter values, with min 3 max 39 avg 15.85945945945946 runtimes
+2021-07-04 19:41:43,132 INFO     Loading cache data for sart planners: 10
+2021-07-04 19:41:43,133 INFO     sart cache contains data for 683 parameter values, with min 3 max 39 avg 10.76134699853587 runtimes
+2021-07-04 19:41:44,725 INFO     Loading cache data for baseline planners: 20
+2021-07-04 19:41:44,727 INFO     baseline cache contains data for 193 parameter values, with min 3 max 39 avg 15.512953367875648 runtimes
+2021-07-04 19:41:44,727 INFO     Loading cache data for sart planners: 40
+2021-07-04 19:41:44,729 INFO     sart cache contains data for 700 parameter values, with min 3 max 39 avg 10.67142857142857 runtimes
+2021-07-04 19:41:44,729 INFO     Stored sequences: 13524
+2021-07-04 19:45:17,651 INFO     Different evaluated sequences: 1018
+2021-07-04 19:45:41,400 INFO     Candidate sequences: 738
+2021-07-04 19:45:41,415 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 75 use baseline 663 use sart
+2021-07-04 19:45:41,422 INFO     Using sart runtimes on CPLEX optimization
+2021-07-04 19:45:56,713 INFO     CPLEX solve
+
+2021-07-04 19:46:06,292 INFO     Solution status = 101: MIP_optimal
+2021-07-04 19:46:06,292 INFO     Solution value  = 0.16772500028602066
+Selected: sequence 8, 14 instances from 6 to 19
+Configuration: {'n_cars_b': 2, 'n_cars_m': 1.5000000000000002, 'n_cars_optional_m': 'true', 'n_couples_b': 1, 'n_couples_m': 1.8000000000000003, 'n_couples_optional_m': 'true', 'n_places_b': 8, 'n_places_m': 0.1}
+Penalty: 0.08
+Penalty sart: 0.00
+Penalty baseline: 0.08
+Estimated runtimes: 88, 1.5e+02, 2.4e+02, 4.1e+02, 6.8e+02, 1.1e+03, 1.9e+03, 3.1e+03, 5.2e+03, 8.7e+03, 1.5e+04, 2.4e+04, 4e+04, 6.7e+04, 1.1e+05, 1.9e+05, 3.1e+05, 5.2e+05, 8.7e+05, 1.4e+06, 2.4e+06, 4e+06, 6.7e+06, 1.1e+07
+Selected: sequence 277, 16 instances from 3 to 18
+Configuration: {'n_cars_b': 1, 'n_cars_m': 0.1, 'n_cars_optional_m': 'false', 'n_couples_b': 1, 'n_couples_m': 0.4, 'n_couples_optional_m': 'true', 'n_places_b': 2, 'n_places_m': 0.6}
+Penalty: 0.08
+Penalty sart: 0.00
+Penalty baseline: 0.08
+Estimated runtimes: 0.71, 0.82, 1.2, 2.4, 3.9, 6.8, 12, 20, 34, 54, 1.8e+02, 6.1e+02, 2e+03, 6.8e+03, 2.3e+04, 7.7e+04, 2.6e+05, 8.7e+05, 2.9e+06, 9.9e+06, 3.3e+07, 1.1e+08, 3.8e+08, 1.3e+09, 4.2e+09, 1.4e+10, 4.8e+10
+  p01: {'n_couples': 1, 'n_places': 14, 'n_cars': 3}
+  p02: {'n_couples': 1, 'n_places': 15, 'n_cars': 3}
+  p03: {'n_couples': 1, 'n_places': 16, 'n_cars': 3}
+  p04: {'n_couples': 1, 'n_places': 17, 'n_cars': 3}
+  p05: {'n_couples': 1, 'n_places': 18, 'n_cars': 3}
+  p06: {'n_couples': 1, 'n_places': 19, 'n_cars': 3}
+  p07: {'n_couples': 1, 'n_places': 20, 'n_cars': 3}
+  p08: {'n_couples': 1, 'n_places': 21, 'n_cars': 3}
+  p09: {'n_couples': 1, 'n_places': 22, 'n_cars': 3}
+  p10: {'n_couples': 1, 'n_places': 23, 'n_cars': 3}
+  p11: {'n_couples': 1, 'n_places': 24, 'n_cars': 3}
+  p12: {'n_couples': 1, 'n_places': 25, 'n_cars': 3}
+  p13: {'n_couples': 1, 'n_places': 26, 'n_cars': 3}
+  p14: {'n_couples': 1, 'n_places': 27, 'n_cars': 3}
+  p15: {'n_couples': 1, 'n_places': 5, 'n_cars': 2}
+  p16: {'n_couples': 1, 'n_places': 6, 'n_cars': 2}
+  p17: {'n_couples': 1, 'n_places': 7, 'n_cars': 2}
+  p18: {'n_couples': 1, 'n_places': 7, 'n_cars': 3}
+  p19: {'n_couples': 1, 'n_places': 8, 'n_cars': 3}
+  p20: {'n_couples': 1, 'n_places': 9, 'n_cars': 3}
+  p21: {'n_couples': 1, 'n_places': 10, 'n_cars': 3}
+  p22: {'n_couples': 1, 'n_places': 11, 'n_cars': 3}
+  p23: {'n_couples': 1, 'n_places': 12, 'n_cars': 3}
+  p24: {'n_couples': 1, 'n_places': 13, 'n_cars': 3}
+  p25: {'n_couples': 1, 'n_places': 13, 'n_cars': 4}
+  p26: {'n_couples': 1, 'n_places': 14, 'n_cars': 4}
+  p27: {'n_couples': 1, 'n_places': 15, 'n_cars': 4}
+  p28: {'n_couples': 1, 'n_places': 16, 'n_cars': 4}
+  p29: {'n_couples': 1, 'n_places': 17, 'n_cars': 4}
+  p30: {'n_couples': 1, 'n_places': 18, 'n_cars': 4}

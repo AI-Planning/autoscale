@@ -1,0 +1,61 @@
+2021-07-04 21:13:07,268 INFO     No run directory, so we will not run anything
+2021-07-04 21:13:08,310 INFO     Loading cache data for baseline planners: 31181
+2021-07-04 21:13:09,900 INFO     baseline cache contains data for 11102 parameter values, with min 3 max 39 avg 8.425779138893892 runtimes
+2021-07-04 21:13:09,900 INFO     Loading cache data for sart planners: 31181
+2021-07-04 21:13:11,450 INFO     sart cache contains data for 11102 parameter values, with min 3 max 39 avg 8.425779138893892 runtimes
+2021-07-04 21:13:12,589 INFO     Loading cache data for baseline planners: 5916
+2021-07-04 21:13:12,836 INFO     baseline cache contains data for 15315 parameter values, with min 3 max 39 avg 7.266797257590597 runtimes
+2021-07-04 21:13:12,836 INFO     Loading cache data for sart planners: 5916
+2021-07-04 21:13:13,087 INFO     sart cache contains data for 15315 parameter values, with min 3 max 39 avg 7.266797257590597 runtimes
+2021-07-04 21:13:14,339 INFO     Loading cache data for baseline planners: 5696
+2021-07-04 21:13:14,589 INFO     baseline cache contains data for 18934 parameter values, with min 3 max 39 avg 6.780342241470371 runtimes
+2021-07-04 21:13:14,589 INFO     Loading cache data for sart planners: 5696
+2021-07-04 21:13:14,838 INFO     sart cache contains data for 18934 parameter values, with min 3 max 39 avg 6.780342241470371 runtimes
+2021-07-04 21:13:16,282 INFO     Loading cache data for baseline planners: 4208
+2021-07-04 21:13:16,466 INFO     baseline cache contains data for 21497 parameter values, with min 3 max 39 avg 6.559194306182258 runtimes
+2021-07-04 21:13:16,466 INFO     Loading cache data for sart planners: 4208
+2021-07-04 21:13:16,650 INFO     sart cache contains data for 21497 parameter values, with min 3 max 39 avg 6.559194306182258 runtimes
+2021-07-04 21:13:16,650 INFO     Stored sequences: 13317
+2021-07-04 21:18:18,665 INFO     Different evaluated sequences: 7618
+2021-07-04 21:18:59,320 INFO     Candidate sequences: 1000
+2021-07-04 21:18:59,366 INFO     Using baseline runtimes on CPLEX optimization
+2021-07-04 21:19:22,925 INFO     CPLEX solve
+
+2021-07-04 21:19:35,257 INFO     Solution status = 101: MIP_optimal
+2021-07-04 21:19:35,257 INFO     Solution value  = 98056.01931145732
+Selected: sequence 1413, 30 instances from 0 to 29
+Configuration: {'floors_b': 15, 'floors_m': 5.0, 'floors_optional_m': 'false', 'passengers_b': 20, 'passengers_m': 4.6}
+Penalty: 25.45
+Penalty sart: 12.45
+Penalty baseline: 13.00
+Estimated runtimes: 0.53, 0.56, 0.63, 0.65, 0.69, 0.77, 0.95, 0.96, 1.2, 1.4, 1.4, 1.6, 1.9, 2.1, 2.3, 2.7, 3, 3.4, 3.9, 4.3, 4.7, 5.6, 6.3, 7.1, 7.9, 8.9, 10, 11, 14, 19
+  p01: {'passengers': 20, 'floors': 15}
+  p02: {'passengers': 24, 'floors': 20}
+  p03: {'passengers': 29, 'floors': 25}
+  p04: {'passengers': 33, 'floors': 30}
+  p05: {'passengers': 38, 'floors': 35}
+  p06: {'passengers': 43, 'floors': 40}
+  p07: {'passengers': 47, 'floors': 45}
+  p08: {'passengers': 52, 'floors': 50}
+  p09: {'passengers': 56, 'floors': 55}
+  p10: {'passengers': 61, 'floors': 60}
+  p11: {'passengers': 66, 'floors': 65}
+  p12: {'passengers': 70, 'floors': 70}
+  p13: {'passengers': 75, 'floors': 75}
+  p14: {'passengers': 79, 'floors': 80}
+  p15: {'passengers': 84, 'floors': 85}
+  p16: {'passengers': 88, 'floors': 90}
+  p17: {'passengers': 93, 'floors': 95}
+  p18: {'passengers': 98, 'floors': 100}
+  p19: {'passengers': 102, 'floors': 105}
+  p20: {'passengers': 107, 'floors': 110}
+  p21: {'passengers': 111, 'floors': 115}
+  p22: {'passengers': 116, 'floors': 120}
+  p23: {'passengers': 121, 'floors': 125}
+  p24: {'passengers': 125, 'floors': 130}
+  p25: {'passengers': 130, 'floors': 135}
+  p26: {'passengers': 134, 'floors': 140}
+  p27: {'passengers': 139, 'floors': 145}
+  p28: {'passengers': 144, 'floors': 150}
+  p29: {'passengers': 148, 'floors': 155}
+  p30: {'passengers': 153, 'floors': 160}

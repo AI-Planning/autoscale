@@ -1,0 +1,64 @@
+2021-07-04 21:38:14,356 INFO     No run directory, so we will not run anything
+2021-07-04 21:38:15,369 INFO     Loading cache data for baseline planners: 576
+2021-07-04 21:38:15,406 INFO     baseline cache contains data for 51 parameter values, with min 3 max 39 avg 33.88235294117647 runtimes
+2021-07-04 21:38:15,406 INFO     Loading cache data for sart planners: 967
+2021-07-04 21:38:15,470 INFO     sart cache contains data for 83 parameter values, with min 3 max 39 avg 34.95180722891566 runtimes
+2021-07-04 21:38:16,618 INFO     Loading cache data for baseline planners: 0
+2021-07-04 21:38:16,618 INFO     baseline cache contains data for 51 parameter values, with min 3 max 39 avg 33.88235294117647 runtimes
+2021-07-04 21:38:16,618 INFO     Loading cache data for sart planners: 0
+2021-07-04 21:38:16,619 INFO     sart cache contains data for 83 parameter values, with min 3 max 39 avg 34.95180722891566 runtimes
+2021-07-04 21:38:17,870 INFO     Loading cache data for baseline planners: 0
+2021-07-04 21:38:17,870 INFO     baseline cache contains data for 51 parameter values, with min 3 max 39 avg 33.88235294117647 runtimes
+2021-07-04 21:38:17,870 INFO     Loading cache data for sart planners: 0
+2021-07-04 21:38:17,870 INFO     sart cache contains data for 83 parameter values, with min 3 max 39 avg 34.95180722891566 runtimes
+2021-07-04 21:38:19,119 INFO     Loading cache data for baseline planners: 0
+2021-07-04 21:38:19,119 INFO     baseline cache contains data for 51 parameter values, with min 3 max 39 avg 33.88235294117647 runtimes
+2021-07-04 21:38:19,119 INFO     Loading cache data for sart planners: 0
+2021-07-04 21:38:19,119 INFO     sart cache contains data for 83 parameter values, with min 3 max 39 avg 34.95180722891566 runtimes
+2021-07-04 21:38:19,119 INFO     Stored sequences: 3495
+2021-07-04 21:38:56,354 INFO     Different evaluated sequences: 547
+cars_diff 0 208 107
+cars_diff -1 168 91
+cars_diff -2 171 91
+2021-07-04 21:38:56,838 INFO     Candidate sequences: 289
+2021-07-04 21:38:56,842 INFO     Using sart runtimes on CPLEX optimization
+2021-07-04 21:38:59,513 INFO     CPLEX solve
+
+2021-07-04 21:39:00,622 INFO     Solution status = 101: MIP_optimal
+2021-07-04 21:39:00,622 INFO     Solution value  = 3.4943763704588764
+Selected: sequence 305, 30 instances from 0 to 29
+Configuration: {'cars_diff': 0, 'curbs_b': 9, 'curbs_m': 1.2}
+Penalty: 3.49
+Penalty sart: 0.93
+Penalty baseline: 2.57
+Estimated runtimes: 2.9, 4, 5.8, 7.8, 11, 14, 26, 34, 44, 63, 81, 1.4e+02, 1.7e+02, 2.5e+02, 3.5e+02, 5e+02, 7.1e+02, 1e+03, 1.4e+03, 2e+03, 2.9e+03, 4.1e+03, 5.9e+03, 8.4e+03, 1.2e+04, 1.7e+04, 2.4e+04, 3.4e+04, 4.9e+04, 7e+04
+  p01: {'curbs': 9, 'cars': 16}
+  p02: {'curbs': 10, 'cars': 18}
+  p03: {'curbs': 11, 'cars': 20}
+  p04: {'curbs': 12, 'cars': 22}
+  p05: {'curbs': 13, 'cars': 24}
+  p06: {'curbs': 14, 'cars': 26}
+  p07: {'curbs': 16, 'cars': 30}
+  p08: {'curbs': 17, 'cars': 32}
+  p09: {'curbs': 18, 'cars': 34}
+  p10: {'curbs': 19, 'cars': 36}
+  p11: {'curbs': 20, 'cars': 38}
+  p12: {'curbs': 22, 'cars': 42}
+  p13: {'curbs': 23, 'cars': 44}
+  p14: {'curbs': 24, 'cars': 46}
+  p15: {'curbs': 25, 'cars': 48}
+  p16: {'curbs': 26, 'cars': 50}
+  p17: {'curbs': 28, 'cars': 54}
+  p18: {'curbs': 29, 'cars': 56}
+  p19: {'curbs': 30, 'cars': 58}
+  p20: {'curbs': 31, 'cars': 60}
+  p21: {'curbs': 32, 'cars': 62}
+  p22: {'curbs': 34, 'cars': 66}
+  p23: {'curbs': 35, 'cars': 68}
+  p24: {'curbs': 36, 'cars': 70}
+  p25: {'curbs': 37, 'cars': 72}
+  p26: {'curbs': 39, 'cars': 76}
+  p27: {'curbs': 40, 'cars': 78}
+  p28: {'curbs': 41, 'cars': 80}
+  p29: {'curbs': 42, 'cars': 82}
+  p30: {'curbs': 43, 'cars': 84}

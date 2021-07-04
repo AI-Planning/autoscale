@@ -1,0 +1,78 @@
+2021-07-04 19:59:04,964 INFO     No run directory, so we will not run anything
+2021-07-04 19:59:05,613 INFO     Loading cache data for baseline planners: 304
+2021-07-04 19:59:05,630 INFO     baseline cache contains data for 30 parameter values, with min 3 max 39 avg 30.4 runtimes
+2021-07-04 19:59:05,630 INFO     Loading cache data for sart planners: 381
+2021-07-04 19:59:05,653 INFO     sart cache contains data for 37 parameter values, with min 3 max 39 avg 30.89189189189189 runtimes
+2021-07-04 19:59:07,445 INFO     Loading cache data for baseline planners: 0
+2021-07-04 19:59:07,445 INFO     baseline cache contains data for 30 parameter values, with min 3 max 39 avg 30.4 runtimes
+2021-07-04 19:59:07,445 INFO     Loading cache data for sart planners: 0
+2021-07-04 19:59:07,445 INFO     sart cache contains data for 37 parameter values, with min 3 max 39 avg 30.89189189189189 runtimes
+2021-07-04 19:59:09,270 INFO     Loading cache data for baseline planners: 0
+2021-07-04 19:59:09,270 INFO     baseline cache contains data for 30 parameter values, with min 3 max 39 avg 30.4 runtimes
+2021-07-04 19:59:09,270 INFO     Loading cache data for sart planners: 0
+2021-07-04 19:59:09,270 INFO     sart cache contains data for 37 parameter values, with min 3 max 39 avg 30.89189189189189 runtimes
+2021-07-04 19:59:11,044 INFO     Loading cache data for baseline planners: 0
+2021-07-04 19:59:11,044 INFO     baseline cache contains data for 30 parameter values, with min 3 max 39 avg 30.4 runtimes
+2021-07-04 19:59:11,044 INFO     Loading cache data for sart planners: 0
+2021-07-04 19:59:11,044 INFO     sart cache contains data for 37 parameter values, with min 3 max 39 avg 30.89189189189189 runtimes
+2021-07-04 19:59:11,044 INFO     Stored sequences: 620
+2021-07-04 19:59:13,097 INFO     Different evaluated sequences: 22
+segment_type empty 22 17
+segment_type ab 0 0
+inout none 4 3
+inout both 17 13
+inout in 1 1
+2021-07-04 19:59:13,104 INFO     Candidate sequences: 17
+2021-07-04 19:59:13,104 INFO     Using sart runtimes on CPLEX optimization
+2021-07-04 19:59:13,147 INFO     CPLEX solve
+
+2021-07-04 19:59:13,193 INFO     Solution status = 101: MIP_optimal
+2021-07-04 19:59:13,194 INFO     Solution value  = 42.35952944305838
+Selected: sequence 14, 19 instances from 0 to 18
+Configuration: {'inout': 'both', 'segment_type': 'empty', 'size_b': 1, 'size_m': 1.1}
+Penalty: 10.36
+Penalty sart: 2.36
+Penalty baseline: 8.00
+Estimated runtimes: 0.51, 0.52, 0.66, 1, 1.9, 4.2, 9.4, 21, 47, 1.1e+02, 2.5e+02, 5.7e+02, 1.3e+03, 2.9e+03, 6.7e+03, 1.5e+04, 3.5e+04, 7.9e+04, 1.8e+05, 4.1e+05, 9.3e+05, 2.1e+06, 4.8e+06, 1.1e+07, 2.5e+07, 5.7e+07, 1.3e+08, 2.9e+08, 6.7e+08, 1.5e+09
+Selected: sequence 1, 4 instances from 3 to 6
+Configuration: {'inout': 'none', 'segment_type': 'empty', 'size_b': 1, 'size_m': 1.0}
+Penalty: 16.00
+Penalty sart: 8.00
+Penalty baseline: 8.00
+Estimated runtimes: 10, 1.8e+02, 3.1e+03, 5.3e+04, 9.1e+05, 1.6e+07, 2.7e+08, 4.6e+09, 8e+10, 1.4e+12, 2.4e+13, 4.1e+14, 7e+15, 1.2e+17, 2.1e+18, 3.5e+19, 6.1e+20, 1e+22, 1.8e+23, 3.1e+24, 5.3e+25, 9.1e+26, 1.6e+28, 2.7e+29, 4.6e+30, 8e+31, 1.4e+33
+Selected: sequence 3, 7 instances from 0 to 6
+Configuration: {'inout': 'in', 'segment_type': 'empty', 'size_b': 1, 'size_m': 1.0}
+Penalty: 16.00
+Penalty sart: 8.00
+Penalty baseline: 8.00
+Estimated runtimes: 0.5, 0.52, 0.75, 6.3, 1.8e+02, 5.2e+03, 1.5e+05, 4.2e+06, 1.2e+08, 3.5e+09, 1e+11, 2.9e+12, 8.2e+13, 2.4e+15, 6.8e+16, 1.9e+18, 5.6e+19, 1.6e+21, 4.6e+22, 1.3e+24, 3.8e+25, 1.1e+27, 3.1e+28, 8.9e+29, 2.6e+31, 7.3e+32, 2.1e+34, 6e+35, 1.7e+37, 5e+38
+  p01: {'segment_type': 'empty', 'inout': 'both', 'size': 1}
+  p02: {'segment_type': 'empty', 'inout': 'both', 'size': 2}
+  p03: {'segment_type': 'empty', 'inout': 'both', 'size': 3}
+  p04: {'segment_type': 'empty', 'inout': 'both', 'size': 4}
+  p05: {'segment_type': 'empty', 'inout': 'both', 'size': 5}
+  p06: {'segment_type': 'empty', 'inout': 'both', 'size': 6}
+  p07: {'segment_type': 'empty', 'inout': 'both', 'size': 7}
+  p08: {'segment_type': 'empty', 'inout': 'both', 'size': 8}
+  p09: {'segment_type': 'empty', 'inout': 'both', 'size': 9}
+  p10: {'segment_type': 'empty', 'inout': 'both', 'size': 10}
+  p11: {'segment_type': 'empty', 'inout': 'both', 'size': 11}
+  p12: {'segment_type': 'empty', 'inout': 'both', 'size': 13}
+  p13: {'segment_type': 'empty', 'inout': 'both', 'size': 14}
+  p14: {'segment_type': 'empty', 'inout': 'both', 'size': 15}
+  p15: {'segment_type': 'empty', 'inout': 'both', 'size': 16}
+  p16: {'segment_type': 'empty', 'inout': 'both', 'size': 17}
+  p17: {'segment_type': 'empty', 'inout': 'both', 'size': 18}
+  p18: {'segment_type': 'empty', 'inout': 'both', 'size': 19}
+  p19: {'segment_type': 'empty', 'inout': 'both', 'size': 20}
+  p20: {'segment_type': 'empty', 'inout': 'none', 'size': 4}
+  p21: {'segment_type': 'empty', 'inout': 'none', 'size': 5}
+  p22: {'segment_type': 'empty', 'inout': 'none', 'size': 6}
+  p23: {'segment_type': 'empty', 'inout': 'none', 'size': 7}
+  p24: {'segment_type': 'empty', 'inout': 'in', 'size': 1}
+  p25: {'segment_type': 'empty', 'inout': 'in', 'size': 2}
+  p26: {'segment_type': 'empty', 'inout': 'in', 'size': 3}
+  p27: {'segment_type': 'empty', 'inout': 'in', 'size': 4}
+  p28: {'segment_type': 'empty', 'inout': 'in', 'size': 5}
+  p29: {'segment_type': 'empty', 'inout': 'in', 'size': 6}
+  p30: {'segment_type': 'empty', 'inout': 'in', 'size': 7}

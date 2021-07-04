@@ -1,0 +1,62 @@
+2021-07-04 20:49:32,785 INFO     No run directory, so we will not run anything
+2021-07-04 20:49:33,721 INFO     Loading cache data for baseline planners: 2052
+2021-07-04 20:49:33,809 INFO     baseline cache contains data for 1526 parameter values, with min 3 max 39 avg 4.034076015727392 runtimes
+2021-07-04 20:49:33,809 INFO     Loading cache data for sart planners: 5039
+2021-07-04 20:49:34,020 INFO     sart cache contains data for 3904 parameter values, with min 3 max 39 avg 3.8721823770491803 runtimes
+2021-07-04 20:49:35,084 INFO     Loading cache data for baseline planners: 833
+2021-07-04 20:49:35,116 INFO     baseline cache contains data for 2296 parameter values, with min 3 max 39 avg 3.7695993031358883 runtimes
+2021-07-04 20:49:35,116 INFO     Loading cache data for sart planners: 2240
+2021-07-04 20:49:35,207 INFO     sart cache contains data for 5884 parameter values, with min 3 max 39 avg 3.7112508497620667 runtimes
+2021-07-04 20:49:36,413 INFO     Loading cache data for baseline planners: 565
+2021-07-04 20:49:36,438 INFO     baseline cache contains data for 2838 parameter values, with min 3 max 39 avg 3.6469344608879495 runtimes
+2021-07-04 20:49:36,438 INFO     Loading cache data for sart planners: 1539
+2021-07-04 20:49:36,504 INFO     sart cache contains data for 7310 parameter values, with min 3 max 39 avg 3.618878248974008 runtimes
+2021-07-04 20:49:37,727 INFO     Loading cache data for baseline planners: 11
+2021-07-04 20:49:37,730 INFO     baseline cache contains data for 2847 parameter values, with min 3 max 39 avg 3.646996838777661 runtimes
+2021-07-04 20:49:37,730 INFO     Loading cache data for sart planners: 11
+2021-07-04 20:49:37,735 INFO     sart cache contains data for 7319 parameter values, with min 3 max 39 avg 3.6189370132531766 runtimes
+2021-07-04 20:49:37,735 INFO     Stored sequences: 8415
+2021-07-04 20:50:31,308 INFO     Different evaluated sequences: 1024
+2021-07-04 20:50:58,584 INFO     Candidate sequences: 931
+2021-07-04 20:50:58,605 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 129 use baseline 802 use sart
+2021-07-04 20:50:58,613 INFO     Using sart runtimes on CPLEX optimization
+2021-07-04 20:51:12,817 INFO     CPLEX solve
+
+2021-07-04 20:51:22,337 INFO     Solution status = 101: MIP_optimal
+2021-07-04 20:51:22,338 INFO     Solution value  = 5.959819355501223
+Selected: sequence 657, 30 instances from 0 to 29
+Configuration: {'drivers_b': 4, 'drivers_m': 0.1, 'drivers_optional_m': 'false', 'packages_b': 12, 'packages_m': 4.300000000000001, 'roadjunctions_b': 10, 'roadjunctions_m': 4.0, 'roadjunctions_optional_m': 'false', 'trucks_b': 0, 'trucks_m': 0.0, 'trucks_optional_m': 'false'}
+Penalty: 3.96
+Penalty sart: 1.49
+Penalty baseline: 2.47
+Estimated runtimes: 0.48, 0.91, 1.8, 2.1, 3.7, 4.1, 6.1, 7.5, 10, 15, 17, 40, 60, 77, 1.3e+02, 1.8e+02, 2.8e+02, 4.4e+02, 6.8e+02, 1e+03, 1.6e+03, 2.5e+03, 3.9e+03, 6e+03, 9.3e+03, 1.4e+04, 2.2e+04, 3.4e+04, 5.3e+04, 8.2e+04
+  p01: {'drivers': 4, 'packages': 12, 'roadjunctions': 10, 'trucks': 4}
+  p02: {'drivers': 4, 'packages': 16, 'roadjunctions': 14, 'trucks': 4}
+  p03: {'drivers': 4, 'packages': 20, 'roadjunctions': 18, 'trucks': 4}
+  p04: {'drivers': 4, 'packages': 24, 'roadjunctions': 22, 'trucks': 4}
+  p05: {'drivers': 4, 'packages': 29, 'roadjunctions': 26, 'trucks': 4}
+  p06: {'drivers': 4, 'packages': 33, 'roadjunctions': 30, 'trucks': 4}
+  p07: {'drivers': 4, 'packages': 37, 'roadjunctions': 34, 'trucks': 4}
+  p08: {'drivers': 4, 'packages': 42, 'roadjunctions': 38, 'trucks': 4}
+  p09: {'drivers': 4, 'packages': 46, 'roadjunctions': 42, 'trucks': 4}
+  p10: {'drivers': 4, 'packages': 50, 'roadjunctions': 46, 'trucks': 4}
+  p11: {'drivers': 4, 'packages': 54, 'roadjunctions': 50, 'trucks': 4}
+  p12: {'drivers': 5, 'packages': 59, 'roadjunctions': 54, 'trucks': 5}
+  p13: {'drivers': 5, 'packages': 63, 'roadjunctions': 58, 'trucks': 5}
+  p14: {'drivers': 5, 'packages': 67, 'roadjunctions': 62, 'trucks': 5}
+  p15: {'drivers': 5, 'packages': 72, 'roadjunctions': 66, 'trucks': 5}
+  p16: {'drivers': 5, 'packages': 76, 'roadjunctions': 70, 'trucks': 5}
+  p17: {'drivers': 5, 'packages': 80, 'roadjunctions': 74, 'trucks': 5}
+  p18: {'drivers': 5, 'packages': 85, 'roadjunctions': 78, 'trucks': 5}
+  p19: {'drivers': 5, 'packages': 89, 'roadjunctions': 82, 'trucks': 5}
+  p20: {'drivers': 5, 'packages': 93, 'roadjunctions': 86, 'trucks': 5}
+  p21: {'drivers': 5, 'packages': 97, 'roadjunctions': 90, 'trucks': 5}
+  p22: {'drivers': 6, 'packages': 102, 'roadjunctions': 94, 'trucks': 6}
+  p23: {'drivers': 6, 'packages': 106, 'roadjunctions': 98, 'trucks': 6}
+  p24: {'drivers': 6, 'packages': 110, 'roadjunctions': 102, 'trucks': 6}
+  p25: {'drivers': 6, 'packages': 115, 'roadjunctions': 106, 'trucks': 6}
+  p26: {'drivers': 6, 'packages': 119, 'roadjunctions': 110, 'trucks': 6}
+  p27: {'drivers': 6, 'packages': 123, 'roadjunctions': 114, 'trucks': 6}
+  p28: {'drivers': 6, 'packages': 128, 'roadjunctions': 118, 'trucks': 6}
+  p29: {'drivers': 6, 'packages': 132, 'roadjunctions': 122, 'trucks': 6}
+  p30: {'drivers': 6, 'packages': 136, 'roadjunctions': 126, 'trucks': 6}

@@ -1,0 +1,62 @@
+2021-07-04 20:46:42,180 INFO     No run directory, so we will not run anything
+2021-07-04 20:46:43,099 INFO     Loading cache data for baseline planners: 287
+2021-07-04 20:46:43,120 INFO     baseline cache contains data for 27 parameter values, with min 3 max 39 avg 31.88888888888889 runtimes
+2021-07-04 20:46:43,120 INFO     Loading cache data for sart planners: 790
+2021-07-04 20:46:43,167 INFO     sart cache contains data for 99 parameter values, with min 3 max 39 avg 23.939393939393938 runtimes
+2021-07-04 20:46:44,256 INFO     Loading cache data for baseline planners: 0
+2021-07-04 20:46:44,257 INFO     baseline cache contains data for 27 parameter values, with min 3 max 39 avg 31.88888888888889 runtimes
+2021-07-04 20:46:44,257 INFO     Loading cache data for sart planners: 0
+2021-07-04 20:46:44,257 INFO     sart cache contains data for 99 parameter values, with min 3 max 39 avg 23.939393939393938 runtimes
+2021-07-04 20:46:45,468 INFO     Loading cache data for baseline planners: 0
+2021-07-04 20:46:45,468 INFO     baseline cache contains data for 27 parameter values, with min 3 max 39 avg 31.88888888888889 runtimes
+2021-07-04 20:46:45,468 INFO     Loading cache data for sart planners: 0
+2021-07-04 20:46:45,468 INFO     sart cache contains data for 99 parameter values, with min 3 max 39 avg 23.939393939393938 runtimes
+2021-07-04 20:46:46,662 INFO     Loading cache data for baseline planners: 0
+2021-07-04 20:46:46,662 INFO     baseline cache contains data for 27 parameter values, with min 3 max 39 avg 31.88888888888889 runtimes
+2021-07-04 20:46:46,662 INFO     Loading cache data for sart planners: 0
+2021-07-04 20:46:46,662 INFO     sart cache contains data for 99 parameter values, with min 3 max 39 avg 23.939393939393938 runtimes
+2021-07-04 20:46:46,662 INFO     Stored sequences: 1010
+2021-07-04 20:47:07,371 INFO     Different evaluated sequences: 239
+2021-07-04 20:47:09,299 INFO     Candidate sequences: 192
+2021-07-04 20:47:09,304 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 85 use baseline 107 use sart
+2021-07-04 20:47:09,307 INFO     Using sart runtimes on CPLEX optimization
+2021-07-04 20:47:10,030 INFO     CPLEX solve
+
+2021-07-04 20:47:14,020 INFO     Solution status = 101: MIP_optimal
+2021-07-04 20:47:14,020 INFO     Solution value  = 26.50205679845876
+Selected: sequence 190, 30 instances from 0 to 29
+Configuration: {'n_b': 9, 'n_m': 4.9}
+Penalty: 8.50
+Penalty sart: 1.91
+Penalty baseline: 6.59
+Estimated runtimes: 0.52, 0.57, 0.68, 0.82, 1.1, 1.4, 2, 3, 3.4, 5, 6.4, 20, 27, 37, 59, 89, 1.1e+02, 1.8e+02, 3.1e+02, 5.3e+02, 9e+02, 1.5e+03, 2.6e+03, 4.4e+03, 7.5e+03, 1.3e+04, 2.1e+04, 3.6e+04, 6.2e+04, 1e+05
+  p01: {'n': 9}
+  p02: {'n': 13}
+  p03: {'n': 18}
+  p04: {'n': 23}
+  p05: {'n': 28}
+  p06: {'n': 33}
+  p07: {'n': 38}
+  p08: {'n': 43}
+  p09: {'n': 48}
+  p10: {'n': 53}
+  p11: {'n': 57}
+  p12: {'n': 62}
+  p13: {'n': 67}
+  p14: {'n': 72}
+  p15: {'n': 77}
+  p16: {'n': 82}
+  p17: {'n': 87}
+  p18: {'n': 92}
+  p19: {'n': 97}
+  p20: {'n': 102}
+  p21: {'n': 107}
+  p22: {'n': 111}
+  p23: {'n': 116}
+  p24: {'n': 121}
+  p25: {'n': 126}
+  p26: {'n': 131}
+  p27: {'n': 136}
+  p28: {'n': 141}
+  p29: {'n': 146}
+  p30: {'n': 151}

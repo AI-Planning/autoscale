@@ -1,0 +1,82 @@
+2021-07-04 19:56:59,296 INFO     No run directory, so we will not run anything
+2021-07-04 19:56:59,885 INFO     Loading cache data for baseline planners: 1866
+2021-07-04 19:56:59,982 INFO     baseline cache contains data for 969 parameter values, with min 3 max 39 avg 5.777089783281734 runtimes
+2021-07-04 19:56:59,982 INFO     Loading cache data for sart planners: 8784
+2021-07-04 19:57:00,390 INFO     sart cache contains data for 4816 parameter values, with min 3 max 39 avg 5.471760797342193 runtimes
+2021-07-04 19:57:02,124 INFO     Loading cache data for baseline planners: 346
+2021-07-04 19:57:02,139 INFO     baseline cache contains data for 1222 parameter values, with min 3 max 39 avg 5.430441898527005 runtimes
+2021-07-04 19:57:02,139 INFO     Loading cache data for sart planners: 3121
+2021-07-04 19:57:02,270 INFO     sart cache contains data for 7397 parameter values, with min 3 max 39 avg 4.828308773827227 runtimes
+2021-07-04 19:57:04,100 INFO     Loading cache data for baseline planners: 1038
+2021-07-04 19:57:04,149 INFO     baseline cache contains data for 1894 parameter values, with min 3 max 39 avg 5.147835269271384 runtimes
+2021-07-04 19:57:04,149 INFO     Loading cache data for sart planners: 3269
+2021-07-04 19:57:04,288 INFO     sart cache contains data for 9989 parameter values, with min 3 max 39 avg 4.557212934227651 runtimes
+2021-07-04 19:57:06,071 INFO     Loading cache data for baseline planners: 735
+2021-07-04 19:57:06,107 INFO     baseline cache contains data for 2275 parameter values, with min 3 max 39 avg 5.254945054945055 runtimes
+2021-07-04 19:57:06,107 INFO     Loading cache data for sart planners: 2918
+2021-07-04 19:57:06,239 INFO     sart cache contains data for 11878 parameter values, with min 3 max 39 avg 4.569456137396868 runtimes
+2021-07-04 19:57:06,239 INFO     Stored sequences: 1394
+Warning: No output dir has been provided for Runner but I have no data for {'density': 10, 'products': 232, 'orders': 34}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'density': 80, 'products': 129, 'orders': 18}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'density': 10, 'products': 263, 'orders': 33}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'density': 10, 'products': 263, 'orders': 34}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'density': 66, 'products': 37, 'orders': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'density': 20, 'products': 9, 'orders': 27}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'density': 20, 'products': 9, 'orders': 27}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'density': 80, 'products': 27, 'orders': 24}, so I consider it unsolved within the time and memory limits
+2021-07-04 19:57:17,038 INFO     Different evaluated sequences: 1297
+density 10 374 374
+density 20 249 247
+density 33 191 191
+density 50 49 49
+density 66 190 190
+density 80 234 228
+2021-07-04 19:57:30,507 INFO     Candidate sequences: 1279
+2021-07-04 19:57:30,536 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 74 use baseline 1205 use sart
+2021-07-04 19:57:30,553 INFO     Using sart runtimes on CPLEX optimization
+2021-07-04 19:57:59,863 INFO     CPLEX solve
+
+2021-07-04 19:58:17,784 INFO     Solution status = 101: MIP_optimal
+2021-07-04 19:58:17,785 INFO     Solution value  = 6.130426589779399
+Selected: sequence 1122, 18 instances from 3 to 20
+Configuration: {'density': 80, 'orders_b': 19, 'orders_m': 1.1, 'products_b': 5, 'products_m': 3.5}
+Penalty: 3.03
+Penalty sart: 1.19
+Penalty baseline: 1.84
+Estimated runtimes: 2.2, 2.5, 2.8, 3.7, 4.3, 5.4, 9.9, 20, 35, 61, 2.2e+02, 5.1e+02, 1.2e+03, 2.7e+03, 6.2e+03, 1.4e+04, 3.3e+04, 7.5e+04, 1.7e+05, 3.9e+05, 9e+05, 2.1e+06, 4.7e+06, 1.1e+07, 2.5e+07, 5.7e+07, 1.3e+08
+Selected: sequence 1034, 12 instances from 14 to 25
+Configuration: {'density': 80, 'orders_b': 20, 'orders_m': 1.1, 'products_b': 5, 'products_m': 2.7}
+Penalty: 3.10
+Penalty sart: 1.39
+Penalty baseline: 1.72
+Estimated runtimes: 69, 1.2e+02, 2.6e+02, 5e+02, 9.7e+02, 1.9e+03, 3.6e+03, 6.9e+03, 1.3e+04, 2.6e+04, 5e+04, 9.5e+04, 1.8e+05, 3.5e+05, 6.8e+05, 1.3e+06
+  p01: {'density': 80, 'products': 15, 'orders': 22}
+  p02: {'density': 80, 'products': 19, 'orders': 23}
+  p03: {'density': 80, 'products': 22, 'orders': 24}
+  p04: {'density': 80, 'products': 26, 'orders': 25}
+  p05: {'density': 80, 'products': 29, 'orders': 26}
+  p06: {'density': 80, 'products': 33, 'orders': 27}
+  p07: {'density': 80, 'products': 36, 'orders': 28}
+  p08: {'density': 80, 'products': 40, 'orders': 30}
+  p09: {'density': 80, 'products': 43, 'orders': 31}
+  p10: {'density': 80, 'products': 47, 'orders': 32}
+  p11: {'density': 80, 'products': 50, 'orders': 33}
+  p12: {'density': 80, 'products': 54, 'orders': 34}
+  p13: {'density': 80, 'products': 57, 'orders': 35}
+  p14: {'density': 80, 'products': 61, 'orders': 36}
+  p15: {'density': 80, 'products': 64, 'orders': 37}
+  p16: {'density': 80, 'products': 68, 'orders': 38}
+  p17: {'density': 80, 'products': 71, 'orders': 39}
+  p18: {'density': 80, 'products': 75, 'orders': 41}
+  p19: {'density': 80, 'products': 42, 'orders': 35}
+  p20: {'density': 80, 'products': 45, 'orders': 36}
+  p21: {'density': 80, 'products': 48, 'orders': 37}
+  p22: {'density': 80, 'products': 50, 'orders': 38}
+  p23: {'density': 80, 'products': 53, 'orders': 39}
+  p24: {'density': 80, 'products': 56, 'orders': 40}
+  p25: {'density': 80, 'products': 59, 'orders': 42}
+  p26: {'density': 80, 'products': 61, 'orders': 43}
+  p27: {'density': 80, 'products': 64, 'orders': 44}
+  p28: {'density': 80, 'products': 67, 'orders': 45}
+  p29: {'density': 80, 'products': 69, 'orders': 46}
+  p30: {'density': 80, 'products': 72, 'orders': 47}

@@ -1,0 +1,66 @@
+2021-07-04 20:54:26,134 INFO     No run directory, so we will not run anything
+2021-07-04 20:54:27,136 INFO     Loading cache data for baseline planners: 288
+2021-07-04 20:54:27,152 INFO     baseline cache contains data for 43 parameter values, with min 3 max 39 avg 20.093023255813954 runtimes
+2021-07-04 20:54:27,153 INFO     Loading cache data for sart planners: 4904
+2021-07-04 20:54:27,460 INFO     sart cache contains data for 484 parameter values, with min 3 max 39 avg 30.39669421487603 runtimes
+2021-07-04 20:54:28,612 INFO     Loading cache data for baseline planners: 0
+2021-07-04 20:54:28,612 INFO     baseline cache contains data for 43 parameter values, with min 3 max 39 avg 20.093023255813954 runtimes
+2021-07-04 20:54:28,612 INFO     Loading cache data for sart planners: 0
+2021-07-04 20:54:28,612 INFO     sart cache contains data for 484 parameter values, with min 3 max 39 avg 30.39669421487603 runtimes
+2021-07-04 20:54:29,871 INFO     Loading cache data for baseline planners: 0
+2021-07-04 20:54:29,872 INFO     baseline cache contains data for 43 parameter values, with min 3 max 39 avg 20.093023255813954 runtimes
+2021-07-04 20:54:29,872 INFO     Loading cache data for sart planners: 0
+2021-07-04 20:54:29,872 INFO     sart cache contains data for 484 parameter values, with min 3 max 39 avg 30.39669421487603 runtimes
+2021-07-04 20:54:31,113 INFO     Loading cache data for baseline planners: 0
+2021-07-04 20:54:31,113 INFO     baseline cache contains data for 43 parameter values, with min 3 max 39 avg 20.093023255813954 runtimes
+2021-07-04 20:54:31,113 INFO     Loading cache data for sart planners: 0
+2021-07-04 20:54:31,114 INFO     sart cache contains data for 484 parameter values, with min 3 max 39 avg 30.39669421487603 runtimes
+2021-07-04 20:54:31,114 INFO     Stored sequences: 3476
+2021-07-04 20:55:22,022 INFO     Different evaluated sequences: 1555
+num_robots 2 371 346
+num_robots 3 362 332
+num_robots 4 318 293
+num_robots 5 314 290
+2021-07-04 20:55:30,398 INFO     Candidate sequences: 1261
+2021-07-04 20:55:30,423 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 102 use baseline 1159 use sart
+2021-07-04 20:55:30,439 INFO     Using sart runtimes on CPLEX optimization
+2021-07-04 20:56:51,568 INFO     CPLEX solve
+
+2021-07-04 20:58:26,075 INFO     Solution status = 101: MIP_optimal
+2021-07-04 20:58:26,075 INFO     Solution value  = 10.281462504568312
+Selected: sequence 278, 30 instances from 0 to 29
+Configuration: {'grid_m': 7.1, 'grid_maxdiff': 4, 'grid_x': 2, 'num_robots': 3}
+Penalty: 8.28
+Penalty sart: 0.28
+Penalty baseline: 8.00
+Estimated runtimes: 0.21, 0.23, 0.25, 0.35, 0.59, 1, 1.8, 3.3, 5.8, 9.9, 17, 27, 41, 70, 1.1e+02, 1.8e+02, 2.9e+02, 4.8e+02, 7.8e+02, 1.3e+03, 2e+03, 3.3e+03, 5.4e+03, 8.8e+03, 1.4e+04, 2.3e+04, 3.8e+04, 6.1e+04, 9.9e+04, 1.6e+05
+  p01: {'num_columns': 2, 'num_rows': 2, 'num_robots': 2}
+  p02: {'num_columns': 3, 'num_rows': 5, 'num_robots': 3}
+  p03: {'num_columns': 4, 'num_rows': 7, 'num_robots': 3}
+  p04: {'num_columns': 5, 'num_rows': 9, 'num_robots': 3}
+  p05: {'num_columns': 8, 'num_rows': 8, 'num_robots': 3}
+  p06: {'num_columns': 9, 'num_rows': 10, 'num_robots': 3}
+  p07: {'num_columns': 10, 'num_rows': 12, 'num_robots': 3}
+  p08: {'num_columns': 11, 'num_rows': 14, 'num_robots': 3}
+  p09: {'num_columns': 12, 'num_rows': 16, 'num_robots': 3}
+  p10: {'num_columns': 15, 'num_rows': 15, 'num_robots': 3}
+  p11: {'num_columns': 15, 'num_rows': 19, 'num_robots': 3}
+  p12: {'num_columns': 18, 'num_rows': 18, 'num_robots': 3}
+  p13: {'num_columns': 19, 'num_rows': 20, 'num_robots': 3}
+  p14: {'num_columns': 20, 'num_rows': 22, 'num_robots': 3}
+  p15: {'num_columns': 21, 'num_rows': 24, 'num_robots': 3}
+  p16: {'num_columns': 22, 'num_rows': 26, 'num_robots': 3}
+  p17: {'num_columns': 25, 'num_rows': 25, 'num_robots': 3}
+  p18: {'num_columns': 26, 'num_rows': 27, 'num_robots': 3}
+  p19: {'num_columns': 27, 'num_rows': 29, 'num_robots': 3}
+  p20: {'num_columns': 28, 'num_rows': 31, 'num_robots': 3}
+  p21: {'num_columns': 29, 'num_rows': 33, 'num_robots': 3}
+  p22: {'num_columns': 31, 'num_rows': 34, 'num_robots': 3}
+  p23: {'num_columns': 32, 'num_rows': 36, 'num_robots': 3}
+  p24: {'num_columns': 35, 'num_rows': 35, 'num_robots': 3}
+  p25: {'num_columns': 36, 'num_rows': 37, 'num_robots': 3}
+  p26: {'num_columns': 37, 'num_rows': 39, 'num_robots': 3}
+  p27: {'num_columns': 38, 'num_rows': 41, 'num_robots': 3}
+  p28: {'num_columns': 39, 'num_rows': 43, 'num_robots': 3}
+  p29: {'num_columns': 42, 'num_rows': 42, 'num_robots': 3}
+  p30: {'num_columns': 43, 'num_rows': 44, 'num_robots': 3}

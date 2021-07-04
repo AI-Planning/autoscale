@@ -1,0 +1,171 @@
+2021-07-04 20:48:47,814 INFO     No run directory, so we will not run anything
+2021-07-04 20:48:48,781 INFO     Loading cache data for baseline planners: 1282
+2021-07-04 20:48:48,844 INFO     baseline cache contains data for 667 parameter values, with min 3 max 39 avg 5.766116941529235 runtimes
+2021-07-04 20:48:48,844 INFO     Loading cache data for sart planners: 5455
+2021-07-04 20:48:49,098 INFO     sart cache contains data for 3486 parameter values, with min 3 max 39 avg 4.694492254733219 runtimes
+2021-07-04 20:48:50,195 INFO     Loading cache data for baseline planners: 175
+2021-07-04 20:48:50,202 INFO     baseline cache contains data for 803 parameter values, with min 3 max 39 avg 5.443337484433375 runtimes
+2021-07-04 20:48:50,202 INFO     Loading cache data for sart planners: 1151
+2021-07-04 20:48:50,251 INFO     sart cache contains data for 4446 parameter values, with min 3 max 39 avg 4.4574898785425106 runtimes
+2021-07-04 20:48:51,438 INFO     Loading cache data for baseline planners: 185
+2021-07-04 20:48:51,445 INFO     baseline cache contains data for 959 parameter values, with min 3 max 39 avg 5.13660062565172 runtimes
+2021-07-04 20:48:51,445 INFO     Loading cache data for sart planners: 1219
+2021-07-04 20:48:51,496 INFO     sart cache contains data for 5476 parameter values, with min 3 max 39 avg 4.286888239590942 runtimes
+2021-07-04 20:48:52,676 INFO     Loading cache data for baseline planners: 138
+2021-07-04 20:48:52,681 INFO     baseline cache contains data for 1069 parameter values, with min 3 max 39 avg 4.99532273152479 runtimes
+2021-07-04 20:48:52,681 INFO     Loading cache data for sart planners: 1154
+2021-07-04 20:48:52,731 INFO     sart cache contains data for 6447 parameter values, with min 3 max 39 avg 4.1782224290367616 runtimes
+2021-07-04 20:48:52,731 INFO     Stored sequences: 440
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'ring-network', 'layers': 5, 'extra_items': 8, 'extra_scripts': 38, 'items': 13, 'scripts': 49}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'ring-network', 'layers': 5, 'extra_items': 4, 'extra_scripts': 28, 'items': 9, 'scripts': 35}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'small-network', 'layers': 5, 'extra_items': 3, 'extra_scripts': 2, 'items': 8, 'scripts': 8}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 13, 'extra_scripts': 69, 'items': 15, 'scripts': 82}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 13, 'extra_scripts': 69, 'items': 15, 'scripts': 82}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'small-network', 'layers': 2, 'extra_items': 5, 'extra_scripts': 11, 'items': 7, 'scripts': 16}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 10, 'extra_scripts': 3, 'items': 12, 'scripts': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'small-network', 'layers': 2, 'extra_items': 7, 'extra_scripts': 7, 'items': 9, 'scripts': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'small-network', 'layers': 5, 'extra_items': 3, 'extra_scripts': 2, 'items': 8, 'scripts': 8}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 15, 'extra_scripts': 68, 'items': 17, 'scripts': 83}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'ring-network', 'layers': 4, 'extra_items': 7, 'extra_scripts': 4, 'items': 11, 'scripts': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 11, 'extra_scripts': 52, 'items': 13, 'scripts': 63}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 10, 'extra_scripts': 3, 'items': 12, 'scripts': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 14, 'extra_scripts': 76, 'items': 16, 'scripts': 90}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 11, 'extra_scripts': 24, 'items': 13, 'scripts': 35}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'ring-network', 'layers': 5, 'extra_items': 6, 'extra_scripts': 16, 'items': 11, 'scripts': 25}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'ring-network', 'layers': 5, 'extra_items': 19, 'extra_scripts': 2, 'items': 24, 'scripts': 24}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'ring-network', 'layers': 5, 'extra_items': 5, 'extra_scripts': 13, 'items': 10, 'scripts': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'ring-network', 'layers': 6, 'extra_items': 23, 'extra_scripts': 37, 'items': 29, 'scripts': 64}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'ring-network', 'layers': 2, 'extra_items': 13, 'extra_scripts': 7, 'items': 15, 'scripts': 20}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'ring-network', 'layers': 5, 'extra_items': 10, 'extra_scripts': 24, 'items': 15, 'scripts': 37}, so I consider it unsolved within the time and memory limits
+2021-07-04 20:48:56,591 INFO     Different evaluated sequences: 385
+network tiny-network 10 10
+network small-network 30 30
+network ring-network 303 300
+layers 2 113 113
+layers 3 84 83
+layers 4 31 30
+layers 5 92 91
+layers 6 23 23
+network tiny-network 2 2
+network small-network 2 2
+network ring-network 4 4
+layers 2 2 2
+layers 3 3 3
+layers 4 1 1
+layers 5 1 1
+layers 6 1 1
+network tiny-network 4 4
+network small-network 3 3
+network ring-network 9 9
+layers 2 3 3
+layers 3 0 0
+layers 4 3 3
+layers 5 7 7
+layers 6 3 3
+network tiny-network 2 2
+network small-network 0 0
+network ring-network 0 0
+layers 2 2 2
+layers 3 0 0
+layers 4 0 0
+layers 5 0 0
+layers 6 0 0
+network tiny-network 1 1
+network small-network 0 0
+network ring-network 0 0
+layers 2 0 0
+layers 3 0 0
+layers 4 1 1
+layers 5 0 0
+layers 6 0 0
+network tiny-network 3 3
+network small-network 2 2
+network ring-network 0 0
+layers 2 2 2
+layers 3 2 2
+layers 4 0 0
+layers 5 0 0
+layers 6 1 1
+network tiny-network 2 2
+network small-network 0 0
+network ring-network 0 0
+layers 2 2 2
+layers 3 0 0
+layers 4 0 0
+layers 5 0 0
+layers 6 0 0
+network tiny-network 1 1
+network small-network 1 1
+network ring-network 0 0
+layers 2 0 0
+layers 3 0 0
+layers 4 1 1
+layers 5 1 1
+layers 6 0 0
+network tiny-network 3 3
+network small-network 0 0
+network ring-network 0 0
+layers 2 0 0
+layers 3 2 2
+layers 4 0 0
+layers 5 1 1
+layers 6 0 0
+network tiny-network 0 0
+network small-network 0 0
+network ring-network 0 0
+layers 2 0 0
+layers 3 0 0
+layers 4 0 0
+layers 5 0 0
+layers 6 0 0
+network tiny-network 3 3
+network small-network 0 0
+network ring-network 0 0
+layers 2 0 0
+layers 3 0 0
+layers 4 0 0
+layers 5 3 3
+layers 6 0 0
+2021-07-04 20:49:03,570 INFO     Candidate sequences: 382
+2021-07-04 20:49:03,579 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 163 use baseline 219 use sart
+2021-07-04 20:49:03,585 INFO     Using sart runtimes on CPLEX optimization
+2021-07-04 20:49:05,190 INFO     CPLEX solve
+
+2021-07-04 20:49:06,552 INFO     Solution status = 101: MIP_optimal
+2021-07-04 20:49:06,552 INFO     Solution value  = 10.948441226479138
+Selected: sequence 6, 30 instances from 0 to 29
+Configuration: {'extra_items_b': 4, 'extra_items_m': 3.6, 'extra_scripts_b': 6, 'extra_scripts_m': 4.0, 'layers': 3, 'network': 'ring-network'}
+Penalty: 8.95
+Penalty sart: 1.72
+Penalty baseline: 7.23
+Estimated runtimes: 1.1, 2, 3, 3.9, 4.4, 9.2, 13, 18, 20, 32, 39, 55, 1.4e+02, 2.1e+02, 3.1e+02, 4.7e+02, 7.1e+02, 1.1e+03, 1.6e+03, 2.5e+03, 3.8e+03, 5.7e+03, 8.6e+03, 1.3e+04, 2e+04, 3e+04, 4.5e+04, 6.8e+04, 1e+05, 1.6e+05
+  p01: {'network': 'ring-network', 'layers': 3, 'extra_items': 4, 'extra_scripts': 6, 'items': 7, 'scripts': 11}
+  p02: {'network': 'ring-network', 'layers': 3, 'extra_items': 7, 'extra_scripts': 10, 'items': 10, 'scripts': 18}
+  p03: {'network': 'ring-network', 'layers': 3, 'extra_items': 11, 'extra_scripts': 14, 'items': 14, 'scripts': 26}
+  p04: {'network': 'ring-network', 'layers': 3, 'extra_items': 14, 'extra_scripts': 18, 'items': 17, 'scripts': 33}
+  p05: {'network': 'ring-network', 'layers': 3, 'extra_items': 18, 'extra_scripts': 22, 'items': 21, 'scripts': 41}
+  p06: {'network': 'ring-network', 'layers': 3, 'extra_items': 22, 'extra_scripts': 26, 'items': 25, 'scripts': 49}
+  p07: {'network': 'ring-network', 'layers': 3, 'extra_items': 25, 'extra_scripts': 30, 'items': 28, 'scripts': 56}
+  p08: {'network': 'ring-network', 'layers': 3, 'extra_items': 29, 'extra_scripts': 34, 'items': 32, 'scripts': 64}
+  p09: {'network': 'ring-network', 'layers': 3, 'extra_items': 32, 'extra_scripts': 38, 'items': 35, 'scripts': 71}
+  p10: {'network': 'ring-network', 'layers': 3, 'extra_items': 36, 'extra_scripts': 42, 'items': 39, 'scripts': 79}
+  p11: {'network': 'ring-network', 'layers': 3, 'extra_items': 40, 'extra_scripts': 46, 'items': 43, 'scripts': 87}
+  p12: {'network': 'ring-network', 'layers': 3, 'extra_items': 43, 'extra_scripts': 50, 'items': 46, 'scripts': 94}
+  p13: {'network': 'ring-network', 'layers': 3, 'extra_items': 47, 'extra_scripts': 54, 'items': 50, 'scripts': 102}
+  p14: {'network': 'ring-network', 'layers': 3, 'extra_items': 50, 'extra_scripts': 58, 'items': 53, 'scripts': 109}
+  p15: {'network': 'ring-network', 'layers': 3, 'extra_items': 54, 'extra_scripts': 62, 'items': 57, 'scripts': 117}
+  p16: {'network': 'ring-network', 'layers': 3, 'extra_items': 58, 'extra_scripts': 66, 'items': 61, 'scripts': 125}
+  p17: {'network': 'ring-network', 'layers': 3, 'extra_items': 61, 'extra_scripts': 70, 'items': 64, 'scripts': 132}
+  p18: {'network': 'ring-network', 'layers': 3, 'extra_items': 65, 'extra_scripts': 74, 'items': 68, 'scripts': 140}
+  p19: {'network': 'ring-network', 'layers': 3, 'extra_items': 68, 'extra_scripts': 78, 'items': 71, 'scripts': 147}
+  p20: {'network': 'ring-network', 'layers': 3, 'extra_items': 72, 'extra_scripts': 82, 'items': 75, 'scripts': 155}
+  p21: {'network': 'ring-network', 'layers': 3, 'extra_items': 76, 'extra_scripts': 86, 'items': 79, 'scripts': 163}
+  p22: {'network': 'ring-network', 'layers': 3, 'extra_items': 79, 'extra_scripts': 90, 'items': 82, 'scripts': 170}
+  p23: {'network': 'ring-network', 'layers': 3, 'extra_items': 83, 'extra_scripts': 94, 'items': 86, 'scripts': 178}
+  p24: {'network': 'ring-network', 'layers': 3, 'extra_items': 86, 'extra_scripts': 98, 'items': 89, 'scripts': 185}
+  p25: {'network': 'ring-network', 'layers': 3, 'extra_items': 90, 'extra_scripts': 102, 'items': 93, 'scripts': 193}
+  p26: {'network': 'ring-network', 'layers': 3, 'extra_items': 93, 'extra_scripts': 106, 'items': 96, 'scripts': 200}
+  p27: {'network': 'ring-network', 'layers': 3, 'extra_items': 97, 'extra_scripts': 110, 'items': 100, 'scripts': 208}
+  p28: {'network': 'ring-network', 'layers': 3, 'extra_items': 101, 'extra_scripts': 114, 'items': 104, 'scripts': 216}
+  p29: {'network': 'ring-network', 'layers': 3, 'extra_items': 104, 'extra_scripts': 118, 'items': 107, 'scripts': 223}
+  p30: {'network': 'ring-network', 'layers': 3, 'extra_items': 108, 'extra_scripts': 122, 'items': 111, 'scripts': 231}

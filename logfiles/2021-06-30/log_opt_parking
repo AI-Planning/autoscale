@@ -1,0 +1,76 @@
+2021-07-04 19:58:20,738 INFO     No run directory, so we will not run anything
+2021-07-04 19:58:21,345 INFO     Loading cache data for baseline planners: 233
+2021-07-04 19:58:21,358 INFO     baseline cache contains data for 22 parameter values, with min 12 max 39 avg 31.772727272727273 runtimes
+2021-07-04 19:58:21,358 INFO     Loading cache data for sart planners: 341
+2021-07-04 19:58:21,379 INFO     sart cache contains data for 34 parameter values, with min 3 max 39 avg 30.08823529411765 runtimes
+2021-07-04 19:58:23,129 INFO     Loading cache data for baseline planners: 0
+2021-07-04 19:58:23,129 INFO     baseline cache contains data for 22 parameter values, with min 12 max 39 avg 31.772727272727273 runtimes
+2021-07-04 19:58:23,130 INFO     Loading cache data for sart planners: 0
+2021-07-04 19:58:23,130 INFO     sart cache contains data for 34 parameter values, with min 3 max 39 avg 30.08823529411765 runtimes
+2021-07-04 19:58:24,952 INFO     Loading cache data for baseline planners: 0
+2021-07-04 19:58:24,952 INFO     baseline cache contains data for 22 parameter values, with min 12 max 39 avg 31.772727272727273 runtimes
+2021-07-04 19:58:24,952 INFO     Loading cache data for sart planners: 0
+2021-07-04 19:58:24,952 INFO     sart cache contains data for 34 parameter values, with min 3 max 39 avg 30.08823529411765 runtimes
+2021-07-04 19:58:26,707 INFO     Loading cache data for baseline planners: 0
+2021-07-04 19:58:26,707 INFO     baseline cache contains data for 22 parameter values, with min 12 max 39 avg 31.772727272727273 runtimes
+2021-07-04 19:58:26,707 INFO     Loading cache data for sart planners: 0
+2021-07-04 19:58:26,707 INFO     sart cache contains data for 34 parameter values, with min 3 max 39 avg 30.08823529411765 runtimes
+2021-07-04 19:58:26,707 INFO     Stored sequences: 639
+2021-07-04 19:58:29,397 INFO     Different evaluated sequences: 36
+cars_diff 0 10 8
+cars_diff -1 11 11
+cars_diff -2 15 12
+2021-07-04 19:58:29,399 INFO     Candidate sequences: 31
+2021-07-04 19:58:29,399 INFO     Using sart runtimes on CPLEX optimization
+2021-07-04 19:58:29,457 INFO     CPLEX solve
+
+2021-07-04 19:58:29,540 INFO     Solution status = 101: MIP_optimal
+2021-07-04 19:58:29,540 INFO     Solution value  = 74.890705167302
+Selected: sequence 1, 5 instances from 3 to 7
+Configuration: {'cars_diff': 0, 'curbs_b': 3, 'curbs_m': 1.0}
+Penalty: 15.36
+Penalty sart: 7.36
+Penalty baseline: 8.00
+Estimated runtimes: 3.8, 64, 2.2e+02, 2.2e+03, 2.2e+04, 2.3e+05, 2.3e+06, 2.3e+07, 2.4e+08, 2.4e+09, 2.4e+10, 2.4e+11, 2.5e+12, 2.5e+13, 2.5e+14, 2.6e+15, 2.6e+16, 2.6e+17, 2.7e+18, 2.7e+19, 2.7e+20, 2.8e+21, 2.8e+22, 2.8e+23, 2.9e+24, 2.9e+25, 2.9e+26
+Selected: sequence 3, 12 instances from 0 to 11
+Configuration: {'cars_diff': -1, 'curbs_b': 3, 'curbs_m': 1.1}
+Penalty: 14.37
+Penalty sart: 6.37
+Penalty baseline: 8.00
+Estimated runtimes: 0.56, 0.65, 0.94, 2, 4.6, 24, 1.2e+02, 2.7e+02, 1.1e+03, 4.5e+03, 1.9e+04, 7.7e+04, 3.2e+05, 1.3e+06, 5.4e+06, 2.2e+07, 9.1e+07, 3.8e+08, 1.5e+09, 6.4e+09, 2.6e+10, 1.1e+11, 4.5e+11, 1.8e+12, 7.6e+12, 3.1e+13, 1.3e+14, 5.3e+14, 2.2e+15, 9e+15
+Selected: sequence 17, 13 instances from 0 to 12
+Configuration: {'cars_diff': -2, 'curbs_b': 4, 'curbs_m': 1.1}
+Penalty: 13.16
+Penalty sart: 5.26
+Penalty baseline: 7.90
+Estimated runtimes: 0.58, 0.78, 1.3, 3.2, 18, 65, 1.5e+02, 3.1e+02, 1.1e+03, 3.6e+03, 1.2e+04, 4.3e+04, 1.5e+05, 5e+05, 1.7e+06, 5.9e+06, 2e+07, 7e+07, 2.4e+08, 8.2e+08, 2.8e+09, 9.6e+09, 3.3e+10, 1.1e+11, 3.9e+11, 1.3e+12, 4.6e+12, 1.6e+13, 5.4e+13, 1.9e+14
+  p01: {'curbs': 6, 'cars': 10}
+  p02: {'curbs': 7, 'cars': 12}
+  p03: {'curbs': 8, 'cars': 14}
+  p04: {'curbs': 9, 'cars': 16}
+  p05: {'curbs': 10, 'cars': 18}
+  p06: {'curbs': 3, 'cars': 3}
+  p07: {'curbs': 4, 'cars': 5}
+  p08: {'curbs': 5, 'cars': 7}
+  p09: {'curbs': 6, 'cars': 9}
+  p10: {'curbs': 7, 'cars': 11}
+  p11: {'curbs': 8, 'cars': 13}
+  p12: {'curbs': 9, 'cars': 15}
+  p13: {'curbs': 10, 'cars': 17}
+  p14: {'curbs': 11, 'cars': 19}
+  p15: {'curbs': 12, 'cars': 21}
+  p16: {'curbs': 13, 'cars': 23}
+  p17: {'curbs': 15, 'cars': 27}
+  p18: {'curbs': 4, 'cars': 4}
+  p19: {'curbs': 5, 'cars': 6}
+  p20: {'curbs': 6, 'cars': 8}
+  p21: {'curbs': 7, 'cars': 10}
+  p22: {'curbs': 8, 'cars': 12}
+  p23: {'curbs': 9, 'cars': 14}
+  p24: {'curbs': 10, 'cars': 16}
+  p25: {'curbs': 11, 'cars': 18}
+  p26: {'curbs': 12, 'cars': 20}
+  p27: {'curbs': 13, 'cars': 22}
+  p28: {'curbs': 14, 'cars': 24}
+  p29: {'curbs': 16, 'cars': 28}
+  p30: {'curbs': 17, 'cars': 30}

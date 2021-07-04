@@ -1,0 +1,73 @@
+2021-07-04 19:40:56,078 INFO     No run directory, so we will not run anything
+2021-07-04 19:40:56,700 INFO     Loading cache data for baseline planners: 156
+2021-07-04 19:40:56,710 INFO     baseline cache contains data for 12 parameter values, with min 39 max 39 avg 39 runtimes
+2021-07-04 19:40:56,710 INFO     Loading cache data for sart planners: 1647
+2021-07-04 19:40:56,826 INFO     sart cache contains data for 144 parameter values, with min 3 max 39 avg 34.3125 runtimes
+2021-07-04 19:40:58,616 INFO     Loading cache data for baseline planners: 0
+2021-07-04 19:40:58,617 INFO     baseline cache contains data for 12 parameter values, with min 39 max 39 avg 39 runtimes
+2021-07-04 19:40:58,617 INFO     Loading cache data for sart planners: 0
+2021-07-04 19:40:58,617 INFO     sart cache contains data for 144 parameter values, with min 3 max 39 avg 34.3125 runtimes
+2021-07-04 19:41:00,455 INFO     Loading cache data for baseline planners: 0
+2021-07-04 19:41:00,456 INFO     baseline cache contains data for 12 parameter values, with min 39 max 39 avg 39 runtimes
+2021-07-04 19:41:00,456 INFO     Loading cache data for sart planners: 0
+2021-07-04 19:41:00,456 INFO     sart cache contains data for 144 parameter values, with min 3 max 39 avg 34.3125 runtimes
+2021-07-04 19:41:02,245 INFO     Loading cache data for baseline planners: 0
+2021-07-04 19:41:02,245 INFO     baseline cache contains data for 12 parameter values, with min 39 max 39 avg 39 runtimes
+2021-07-04 19:41:02,245 INFO     Loading cache data for sart planners: 0
+2021-07-04 19:41:02,245 INFO     sart cache contains data for 144 parameter values, with min 3 max 39 avg 34.3125 runtimes
+2021-07-04 19:41:02,245 INFO     Stored sequences: 1178
+2021-07-04 19:41:31,062 INFO     Different evaluated sequences: 206
+2021-07-04 19:41:32,644 INFO     Candidate sequences: 152
+2021-07-04 19:41:32,649 INFO     Using baseline runtimes on CPLEX optimization
+2021-07-04 19:41:33,611 INFO     CPLEX solve
+
+2021-07-04 19:41:37,305 INFO     Solution status = 101: MIP_optimal
+2021-07-04 19:41:37,306 INFO     Solution value  = 25919.213634199845
+Selected: sequence 205, 10 instances from 0 to 9
+Configuration: {'n_b': 10, 'n_m': 3.2}
+Penalty: 18.17
+Penalty sart: 10.17
+Penalty baseline: 8.00
+Estimated runtimes: 1.4, 3.2, 31, 1.9e+02, 1.1e+03, 6.7e+03, 4e+04, 2.4e+05, 1.4e+06, 8.5e+06, 5.1e+07, 3e+08, 1.8e+09, 1.1e+10, 6.5e+10, 3.9e+11, 2.3e+12, 1.4e+13, 8.3e+13, 5e+14, 3e+15, 1.8e+16, 1.1e+17, 6.3e+17, 3.8e+18, 2.3e+19, 1.4e+20, 8.1e+20, 4.8e+21, 2.9e+22
+Selected: sequence 20, 11 instances from 0 to 10
+Configuration: {'n_b': 8, 'n_m': 3.2}
+Penalty: 17.00
+Penalty sart: 10.19
+Penalty baseline: 6.81
+Estimated runtimes: 1.6, 3.2, 6.7, 70, 4.4e+02, 2.8e+03, 1.8e+04, 1.1e+05, 7e+05, 4.4e+06, 2.8e+07, 1.7e+08, 1.1e+09, 6.9e+09, 4.4e+10, 2.8e+11, 1.7e+12, 1.1e+13, 6.9e+13, 4.4e+14, 2.7e+15, 1.7e+16, 1.1e+17, 6.9e+17, 4.3e+18, 2.7e+19, 1.7e+20, 1.1e+21, 6.8e+21, 4.3e+22
+Selected: sequence 135, 9 instances from 0 to 8
+Configuration: {'n_b': 9, 'n_m': 3.2}
+Penalty: 17.06
+Penalty sart: 10.24
+Penalty baseline: 6.82
+Estimated runtimes: 1.6, 1.9, 14, 1.6e+02, 1.4e+03, 1.3e+04, 1.2e+05, 1.1e+06, 1e+07, 9.6e+07, 8.8e+08, 8.1e+09, 7.5e+10, 6.9e+11, 6.4e+12, 5.9e+13, 5.4e+14, 5e+15, 4.6e+16, 4.3e+17, 3.9e+18, 3.6e+19, 3.3e+20, 3.1e+21, 2.8e+22, 2.6e+23, 2.4e+24, 2.2e+25, 2.1e+26, 1.9e+27
+  p01: {'n': 10}
+  p02: {'n': 13}
+  p03: {'n': 16}
+  p04: {'n': 19}
+  p05: {'n': 22}
+  p06: {'n': 25}
+  p07: {'n': 29}
+  p08: {'n': 32}
+  p09: {'n': 35}
+  p10: {'n': 38}
+  p11: {'n': 8}
+  p12: {'n': 11}
+  p13: {'n': 14}
+  p14: {'n': 17}
+  p15: {'n': 20}
+  p16: {'n': 23}
+  p17: {'n': 27}
+  p18: {'n': 30}
+  p19: {'n': 33}
+  p20: {'n': 36}
+  p21: {'n': 40}
+  p22: {'n': 9}
+  p23: {'n': 12}
+  p24: {'n': 15}
+  p25: {'n': 18}
+  p26: {'n': 21}
+  p27: {'n': 24}
+  p28: {'n': 28}
+  p29: {'n': 31}
+  p30: {'n': 34}

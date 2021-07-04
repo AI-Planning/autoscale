@@ -1,0 +1,69 @@
+2021-07-04 21:59:28,223 INFO     No run directory, so we will not run anything
+2021-07-04 21:59:29,274 INFO     Loading cache data for baseline planners: 893
+2021-07-04 21:59:29,328 INFO     baseline cache contains data for 204 parameter values, with min 3 max 39 avg 13.132352941176471 runtimes
+2021-07-04 21:59:29,328 INFO     Loading cache data for sart planners: 4164
+2021-07-04 21:59:29,590 INFO     sart cache contains data for 853 parameter values, with min 3 max 39 avg 14.644783118405627 runtimes
+2021-07-04 21:59:30,986 INFO     Loading cache data for baseline planners: 86
+2021-07-04 21:59:30,990 INFO     baseline cache contains data for 226 parameter values, with min 3 max 39 avg 12.995575221238939 runtimes
+2021-07-04 21:59:30,990 INFO     Loading cache data for sart planners: 301
+2021-07-04 21:59:31,008 INFO     sart cache contains data for 936 parameter values, with min 3 max 39 avg 14.310897435897436 runtimes
+2021-07-04 21:59:32,346 INFO     Loading cache data for baseline planners: 0
+2021-07-04 21:59:32,346 INFO     baseline cache contains data for 226 parameter values, with min 3 max 39 avg 12.995575221238939 runtimes
+2021-07-04 21:59:32,346 INFO     Loading cache data for sart planners: 0
+2021-07-04 21:59:32,347 INFO     sart cache contains data for 936 parameter values, with min 3 max 39 avg 14.310897435897436 runtimes
+2021-07-04 21:59:33,674 INFO     Loading cache data for baseline planners: 0
+2021-07-04 21:59:33,675 INFO     baseline cache contains data for 226 parameter values, with min 3 max 39 avg 12.995575221238939 runtimes
+2021-07-04 21:59:33,675 INFO     Loading cache data for sart planners: 0
+2021-07-04 21:59:33,675 INFO     sart cache contains data for 936 parameter values, with min 3 max 39 avg 14.310897435897436 runtimes
+2021-07-04 21:59:33,676 INFO     Stored sequences: 8956
+2021-07-04 22:01:13,724 INFO     Different evaluated sequences: 5076
+num_machines 1 1708 1000
+num_machines 2 1872 1000
+num_machines 3 1437 1000
+wood_factor 1.0 492 384
+wood_factor 1.25 1369 1000
+wood_factor 1.5 1565 1000
+wood_factor 2.0 1591 1000
+2021-07-04 22:06:45,194 INFO     Candidate sequences: 3465
+2021-07-04 22:06:45,269 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 452 use baseline 3013 use sart
+2021-07-04 22:06:45,314 INFO     Using sart runtimes on CPLEX optimization
+2021-07-04 22:10:23,945 INFO     CPLEX solve
+
+2021-07-04 22:15:17,784 INFO     Solution status = 101: MIP_optimal
+2021-07-04 22:15:17,784 INFO     Solution value  = 6.9812296847594695
+Selected: sequence 3339, 30 instances from 0 to 29
+Configuration: {'num_machines': 2, 'size_b': 5, 'size_m': 5.6000000000000005, 'wood_factor': 2.0}
+Penalty: 6.98
+Penalty sart: 0.96
+Penalty baseline: 6.02
+Estimated runtimes: 0.28, 0.62, 2.4, 5.9, 14, 20, 29, 42, 55, 68, 79, 1e+02, 1.6e+02, 2.2e+02, 3.2e+02, 4.7e+02, 6.8e+02, 9.9e+02, 1.5e+03, 2.1e+03, 3.1e+03, 4.5e+03, 6.7e+03, 9.7e+03, 1.4e+04, 2.1e+04, 3e+04, 4.4e+04, 6.5e+04, 9.5e+04
+  p01: {'size': 5, 'num_machines': 2, 'wood_factor': 2.0}
+  p02: {'size': 10, 'num_machines': 2, 'wood_factor': 2.0}
+  p03: {'size': 16, 'num_machines': 2, 'wood_factor': 2.0}
+  p04: {'size': 21, 'num_machines': 2, 'wood_factor': 2.0}
+  p05: {'size': 27, 'num_machines': 2, 'wood_factor': 2.0}
+  p06: {'size': 33, 'num_machines': 2, 'wood_factor': 2.0}
+  p07: {'size': 38, 'num_machines': 2, 'wood_factor': 2.0}
+  p08: {'size': 44, 'num_machines': 2, 'wood_factor': 2.0}
+  p09: {'size': 49, 'num_machines': 2, 'wood_factor': 2.0}
+  p10: {'size': 55, 'num_machines': 2, 'wood_factor': 2.0}
+  p11: {'size': 61, 'num_machines': 2, 'wood_factor': 2.0}
+  p12: {'size': 66, 'num_machines': 2, 'wood_factor': 2.0}
+  p13: {'size': 72, 'num_machines': 2, 'wood_factor': 2.0}
+  p14: {'size': 77, 'num_machines': 2, 'wood_factor': 2.0}
+  p15: {'size': 83, 'num_machines': 2, 'wood_factor': 2.0}
+  p16: {'size': 88, 'num_machines': 2, 'wood_factor': 2.0}
+  p17: {'size': 94, 'num_machines': 2, 'wood_factor': 2.0}
+  p18: {'size': 100, 'num_machines': 2, 'wood_factor': 2.0}
+  p19: {'size': 105, 'num_machines': 2, 'wood_factor': 2.0}
+  p20: {'size': 111, 'num_machines': 2, 'wood_factor': 2.0}
+  p21: {'size': 116, 'num_machines': 2, 'wood_factor': 2.0}
+  p22: {'size': 122, 'num_machines': 2, 'wood_factor': 2.0}
+  p23: {'size': 128, 'num_machines': 2, 'wood_factor': 2.0}
+  p24: {'size': 133, 'num_machines': 2, 'wood_factor': 2.0}
+  p25: {'size': 139, 'num_machines': 2, 'wood_factor': 2.0}
+  p26: {'size': 144, 'num_machines': 2, 'wood_factor': 2.0}
+  p27: {'size': 150, 'num_machines': 2, 'wood_factor': 2.0}
+  p28: {'size': 156, 'num_machines': 2, 'wood_factor': 2.0}
+  p29: {'size': 161, 'num_machines': 2, 'wood_factor': 2.0}
+  p30: {'size': 167, 'num_machines': 2, 'wood_factor': 2.0}

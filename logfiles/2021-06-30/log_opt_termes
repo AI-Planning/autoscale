@@ -1,0 +1,74 @@
+2021-07-04 20:02:10,732 INFO     No run directory, so we will not run anything
+2021-07-04 20:02:11,360 INFO     Loading cache data for baseline planners: 2276
+2021-07-04 20:02:11,502 INFO     baseline cache contains data for 444 parameter values, with min 3 max 39 avg 15.378378378378379 runtimes
+2021-07-04 20:02:11,502 INFO     Loading cache data for sart planners: 2493
+2021-07-04 20:02:11,651 INFO     sart cache contains data for 514 parameter values, with min 3 max 39 avg 14.550583657587548 runtimes
+2021-07-04 20:02:13,421 INFO     Loading cache data for baseline planners: 782
+2021-07-04 20:02:13,460 INFO     baseline cache contains data for 725 parameter values, with min 3 max 39 avg 12.653793103448276 runtimes
+2021-07-04 20:02:13,460 INFO     Loading cache data for sart planners: 1443
+2021-07-04 20:02:13,532 INFO     sart cache contains data for 1033 parameter values, with min 3 max 39 avg 11.43078412391094 runtimes
+2021-07-04 20:02:15,371 INFO     Loading cache data for baseline planners: 155
+2021-07-04 20:02:15,376 INFO     baseline cache contains data for 811 parameter values, with min 3 max 39 avg 11.885326757090013 runtimes
+2021-07-04 20:02:15,376 INFO     Loading cache data for sart planners: 203
+2021-07-04 20:02:15,385 INFO     sart cache contains data for 1154 parameter values, with min 3 max 39 avg 10.75996533795494 runtimes
+2021-07-04 20:02:17,140 INFO     Loading cache data for baseline planners: 86
+2021-07-04 20:02:17,144 INFO     baseline cache contains data for 854 parameter values, with min 3 max 39 avg 11.588992974238876 runtimes
+2021-07-04 20:02:17,144 INFO     Loading cache data for sart planners: 201
+2021-07-04 20:02:17,152 INFO     sart cache contains data for 1258 parameter values, with min 3 max 39 avg 10.349761526232115 runtimes
+2021-07-04 20:02:17,153 INFO     Stored sequences: 18021
+Warning: No output dir has been provided for Runner but I have no data for {'x': 3, 'y': 6, 'min_height': 3, 'max_height': 4, 'num_towers': 2}, so I consider it unsolved within the time and memory limits
+2021-07-04 20:02:28,472 INFO     Different evaluated sequences: 323
+2021-07-04 20:02:29,483 INFO     Candidate sequences: 298
+2021-07-04 20:02:29,487 INFO     Using sart runtimes on CPLEX optimization
+2021-07-04 20:02:31,850 INFO     CPLEX solve
+
+2021-07-04 20:02:32,616 INFO     Solution status = 101: MIP_optimal
+2021-07-04 20:02:32,616 INFO     Solution value  = 23.41286345008041
+Selected: sequence 133, 10 instances from 0 to 9
+Configuration: {'grid_m': 5.0, 'grid_maxdiff': 5, 'grid_optional_m': 'false', 'grid_x': 9, 'max_height_b': 0, 'max_height_m': 0.6, 'max_height_optional_m': 'true', 'min_height_b': 1, 'min_height_m': 0.30000000000000004, 'min_height_optional_m': 'false', 'num_towers_b': 2, 'num_towers_m': 0.2, 'num_towers_optional_m': 'false'}
+Penalty: 6.17
+Penalty sart: 2.41
+Penalty baseline: 3.76
+Estimated runtimes: 8.6, 13, 21, 55, 1.8e+02, 5.9e+02, 1.9e+03, 6.3e+03, 2.1e+04, 6.7e+04, 2.2e+05, 7.2e+05, 2.3e+06, 7.6e+06, 2.5e+07, 8.1e+07, 2.7e+08, 8.7e+08, 2.8e+09, 9.3e+09, 3e+10, 9.9e+10, 3.2e+11, 1.1e+12, 3.5e+12, 1.1e+13, 3.7e+13, 1.2e+14, 3.9e+14, 1.3e+15
+Selected: sequence 30, 11 instances from 1 to 11
+Configuration: {'grid_m': 3.6, 'grid_maxdiff': 3, 'grid_optional_m': 'false', 'grid_x': 8, 'max_height_b': 0, 'max_height_m': 0.7000000000000001, 'max_height_optional_m': 'true', 'min_height_b': 1, 'min_height_m': 0.4, 'min_height_optional_m': 'false', 'num_towers_b': 1, 'num_towers_m': 1.3000000000000003, 'num_towers_optional_m': 'true'}
+Penalty: 10.45
+Penalty sart: 2.45
+Penalty baseline: 8.00
+Estimated runtimes: 11, 21, 1.4e+02, 1.5e+02, 2.7e+02, 7.1e+02, 1.9e+03, 4.8e+03, 1.3e+04, 3.3e+04, 8.6e+04, 2.3e+05, 5.9e+05, 1.5e+06, 4e+06, 1.1e+07, 2.8e+07, 7.2e+07, 1.9e+08, 4.9e+08, 1.3e+09, 3.4e+09, 8.8e+09, 2.3e+10, 6e+10, 1.6e+11, 4.1e+11, 1.1e+12, 2.8e+12
+Selected: sequence 122, 9 instances from 0 to 8
+Configuration: {'grid_m': 1.0, 'grid_maxdiff': 4, 'grid_optional_m': 'true', 'grid_x': 3, 'max_height_b': 2, 'max_height_m': 0.4, 'max_height_optional_m': 'false', 'min_height_b': 2, 'min_height_m': 0.5, 'min_height_optional_m': 'false', 'num_towers_b': 2, 'num_towers_m': 0.2, 'num_towers_optional_m': 'false'}
+Penalty: 6.79
+Penalty sart: 4.65
+Penalty baseline: 2.14
+Estimated runtimes: 1.9, 3.8, 11, 24, 32, 1.8e+02, 1e+03, 5.8e+03, 3.3e+04, 1.9e+05, 1.1e+06, 6e+06, 3.4e+07, 1.9e+08, 1.1e+09, 6.3e+09, 3.6e+10, 2e+11, 1.2e+12, 6.5e+12, 3.7e+13, 2.1e+14, 1.2e+15, 6.8e+15, 3.9e+16, 2.2e+17, 1.2e+18, 7.1e+18, 4e+19, 2.3e+20
+  p01: {'x': 9, 'y': 9, 'min_height': 1, 'max_height': 1, 'num_towers': 2}
+  p02: {'x': 10, 'y': 11, 'min_height': 1, 'max_height': 1, 'num_towers': 2}
+  p03: {'x': 10, 'y': 13, 'min_height': 1, 'max_height': 1, 'num_towers': 2}
+  p04: {'x': 10, 'y': 15, 'min_height': 1, 'max_height': 1, 'num_towers': 2}
+  p05: {'x': 13, 'y': 13, 'min_height': 2, 'max_height': 2, 'num_towers': 2}
+  p06: {'x': 13, 'y': 15, 'min_height': 2, 'max_height': 2, 'num_towers': 3}
+  p07: {'x': 13, 'y': 17, 'min_height': 2, 'max_height': 2, 'num_towers': 3}
+  p08: {'x': 15, 'y': 16, 'min_height': 3, 'max_height': 3, 'num_towers': 3}
+  p09: {'x': 15, 'y': 18, 'min_height': 3, 'max_height': 3, 'num_towers': 3}
+  p10: {'x': 15, 'y': 20, 'min_height': 3, 'max_height': 3, 'num_towers': 3}
+  p11: {'x': 9, 'y': 9, 'min_height': 1, 'max_height': 1, 'num_towers': 1}
+  p12: {'x': 10, 'y': 10, 'min_height': 1, 'max_height': 1, 'num_towers': 1}
+  p13: {'x': 10, 'y': 12, 'min_height': 2, 'max_height': 2, 'num_towers': 1}
+  p14: {'x': 11, 'y': 13, 'min_height': 2, 'max_height': 2, 'num_towers': 1}
+  p15: {'x': 12, 'y': 14, 'min_height': 2, 'max_height': 2, 'num_towers': 1}
+  p16: {'x': 13, 'y': 14, 'min_height': 3, 'max_height': 3, 'num_towers': 1}
+  p17: {'x': 14, 'y': 15, 'min_height': 3, 'max_height': 3, 'num_towers': 1}
+  p18: {'x': 14, 'y': 17, 'min_height': 4, 'max_height': 4, 'num_towers': 1}
+  p19: {'x': 15, 'y': 18, 'min_height': 4, 'max_height': 4, 'num_towers': 1}
+  p20: {'x': 16, 'y': 19, 'min_height': 5, 'max_height': 5, 'num_towers': 1}
+  p21: {'x': 18, 'y': 18, 'min_height': 5, 'max_height': 5, 'num_towers': 1}
+  p22: {'x': 3, 'y': 3, 'min_height': 2, 'max_height': 4, 'num_towers': 2}
+  p23: {'x': 3, 'y': 3, 'min_height': 3, 'max_height': 5, 'num_towers': 2}
+  p24: {'x': 3, 'y': 3, 'min_height': 3, 'max_height': 6, 'num_towers': 2}
+  p25: {'x': 3, 'y': 3, 'min_height': 4, 'max_height': 7, 'num_towers': 2}
+  p26: {'x': 3, 'y': 3, 'min_height': 4, 'max_height': 7, 'num_towers': 3}
+  p27: {'x': 3, 'y': 3, 'min_height': 5, 'max_height': 9, 'num_towers': 3}
+  p28: {'x': 3, 'y': 3, 'min_height': 6, 'max_height': 11, 'num_towers': 3}
+  p29: {'x': 3, 'y': 3, 'min_height': 7, 'max_height': 13, 'num_towers': 4}
+  p30: {'x': 3, 'y': 3, 'min_height': 8, 'max_height': 14, 'num_towers': 4}

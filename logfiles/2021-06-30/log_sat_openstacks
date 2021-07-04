@@ -1,0 +1,116 @@
+2021-07-04 21:37:55,583 INFO     No run directory, so we will not run anything
+2021-07-04 21:37:56,416 INFO     Loading cache data for baseline planners: 714
+2021-07-04 21:37:56,447 INFO     baseline cache contains data for 330 parameter values, with min 3 max 39 avg 6.490909090909091 runtimes
+2021-07-04 21:37:56,447 INFO     Loading cache data for sart planners: 5656
+2021-07-04 21:37:56,672 INFO     sart cache contains data for 4313 parameter values, with min 3 max 39 avg 3.9341525620217945 runtimes
+2021-07-04 21:37:57,787 INFO     Loading cache data for baseline planners: 176
+2021-07-04 21:37:57,795 INFO     baseline cache contains data for 425 parameter values, with min 3 max 39 avg 6.2823529411764705 runtimes
+2021-07-04 21:37:57,795 INFO     Loading cache data for sart planners: 2162
+2021-07-04 21:37:57,889 INFO     sart cache contains data for 5918 parameter values, with min 3 max 39 avg 3.9631632308212232 runtimes
+2021-07-04 21:37:59,146 INFO     Loading cache data for baseline planners: 67
+2021-07-04 21:37:59,149 INFO     baseline cache contains data for 473 parameter values, with min 3 max 39 avg 6.069767441860465 runtimes
+2021-07-04 21:37:59,149 INFO     Loading cache data for sart planners: 1580
+2021-07-04 21:37:59,219 INFO     sart cache contains data for 7235 parameter values, with min 3 max 39 avg 3.8968901174844506 runtimes
+2021-07-04 21:38:00,475 INFO     Loading cache data for baseline planners: 45
+2021-07-04 21:38:00,478 INFO     baseline cache contains data for 510 parameter values, with min 3 max 39 avg 5.894117647058824 runtimes
+2021-07-04 21:38:00,478 INFO     Loading cache data for sart planners: 1114
+2021-07-04 21:38:00,528 INFO     sart cache contains data for 8292 parameter values, with min 3 max 39 avg 3.8031837916063678 runtimes
+2021-07-04 21:38:00,528 INFO     Stored sequences: 567
+2021-07-04 21:38:05,525 INFO     Different evaluated sequences: 462
+density 10 32 32
+density 20 36 36
+density 33 7 7
+density 50 21 21
+density 66 5 5
+density 80 49 49
+density 10 7 7
+density 20 6 6
+density 33 3 3
+density 50 4 4
+density 66 1 1
+density 80 12 12
+density 10 13 13
+density 20 6 6
+density 33 15 15
+density 50 21 21
+density 66 5 5
+density 80 22 22
+density 10 2 2
+density 20 2 2
+density 33 10 10
+density 50 3 3
+density 66 3 3
+density 80 24 19
+density 10 5 5
+density 20 4 4
+density 33 3 3
+density 50 1 1
+density 66 3 3
+density 80 34 32
+density 10 7 6
+density 20 6 6
+density 33 10 10
+density 50 3 3
+density 66 3 3
+density 80 14 11
+density 10 8 7
+density 20 4 4
+density 33 3 3
+density 50 1 1
+density 66 4 4
+density 80 10 10
+density 10 10 10
+density 20 1 1
+density 33 3 3
+density 50 1 1
+density 66 2 2
+density 80 4 4
+density 10 0 0
+density 20 0 0
+density 33 2 2
+density 50 1 1
+density 66 2 2
+density 80 4 4
+2021-07-04 21:38:07,782 INFO     Candidate sequences: 450
+2021-07-04 21:38:07,793 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 310 use baseline 140 use sart
+2021-07-04 21:38:07,801 INFO     Using sart runtimes on CPLEX optimization
+2021-07-04 21:38:08,376 INFO     CPLEX solve
+
+2021-07-04 21:38:09,103 INFO     Solution status = 101: MIP_optimal
+2021-07-04 21:38:09,103 INFO     Solution value  = 12.001127373508325
+Selected: sequence 275, 30 instances from 0 to 29
+Configuration: {'density': 80, 'orders_b': 5, 'orders_m': 30.0, 'products_b': 5, 'products_m': 4.0}
+Penalty: 10.00
+Penalty sart: 0.00
+Penalty baseline: 10.00
+Estimated runtimes: 0.21, 0.96, 3.1, 6.9, 13, 20, 33, 50, 67, 88, 1.2e+02, 1.4e+02, 2.1e+02, 3.1e+02, 4.6e+02, 6.8e+02, 1e+03, 1.5e+03, 2.2e+03, 3.2e+03, 4.7e+03, 6.9e+03, 1e+04, 1.5e+04, 2.2e+04, 3.3e+04, 4.8e+04, 7.1e+04, 1.1e+05, 1.5e+05
+  p01: {'density': 80, 'products': 5, 'orders': 5}
+  p02: {'density': 80, 'products': 9, 'orders': 35}
+  p03: {'density': 80, 'products': 13, 'orders': 65}
+  p04: {'density': 80, 'products': 17, 'orders': 95}
+  p05: {'density': 80, 'products': 21, 'orders': 125}
+  p06: {'density': 80, 'products': 25, 'orders': 155}
+  p07: {'density': 80, 'products': 29, 'orders': 185}
+  p08: {'density': 80, 'products': 33, 'orders': 215}
+  p09: {'density': 80, 'products': 37, 'orders': 245}
+  p10: {'density': 80, 'products': 41, 'orders': 275}
+  p11: {'density': 80, 'products': 45, 'orders': 305}
+  p12: {'density': 80, 'products': 49, 'orders': 335}
+  p13: {'density': 80, 'products': 53, 'orders': 365}
+  p14: {'density': 80, 'products': 57, 'orders': 395}
+  p15: {'density': 80, 'products': 61, 'orders': 425}
+  p16: {'density': 80, 'products': 65, 'orders': 455}
+  p17: {'density': 80, 'products': 69, 'orders': 485}
+  p18: {'density': 80, 'products': 73, 'orders': 515}
+  p19: {'density': 80, 'products': 77, 'orders': 545}
+  p20: {'density': 80, 'products': 81, 'orders': 575}
+  p21: {'density': 80, 'products': 85, 'orders': 605}
+  p22: {'density': 80, 'products': 89, 'orders': 635}
+  p23: {'density': 80, 'products': 93, 'orders': 665}
+  p24: {'density': 80, 'products': 97, 'orders': 695}
+  p25: {'density': 80, 'products': 101, 'orders': 725}
+  p26: {'density': 80, 'products': 105, 'orders': 755}
+  p27: {'density': 80, 'products': 109, 'orders': 785}
+  p28: {'density': 80, 'products': 113, 'orders': 815}
+  p29: {'density': 80, 'products': 117, 'orders': 845}
+  p30: {'density': 80, 'products': 121, 'orders': 875}

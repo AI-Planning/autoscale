@@ -1,0 +1,70 @@
+2021-07-04 20:09:51,138 INFO     No run directory, so we will not run anything
+2021-07-04 20:09:51,757 INFO     Loading cache data for baseline planners: 629
+2021-07-04 20:09:51,803 INFO     baseline cache contains data for 56 parameter values, with min 3 max 39 avg 33.69642857142857 runtimes
+2021-07-04 20:09:51,803 INFO     Loading cache data for sart planners: 1143
+2021-07-04 20:09:51,886 INFO     sart cache contains data for 110 parameter values, with min 3 max 39 avg 31.172727272727272 runtimes
+2021-07-04 20:09:53,642 INFO     Loading cache data for baseline planners: 0
+2021-07-04 20:09:53,642 INFO     baseline cache contains data for 56 parameter values, with min 3 max 39 avg 33.69642857142857 runtimes
+2021-07-04 20:09:53,642 INFO     Loading cache data for sart planners: 2
+2021-07-04 20:09:53,642 INFO     sart cache contains data for 111 parameter values, with min 3 max 39 avg 30.945945945945947 runtimes
+2021-07-04 20:09:55,448 INFO     Loading cache data for baseline planners: 0
+2021-07-04 20:09:55,449 INFO     baseline cache contains data for 56 parameter values, with min 3 max 39 avg 33.69642857142857 runtimes
+2021-07-04 20:09:55,449 INFO     Loading cache data for sart planners: 0
+2021-07-04 20:09:55,449 INFO     sart cache contains data for 111 parameter values, with min 3 max 39 avg 30.945945945945947 runtimes
+2021-07-04 20:09:57,209 INFO     Loading cache data for baseline planners: 0
+2021-07-04 20:09:57,210 INFO     baseline cache contains data for 56 parameter values, with min 3 max 39 avg 33.69642857142857 runtimes
+2021-07-04 20:09:57,210 INFO     Loading cache data for sart planners: 0
+2021-07-04 20:09:57,210 INFO     sart cache contains data for 111 parameter values, with min 3 max 39 avg 30.945945945945947 runtimes
+2021-07-04 20:09:57,210 INFO     Stored sequences: 4792
+2021-07-04 20:11:05,062 INFO     Different evaluated sequences: 514
+r 0.5 250 125
+r 0.75 150 81
+r 1 114 72
+2021-07-04 20:11:05,584 INFO     Candidate sequences: 278
+2021-07-04 20:11:05,589 INFO     Using sart runtimes on CPLEX optimization
+2021-07-04 20:11:08,275 INFO     CPLEX solve
+
+2021-07-04 20:11:09,987 INFO     Solution status = 101: MIP_optimal
+2021-07-04 20:11:09,987 INFO     Solution value  = 12.62191547500857
+Selected: sequence 152, 8 instances from 18 to 25
+Configuration: {'grid_m': 1.2000000000000002, 'grid_maxdiff': 5, 'grid_x': 4, 'r': 0.5}
+Penalty: 5.05
+Penalty sart: 1.79
+Penalty baseline: 3.27
+Estimated runtimes: 2e+02, 4.7e+02, 1.1e+03, 2.5e+03, 5.9e+03, 1.4e+04, 3.2e+04, 7.5e+04, 1.7e+05, 4e+05, 9.4e+05, 2.2e+06
+Selected: sequence 9, 22 instances from 2 to 23
+Configuration: {'grid_m': 0.30000000000000004, 'grid_maxdiff': 5, 'grid_x': 4, 'r': 0.75}
+Penalty: 7.57
+Penalty sart: 3.85
+Penalty baseline: 3.72
+Estimated runtimes: 0.63, 0.67, 0.79, 0.96, 1.1, 2.2, 2.9, 3.7, 12, 16, 57, 1.5e+02, 1.5e+02, 2.3e+02, 5.2e+02, 1.2e+03, 2.6e+03, 5.8e+03, 1.3e+04, 2.9e+04, 6.4e+04, 1.4e+05, 3.2e+05, 7.2e+05, 1.6e+06, 3.6e+06, 8e+06, 1.8e+07
+  p01: {'x': 6, 'y': 11, 'r': 0.5}
+  p02: {'x': 7, 'y': 10, 'r': 0.5}
+  p03: {'x': 8, 'y': 9, 'r': 0.5}
+  p04: {'x': 8, 'y': 10, 'r': 0.5}
+  p05: {'x': 9, 'y': 9, 'r': 0.5}
+  p06: {'x': 7, 'y': 12, 'r': 0.5}
+  p07: {'x': 8, 'y': 11, 'r': 0.5}
+  p08: {'x': 9, 'y': 10, 'r': 0.5}
+  p09: {'x': 4, 'y': 6, 'r': 0.75}
+  p10: {'x': 5, 'y': 5, 'r': 0.75}
+  p11: {'x': 4, 'y': 7, 'r': 0.75}
+  p12: {'x': 5, 'y': 6, 'r': 0.75}
+  p13: {'x': 4, 'y': 8, 'r': 0.75}
+  p14: {'x': 5, 'y': 7, 'r': 0.75}
+  p15: {'x': 4, 'y': 9, 'r': 0.75}
+  p16: {'x': 6, 'y': 6, 'r': 0.75}
+  p17: {'x': 5, 'y': 8, 'r': 0.75}
+  p18: {'x': 6, 'y': 7, 'r': 0.75}
+  p19: {'x': 5, 'y': 9, 'r': 0.75}
+  p20: {'x': 6, 'y': 8, 'r': 0.75}
+  p21: {'x': 7, 'y': 7, 'r': 0.75}
+  p22: {'x': 5, 'y': 10, 'r': 0.75}
+  p23: {'x': 6, 'y': 9, 'r': 0.75}
+  p24: {'x': 7, 'y': 8, 'r': 0.75}
+  p25: {'x': 6, 'y': 10, 'r': 0.75}
+  p26: {'x': 7, 'y': 9, 'r': 0.75}
+  p27: {'x': 8, 'y': 8, 'r': 0.75}
+  p28: {'x': 6, 'y': 11, 'r': 0.75}
+  p29: {'x': 7, 'y': 10, 'r': 0.75}
+  p30: {'x': 8, 'y': 9, 'r': 0.75}

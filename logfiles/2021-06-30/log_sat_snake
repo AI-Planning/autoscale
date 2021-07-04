@@ -1,0 +1,63 @@
+2021-07-04 21:40:06,393 INFO     No run directory, so we will not run anything
+2021-07-04 21:40:08,557 INFO     Loading cache data for baseline planners: 526
+2021-07-04 21:40:08,582 INFO     baseline cache contains data for 115 parameter values, with min 3 max 15 avg 13.721739130434782 runtimes
+2021-07-04 21:40:08,583 INFO     Loading cache data for sart planners: 875
+2021-07-04 21:40:08,627 INFO     sart cache contains data for 188 parameter values, with min 3 max 15 avg 13.962765957446809 runtimes
+2021-07-04 21:40:09,882 INFO     Loading cache data for baseline planners: 2
+2021-07-04 21:40:09,882 INFO     baseline cache contains data for 117 parameter values, with min 3 max 15 avg 13.538461538461538 runtimes
+2021-07-04 21:40:09,882 INFO     Loading cache data for sart planners: 8
+2021-07-04 21:40:09,883 INFO     sart cache contains data for 191 parameter values, with min 3 max 15 avg 13.86910994764398 runtimes
+2021-07-04 21:40:11,122 INFO     Loading cache data for baseline planners: 0
+2021-07-04 21:40:11,122 INFO     baseline cache contains data for 117 parameter values, with min 3 max 15 avg 13.538461538461538 runtimes
+2021-07-04 21:40:11,122 INFO     Loading cache data for sart planners: 0
+2021-07-04 21:40:11,122 INFO     sart cache contains data for 191 parameter values, with min 3 max 15 avg 13.86910994764398 runtimes
+2021-07-04 21:40:11,122 INFO     Stored sequences: 5835
+2021-07-04 21:41:12,343 INFO     Different evaluated sequences: 1188
+num_spawn_apples 40% 326 204
+num_spawn_apples 55% 249 151
+num_spawn_apples 70% 243 146
+num_spawn_apples 85% 219 138
+num_spawn_apples 100% 151 95
+2021-07-04 21:41:16,073 INFO     Candidate sequences: 734
+2021-07-04 21:41:16,086 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 1 use baseline 733 use sart
+2021-07-04 21:41:16,093 INFO     Using sart runtimes on CPLEX optimization
+2021-07-04 21:41:39,115 INFO     CPLEX solve
+
+2021-07-04 21:41:50,055 INFO     Solution status = 101: MIP_optimal
+2021-07-04 21:41:50,055 INFO     Solution value  = 3.426189466683916
+Selected: sequence 906, 30 instances from 0 to 29
+Configuration: {'grid_m': 1.4000000000000001, 'grid_maxdiff': 4, 'grid_x': 5, 'num_spawn_apples': '40%'}
+Penalty: 3.43
+Penalty sart: 1.27
+Penalty baseline: 2.16
+Estimated runtimes: 0.79, 1.4, 2.5, 3.8, 4.3, 7.4, 7.6, 15, 26, 33, 56, 60, 76, 97, 1.9e+02, 3e+02, 4.6e+02, 7.1e+02, 1.1e+03, 1.7e+03, 2.6e+03, 4e+03, 6.1e+03, 9.4e+03, 1.5e+04, 2.2e+04, 3.4e+04, 5.3e+04, 8.2e+04, 1.3e+05
+  p01: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 5, 'num_spawn_apples': '40%', 'board': 'empty-5x5'}
+  p02: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 6, 'num_spawn_apples': '40%', 'board': 'empty-5x6'}
+  p03: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 7, 'num_spawn_apples': '40%', 'board': 'empty-5x7'}
+  p04: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 8, 'num_spawn_apples': '40%', 'board': 'empty-5x8'}
+  p05: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 7, 'num_spawn_apples': '40%', 'board': 'empty-6x7'}
+  p06: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 8, 'num_spawn_apples': '40%', 'board': 'empty-6x8'}
+  p07: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 7, 'y_grid': 7, 'num_spawn_apples': '40%', 'board': 'empty-7x7'}
+  p08: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 9, 'num_spawn_apples': '40%', 'board': 'empty-6x9'}
+  p09: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 10, 'num_spawn_apples': '40%', 'board': 'empty-6x10'}
+  p10: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 7, 'y_grid': 9, 'num_spawn_apples': '40%', 'board': 'empty-7x9'}
+  p11: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 7, 'y_grid': 10, 'num_spawn_apples': '40%', 'board': 'empty-7x10'}
+  p12: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 8, 'y_grid': 9, 'num_spawn_apples': '40%', 'board': 'empty-8x9'}
+  p13: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 7, 'y_grid': 11, 'num_spawn_apples': '40%', 'board': 'empty-7x11'}
+  p14: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 9, 'y_grid': 9, 'num_spawn_apples': '40%', 'board': 'empty-9x9'}
+  p15: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 8, 'y_grid': 11, 'num_spawn_apples': '40%', 'board': 'empty-8x11'}
+  p16: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 9, 'y_grid': 10, 'num_spawn_apples': '40%', 'board': 'empty-9x10'}
+  p17: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 9, 'y_grid': 11, 'num_spawn_apples': '40%', 'board': 'empty-9x11'}
+  p18: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 10, 'y_grid': 10, 'num_spawn_apples': '40%', 'board': 'empty-10x10'}
+  p19: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 10, 'y_grid': 11, 'num_spawn_apples': '40%', 'board': 'empty-10x11'}
+  p20: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 9, 'y_grid': 13, 'num_spawn_apples': '40%', 'board': 'empty-9x13'}
+  p21: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 10, 'y_grid': 12, 'num_spawn_apples': '40%', 'board': 'empty-10x12'}
+  p22: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 10, 'y_grid': 13, 'num_spawn_apples': '40%', 'board': 'empty-10x13'}
+  p23: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 11, 'y_grid': 12, 'num_spawn_apples': '40%', 'board': 'empty-11x12'}
+  p24: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 11, 'y_grid': 13, 'num_spawn_apples': '40%', 'board': 'empty-11x13'}
+  p25: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 12, 'y_grid': 12, 'num_spawn_apples': '40%', 'board': 'empty-12x12'}
+  p26: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 11, 'y_grid': 14, 'num_spawn_apples': '40%', 'board': 'empty-11x14'}
+  p27: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 11, 'y_grid': 15, 'num_spawn_apples': '40%', 'board': 'empty-11x15'}
+  p28: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 12, 'y_grid': 14, 'num_spawn_apples': '40%', 'board': 'empty-12x14'}
+  p29: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 12, 'y_grid': 15, 'num_spawn_apples': '40%', 'board': 'empty-12x15'}
+  p30: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 13, 'y_grid': 14, 'num_spawn_apples': '40%', 'board': 'empty-13x14'}

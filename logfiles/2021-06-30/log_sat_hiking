@@ -1,0 +1,71 @@
+2021-07-04 21:09:30,411 INFO     No run directory, so we will not run anything
+2021-07-04 21:09:31,427 INFO     Loading cache data for baseline planners: 2109
+2021-07-04 21:09:31,547 INFO     baseline cache contains data for 562 parameter values, with min 3 max 39 avg 11.258007117437723 runtimes
+2021-07-04 21:09:31,547 INFO     Loading cache data for sart planners: 3446
+2021-07-04 21:09:31,729 INFO     sart cache contains data for 1126 parameter values, with min 3 max 39 avg 9.181172291296626 runtimes
+2021-07-04 21:09:32,865 INFO     Loading cache data for baseline planners: 143
+2021-07-04 21:09:32,871 INFO     baseline cache contains data for 683 parameter values, with min 3 max 39 avg 9.891654465592973 runtimes
+2021-07-04 21:09:32,871 INFO     Loading cache data for sart planners: 617
+2021-07-04 21:09:32,899 INFO     sart cache contains data for 1440 parameter values, with min 3 max 39 avg 8.464583333333334 runtimes
+2021-07-04 21:09:34,128 INFO     Loading cache data for baseline planners: 73
+2021-07-04 21:09:34,131 INFO     baseline cache contains data for 739 parameter values, with min 3 max 39 avg 9.438430311231393 runtimes
+2021-07-04 21:09:34,131 INFO     Loading cache data for sart planners: 118
+2021-07-04 21:09:34,136 INFO     sart cache contains data for 1519 parameter values, with min 3 max 39 avg 8.257406188281765 runtimes
+2021-07-04 21:09:35,400 INFO     Loading cache data for baseline planners: 38
+2021-07-04 21:09:35,403 INFO     baseline cache contains data for 775 parameter values, with min 3 max 39 avg 9.147096774193548 runtimes
+2021-07-04 21:09:35,403 INFO     Loading cache data for sart planners: 46
+2021-07-04 21:09:35,406 INFO     sart cache contains data for 1563 parameter values, with min 3 max 39 avg 8.113243761996161 runtimes
+2021-07-04 21:09:35,406 INFO     Stored sequences: 7862
+Warning: No output dir has been provided for Runner but I have no data for {'n_couples': 3, 'n_places': 7, 'n_cars': 10}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'n_couples': 3, 'n_places': 7, 'n_cars': 10}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'n_couples': 3, 'n_places': 7, 'n_cars': 10}, so I consider it unsolved within the time and memory limits
+2021-07-04 21:11:21,535 INFO     Different evaluated sequences: 1437
+2021-07-04 21:11:59,711 INFO     Candidate sequences: 1000
+2021-07-04 21:11:59,733 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 37 use baseline 963 use sart
+2021-07-04 21:11:59,741 INFO     Using sart runtimes on CPLEX optimization
+2021-07-04 21:12:24,459 INFO     CPLEX solve
+
+2021-07-04 21:12:41,176 INFO     Solution status = 101: MIP_optimal
+2021-07-04 21:12:41,176 INFO     Solution value  = 0.19206137628587422
+Selected: sequence 357, 20 instances from 2 to 21
+Configuration: {'n_cars_b': 3, 'n_cars_m': 0.1, 'n_cars_optional_m': 'false', 'n_couples_b': 1, 'n_couples_m': 4.1, 'n_couples_optional_m': 'true', 'n_places_b': 7, 'n_places_m': 0.9}
+Penalty: 0.06
+Penalty sart: 0.05
+Penalty baseline: 0.00
+Estimated runtimes: 1.8, 2.3, 3.1, 4.5, 7.1, 11, 17, 29, 44, 64, 2.8e+02, 5.6e+02, 1.1e+03, 2.3e+03, 4.7e+03, 9.5e+03, 1.9e+04, 3.9e+04, 7.9e+04, 1.6e+05, 3.2e+05, 6.6e+05, 1.3e+06, 2.7e+06, 5.4e+06, 1.1e+07, 2.2e+07, 4.5e+07
+Selected: sequence 1208, 10 instances from 5 to 14
+Configuration: {'n_cars_b': 3, 'n_cars_m': 0.1, 'n_cars_optional_m': 'true', 'n_couples_b': 1, 'n_couples_m': 4.6, 'n_couples_optional_m': 'true', 'n_places_b': 10, 'n_places_m': 1.3000000000000003}
+Penalty: 0.14
+Penalty sart: 0.09
+Penalty baseline: 0.04
+Estimated runtimes: 17, 30, 47, 56, 1.8e+02, 5.8e+02, 1.9e+03, 6.1e+03, 2e+04, 6.4e+04, 2.1e+05, 6.7e+05, 2.2e+06, 7e+06, 2.3e+07, 7.4e+07, 2.4e+08, 7.8e+08, 2.5e+09, 8.1e+09, 2.6e+10, 8.5e+10, 2.8e+11, 8.9e+11, 2.9e+12
+  p01: {'n_couples': 1, 'n_places': 9, 'n_cars': 4}
+  p02: {'n_couples': 1, 'n_places': 10, 'n_cars': 4}
+  p03: {'n_couples': 1, 'n_places': 11, 'n_cars': 4}
+  p04: {'n_couples': 1, 'n_places': 12, 'n_cars': 4}
+  p05: {'n_couples': 1, 'n_places': 13, 'n_cars': 4}
+  p06: {'n_couples': 1, 'n_places': 14, 'n_cars': 4}
+  p07: {'n_couples': 1, 'n_places': 15, 'n_cars': 4}
+  p08: {'n_couples': 1, 'n_places': 16, 'n_cars': 5}
+  p09: {'n_couples': 1, 'n_places': 17, 'n_cars': 5}
+  p10: {'n_couples': 1, 'n_places': 18, 'n_cars': 5}
+  p11: {'n_couples': 1, 'n_places': 19, 'n_cars': 5}
+  p12: {'n_couples': 1, 'n_places': 20, 'n_cars': 5}
+  p13: {'n_couples': 1, 'n_places': 21, 'n_cars': 5}
+  p14: {'n_couples': 1, 'n_places': 22, 'n_cars': 5}
+  p15: {'n_couples': 1, 'n_places': 23, 'n_cars': 5}
+  p16: {'n_couples': 1, 'n_places': 24, 'n_cars': 5}
+  p17: {'n_couples': 1, 'n_places': 25, 'n_cars': 6}
+  p18: {'n_couples': 1, 'n_places': 26, 'n_cars': 6}
+  p19: {'n_couples': 1, 'n_places': 27, 'n_cars': 6}
+  p20: {'n_couples': 1, 'n_places': 28, 'n_cars': 6}
+  p21: {'n_couples': 1, 'n_places': 16, 'n_cars': 4}
+  p22: {'n_couples': 1, 'n_places': 17, 'n_cars': 4}
+  p23: {'n_couples': 1, 'n_places': 19, 'n_cars': 4}
+  p24: {'n_couples': 1, 'n_places': 20, 'n_cars': 4}
+  p25: {'n_couples': 1, 'n_places': 21, 'n_cars': 4}
+  p26: {'n_couples': 1, 'n_places': 23, 'n_cars': 4}
+  p27: {'n_couples': 1, 'n_places': 24, 'n_cars': 4}
+  p28: {'n_couples': 1, 'n_places': 25, 'n_cars': 4}
+  p29: {'n_couples': 1, 'n_places': 26, 'n_cars': 4}
+  p30: {'n_couples': 1, 'n_places': 28, 'n_cars': 4}

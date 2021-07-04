@@ -1,0 +1,66 @@
+2021-07-04 20:03:59,296 INFO     No run directory, so we will not run anything
+2021-07-04 20:03:59,914 INFO     Loading cache data for baseline planners: 580
+2021-07-04 20:03:59,950 INFO     baseline cache contains data for 144 parameter values, with min 3 max 39 avg 12.083333333333334 runtimes
+2021-07-04 20:03:59,950 INFO     Loading cache data for sart planners: 6238
+2021-07-04 20:04:00,326 INFO     sart cache contains data for 1779 parameter values, with min 3 max 39 avg 10.51939291736931 runtimes
+2021-07-04 20:04:02,071 INFO     Loading cache data for baseline planners: 122
+2021-07-04 20:04:02,077 INFO     baseline cache contains data for 201 parameter values, with min 3 max 39 avg 10.477611940298507 runtimes
+2021-07-04 20:04:02,077 INFO     Loading cache data for sart planners: 1053
+2021-07-04 20:04:02,125 INFO     sart cache contains data for 2443 parameter values, with min 3 max 39 avg 8.953336062218584 runtimes
+2021-07-04 20:04:03,962 INFO     Loading cache data for baseline planners: 15
+2021-07-04 20:04:03,963 INFO     baseline cache contains data for 215 parameter values, with min 3 max 39 avg 10.004651162790697 runtimes
+2021-07-04 20:04:03,963 INFO     Loading cache data for sart planners: 122
+2021-07-04 20:04:03,969 INFO     sart cache contains data for 2548 parameter values, with min 3 max 39 avg 8.728021978021978 runtimes
+2021-07-04 20:04:05,928 INFO     Loading cache data for baseline planners: 24
+2021-07-04 20:04:05,929 INFO     baseline cache contains data for 231 parameter values, with min 3 max 39 avg 9.623376623376624 runtimes
+2021-07-04 20:04:05,929 INFO     Loading cache data for sart planners: 809
+2021-07-04 20:04:05,969 INFO     sart cache contains data for 2926 parameter values, with min 3 max 39 avg 8.429938482570062 runtimes
+2021-07-04 20:04:05,969 INFO     Stored sequences: 10800
+Warning: No output dir has been provided for Runner but I have no data for {'products': 6, 'markets': 3, 'trucks': 2, 'depots': 1, 'goods': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'products': 6, 'markets': 3, 'trucks': 2, 'depots': 1, 'goods': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'products': 6, 'markets': 4, 'trucks': 2, 'depots': 1, 'goods': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'products': 6, 'markets': 5, 'trucks': 2, 'depots': 1, 'goods': 3}, so I consider it unsolved within the time and memory limits
+2021-07-04 20:06:13,246 INFO     Different evaluated sequences: 626
+2021-07-04 20:06:23,564 INFO     Candidate sequences: 603
+2021-07-04 20:06:23,577 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 19 use baseline 584 use sart
+2021-07-04 20:06:23,584 INFO     Using sart runtimes on CPLEX optimization
+2021-07-04 20:06:32,954 INFO     CPLEX solve
+
+2021-07-04 20:06:36,293 INFO     Solution status = 101: MIP_optimal
+2021-07-04 20:06:36,293 INFO     Solution value  = 7.854718449705433
+Selected: sequence 371, 30 instances from 0 to 29
+Configuration: {'depots_b': 5, 'depots_m': 0.1, 'depots_optional_m': 'false', 'goods_b': 3, 'goods_m': 1.1, 'markets_b': 1, 'markets_m': 1.7000000000000002, 'markets_optional_m': 'true', 'products_b': 2, 'products_m': 1.4, 'trucks_b': 2, 'trucks_m': 0.5, 'trucks_optional_m': 'true'}
+Penalty: 7.85
+Penalty sart: 0.65
+Penalty baseline: 7.20
+Estimated runtimes: 0.58, 0.69, 0.87, 1.4, 2.1, 3.5, 5.3, 8.6, 15, 26, 40, 61, 69, 1e+02, 1.9e+02, 2.9e+02, 4.6e+02, 7.2e+02, 1.1e+03, 1.8e+03, 2.8e+03, 4.3e+03, 6.8e+03, 1.1e+04, 1.7e+04, 2.6e+04, 4.1e+04, 6.4e+04, 1e+05, 1.6e+05
+  p01: {'products': 2, 'markets': 1, 'trucks': 2, 'depots': 5, 'goods': 3}
+  p02: {'products': 3, 'markets': 1, 'trucks': 2, 'depots': 5, 'goods': 4}
+  p03: {'products': 4, 'markets': 1, 'trucks': 2, 'depots': 5, 'goods': 5}
+  p04: {'products': 6, 'markets': 1, 'trucks': 2, 'depots': 5, 'goods': 6}
+  p05: {'products': 7, 'markets': 1, 'trucks': 2, 'depots': 5, 'goods': 7}
+  p06: {'products': 9, 'markets': 1, 'trucks': 2, 'depots': 5, 'goods': 8}
+  p07: {'products': 10, 'markets': 1, 'trucks': 2, 'depots': 5, 'goods': 9}
+  p08: {'products': 11, 'markets': 1, 'trucks': 2, 'depots': 5, 'goods': 10}
+  p09: {'products': 13, 'markets': 1, 'trucks': 2, 'depots': 5, 'goods': 11}
+  p10: {'products': 14, 'markets': 1, 'trucks': 2, 'depots': 5, 'goods': 12}
+  p11: {'products': 16, 'markets': 1, 'trucks': 2, 'depots': 5, 'goods': 13}
+  p12: {'products': 17, 'markets': 1, 'trucks': 2, 'depots': 6, 'goods': 15}
+  p13: {'products': 18, 'markets': 1, 'trucks': 2, 'depots': 6, 'goods': 16}
+  p14: {'products': 20, 'markets': 1, 'trucks': 2, 'depots': 6, 'goods': 17}
+  p15: {'products': 21, 'markets': 1, 'trucks': 2, 'depots': 6, 'goods': 18}
+  p16: {'products': 22, 'markets': 1, 'trucks': 2, 'depots': 6, 'goods': 19}
+  p17: {'products': 24, 'markets': 1, 'trucks': 2, 'depots': 6, 'goods': 20}
+  p18: {'products': 25, 'markets': 1, 'trucks': 2, 'depots': 6, 'goods': 21}
+  p19: {'products': 27, 'markets': 1, 'trucks': 2, 'depots': 6, 'goods': 22}
+  p20: {'products': 28, 'markets': 1, 'trucks': 2, 'depots': 6, 'goods': 23}
+  p21: {'products': 29, 'markets': 1, 'trucks': 2, 'depots': 6, 'goods': 25}
+  p22: {'products': 31, 'markets': 1, 'trucks': 2, 'depots': 7, 'goods': 26}
+  p23: {'products': 32, 'markets': 1, 'trucks': 2, 'depots': 7, 'goods': 27}
+  p24: {'products': 34, 'markets': 1, 'trucks': 2, 'depots': 7, 'goods': 28}
+  p25: {'products': 35, 'markets': 1, 'trucks': 2, 'depots': 7, 'goods': 29}
+  p26: {'products': 36, 'markets': 1, 'trucks': 2, 'depots': 7, 'goods': 30}
+  p27: {'products': 38, 'markets': 1, 'trucks': 2, 'depots': 7, 'goods': 31}
+  p28: {'products': 39, 'markets': 1, 'trucks': 2, 'depots': 7, 'goods': 32}
+  p29: {'products': 41, 'markets': 1, 'trucks': 2, 'depots': 7, 'goods': 33}
+  p30: {'products': 42, 'markets': 1, 'trucks': 2, 'depots': 7, 'goods': 34}
