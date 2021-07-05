@@ -12,7 +12,7 @@ DOMAINS = [
     "rovers", "satellite", "scanalyzer", "snake", "storage", "termes",
     "tpp", "transport", "visitall", "woodworking", "zenotravel",
 ]
-PLANNER = [
+PLANNERS = [
     "fd1906-blind",
     "fd1906-fdss1-mas1-60s",
     "fd1906-fdss1-mas2-60s",
@@ -32,7 +32,7 @@ PLANNER = [
 ATTRIBUTES = ["cost", "coverage", "error", "run_dir", "runtime", "unsolvable", "completely_explored"]
 
 exp = project.get_evaluation_experiment(
-    planners=TRAINING_PLANNERS + EVALUATION_PLANNERS,
+    planners=PLANNERS,
     benchmarks_dir=BENCHMARKS_DIR,
     domains=DOMAINS,
     attributes=ATTRIBUTES,
