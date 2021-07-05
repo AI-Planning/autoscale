@@ -5,6 +5,6 @@ if [[ "$#" -ne 1 ]]; then
     exit 1
 fi
 
-for i in {31..54};
-  do sbatch --nodelist ase$i $1
+for i in {31..54}; do
+    sbatch --nodelist ase$i $1
 done
