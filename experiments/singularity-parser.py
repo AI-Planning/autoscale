@@ -97,7 +97,18 @@ def main():
         required=True)
     parser.add_pattern("search_time", r"Search time: (.+)s", type=float)
     parser.add_pattern("total_time", r"Total time: (.+)s\n", type=float)
-    parser.add_pattern("runtime", r"Singularity runtime: (.+?)s", type=float)
+    parser.add_pattern(
+        "runtime",
+        r"CPUTIME=(.+)",
+        type=float,
+        file='values.log',
+        required=True)
+    parser.add_pattern(
+        "virtual_memory",
+        r"MAXVM=(\d+)",
+        type=int,
+        file='values.log',
+        required=True)
     parser.add_pattern("raw_memory", r"Peak memory: (\d+) KB", type=int)
     parser.add_pattern("cost", r"\nFinal value: (.+)\n", type=int)
     parser.add_pattern("delfi_planner", r"Chose (.+)\n", type=str)

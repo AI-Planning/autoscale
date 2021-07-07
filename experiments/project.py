@@ -415,6 +415,8 @@ def get_evaluation_experiment(
 
     singularity_script = DIR.parent / "autoscale" / "run-singularity.sh"
     exp.add_resource("run_singularity", singularity_script)
+    # TODO: include compilation of runsolver as a step?
+    exp.add_resource("runsolver", Path().home() / "runsolver")
 
     suite = []
     if not abs_benchmarks_dir:
@@ -434,11 +436,13 @@ def get_evaluation_experiment(
             run = exp.add_run()
             run.add_resource("domain", task.domain_file, "domain.pddl")
             run.add_resource("problem", task.problem_file, "problem.pddl")
+            # Use runsolver to limit time and memory. Important: we
+            # cannot use time_limit and memory_limit of Lab's add_command
+            # because setting the same memory limit with runsolver again
+            # using setrlimit fails.
             run.add_command(
                 "run-planner",
-                ["{run_singularity}", f"{{{planner}}}", "{domain}", "{problem}", "sas_plan"],
-                time_limit=time_limit,
-                memory_limit=memory_limit,
+                ["{runsolver}", "-C", time_limit, "-V", memory_limit, "-w", "watch.log", "-v", "values.log", "{run_singularity}", f"{{{planner}}}", "{domain}", "{problem}", "sas_plan"],
             )
             run.add_command("rm-tmp-files", ["rm", "-f", "output.sas", "output"])
             run.set_property("domain", task.domain)
