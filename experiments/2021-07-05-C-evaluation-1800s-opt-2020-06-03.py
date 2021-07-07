@@ -29,13 +29,14 @@ PLANNERS = [
     "ipc2018-opt-delfi-mas-sccdfp",
     "ipc2018-opt-scorpion",
 ]
-ATTRIBUTES = ["cost", "coverage", "error", "run_dir", "runtime", "unsolvable", "completely_explored"]
+ATTRIBUTES = ["cost", "coverage", "error", "run_dir", "runtime", "unsolvable", "completely_explored", "virtual_memory"]
 
 exp = project.get_evaluation_experiment(
     planners=PLANNERS,
     benchmarks_dir=BENCHMARKS_DIR,
     domains=DOMAINS,
     attributes=ATTRIBUTES,
-    time_limit=1800)
+    time_limit=1800,
+    memory_limit=3584)
 
 exp.run_steps()
