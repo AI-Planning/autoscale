@@ -1,4 +1,5 @@
 import itertools
+import logging
 import sys
 
 import sequences
@@ -9,7 +10,6 @@ try:
 except ImportError:
     cplex = None
     CplexError = None
-
 
 class CPLEXConstraint:
     def __init__(self, cplex_problem, variables, coeficients, sense, rhs, penalties=None):
@@ -88,8 +88,9 @@ class CPLEXSequence:
         if self.sorted_runtimes[-1] * average_factor < planner_time_limit:
             average_factor = planner_time_limit / self.sorted_runtimes[-1]
 
-        while len(self.sorted_runtimes) < sequence_length:
+        while len(self.sorted_runtimes) < sequence_length and self.sorted_runtimes[-1] < 10 ** 20:
             self.sorted_runtimes.append(average_factor * self.sorted_runtimes[-1])
+
 
         # Determine where the sequence may start and end
         # We may start up until the point where the state of the art takes 300 seconds
@@ -117,7 +118,7 @@ class CPLEXSequence:
                                                   enumerate(self.runtimes_baseline) if t <= 30]
 
     def __str__(self):
-        return f"Sequence({self.seq_id}, penalty={self.penalty}, penalty_baseline={self.penalty_baseline}, penalty_sart={self.penalty_sart}, config={self.config}, runtimes_baseline={self.runtimes_baseline}, runtimes_sart={self.runtimes_sart}"
+        return f"Sequence({self.seq_id}, length={self.latest_end}, penalty={self.penalty}, penalty_baseline={self.penalty_baseline}, penalty_sart={self.penalty_sart}, config={self.config}, runtimes_baseline={self.runtimes_baseline}, runtimes_sart={self.runtimes_sart}"
 
     def __repr__(self):
         return str(self)
@@ -162,7 +163,7 @@ class CPLEXSequence:
         var_types = [t.binary for _ in self.end_var_names]
 
         def penalty_termination(time):
-            assert time < 10**30, "Error: time is too high and this may make the problem unsolvable"
+            assert time < 10**30, f"Error: time is too high and this may make the problem unsolvable: {time}"
             if time > 180000:
                 return 100 * (time / 180000)
             elif time < 18000:
@@ -277,7 +278,7 @@ class CPLEXSequenceManager:
             for seq1, seq2 in itertools.combinations(candidate_sequences, 2):
                 intersection = seq1.intersection(seq2)
                 if intersection:
-                    # logging.info(f"Non-empty intersection between sequences {seq1.seq_id} and {seq2.seq_id}" )
+                    logging.debug(f"Non-empty intersection between sequences {seq1.seq_id} and {seq2.seq_id}")
                     # We must forbid choosing more than one element in both sequences
                     v1 = seq1.get_start_vars_per_option()
                     v2 = seq2.get_start_vars_per_option()
@@ -286,14 +287,13 @@ class CPLEXSequenceManager:
                     i2 = max(map(lambda x: x[1], intersection))
                     cp_vars = v1[:i1 + 1] + v2[:i2 + 1]
 
-                    if domain.allow_instances_with_duplicated_parameters():
+                    if domain.allow_instances_with_duplicated_parameters(intersection):
                         intersection_penalty_variable = \
                             cplex_problem.variables.add(
                                 obj=[domain.get_penalty_for_instances_with_duplicated_parameters()],
                                 types=[cplex_problem.variables.type.binary])[0]
                         constraint_list.append(
-                            CPLEXConstraint(cplex_problem, cp_vars + [intersection_penalty_variable],
-                                            [1 for _ in cp_vars] + [-1], "L", 1))
+                            CPLEXConstraint(cplex_problem, cp_vars + [intersection_penalty_variable], [1 for _ in cp_vars] + [-1], "L", 1))
                         intersection_penalty_variables.append(intersection_penalty_variable)
                     else:
                         constraint_list.append(
@@ -302,8 +302,7 @@ class CPLEXSequenceManager:
             if intersection_penalty_variables:
                 constraint_list.append(
                     CPLEXConstraint(cplex_problem, intersection_penalty_variables,
-                                    [1 for _ in intersection_penalty_variables],
-                                    "L", 1))
+                                    [1 for _ in intersection_penalty_variables], "L", 1))
 
             constraint_list += [
                 CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_instances, "E", tasks),
@@ -370,7 +369,12 @@ class CPLEXSequenceManager:
                 if x[idt] > 0.9:
                     self.logging.debug(f"END: {name} {idt}")
 
-        print("  " + "\n  ".join(f"p{i + 1:02d}: {config}    {domain.get_estimated_baseline_runtime(config)} {domain.get_estimated_runtime(config)}" for (i, config) in enumerate(final_selection)))
+        if getattr(domain, "get_estimated_baseline_runtime", None):
+            print("  " + "\n  ".join(f"p{i + 1:02d}: {config}   {final_selection_runtimes[i]} {domain.get_estimated_baseline_runtime(config)} {domain.get_estimated_runtime(config)}" for (i, config) in enumerate(final_selection)))
+        else:
+            print("  " + "\n  ".join(
+                f"p{i + 1:02d}: {config}   {final_selection_runtimes[i]}"
+                for (i, config) in enumerate(final_selection)))
 
         final_selection_runtimes = sorted(final_selection_runtimes)
         print (f"Total Estimated Runtimes: {final_selection_runtimes}")

@@ -215,7 +215,7 @@ class Domain:
     def get_penalty_for_instances_with_duplicated_parameters(self):
         return self.penalty_for_instances_with_duplicated_parameters
 
-    def allow_instances_with_duplicated_parameters(self):
+    def allow_instances_with_duplicated_parameters(self,intersection):
         return (
                 self.penalty_for_instances_with_duplicated_parameters is not None
                 and self.penalty_for_instances_with_duplicated_parameters != math.inf)

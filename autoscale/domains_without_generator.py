@@ -336,9 +336,8 @@ class DataDomain:
     def __str__(self):
         return f"{self.num_tasks()} opt: {self.solved_opt(1800)} basesat:  {self.solved_baseline_sat(1800)} sat: {self.solved_sat(1800)} timesat: {self.max_runtime_sat()} timebasesat: {self.max_runtime_baseline_sat()}"
 
-    @staticmethod
-    def allow_instances_with_duplicated_parameters():
-        return False
+    def allow_instances_with_duplicated_parameters(self, intersection):
+        return all([isinstance(item, list)  for item in intersection])
 
     def get_domain_filename(self, dir):
         return f"{dir}/{self.domain}/domain.pddl"
