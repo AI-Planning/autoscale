@@ -36,10 +36,11 @@ class LinearAttr:
         hyperparameters = []
         if self.lower_b != self.upper_b:
             hyperparameters.append(UniformIntegerHyperparameter(f"{attr}_b", lower=self.lower_b, upper=self.upper_b,
-                                                  default_value=self.lower_b))
+                                                                default_value=self.lower_b))
 
         if self.optional_m:
-            hyperparameters.append(CategoricalHyperparameter(f"{self.name}_optional_m", ["true", "false"], default_value="false"))
+            hyperparameters.append(
+                CategoricalHyperparameter(f"{self.name}_optional_m", ["false", "true"]))
 
         if self.lower_m != self.upper_m:
             hyperparameters += [
@@ -57,7 +58,7 @@ class LinearAttr:
 
         try:
             m = self.lower_m if self.lower_m == self.upper_m else float(cfg.get(f"{attr}_m"))
-        except:
+        except Exception:
             m = self.default_m
 
         for i, Yi in enumerate(Y):
@@ -98,7 +99,7 @@ class GridAttr:
              ]
 
         if self.optional_m:
-            H.append(CategoricalHyperparameter(f"{attr}_optional_m", ["true", "false"], default_value="false"))
+            H.append(CategoricalHyperparameter(f"{attr}_optional_m", [ "false", "true"]))
 
         return H
 
@@ -162,10 +163,10 @@ class EnumAttr:
         return self.values
 
 
-def eliminate_duplicates(l):
+def eliminate_duplicates(list_elements):
     seen = set()
     seen_add = seen.add
-    return [x for x in l if not (tuple(x.items()) in seen or seen_add(tuple(x.items())))]
+    return [x for x in list_elements if not (tuple(x.items()) in seen or seen_add(tuple(x.items())))]
 
 
 # Scale linear attributes, ensuring that all instances have different values.
