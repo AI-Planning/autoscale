@@ -16,9 +16,7 @@ fi
 export LANG=C
 
 set +e
-# Ignore some "expected" stderr output.
-singularity run -C -H "$PWD" "$1" "$PWD/$2" "$PWD/$3" "$4" 2> \
-  >(grep -v -e "CPU time limit exceeded\|std::bad_alloc\|WARNING: will ignore action costs\|differs from the one in the portfolio file" -e "Terminated" >&2)
+singularity run -C -H "$PWD" "$1" "$PWD/$2" "$PWD/$3" "$4"
 set -e
 
 printf "\nRun VAL\n\n"

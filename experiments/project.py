@@ -427,6 +427,7 @@ def get_evaluation_experiment(
     exp.add_resource("run_singularity", singularity_script)
     # TODO: include compilation of runsolver as a step?
     exp.add_resource("runsolver", Path().home() / "runsolver")
+    exp.add_resource("filter_stderr", "filter-stderr.py")
 
     suite = []
     if not abs_benchmarks_dir:
@@ -455,6 +456,7 @@ def get_evaluation_experiment(
                 ["{runsolver}", "-C", time_limit, "-V", memory_limit, "-w", "watch.log", "-v", "values.log", "{run_singularity}", f"{{{planner}}}", "{domain}", "{problem}", "sas_plan"],
             )
             run.add_command("rm-tmp-files", ["rm", "-f", "output.sas", "output"])
+            run.add_command("filter-stderr", ["{filter_stderr}"])
             run.set_property("domain", task.domain)
             run.set_property("problem", task.problem)
             run.set_property("algorithm", planner_nick)
