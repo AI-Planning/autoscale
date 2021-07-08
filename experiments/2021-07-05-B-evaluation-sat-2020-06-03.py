@@ -36,6 +36,6 @@ exp = project.get_evaluation_experiment(
     benchmarks_dir=BENCHMARKS_DIR,
     domains=DOMAINS,
     attributes=ATTRIBUTES,
-    time_limit=60)
+    time_limit=1800)
 
 exp.run_steps()
