@@ -230,15 +230,8 @@ cplex_sequence_mgr = cplex_sequence_optimization.CPLEXSequenceManager(logging)
 for sequence in STORED_VALID_SEQUENCES:
     logging.debug(f"Evaluate sequence {sequence['config']} with penalty {sequence['penalty']}")
 
-    if ARGS.domain == 'termes':  # and sequence['config']['num_towers']
-        m_height = [float(sequence['config'][f"{atr}_m"]) for atr in ['min_height', 'max_height'] if
-                    sequence['config'][f"{atr}_optional_m"] == 'false']
-        m_blocks = [float(sequence['config'][f"{atr}_m"]) for atr in ['min_height', 'max_height', 'num_towers'] if
-                    sequence['config'][f"{atr}_optional_m"] == 'false']
-        if not m_height or (sum(m_height) < 0.3):
-            continue
-        if not m_blocks or (max(m_blocks) < 0.3 and sum(m_blocks) < 0.5):
-            continue
+    if domain.discard_sequence(sequence):
+        continue
 
     Y = domain.get_configs(sequence['config'], ARGS.sequence_length)
 
