@@ -375,3 +375,4 @@ class CPLEXSequenceManager:
         final_selection_runtimes = sorted(final_selection_runtimes)
         print (f"Total Estimated Runtimes: {final_selection_runtimes}")
         print (f"Total Estimated Solved: {len([x for x in final_selection_runtimes if x <= 1800])}")
+        return final_selection

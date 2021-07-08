@@ -6,6 +6,7 @@ import os.path
 import random
 import sys
 import warnings
+import shutil
 
 import domains_without_generator
 
@@ -117,8 +118,24 @@ print(final_selection)
 if ARGS.output:
     if not os.path.exists(f"{ARGS.output}"):
         os.mkdir(f"{ARGS.output}")
-    os.mkdir(f"{ARGS.output}/{ARGS.domain}")
+    if not os.path.exists(f"{ARGS.output}/{ARGS.domain}"):
+        os.mkdir(f"{ARGS.output}/{ARGS.domain}")
 
-    # domain_file = domain.get_domain_filename(GENERATORS_DIR)
-    # if os.path.isfile(domain_file):
-    #    shutil.copyfile(domain_file, f"{ARGS.output}/{ARGS.domain}/domain.pddl")
+    EXTRA_TASKS_DIR = "../tasks-of-domains-without-usable-generator/"
+    domain_file = DATA_DOMAIN.get_domain_filename(EXTRA_TASKS_DIR)
+    if os.path.isfile(domain_file):
+        shutil.copyfile(domain_file, f"{ARGS.output}/{ARGS.domain}/domain.pddl")
+    else:
+        print(domain_file)
+
+    selected_tasks = set()
+    for i, task in enumerate(final_selection):
+        if isinstance(task, list):
+            selected_task = random.choice([t for t in task if t not in selected_tasks])
+        else:
+            selected_task = task
+
+        assert selected_task not in selected_tasks, "Error, we are selecting the same task twice"
+        selected_tasks.add(selected_task)
+
+        DATA_DOMAIN.generate_problem(EXTRA_TASKS_DIR, selected_task, f"{ARGS.output}/{ARGS.domain}", f"p{i+1:02d}.pddl")

@@ -1,12 +1,20 @@
 import json
+import shutil
 from collections import defaultdict
 import random
+import os
+
 
 BASELINE_PLANNERS = ['fd1906-blind', 'fd1906-gbfs-ff']
 SOLVABLE_BY_CONSTRUCTION_DOMAINS = ['airport', 'tidybot', 'freecell', 'organic-synthesis-split']
 
 GET_PARAMETERS = {
     'agricola': lambda x: x.split("-")[1:4]
+}
+
+
+GET_DOMAIN_FILENAME_INSTANCE = {
+    'airport': lambda x: x.split("-")[0] + "-domain.pddl"
 }
 
 MANUAL_SEQUENCES = {"airport": [
@@ -216,7 +224,8 @@ class DataDomain:
     def num_tasks(self):
         return len(self.tasks)
 
-    def get_configs(self, config, num_tasks):
+    @staticmethod
+    def get_configs(config, num_tasks):
         return config[0:num_tasks]
 
     def get_estimated_runtime(self, config):
@@ -248,11 +257,12 @@ class DataDomain:
         self.rng.shuffle(choices)
         return choices[:num_elements], seq + choices[num_elements:]
 
+    # noinspection PyTypeChecker
     def extract_random_subsequence(self, seq, subseq_length=30):
         current_seq = []
 
         criteria = [(2, lambda x: self.tasks[x].get_baseline_runtime(self.track, 100000) < 30),  # 2 trivial instances
-                    (5, lambda x: 2 < self.tasks[x].get_runtime(self.track, 100000) < 60), # 5 easy instances
+                    (5, lambda x: 2 < self.tasks[x].get_runtime(self.track, 100000) < 60),  # 5 easy instances
                     (5, lambda x: 60 < self.tasks[x].get_runtime(self.track, 100000) < 600),  # 5 medium instances
                     (5, lambda x: 600 < self.tasks[x].get_runtime(self.track, 100000) < 100000),  # 5 hard instances
                     (8, lambda x: self.tasks[x].get_runtime(self.track) == "unsolved")  # 8 unsolved instances
@@ -266,6 +276,9 @@ class DataDomain:
         current_seq += new_selected
 
         current_seq = sorted(current_seq)
+
+        # Currently our criteria is hardcoded to get around 30 instances, so we need an additional assertion here
+        assert (len(current_seq) == subseq_length), "Error: extract_random_sequence is returning an incorrect number of instances."
         return current_seq
 
     def get_sequences(self):
@@ -320,37 +333,25 @@ class DataDomain:
 
         return res
 
-    # We generate sequences of num_instances where:
-    #  (1) there are some tasks solvable by the baseline;
-    #  (2) difficulty for baseline planners increases by a factor of approximately 2;
-    #  (3) difficulty for state of the art planners scales by a factor of approximately 2.
-    #  (4) if the domain has some parameters, it scales the parameters accordingly by choosing
-    #  one of the easiest problems, one of the hardest problems, and trying to find a scaling
-    #  in between that is as smooth as possible.
-    def generate_sequences_opt(self, num_instances):
-
-        # First we sort the instances by runtime. We take the runtime of state of the art
-        # planners, unless they take less than 10 seconds, then we take the runtime of
-        # baseline planners.
-        instances_sorted_by_runtime = sorted(self.tasks.items(), key=lambda x: (
-            max(10, x[1].get_opt_runtime()), x[1].get_baseline_opt_runtime()))
-
-        print("\n".join(
-            [f"{a}: {b.get_opt_runtime()} {b.get_baseline_opt_runtime()}" for (a, b) in instances_sorted_by_runtime]))
-
-        # candidate_base_instances = [] # Select easy instances
-        # candidate_hard_instances = [] # Select hard instances
-
-        # rng = random.Random(1000)
-        # base_instance = rng.choice(candidate_base_instances)
-        # candidate_hard_instance = rng.choice(candidate_base_instances)
-        pass
-
     def __str__(self):
         return f"{self.num_tasks()} opt: {self.solved_opt(1800)} basesat:  {self.solved_baseline_sat(1800)} sat: {self.solved_sat(1800)} timesat: {self.max_runtime_sat()} timebasesat: {self.max_runtime_baseline_sat()}"
 
-    def allow_instances_with_duplicated_parameters(self):
+    @staticmethod
+    def allow_instances_with_duplicated_parameters():
         return False
+
+    def get_domain_filename(self, dir):
+        return f"{dir}/{self.domain}/domain.pddl"
+
+    def generate_problem(self, EXTRA_TASKS_DIR, selected_task, output_dir, output_file):
+        original_filename = f"{EXTRA_TASKS_DIR}/{self.domain}/{selected_task}"
+        assert os.path.exists(original_filename)
+        shutil.copyfile(original_filename, f"{output_dir}/{output_file}")
+
+        if self.domain in GET_DOMAIN_FILENAME_INSTANCE:
+            original_filename_domain = f"{EXTRA_TASKS_DIR}/{self.domain}/{GET_DOMAIN_FILENAME_INSTANCE[self.domain](selected_task)}"
+            assert os.path.exists(original_filename_domain), original_filename_domain
+            shutil.copyfile(original_filename_domain, f"{output_dir}/domain-{output_file}")
 
 
 def load_data_domain_from_file(domain, track, filename_opt, filename_sat):
