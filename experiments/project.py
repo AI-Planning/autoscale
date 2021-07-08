@@ -456,7 +456,9 @@ def get_evaluation_experiment(
                 ["{runsolver}", "-C", time_limit, "-V", memory_limit, "-w", "watch.log", "-v", "values.log", "{run_singularity}", f"{{{planner}}}", "{domain}", "{problem}", "sas_plan"],
             )
             run.add_command("rm-tmp-files", ["rm", "-f", "output.sas", "output"])
-            run.add_command("filter-stderr", ["{filter_stderr}"])
+            # For some reason, not using sys.executable uses an old python2.7
+            # on the grid.
+            run.add_command("filter-stderr", [sys.executable, "{filter_stderr}"])
             run.set_property("domain", task.domain)
             run.set_property("problem", task.problem)
             run.set_property("algorithm", planner_nick)
