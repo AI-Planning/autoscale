@@ -1,0 +1,118 @@
+2021-07-09 16:39:38,965 INFO     Stored sequences: 13
+2021-07-09 16:39:38,965 DEBUG    Configurations in sequence ['p01.pddl', 'p02.pddl', 'p03.pddl', 'p04.pddl', 'p05.pddl', 'p06.pddl', 'p07.pddl', 'p08.pddl', 'p09.pddl', 'p10.pddl', 'p11.pddl', 'p12.pddl', 'p13.pddl', 'p14.pddl', 'p15.pddl', 'p16.pddl', 'p17.pddl', 'p18.pddl', 'p19.pddl', 'p20.pddl']
+2021-07-09 16:39:38,969 DEBUG    Sart runtimes [[0.25], [0.32], [0.67], [0.91], [1.43], [1.91], [1.96], [2.55], [2.59], [3.45], [3.5], [3.77], [4.53], [4.76], [6.07], [8.64], [21.02], [24.22], [49.37], [313.34]]
+2021-07-09 16:39:38,973 DEBUG    Baseline runtimes [[0.72], [0.89], [1.08], [1.7], [1.91], [1.96], [2.17], [2.55], [2.59], [3.45], [3.5], [3.77], [4.53], [4.76], [6.07], [8.64], [21.02], [24.22], [49.37], [313.34]]
+2021-07-09 16:39:38,978 DEBUG    Configurations in sequence ['probfreecell-2-1.pddl', 'probfreecell-2-2.pddl', 'probfreecell-2-3.pddl', 'probfreecell-2-4.pddl', 'probfreecell-2-5.pddl']
+2021-07-09 16:39:38,980 DEBUG    Sart runtimes [[0.72], [0.78], [0.8], [0.93], [0.94]]
+2021-07-09 16:39:38,983 DEBUG    Baseline runtimes [[1.27], [1.31], [1.36], [1.39], [1.89]]
+2021-07-09 16:39:38,985 DEBUG    Discarding sequence [1.27, 1.31, 1.36, 1.39, 1.89] [0.72, 0.78, 0.8, 0.93, 0.94]
+2021-07-09 16:39:38,985 DEBUG    Configurations in sequence ['probfreecell-3-1.pddl', 'probfreecell-3-2.pddl', 'probfreecell-3-3.pddl', 'probfreecell-3-4.pddl', 'probfreecell-3-5.pddl']
+2021-07-09 16:39:38,987 DEBUG    Sart runtimes [[1.19], [1.22], [1.31], [1.32], [1.36]]
+2021-07-09 16:39:38,989 DEBUG    Baseline runtimes [[2.03], [2.04], [2.28], [2.35], [2.52]]
+2021-07-09 16:39:38,991 DEBUG    Configurations in sequence ['probfreecell-4-1.pddl', 'probfreecell-4-2.pddl', 'probfreecell-4-3.pddl', 'probfreecell-4-4.pddl', 'probfreecell-4-5.pddl']
+2021-07-09 16:39:38,993 DEBUG    Sart runtimes [[1.87], [2.01], [2.12], [2.29], [2.58]]
+2021-07-09 16:39:38,995 DEBUG    Baseline runtimes [[2.48], [2.5], [2.67], [2.79], [3.2]]
+2021-07-09 16:39:38,997 DEBUG    Configurations in sequence ['probfreecell-5-1.pddl', 'probfreecell-5-2.pddl', 'probfreecell-5-3.pddl', 'probfreecell-5-4.pddl', 'probfreecell-5-5.pddl']
+2021-07-09 16:39:38,998 DEBUG    Sart runtimes [[2.81], [3.19], [3.29], [3.37], [3.42]]
+2021-07-09 16:39:39,000 DEBUG    Baseline runtimes [[3.12], [3.19], [3.29], [3.37], [3.42]]
+2021-07-09 16:39:39,002 DEBUG    Configurations in sequence ['probfreecell-6-1.pddl', 'probfreecell-6-2.pddl', 'probfreecell-6-3.pddl', 'probfreecell-6-4.pddl', 'probfreecell-6-5.pddl']
+2021-07-09 16:39:39,003 DEBUG    Sart runtimes [[3.59], [3.84], [4.03], [4.43], [4.68]]
+2021-07-09 16:39:39,004 DEBUG    Baseline runtimes [[3.59], [3.84], [4.03], [4.43], [4.68]]
+2021-07-09 16:39:39,006 DEBUG    Configurations in sequence ['probfreecell-7-1.pddl', 'probfreecell-7-2.pddl', 'probfreecell-7-3.pddl', 'probfreecell-7-4.pddl', 'probfreecell-7-5.pddl']
+2021-07-09 16:39:39,007 DEBUG    Sart runtimes [[4.37], [4.81], [4.93], [5.1], [5.14]]
+2021-07-09 16:39:39,009 DEBUG    Baseline runtimes [[4.37], [4.81], [4.93], [5.1], [5.14]]
+2021-07-09 16:39:39,011 DEBUG    Configurations in sequence ['probfreecell-8-1.pddl', 'probfreecell-8-2.pddl', 'probfreecell-8-3.pddl', 'probfreecell-8-4.pddl', 'probfreecell-8-5.pddl']
+2021-07-09 16:39:39,013 DEBUG    Sart runtimes [[5.39], [5.42], [5.52], [6.29], [6.6]]
+2021-07-09 16:39:39,015 DEBUG    Baseline runtimes [[5.39], [5.42], [5.52], [6.29], [6.6]]
+2021-07-09 16:39:39,017 DEBUG    Configurations in sequence ['probfreecell-9-1.pddl', 'probfreecell-9-2.pddl', 'probfreecell-9-3.pddl', 'probfreecell-9-4.pddl', 'probfreecell-9-5.pddl']
+2021-07-09 16:39:39,018 DEBUG    Sart runtimes [[5.66], [6.02], [6.39], [6.63], [7.0]]
+2021-07-09 16:39:39,020 DEBUG    Baseline runtimes [[5.66], [6.02], [6.39], [6.63], [7.0]]
+2021-07-09 16:39:39,021 DEBUG    Configurations in sequence ['probfreecell-10-1.pddl', 'probfreecell-10-2.pddl', 'probfreecell-10-3.pddl', 'probfreecell-10-4.pddl', 'probfreecell-10-5.pddl']
+2021-07-09 16:39:39,022 DEBUG    Sart runtimes [[7.31], [8.58], [9.62], [10.87], [23.68]]
+2021-07-09 16:39:39,024 DEBUG    Baseline runtimes [[7.31], [8.58], [9.62], [10.87], [23.68]]
+2021-07-09 16:39:39,026 DEBUG    Configurations in sequence ['probfreecell-11-1.pddl', 'probfreecell-11-2.pddl', 'probfreecell-11-3.pddl', 'probfreecell-11-4.pddl', 'probfreecell-11-5.pddl']
+2021-07-09 16:39:39,027 DEBUG    Sart runtimes [[9.03], [11.7], [22.99], [24.35], [30.62]]
+2021-07-09 16:39:39,029 DEBUG    Baseline runtimes [[9.03], [11.7], [22.99], [24.35], [30.62]]
+2021-07-09 16:39:39,031 DEBUG    Configurations in sequence ['probfreecell-12-1.pddl', 'probfreecell-12-2.pddl', 'probfreecell-12-3.pddl', 'probfreecell-12-4.pddl', 'probfreecell-12-5.pddl']
+2021-07-09 16:39:39,033 DEBUG    Sart runtimes [[8.68], [10.8], [75.73], [76.74], [219.22]]
+2021-07-09 16:39:39,036 DEBUG    Baseline runtimes [[8.68], [10.8], [75.73], [76.74], [219.22]]
+2021-07-09 16:39:39,038 DEBUG    Configurations in sequence ['probfreecell-13-1.pddl', 'probfreecell-13-2.pddl', 'probfreecell-13-3.pddl', 'probfreecell-13-4.pddl', 'probfreecell-13-5.pddl']
+2021-07-09 16:39:39,039 DEBUG    Sart runtimes [[10.87], [53.22], [76.32], [181.07]]
+2021-07-09 16:39:39,041 DEBUG    Baseline runtimes [[10.87], [53.22], [76.32], [181.07]]
+2021-07-09 16:39:39,042 INFO     Different evaluated sequences: 12
+2021-07-09 16:39:39,043 INFO     Candidate sequences: 12
+2021-07-09 16:39:39,043 DEBUG    Candidate sequences: 
+ Sequence(1, length=20, penalty=2.0910074493674955, penalty_baseline=1.0455037246837477, penalty_sart=1.0455037246837477, config=['p01.pddl', 'p02.pddl', 'p03.pddl', 'p04.pddl', 'p05.pddl', 'p06.pddl', 'p07.pddl', 'p08.pddl', 'p09.pddl', 'p10.pddl', 'p11.pddl', 'p12.pddl', 'p13.pddl', 'p14.pddl', 'p15.pddl', 'p16.pddl', 'p17.pddl', 'p18.pddl', 'p19.pddl', 'p20.pddl'], runtimes_baseline=[0.72, 0.89, 1.08, 1.7, 1.91, 1.96, 2.17, 2.55, 2.59, 3.45, 3.5, 3.77, 4.53, 4.76, 6.07, 8.64, 21.02, 24.22, 49.37, 313.34], runtimes_sart=[0.25, 0.32, 0.67, 0.91, 1.43, 1.91, 1.96, 2.55, 2.59, 3.45, 3.5, 3.77, 4.53, 4.76, 6.07, 8.64, 21.02, 24.22, 49.37, 313.34]
+ Sequence(2, length=5, penalty=20, penalty_baseline=10, penalty_sart=10, config=['probfreecell-3-1.pddl', 'probfreecell-3-2.pddl', 'probfreecell-3-3.pddl', 'probfreecell-3-4.pddl', 'probfreecell-3-5.pddl'], runtimes_baseline=[2.03, 2.04, 2.28, 2.35, 2.52], runtimes_sart=[1.19, 1.22, 1.31, 1.32, 1.36]
+ Sequence(3, length=5, penalty=20, penalty_baseline=10, penalty_sart=10, config=['probfreecell-4-1.pddl', 'probfreecell-4-2.pddl', 'probfreecell-4-3.pddl', 'probfreecell-4-4.pddl', 'probfreecell-4-5.pddl'], runtimes_baseline=[2.48, 2.5, 2.67, 2.79, 3.2], runtimes_sart=[1.87, 2.01, 2.12, 2.29, 2.58]
+ Sequence(4, length=5, penalty=20, penalty_baseline=10, penalty_sart=10, config=['probfreecell-5-1.pddl', 'probfreecell-5-2.pddl', 'probfreecell-5-3.pddl', 'probfreecell-5-4.pddl', 'probfreecell-5-5.pddl'], runtimes_baseline=[3.12, 3.19, 3.29, 3.37, 3.42], runtimes_sart=[2.81, 3.19, 3.29, 3.37, 3.42]
+ Sequence(5, length=5, penalty=20, penalty_baseline=10, penalty_sart=10, config=['probfreecell-6-1.pddl', 'probfreecell-6-2.pddl', 'probfreecell-6-3.pddl', 'probfreecell-6-4.pddl', 'probfreecell-6-5.pddl'], runtimes_baseline=[3.59, 3.84, 4.03, 4.43, 4.68], runtimes_sart=[3.59, 3.84, 4.03, 4.43, 4.68]
+ Sequence(6, length=5, penalty=13.968627450980392, penalty_baseline=6.984313725490196, penalty_sart=6.984313725490196, config=['probfreecell-7-1.pddl', 'probfreecell-7-2.pddl', 'probfreecell-7-3.pddl', 'probfreecell-7-4.pddl', 'probfreecell-7-5.pddl'], runtimes_baseline=[4.37, 4.81, 4.93, 5.1, 5.14], runtimes_sart=[4.37, 4.81, 4.93, 5.1, 5.14]
+ Sequence(7, length=5, penalty=7.148826481879613, penalty_baseline=3.5744132409398066, penalty_sart=3.5744132409398066, config=['probfreecell-8-1.pddl', 'probfreecell-8-2.pddl', 'probfreecell-8-3.pddl', 'probfreecell-8-4.pddl', 'probfreecell-8-5.pddl'], runtimes_baseline=[5.39, 5.42, 5.52, 6.29, 6.6], runtimes_sart=[5.39, 5.42, 5.52, 6.29, 6.6]
+ Sequence(8, length=5, penalty=7.126273368365968, penalty_baseline=3.563136684182984, penalty_sart=3.563136684182984, config=['probfreecell-9-1.pddl', 'probfreecell-9-2.pddl', 'probfreecell-9-3.pddl', 'probfreecell-9-4.pddl', 'probfreecell-9-5.pddl'], runtimes_baseline=[5.66, 6.02, 6.39, 6.63, 7.0], runtimes_sart=[5.66, 6.02, 6.39, 6.63, 7.0]
+ Sequence(9, length=5, penalty=4.4643139062598705, penalty_baseline=2.2321569531299352, penalty_sart=2.2321569531299352, config=['probfreecell-10-1.pddl', 'probfreecell-10-2.pddl', 'probfreecell-10-3.pddl', 'probfreecell-10-4.pddl', 'probfreecell-10-5.pddl'], runtimes_baseline=[7.31, 8.58, 9.62, 10.87, 23.68], runtimes_sart=[7.31, 8.58, 9.62, 10.87, 23.68]
+ Sequence(10, length=5, penalty=3.55067166198947, penalty_baseline=1.775335830994735, penalty_sart=1.775335830994735, config=['probfreecell-11-1.pddl', 'probfreecell-11-2.pddl', 'probfreecell-11-3.pddl', 'probfreecell-11-4.pddl', 'probfreecell-11-5.pddl'], runtimes_baseline=[9.03, 11.7, 22.99, 24.35, 30.62], runtimes_sart=[9.03, 11.7, 22.99, 24.35, 30.62]
+ Sequence(11, length=5, penalty=8.399246413252026, penalty_baseline=4.199623206626013, penalty_sart=4.199623206626013, config=['probfreecell-12-1.pddl', 'probfreecell-12-2.pddl', 'probfreecell-12-3.pddl', 'probfreecell-12-4.pddl', 'probfreecell-12-5.pddl'], runtimes_baseline=[8.68, 10.8, 75.73, 76.74, 219.22], runtimes_sart=[8.68, 10.8, 75.73, 76.74, 219.22]
+ Sequence(12, length=5, penalty=9.446824502066892, penalty_baseline=4.723412251033446, penalty_sart=4.723412251033446, config=['probfreecell-13-1.pddl', 'probfreecell-13-2.pddl', 'probfreecell-13-3.pddl', 'probfreecell-13-4.pddl', 'probfreecell-13-5.pddl'], runtimes_baseline=[10.87, 53.22, 76.32, 181.07], runtimes_sart=[10.87, 53.22, 76.32, 181.07]
+2021-07-09 16:39:39,043 INFO     Using sart runtimes on CPLEX optimization
+2021-07-09 16:39:39,077 INFO     CPLEX solve
+
+2021-07-09 16:39:39,107 INFO     Solution status = 101: MIP_optimal
+2021-07-09 16:39:39,107 INFO     Solution value  = 14997.425364479472
+2021-07-09 16:39:39,108 DEBUG    START: seq-1-0 0
+Selected: sequence 1, 20 instances from 0 to 19
+Configuration: ['p01.pddl', 'p02.pddl', 'p03.pddl', 'p04.pddl', 'p05.pddl', 'p06.pddl', 'p07.pddl', 'p08.pddl', 'p09.pddl', 'p10.pddl', 'p11.pddl', 'p12.pddl', 'p13.pddl', 'p14.pddl', 'p15.pddl', 'p16.pddl', 'p17.pddl', 'p18.pddl', 'p19.pddl', 'p20.pddl']
+Penalty: 2.09
+Penalty sart: 1.05
+Penalty baseline: 1.05
+Seq Estimated runtimes: 0.25, 0.32, 0.67, 0.91, 1.4, 1.9, 2, 2.5, 2.6, 3.5, 3.5, 3.8, 4.5, 4.8, 6.1, 8.6, 21, 24, 49, 3.1e+02
+2021-07-09 16:39:39,109 DEBUG    END: end-1-19 19
+2021-07-09 16:39:39,109 DEBUG    START: seq-11-0 74
+Selected: sequence 11, 5 instances from 0 to 4
+Configuration: ['probfreecell-12-1.pddl', 'probfreecell-12-2.pddl', 'probfreecell-12-3.pddl', 'probfreecell-12-4.pddl', 'probfreecell-12-5.pddl']
+Penalty: 8.40
+Penalty sart: 4.20
+Penalty baseline: 4.20
+Seq Estimated runtimes: 8.7, 11, 76, 77, 2.2e+02
+2021-07-09 16:39:39,109 DEBUG    END: end-11-4 79
+2021-07-09 16:39:39,110 DEBUG    START: seq-12-0 80
+Selected: sequence 12, 5 instances from 0 to 4
+Configuration: ['probfreecell-13-1.pddl', 'probfreecell-13-2.pddl', 'probfreecell-13-3.pddl', 'probfreecell-13-4.pddl', 'probfreecell-13-5.pddl']
+Penalty: 9.45
+Penalty sart: 4.72
+Penalty baseline: 4.72
+Seq Estimated runtimes: 11, 53, 76, 1.8e+02, 1e+04
+2021-07-09 16:39:39,110 DEBUG    END: end-12-4 84
+  p01: p01.pddl   0.25 0.72 0.25
+  p02: p02.pddl   0.32 0.89 0.32
+  p03: p03.pddl   0.67 1.7 0.67
+  p04: p04.pddl   0.91 1.08 0.91
+  p05: p05.pddl   1.43 2.17 1.43
+  p06: p06.pddl   1.91 1.96 1.96
+  p07: p07.pddl   1.96 1.91 1.91
+  p08: p08.pddl   2.55 2.55 2.55
+  p09: p09.pddl   2.59 2.59 2.59
+  p10: p10.pddl   3.45 3.45 3.45
+  p11: p11.pddl   3.5 3.5 3.5
+  p12: p12.pddl   3.77 3.77 3.77
+  p13: p13.pddl   4.53 4.76 4.76
+  p14: p14.pddl   4.76 4.53 4.53
+  p15: p15.pddl   6.07 24.22 24.22
+  p16: p16.pddl   8.64 6.07 6.07
+  p17: p17.pddl   21.02 8.64 8.64
+  p18: p18.pddl   24.22 49.37 49.37
+  p19: p19.pddl   49.37 313.34 313.34
+  p20: p20.pddl   313.34 21.02 21.02
+  p21: probfreecell-12-1.pddl   8.68 219.22 219.22
+  p22: probfreecell-12-2.pddl   10.8 10.8 10.8
+  p23: probfreecell-12-3.pddl   75.73 8.68 8.68
+  p24: probfreecell-12-4.pddl   76.74 76.74 76.74
+  p25: probfreecell-12-5.pddl   219.22 75.73 75.73
+  p26: probfreecell-13-1.pddl   10.87 53.22 53.22
+  p27: probfreecell-13-2.pddl   53.22 76.32 76.32
+  p28: probfreecell-13-3.pddl   76.32 10.87 10.87
+  p29: probfreecell-13-4.pddl   181.07 181.07 181.07
+  p30: probfreecell-13-5.pddl   10000.0 10520.67 10520.67
+Total Estimated Runtimes: [0.25, 0.32, 0.67, 0.91, 1.43, 1.91, 1.96, 2.55, 2.59, 3.45, 3.5, 3.77, 4.53, 4.76, 6.07, 8.64, 8.68, 10.8, 10.87, 21.02, 24.22, 49.37, 53.22, 75.73, 76.32, 76.74, 181.07, 219.22, 313.34, 10000.0]
+Total Estimated Solved: 29
+['p01.pddl', 'p02.pddl', 'p03.pddl', 'p04.pddl', 'p05.pddl', 'p06.pddl', 'p07.pddl', 'p08.pddl', 'p09.pddl', 'p10.pddl', 'p11.pddl', 'p12.pddl', 'p13.pddl', 'p14.pddl', 'p15.pddl', 'p16.pddl', 'p17.pddl', 'p18.pddl', 'p19.pddl', 'p20.pddl', 'probfreecell-12-1.pddl', 'probfreecell-12-2.pddl', 'probfreecell-12-3.pddl', 'probfreecell-12-4.pddl', 'probfreecell-12-5.pddl', 'probfreecell-13-1.pddl', 'probfreecell-13-2.pddl', 'probfreecell-13-3.pddl', 'probfreecell-13-4.pddl', 'probfreecell-13-5.pddl']

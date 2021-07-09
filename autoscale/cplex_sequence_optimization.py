@@ -278,7 +278,7 @@ class CPLEXSequenceManager:
             for seq1, seq2 in itertools.combinations(candidate_sequences, 2):
                 intersection = seq1.intersection(seq2)
                 if intersection:
-                    logging.debug(f"Non-empty intersection between sequences {seq1.seq_id} and {seq2.seq_id}")
+                    #logging.debug(f"Non-empty intersection between sequences {seq1.seq_id} and {seq2.seq_id}")
                     # We must forbid choosing more than one element in both sequences
                     v1 = seq1.get_start_vars_per_option()
                     v2 = seq2.get_start_vars_per_option()
