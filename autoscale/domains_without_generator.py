@@ -3,15 +3,25 @@ import shutil
 from collections import defaultdict
 import random
 import os
+from typing import Any, Union
+
+DOMAIN_RENAMINGS = {
+    "agricola-hard": "agricola",
+    "mystery-hard": "mystery",
+    "pathways-new": "pathways",
+    "tetris-hard": "tetris"
+}
+
+
+def get_domain_renaming(dom):
+    if dom in DOMAIN_RENAMINGS:
+        return DOMAIN_RENAMINGS[dom]
+    else:
+        return dom
 
 
 BASELINE_PLANNERS = ['fd1906-blind', 'fd1906-gbfs-ff']
 SOLVABLE_BY_CONSTRUCTION_DOMAINS = ['airport', 'tidybot', 'freecell', 'organic-synthesis-split']
-
-GET_PARAMETERS = {
-    'agricola': lambda x: x.split("-")[1:4]
-}
-
 
 GET_DOMAIN_FILENAME_INSTANCE = {
     'airport': lambda x: x.split("-")[0] + "-domain.pddl"
@@ -36,8 +46,8 @@ MANUAL_SEQUENCES = {"airport": [
     "pathways": [[f"p{i:02d}.pddl" for i in range(1, 31)], ],
     "freecell": [
         [f"p{i:02d}.pddl" for i in range(1, 21)],
-        [[f"probfreecell-{i}-{j}.pddl" for j in range(1, 6)] for i in range(2, 14)]
-    ],
+        ] +
+        [[f"probfreecell-{i}-{j}.pddl" for j in range(1, 6)] for i in range(2, 14)],
     "pipesworld-tankage":
         [['p01-net1-b6-g2-t50.pddl', 'p02-net1-b6-g4-t50.pddl', 'p03-net1-b8-g3-t80.pddl',
           'p04-net1-b8-g5-t80.pddl', 'p05-net1-b10-g4-t50.pddl', 'p06-net1-b10-g6-t50.pddl',
@@ -88,7 +98,19 @@ SEQUENCES_BY_RUNTIME = {
     "sokoban": lambda x: x.split("-")[0],
     "tidybot": lambda x: "",
     "pegsol": lambda x: "",
+    "parcprinter": lambda x: "",
     "mprime": lambda x: "",
+    "agricola": lambda x: x.split("-")[1],
+    "mystery" : lambda  x: "",
+    "tetris": lambda  x: "",
+    "pathways" : lambda  x: None if not "-" in x else "",
+    "ged": lambda  x: x.split("-")[0],
+}
+
+LINEAR_ATTRIBUTES = {
+    "agricola": lambda x: list(map(int, x.split("-")[2:4])),
+    "tetris": lambda x: list(map(int, x.split("-")[1:3]))
+
 }
 
 
@@ -101,8 +123,6 @@ class DataTask:
         self.runtimes_baseline_opt = []
         self.runtimes_baseline_sat = []
         self.solvable = domain in SOLVABLE_BY_CONSTRUCTION_DOMAINS
-
-        self.parameters = GET_PARAMETERS[domain](problem) if domain in GET_PARAMETERS else "none"
 
     def remove_planners_that_solve_the_domain(self, planners_that_do_not_solve_the_domain):
         self.runtimes_opt = {k: v for k, v in self.runtimes_opt.items() if
@@ -167,15 +187,12 @@ class DataTask:
 
         return round(sat_runtime / 10), round(baseline_sat_runtime / 10), sat_runtime, self.problem
 
-    def get_parameters(self):
-        return self.parameters
-
     def __str__(self):
         return f"{self.problem} {self.get_baseline_opt_runtime()} {self.get_opt_runtime()} {self.get_baseline_sat_runtime()} {self.get_sat_runtime()} "
 
 
 class DataDomain:
-    def __init__(self, track):
+    def __init__(self, track="opt"):
         self.tasks = defaultdict(DataTask)
         self.planners_that_do_not_solve_the_domain = set()
         self.domain = None
@@ -183,8 +200,8 @@ class DataDomain:
         self.rng = random.Random(1000)
 
     def add(self, data, is_opt):
-        assert self.domain is None or self.domain == data['domain']
-        self.domain = data['domain']
+        assert self.domain is None or self.domain == get_domain_renaming(data['domain'])
+        self.domain = self.domain or get_domain_renaming(data['domain'])
 
         prob = data['problem']
         if prob not in self.tasks:
@@ -195,7 +212,7 @@ class DataDomain:
             self.tasks[prob].solved(data['algorithm'], data['runtime'], is_opt)
             # if data['runtime'] > 600:
             #     self.planners_that_do_not_solve_the_domain.add(data['algorithm'])
-        else:
+        elif 'coverage' not in data or data['coverage'] == 0:
             self.planners_that_do_not_solve_the_domain.add(data['algorithm'])
             assert not ('runtime' in data)
 
@@ -257,6 +274,62 @@ class DataDomain:
         self.rng.shuffle(choices)
         return choices[:num_elements], seq + choices[num_elements:]
 
+    def extract_random_linear_atr_subsequence(self, seq, subseq_length=30):
+        # Group by attributes
+        tasks_by_attributes = defaultdict(list)
+        for t in seq:
+            atr = tuple(LINEAR_ATTRIBUTES[self.domain](t))
+            tasks_by_attributes[atr].append(t)
+
+        # Pick easy instance
+        easy_instances = [t for t in seq if self.tasks[t].get_baseline_runtime(self.track, 1000) < 30] or \
+                         [t for t in seq if self.tasks[t].get_baseline_runtime(self.track, 1000) < 60] or \
+                         [t for t in seq if self.tasks[t].get_baseline_runtime(self.track) != "unsolved"] or \
+                         [t for t in seq if self.tasks[t].get_runtime(self.track, 1000) < 30] or \
+                         [t for t in seq if self.tasks[t].get_runtime(self.track, 1000) < 60]
+
+        easy_instance = self.rng.choice(easy_instances)
+
+        # Pick hard instance, preferably one that has a greater value in all attributes
+        hard_instances = [t for t in seq if self.tasks[t].get_runtime(self.track) == "unsolved"] or \
+                         [t for t in seq if self.tasks[t].get_runtime(self.track) > 600] or \
+                         [t for t in seq if self.tasks[t].get_baseline_runtime(self.track) == "unsolved"] or \
+                         [t for t in seq if self.tasks[t].get_baseline_runtime(self.track) > 600]
+
+        hard_instance = self.rng.choice(hard_instances)
+
+        current_seq = [easy_instance]
+
+        easy_values = LINEAR_ATTRIBUTES[self.domain](easy_instance)
+        hard_values = LINEAR_ATTRIBUTES[self.domain](hard_instance)
+        init_values = [min(easy, hard) for (easy, hard) in zip(easy_values, hard_values)]
+        end_values = [max(easy, hard) for (easy, hard) in zip(easy_values, hard_values)]
+
+        slopes = [(vend - vinit) / self.rng.randint(subseq_length / 2, subseq_length) for vinit, vend in
+                  zip(init_values, end_values)]
+
+        current_values = init_values
+        remaining_values = [k for k in tasks_by_attributes]
+        remaining_values = [k for k in remaining_values if
+                            k != tuple(current_values) and all([vk >= vc for vk, vc in zip(k, current_values)])]
+
+        assert current_values not in remaining_values
+        while len(current_seq) < subseq_length and remaining_values:
+            current_values = [val + sl for val, sl in zip(current_values, slopes)]
+            # Sort according to distance to current values
+            remaining_values = sorted(remaining_values,
+                                      key=lambda x: sum([(vx - vy) ** 2 for vx, vy in zip(current_values, x)]))
+            current_values = self.rng.choice(remaining_values[:3])
+            if current_values == hard_values:
+                current_seq.append(hard_instance)
+            else:
+                current_seq.append(self.rng.choice(tasks_by_attributes[current_values]))
+            assert not (current_seq[-1] == "p-must_create_workers-3-3-550290313.pddl" and current_seq[-2] == "p-must_create_workers-3-3-277996285.pddl")
+
+            remaining_values = [k for k in remaining_values if
+                                k != tuple(current_values) and all([vk >= vc for vk, vc in zip(k, current_values)])]
+        return current_seq
+
     # noinspection PyTypeChecker
     def extract_random_subsequence(self, seq, subseq_length=30):
         current_seq = []
@@ -278,7 +351,8 @@ class DataDomain:
         current_seq = sorted(current_seq)
 
         # Currently our criteria is hardcoded to get around 30 instances, so we need an additional assertion here
-        assert (len(current_seq) == subseq_length), "Error: extract_random_sequence is returning an incorrect number of instances."
+        assert (
+                len(current_seq) == subseq_length), "Error: extract_random_sequence is returning an incorrect number of instances."
         return current_seq
 
     def get_sequences(self):
@@ -291,19 +365,26 @@ class DataDomain:
             new_seqs = defaultdict(list)
             for task in self.tasks:
                 category = SEQUENCES_BY_RUNTIME[self.domain](task)
+                if category is None:
+                    continue
                 new_seqs[category].append(task)
 
             for seq in new_seqs.values():
-                subseqs = []
+                sub_sequences_sorted_by_runtime = []
                 # 1) Generate sequences of length 30
                 if len(seq) <= 30:
-                    subseqs.append(seq)
+                    sub_sequences_sorted_by_runtime.append(seq)
+                elif self.domain in LINEAR_ATTRIBUTES:
+                    for _ in range(min(1000, max(10, int(5000 / len(new_seqs))))):  # Generate at least 10 and at most 1000 different sequences
+
+                        res.append(self.extract_random_linear_atr_subsequence(seq))
+
                 else:
                     for _ in range(min(100, max(10, int(1000 / len(
                             new_seqs))))):  # Generate at least 10 and at most 100 different sequences
-                        subseqs.append(self.extract_random_subsequence(seq))
+                        sub_sequences_sorted_by_runtime.append(self.extract_random_subsequence(seq))
 
-                for subseq in subseqs:
+                for subseq in sub_sequences_sorted_by_runtime:
                     # Sort by runtime
                     if self.track == "opt":
                         subseq = sorted(subseq, key=lambda x: self.tasks[x].key_to_sort_by_opt_runtime())
@@ -337,7 +418,7 @@ class DataDomain:
         return f"{self.num_tasks()} opt: {self.solved_opt(1800)} basesat:  {self.solved_baseline_sat(1800)} sat: {self.solved_sat(1800)} timesat: {self.max_runtime_sat()} timebasesat: {self.max_runtime_baseline_sat()}"
 
     def allow_instances_with_duplicated_parameters(self, intersection):
-        return all([isinstance(item, list)  for item in intersection])
+        return all([isinstance(item, list) for item in intersection])
 
     def get_domain_filename(self, dir):
         return f"{dir}/{self.domain}/domain.pddl"
@@ -353,23 +434,15 @@ class DataDomain:
             shutil.copyfile(original_filename_domain, f"{output_dir}/domain-{output_file}")
 
 
-def load_data_domain_from_file(domain, track, filename_opt, filename_sat):
+def load_data_domain_from_file(domain, track, filenames_opt, filenames_sat):
     res = DataDomain(track)
 
-    f_opt = open(filename_opt)
-    data_opt = json.load(f_opt)
+    for filename in filenames_opt + filenames_sat:
+        with open(filename) as f:
+            data = json.load(f)
 
-    for _, data in data_opt.items():
-        dom = data['domain']
-        if dom == domain:
-            res.add(data, True)
-
-    f_sat = open(filename_sat)
-    data_sat = json.load(f_sat)
-
-    for _, data in data_sat.items():
-        dom = data['domain']
-        if dom == domain:
-            res.add(data, False)
+            for _, data in data.items():
+                if get_domain_renaming(data['domain']) == domain:
+                    res.add(data, filename in filenames_opt)
 
     return res

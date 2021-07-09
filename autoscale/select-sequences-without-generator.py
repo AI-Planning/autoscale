@@ -38,8 +38,13 @@ def parse_args():
     )
 
     parser.add_argument("domain", help="Domain name")
+    
 
-    parser.add_argument("--database", nargs="+", help="path to json file(s) with the information needed")
+
+    parser.add_argument("--database_opt", nargs="+", default=["../experiments/results/2021-07-02-A-evaluation-opt-extra-tasks-30m-properties.json"], help="path to json file(s) with the information needed")
+    parser.add_argument("--database_sat", nargs="+", default=["../experiments/results/2021-07-02-D-sat-fetch-evaluation-properties.json"], help="path to json file(s) with the information needed")
+    # ../experiments/results/2021-06-14-B-evaluation-sat-extra-tasks-properties.json
+    #"../experiments/results/2021-06-14-A-evaluation-opt-extra-tasks-properties.json"
 
     parser.add_argument("--output", help="directory to create the new benchmark set")
 
@@ -54,9 +59,9 @@ ARGS = parse_args()
 random.seed(ARGS.random_seed)
 utils.setup_logging(ARGS.debug)
 
-DATA_DOMAIN = domains_without_generator.load_data_domain_from_file(ARGS.domain, ARGS.track,
-                                                                   '../experiments/results/2021-06-14-A-evaluation-opt-extra-tasks-properties.json',
-                                                                   '../experiments/results/2021-06-14-B-evaluation-sat-extra-tasks-properties.json')
+DATA_DOMAIN = domains_without_generator.load_data_domain_from_file(ARGS.domain, ARGS.track,ARGS.database_opt,ARGS.database_sat)
+DATA_DOMAIN.remove_possibly_unsolvable()
+DATA_DOMAIN.remove_planners_that_solve_the_domain()
 
 STORED_VALID_SEQUENCES = DATA_DOMAIN.get_sequences()
 logging.info(f"Stored sequences: {len(STORED_VALID_SEQUENCES)}")
