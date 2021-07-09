@@ -12,7 +12,7 @@ import sys
 
 import planners
 
-from sequence import compute_average
+from sequences import compute_average
 
 DIR = Path(__file__).resolve().parent
 SINGULARITY_SCRIPT = DIR / "run-singularity.sh"

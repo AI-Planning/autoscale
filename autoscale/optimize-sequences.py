@@ -33,7 +33,7 @@ import json
 import domains
 from planners import get_baseline_planner, get_sart_planners
 from runner import Runner
-from sequence import EvaluatedSequence
+from sequences import EvaluatedSequence
 import utils
 
 

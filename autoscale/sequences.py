@@ -13,35 +13,37 @@ def compute_average(runtimes, runtime_unsolved=None):
     filtered_runtimes = filter_unsolved(runtimes)
     if filtered_runtimes and runtime_unsolved:
         filtered_runtimes += [runtime_unsolved] * (
-            len(runtimes) - len(filtered_runtimes)
+                len(runtimes) - len(filtered_runtimes)
         )
 
     return statistics.mean(filtered_runtimes) if filtered_runtimes else None
 
 
+def get_evaluated_sequence_runner(sequence, runner, time_limit):
+    runtimes = []
+    next_lb_runtime = [0]
+    while (next_lb_runtime is not None
+           and filter_unsolved(next_lb_runtime)
+           and len(runtimes) < len(sequence)
+           and compute_average(next_lb_runtime, time_limit * 2) < time_limit
+    ):
+        next_lb_runtime = runner.run_planners(sequence[len(runtimes)])
+        if next_lb_runtime and filter_unsolved(next_lb_runtime):
+            runtimes.append(next_lb_runtime)
+    return EvaluatedSequence(sequence, runtimes)
+
+
 class EvaluatedSequence:
-    def __init__(self, sequence, runner, time_limit):
-        self.seq = sequence
-        self.runtimes = []
-        self.next_lb_runtime = [0]
-        while (
-            self.next_lb_runtime is not None
-            and filter_unsolved(self.next_lb_runtime)
-            and len(self.runtimes) < len(self.seq)
-            and compute_average(self.next_lb_runtime, time_limit * 2) < time_limit
-        ):
-            self.next_lb_runtime = runner.run_planners(self.seq[len(self.runtimes)])
-            if self.next_lb_runtime and filter_unsolved(self.next_lb_runtime):
-                self.runtimes.append(self.next_lb_runtime)
+    def __init__(self, sequence, runtimes):
+        self.sequence = sequence
+        self.runtimes = runtimes
 
     def get_runtimes(self, n, larger_than, lower_than):
         return sorted(
             (
                 t
                 for t in self.runtimes
-                if filter_unsolved(t)
-                and compute_average(t) <= lower_than
-                and compute_average(t) >= larger_than
+                if filter_unsolved(t) and lower_than >= compute_average(t) >= larger_than
             ),
             key=lambda t: compute_average(t),
         )[:n]
@@ -52,7 +54,7 @@ class EvaluatedSequence:
     def get_index_with_runtimes(self, lower, upper):
         def is_index_with_runtimes(val):
             avg = compute_average(val)
-            return avg is not None and avg >= lower and avg <= upper
+            return avg is not None and lower <= avg <= upper
 
         return [i for i, val in enumerate(self.runtimes) if is_index_with_runtimes(val)]
 
@@ -91,7 +93,7 @@ def evaluate_runtimes_multiple_sequences(sequence, num_expected_runtimes):
     penalty = 0
 
     assert (
-        len(sequence) <= num_expected_runtimes
+            len(sequence) <= num_expected_runtimes
     ), "Sequence must be truncated before calling evaluate_runtimes_multiple_sequences"
     if len(sequence) < num_expected_runtimes:
         penalty += 2 * (num_expected_runtimes - len(sequence))
