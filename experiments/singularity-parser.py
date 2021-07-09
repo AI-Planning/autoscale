@@ -74,6 +74,19 @@ def error(content, props):
         props['error'] = 'some-error-occured'
 
 
+def check_out_of_time_and_memory(content, props):
+    out_of_time = False
+    out_of_memory = False
+    for line in content.splitlines():
+        if line == "TIMEOUT=true":
+            out_of_time = True
+        if line == "MEMOUT=true":
+            out_of_memory = True
+    props['out_of_time'] = out_of_time
+    props['out_of_memory'] = out_of_memory
+    return props
+
+
 def main():
     print("Running singularity parser")
     parser = CommonParser()
@@ -116,6 +129,7 @@ def main():
     parser.add_function(unsolvable)
     parser.add_function(completely_explored)
     parser.add_function(error)
+    parser.add_function(check_out_of_time_and_memory, file='values.log')
     parser.parse()
 
 

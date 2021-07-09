@@ -46,7 +46,7 @@ if REMOTE:
 User = namedtuple("User", ["email", "scp_login", "remote_user", "repos"])
 
 USERS = {
-       "alvaro": User(
+    "alvaro": User(
         email=None,
         scp_login="",
         remote_user="",
@@ -384,26 +384,11 @@ def get_smac_experiment(
 
 
 def get_evaluation_experiment(
-    planners, benchmarks_dir, domains, attributes, environment=None,
-    time_limit=1800, memory_limit=3584, abs_benchmarks_dir=None):
+    planners, benchmarks_dir, domains, attributes, environment,
+    time_limit, memory_limit):
     """
     *bechmarks_dir* can either be an absolute path or a directory name under ^/benchmarks/.
     """
-    if not environment:
-        if REMOTE:
-            environment = BaselSlurmEnvironment(
-                partition="infai_2",
-                email=USER.email,
-                export=[],
-                # paths obtained via:
-                # module purge
-                # module -q load CMake/3.15.3-GCCcore-8.3.0
-                # module -q load GCC/8.3.0
-                # echo $PATH
-                # echo $LD_LIBRARY_PATH
-                setup='export PATH=/scicore/soft/apps/binutils/2.32-GCCcore-8.3.0/bin:/scicore/soft/apps/CMake/3.15.3-GCCcore-8.3.0/bin:/scicore/soft/apps/cURL/7.66.0-GCCcore-8.3.0/bin:/scicore/soft/apps/bzip2/1.0.8-GCCcore-8.3.0/bin:/scicore/soft/apps/ncurses/6.1-GCCcore-8.3.0/bin:/scicore/soft/apps/GCCcore/8.3.0/bin:/infai/sieverss/repos/bin:/infai/sieverss/local:/export/soft/lua_lmod/centos7/lmod/lmod/libexec:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:$PATH\nexport LD_LIBRARY_PATH=/scicore/soft/apps/binutils/2.32-GCCcore-8.3.0/lib:/scicore/soft/apps/cURL/7.66.0-GCCcore-8.3.0/lib:/scicore/soft/apps/bzip2/1.0.8-GCCcore-8.3.0/lib:/scicore/soft/apps/zlib/1.2.11-GCCcore-8.3.0/lib:/scicore/soft/apps/ncurses/6.1-GCCcore-8.3.0/lib:/scicore/soft/apps/GCCcore/8.3.0/lib64:/scicore/soft/apps/GCCcore/8.3.0/lib')
-        else:
-            environment = LocalEnvironment(processes=2)
     exp = Experiment(environment=environment)
     exp.add_step("build", exp.build)
     exp.add_step("start", exp.start_runs)
@@ -430,15 +415,15 @@ def get_evaluation_experiment(
     exp.add_resource("filter_stderr", "filter-stderr.py")
 
     suite = []
-    if not abs_benchmarks_dir:
-        abs_benchmarks_dir = (Path(REPO) / "benchmarks" / benchmarks_dir).resolve()
+    if not benchmarks_dir.is_absolute():
+        benchmarks_dir = (Path(REPO) / "benchmarks" / benchmarks_dir).resolve()
     for domain in domains:
-        suite.extend(suites.build_suite(abs_benchmarks_dir, [domain]))
+        suite.extend(suites.build_suite(benchmarks_dir, [domain]))
     # Lab treats every file in a directory as a problem file. Exclude
     # README files for the obvious reason.
     suite = [problem for problem in suite if problem.problem != "README"]
     if not REMOTE:
-        suite = [task for task in suite if task.problem in {"p06.pddl", "p16.pddl"}]
+        suite = suite[:2]
         planners = planners[:2]
 
     for planner_nick in planners:

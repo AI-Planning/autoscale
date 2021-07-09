@@ -13,6 +13,7 @@ IGNORE_PATTERNS = [
 ]
 
 def main():
+    print("Running filter-stderr.py")
     stderr = Path('.') / "run.err"
     if stderr.exists():
         assert stderr.is_file()
@@ -27,8 +28,8 @@ def main():
 
         if need_to_filter:
             shutil.move(stderr, Path('.') / "run.err.bak")
-            # We write an empty file because Lab crashes if run.err is not
-            # present.
+            # We write an empty file if everything has been filtered
+            # because Lab crashes if run.err is not present.
             with open(stderr, 'w') as f:
                 f.write(filtered_content)
 
