@@ -29,7 +29,7 @@ PLANNERS = [
     "ipc2018-opt-delfi-mas-sccdfp",
     "ipc2018-opt-scorpion",
 ]
-ATTRIBUTES = ["cost", "coverage", "error", "run_dir", "runtime", "unsolvable", "completely_explored"]
+ATTRIBUTES = ["cost", "coverage", "error", "run_dir", "runtime", "unsolvable", "completely_explored", "virtual_memory"]
 
 exp = project.get_evaluation_experiment(
     planners=PLANNERS,

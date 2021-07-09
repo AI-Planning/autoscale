@@ -29,7 +29,7 @@ PLANNERS = [
     "ipc2018-agl-saarplan",
     "ipc2018-agl-cerberus",
 ]
-ATTRIBUTES = ["cost", "coverage", "error", "run_dir", "runtime", "unsolvable", "completely_explored"]
+ATTRIBUTES = ["cost", "coverage", "error", "run_dir", "runtime", "unsolvable", "completely_explored", "virtual_memory"]
 
 exp = project.get_evaluation_experiment(
     planners=PLANNERS,
