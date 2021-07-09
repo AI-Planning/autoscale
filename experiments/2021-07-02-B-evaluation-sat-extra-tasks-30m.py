@@ -11,7 +11,6 @@ DOMAINS = [
     "agricola-hard",
     "agricola",
     "airport",
-    # "caldera",
     "freecell",
     "ged",
     "mprime",
