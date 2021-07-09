@@ -9,6 +9,7 @@ IGNORE_PATTERNS = [
     "WARNING: will ignore action costs",
     "differs from the one in the portfolio file",
     "Terminated",
+    "Killed",
 ]
 
 def main():
