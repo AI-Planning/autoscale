@@ -1,0 +1,17 @@
+;; original sequence 1: (1 30 7 2 23 12 3 -32 6 8 21 31 9 -10 11 19 14 18 33 -13 -5 -22 -4 -25 -20 -36 17 -26 34 -16 -35 15 -24 -27 29 -28)
+;; original sequence 2: (1 30 7 2 23 12 3 -32 6 8 21 31 9 -10 11 19 14 18 33 28 -29 27 24 -15 35 16 -34 26 -17 36 20 25 4 22 5 13)
+;; simplified sequence 1: (37 38)
+;; simplified sequence 2: (37 -38)
+;; common subsequences: (((1 30 7 2 23 12 3 -32 6 8 21 31 9 -10 11 19 14 18 33) . 37) ((-13 -5 -22 -4 -25 -20 -36 17 -26 34 -16 -35 15 -24 -27 29 -28) . 38))
+;; #safe insertions/deletions: 0
+;; sequence 1 (names): ((NORMAL SUB1) (NORMAL SUB2))
+;; sequence 2 (names): ((NORMAL SUB1) (INVERTED SUB2))
+
+(DEFINE (PROBLEM ASTERINA-PECTINIFERA-TO-PARACENTROTUS-LIVIDUS)
+        (:DOMAIN GENOME-EDIT-DISTANCE) (:OBJECTS SUB2 SUB1)
+        (:INIT (NORMAL SUB1) (NORMAL SUB2) (PRESENT SUB1)
+               (PRESENT SUB2) (CW SUB2 SUB1) (CW SUB1 SUB2) (IDLE)
+               (= (TOTAL-COST) 0))
+        (:GOAL (AND (NORMAL SUB1) (INVERTED SUB2) (CW SUB2 SUB1)
+                    (CW SUB1 SUB2)))
+        (:METRIC MINIMIZE (TOTAL-COST)))

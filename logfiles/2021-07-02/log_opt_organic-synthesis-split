@@ -1,0 +1,79 @@
+2021-07-09 16:41:57,477 INFO     Stored sequences: 3
+2021-07-09 16:41:57,477 DEBUG    Configurations in sequence ['MIT-p4.pddl', 'MIT-p3.pddl', 'MIT-p8.pddl', 'MIT-p15.pddl', 'MIT-p2.pddl', 'MIT-p6.pddl', 'MIT-p9.pddl', 'MIT-p14.pddl', 'MIT-p19.pddl', 'MIT-p20.pddl', 'MIT-p7.pddl', 'MIT-p12.pddl', 'MIT-p11.pddl', 'MIT-p5.pddl', 'MIT-p17.pddl', 'MIT-p13.pddl', 'MIT-p16.pddl', 'MIT-p10.pddl']
+2021-07-09 16:41:57,481 DEBUG    Sart runtimes [[28.1122], [35.4264], [35.6389], [35.9088], [39.8971], [41.7481], [42.2441], [42.716], [46.921], [52.5053], [127.365], [132.119], [388.383], [392.068], [553.768], [879.695], [903.621]]
+2021-07-09 16:41:57,487 DEBUG    Baseline runtimes [[29.9562], [35.6389], [35.9088], [45.6865], [50.9237], [75.3577], [90.826], [128.913], [225.273], [240.675]]
+2021-07-09 16:41:57,493 DEBUG    Configurations in sequence ['alkene-p5.pddl', 'alkene-p7.pddl', 'alkene-p15.pddl', 'alkene-p14.pddl', 'alkene-p8.pddl', 'alkene-p12.pddl', 'alkene-p4.pddl', 'alkene-p13.pddl', 'alkene-p17.pddl', 'alkene-p6.pddl', 'alkene-p2.pddl', 'alkene-p16.pddl', 'alkene-p10.pddl', 'alkene-p18.pddl', 'alkene-p3.pddl', 'alkene-p1.pddl', 'alkene-p11.pddl', 'alkene-p9.pddl']
+2021-07-09 16:41:57,496 DEBUG    Sart runtimes [[33.5422], [34.915], [35.0329], [35.1969], [35.5056], [36.0147], [36.7635], [38.3571], [38.3715], [39.0772], [39.6677], [41.7589], [43.8065], [44.4842], [63.9839], [112.508], [131.765], [170.708]]
+2021-07-09 16:41:57,500 DEBUG    Baseline runtimes [[34.8647], [35.5056], [36.0147], [38.096], [39.6677], [39.926], [41.9044], [42.9124], [43.7779], [43.8065], [44.1657], [44.2522], [44.4842], [48.4264]]
+2021-07-09 16:41:57,504 DEBUG    Configurations in sequence ['original-p2.pddl', 'original-p6.pddl', 'original-p4.pddl', 'original-p19.pddl', 'original-p10.pddl', 'original-p13.pddl', 'original-p5.pddl', 'original-p3.pddl', 'original-p14.pddl', 'original-p8.pddl', 'original-p7.pddl', 'original-p16.pddl', 'original-p20.pddl', 'original-p9.pddl', 'original-p11.pddl', 'original-p1.pddl', 'original-p12.pddl', 'original-p15.pddl', 'original-p17.pddl', 'original-p18.pddl']
+2021-07-09 16:41:57,505 DEBUG    Sart runtimes [[178.196], [293.884], [1003.9]]
+2021-07-09 16:41:57,505 DEBUG    Baseline runtimes []
+2021-07-09 16:41:57,506 INFO     Different evaluated sequences: 3
+2021-07-09 16:41:57,506 INFO     Candidate sequences: 3
+2021-07-09 16:41:57,506 DEBUG    Candidate sequences: 
+ Sequence(1, length=18, penalty=6.061965267349811, penalty_baseline=2.83160101492894, penalty_sart=3.2303642524208707, config=['MIT-p4.pddl', 'MIT-p3.pddl', 'MIT-p8.pddl', 'MIT-p15.pddl', 'MIT-p2.pddl', 'MIT-p6.pddl', 'MIT-p9.pddl', 'MIT-p14.pddl', 'MIT-p19.pddl', 'MIT-p20.pddl', 'MIT-p7.pddl', 'MIT-p12.pddl', 'MIT-p11.pddl', 'MIT-p5.pddl', 'MIT-p17.pddl', 'MIT-p13.pddl', 'MIT-p16.pddl', 'MIT-p10.pddl'], runtimes_baseline=[29.9562, 35.6389, 35.9088, 45.6865, 50.9237, 75.3577, 90.826, 128.913, 225.273, 240.675], runtimes_sart=[28.1122, 35.4264, 35.6389, 35.9088, 39.8971, 41.7481, 42.2441, 42.716, 46.921, 52.5053, 127.365, 132.119, 388.383, 392.068, 553.768, 879.695, 903.621]
+ Sequence(2, length=18, penalty=7.62095208585722, penalty_baseline=3.7364646714084113, penalty_sart=3.8844874144488086, config=['alkene-p5.pddl', 'alkene-p7.pddl', 'alkene-p15.pddl', 'alkene-p14.pddl', 'alkene-p8.pddl', 'alkene-p12.pddl', 'alkene-p4.pddl', 'alkene-p13.pddl', 'alkene-p17.pddl', 'alkene-p6.pddl', 'alkene-p2.pddl', 'alkene-p16.pddl', 'alkene-p10.pddl', 'alkene-p18.pddl', 'alkene-p3.pddl', 'alkene-p1.pddl', 'alkene-p11.pddl', 'alkene-p9.pddl'], runtimes_baseline=[34.8647, 35.5056, 36.0147, 38.096, 39.6677, 39.926, 41.9044, 42.9124, 43.7779, 43.8065, 44.1657, 44.2522, 44.4842, 48.4264], runtimes_sart=[33.5422, 34.915, 35.0329, 35.1969, 35.5056, 36.0147, 36.7635, 38.3571, 38.3715, 39.0772, 39.6677, 41.7589, 43.8065, 44.4842, 63.9839, 112.508, 131.765, 170.708]
+ Sequence(3, length=20, penalty=18, penalty_baseline=10, penalty_sart=8, config=['original-p2.pddl', 'original-p6.pddl', 'original-p4.pddl', 'original-p19.pddl', 'original-p10.pddl', 'original-p13.pddl', 'original-p5.pddl', 'original-p3.pddl', 'original-p14.pddl', 'original-p8.pddl', 'original-p7.pddl', 'original-p16.pddl', 'original-p20.pddl', 'original-p9.pddl', 'original-p11.pddl', 'original-p1.pddl', 'original-p12.pddl', 'original-p15.pddl', 'original-p17.pddl', 'original-p18.pddl'], runtimes_baseline=[], runtimes_sart=[178.196, 293.884, 1003.9]
+2021-07-09 16:41:57,507 INFO     Using sart runtimes on CPLEX optimization
+2021-07-09 16:41:57,534 INFO     CPLEX solve
+
+2021-07-09 16:41:57,601 INFO     Solution status = 101: MIP_optimal
+2021-07-09 16:41:57,601 INFO     Solution value  = 11044.004214539045
+2021-07-09 16:41:57,602 DEBUG    START: seq-1-0 0
+Selected: sequence 1, 18 instances from 0 to 17
+Configuration: ['MIT-p4.pddl', 'MIT-p3.pddl', 'MIT-p8.pddl', 'MIT-p15.pddl', 'MIT-p2.pddl', 'MIT-p6.pddl', 'MIT-p9.pddl', 'MIT-p14.pddl', 'MIT-p19.pddl', 'MIT-p20.pddl', 'MIT-p7.pddl', 'MIT-p12.pddl', 'MIT-p11.pddl', 'MIT-p5.pddl', 'MIT-p17.pddl', 'MIT-p13.pddl', 'MIT-p16.pddl', 'MIT-p10.pddl']
+Penalty: 6.06
+Penalty sart: 3.23
+Penalty baseline: 2.83
+Seq Estimated runtimes: 28, 35, 36, 36, 40, 42, 42, 43, 47, 53, 1.3e+02, 1.3e+02, 3.9e+02, 3.9e+02, 5.5e+02, 8.8e+02, 9e+02, 1e+04
+2021-07-09 16:41:57,602 DEBUG    END: end-1-17 12
+2021-07-09 16:41:57,602 DEBUG    START: seq-2-11 24
+Selected: sequence 2, 7 instances from 11 to 17
+Configuration: ['alkene-p5.pddl', 'alkene-p7.pddl', 'alkene-p15.pddl', 'alkene-p14.pddl', 'alkene-p8.pddl', 'alkene-p12.pddl', 'alkene-p4.pddl', 'alkene-p13.pddl', 'alkene-p17.pddl', 'alkene-p6.pddl', 'alkene-p2.pddl', 'alkene-p16.pddl', 'alkene-p10.pddl', 'alkene-p18.pddl', 'alkene-p3.pddl', 'alkene-p1.pddl', 'alkene-p11.pddl', 'alkene-p9.pddl']
+Penalty: 7.62
+Penalty sart: 3.88
+Penalty baseline: 3.74
+Seq Estimated runtimes: 42, 44, 44, 64, 1.1e+02, 1.3e+02, 1.7e+02
+2021-07-09 16:41:57,602 DEBUG    END: end-2-17 31
+2021-07-09 16:41:57,602 DEBUG    START: seq-3-0 32
+Selected: sequence 3, 5 instances from 0 to 4
+Configuration: ['original-p2.pddl', 'original-p6.pddl', 'original-p4.pddl', 'original-p19.pddl', 'original-p10.pddl', 'original-p13.pddl', 'original-p5.pddl', 'original-p3.pddl', 'original-p14.pddl', 'original-p8.pddl', 'original-p7.pddl', 'original-p16.pddl', 'original-p20.pddl', 'original-p9.pddl', 'original-p11.pddl', 'original-p1.pddl', 'original-p12.pddl', 'original-p15.pddl', 'original-p17.pddl', 'original-p18.pddl']
+Penalty: 18.00
+Penalty sart: 8.00
+Penalty baseline: 10.00
+Seq Estimated runtimes: 1.8e+02, 2.9e+02, 1e+03, 1e+04, 1e+05
+2021-07-09 16:41:57,603 DEBUG    END: end-3-4 35
+  p01: MIT-p4.pddl   28.1122 29.9562 28.1122
+  p02: MIT-p3.pddl   35.4264 35.6389 35.6389
+  p03: MIT-p8.pddl   35.6389 35.9088 35.9088
+  p04: MIT-p15.pddl   35.9088 45.6865 39.8971
+  p05: MIT-p2.pddl   39.8971 50.9237 41.7481
+  p06: MIT-p6.pddl   41.7481 75.3577 35.4264
+  p07: MIT-p9.pddl   42.2441 90.826 42.716
+  p08: MIT-p14.pddl   42.716 225.273 42.2441
+  p09: MIT-p19.pddl   46.921 240.675 52.5053
+  p10: MIT-p20.pddl   52.5053 unsolved 46.921
+  p11: MIT-p7.pddl   127.365 128.913 127.365
+  p12: MIT-p12.pddl   132.119 unsolved 132.119
+  p13: MIT-p11.pddl   388.383 unsolved 388.383
+  p14: MIT-p5.pddl   392.068 unsolved 392.068
+  p15: MIT-p17.pddl   553.768 unsolved 553.768
+  p16: MIT-p13.pddl   879.695 unsolved 879.695
+  p17: MIT-p16.pddl   903.621 unsolved 903.621
+  p18: MIT-p10.pddl   10000.0 unsolved unsolved
+  p19: alkene-p16.pddl   41.7589 43.8065 43.8065
+  p20: alkene-p10.pddl   43.8065 44.4842 44.4842
+  p21: alkene-p18.pddl   44.4842 48.4264 38.3571
+  p22: alkene-p3.pddl   63.9839 unsolved 63.9839
+  p23: alkene-p1.pddl   112.508 unsolved 112.508
+  p24: alkene-p11.pddl   131.765 unsolved 131.765
+  p25: alkene-p9.pddl   170.708 unsolved 170.708
+  p26: original-p2.pddl   178.196 unsolved 178.196
+  p27: original-p6.pddl   293.884 unsolved 293.884
+  p28: original-p4.pddl   1003.9 unsolved 1003.9
+  p29: original-p19.pddl   10000.0 unsolved unsolved
+  p30: original-p10.pddl   99611.51509114455 unsolved unsolved
+Total Estimated Runtimes: [28.1122, 35.4264, 35.6389, 35.9088, 39.8971, 41.7481, 41.7589, 42.2441, 42.716, 43.8065, 44.4842, 46.921, 52.5053, 63.9839, 112.508, 127.365, 131.765, 132.119, 170.708, 178.196, 293.884, 388.383, 392.068, 553.768, 879.695, 903.621, 1003.9, 10000.0, 10000.0, 99611.51509114455]
+Total Estimated Solved: 27
+['MIT-p4.pddl', 'MIT-p3.pddl', 'MIT-p8.pddl', 'MIT-p15.pddl', 'MIT-p2.pddl', 'MIT-p6.pddl', 'MIT-p9.pddl', 'MIT-p14.pddl', 'MIT-p19.pddl', 'MIT-p20.pddl', 'MIT-p7.pddl', 'MIT-p12.pddl', 'MIT-p11.pddl', 'MIT-p5.pddl', 'MIT-p17.pddl', 'MIT-p13.pddl', 'MIT-p16.pddl', 'MIT-p10.pddl', 'alkene-p16.pddl', 'alkene-p10.pddl', 'alkene-p18.pddl', 'alkene-p3.pddl', 'alkene-p1.pddl', 'alkene-p11.pddl', 'alkene-p9.pddl', 'original-p2.pddl', 'original-p6.pddl', 'original-p4.pddl', 'original-p19.pddl', 'original-p10.pddl']
+../tasks-of-domains-without-usable-generator//organic-synthesis-split/domain.pddl
