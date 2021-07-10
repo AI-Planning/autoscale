@@ -56,7 +56,7 @@ pddl-generators/schedule/schedule
 pddl-generators/storage/storage
 pddl-generators/sokoban/random/sokoban-generator-typed
 pddl-generators/sokoban/random/sokoban-generator-untyped
-pddl-generators/tidybot/tidybot-.*-snapshot-standalone.jar
+pddl-generators/tidybot/tidybot.jar
 pddl-generators/tpp/tpp
 pddl-generators/trucks/trucks
 pddl-generators/trucks/adl2strips/ff
