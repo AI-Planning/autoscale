@@ -1,0 +1,68 @@
+2021-07-10 20:53:38,410 INFO     No run directory, so we will not run anything
+2021-07-10 20:53:40,715 INFO     Loading cache data for baseline planners: 574
+2021-07-10 20:53:40,792 INFO     baseline cache contains data for 53 parameter values, with min 3 max 39 avg 32.490566037735846 runtimes
+2021-07-10 20:53:40,792 INFO     Loading cache data for sart planners: 796
+2021-07-10 20:53:40,908 INFO     sart cache contains data for 71 parameter values, with min 3 max 39 avg 33.63380281690141 runtimes
+2021-07-10 20:53:43,600 INFO     Loading cache data for baseline planners: 0
+2021-07-10 20:53:43,601 INFO     baseline cache contains data for 53 parameter values, with min 3 max 39 avg 32.490566037735846 runtimes
+2021-07-10 20:53:43,601 INFO     Loading cache data for sart planners: 0
+2021-07-10 20:53:43,601 INFO     sart cache contains data for 71 parameter values, with min 3 max 39 avg 33.63380281690141 runtimes
+2021-07-10 20:53:46,532 INFO     Loading cache data for baseline planners: 0
+2021-07-10 20:53:46,533 INFO     baseline cache contains data for 53 parameter values, with min 3 max 39 avg 32.490566037735846 runtimes
+2021-07-10 20:53:46,533 INFO     Loading cache data for sart planners: 0
+2021-07-10 20:53:46,533 INFO     sart cache contains data for 71 parameter values, with min 3 max 39 avg 33.63380281690141 runtimes
+2021-07-10 20:53:49,339 INFO     Loading cache data for baseline planners: 0
+2021-07-10 20:53:49,339 INFO     baseline cache contains data for 53 parameter values, with min 3 max 39 avg 32.490566037735846 runtimes
+2021-07-10 20:53:49,339 INFO     Loading cache data for sart planners: 0
+2021-07-10 20:53:49,339 INFO     sart cache contains data for 71 parameter values, with min 3 max 39 avg 33.63380281690141 runtimes
+2021-07-10 20:53:49,340 INFO     Stored sequences: 1182
+2021-07-10 20:54:10,393 INFO     Different evaluated sequences: 159
+segment_type empty 152 74
+segment_type ab 7 7
+inout none 46 22
+inout both 55 29
+inout in 58 30
+2021-07-10 20:54:10,945 INFO     Candidate sequences: 81
+2021-07-10 20:54:10,947 INFO     Using sart runtimes on CPLEX optimization
+2021-07-10 20:54:11,498 INFO     CPLEX solve
+
+2021-07-10 20:54:11,921 INFO     Solution status = 101: MIP_optimal
+2021-07-10 20:54:11,921 INFO     Solution value  = 2.7227728519334757
+Selected: sequence 10, 30 instances from 0 to 29
+Configuration: {'inout': 'in', 'segment_type': 'empty', 'size_b': 4, 'size_m': 1.0}
+Penalty: 2.72
+Penalty sart: 0.17
+Penalty baseline: 2.55
+Seq Estimated runtimes: 0.8, 1.1, 1.7, 2.6, 4.3, 6.7, 10, 16, 24, 37, 53, 77, 1.1e+02, 1.5e+02, 2.2e+02, 3.2e+02, 4.7e+02, 6.9e+02, 1e+03, 1.5e+03, 2.2e+03, 3.3e+03, 4.8e+03, 7.1e+03, 1e+04, 1.5e+04, 2.3e+04, 3.4e+04, 4.9e+04, 7.3e+04
+  p01: {'segment_type': 'empty', 'inout': 'in', 'size': 4}   0.7953846153846154
+  p02: {'segment_type': 'empty', 'inout': 'in', 'size': 5}   1.0887179487179488
+  p03: {'segment_type': 'empty', 'inout': 'in', 'size': 6}   1.675897435897436
+  p04: {'segment_type': 'empty', 'inout': 'in', 'size': 7}   2.6302564102564103
+  p05: {'segment_type': 'empty', 'inout': 'in', 'size': 8}   4.282307692307692
+  p06: {'segment_type': 'empty', 'inout': 'in', 'size': 9}   6.6692307692307695
+  p07: {'segment_type': 'empty', 'inout': 'in', 'size': 10}   10.115128205128205
+  p08: {'segment_type': 'empty', 'inout': 'in', 'size': 11}   16.055128205128206
+  p09: {'segment_type': 'empty', 'inout': 'in', 'size': 12}   24.086410256410257
+  p10: {'segment_type': 'empty', 'inout': 'in', 'size': 13}   36.64410256410257
+  p11: {'segment_type': 'empty', 'inout': 'in', 'size': 14}   52.998333333333335
+  p12: {'segment_type': 'empty', 'inout': 'in', 'size': 15}   76.89846153846153
+  p13: {'segment_type': 'empty', 'inout': 'in', 'size': 16}   106.70230769230768
+  p14: {'segment_type': 'empty', 'inout': 'in', 'size': 17}   147.23102564102564
+  p15: {'segment_type': 'empty', 'inout': 'in', 'size': 18}   216.98503125768818
+  p16: {'segment_type': 'empty', 'inout': 'in', 'size': 19}   319.7865639046426
+  p17: {'segment_type': 'empty', 'inout': 'in', 'size': 20}   471.2926318520632
+  p18: {'segment_type': 'empty', 'inout': 'in', 'size': 21}   694.5781027381674
+  p19: {'segment_type': 'empty', 'inout': 'in', 'size': 22}   1023.650081070624
+  p20: {'segment_type': 'empty', 'inout': 'in', 'size': 23}   1508.6273010119683
+  p21: {'segment_type': 'empty', 'inout': 'in', 'size': 24}   2223.3733728407065
+  p22: {'segment_type': 'empty', 'inout': 'in', 'size': 25}   3276.746451387361
+  p23: {'segment_type': 'empty', 'inout': 'in', 'size': 26}   4829.178687591002
+  p24: {'segment_type': 'empty', 'inout': 'in', 'size': 27}   7117.110567651383
+  p25: {'segment_type': 'empty', 'inout': 'in', 'size': 28}   10489.00156921776
+  p26: {'segment_type': 'empty', 'inout': 'in', 'size': 29}   15458.40167484689
+  p27: {'segment_type': 'empty', 'inout': 'in', 'size': 30}   22782.166707095865
+  p28: {'segment_type': 'empty', 'inout': 'in', 'size': 31}   33575.72993554963
+  p29: {'segment_type': 'empty', 'inout': 'in', 'size': 32}   49482.98619699938
+  p30: {'segment_type': 'empty', 'inout': 'in', 'size': 33}   72926.66243362636
+Total Estimated Runtimes: [0.7953846153846154, 1.0887179487179488, 1.675897435897436, 2.6302564102564103, 4.282307692307692, 6.6692307692307695, 10.115128205128205, 16.055128205128206, 24.086410256410257, 36.64410256410257, 52.998333333333335, 76.89846153846153, 106.70230769230768, 147.23102564102564, 216.98503125768818, 319.7865639046426, 471.2926318520632, 694.5781027381674, 1023.650081070624, 1508.6273010119683, 2223.3733728407065, 3276.746451387361, 4829.178687591002, 7117.110567651383, 10489.00156921776, 15458.40167484689, 22782.166707095865, 33575.72993554963, 49482.98619699938, 72926.66243362636]
+Total Estimated Solved: 20

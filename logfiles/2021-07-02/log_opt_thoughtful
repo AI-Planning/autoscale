@@ -1,25 +1,25 @@
-2021-07-09 16:44:51,510 INFO     Stored sequences: 4
-2021-07-09 16:44:51,510 DEBUG    Configurations in sequence ['bootstrap-typed-02.pddl', 'bootstrap-typed-03.pddl', 'bootstrap-typed-04.pddl', 'bootstrap-typed-05.pddl', 'bootstrap-typed-01.pddl']
-2021-07-09 16:44:51,510 DEBUG    Sart runtimes [[0.909154], [0.923976], [1.2202], [1.44975], [1.46577]]
-2021-07-09 16:44:51,511 DEBUG    Baseline runtimes [[12.8883], [28.6525], [30.2085], [32.6099], [56.1276]]
-2021-07-09 16:44:51,511 DEBUG    Configurations in sequence ['p11_6_59-typed.pddl', 'p11_6_62-typed.pddl', 'p13_7_79-typed.pddl', 'p13_7_86-typed.pddl', 'p11_6_53-typed.pddl', 'p13_7_78-typed.pddl']
-2021-07-09 16:44:51,511 DEBUG    Sart runtimes []
-2021-07-09 16:44:51,511 DEBUG    Baseline runtimes []
-2021-07-09 16:44:51,511 DEBUG    Warning: discarding sequence because it has no runtimes
-2021-07-09 16:44:51,512 DEBUG    Discarding sequence [] []
-2021-07-09 16:44:51,512 DEBUG    Configurations in sequence ['target-typed-06.pddl', 'target-typed-08.pddl', 'target-typed-04.pddl', 'target-typed-10.pddl', 'target-typed-05.pddl', 'target-typed-03.pddl', 'target-typed-27.pddl', 'target-typed-29.pddl', 'target-typed-02.pddl', 'target-typed-25.pddl', 'target-typed-30.pddl', 'target-typed-12.pddl', 'target-typed-14.pddl', 'target-typed-07.pddl', 'target-typed-09.pddl', 'target-typed-24.pddl', 'target-typed-28.pddl', 'target-typed-19.pddl', 'target-typed-23.pddl', 'target-typed-01.pddl', 'target-typed-20.pddl', 'target-typed-26.pddl', 'target-typed-17.pddl', 'target-typed-18.pddl', 'target-typed-22.pddl', 'target-typed-16.pddl', 'target-typed-15.pddl', 'target-typed-13.pddl', 'target-typed-21.pddl', 'target-typed-11.pddl']
-2021-07-09 16:44:51,512 DEBUG    Sart runtimes [[1044.01], [1212.51]]
-2021-07-09 16:44:51,512 DEBUG    Baseline runtimes []
-2021-07-09 16:44:51,512 DEBUG    Configurations in sequence ['thoughtful_11_6_80-typed.pddl', 'thoughtful_11_6_74-typed.pddl', 'thoughtful_11_6_88-typed.pddl', 'thoughtful_11_6_59-typed.pddl', 'thoughtful_11_6_75-typed.pddl', 'thoughtful_11_6_65-typed.pddl', 'thoughtful_13_7_56-typed.pddl', 'thoughtful_13_7_55-typed.pddl', 'thoughtful_13_7_58-typed.pddl', 'thoughtful_13_7_72-typed.pddl', 'thoughtful_13_7_77-typed.pddl', 'thoughtful_13_7_69-typed.pddl', 'thoughtful_11_6_82-typed.pddl', 'thoughtful_11_6_78-typed.pddl', 'thoughtful_11_6_98-typed.pddl', 'thoughtful_11_6_62-typed.pddl', 'thoughtful_11_6_89-typed.pddl', 'thoughtful_13_7_52-typed.pddl', 'thoughtful_13_7_75-typed.pddl', 'thoughtful_13_7_61-typed.pddl', 'thoughtful_13_7_79-typed.pddl', 'thoughtful_13_7_64-typed.pddl', 'thoughtful_13_7_74-typed.pddl', 'thoughtful_11_6_99-typed.pddl', 'thoughtful_13_7_86-typed.pddl', 'thoughtful_11_6_53-typed.pddl', 'thoughtful_13_7_68-typed.pddl', 'thoughtful_13_7_62-typed.pddl', 'thoughtful_13_7_51-typed.pddl', 'thoughtful_13_7_78-typed.pddl']
-2021-07-09 16:44:51,512 DEBUG    Sart runtimes [[1119.17]]
-2021-07-09 16:44:51,513 DEBUG    Baseline runtimes []
-2021-07-09 16:44:51,513 INFO     Different evaluated sequences: 3
-2021-07-09 16:44:51,513 INFO     Candidate sequences: 3
-2021-07-09 16:44:51,513 DEBUG    Candidate sequences: 
+2021-07-10 16:12:24,646 INFO     Stored sequences: 4
+2021-07-10 16:12:24,646 DEBUG    Configurations in sequence ['bootstrap-typed-02.pddl', 'bootstrap-typed-03.pddl', 'bootstrap-typed-04.pddl', 'bootstrap-typed-05.pddl', 'bootstrap-typed-01.pddl']
+2021-07-10 16:12:24,647 DEBUG    Sart runtimes [[0.909154], [0.923976], [1.2202], [1.44975], [1.46577]]
+2021-07-10 16:12:24,647 DEBUG    Baseline runtimes [[12.8883], [28.6525], [30.2085], [32.6099], [56.1276]]
+2021-07-10 16:12:24,648 DEBUG    Configurations in sequence ['p11_6_59-typed.pddl', 'p11_6_62-typed.pddl', 'p13_7_79-typed.pddl', 'p13_7_86-typed.pddl', 'p11_6_53-typed.pddl', 'p13_7_78-typed.pddl']
+2021-07-10 16:12:24,648 DEBUG    Sart runtimes []
+2021-07-10 16:12:24,648 DEBUG    Baseline runtimes []
+2021-07-10 16:12:24,648 DEBUG    Warning: discarding sequence because it has no runtimes
+2021-07-10 16:12:24,648 DEBUG    Discarding sequence [] []
+2021-07-10 16:12:24,648 DEBUG    Configurations in sequence ['target-typed-06.pddl', 'target-typed-08.pddl', 'target-typed-04.pddl', 'target-typed-10.pddl', 'target-typed-05.pddl', 'target-typed-03.pddl', 'target-typed-27.pddl', 'target-typed-29.pddl', 'target-typed-02.pddl', 'target-typed-25.pddl', 'target-typed-30.pddl', 'target-typed-12.pddl', 'target-typed-14.pddl', 'target-typed-07.pddl', 'target-typed-09.pddl', 'target-typed-24.pddl', 'target-typed-28.pddl', 'target-typed-19.pddl', 'target-typed-23.pddl', 'target-typed-01.pddl', 'target-typed-20.pddl', 'target-typed-26.pddl', 'target-typed-17.pddl', 'target-typed-18.pddl', 'target-typed-22.pddl', 'target-typed-16.pddl', 'target-typed-15.pddl', 'target-typed-13.pddl', 'target-typed-21.pddl', 'target-typed-11.pddl']
+2021-07-10 16:12:24,649 DEBUG    Sart runtimes [[1044.01], [1212.51]]
+2021-07-10 16:12:24,649 DEBUG    Baseline runtimes []
+2021-07-10 16:12:24,649 DEBUG    Configurations in sequence ['thoughtful_11_6_80-typed.pddl', 'thoughtful_11_6_74-typed.pddl', 'thoughtful_11_6_88-typed.pddl', 'thoughtful_11_6_59-typed.pddl', 'thoughtful_11_6_75-typed.pddl', 'thoughtful_11_6_65-typed.pddl', 'thoughtful_13_7_56-typed.pddl', 'thoughtful_13_7_55-typed.pddl', 'thoughtful_13_7_58-typed.pddl', 'thoughtful_13_7_72-typed.pddl', 'thoughtful_13_7_77-typed.pddl', 'thoughtful_13_7_69-typed.pddl', 'thoughtful_11_6_82-typed.pddl', 'thoughtful_11_6_78-typed.pddl', 'thoughtful_11_6_98-typed.pddl', 'thoughtful_11_6_62-typed.pddl', 'thoughtful_11_6_89-typed.pddl', 'thoughtful_13_7_52-typed.pddl', 'thoughtful_13_7_75-typed.pddl', 'thoughtful_13_7_61-typed.pddl', 'thoughtful_13_7_79-typed.pddl', 'thoughtful_13_7_64-typed.pddl', 'thoughtful_13_7_74-typed.pddl', 'thoughtful_11_6_99-typed.pddl', 'thoughtful_13_7_86-typed.pddl', 'thoughtful_11_6_53-typed.pddl', 'thoughtful_13_7_68-typed.pddl', 'thoughtful_13_7_62-typed.pddl', 'thoughtful_13_7_51-typed.pddl', 'thoughtful_13_7_78-typed.pddl']
+2021-07-10 16:12:24,649 DEBUG    Sart runtimes [[1119.17]]
+2021-07-10 16:12:24,649 DEBUG    Baseline runtimes []
+2021-07-10 16:12:24,649 INFO     Different evaluated sequences: 3
+2021-07-10 16:12:24,649 INFO     Candidate sequences: 3
+2021-07-10 16:12:24,649 DEBUG    Candidate sequences: 
  Sequence(1, length=5, penalty=11.832771517134578, penalty_baseline=1.8327715171345784, penalty_sart=10, config=['bootstrap-typed-02.pddl', 'bootstrap-typed-03.pddl', 'bootstrap-typed-04.pddl', 'bootstrap-typed-05.pddl', 'bootstrap-typed-01.pddl'], runtimes_baseline=[12.8883, 28.6525, 30.2085, 32.6099, 56.1276], runtimes_sart=[0.909154, 0.923976, 1.2202, 1.44975, 1.46577]
  Sequence(2, length=21, penalty=40, penalty_baseline=20, penalty_sart=20, config=['target-typed-06.pddl', 'target-typed-08.pddl', 'target-typed-04.pddl', 'target-typed-10.pddl', 'target-typed-05.pddl', 'target-typed-03.pddl', 'target-typed-27.pddl', 'target-typed-29.pddl', 'target-typed-02.pddl', 'target-typed-25.pddl', 'target-typed-30.pddl', 'target-typed-12.pddl', 'target-typed-14.pddl', 'target-typed-07.pddl', 'target-typed-09.pddl', 'target-typed-24.pddl', 'target-typed-28.pddl', 'target-typed-19.pddl', 'target-typed-23.pddl', 'target-typed-01.pddl', 'target-typed-20.pddl', 'target-typed-26.pddl', 'target-typed-17.pddl', 'target-typed-18.pddl', 'target-typed-22.pddl', 'target-typed-16.pddl', 'target-typed-15.pddl', 'target-typed-13.pddl', 'target-typed-21.pddl', 'target-typed-11.pddl'], runtimes_baseline=[], runtimes_sart=[1044.01, 1212.51]
  Sequence(3, length=19, penalty=40, penalty_baseline=20, penalty_sart=20, config=['thoughtful_11_6_80-typed.pddl', 'thoughtful_11_6_74-typed.pddl', 'thoughtful_11_6_88-typed.pddl', 'thoughtful_11_6_59-typed.pddl', 'thoughtful_11_6_75-typed.pddl', 'thoughtful_11_6_65-typed.pddl', 'thoughtful_13_7_56-typed.pddl', 'thoughtful_13_7_55-typed.pddl', 'thoughtful_13_7_58-typed.pddl', 'thoughtful_13_7_72-typed.pddl', 'thoughtful_13_7_77-typed.pddl', 'thoughtful_13_7_69-typed.pddl', 'thoughtful_11_6_82-typed.pddl', 'thoughtful_11_6_78-typed.pddl', 'thoughtful_11_6_98-typed.pddl', 'thoughtful_11_6_62-typed.pddl', 'thoughtful_11_6_89-typed.pddl', 'thoughtful_13_7_52-typed.pddl', 'thoughtful_13_7_75-typed.pddl', 'thoughtful_13_7_61-typed.pddl', 'thoughtful_13_7_79-typed.pddl', 'thoughtful_13_7_64-typed.pddl', 'thoughtful_13_7_74-typed.pddl', 'thoughtful_11_6_99-typed.pddl', 'thoughtful_13_7_86-typed.pddl', 'thoughtful_11_6_53-typed.pddl', 'thoughtful_13_7_68-typed.pddl', 'thoughtful_13_7_62-typed.pddl', 'thoughtful_13_7_51-typed.pddl', 'thoughtful_13_7_78-typed.pddl'], runtimes_baseline=[], runtimes_sart=[1119.17]
-2021-07-09 16:44:51,513 INFO     Using sart runtimes on CPLEX optimization
-2021-07-09 16:44:51,534 INFO     CPLEX solve
+2021-07-10 16:12:24,649 INFO     Using sart runtimes on CPLEX optimization
+2021-07-10 16:12:24,669 INFO     CPLEX solve
 
-2021-07-09 16:44:51,536 INFO     Solution status = 103: MIP_infeasible
+2021-07-10 16:12:24,671 INFO     Solution status = 103: MIP_infeasible

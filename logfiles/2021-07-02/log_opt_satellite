@@ -1,0 +1,647 @@
+2021-07-10 20:52:09,945 INFO     No run directory, so we will not run anything
+2021-07-10 20:52:12,802 INFO     Loading cache data for baseline planners: 454
+2021-07-10 20:52:12,825 INFO     baseline cache contains data for 305 parameter values, with min 3 max 15 avg 4.465573770491804 runtimes
+2021-07-10 20:52:12,825 INFO     Loading cache data for sart planners: 1500
+2021-07-10 20:52:12,901 INFO     sart cache contains data for 1182 parameter values, with min 3 max 15 avg 3.8071065989847717 runtimes
+2021-07-10 20:52:15,108 INFO     Loading cache data for baseline planners: 289
+2021-07-10 20:52:15,123 INFO     baseline cache contains data for 524 parameter values, with min 3 max 15 avg 4.2538167938931295 runtimes
+2021-07-10 20:52:15,124 INFO     Loading cache data for sart planners: 1109
+2021-07-10 20:52:15,181 INFO     sart cache contains data for 2104 parameter values, with min 3 max 15 avg 3.7200570342205324 runtimes
+2021-07-10 20:52:17,225 INFO     Loading cache data for baseline planners: 226
+2021-07-10 20:52:17,236 INFO     baseline cache contains data for 674 parameter values, with min 3 max 15 avg 4.313056379821958 runtimes
+2021-07-10 20:52:17,236 INFO     Loading cache data for sart planners: 1381
+2021-07-10 20:52:17,302 INFO     sart cache contains data for 3167 parameter values, with min 3 max 15 avg 3.779602147142406 runtimes
+2021-07-10 20:52:17,303 INFO     Stored sequences: 1121
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 6, 'targets': 14, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 11, 'modes': 3, 'observations': 8}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 11, 'modes': 3, 'observations': 8}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 5, 'modes': 2, 'observations': 6}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 5, 'modes': 2, 'observations': 6}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 11, 'modes': 3, 'observations': 17}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 12, 'modes': 3, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 13, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 12, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 12, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 10, 'modes': 2, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 3, 'observations': 16}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 7, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 7, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 7, 'modes': 2, 'observations': 10}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 14, 'modes': 2, 'observations': 26}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 11, 'modes': 3, 'observations': 16}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 8, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 8, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 7, 'modes': 2, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 7, 'modes': 2, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 3, 'observations': 17}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 8, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 3, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 3, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 13, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 6, 'targets': 14, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 11, 'modes': 2, 'observations': 17}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 13, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 7, 'modes': 2, 'observations': 10}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 8, 'modes': 2, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 8, 'modes': 3, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 8, 'modes': 3, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 11, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 9, 'modes': 2, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 9, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 13, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 6, 'targets': 14, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 6, 'targets': 14, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 9, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 11, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 9, 'modes': 4, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 13, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 11, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 9, 'modes': 2, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 13, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 6, 'targets': 14, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 9, 'modes': 3, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 6, 'targets': 14, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 9, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 12, 'modes': 3, 'observations': 17}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 11, 'modes': 3, 'observations': 18}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 9, 'modes': 2, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 12, 'modes': 3, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 6, 'modes': 3, 'observations': 9}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 6, 'modes': 3, 'observations': 9}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 6, 'targets': 14, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 3, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 3, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 11, 'modes': 3, 'observations': 18}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 8, 'modes': 2, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 9, 'modes': 4, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 8, 'modes': 2, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 3, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 11, 'modes': 3, 'observations': 16}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 13, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 3, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 11, 'modes': 3, 'observations': 18}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 11, 'modes': 3, 'observations': 18}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 12, 'modes': 3, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 2, 'observations': 16}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 9, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 11, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 13, 'modes': 3, 'observations': 17}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 11, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 12, 'modes': 3, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 12, 'modes': 3, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 11, 'modes': 3, 'observations': 17}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 3, 'observations': 16}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 13, 'modes': 3, 'observations': 17}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 13, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 13, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 13, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 9, 'modes': 4, 'observations': 10}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 6, 'targets': 14, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 11, 'modes': 3, 'observations': 17}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 8, 'modes': 2, 'observations': 10}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 12, 'modes': 3, 'observations': 17}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 13, 'modes': 5, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 8, 'modes': 2, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 11, 'modes': 2, 'observations': 18}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 8, 'modes': 2, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 13, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 6, 'targets': 14, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 12, 'modes': 3, 'observations': 17}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 2, 'observations': 16}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 9, 'modes': 2, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 11, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 9, 'modes': 4, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 9, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 6, 'targets': 14, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 12, 'modes': 3, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 9, 'modes': 4, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 13, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 8, 'modes': 2, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 6, 'targets': 14, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 11, 'modes': 2, 'observations': 18}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 6, 'targets': 14, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 13, 'modes': 4, 'observations': 17}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 13, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 6, 'targets': 14, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 10, 'modes': 2, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 3, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 11, 'modes': 3, 'observations': 16}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 10, 'modes': 2, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 13, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 10, 'modes': 2, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 12, 'modes': 3, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 13, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 9, 'modes': 4, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 9, 'modes': 3, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 9, 'modes': 2, 'observations': 16}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 13, 'modes': 2, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 11, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 25, 'modes': 2, 'observations': 43}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 10, 'modes': 2, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 10, 'modes': 2, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 13, 'modes': 5, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 8, 'modes': 2, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 8, 'modes': 2, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 8, 'modes': 2, 'observations': 9}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 12, 'modes': 3, 'observations': 17}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 18, 'modes': 4, 'observations': 20}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 9, 'modes': 4, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 3, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 6, 'targets': 14, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 18, 'modes': 3, 'observations': 25}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 18, 'modes': 3, 'observations': 25}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 3, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 3, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 11, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 11, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 12, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 12, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 18, 'modes': 3, 'observations': 24}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 12, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 12, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 16, 'modes': 3, 'observations': 22}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 12, 'modes': 3, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 12, 'modes': 3, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 9, 'modes': 3, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 9, 'modes': 3, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 20, 'modes': 2, 'observations': 28}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 9, 'modes': 3, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 9, 'modes': 3, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 20, 'modes': 2, 'observations': 28}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 20, 'modes': 2, 'observations': 28}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 9, 'modes': 3, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 9, 'modes': 3, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 12, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 12, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 9, 'modes': 3, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 9, 'modes': 3, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 8, 'modes': 2, 'observations': 8}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 8, 'modes': 2, 'observations': 8}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 11, 'modes': 3, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 11, 'modes': 3, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 16, 'modes': 3, 'observations': 22}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 3, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 3, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 13, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 12, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 13, 'modes': 3, 'observations': 17}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 22, 'modes': 2, 'observations': 37}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 13, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 16, 'modes': 3, 'observations': 22}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 18, 'modes': 3, 'observations': 25}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 12, 'modes': 2, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 11, 'modes': 3, 'observations': 17}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 12, 'modes': 4, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 6, 'targets': 14, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 8, 'modes': 2, 'observations': 8}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 8, 'modes': 2, 'observations': 8}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 19, 'modes': 2, 'observations': 29}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 3, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 11, 'modes': 3, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 11, 'modes': 3, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 3, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 2, 'observations': 10}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 12, 'modes': 3, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 12, 'modes': 3, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 2, 'observations': 10}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 8, 'modes': 2, 'observations': 8}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 8, 'modes': 2, 'observations': 8}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 6, 'targets': 14, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 12, 'modes': 2, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 9, 'modes': 3, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 9, 'modes': 3, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 6, 'modes': 2, 'observations': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 6, 'modes': 2, 'observations': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 12, 'modes': 2, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 11, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 3, 'observations': 10}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 11, 'modes': 2, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 18, 'modes': 3, 'observations': 25}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 9, 'modes': 5, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 11, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 11, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 17, 'modes': 3, 'observations': 16}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 3, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 3, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 23, 'modes': 2, 'observations': 29}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 3, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 6, 'targets': 14, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 14, 'modes': 3, 'observations': 16}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 9, 'modes': 3, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 3, 'observations': 16}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 11, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 11, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 11, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 11, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 9, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 8, 'modes': 2, 'observations': 8}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 8, 'modes': 2, 'observations': 8}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 13, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 18, 'modes': 3, 'observations': 24}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 11, 'modes': 3, 'observations': 16}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 6, 'modes': 2, 'observations': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 6, 'modes': 2, 'observations': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 2, 'observations': 10}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 7, 'modes': 3, 'observations': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 7, 'modes': 3, 'observations': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 12, 'modes': 3, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 9, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 9, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 11, 'modes': 2, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 2, 'observations': 10}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 2, 'observations': 10}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 8, 'modes': 2, 'observations': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 8, 'modes': 2, 'observations': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 9, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 6, 'modes': 2, 'observations': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 6, 'modes': 2, 'observations': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 9, 'modes': 3, 'observations': 9}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 2, 'observations': 10}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 14, 'modes': 3, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 8, 'modes': 2, 'observations': 8}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 8, 'modes': 2, 'observations': 8}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 8, 'modes': 2, 'observations': 8}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 8, 'modes': 2, 'observations': 8}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 18, 'modes': 3, 'observations': 23}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 6, 'modes': 2, 'observations': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 6, 'modes': 2, 'observations': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 13, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 13, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 7, 'modes': 2, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 7, 'modes': 2, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 11, 'modes': 3, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 2, 'observations': 10}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 2, 'observations': 10}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 3, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 11, 'modes': 2, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 11, 'modes': 3, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 9, 'modes': 2, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 3, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 14, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 6, 'modes': 2, 'observations': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 6, 'modes': 2, 'observations': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 6, 'targets': 18, 'modes': 4, 'observations': 16}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 8, 'modes': 2, 'observations': 8}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 8, 'modes': 2, 'observations': 8}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 7, 'modes': 3, 'observations': 10}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 7, 'modes': 3, 'observations': 10}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 13, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 13, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 9, 'modes': 4, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 2, 'observations': 16}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 12, 'modes': 3, 'observations': 17}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 10, 'modes': 3, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 15, 'modes': 7, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 13, 'modes': 5, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 19, 'modes': 2, 'observations': 29}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 13, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 6, 'modes': 2, 'observations': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 6, 'modes': 2, 'observations': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 16, 'modes': 6, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 15, 'modes': 7, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 15, 'modes': 7, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 18, 'modes': 7, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 15, 'modes': 5, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 3, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 3, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 6, 'targets': 14, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 8, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 10, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 3, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 5, 'observations': 17}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 19, 'modes': 3, 'observations': 29}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 2, 'observations': 16}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 9, 'modes': 3, 'observations': 10}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 2, 'observations': 10}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 3, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 8, 'modes': 2, 'observations': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 8, 'modes': 2, 'observations': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 6, 'targets': 14, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 2, 'observations': 10}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 6, 'targets': 14, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 11, 'modes': 3, 'observations': 17}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 9, 'modes': 2, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 8, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 13, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 16, 'modes': 6, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 8, 'modes': 2, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 12, 'modes': 3, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 8, 'modes': 2, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 9, 'modes': 2, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 9, 'modes': 4, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 12, 'modes': 2, 'observations': 17}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 6, 'targets': 19, 'modes': 4, 'observations': 16}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 18, 'modes': 2, 'observations': 31}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 30, 'modes': 2, 'observations': 42}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 21, 'modes': 2, 'observations': 39}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 8, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 8, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 6, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 6, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 19, 'modes': 2, 'observations': 29}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 17, 'modes': 2, 'observations': 20}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 15, 'modes': 4, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 15, 'modes': 4, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 3, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 9, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 3, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 6, 'modes': 2, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 6, 'modes': 2, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 25, 'modes': 2, 'observations': 36}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 16, 'modes': 2, 'observations': 36}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 29, 'modes': 3, 'observations': 51}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 13, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 13, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 15, 'modes': 6, 'observations': 17}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 8, 'modes': 3, 'observations': 16}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 8, 'modes': 2, 'observations': 8}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 8, 'modes': 2, 'observations': 8}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 9, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 8, 'modes': 2, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 15, 'modes': 5, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 9, 'modes': 3, 'observations': 16}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 17, 'modes': 2, 'observations': 33}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 11, 'modes': 4, 'observations': 16}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 8, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 11, 'modes': 3, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 12, 'modes': 2, 'observations': 20}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 3, 'observations': 18}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 18, 'modes': 5, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 18, 'modes': 5, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 8, 'modes': 2, 'observations': 8}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 8, 'modes': 2, 'observations': 8}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 22, 'modes': 4, 'observations': 27}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 25, 'modes': 2, 'observations': 43}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 7, 'modes': 2, 'observations': 10}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 16, 'modes': 6, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 16, 'modes': 6, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 18, 'modes': 5, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 16, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 16, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 17, 'modes': 7, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 15, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 15, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 13, 'modes': 5, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 16, 'modes': 6, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 14, 'modes': 3, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 14, 'modes': 3, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 16, 'modes': 6, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 16, 'modes': 6, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 15, 'modes': 7, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 15, 'modes': 7, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 12, 'modes': 2, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 17, 'modes': 7, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 17, 'modes': 7, 'observations': 18}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 17, 'modes': 6, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 15, 'modes': 3, 'observations': 10}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 15, 'modes': 3, 'observations': 10}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 16, 'modes': 6, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 13, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 21, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 10, 'modes': 2, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 17, 'modes': 6, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 13, 'modes': 2, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 29, 'modes': 2, 'observations': 52}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 4, 'targets': 12, 'modes': 3, 'observations': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 17, 'modes': 6, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 18, 'modes': 5, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 16, 'modes': 6, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 10, 'modes': 2, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 15, 'modes': 6, 'observations': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 16, 'modes': 6, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 6, 'targets': 14, 'modes': 2, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 16, 'modes': 6, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 16, 'modes': 7, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 18, 'modes': 5, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 16, 'modes': 7, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 8, 'modes': 2, 'observations': 8}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 8, 'modes': 2, 'observations': 8}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 22, 'modes': 2, 'observations': 36}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 25, 'modes': 2, 'observations': 43}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 17, 'modes': 7, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 17, 'modes': 6, 'observations': 17}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 15, 'modes': 6, 'observations': 16}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 15, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 15, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 16, 'modes': 6, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 21, 'modes': 4, 'observations': 28}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 16, 'modes': 7, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 16, 'modes': 6, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 17, 'modes': 4, 'observations': 18}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 15, 'modes': 6, 'observations': 16}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 18, 'modes': 5, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 3, 'targets': 8, 'modes': 3, 'observations': 15}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 17, 'modes': 7, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 16, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 16, 'modes': 3, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 22, 'modes': 4, 'observations': 27}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 17, 'modes': 6, 'observations': 17}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 12, 'modes': 2, 'observations': 18}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 20, 'modes': 7, 'observations': 22}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 17, 'modes': 6, 'observations': 17}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 17, 'modes': 6, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 16, 'modes': 4, 'observations': 16}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 18, 'modes': 5, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 21, 'modes': 3, 'observations': 25}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 17, 'modes': 6, 'observations': 21}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 17, 'modes': 6, 'observations': 17}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 18, 'modes': 5, 'observations': 19}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 5, 'targets': 12, 'modes': 3, 'observations': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 46, 'modes': 3, 'observations': 82}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 2, 'targets': 17, 'modes': 6, 'observations': 17}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 10, 'modes': 2, 'observations': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 15, 'modes': 5, 'observations': 16}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'satellites': 1, 'targets': 15, 'modes': 5, 'observations': 16}, so I consider it unsolved within the time and memory limits
+2021-07-10 20:52:22,034 INFO     Different evaluated sequences: 387
+2021-07-10 20:52:25,280 INFO     Candidate sequences: 381
+2021-07-10 20:52:25,290 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 41 use baseline 340 use sart
+2021-07-10 20:52:25,294 INFO     Using sart runtimes on CPLEX optimization
+2021-07-10 20:52:28,530 INFO     CPLEX solve
+
+2021-07-10 20:52:30,170 INFO     Solution status = 101: MIP_optimal
+2021-07-10 20:52:30,170 INFO     Solution value  = 12.057274410609107
+Selected: sequence 141, 16 instances from 10 to 25
+Configuration: {'modes_b': 6, 'modes_m': 0.2, 'modes_optional_m': 'true', 'observations_b': 5, 'observations_m': 1.0, 'satellites_b': 1, 'satellites_m': 0.2, 'satellites_optional_m': 'true', 'targets_b': 14, 'targets_m': 0.8}
+Penalty: 5.58
+Penalty sart: 2.48
+Penalty baseline: 3.10
+Seq Estimated runtimes: 2.5, 2.8, 2.9, 3.5, 6.4, 10, 23, 40, 43, 54, 1.8e+02, 6e+02, 2e+03, 6.7e+03, 2.2e+04, 7.5e+04
+Selected: sequence 108, 14 instances from 15 to 28
+Configuration: {'modes_b': 7, 'modes_m': 0.5, 'modes_optional_m': 'true', 'observations_b': 5, 'observations_m': 1.1, 'satellites_b': 1, 'satellites_m': 0.5, 'satellites_optional_m': 'true', 'targets_b': 16, 'targets_m': 1.0}
+Penalty: 6.48
+Penalty sart: 2.16
+Penalty baseline: 4.31
+Seq Estimated runtimes: 17, 19, 23, 1.2e+02, 2.5e+02, 5.1e+02, 1.1e+03, 2.2e+03, 4.5e+03, 9.4e+03, 1.9e+04, 4e+04, 8.3e+04, 1.7e+05
+  p01: {'satellites': 1, 'targets': 22, 'modes': 6, 'observations': 15}   2.5033333333333334
+  p02: {'satellites': 1, 'targets': 22, 'modes': 6, 'observations': 16}   2.8266666666666667
+  p03: {'satellites': 1, 'targets': 23, 'modes': 6, 'observations': 17}   2.9133333333333336
+  p04: {'satellites': 1, 'targets': 24, 'modes': 6, 'observations': 18}   3.5033333333333334
+  p05: {'satellites': 1, 'targets': 25, 'modes': 6, 'observations': 19}   6.446666666666666
+  p06: {'satellites': 1, 'targets': 26, 'modes': 6, 'observations': 20}   10.33
+  p07: {'satellites': 1, 'targets': 26, 'modes': 6, 'observations': 21}   22.753333333333334
+  p08: {'satellites': 1, 'targets': 27, 'modes': 6, 'observations': 22}   39.99666666666667
+  p09: {'satellites': 1, 'targets': 28, 'modes': 6, 'observations': 23}   42.79333333333334
+  p10: {'satellites': 1, 'targets': 29, 'modes': 6, 'observations': 24}   53.83333333333333
+  p11: {'satellites': 1, 'targets': 30, 'modes': 6, 'observations': 25}   180.0
+  p12: {'satellites': 1, 'targets': 30, 'modes': 6, 'observations': 26}   601.857585139319
+  p13: {'satellites': 1, 'targets': 31, 'modes': 6, 'observations': 27}   2012.4030710540699
+  p14: {'satellites': 1, 'targets': 32, 'modes': 6, 'observations': 28}   6728.77807039751
+  p15: {'satellites': 1, 'targets': 33, 'modes': 6, 'observations': 29}   22498.7006688214
+  p16: {'satellites': 1, 'targets': 34, 'modes': 6, 'observations': 30}   75227.8536294957
+  p17: {'satellites': 1, 'targets': 31, 'modes': 7, 'observations': 21}   16.726666666666667
+  p18: {'satellites': 1, 'targets': 32, 'modes': 7, 'observations': 22}   19.34166666666667
+  p19: {'satellites': 1, 'targets': 33, 'modes': 7, 'observations': 23}   22.855555555555554
+  p20: {'satellites': 1, 'targets': 34, 'modes': 7, 'observations': 24}   119.91888888888889
+  p21: {'satellites': 1, 'targets': 35, 'modes': 7, 'observations': 25}   248.08584007395658
+  p22: {'satellites': 1, 'targets': 36, 'modes': 7, 'observations': 27}   513.2351092931397
+  p23: {'satellites': 1, 'targets': 37, 'modes': 7, 'observations': 28}   1061.7707053841368
+  p24: {'satellites': 1, 'targets': 38, 'modes': 7, 'observations': 29}   2196.570363949956
+  p25: {'satellites': 1, 'targets': 39, 'modes': 7, 'observations': 30}   4544.221590703654
+  p26: {'satellites': 1, 'targets': 40, 'modes': 7, 'observations': 31}   9400.996300561812
+  p27: {'satellites': 1, 'targets': 41, 'modes': 7, 'observations': 32}   19448.596350137886
+  p28: {'satellites': 1, 'targets': 42, 'modes': 7, 'observations': 33}   40234.873825872295
+  p29: {'satellites': 1, 'targets': 43, 'modes': 7, 'observations': 34}   83237.1160694271
+  p30: {'satellites': 1, 'targets': 44, 'modes': 7, 'observations': 35}   172199.3095228768
+Total Estimated Runtimes: [2.5033333333333334, 2.8266666666666667, 2.9133333333333336, 3.5033333333333334, 6.446666666666666, 10.33, 16.726666666666667, 19.34166666666667, 22.753333333333334, 22.855555555555554, 39.99666666666667, 42.79333333333334, 53.83333333333333, 119.91888888888889, 180.0, 248.08584007395658, 513.2351092931397, 601.857585139319, 1061.7707053841368, 2012.4030710540699, 2196.570363949956, 4544.221590703654, 6728.77807039751, 9400.996300561812, 19448.596350137886, 22498.7006688214, 40234.873825872295, 75227.8536294957, 83237.1160694271, 172199.3095228768]
+Total Estimated Solved: 19

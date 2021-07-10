@@ -1,0 +1,86 @@
+2021-07-10 16:54:24,938 INFO     No run directory, so we will not run anything
+2021-07-10 16:54:25,548 INFO     Loading cache data for baseline planners: 954
+2021-07-10 16:54:25,598 INFO     baseline cache contains data for 377 parameter values, with min 3 max 39 avg 7.591511936339523 runtimes
+2021-07-10 16:54:25,598 INFO     Loading cache data for sart planners: 6583
+2021-07-10 16:54:25,945 INFO     sart cache contains data for 2865 parameter values, with min 3 max 39 avg 6.893193717277487 runtimes
+2021-07-10 16:54:27,696 INFO     Loading cache data for baseline planners: 208
+2021-07-10 16:54:27,705 INFO     baseline cache contains data for 498 parameter values, with min 3 max 39 avg 7 runtimes
+2021-07-10 16:54:27,705 INFO     Loading cache data for sart planners: 2333
+2021-07-10 16:54:27,812 INFO     sart cache contains data for 4316 parameter values, with min 3 max 39 avg 6.197405004633921 runtimes
+2021-07-10 16:54:29,655 INFO     Loading cache data for baseline planners: 214
+2021-07-10 16:54:29,664 INFO     baseline cache contains data for 632 parameter values, with min 3 max 39 avg 6.531645569620253 runtimes
+2021-07-10 16:54:29,664 INFO     Loading cache data for sart planners: 2875
+2021-07-10 16:54:29,792 INFO     sart cache contains data for 6435 parameter values, with min 3 max 39 avg 5.496969696969697 runtimes
+2021-07-10 16:54:31,569 INFO     Loading cache data for baseline planners: 92
+2021-07-10 16:54:31,573 INFO     baseline cache contains data for 686 parameter values, with min 3 max 39 avg 6.419825072886297 runtimes
+2021-07-10 16:54:31,573 INFO     Loading cache data for sart planners: 2192
+2021-07-10 16:54:31,667 INFO     sart cache contains data for 8023 parameter values, with min 3 max 39 avg 5.228592795712327 runtimes
+2021-07-10 16:54:31,668 INFO     Stored sequences: 2421
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 5, 'num_cities': 3, 'city_size': 2, 'num_packages': 55, 'extra_trucks': 10, 'num_trucks': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 12, 'num_cities': 3, 'city_size': 2, 'num_packages': 14, 'extra_trucks': 1, 'num_trucks': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 18, 'num_cities': 2, 'city_size': 4, 'num_packages': 23, 'extra_trucks': 1, 'num_trucks': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 18, 'num_cities': 2, 'city_size': 3, 'num_packages': 27, 'extra_trucks': 1, 'num_trucks': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 11, 'num_cities': 2, 'city_size': 3, 'num_packages': 17, 'extra_trucks': 1, 'num_trucks': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 12, 'num_cities': 2, 'city_size': 3, 'num_packages': 17, 'extra_trucks': 8, 'num_trucks': 10}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 6, 'num_cities': 3, 'city_size': 2, 'num_packages': 11, 'extra_trucks': 1, 'num_trucks': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 10, 'num_cities': 2, 'city_size': 2, 'num_packages': 11, 'extra_trucks': 1, 'num_trucks': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 11, 'num_cities': 2, 'city_size': 2, 'num_packages': 11, 'extra_trucks': 5, 'num_trucks': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 13, 'num_cities': 2, 'city_size': 3, 'num_packages': 19, 'extra_trucks': 5, 'num_trucks': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 19, 'num_cities': 2, 'city_size': 3, 'num_packages': 26, 'extra_trucks': 5, 'num_trucks': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 9, 'num_cities': 2, 'city_size': 2, 'num_packages': 16, 'extra_trucks': 2, 'num_trucks': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 11, 'num_cities': 3, 'city_size': 2, 'num_packages': 18, 'extra_trucks': 1, 'num_trucks': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 13, 'num_cities': 2, 'city_size': 3, 'num_packages': 19, 'extra_trucks': 5, 'num_trucks': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 16, 'num_cities': 2, 'city_size': 3, 'num_packages': 20, 'extra_trucks': 5, 'num_trucks': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 1, 'num_cities': 2, 'city_size': 4, 'num_packages': 65, 'extra_trucks': 1, 'num_trucks': 3}, so I consider it unsolved within the time and memory limits
+2021-07-10 16:54:46,948 INFO     Different evaluated sequences: 1017
+2021-07-10 16:55:05,947 INFO     Candidate sequences: 970
+2021-07-10 16:55:05,968 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 46 use baseline 924 use sart
+2021-07-10 16:55:05,979 INFO     Using sart runtimes on CPLEX optimization
+2021-07-10 16:55:24,354 INFO     CPLEX solve
+
+2021-07-10 16:55:31,302 INFO     Solution status = 101: MIP_optimal
+2021-07-10 16:55:31,302 INFO     Solution value  = 17.556281379209423
+Selected: sequence 782, 24 instances from 6 to 29
+Configuration: {'city_size_b': 2, 'city_size_m': 0.0, 'city_size_optional_m': 'false', 'extra_trucks_b': 10, 'extra_trucks_m': 0.7000000000000001, 'extra_trucks_optional_m': 'false', 'num_airplanes_b': 3, 'num_airplanes_m': 1.0, 'num_airplanes_optional_m': 'true', 'num_cities_b': 2, 'num_cities_m': 0.1, 'num_cities_optional_m': 'false', 'num_packages_b': 2, 'num_packages_m': 2.6}
+Penalty: 8.77
+Penalty sart: 0.77
+Penalty baseline: 8.00
+Seq Estimated runtimes: 0.56, 0.6, 0.61, 0.62, 2.2, 5.2, 6.2, 11, 12, 18, 23, 27, 33, 1.4e+02, 2.5e+02, 4.3e+02, 7.6e+02, 1.3e+03, 2.4e+03, 4.2e+03, 7.3e+03, 1.3e+04, 2.3e+04, 4e+04
+Selected: sequence 445, 6 instances from 19 to 24
+Configuration: {'city_size_b': 2, 'city_size_m': 0.0, 'city_size_optional_m': 'true', 'extra_trucks_b': 10, 'extra_trucks_m': 0.0, 'extra_trucks_optional_m': 'false', 'num_airplanes_b': 5, 'num_airplanes_m': 1.3, 'num_airplanes_optional_m': 'true', 'num_cities_b': 2, 'num_cities_m': 0.1, 'num_cities_optional_m': 'false', 'num_packages_b': 1, 'num_packages_m': 2.2}
+Penalty: 8.79
+Penalty sart: 1.32
+Penalty baseline: 7.46
+Seq Estimated runtimes: 1e+02, 4.4e+02, 1.8e+03, 7.6e+03, 3.2e+04, 1.3e+05
+  p01: {'num_airplanes': 3, 'num_cities': 2, 'city_size': 2, 'num_packages': 17, 'extra_trucks': 14, 'num_trucks': 16}   0.555
+  p02: {'num_airplanes': 3, 'num_cities': 2, 'city_size': 2, 'num_packages': 20, 'extra_trucks': 14, 'num_trucks': 16}   0.6
+  p03: {'num_airplanes': 3, 'num_cities': 2, 'city_size': 2, 'num_packages': 22, 'extra_trucks': 15, 'num_trucks': 17}   0.6083333333333334
+  p04: {'num_airplanes': 3, 'num_cities': 2, 'city_size': 2, 'num_packages': 25, 'extra_trucks': 16, 'num_trucks': 18}   0.6166666666666667
+  p05: {'num_airplanes': 3, 'num_cities': 3, 'city_size': 2, 'num_packages': 28, 'extra_trucks': 16, 'num_trucks': 19}   2.243333333333333
+  p06: {'num_airplanes': 3, 'num_cities': 3, 'city_size': 2, 'num_packages': 30, 'extra_trucks': 17, 'num_trucks': 20}   5.22
+  p07: {'num_airplanes': 3, 'num_cities': 3, 'city_size': 2, 'num_packages': 33, 'extra_trucks': 18, 'num_trucks': 21}   6.173333333333334
+  p08: {'num_airplanes': 3, 'num_cities': 3, 'city_size': 2, 'num_packages': 35, 'extra_trucks': 19, 'num_trucks': 22}   11.323333333333334
+  p09: {'num_airplanes': 3, 'num_cities': 3, 'city_size': 2, 'num_packages': 38, 'extra_trucks': 19, 'num_trucks': 22}   11.806666666666667
+  p10: {'num_airplanes': 3, 'num_cities': 3, 'city_size': 2, 'num_packages': 41, 'extra_trucks': 20, 'num_trucks': 23}   17.596666666666668
+  p11: {'num_airplanes': 3, 'num_cities': 3, 'city_size': 2, 'num_packages': 43, 'extra_trucks': 21, 'num_trucks': 24}   22.826666666666668
+  p12: {'num_airplanes': 3, 'num_cities': 3, 'city_size': 2, 'num_packages': 46, 'extra_trucks': 21, 'num_trucks': 24}   27.436666666666664
+  p13: {'num_airplanes': 3, 'num_cities': 3, 'city_size': 2, 'num_packages': 48, 'extra_trucks': 22, 'num_trucks': 25}   32.84
+  p14: {'num_airplanes': 3, 'num_cities': 3, 'city_size': 2, 'num_packages': 51, 'extra_trucks': 23, 'num_trucks': 26}   139.93
+  p15: {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 54, 'extra_trucks': 23, 'num_trucks': 27}   246.36458985839874
+  p16: {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 56, 'extra_trucks': 24, 'num_trucks': 28}   433.75624337952564
+  p17: {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 59, 'extra_trucks': 25, 'num_trucks': 29}   763.6831201223227
+  p18: {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 61, 'extra_trucks': 26, 'num_trucks': 30}   1344.5614140693083
+  p19: {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 64, 'extra_trucks': 26, 'num_trucks': 30}   2367.2716452269974
+  p20: {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 67, 'extra_trucks': 27, 'num_trucks': 31}   4167.883284211863
+  p21: {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 69, 'extra_trucks': 28, 'num_trucks': 32}   7338.0894439543445
+  p22: {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 72, 'extra_trucks': 28, 'num_trucks': 32}   12919.641222068587
+  p23: {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 74, 'extra_trucks': 29, 'num_trucks': 33}   22746.674128439856
+  p24: {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 77, 'extra_trucks': 30, 'num_trucks': 34}   40048.41736793922
+  p25: {'num_airplanes': 5, 'num_cities': 3, 'city_size': 2, 'num_packages': 42, 'extra_trucks': 10, 'num_trucks': 13}   104.33066666666667
+  p26: {'num_airplanes': 5, 'num_cities': 4, 'city_size': 2, 'num_packages': 45, 'extra_trucks': 10, 'num_trucks': 14}   436.3326221881557
+  p27: {'num_airplanes': 5, 'num_cities': 4, 'city_size': 2, 'num_packages': 47, 'extra_trucks': 10, 'num_trucks': 14}   1824.8340901900863
+  p28: {'num_airplanes': 5, 'num_cities': 4, 'city_size': 2, 'num_packages': 49, 'extra_trucks': 10, 'num_trucks': 14}   7631.837014661503
+  p29: {'num_airplanes': 5, 'num_cities': 4, 'city_size': 2, 'num_packages': 51, 'extra_trucks': 10, 'num_trucks': 14}   31917.93518735188
+  p30: {'num_airplanes': 5, 'num_cities': 4, 'city_size': 2, 'num_packages': 53, 'extra_trucks': 10, 'num_trucks': 14}   133487.46634222774
+Total Estimated Runtimes: [0.555, 0.6, 0.6083333333333334, 0.6166666666666667, 2.243333333333333, 5.22, 6.173333333333334, 11.323333333333334, 11.806666666666667, 17.596666666666668, 22.826666666666668, 27.436666666666664, 32.84, 104.33066666666667, 139.93, 246.36458985839874, 433.75624337952564, 436.3326221881557, 763.6831201223227, 1344.5614140693083, 1824.8340901900863, 2367.2716452269974, 4167.883284211863, 7338.0894439543445, 7631.837014661503, 12919.641222068587, 22746.674128439856, 31917.93518735188, 40048.41736793922, 133487.46634222774]
+Total Estimated Solved: 20

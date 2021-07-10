@@ -24,7 +24,11 @@ BASELINE_PLANNERS = ['fd1906-blind', 'fd1906-gbfs-ff']
 SOLVABLE_BY_CONSTRUCTION_DOMAINS = ['airport', 'tidybot', 'freecell', 'organic-synthesis-split']
 
 GET_DOMAIN_FILENAME_INSTANCE = {
-    'airport': lambda x: x.split("-")[0] + "-domain.pddl"
+    'airport': lambda x: f"{x.split('-')[0]}-domain.pddl",
+    'psr-small': lambda x: f"{x.split('-')[0]}-domain.pddl",
+    'pathways': lambda x: f"domain-{x}" if "-" in x else f"domain_{x}",
+    'organic-synthesis-split': lambda x: f"domain-{x}",
+    'parcprinter': lambda x: f"domain-{x}",
 }
 
 MANUAL_SEQUENCES = {"airport": [
@@ -45,9 +49,9 @@ MANUAL_SEQUENCES = {"airport": [
 
     "pathways": [[f"p{i:02d}.pddl" for i in range(1, 31)], ],
     "freecell": [
-        [f"p{i:02d}.pddl" for i in range(1, 21)],
-        ] +
-        [[f"probfreecell-{i}-{j}.pddl" for j in range(1, 6)] for i in range(2, 14)],
+                    [f"p{i:02d}.pddl" for i in range(1, 21)],
+                ] +
+                [[f"probfreecell-{i}-{j}.pddl" for j in range(1, 6)] for i in range(2, 14)],
     "pipesworld-tankage":
         [['p01-net1-b6-g2-t50.pddl', 'p02-net1-b6-g4-t50.pddl', 'p03-net1-b8-g3-t80.pddl',
           'p04-net1-b8-g5-t80.pddl', 'p05-net1-b10-g4-t50.pddl', 'p06-net1-b10-g6-t50.pddl',
@@ -101,16 +105,15 @@ SEQUENCES_BY_RUNTIME = {
     "parcprinter": lambda x: "",
     "mprime": lambda x: "",
     "agricola": lambda x: x.split("-")[1],
-    "mystery" : lambda  x: "",
-    "tetris": lambda  x: "",
-    "pathways" : lambda  x: None if not "-" in x else "",
-    "ged": lambda  x: x.split("-")[0],
+    "mystery": lambda x: "",
+    "tetris": lambda x: "",
+    "pathways": lambda x: None if not "-" in x else "",
+    "ged": lambda x: x.split("-")[0],
 }
 
 LINEAR_ATTRIBUTES = {
     "agricola": lambda x: list(map(int, x.split("-")[2:4])),
     "tetris": lambda x: list(map(int, x.split("-")[1:3]))
-
 }
 
 
@@ -192,18 +195,29 @@ class DataTask:
 
 
 class DataDomain:
-    def __init__(self, track="opt"):
+    def __init__(self, extra_tasks_dir, logging, track="opt"):
         self.tasks = defaultdict(DataTask)
         self.planners_that_do_not_solve_the_domain = set()
         self.domain = None
         self.track = track
         self.rng = random.Random(1000)
+        self.excluded_tasks = set()
+        self.logging = logging
+        self.extra_tasks_dir = extra_tasks_dir
 
     def add(self, data, is_opt):
         assert self.domain is None or self.domain == get_domain_renaming(data['domain'])
         self.domain = self.domain or get_domain_renaming(data['domain'])
 
         prob = data['problem']
+        if prob in self.excluded_tasks:
+            return
+        elif not os.path.exists(f"{self.extra_tasks_dir}/{data['domain']}/{prob}"):
+            self.excluded_tasks.add(prob)
+            self.logging.warning(
+                f"Warning: We have read data about {data['problem']}, but there is no file at '{self.extra_tasks_dir}/{data['domain']}/{prob}'")
+            return
+
         if prob not in self.tasks:
             self.tasks[prob] = DataTask(data['domain'], data['problem'])
 
@@ -324,7 +338,8 @@ class DataDomain:
                 current_seq.append(hard_instance)
             else:
                 current_seq.append(self.rng.choice(tasks_by_attributes[current_values]))
-            assert not (current_seq[-1] == "p-must_create_workers-3-3-550290313.pddl" and current_seq[-2] == "p-must_create_workers-3-3-277996285.pddl")
+            assert not (current_seq[-1] == "p-must_create_workers-3-3-550290313.pddl" and current_seq[
+                -2] == "p-must_create_workers-3-3-277996285.pddl")
 
             remaining_values = [k for k in remaining_values if
                                 k != tuple(current_values) and all([vk >= vc for vk, vc in zip(k, current_values)])]
@@ -375,7 +390,8 @@ class DataDomain:
                 if len(seq) <= 30:
                     sub_sequences_sorted_by_runtime.append(seq)
                 elif self.domain in LINEAR_ATTRIBUTES:
-                    for _ in range(min(1000, max(10, int(5000 / len(new_seqs))))):  # Generate at least 10 and at most 1000 different sequences
+                    for _ in range(min(1000, max(10, int(5000 / len(
+                            new_seqs))))):  # Generate at least 10 and at most 1000 different sequences
 
                         res.append(self.extract_random_linear_atr_subsequence(seq))
 
@@ -420,22 +436,22 @@ class DataDomain:
     def allow_instances_with_duplicated_parameters(self, intersection):
         return all([isinstance(item, list) for item in intersection])
 
-    def get_domain_filename(self, dir):
-        return f"{dir}/{self.domain}/domain.pddl"
+    def get_domain_filename(self):
+        return f"{self.extra_tasks_dir}/{self.domain}/domain.pddl"
 
-    def generate_problem(self, EXTRA_TASKS_DIR, selected_task, output_dir, output_file):
-        original_filename = f"{EXTRA_TASKS_DIR}/{self.domain}/{selected_task}"
+    def generate_problem(self, selected_task, output_dir, output_file):
+        original_filename = f"{self.extra_tasks_dir}/{self.tasks[selected_task].domain}/{selected_task}"
         assert os.path.exists(original_filename)
         shutil.copyfile(original_filename, f"{output_dir}/{output_file}")
 
         if self.domain in GET_DOMAIN_FILENAME_INSTANCE:
-            original_filename_domain = f"{EXTRA_TASKS_DIR}/{self.domain}/{GET_DOMAIN_FILENAME_INSTANCE[self.domain](selected_task)}"
+            original_filename_domain = f"{self.extra_tasks_dir}/{self.tasks[selected_task].domain}/{GET_DOMAIN_FILENAME_INSTANCE[self.domain](selected_task)}"
             assert os.path.exists(original_filename_domain), original_filename_domain
             shutil.copyfile(original_filename_domain, f"{output_dir}/domain-{output_file}")
 
 
-def load_data_domain_from_file(domain, track, filenames_opt, filenames_sat):
-    res = DataDomain(track)
+def load_data_domain_from_file(domain, track, filenames_opt, filenames_sat, extra_tasks_dir, logging):
+    res = DataDomain(extra_tasks_dir, logging, track)
 
     for filename in filenames_opt + filenames_sat:
         with open(filename) as f:

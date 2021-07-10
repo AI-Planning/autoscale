@@ -110,8 +110,8 @@ class CPLEXSequence:
 
         # Identify which instances are actually relevant
         self.evaluated_instances = set(
-            [i for i, t in enumerate(self.runtimes_baseline) if 2 <= t <= planner_time_limit] +
-            [i for i, t in enumerate(self.runtimes_sart) if 2 <= t <= planner_time_limit])
+            [i for i, t in enumerate(self.runtimes_baseline) if 2 <= t <= planner_time_limit]  if self.use_baseline_instead_of_sart else
+            [i for i, t in enumerate(self.runtimes_baseline) if 2 <= t <= planner_time_limit]+ [i for i, t in enumerate(self.runtimes_sart) if 2 <= t <= planner_time_limit])
 
         self.parameters_of_evaluated_instances = [self.parameters_of_instances[i] for i in self.evaluated_instances]
         self.parameters_of_trivial_instances = [self.parameters_of_instances[i] for i, t in
@@ -243,7 +243,7 @@ class CPLEXSequenceManager:
         new_seq = CPLEXSequence(self.SEQ_ID, sequence, domain, sart_eval, baseline_eval, sequence_length,
                                 planner_time_limit, self.logging)
 
-        if len(new_seq.evaluated_instances) == 0 or \
+        if new_seq.seq_id == -1 or len(new_seq.evaluated_instances) == 0 or \
                 new_seq.parameters_of_evaluated_instances in self.previous_parameters_of_evaluated_instances:
             self.logging.debug(f"Discarding sequence {new_seq.runtimes_baseline} {new_seq.runtimes_sart}")
             return None

@@ -1,0 +1,69 @@
+2021-07-10 20:57:03,460 INFO     No run directory, so we will not run anything
+2021-07-10 20:57:04,185 INFO     Loading cache data for baseline planners: 2497
+2021-07-10 20:57:04,349 INFO     baseline cache contains data for 793 parameter values, with min 3 max 39 avg 9.44640605296343 runtimes
+2021-07-10 20:57:04,349 INFO     Loading cache data for sart planners: 4563
+2021-07-10 20:57:04,637 INFO     sart cache contains data for 1535 parameter values, with min 3 max 39 avg 8.917915309446254 runtimes
+2021-07-10 20:57:06,771 INFO     Loading cache data for baseline planners: 279
+2021-07-10 20:57:06,787 INFO     baseline cache contains data for 923 parameter values, with min 3 max 39 avg 9.022751895991332 runtimes
+2021-07-10 20:57:06,788 INFO     Loading cache data for sart planners: 554
+2021-07-10 20:57:06,819 INFO     sart cache contains data for 1835 parameter values, with min 3 max 39 avg 8.36566757493188 runtimes
+2021-07-10 20:57:09,017 INFO     Loading cache data for baseline planners: 14
+2021-07-10 20:57:09,019 INFO     baseline cache contains data for 936 parameter values, with min 3 max 39 avg 8.942307692307692 runtimes
+2021-07-10 20:57:09,019 INFO     Loading cache data for sart planners: 43
+2021-07-10 20:57:09,022 INFO     sart cache contains data for 1873 parameter values, with min 3 max 39 avg 8.264815803523758 runtimes
+2021-07-10 20:57:11,205 INFO     Loading cache data for baseline planners: 8
+2021-07-10 20:57:11,207 INFO     baseline cache contains data for 944 parameter values, with min 3 max 39 avg 8.891949152542374 runtimes
+2021-07-10 20:57:11,207 INFO     Loading cache data for sart planners: 10
+2021-07-10 20:57:11,209 INFO     sart cache contains data for 1883 parameter values, with min 3 max 39 avg 8.236856080722252 runtimes
+2021-07-10 20:57:11,209 INFO     Stored sequences: 12748
+2021-07-10 20:58:42,186 INFO     Different evaluated sequences: 1277
+2021-07-10 20:58:54,023 INFO     Candidate sequences: 1000
+2021-07-10 20:58:54,041 INFO     Using sart runtimes on CPLEX optimization
+2021-07-10 20:59:11,014 INFO     CPLEX solve
+
+2021-07-10 20:59:13,174 INFO     Solution status = 101: MIP_optimal
+2021-07-10 20:59:13,175 INFO     Solution value  = 21.059040031778174
+Selected: sequence 16, 17 instances from 4 to 20
+Configuration: {'crates_b': 2, 'crates_m': 1.0, 'depots_b': 1, 'depots_m': 1.0, 'depots_optional_m': 'false', 'hoists_b': 2, 'hoists_m': 1.4000000000000001, 'hoists_optional_m': 'true', 'store_areas_b': 0, 'store_areas_m': 1.4000000000000001, 'store_areas_optional_m': 'true'}
+Penalty: 9.03
+Penalty sart: 1.03
+Penalty baseline: 8.00
+Seq Estimated runtimes: 0.93, 1.4, 2.2, 3.8, 6.7, 26, 54, 97, 1.5e+02, 3e+02, 6.8e+02, 1.5e+03, 3.5e+03, 7.9e+03, 1.8e+04, 4.1e+04, 9.2e+04
+Selected: sequence 374, 13 instances from 4 to 16
+Configuration: {'crates_b': 2, 'crates_m': 1.0, 'depots_b': 1, 'depots_m': 1.0, 'depots_optional_m': 'false', 'hoists_b': 2, 'hoists_m': 0.5, 'hoists_optional_m': 'true', 'store_areas_b': 3, 'store_areas_m': 1.4000000000000001, 'store_areas_optional_m': 'true'}
+Penalty: 12.03
+Penalty sart: 4.03
+Penalty baseline: 8.00
+Seq Estimated runtimes: 2.1, 7.4, 17, 69, 88, 2.3e+02, 5.8e+02, 1.5e+03, 3.8e+03, 9.8e+03, 2.5e+04, 6.4e+04, 1.6e+05
+  p01: {'crates': 6, 'hoists': 2, 'store_areas': 6, 'depots': 5, 'containers': 2}   0.9251282051282051
+  p02: {'crates': 7, 'hoists': 2, 'store_areas': 7, 'depots': 6, 'containers': 2}   1.435128205128205
+  p03: {'crates': 8, 'hoists': 2, 'store_areas': 8, 'depots': 7, 'containers': 2}   2.2371794871794872
+  p04: {'crates': 9, 'hoists': 2, 'store_areas': 9, 'depots': 8, 'containers': 3}   3.771
+  p05: {'crates': 10, 'hoists': 2, 'store_areas': 10, 'depots': 9, 'containers': 3}   6.710740740740741
+  p06: {'crates': 11, 'hoists': 2, 'store_areas': 11, 'depots': 10, 'containers': 3}   26.47
+  p07: {'crates': 12, 'hoists': 2, 'store_areas': 12, 'depots': 11, 'containers': 3}   54.25666666666667
+  p08: {'crates': 13, 'hoists': 2, 'store_areas': 13, 'depots': 12, 'containers': 4}   97.16444444444444
+  p09: {'crates': 14, 'hoists': 2, 'store_areas': 14, 'depots': 13, 'containers': 4}   146.71166666666667
+  p10: {'crates': 15, 'hoists': 2, 'store_areas': 15, 'depots': 14, 'containers': 4}   299.31166666666667
+  p11: {'crates': 16, 'hoists': 2, 'store_areas': 16, 'depots': 15, 'containers': 4}   678.5432270515698
+  p12: {'crates': 17, 'hoists': 2, 'store_areas': 17, 'depots': 16, 'containers': 5}   1538.2658354253645
+  p13: {'crates': 18, 'hoists': 2, 'store_areas': 18, 'depots': 17, 'containers': 5}   3487.267555110467
+  p14: {'crates': 19, 'hoists': 2, 'store_areas': 19, 'depots': 18, 'containers': 5}   7905.67840802584
+  p15: {'crates': 20, 'hoists': 2, 'store_areas': 20, 'depots': 19, 'containers': 5}   17922.270116479824
+  p16: {'crates': 21, 'hoists': 2, 'store_areas': 21, 'depots': 20, 'containers': 6}   40630.006629409036
+  p17: {'crates': 22, 'hoists': 2, 'store_areas': 22, 'depots': 21, 'containers': 6}   92108.7243957944
+  p18: {'crates': 6, 'hoists': 2, 'store_areas': 9, 'depots': 5, 'containers': 2}   2.0533333333333332
+  p19: {'crates': 7, 'hoists': 2, 'store_areas': 10, 'depots': 6, 'containers': 2}   7.3933333333333335
+  p20: {'crates': 8, 'hoists': 2, 'store_areas': 11, 'depots': 7, 'containers': 2}   16.738333333333333
+  p21: {'crates': 9, 'hoists': 2, 'store_areas': 12, 'depots': 8, 'containers': 3}   69.38666666666667
+  p22: {'crates': 10, 'hoists': 2, 'store_areas': 13, 'depots': 9, 'containers': 3}   88.445
+  p23: {'crates': 11, 'hoists': 2, 'store_areas': 14, 'depots': 10, 'containers': 3}   226.53771534624414
+  p24: {'crates': 12, 'hoists': 2, 'store_areas': 15, 'depots': 11, 'containers': 3}   580.240109382056
+  p25: {'crates': 13, 'hoists': 2, 'store_areas': 16, 'depots': 12, 'containers': 4}   1486.1921955075557
+  p26: {'crates': 14, 'hoists': 2, 'store_areas': 17, 'depots': 13, 'containers': 4}   3806.6435020148147
+  p27: {'crates': 15, 'hoists': 2, 'store_areas': 18, 'depots': 14, 'containers': 4}   9750.10822640129
+  p28: {'crates': 16, 'hoists': 2, 'store_areas': 19, 'depots': 15, 'containers': 4}   24973.342099469373
+  p29: {'crates': 17, 'hoists': 2, 'store_areas': 20, 'depots': 16, 'containers': 5}   63965.219783752254
+  p30: {'crates': 18, 'hoists': 2, 'store_areas': 21, 'depots': 17, 'containers': 5}   163836.6753511404
+Total Estimated Runtimes: [0.9251282051282051, 1.435128205128205, 2.0533333333333332, 2.2371794871794872, 3.771, 6.710740740740741, 7.3933333333333335, 16.738333333333333, 26.47, 54.25666666666667, 69.38666666666667, 88.445, 97.16444444444444, 146.71166666666667, 226.53771534624414, 299.31166666666667, 580.240109382056, 678.5432270515698, 1486.1921955075557, 1538.2658354253645, 3487.267555110467, 3806.6435020148147, 7905.67840802584, 9750.10822640129, 17922.270116479824, 24973.342099469373, 40630.006629409036, 63965.219783752254, 92108.7243957944, 163836.6753511404]
+Total Estimated Solved: 20

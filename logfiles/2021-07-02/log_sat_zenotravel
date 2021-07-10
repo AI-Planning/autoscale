@@ -1,0 +1,76 @@
+2021-07-10 21:36:22,209 INFO     No run directory, so we will not run anything
+2021-07-10 21:36:23,175 INFO     Loading cache data for baseline planners: 2998
+2021-07-10 21:36:23,307 INFO     baseline cache contains data for 2155 parameter values, with min 3 max 39 avg 4.173549883990719 runtimes
+2021-07-10 21:36:23,307 INFO     Loading cache data for sart planners: 4465
+2021-07-10 21:36:23,501 INFO     sart cache contains data for 3228 parameter values, with min 3 max 39 avg 4.149628252788104 runtimes
+2021-07-10 21:36:24,617 INFO     Loading cache data for baseline planners: 1136
+2021-07-10 21:36:24,662 INFO     baseline cache contains data for 3197 parameter values, with min 3 max 39 avg 3.8792618079449483 runtimes
+2021-07-10 21:36:24,662 INFO     Loading cache data for sart planners: 1706
+2021-07-10 21:36:24,731 INFO     sart cache contains data for 4800 parameter values, with min 3 max 39 avg 3.856875 runtimes
+2021-07-10 21:36:25,946 INFO     Loading cache data for baseline planners: 1110
+2021-07-10 21:36:25,989 INFO     baseline cache contains data for 4251 parameter values, with min 3 max 39 avg 3.700776287932251 runtimes
+2021-07-10 21:36:25,989 INFO     Loading cache data for sart planners: 1630
+2021-07-10 21:36:26,053 INFO     sart cache contains data for 6352 parameter values, with min 3 max 39 avg 3.6843513853904284 runtimes
+2021-07-10 21:36:27,442 INFO     Loading cache data for baseline planners: 898
+2021-07-10 21:36:27,478 INFO     baseline cache contains data for 5064 parameter values, with min 3 max 39 avg 3.6386255924170614 runtimes
+2021-07-10 21:36:27,478 INFO     Loading cache data for sart planners: 1341
+2021-07-10 21:36:27,531 INFO     sart cache contains data for 7581 parameter values, with min 3 max 39 avg 3.6177285318559558 runtimes
+2021-07-10 21:36:27,531 INFO     Stored sequences: 522
+Warning: No output dir has been provided for Runner but I have no data for {'planes': 13, 'people': 42, 'cities': 23}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'planes': 18, 'people': 57, 'cities': 23}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'planes': 21, 'people': 49, 'cities': 23}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'planes': 18, 'people': 68, 'cities': 9}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'planes': 25, 'people': 51, 'cities': 23}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'planes': 8, 'people': 113, 'cities': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'planes': 8, 'people': 112, 'cities': 14}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'planes': 8, 'people': 88, 'cities': 17}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'planes': 7, 'people': 156, 'cities': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'planes': 25, 'people': 22, 'cities': 39}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'planes': 24, 'people': 22, 'cities': 39}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'planes': 21, 'people': 24, 'cities': 40}, so I consider it unsolved within the time and memory limits
+2021-07-10 21:36:31,404 INFO     Different evaluated sequences: 480
+2021-07-10 21:36:37,176 INFO     Candidate sequences: 479
+2021-07-10 21:36:37,189 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 99 use baseline 380 use sart
+2021-07-10 21:36:37,194 INFO     Using sart runtimes on CPLEX optimization
+2021-07-10 21:36:40,032 INFO     CPLEX solve
+
+2021-07-10 21:36:40,439 INFO     Solution status = 101: MIP_optimal
+2021-07-10 21:36:40,439 INFO     Solution value  = 0.4850665742652495
+Selected: sequence 323, 30 instances from 0 to 29
+Configuration: {'cities_b': 19, 'cities_m': 3.3000000000000003, 'cities_optional_m': 'false', 'people_b': 5, 'people_m': 1.5, 'planes_b': 7, 'planes_m': 1.2000000000000002, 'planes_optional_m': 'false'}
+Penalty: 0.49
+Penalty sart: 0.29
+Penalty baseline: 0.19
+Seq Estimated runtimes: 6.1, 9.2, 15, 20, 31, 44, 61, 77, 1e+02, 1.4e+02, 2e+02, 2.9e+02, 4.1e+02, 5.8e+02, 8.2e+02, 1.2e+03, 1.6e+03, 2.3e+03, 3.3e+03, 4.7e+03, 6.6e+03, 9.4e+03, 1.3e+04, 1.9e+04, 2.7e+04, 3.8e+04, 5.3e+04, 7.5e+04, 1.1e+05, 1.5e+05
+  p01: {'planes': 7, 'people': 5, 'cities': 19}   6.111666666666666
+  p02: {'planes': 8, 'people': 6, 'cities': 22}   9.17
+  p03: {'planes': 9, 'people': 8, 'cities': 25}   14.6
+  p04: {'planes': 10, 'people': 9, 'cities': 28}   19.91
+  p05: {'planes': 11, 'people': 11, 'cities': 32}   30.689999999999998
+  p06: {'planes': 12, 'people': 12, 'cities': 35}   43.92666666666667
+  p07: {'planes': 14, 'people': 14, 'cities': 38}   60.96333333333333
+  p08: {'planes': 15, 'people': 15, 'cities': 42}   76.75
+  p09: {'planes': 16, 'people': 17, 'cities': 45}   104.58333333333333
+  p10: {'planes': 17, 'people': 18, 'cities': 48}   144.81833333333333
+  p11: {'planes': 18, 'people': 20, 'cities': 51}   204.96770385785968
+  p12: {'planes': 20, 'people': 21, 'cities': 55}   290.0997315585959
+  p13: {'planes': 21, 'people': 23, 'cities': 58}   410.5908036552477
+  p14: {'planes': 22, 'people': 24, 'cities': 61}   581.1270735774897
+  p15: {'planes': 23, 'people': 26, 'cities': 65}   822.4944948555009
+  p16: {'planes': 24, 'people': 27, 'cities': 68}   1164.112334163001
+  p17: {'planes': 26, 'people': 29, 'cities': 71}   1647.6189628339214
+  p18: {'planes': 27, 'people': 30, 'cities': 75}   2331.946984001131
+  p19: {'planes': 28, 'people': 32, 'cities': 78}   3300.50628140295
+  p20: {'planes': 29, 'people': 33, 'cities': 81}   4671.350501669486
+  p21: {'planes': 30, 'people': 35, 'cities': 84}   6611.566120144472
+  p22: {'planes': 32, 'people': 36, 'cities': 88}   9357.637913365692
+  p23: {'planes': 33, 'people': 38, 'cities': 91}   13244.27310056843
+  p24: {'planes': 34, 'people': 39, 'cities': 94}   18745.197408407734
+  p25: {'planes': 35, 'people': 41, 'cities': 98}   26530.89552080401
+  p26: {'planes': 37, 'people': 42, 'cities': 101}   37550.333656134506
+  p27: {'planes': 38, 'people': 44, 'cities': 104}   53146.62509531067
+  p28: {'planes': 39, 'people': 45, 'cities': 108}   75220.73664876913
+  p29: {'planes': 40, 'people': 47, 'cities': 111}   106463.18955975854
+  p30: {'planes': 41, 'people': 48, 'cities': 114}   150681.99589909957
+Total Estimated Runtimes: [6.111666666666666, 9.17, 14.6, 19.91, 30.689999999999998, 43.92666666666667, 60.96333333333333, 76.75, 104.58333333333333, 144.81833333333333, 204.96770385785968, 290.0997315585959, 410.5908036552477, 581.1270735774897, 822.4944948555009, 1164.112334163001, 1647.6189628339214, 2331.946984001131, 3300.50628140295, 4671.350501669486, 6611.566120144472, 9357.637913365692, 13244.27310056843, 18745.197408407734, 26530.89552080401, 37550.333656134506, 53146.62509531067, 75220.73664876913, 106463.18955975854, 150681.99589909957]
+Total Estimated Solved: 17
