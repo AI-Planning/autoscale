@@ -1,0 +1,84 @@
+2021-07-10 16:12:49,368 INFO     No run directory, so we will not run anything
+2021-07-10 16:12:50,465 INFO     Loading cache data for baseline planners: 1493
+2021-07-10 16:12:50,553 INFO     baseline cache contains data for 476 parameter values, with min 3 max 39 avg 9.409663865546218 runtimes
+2021-07-10 16:12:50,554 INFO     Loading cache data for sart planners: 7181
+2021-07-10 16:12:50,943 INFO     sart cache contains data for 3382 parameter values, with min 3 max 39 avg 6.36989946777055 runtimes
+2021-07-10 16:12:52,199 INFO     Loading cache data for baseline planners: 139
+2021-07-10 16:12:52,205 INFO     baseline cache contains data for 577 parameter values, with min 3 max 39 avg 8.48526863084922 runtimes
+2021-07-10 16:12:52,205 INFO     Loading cache data for sart planners: 2828
+2021-07-10 16:12:52,333 INFO     sart cache contains data for 5525 parameter values, with min 3 max 39 avg 5.434751131221719 runtimes
+2021-07-10 16:12:53,687 INFO     Loading cache data for baseline planners: 53
+2021-07-10 16:12:53,689 INFO     baseline cache contains data for 614 parameter values, with min 3 max 39 avg 8.232899022801304 runtimes
+2021-07-10 16:12:53,689 INFO     Loading cache data for sart planners: 1679
+2021-07-10 16:12:53,768 INFO     sart cache contains data for 6751 parameter values, with min 3 max 39 avg 5.193897200414753 runtimes
+2021-07-10 16:12:55,108 INFO     Loading cache data for baseline planners: 25
+2021-07-10 16:12:55,110 INFO     baseline cache contains data for 632 parameter values, with min 3 max 39 avg 8.117088607594937 runtimes
+2021-07-10 16:12:55,110 INFO     Loading cache data for sart planners: 185
+2021-07-10 16:12:55,123 INFO     sart cache contains data for 6905 parameter values, with min 3 max 39 avg 5.1584359160028965 runtimes
+2021-07-10 16:12:55,123 INFO     Stored sequences: 7140
+Warning: No output dir has been provided for Runner but I have no data for {'num_cocktails': 14, 'num_shots': 21, 'num_ingredients': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_cocktails': 13, 'num_shots': 27, 'num_ingredients': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_cocktails': 14, 'num_shots': 21, 'num_ingredients': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_cocktails': 13, 'num_shots': 23, 'num_ingredients': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_cocktails': 10, 'num_shots': 17, 'num_ingredients': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_cocktails': 11, 'num_shots': 22, 'num_ingredients': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_cocktails': 15, 'num_shots': 24, 'num_ingredients': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_cocktails': 11, 'num_shots': 25, 'num_ingredients': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_cocktails': 6, 'num_shots': 25, 'num_ingredients': 4}, so I consider it unsolved within the time and memory limits
+2021-07-10 16:13:54,293 INFO     Different evaluated sequences: 4291
+num_ingredients 2 3032 1000
+num_ingredients 3 723 677
+num_ingredients 4 242 218
+num_ingredients 5 162 138
+num_ingredients 6 122 100
+2021-07-10 16:14:59,005 INFO     Candidate sequences: 2133
+2021-07-10 16:14:59,050 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 109 use baseline 2024 use sart
+2021-07-10 16:14:59,073 INFO     Using sart runtimes on CPLEX optimization
+2021-07-10 16:17:12,106 INFO     CPLEX solve
+
+2021-07-10 16:18:49,063 INFO     Solution status = 101: MIP_optimal
+2021-07-10 16:18:49,063 INFO     Solution value  = 4.498535149529493
+Selected: sequence 1368, 6 instances from 18 to 23
+Configuration: {'num_cocktails_b': 7, 'num_cocktails_m': 2.8000000000000003, 'num_ingredients': 2, 'num_shots_b': 5, 'num_shots_m': 0.2, 'num_shots_optional_m': 'false'}
+Penalty: 2.07
+Penalty sart: 0.93
+Penalty baseline: 1.14
+Seq Estimated runtimes: 1.8e+02, 6.2e+02, 2.1e+03, 7.4e+03, 2.6e+04, 8.8e+04
+Selected: sequence 1077, 24 instances from 6 to 29
+Configuration: {'num_cocktails_b': 4, 'num_cocktails_m': 1.2000000000000002, 'num_ingredients': 3, 'num_shots_b': 1, 'num_shots_m': 0.30000000000000004, 'num_shots_optional_m': 'false'}
+Penalty: 2.42
+Penalty sart: 1.35
+Penalty baseline: 1.07
+Seq Estimated runtimes: 5.8, 6.1, 6.4, 6.8, 7, 26, 44, 50, 52, 63, 64, 1.3e+02, 2.1e+02, 3.5e+02, 6e+02, 1e+03, 1.7e+03, 2.9e+03, 4.8e+03, 8.1e+03, 1.4e+04, 2.3e+04, 3.9e+04, 6.5e+04
+  p01: {'num_cocktails': 57, 'num_shots': 65, 'num_ingredients': 2}   180.0
+  p02: {'num_cocktails': 60, 'num_shots': 68, 'num_ingredients': 2}   621.6423637759018
+  p03: {'num_cocktails': 62, 'num_shots': 70, 'num_ingredients': 2}   2146.8846024493923
+  p04: {'num_cocktails': 65, 'num_shots': 74, 'num_ingredients': 2}   7414.413439004042
+  p05: {'num_cocktails': 68, 'num_shots': 77, 'num_ingredients': 2}   25606.186090190477
+  p06: {'num_cocktails': 71, 'num_shots': 80, 'num_ingredients': 2}   88432.72249106459
+  p07: {'num_cocktails': 11, 'num_shots': 13, 'num_ingredients': 3}   5.833333333333334
+  p08: {'num_cocktails': 12, 'num_shots': 15, 'num_ingredients': 3}   6.14
+  p09: {'num_cocktails': 13, 'num_shots': 16, 'num_ingredients': 3}   6.41
+  p10: {'num_cocktails': 14, 'num_shots': 17, 'num_ingredients': 3}   6.823333333333333
+  p11: {'num_cocktails': 15, 'num_shots': 18, 'num_ingredients': 3}   7.023333333333333
+  p12: {'num_cocktails': 17, 'num_shots': 21, 'num_ingredients': 3}   26.464
+  p13: {'num_cocktails': 18, 'num_shots': 22, 'num_ingredients': 3}   43.714444444444446
+  p14: {'num_cocktails': 19, 'num_shots': 23, 'num_ingredients': 3}   49.828
+  p15: {'num_cocktails': 20, 'num_shots': 25, 'num_ingredients': 3}   51.605555555555554
+  p16: {'num_cocktails': 21, 'num_shots': 26, 'num_ingredients': 3}   62.58833333333333
+  p17: {'num_cocktails': 23, 'num_shots': 28, 'num_ingredients': 3}   63.806666666666665
+  p18: {'num_cocktails': 24, 'num_shots': 30, 'num_ingredients': 3}   125.15
+  p19: {'num_cocktails': 25, 'num_shots': 31, 'num_ingredients': 3}   210.77162666601686
+  p20: {'num_cocktails': 26, 'num_shots': 32, 'num_ingredients': 3}   354.97146310378577
+  p21: {'num_cocktails': 27, 'num_shots': 33, 'num_ingredients': 3}   597.8259104946137
+  p22: {'num_cocktails': 29, 'num_shots': 36, 'num_ingredients': 3}   1006.8297212788041
+  p23: {'num_cocktails': 30, 'num_shots': 37, 'num_ingredients': 3}   1695.6543198531833
+  p24: {'num_cocktails': 31, 'num_shots': 38, 'num_ingredients': 3}   2855.739666469947
+  p25: {'num_cocktails': 32, 'num_shots': 40, 'num_ingredients': 3}   4809.499758981536
+  p26: {'num_cocktails': 33, 'num_shots': 41, 'num_ingredients': 3}   8099.928786658844
+  p27: {'num_cocktails': 35, 'num_shots': 43, 'num_ingredients': 3}   13641.511516124496
+  p28: {'num_cocktails': 36, 'num_shots': 45, 'num_ingredients': 3}   22974.37932430493
+  p29: {'num_cocktails': 37, 'num_shots': 46, 'num_ingredients': 3}   38692.347597489854
+  p30: {'num_cocktails': 38, 'num_shots': 47, 'num_ingredients': 3}   65163.79578625558
+Total Estimated Runtimes: [5.833333333333334, 6.14, 6.41, 6.823333333333333, 7.023333333333333, 26.464, 43.714444444444446, 49.828, 51.605555555555554, 62.58833333333333, 63.806666666666665, 125.15, 180.0, 210.77162666601686, 354.97146310378577, 597.8259104946137, 621.6423637759018, 1006.8297212788041, 1695.6543198531833, 2146.8846024493923, 2855.739666469947, 4809.499758981536, 7414.413439004042, 8099.928786658844, 13641.511516124496, 22974.37932430493, 25606.186090190477, 38692.347597489854, 65163.79578625558, 88432.72249106459]
+Total Estimated Solved: 19

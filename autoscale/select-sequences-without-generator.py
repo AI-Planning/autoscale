@@ -38,13 +38,13 @@ def parse_args():
     )
 
     parser.add_argument("domain", help="Domain name")
-    
 
+    parser.add_argument("--extra_tasks_dir", default="../tasks-of-domains-without-usable-generator/", help="Directory where the problem and domain files are stored")
 
     parser.add_argument("--database_opt", nargs="+", default=["../experiments/results/2021-07-02-A-evaluation-opt-extra-tasks-30m-properties.json"], help="path to json file(s) with the information needed")
     parser.add_argument("--database_sat", nargs="+", default=["../experiments/results/2021-07-02-D-sat-fetch-evaluation-properties.json"], help="path to json file(s) with the information needed")
     # ../experiments/results/2021-06-14-B-evaluation-sat-extra-tasks-properties.json
-    #"../experiments/results/2021-06-14-A-evaluation-opt-extra-tasks-properties.json"
+    # ../experiments/results/2021-06-14-A-evaluation-opt-extra-tasks-properties.json
 
     parser.add_argument("--output", help="directory to create the new benchmark set")
 
@@ -59,7 +59,7 @@ ARGS = parse_args()
 random.seed(ARGS.random_seed)
 utils.setup_logging(ARGS.debug)
 
-DATA_DOMAIN = domains_without_generator.load_data_domain_from_file(ARGS.domain, ARGS.track,ARGS.database_opt,ARGS.database_sat)
+DATA_DOMAIN = domains_without_generator.load_data_domain_from_file(ARGS.domain, ARGS.track,ARGS.database_opt,ARGS.database_sat, ARGS.extra_tasks_dir, logging)
 DATA_DOMAIN.remove_possibly_unsolvable()
 DATA_DOMAIN.remove_planners_that_solve_the_domain()
 
@@ -119,15 +119,13 @@ if ARGS.no_cplex:
 
 final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
 
-print(final_selection)
 if ARGS.output:
     if not os.path.exists(f"{ARGS.output}"):
         os.mkdir(f"{ARGS.output}")
     if not os.path.exists(f"{ARGS.output}/{ARGS.domain}"):
         os.mkdir(f"{ARGS.output}/{ARGS.domain}")
 
-    EXTRA_TASKS_DIR = "../tasks-of-domains-without-usable-generator/"
-    domain_file = DATA_DOMAIN.get_domain_filename(EXTRA_TASKS_DIR)
+    domain_file = DATA_DOMAIN.get_domain_filename()
     if os.path.isfile(domain_file):
         shutil.copyfile(domain_file, f"{ARGS.output}/{ARGS.domain}/domain.pddl")
     else:
@@ -143,4 +141,6 @@ if ARGS.output:
         assert selected_task not in selected_tasks, "Error, we are selecting the same task twice"
         selected_tasks.add(selected_task)
 
-        DATA_DOMAIN.generate_problem(EXTRA_TASKS_DIR, selected_task, f"{ARGS.output}/{ARGS.domain}", f"p{i+1:02d}.pddl")
+
+
+        DATA_DOMAIN.generate_problem(selected_task, f"{ARGS.output}/{ARGS.domain}", f"p{i+1:02d}.pddl")

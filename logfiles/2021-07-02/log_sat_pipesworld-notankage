@@ -1,56 +1,56 @@
-2021-07-09 16:42:52,419 INFO     Stored sequences: 5
-2021-07-09 16:42:52,420 DEBUG    Configurations in sequence ['p01-net1-b6-g2.pddl', 'p02-net1-b6-g4.pddl', 'p03-net1-b8-g3.pddl', 'p04-net1-b8-g5.pddl', 'p05-net1-b10-g4.pddl', 'p06-net1-b10-g6.pddl', 'p07-net1-b12-g5.pddl', 'p08-net1-b12-g7.pddl', 'p09-net1-b14-g6.pddl', 'p10-net1-b14-g8.pddl']
-2021-07-09 16:42:52,420 DEBUG    Sart runtimes [[0.2], [0.22], [0.22], [0.23], [0.24], [0.25], [0.26], [0.27], [0.27], [0.27]]
-2021-07-09 16:42:52,421 DEBUG    Baseline runtimes [[0.54], [0.56], [0.58], [0.59], [0.61], [0.71], [0.71], [0.73], [0.75], [5.78]]
-2021-07-09 16:42:52,422 DEBUG    Configurations in sequence ['p11-net2-b10-g2.pddl', 'p12-net2-b10-g4.pddl', 'p13-net2-b12-g3.pddl', 'p14-net2-b12-g5.pddl', 'p15-net2-b14-g4.pddl', 'p16-net2-b14-g6.pddl', 'p17-net2-b16-g5.pddl', 'p18-net2-b16-g7.pddl', 'p19-net2-b18-g6.pddl', 'p20-net2-b18-g8.pddl']
-2021-07-09 16:42:52,422 DEBUG    Sart runtimes [[0.28], [0.33], [0.33], [0.34], [0.44], [0.44], [0.47], [0.53], [0.57], [0.59]]
-2021-07-09 16:42:52,423 DEBUG    Baseline runtimes [[0.79], [0.81], [0.82], [0.99], [1.04], [1.24], [1.27], [1.66], [9.86], [19.52]]
-2021-07-09 16:42:52,424 DEBUG    Configurations in sequence ['p21-net3-b12-g2.pddl', 'p22-net3-b12-g4.pddl', 'p23-net3-b14-g3.pddl', 'p24-net3-b14-g5.pddl', 'p25-net3-b16-g5.pddl', 'p26-net3-b16-g7.pddl', 'p27-net3-b18-g6.pddl', 'p28-net3-b18-g7.pddl', 'p29-net3-b20-g6.pddl', 'p30-net3-b20-g8.pddl']
-2021-07-09 16:42:52,424 DEBUG    Sart runtimes [[0.37], [0.52], [0.53], [0.69], [0.89], [0.98], [0.99], [1.06], [1.27], [1.31]]
-2021-07-09 16:42:52,425 DEBUG    Baseline runtimes [[1.19], [1.89], [8.63], [48.39], [205.43], [507.55], [1209.6]]
-2021-07-09 16:42:52,426 DEBUG    Configurations in sequence ['p31-net4-b14-g3.pddl', 'p32-net4-b14-g5.pddl', 'p33-net4-b16-g5.pddl', 'p34-net4-b16-g6.pddl', 'p35-net4-b18-g4.pddl', 'p36-net4-b18-g6.pddl', 'p37-net4-b20-g5.pddl', 'p38-net4-b20-g7.pddl', 'p39-net4-b22-g7.pddl', 'p40-net4-b22-g8.pddl']
-2021-07-09 16:42:52,426 DEBUG    Sart runtimes [[0.48], [0.81], [0.86], [0.88], [1.16], [1.23], [1.25], [1.41], [1.55], [1.64]]
-2021-07-09 16:42:52,427 DEBUG    Baseline runtimes [[3.79], [77.1], [497.84]]
-2021-07-09 16:42:52,427 DEBUG    Configurations in sequence ['p41-net5-b22-g2.pddl', 'p42-net5-b22-g4.pddl', 'p43-net5-b24-g3.pddl', 'p44-net5-b24-g5.pddl', 'p45-net5-b26-g4.pddl', 'p46-net5-b26-g6.pddl', 'p47-net5-b28-g5.pddl', 'p48-net5-b28-g7.pddl', 'p49-net5-b30-g6.pddl', 'p50-net5-b30-g8.pddl']
-2021-07-09 16:42:52,427 DEBUG    Sart runtimes [[1.35], [3.62], [4.38], [5.91], [8.13], [11.61], [17.02], [18.03], [45.66]]
-2021-07-09 16:42:52,428 DEBUG    Baseline runtimes [[6.89]]
-2021-07-09 16:42:52,428 INFO     Different evaluated sequences: 5
-2021-07-09 16:42:52,428 INFO     Candidate sequences: 5
-2021-07-09 16:42:52,428 DEBUG    Candidate sequences: 
+2021-07-10 16:11:04,498 INFO     Stored sequences: 5
+2021-07-10 16:11:04,498 DEBUG    Configurations in sequence ['p01-net1-b6-g2.pddl', 'p02-net1-b6-g4.pddl', 'p03-net1-b8-g3.pddl', 'p04-net1-b8-g5.pddl', 'p05-net1-b10-g4.pddl', 'p06-net1-b10-g6.pddl', 'p07-net1-b12-g5.pddl', 'p08-net1-b12-g7.pddl', 'p09-net1-b14-g6.pddl', 'p10-net1-b14-g8.pddl']
+2021-07-10 16:11:04,503 DEBUG    Sart runtimes [[0.2], [0.22], [0.22], [0.23], [0.24], [0.25], [0.26], [0.27], [0.27], [0.27]]
+2021-07-10 16:11:04,504 DEBUG    Baseline runtimes [[0.54], [0.56], [0.58], [0.59], [0.61], [0.71], [0.71], [0.73], [0.75], [5.78]]
+2021-07-10 16:11:04,505 DEBUG    Configurations in sequence ['p11-net2-b10-g2.pddl', 'p12-net2-b10-g4.pddl', 'p13-net2-b12-g3.pddl', 'p14-net2-b12-g5.pddl', 'p15-net2-b14-g4.pddl', 'p16-net2-b14-g6.pddl', 'p17-net2-b16-g5.pddl', 'p18-net2-b16-g7.pddl', 'p19-net2-b18-g6.pddl', 'p20-net2-b18-g8.pddl']
+2021-07-10 16:11:04,506 DEBUG    Sart runtimes [[0.28], [0.33], [0.33], [0.34], [0.44], [0.44], [0.47], [0.53], [0.57], [0.59]]
+2021-07-10 16:11:04,506 DEBUG    Baseline runtimes [[0.79], [0.81], [0.82], [0.99], [1.04], [1.24], [1.27], [1.66], [9.86], [19.52]]
+2021-07-10 16:11:04,507 DEBUG    Configurations in sequence ['p21-net3-b12-g2.pddl', 'p22-net3-b12-g4.pddl', 'p23-net3-b14-g3.pddl', 'p24-net3-b14-g5.pddl', 'p25-net3-b16-g5.pddl', 'p26-net3-b16-g7.pddl', 'p27-net3-b18-g6.pddl', 'p28-net3-b18-g7.pddl', 'p29-net3-b20-g6.pddl', 'p30-net3-b20-g8.pddl']
+2021-07-10 16:11:04,508 DEBUG    Sart runtimes [[0.37], [0.52], [0.53], [0.69], [0.89], [0.98], [0.99], [1.06], [1.27], [1.31]]
+2021-07-10 16:11:04,508 DEBUG    Baseline runtimes [[1.19], [1.89], [8.63], [48.39], [205.43], [507.55], [1209.6]]
+2021-07-10 16:11:04,509 DEBUG    Configurations in sequence ['p31-net4-b14-g3.pddl', 'p32-net4-b14-g5.pddl', 'p33-net4-b16-g5.pddl', 'p34-net4-b16-g6.pddl', 'p35-net4-b18-g4.pddl', 'p36-net4-b18-g6.pddl', 'p37-net4-b20-g5.pddl', 'p38-net4-b20-g7.pddl', 'p39-net4-b22-g7.pddl', 'p40-net4-b22-g8.pddl']
+2021-07-10 16:11:04,510 DEBUG    Sart runtimes [[0.48], [0.81], [0.86], [0.88], [1.16], [1.23], [1.25], [1.41], [1.55], [1.64]]
+2021-07-10 16:11:04,510 DEBUG    Baseline runtimes [[3.79], [77.1], [497.84]]
+2021-07-10 16:11:04,511 DEBUG    Configurations in sequence ['p41-net5-b22-g2.pddl', 'p42-net5-b22-g4.pddl', 'p43-net5-b24-g3.pddl', 'p44-net5-b24-g5.pddl', 'p45-net5-b26-g4.pddl', 'p46-net5-b26-g6.pddl', 'p47-net5-b28-g5.pddl', 'p48-net5-b28-g7.pddl', 'p49-net5-b30-g6.pddl', 'p50-net5-b30-g8.pddl']
+2021-07-10 16:11:04,511 DEBUG    Sart runtimes [[1.35], [3.62], [4.38], [5.91], [8.13], [11.61], [17.02], [18.03], [45.66]]
+2021-07-10 16:11:04,511 DEBUG    Baseline runtimes [[6.89]]
+2021-07-10 16:11:04,512 INFO     Different evaluated sequences: 5
+2021-07-10 16:11:04,512 INFO     Candidate sequences: 5
+2021-07-10 16:11:04,512 DEBUG    Candidate sequences: 
  Sequence(1, length=10, penalty=18, penalty_baseline=8, penalty_sart=10, config=['p01-net1-b6-g2.pddl', 'p02-net1-b6-g4.pddl', 'p03-net1-b8-g3.pddl', 'p04-net1-b8-g5.pddl', 'p05-net1-b10-g4.pddl', 'p06-net1-b10-g6.pddl', 'p07-net1-b12-g5.pddl', 'p08-net1-b12-g7.pddl', 'p09-net1-b14-g6.pddl', 'p10-net1-b14-g8.pddl'], runtimes_baseline=[0.54, 0.56, 0.58, 0.59, 0.61, 0.71, 0.71, 0.73, 0.75, 5.78], runtimes_sart=[0.2, 0.22, 0.22, 0.23, 0.24, 0.25, 0.26, 0.27, 0.27, 0.27]
  Sequence(2, length=10, penalty=16.0, penalty_baseline=6.0, penalty_sart=10, config=['p11-net2-b10-g2.pddl', 'p12-net2-b10-g4.pddl', 'p13-net2-b12-g3.pddl', 'p14-net2-b12-g5.pddl', 'p15-net2-b14-g4.pddl', 'p16-net2-b14-g6.pddl', 'p17-net2-b16-g5.pddl', 'p18-net2-b16-g7.pddl', 'p19-net2-b18-g6.pddl', 'p20-net2-b18-g8.pddl'], runtimes_baseline=[0.79, 0.81, 0.82, 0.99, 1.04, 1.24, 1.27, 1.66, 9.86, 19.52], runtimes_sart=[0.28, 0.33, 0.33, 0.34, 0.44, 0.44, 0.47, 0.53, 0.57, 0.59]
  Sequence(3, length=10, penalty=16.643314734449266, penalty_baseline=6.643314734449266, penalty_sart=10, config=['p21-net3-b12-g2.pddl', 'p22-net3-b12-g4.pddl', 'p23-net3-b14-g3.pddl', 'p24-net3-b14-g5.pddl', 'p25-net3-b16-g5.pddl', 'p26-net3-b16-g7.pddl', 'p27-net3-b18-g6.pddl', 'p28-net3-b18-g7.pddl', 'p29-net3-b20-g6.pddl', 'p30-net3-b20-g8.pddl'], runtimes_baseline=[1.19, 1.89, 8.63, 48.39, 205.43, 507.55, 1209.6], runtimes_sart=[0.37, 0.52, 0.53, 0.69, 0.89, 0.98, 0.99, 1.06, 1.27, 1.31]
  Sequence(4, length=10, penalty=18, penalty_baseline=8, penalty_sart=10, config=['p31-net4-b14-g3.pddl', 'p32-net4-b14-g5.pddl', 'p33-net4-b16-g5.pddl', 'p34-net4-b16-g6.pddl', 'p35-net4-b18-g4.pddl', 'p36-net4-b18-g6.pddl', 'p37-net4-b20-g5.pddl', 'p38-net4-b20-g7.pddl', 'p39-net4-b22-g7.pddl', 'p40-net4-b22-g8.pddl'], runtimes_baseline=[3.79, 77.1, 497.84], runtimes_sart=[0.48, 0.81, 0.86, 0.88, 1.16, 1.23, 1.25, 1.41, 1.55, 1.64]
  Sequence(5, length=10, penalty=9.34200329126382, penalty_baseline=8, penalty_sart=1.3420032912638207, config=['p41-net5-b22-g2.pddl', 'p42-net5-b22-g4.pddl', 'p43-net5-b24-g3.pddl', 'p44-net5-b24-g5.pddl', 'p45-net5-b26-g4.pddl', 'p46-net5-b26-g6.pddl', 'p47-net5-b28-g5.pddl', 'p48-net5-b28-g7.pddl', 'p49-net5-b30-g6.pddl', 'p50-net5-b30-g8.pddl'], runtimes_baseline=[6.89], runtimes_sart=[1.35, 3.62, 4.38, 5.91, 8.13, 11.61, 17.02, 18.03, 45.66]
-2021-07-09 16:42:52,429 INFO     Using sart runtimes on CPLEX optimization
-2021-07-09 16:42:52,450 INFO     CPLEX solve
+2021-07-10 16:11:04,512 INFO     Using sart runtimes on CPLEX optimization
+2021-07-10 16:11:04,515 INFO     CPLEX solve
 
-2021-07-09 16:42:52,457 INFO     Solution status = 101: MIP_optimal
-2021-07-09 16:42:52,457 INFO     Solution value  = 2472222.7624544995
-2021-07-09 16:42:52,457 DEBUG    START: seq-3-0 22
+2021-07-10 16:11:04,522 INFO     Solution status = 101: MIP_optimal
+2021-07-10 16:11:04,523 INFO     Solution value  = 2472222.7624544995
+2021-07-10 16:11:04,523 DEBUG    START: seq-3-0 22
 Selected: sequence 3, 10 instances from 0 to 9
 Configuration: ['p21-net3-b12-g2.pddl', 'p22-net3-b12-g4.pddl', 'p23-net3-b14-g3.pddl', 'p24-net3-b14-g5.pddl', 'p25-net3-b16-g5.pddl', 'p26-net3-b16-g7.pddl', 'p27-net3-b18-g6.pddl', 'p28-net3-b18-g7.pddl', 'p29-net3-b20-g6.pddl', 'p30-net3-b20-g8.pddl']
 Penalty: 16.64
 Penalty sart: 10.00
 Penalty baseline: 6.64
 Seq Estimated runtimes: 0.37, 0.52, 0.53, 0.69, 0.89, 0.98, 0.99, 1.1, 1.3, 1.3
-2021-07-09 16:42:52,457 DEBUG    END: end-3-9 32
-2021-07-09 16:42:52,457 DEBUG    START: seq-4-0 33
+2021-07-10 16:11:04,523 DEBUG    END: end-3-9 32
+2021-07-10 16:11:04,523 DEBUG    START: seq-4-0 33
 Selected: sequence 4, 10 instances from 0 to 9
 Configuration: ['p31-net4-b14-g3.pddl', 'p32-net4-b14-g5.pddl', 'p33-net4-b16-g5.pddl', 'p34-net4-b16-g6.pddl', 'p35-net4-b18-g4.pddl', 'p36-net4-b18-g6.pddl', 'p37-net4-b20-g5.pddl', 'p38-net4-b20-g7.pddl', 'p39-net4-b22-g7.pddl', 'p40-net4-b22-g8.pddl']
 Penalty: 18.00
 Penalty sart: 10.00
 Penalty baseline: 8.00
 Seq Estimated runtimes: 0.48, 0.81, 0.86, 0.88, 1.2, 1.2, 1.2, 1.4, 1.6, 1.6
-2021-07-09 16:42:52,457 DEBUG    END: end-4-9 43
-2021-07-09 16:42:52,458 DEBUG    START: seq-5-0 44
+2021-07-10 16:11:04,523 DEBUG    END: end-4-9 43
+2021-07-10 16:11:04,523 DEBUG    START: seq-5-0 44
 Selected: sequence 5, 10 instances from 0 to 9
 Configuration: ['p41-net5-b22-g2.pddl', 'p42-net5-b22-g4.pddl', 'p43-net5-b24-g3.pddl', 'p44-net5-b24-g5.pddl', 'p45-net5-b26-g4.pddl', 'p46-net5-b26-g6.pddl', 'p47-net5-b28-g5.pddl', 'p48-net5-b28-g7.pddl', 'p49-net5-b30-g6.pddl', 'p50-net5-b30-g8.pddl']
 Penalty: 9.34
 Penalty sart: 1.34
 Penalty baseline: 8.00
 Seq Estimated runtimes: 1.4, 3.6, 4.4, 5.9, 8.1, 12, 17, 18, 46, 1e+04
-2021-07-09 16:42:52,458 DEBUG    END: end-5-9 53
+2021-07-10 16:11:04,523 DEBUG    END: end-5-9 53
   p01: p21-net3-b12-g2.pddl   0.37 205.43 0.37
   p02: p22-net3-b12-g4.pddl   0.52 unsolved 0.52
   p03: p23-net3-b14-g3.pddl   0.53 1.19 0.53
@@ -83,4 +83,3 @@ Seq Estimated runtimes: 1.4, 3.6, 4.4, 5.9, 8.1, 12, 17, 18, 46, 1e+04
   p30: p50-net5-b30-g8.pddl   10000.0 unsolved 5.91
 Total Estimated Runtimes: [0.37, 0.48, 0.52, 0.53, 0.69, 0.81, 0.86, 0.88, 0.89, 0.98, 0.99, 1.06, 1.16, 1.23, 1.25, 1.27, 1.31, 1.35, 1.41, 1.55, 1.64, 3.62, 4.38, 5.91, 8.13, 11.61, 17.02, 18.03, 45.66, 10000.0]
 Total Estimated Solved: 29
-['p21-net3-b12-g2.pddl', 'p22-net3-b12-g4.pddl', 'p23-net3-b14-g3.pddl', 'p24-net3-b14-g5.pddl', 'p25-net3-b16-g5.pddl', 'p26-net3-b16-g7.pddl', 'p27-net3-b18-g6.pddl', 'p28-net3-b18-g7.pddl', 'p29-net3-b20-g6.pddl', 'p30-net3-b20-g8.pddl', 'p31-net4-b14-g3.pddl', 'p32-net4-b14-g5.pddl', 'p33-net4-b16-g5.pddl', 'p34-net4-b16-g6.pddl', 'p35-net4-b18-g4.pddl', 'p36-net4-b18-g6.pddl', 'p37-net4-b20-g5.pddl', 'p38-net4-b20-g7.pddl', 'p39-net4-b22-g7.pddl', 'p40-net4-b22-g8.pddl', 'p41-net5-b22-g2.pddl', 'p42-net5-b22-g4.pddl', 'p43-net5-b24-g3.pddl', 'p44-net5-b24-g5.pddl', 'p45-net5-b26-g4.pddl', 'p46-net5-b26-g6.pddl', 'p47-net5-b28-g5.pddl', 'p48-net5-b28-g7.pddl', 'p49-net5-b30-g6.pddl', 'p50-net5-b30-g8.pddl']

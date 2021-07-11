@@ -1,0 +1,84 @@
+2021-07-10 20:48:36,542 INFO     No run directory, so we will not run anything
+2021-07-10 20:48:36,991 INFO     Loading cache data for baseline planners: 1866
+2021-07-10 20:48:37,057 INFO     baseline cache contains data for 969 parameter values, with min 3 max 39 avg 5.777089783281734 runtimes
+2021-07-10 20:48:37,057 INFO     Loading cache data for sart planners: 8784
+2021-07-10 20:48:37,321 INFO     sart cache contains data for 4816 parameter values, with min 3 max 39 avg 5.471760797342193 runtimes
+2021-07-10 20:48:38,624 INFO     Loading cache data for baseline planners: 346
+2021-07-10 20:48:38,637 INFO     baseline cache contains data for 1222 parameter values, with min 3 max 39 avg 5.430441898527005 runtimes
+2021-07-10 20:48:38,637 INFO     Loading cache data for sart planners: 3121
+2021-07-10 20:48:38,732 INFO     sart cache contains data for 7397 parameter values, with min 3 max 39 avg 4.828308773827227 runtimes
+2021-07-10 20:48:40,146 INFO     Loading cache data for baseline planners: 1038
+2021-07-10 20:48:40,178 INFO     baseline cache contains data for 1894 parameter values, with min 3 max 39 avg 5.147835269271384 runtimes
+2021-07-10 20:48:40,178 INFO     Loading cache data for sart planners: 3269
+2021-07-10 20:48:40,269 INFO     sart cache contains data for 9989 parameter values, with min 3 max 39 avg 4.557212934227651 runtimes
+2021-07-10 20:48:41,719 INFO     Loading cache data for baseline planners: 735
+2021-07-10 20:48:41,745 INFO     baseline cache contains data for 2275 parameter values, with min 3 max 39 avg 5.254945054945055 runtimes
+2021-07-10 20:48:41,745 INFO     Loading cache data for sart planners: 2918
+2021-07-10 20:48:41,866 INFO     sart cache contains data for 11878 parameter values, with min 3 max 39 avg 4.569456137396868 runtimes
+2021-07-10 20:48:41,866 INFO     Stored sequences: 1394
+Warning: No output dir has been provided for Runner but I have no data for {'density': 10, 'products': 232, 'orders': 34}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'density': 80, 'products': 129, 'orders': 18}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'density': 10, 'products': 263, 'orders': 33}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'density': 10, 'products': 263, 'orders': 34}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'density': 66, 'products': 37, 'orders': 12}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'density': 20, 'products': 9, 'orders': 27}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'density': 20, 'products': 9, 'orders': 27}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'density': 80, 'products': 27, 'orders': 24}, so I consider it unsolved within the time and memory limits
+2021-07-10 20:48:51,350 INFO     Different evaluated sequences: 1298
+density 10 368 368
+density 20 250 248
+density 33 192 192
+density 50 49 49
+density 66 192 192
+density 80 237 231
+2021-07-10 20:49:14,485 INFO     Candidate sequences: 1280
+2021-07-10 20:49:14,522 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 68 use baseline 1212 use sart
+2021-07-10 20:49:14,542 INFO     Using sart runtimes on CPLEX optimization
+2021-07-10 20:49:50,176 INFO     CPLEX solve
+
+2021-07-10 20:49:57,788 INFO     Solution status = 101: MIP_optimal
+2021-07-10 20:49:57,789 INFO     Solution value  = 6.130426589779399
+Selected: sequence 1123, 16 instances from 6 to 21
+Configuration: {'density': 80, 'orders_b': 19, 'orders_m': 1.1, 'products_b': 5, 'products_m': 3.5}
+Penalty: 3.03
+Penalty sart: 1.19
+Penalty baseline: 1.84
+Seq Estimated runtimes: 3.7, 4.3, 5.4, 9.9, 20, 35, 61, 2.2e+02, 5.1e+02, 1.2e+03, 2.7e+03, 6.2e+03, 1.4e+04, 3.3e+04, 7.5e+04, 1.7e+05
+Selected: sequence 1035, 14 instances from 12 to 25
+Configuration: {'density': 80, 'orders_b': 20, 'orders_m': 1.1, 'products_b': 5, 'products_m': 2.7}
+Penalty: 3.10
+Penalty sart: 1.39
+Penalty baseline: 1.72
+Seq Estimated runtimes: 14, 56, 69, 1.2e+02, 2.6e+02, 5e+02, 9.7e+02, 1.9e+03, 3.6e+03, 6.9e+03, 1.3e+04, 2.6e+04, 5e+04, 9.5e+04
+  p01: {'density': 80, 'products': 26, 'orders': 25}   3.7133333333333334
+  p02: {'density': 80, 'products': 29, 'orders': 26}   4.286666666666667
+  p03: {'density': 80, 'products': 33, 'orders': 27}   5.37
+  p04: {'density': 80, 'products': 36, 'orders': 28}   9.902222222222223
+  p05: {'density': 80, 'products': 40, 'orders': 30}   20.151666666666667
+  p06: {'density': 80, 'products': 43, 'orders': 31}   34.583333333333336
+  p07: {'density': 80, 'products': 47, 'orders': 32}   61.181111111111115
+  p08: {'density': 80, 'products': 50, 'orders': 33}   223.50833333333333
+  p09: {'density': 80, 'products': 54, 'orders': 34}   512.5903488519263
+  p10: {'density': 80, 'products': 57, 'orders': 35}   1175.5663058177074
+  p11: {'density': 80, 'products': 61, 'orders': 36}   2696.024500791181
+  p12: {'density': 80, 'products': 64, 'orders': 37}   6183.018408145371
+  p13: {'density': 80, 'products': 68, 'orders': 38}   14180.033091036652
+  p14: {'density': 80, 'products': 71, 'orders': 39}   32520.255511127856
+  p15: {'density': 80, 'products': 75, 'orders': 41}   74581.42105306798
+  p16: {'density': 80, 'products': 78, 'orders': 42}   171043.80881606732
+  p17: {'density': 80, 'products': 37, 'orders': 33}   14.286666666666667
+  p18: {'density': 80, 'products': 40, 'orders': 34}   56.32083333333333
+  p19: {'density': 80, 'products': 42, 'orders': 35}   68.65666666666667
+  p20: {'density': 80, 'products': 45, 'orders': 36}   123.85444444444445
+  p21: {'density': 80, 'products': 48, 'orders': 37}   261.145
+  p22: {'density': 80, 'products': 50, 'orders': 38}   503.0351181491793
+  p23: {'density': 80, 'products': 53, 'orders': 39}   968.980183772842
+  p24: {'density': 80, 'products': 56, 'orders': 40}   1866.5150059483624
+  p25: {'density': 80, 'products': 59, 'orders': 42}   3595.4071360525786
+  p26: {'density': 80, 'products': 61, 'orders': 43}   6925.715803398922
+  p27: {'density': 80, 'products': 64, 'orders': 44}   13340.781050490781
+  p28: {'density': 80, 'products': 67, 'orders': 45}   25697.91254642426
+  p29: {'density': 80, 'products': 69, 'orders': 46}   49501.05295516976
+  p30: {'density': 80, 'products': 72, 'orders': 47}   95352.26798067206
+Total Estimated Runtimes: [3.7133333333333334, 4.286666666666667, 5.37, 9.902222222222223, 14.286666666666667, 20.151666666666667, 34.583333333333336, 56.32083333333333, 61.181111111111115, 68.65666666666667, 123.85444444444445, 223.50833333333333, 261.145, 503.0351181491793, 512.5903488519263, 968.980183772842, 1175.5663058177074, 1866.5150059483624, 2696.024500791181, 3595.4071360525786, 6183.018408145371, 6925.715803398922, 13340.781050490781, 14180.033091036652, 25697.91254642426, 32520.255511127856, 49501.05295516976, 74581.42105306798, 95352.26798067206, 171043.80881606732]
+Total Estimated Solved: 17

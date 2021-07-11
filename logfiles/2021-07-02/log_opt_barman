@@ -1,0 +1,80 @@
+2021-07-10 16:12:30,452 INFO     No run directory, so we will not run anything
+2021-07-10 16:12:31,128 INFO     Loading cache data for baseline planners: 554
+2021-07-10 16:12:31,158 INFO     baseline cache contains data for 87 parameter values, with min 3 max 39 avg 19.103448275862068 runtimes
+2021-07-10 16:12:31,158 INFO     Loading cache data for sart planners: 988
+2021-07-10 16:12:31,218 INFO     sart cache contains data for 150 parameter values, with min 3 max 39 avg 19.76 runtimes
+2021-07-10 16:12:33,140 INFO     Loading cache data for baseline planners: 0
+2021-07-10 16:12:33,140 INFO     baseline cache contains data for 87 parameter values, with min 3 max 39 avg 19.103448275862068 runtimes
+2021-07-10 16:12:33,140 INFO     Loading cache data for sart planners: 5
+2021-07-10 16:12:33,141 INFO     sart cache contains data for 152 parameter values, with min 3 max 39 avg 19.598684210526315 runtimes
+2021-07-10 16:12:35,112 INFO     Loading cache data for baseline planners: 0
+2021-07-10 16:12:35,112 INFO     baseline cache contains data for 87 parameter values, with min 3 max 39 avg 19.103448275862068 runtimes
+2021-07-10 16:12:35,112 INFO     Loading cache data for sart planners: 0
+2021-07-10 16:12:35,112 INFO     sart cache contains data for 152 parameter values, with min 3 max 39 avg 19.598684210526315 runtimes
+2021-07-10 16:12:37,014 INFO     Loading cache data for baseline planners: 0
+2021-07-10 16:12:37,015 INFO     baseline cache contains data for 87 parameter values, with min 3 max 39 avg 19.103448275862068 runtimes
+2021-07-10 16:12:37,015 INFO     Loading cache data for sart planners: 0
+2021-07-10 16:12:37,015 INFO     sart cache contains data for 152 parameter values, with min 3 max 39 avg 19.598684210526315 runtimes
+2021-07-10 16:12:37,015 INFO     Stored sequences: 2428
+2021-07-10 16:12:46,147 INFO     Different evaluated sequences: 230
+num_ingredients 2 108 79
+num_ingredients 3 47 44
+num_ingredients 4 27 27
+num_ingredients 5 25 25
+num_ingredients 6 23 23
+2021-07-10 16:12:46,210 INFO     Candidate sequences: 198
+2021-07-10 16:12:46,213 INFO     Using sart runtimes on CPLEX optimization
+2021-07-10 16:12:46,941 INFO     CPLEX solve
+
+2021-07-10 16:12:47,318 INFO     Solution status = 101: MIP_optimal
+2021-07-10 16:12:47,319 INFO     Solution value  = 34.16729089433527
+Selected: sequence 84, 13 instances from 0 to 12
+Configuration: {'num_cocktails_b': 1, 'num_cocktails_m': 0.1, 'num_ingredients': 2, 'num_shots_b': 3, 'num_shots_m': 1.0, 'num_shots_optional_m': 'false'}
+Penalty: 10.37
+Penalty sart: 3.72
+Penalty baseline: 6.65
+Seq Estimated runtimes: 0.75, 1.5, 3.3, 11, 27, 73, 1.9e+02, 5.2e+02, 1.4e+03, 4e+03, 1.1e+04, 3e+04, 8.4e+04
+Selected: sequence 165, 6 instances from 6 to 11
+Configuration: {'num_cocktails_b': 1, 'num_cocktails_m': 0.1, 'num_ingredients': 2, 'num_shots_b': 2, 'num_shots_m': 0.30000000000000004, 'num_shots_optional_m': 'false'}
+Penalty: 12.33
+Penalty sart: 4.33
+Penalty baseline: 8.00
+Seq Estimated runtimes: 2.3e+02, 7.9e+02, 2.7e+03, 9.3e+03, 3.2e+04, 1.1e+05
+Selected: sequence 7, 11 instances from 3 to 13
+Configuration: {'num_cocktails_b': 1, 'num_cocktails_m': 0.1, 'num_ingredients': 3, 'num_shots_b': 1, 'num_shots_m': 0.9, 'num_shots_optional_m': 'false'}
+Penalty: 11.46
+Penalty sart: 3.85
+Penalty baseline: 7.61
+Seq Estimated runtimes: 2.7, 5.4, 19, 70, 1.8e+02, 3.5e+02, 1e+03, 3e+03, 8.8e+03, 2.6e+04, 7.6e+04
+  p01: {'num_cocktails': 1, 'num_shots': 4, 'num_ingredients': 2}   0.7466666666666667
+  p02: {'num_cocktails': 1, 'num_shots': 5, 'num_ingredients': 2}   1.5133333333333334
+  p03: {'num_cocktails': 1, 'num_shots': 6, 'num_ingredients': 2}   3.2736111111111112
+  p04: {'num_cocktails': 1, 'num_shots': 7, 'num_ingredients': 2}   10.733666666666666
+  p05: {'num_cocktails': 1, 'num_shots': 8, 'num_ingredients': 2}   26.667
+  p06: {'num_cocktails': 1, 'num_shots': 9, 'num_ingredients': 2}   72.63166666666666
+  p07: {'num_cocktails': 1, 'num_shots': 10, 'num_ingredients': 2}   187.62041666666667
+  p08: {'num_cocktails': 1, 'num_shots': 11, 'num_ingredients': 2}   519.244283903475
+  p09: {'num_cocktails': 1, 'num_shots': 12, 'num_ingredients': 2}   1437.0217866291161
+  p10: {'num_cocktails': 1, 'num_shots': 13, 'num_ingredients': 2}   3976.9944114216123
+  p11: {'num_cocktails': 2, 'num_shots': 15, 'num_ingredients': 2}   11006.433371883766
+  p12: {'num_cocktails': 2, 'num_shots': 16, 'num_ingredients': 2}   30460.584812945086
+  p13: {'num_cocktails': 2, 'num_shots': 17, 'num_ingredients': 2}   84300.44463966246
+  p14: {'num_cocktails': 2, 'num_shots': 9, 'num_ingredients': 2}   231.13708333333332
+  p15: {'num_cocktails': 3, 'num_shots': 10, 'num_ingredients': 2}   792.7902081468679
+  p16: {'num_cocktails': 3, 'num_shots': 11, 'num_ingredients': 2}   2719.2361566107597
+  p17: {'num_cocktails': 3, 'num_shots': 12, 'num_ingredients': 2}   9326.862516003022
+  p18: {'num_cocktails': 3, 'num_shots': 13, 'num_ingredients': 2}   31990.73540594816
+  p19: {'num_cocktails': 4, 'num_shots': 15, 'num_ingredients': 2}   109726.84008769551
+  p20: {'num_cocktails': 1, 'num_shots': 5, 'num_ingredients': 3}   2.661025641025641
+  p21: {'num_cocktails': 1, 'num_shots': 6, 'num_ingredients': 3}   5.361025641025641
+  p22: {'num_cocktails': 1, 'num_shots': 7, 'num_ingredients': 3}   18.78222222222222
+  p23: {'num_cocktails': 1, 'num_shots': 8, 'num_ingredients': 3}   69.87454545454545
+  p24: {'num_cocktails': 1, 'num_shots': 9, 'num_ingredients': 3}   176.7460606060606
+  p25: {'num_cocktails': 1, 'num_shots': 10, 'num_ingredients': 3}   350.2628571428571
+  p26: {'num_cocktails': 2, 'num_shots': 12, 'num_ingredients': 3}   1027.5776221111348
+  p27: {'num_cocktails': 2, 'num_shots': 13, 'num_ingredients': 3}   3014.63814369821
+  p28: {'num_cocktails': 2, 'num_shots': 14, 'num_ingredients': 3}   8844.142711836224
+  p29: {'num_cocktails': 2, 'num_shots': 15, 'num_ingredients': 3}   25946.35129620258
+  p30: {'num_cocktails': 2, 'num_shots': 16, 'num_ingredients': 3}   76119.66105940194
+Total Estimated Runtimes: [0.7466666666666667, 1.5133333333333334, 2.661025641025641, 3.2736111111111112, 5.361025641025641, 10.733666666666666, 18.78222222222222, 26.667, 69.87454545454545, 72.63166666666666, 176.7460606060606, 187.62041666666667, 231.13708333333332, 350.2628571428571, 519.244283903475, 792.7902081468679, 1027.5776221111348, 1437.0217866291161, 2719.2361566107597, 3014.63814369821, 3976.9944114216123, 8844.142711836224, 9326.862516003022, 11006.433371883766, 25946.35129620258, 30460.584812945086, 31990.73540594816, 76119.66105940194, 84300.44463966246, 109726.84008769551]
+Total Estimated Solved: 18

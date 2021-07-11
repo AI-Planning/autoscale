@@ -1,0 +1,70 @@
+2021-07-10 21:02:29,985 INFO     No run directory, so we will not run anything
+2021-07-10 21:02:31,249 INFO     Loading cache data for baseline planners: 1690
+2021-07-10 21:02:31,366 INFO     baseline cache contains data for 763 parameter values, with min 3 max 39 avg 6.644823066841416 runtimes
+2021-07-10 21:02:31,367 INFO     Loading cache data for sart planners: 3002
+2021-07-10 21:02:31,582 INFO     sart cache contains data for 1388 parameter values, with min 3 max 39 avg 6.488472622478386 runtimes
+2021-07-10 21:02:33,063 INFO     Loading cache data for baseline planners: 1171
+2021-07-10 21:02:33,133 INFO     baseline cache contains data for 1556 parameter values, with min 3 max 39 avg 5.516066838046273 runtimes
+2021-07-10 21:02:33,133 INFO     Loading cache data for sart planners: 1895
+2021-07-10 21:02:33,248 INFO     sart cache contains data for 2664 parameter values, with min 3 max 39 avg 5.51463963963964 runtimes
+2021-07-10 21:02:34,921 INFO     Loading cache data for baseline planners: 952
+2021-07-10 21:02:34,982 INFO     baseline cache contains data for 2116 parameter values, with min 3 max 39 avg 5.405954631379962 runtimes
+2021-07-10 21:02:34,982 INFO     Loading cache data for sart planners: 1407
+2021-07-10 21:02:35,071 INFO     sart cache contains data for 3501 parameter values, with min 3 max 39 avg 5.401885175664096 runtimes
+2021-07-10 21:02:36,671 INFO     Loading cache data for baseline planners: 1280
+2021-07-10 21:02:36,749 INFO     baseline cache contains data for 2950 parameter values, with min 3 max 39 avg 5.1793220338983055 runtimes
+2021-07-10 21:02:36,749 INFO     Loading cache data for sart planners: 1745
+2021-07-10 21:02:36,853 INFO     sart cache contains data for 4695 parameter values, with min 3 max 39 avg 5.143130990415336 runtimes
+2021-07-10 21:02:36,854 INFO     Stored sequences: 1085
+Warning: No output dir has been provided for Runner but I have no data for {'x': 6, 'y': 6, 'min_height': 4, 'max_height': 4, 'num_towers': 5}, so I consider it unsolved within the time and memory limits
+2021-07-10 21:02:37,720 INFO     Different evaluated sequences: 147
+2021-07-10 21:02:37,878 INFO     Candidate sequences: 146
+2021-07-10 21:02:37,881 INFO     Using sart runtimes on CPLEX optimization
+2021-07-10 21:02:38,340 INFO     CPLEX solve
+
+2021-07-10 21:02:38,607 INFO     Solution status = 101: MIP_optimal
+2021-07-10 21:02:38,607 INFO     Solution value  = 19.29485572081653
+Selected: sequence 59, 20 instances from 1 to 20
+Configuration: {'grid_m': 4.1000000000000005, 'grid_maxdiff': 1, 'grid_optional_m': 'true', 'grid_x': 7, 'max_height_b': 0, 'max_height_m': 0.30000000000000004, 'max_height_optional_m': 'false', 'min_height_b': 1, 'min_height_m': 1.0, 'min_height_optional_m': 'true', 'num_towers_b': 2, 'num_towers_m': 1.6, 'num_towers_optional_m': 'false'}
+Penalty: 6.48
+Penalty sart: 1.60
+Penalty baseline: 4.87
+Seq Estimated runtimes: 0.85, 0.89, 1.2, 1.4, 1.5, 1.5, 4.6, 6.2, 9.7, 14, 45, 56, 65, 1.8e+02, 5e+02, 1.4e+03, 3.8e+03, 1e+04, 2.9e+04, 7.9e+04
+Selected: sequence 113, 10 instances from 4 to 13
+Configuration: {'grid_m': 0.1, 'grid_maxdiff': 5, 'grid_optional_m': 'true', 'grid_x': 6, 'max_height_b': 0, 'max_height_m': 0.30000000000000004, 'max_height_optional_m': 'false', 'min_height_b': 3, 'min_height_m': 0.0, 'min_height_optional_m': 'true', 'num_towers_b': 1, 'num_towers_m': 1.7000000000000002, 'num_towers_optional_m': 'false'}
+Penalty: 10.82
+Penalty sart: 4.74
+Penalty baseline: 6.08
+Seq Estimated runtimes: 24, 53, 68, 2e+02, 5.7e+02, 1.6e+03, 4.7e+03, 1.4e+04, 3.9e+04, 1.1e+05
+  p01: {'x': 7, 'y': 7, 'min_height': 1, 'max_height': 1, 'num_towers': 3}   0.8522222222222222
+  p02: {'x': 7, 'y': 7, 'min_height': 1, 'max_height': 1, 'num_towers': 5}   0.89
+  p03: {'x': 7, 'y': 7, 'min_height': 1, 'max_height': 1, 'num_towers': 6}   1.1966666666666668
+  p04: {'x': 7, 'y': 7, 'min_height': 1, 'max_height': 2, 'num_towers': 8}   1.39
+  p05: {'x': 7, 'y': 7, 'min_height': 1, 'max_height': 2, 'num_towers': 10}   1.4544444444444444
+  p06: {'x': 7, 'y': 7, 'min_height': 1, 'max_height': 2, 'num_towers': 11}   1.4677777777777778
+  p07: {'x': 7, 'y': 7, 'min_height': 1, 'max_height': 3, 'num_towers': 13}   4.6
+  p08: {'x': 7, 'y': 7, 'min_height': 1, 'max_height': 3, 'num_towers': 14}   6.24
+  p09: {'x': 7, 'y': 7, 'min_height': 1, 'max_height': 3, 'num_towers': 16}   9.693333333333333
+  p10: {'x': 7, 'y': 7, 'min_height': 1, 'max_height': 4, 'num_towers': 18}   13.713333333333333
+  p11: {'x': 7, 'y': 7, 'min_height': 1, 'max_height': 4, 'num_towers': 19}   45.13666666666667
+  p12: {'x': 7, 'y': 7, 'min_height': 1, 'max_height': 4, 'num_towers': 21}   55.736666666666665
+  p13: {'x': 7, 'y': 7, 'min_height': 1, 'max_height': 4, 'num_towers': 22}   65.3
+  p14: {'x': 7, 'y': 7, 'min_height': 1, 'max_height': 5, 'num_towers': 24}   180.0
+  p15: {'x': 7, 'y': 7, 'min_height': 1, 'max_height': 5, 'num_towers': 26}   496.17151607963245
+  p16: {'x': 7, 'y': 7, 'min_height': 1, 'max_height': 5, 'num_towers': 27}   1367.7009631597832
+  p17: {'x': 7, 'y': 7, 'min_height': 1, 'max_height': 6, 'num_towers': 29}   3770.079224636462
+  p18: {'x': 7, 'y': 7, 'min_height': 1, 'max_height': 6, 'num_towers': 30}   10392.255136823325
+  p19: {'x': 7, 'y': 7, 'min_height': 1, 'max_height': 6, 'num_towers': 32}   28646.338815133207
+  p20: {'x': 7, 'y': 7, 'min_height': 1, 'max_height': 6, 'num_towers': 34}   78963.87422241925
+  p21: {'x': 6, 'y': 6, 'min_height': 3, 'max_height': 4, 'num_towers': 7}   24.403333333333332
+  p22: {'x': 6, 'y': 6, 'min_height': 3, 'max_height': 4, 'num_towers': 9}   53.001666666666665
+  p23: {'x': 6, 'y': 6, 'min_height': 3, 'max_height': 4, 'num_towers': 11}   68.36333333333333
+  p24: {'x': 6, 'y': 6, 'min_height': 3, 'max_height': 5, 'num_towers': 12}   196.95273986833595
+  p25: {'x': 6, 'y': 6, 'min_height': 3, 'max_height': 5, 'num_towers': 14}   567.4150140179104
+  p26: {'x': 6, 'y': 6, 'min_height': 3, 'max_height': 5, 'num_towers': 16}   1634.705860645439
+  p27: {'x': 6, 'y': 6, 'min_height': 3, 'max_height': 6, 'num_towers': 17}   4709.53919937021
+  p28: {'x': 6, 'y': 6, 'min_height': 3, 'max_height': 6, 'num_towers': 19}   13568.043037202577
+  p29: {'x': 6, 'y': 6, 'min_height': 3, 'max_height': 6, 'num_towers': 21}   39089.13039390335
+  p30: {'x': 6, 'y': 6, 'min_height': 3, 'max_height': 6, 'num_towers': 23}   112614.62767784746
+Total Estimated Runtimes: [0.8522222222222222, 0.89, 1.1966666666666668, 1.39, 1.4544444444444444, 1.4677777777777778, 4.6, 6.24, 9.693333333333333, 13.713333333333333, 24.403333333333332, 45.13666666666667, 53.001666666666665, 55.736666666666665, 65.3, 68.36333333333333, 180.0, 196.95273986833595, 496.17151607963245, 567.4150140179104, 1367.7009631597832, 1634.705860645439, 3770.079224636462, 4709.53919937021, 10392.255136823325, 13568.043037202577, 28646.338815133207, 39089.13039390335, 78963.87422241925, 112614.62767784746]
+Total Estimated Solved: 22

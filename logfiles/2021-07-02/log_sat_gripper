@@ -1,0 +1,64 @@
+2021-07-10 16:46:05,768 INFO     No run directory, so we will not run anything
+2021-07-10 16:46:06,779 INFO     Loading cache data for baseline planners: 1956
+2021-07-10 16:46:06,908 INFO     baseline cache contains data for 158 parameter values, with min 6 max 39 avg 37.139240506329116 runtimes
+2021-07-10 16:46:06,908 INFO     Loading cache data for sart planners: 1956
+2021-07-10 16:46:07,031 INFO     sart cache contains data for 158 parameter values, with min 6 max 39 avg 37.139240506329116 runtimes
+2021-07-10 16:46:08,177 INFO     Loading cache data for baseline planners: 0
+2021-07-10 16:46:08,178 INFO     baseline cache contains data for 158 parameter values, with min 6 max 39 avg 37.139240506329116 runtimes
+2021-07-10 16:46:08,178 INFO     Loading cache data for sart planners: 0
+2021-07-10 16:46:08,178 INFO     sart cache contains data for 158 parameter values, with min 6 max 39 avg 37.139240506329116 runtimes
+2021-07-10 16:46:09,419 INFO     Loading cache data for baseline planners: 0
+2021-07-10 16:46:09,419 INFO     baseline cache contains data for 158 parameter values, with min 6 max 39 avg 37.139240506329116 runtimes
+2021-07-10 16:46:09,419 INFO     Loading cache data for sart planners: 0
+2021-07-10 16:46:09,420 INFO     sart cache contains data for 158 parameter values, with min 6 max 39 avg 37.139240506329116 runtimes
+2021-07-10 16:46:10,660 INFO     Loading cache data for baseline planners: 0
+2021-07-10 16:46:10,660 INFO     baseline cache contains data for 158 parameter values, with min 6 max 39 avg 37.139240506329116 runtimes
+2021-07-10 16:46:10,660 INFO     Loading cache data for sart planners: 0
+2021-07-10 16:46:10,660 INFO     sart cache contains data for 158 parameter values, with min 6 max 39 avg 37.139240506329116 runtimes
+2021-07-10 16:46:10,660 INFO     Stored sequences: 2663
+2021-07-10 16:47:20,829 INFO     Different evaluated sequences: 437
+2021-07-10 16:47:28,920 INFO     Candidate sequences: 325
+2021-07-10 16:47:28,935 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 323 use baseline 2 use sart
+2021-07-10 16:47:28,941 INFO     Using baseline runtimes on CPLEX optimization
+2021-07-10 16:47:34,585 INFO     CPLEX solve
+
+2021-07-10 16:47:58,328 INFO     Solution status = 101: MIP_optimal
+2021-07-10 16:47:58,328 INFO     Solution value  = 23400.268306134916
+Selected: sequence 186, 30 instances from 0 to 29
+Configuration: {'n_b': 19, 'n_m': 5.0}
+Penalty: 24.65
+Penalty sart: 12.45
+Penalty baseline: 12.21
+Seq Estimated runtimes: 0.6, 0.65, 0.65, 0.73, 0.87, 1.1, 1.3, 1.7, 2.1, 2.6, 3.3, 4.2, 5.2, 6.5, 8, 9.7, 12, 14, 17, 20, 23, 27, 32, 37, 43, 49, 56, 63, 72, 80
+  p01: {'n': 19}   0.5956410256410256
+  p02: {'n': 24}   0.6464102564102564
+  p03: {'n': 29}   0.652051282051282
+  p04: {'n': 34}   0.7294871794871794
+  p05: {'n': 39}   0.8730769230769231
+  p06: {'n': 44}   1.116923076923077
+  p07: {'n': 49}   1.300769230769231
+  p08: {'n': 54}   1.6764102564102563
+  p09: {'n': 59}   2.1364102564102563
+  p10: {'n': 64}   2.6484615384615386
+  p11: {'n': 69}   3.3446153846153845
+  p12: {'n': 74}   4.226666666666667
+  p13: {'n': 79}   5.22974358974359
+  p14: {'n': 84}   6.486153846153846
+  p15: {'n': 89}   7.981794871794872
+  p16: {'n': 94}   9.694102564102565
+  p17: {'n': 99}   11.741025641025642
+  p18: {'n': 104}   14.096153846153847
+  p19: {'n': 109}   16.86102564102564
+  p20: {'n': 114}   19.851282051282052
+  p21: {'n': 119}   23.363333333333333
+  p22: {'n': 124}   27.322307692307692
+  p23: {'n': 129}   31.954871794871796
+  p24: {'n': 134}   36.78230769230769
+  p25: {'n': 139}   42.626666666666665
+  p26: {'n': 144}   48.804102564102564
+  p27: {'n': 149}   55.65512820512821
+  p28: {'n': 154}   63.31361111111111
+  p29: {'n': 159}   71.69416666666666
+  p30: {'n': 164}   80.30833333333334
+Total Estimated Runtimes: [0.5956410256410256, 0.6464102564102564, 0.652051282051282, 0.7294871794871794, 0.8730769230769231, 1.116923076923077, 1.300769230769231, 1.6764102564102563, 2.1364102564102563, 2.6484615384615386, 3.3446153846153845, 4.226666666666667, 5.22974358974359, 6.486153846153846, 7.981794871794872, 9.694102564102565, 11.741025641025642, 14.096153846153847, 16.86102564102564, 19.851282051282052, 23.363333333333333, 27.322307692307692, 31.954871794871796, 36.78230769230769, 42.626666666666665, 48.804102564102564, 55.65512820512821, 63.31361111111111, 71.69416666666666, 80.30833333333334]
+Total Estimated Solved: 30

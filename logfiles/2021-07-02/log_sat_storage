@@ -1,0 +1,101 @@
+2021-07-10 20:59:15,608 INFO     No run directory, so we will not run anything
+2021-07-10 20:59:16,942 INFO     Loading cache data for baseline planners: 961
+2021-07-10 20:59:17,004 INFO     baseline cache contains data for 700 parameter values, with min 3 max 39 avg 4.118571428571428 runtimes
+2021-07-10 20:59:17,004 INFO     Loading cache data for sart planners: 3084
+2021-07-10 20:59:17,195 INFO     sart cache contains data for 2460 parameter values, with min 3 max 39 avg 3.7609756097560973 runtimes
+2021-07-10 20:59:18,740 INFO     Loading cache data for baseline planners: 303
+2021-07-10 20:59:18,758 INFO     baseline cache contains data for 955 parameter values, with min 3 max 39 avg 3.9706806282722513 runtimes
+2021-07-10 20:59:18,758 INFO     Loading cache data for sart planners: 1273
+2021-07-10 20:59:18,832 INFO     sart cache contains data for 3637 parameter values, with min 3 max 39 avg 3.593896068188067 runtimes
+2021-07-10 20:59:20,454 INFO     Loading cache data for baseline planners: 131
+2021-07-10 20:59:20,462 INFO     baseline cache contains data for 1047 parameter values, with min 3 max 39 avg 3.997134670487106 runtimes
+2021-07-10 20:59:20,463 INFO     Loading cache data for sart planners: 958
+2021-07-10 20:59:20,518 INFO     sart cache contains data for 4451 parameter values, with min 3 max 39 avg 3.58234104695574 runtimes
+2021-07-10 20:59:22,122 INFO     Loading cache data for baseline planners: 4
+2021-07-10 20:59:22,123 INFO     baseline cache contains data for 1051 parameter values, with min 3 max 39 avg 3.993339676498573 runtimes
+2021-07-10 20:59:22,123 INFO     Loading cache data for sart planners: 101
+2021-07-10 20:59:22,133 INFO     sart cache contains data for 4505 parameter values, with min 3 max 39 avg 3.6066592674805773 runtimes
+2021-07-10 20:59:22,133 INFO     Stored sequences: 3801
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 13, 'hoists': 11, 'store_areas': 18, 'depots': 1, 'containers': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 10, 'hoists': 10, 'store_areas': 12, 'depots': 1, 'containers': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 10, 'hoists': 6, 'store_areas': 15, 'depots': 1, 'containers': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 11, 'hoists': 8, 'store_areas': 16, 'depots': 1, 'containers': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 12, 'hoists': 9, 'store_areas': 18, 'depots': 1, 'containers': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 9, 'hoists': 7, 'store_areas': 12, 'depots': 1, 'containers': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 11, 'hoists': 8, 'store_areas': 16, 'depots': 1, 'containers': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 11, 'hoists': 8, 'store_areas': 16, 'depots': 1, 'containers': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 10, 'hoists': 8, 'store_areas': 15, 'depots': 1, 'containers': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 13, 'hoists': 9, 'store_areas': 20, 'depots': 1, 'containers': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 10, 'hoists': 8, 'store_areas': 15, 'depots': 1, 'containers': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 11, 'hoists': 8, 'store_areas': 16, 'depots': 1, 'containers': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 12, 'hoists': 7, 'store_areas': 19, 'depots': 1, 'containers': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 10, 'hoists': 10, 'store_areas': 14, 'depots': 1, 'containers': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 11, 'hoists': 8, 'store_areas': 16, 'depots': 1, 'containers': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 10, 'hoists': 8, 'store_areas': 15, 'depots': 1, 'containers': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 10, 'hoists': 8, 'store_areas': 15, 'depots': 1, 'containers': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 9, 'hoists': 6, 'store_areas': 12, 'depots': 1, 'containers': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 11, 'hoists': 8, 'store_areas': 16, 'depots': 1, 'containers': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 10, 'hoists': 10, 'store_areas': 15, 'depots': 1, 'containers': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 10, 'hoists': 8, 'store_areas': 15, 'depots': 1, 'containers': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 13, 'hoists': 9, 'store_areas': 20, 'depots': 1, 'containers': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 11, 'hoists': 10, 'store_areas': 14, 'depots': 1, 'containers': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 11, 'hoists': 8, 'store_areas': 14, 'depots': 1, 'containers': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 12, 'hoists': 9, 'store_areas': 20, 'depots': 1, 'containers': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 9, 'hoists': 4, 'store_areas': 9, 'depots': 5, 'containers': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 13, 'hoists': 8, 'store_areas': 21, 'depots': 1, 'containers': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 11, 'hoists': 8, 'store_areas': 14, 'depots': 1, 'containers': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 11, 'hoists': 8, 'store_areas': 16, 'depots': 1, 'containers': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 9, 'hoists': 5, 'store_areas': 9, 'depots': 3, 'containers': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'crates': 13, 'hoists': 11, 'store_areas': 20, 'depots': 1, 'containers': 4}, so I consider it unsolved within the time and memory limits
+2021-07-10 20:59:41,569 INFO     Different evaluated sequences: 627
+2021-07-10 20:59:49,763 INFO     Candidate sequences: 602
+2021-07-10 20:59:49,778 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 18 use baseline 584 use sart
+2021-07-10 20:59:49,786 INFO     Using sart runtimes on CPLEX optimization
+2021-07-10 20:59:57,538 INFO     CPLEX solve
+
+2021-07-10 21:00:05,083 INFO     Solution status = 101: MIP_optimal
+2021-07-10 21:00:05,083 INFO     Solution value  = 11.319770911975365
+Selected: sequence 46, 10 instances from 7 to 16
+Configuration: {'crates_b': 2, 'crates_m': 1.0, 'depots_b': 4, 'depots_m': 1.0, 'depots_optional_m': 'true', 'hoists_b': 3, 'hoists_m': 1.5000000000000002, 'hoists_optional_m': 'false', 'store_areas_b': 0, 'store_areas_m': 0.8, 'store_areas_optional_m': 'false'}
+Penalty: 5.16
+Penalty sart: 0.89
+Penalty baseline: 4.28
+Seq Estimated runtimes: 3, 5.1, 7.5, 12, 16, 25, 1.8e+02, 1.3e+03, 9.7e+03, 7.1e+04
+Selected: sequence 4, 20 instances from 6 to 25
+Configuration: {'crates_b': 2, 'crates_m': 1.0, 'depots_b': 1, 'depots_m': 0.8, 'depots_optional_m': 'false', 'hoists_b': 3, 'hoists_m': 1.9000000000000001, 'hoists_optional_m': 'false', 'store_areas_b': 1, 'store_areas_m': 4.2, 'store_areas_optional_m': 'false'}
+Penalty: 6.16
+Penalty sart: 0.53
+Penalty baseline: 5.63
+Seq Estimated runtimes: 6.4, 12, 20, 39, 70, 80, 90, 2.3e+02, 4e+02, 6.8e+02, 1.2e+03, 2e+03, 3.5e+03, 6.1e+03, 1.1e+04, 1.8e+04, 3.1e+04, 5.4e+04, 9.4e+04, 1.6e+05
+  p01: {'crates': 9, 'hoists': 13, 'store_areas': 18, 'depots': 4, 'containers': 3}   3.006666666666667
+  p02: {'crates': 10, 'hoists': 15, 'store_areas': 21, 'depots': 4, 'containers': 3}   5.123333333333333
+  p03: {'crates': 11, 'hoists': 16, 'store_areas': 23, 'depots': 4, 'containers': 3}   7.506666666666667
+  p04: {'crates': 12, 'hoists': 18, 'store_areas': 25, 'depots': 4, 'containers': 3}   12.096666666666666
+  p05: {'crates': 13, 'hoists': 19, 'store_areas': 27, 'depots': 4, 'containers': 4}   16.326666666666668
+  p06: {'crates': 14, 'hoists': 21, 'store_areas': 30, 'depots': 4, 'containers': 4}   24.536666666666665
+  p07: {'crates': 15, 'hoists': 22, 'store_areas': 32, 'depots': 4, 'containers': 4}   180.0
+  p08: {'crates': 16, 'hoists': 24, 'store_areas': 35, 'depots': 4, 'containers': 4}   1320.4727618530092
+  p09: {'crates': 17, 'hoists': 25, 'store_areas': 37, 'depots': 4, 'containers': 5}   9686.93508219841
+  p10: {'crates': 18, 'hoists': 27, 'store_areas': 39, 'depots': 4, 'containers': 5}   71062.96623267411
+  p11: {'crates': 8, 'hoists': 14, 'store_areas': 40, 'depots': 5, 'containers': 2}   6.3566666666666665
+  p12: {'crates': 9, 'hoists': 16, 'store_areas': 46, 'depots': 6, 'containers': 3}   11.783333333333333
+  p13: {'crates': 10, 'hoists': 18, 'store_areas': 52, 'depots': 7, 'containers': 3}   20.316666666666666
+  p14: {'crates': 11, 'hoists': 20, 'store_areas': 58, 'depots': 8, 'containers': 3}   39.21333333333334
+  p15: {'crates': 12, 'hoists': 21, 'store_areas': 64, 'depots': 9, 'containers': 3}   69.69666666666666
+  p16: {'crates': 13, 'hoists': 23, 'store_areas': 70, 'depots': 9, 'containers': 4}   80.09666666666666
+  p17: {'crates': 14, 'hoists': 25, 'store_areas': 76, 'depots': 10, 'containers': 4}   90.12333333333333
+  p18: {'crates': 15, 'hoists': 27, 'store_areas': 82, 'depots': 11, 'containers': 4}   228.80666666666667
+  p19: {'crates': 16, 'hoists': 29, 'store_areas': 88, 'depots': 12, 'containers': 4}   395.46222498694397
+  p20: {'crates': 17, 'hoists': 31, 'store_areas': 95, 'depots': 13, 'containers': 5}   683.504434857482
+  p21: {'crates': 18, 'hoists': 33, 'store_areas': 101, 'depots': 13, 'containers': 5}   1181.3475041396675
+  p22: {'crates': 19, 'hoists': 35, 'store_areas': 107, 'depots': 14, 'containers': 5}   2041.8037606852038
+  p23: {'crates': 20, 'hoists': 37, 'store_areas': 113, 'depots': 15, 'containers': 5}   3528.9892115058433
+  p24: {'crates': 21, 'hoists': 39, 'store_areas': 119, 'depots': 16, 'containers': 6}   6099.393631611936
+  p25: {'crates': 22, 'hoists': 40, 'store_areas': 125, 'depots': 17, 'containers': 6}   10541.999548214442
+  p26: {'crates': 23, 'hoists': 42, 'store_areas': 131, 'depots': 17, 'containers': 6}   18220.45947298261
+  p27: {'crates': 24, 'hoists': 44, 'store_areas': 137, 'depots': 18, 'containers': 6}   31491.66739082548
+  p28: {'crates': 25, 'hoists': 46, 'store_areas': 143, 'depots': 19, 'containers': 7}   54429.204517312864
+  p29: {'crates': 26, 'hoists': 48, 'store_areas': 149, 'depots': 20, 'containers': 7}   94073.72012478934
+  p30: {'crates': 27, 'hoists': 50, 'store_areas': 156, 'depots': 21, 'containers': 7}   162594.0503191118
+Total Estimated Runtimes: [3.006666666666667, 5.123333333333333, 6.3566666666666665, 7.506666666666667, 11.783333333333333, 12.096666666666666, 16.326666666666668, 20.316666666666666, 24.536666666666665, 39.21333333333334, 69.69666666666666, 80.09666666666666, 90.12333333333333, 180.0, 228.80666666666667, 395.46222498694397, 683.504434857482, 1181.3475041396675, 1320.4727618530092, 2041.8037606852038, 3528.9892115058433, 6099.393631611936, 9686.93508219841, 10541.999548214442, 18220.45947298261, 31491.66739082548, 54429.204517312864, 71062.96623267411, 94073.72012478934, 162594.0503191118]
+Total Estimated Solved: 19

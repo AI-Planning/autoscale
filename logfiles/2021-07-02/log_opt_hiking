@@ -1,0 +1,70 @@
+2021-07-10 16:47:59,934 INFO     No run directory, so we will not run anything
+2021-07-10 16:48:00,576 INFO     Loading cache data for baseline planners: 947
+2021-07-10 16:48:00,630 INFO     baseline cache contains data for 170 parameter values, with min 3 max 39 avg 16.711764705882352 runtimes
+2021-07-10 16:48:00,630 INFO     Loading cache data for sart planners: 1925
+2021-07-10 16:48:00,735 INFO     sart cache contains data for 523 parameter values, with min 3 max 39 avg 11.042065009560229 runtimes
+2021-07-10 16:48:02,535 INFO     Loading cache data for baseline planners: 31
+2021-07-10 16:48:02,537 INFO     baseline cache contains data for 185 parameter values, with min 3 max 39 avg 15.85945945945946 runtimes
+2021-07-10 16:48:02,537 INFO     Loading cache data for sart planners: 515
+2021-07-10 16:48:02,562 INFO     sart cache contains data for 673 parameter values, with min 3 max 39 avg 10.87667161961367 runtimes
+2021-07-10 16:48:04,435 INFO     Loading cache data for baseline planners: 0
+2021-07-10 16:48:04,435 INFO     baseline cache contains data for 185 parameter values, with min 3 max 39 avg 15.85945945945946 runtimes
+2021-07-10 16:48:04,435 INFO     Loading cache data for sart planners: 10
+2021-07-10 16:48:04,436 INFO     sart cache contains data for 683 parameter values, with min 3 max 39 avg 10.76134699853587 runtimes
+2021-07-10 16:48:06,066 INFO     Loading cache data for baseline planners: 20
+2021-07-10 16:48:06,068 INFO     baseline cache contains data for 193 parameter values, with min 3 max 39 avg 15.512953367875648 runtimes
+2021-07-10 16:48:06,068 INFO     Loading cache data for sart planners: 40
+2021-07-10 16:48:06,070 INFO     sart cache contains data for 700 parameter values, with min 3 max 39 avg 10.67142857142857 runtimes
+2021-07-10 16:48:06,070 INFO     Stored sequences: 13524
+2021-07-10 16:50:58,576 INFO     Different evaluated sequences: 1005
+2021-07-10 16:51:16,594 INFO     Candidate sequences: 721
+2021-07-10 16:51:16,607 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 46 use baseline 675 use sart
+2021-07-10 16:51:16,612 INFO     Using sart runtimes on CPLEX optimization
+2021-07-10 16:51:31,224 INFO     CPLEX solve
+
+2021-07-10 16:51:38,939 INFO     Solution status = 101: MIP_optimal
+2021-07-10 16:51:38,939 INFO     Solution value  = 0.16772500028602066
+Selected: sequence 8, 14 instances from 6 to 19
+Configuration: {'n_cars_b': 2, 'n_cars_m': 1.5000000000000002, 'n_cars_optional_m': 'true', 'n_couples_b': 1, 'n_couples_m': 1.8000000000000003, 'n_couples_optional_m': 'true', 'n_places_b': 8, 'n_places_m': 0.1}
+Penalty: 0.08
+Penalty sart: 0.00
+Penalty baseline: 0.08
+Seq Estimated runtimes: 88, 1.5e+02, 2.4e+02, 4.1e+02, 6.8e+02, 1.1e+03, 1.9e+03, 3.1e+03, 5.2e+03, 8.7e+03, 1.5e+04, 2.4e+04, 4e+04, 6.7e+04
+Selected: sequence 283, 16 instances from 3 to 18
+Configuration: {'n_cars_b': 1, 'n_cars_m': 0.1, 'n_cars_optional_m': 'false', 'n_couples_b': 1, 'n_couples_m': 0.4, 'n_couples_optional_m': 'true', 'n_places_b': 2, 'n_places_m': 0.6}
+Penalty: 0.08
+Penalty sart: 0.00
+Penalty baseline: 0.08
+Seq Estimated runtimes: 0.71, 0.82, 1.2, 2.4, 3.9, 6.8, 12, 20, 34, 54, 1.8e+02, 6.1e+02, 2e+03, 6.8e+03, 2.3e+04, 7.7e+04
+  p01: {'n_couples': 1, 'n_places': 14, 'n_cars': 3}   87.98666666666666
+  p02: {'n_couples': 1, 'n_places': 15, 'n_cars': 3}   145.77589743589743
+  p03: {'n_couples': 1, 'n_places': 16, 'n_cars': 3}   243.05697807056566
+  p04: {'n_couples': 1, 'n_places': 17, 'n_cars': 3}   405.25694321157204
+  p05: {'n_couples': 1, 'n_places': 18, 'n_cars': 3}   675.6983129013734
+  p06: {'n_couples': 1, 'n_places': 19, 'n_cars': 3}   1126.614158512769
+  p07: {'n_couples': 1, 'n_places': 20, 'n_cars': 3}   1878.441070411107
+  p08: {'n_couples': 1, 'n_places': 21, 'n_cars': 3}   3131.9869614147337
+  p09: {'n_couples': 1, 'n_places': 22, 'n_cars': 3}   5222.065510058865
+  p10: {'n_couples': 1, 'n_places': 23, 'n_cars': 3}   8706.922642815976
+  p11: {'n_couples': 1, 'n_places': 24, 'n_cars': 3}   14517.340267362326
+  p12: {'n_couples': 1, 'n_places': 25, 'n_cars': 3}   24205.24186145959
+  p13: {'n_couples': 1, 'n_places': 26, 'n_cars': 3}   40358.200798596255
+  p14: {'n_couples': 1, 'n_places': 27, 'n_cars': 3}   67290.56379697744
+  p15: {'n_couples': 1, 'n_places': 5, 'n_cars': 2}   0.7105128205128205
+  p16: {'n_couples': 1, 'n_places': 6, 'n_cars': 2}   0.8223076923076923
+  p17: {'n_couples': 1, 'n_places': 7, 'n_cars': 2}   1.2025641025641025
+  p18: {'n_couples': 1, 'n_places': 7, 'n_cars': 3}   2.3505128205128205
+  p19: {'n_couples': 1, 'n_places': 8, 'n_cars': 3}   3.8528205128205126
+  p20: {'n_couples': 1, 'n_places': 9, 'n_cars': 3}   6.803846153846154
+  p21: {'n_couples': 1, 'n_places': 10, 'n_cars': 3}   11.788205128205128
+  p22: {'n_couples': 1, 'n_places': 11, 'n_cars': 3}   20.127692307692307
+  p23: {'n_couples': 1, 'n_places': 12, 'n_cars': 3}   33.963076923076926
+  p24: {'n_couples': 1, 'n_places': 13, 'n_cars': 3}   53.54
+  p25: {'n_couples': 1, 'n_places': 13, 'n_cars': 4}   180.0
+  p26: {'n_couples': 1, 'n_places': 14, 'n_cars': 4}   605.1550242809116
+  p27: {'n_couples': 1, 'n_places': 15, 'n_cars': 4}   2034.5144634023923
+  p28: {'n_couples': 1, 'n_places': 16, 'n_cars': 4}   6839.981386111891
+  p29: {'n_couples': 1, 'n_places': 17, 'n_cars': 4}   22995.828343297355
+  p30: {'n_couples': 1, 'n_places': 18, 'n_cars': 4}   77311.33921915435
+Total Estimated Runtimes: [0.7105128205128205, 0.8223076923076923, 1.2025641025641025, 2.3505128205128205, 3.8528205128205126, 6.803846153846154, 11.788205128205128, 20.127692307692307, 33.963076923076926, 53.54, 87.98666666666666, 145.77589743589743, 180.0, 243.05697807056566, 405.25694321157204, 605.1550242809116, 675.6983129013734, 1126.614158512769, 1878.441070411107, 2034.5144634023923, 3131.9869614147337, 5222.065510058865, 6839.981386111891, 8706.922642815976, 14517.340267362326, 22995.828343297355, 24205.24186145959, 40358.200798596255, 67290.56379697744, 77311.33921915435]
+Total Estimated Solved: 18
