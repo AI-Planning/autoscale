@@ -1,0 +1,77 @@
+(define (problem freecell-f2-c3-s4-i2-02-12-22-32
+)(:domain freecell)
+(:objects 
+          C0 CA C2
+          H0 HA H2
+          S0 SA S2
+          D0 DA D2
+ - card
+          CELLN0 CELLN1 CELLN2 
+ - cellnum
+          COLN0 COLN1 COLN2 COLN3 
+ - colnum
+          N0 N1 N2 
+ - num
+           C H S D
+ - suit
+)
+(:init
+(VALUE C0 N0)
+(VALUE CA N1)
+(VALUE C2 N2)
+(VALUE H0 N0)
+(VALUE HA N1)
+(VALUE H2 N2)
+(VALUE S0 N0)
+(VALUE SA N1)
+(VALUE S2 N2)
+(VALUE D0 N0)
+(VALUE DA N1)
+(VALUE D2 N2)
+(CELLSUCCESSOR CELLN1 CELLN0)
+(CELLSUCCESSOR CELLN2 CELLN1)
+(COLSUCCESSOR COLN1 COLN0)
+(COLSUCCESSOR COLN2 COLN1)
+(COLSUCCESSOR COLN3 COLN2)
+(SUCCESSOR N1 N0)
+(SUCCESSOR N2 N1)
+(SUIT C0 C)
+(SUIT CA C)
+(SUIT C2 C)
+(SUIT H0 H)
+(SUIT HA H)
+(SUIT H2 H)
+(SUIT S0 S)
+(SUIT SA S)
+(SUIT S2 S)
+(SUIT D0 D)
+(SUIT DA D)
+(SUIT D2 D)
+(HOME C0)
+(HOME H0)
+(HOME S0)
+(HOME D0)
+(CELLSPACE CELLN2)
+(COLSPACE COLN1)
+
+(BOTTOMCOL CA)
+(ON C2 CA)
+(CLEAR C2)
+
+(BOTTOMCOL DA)
+(ON D2 DA)
+(ON SA D2)
+(ON HA SA)
+(ON S2 HA)
+(ON H2 S2)
+(CLEAR H2)
+)
+(:goal
+(and
+(HOME C2)
+(HOME H2)
+(HOME S2)
+(HOME D2)
+)
+)
+)
