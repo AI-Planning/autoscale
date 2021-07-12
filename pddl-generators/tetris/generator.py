@@ -19,7 +19,7 @@ def print_error(msg):
 
 
 def help():
-    print_error(f"usage: {sys.argv[0]} <grid_size> <block_type>")
+    print_error(f"usage: {sys.argv[0]} <grid_size> <block_type> [random_seed]")
     print_error(
         "  grid_size: defines the number of rows. "
         "Only even numbers are accepted. "
@@ -59,10 +59,12 @@ def put_squares(real_number_square):
             posizionati = posizionati + 1
 
 
-if len(sys.argv) != 3:
+if len(sys.argv) not in {3, 4}:
     help()
 size_grid = int(sys.argv[1])
 conf_blocks = int(sys.argv[2])
+if len(sys.argv) == 4:
+    random.seed(int(sys.argv[3]))
 if size_grid < 2:
     print_error("grid_size must be at least 2.")
     help()
