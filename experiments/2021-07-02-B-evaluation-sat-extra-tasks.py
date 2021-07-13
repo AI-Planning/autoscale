@@ -4,13 +4,22 @@ import project
 
 import pathlib
 
-ATTRIBUTES = ["cost", "coverage", "error", "run_dir", "runtime", "unsolvable", "completely_explored"]
+from lab.environments import LocalEnvironment
+
+ATTRIBUTES = [
+    "cost", "coverage", "error", "run_dir", "runtime", "unsolvable",
+    "completely_explored", "virtual_memory", "out_of_time",
+    "out_of_memory"
+]
 
 exp = project.get_evaluation_experiment(
     planners=[],
-    benchmarks_dir="",
+    benchmarks_dir=pathlib.Path(),
     domains=[],
-    attributes=ATTRIBUTES)
+    attributes=ATTRIBUTES,
+    environment=LocalEnvironment(),
+    time_limit='',
+    memory_limit='')
 
 exp.steps = exp.steps[3:]
 
@@ -18,10 +27,12 @@ DOMAINS = [
     "agricola-hard",
     "agricola",
     "airport",
-    "caldera",
+    "freecell-exhaustive",
     "freecell",
     "ged",
+    "mprime-exhaustive",
     "mprime",
+    "mystery-exhaustive",
     "mystery-hard",
     "mystery",
     "organic-synthesis-split",
@@ -33,9 +44,11 @@ DOMAINS = [
     "pipesworld-tankage",
     "psr-small",
     "sokoban",
+    "tetris-exhaustive",
     "tetris-hard",
     "tetris",
     "thoughtful",
+    "tidybot-exhaustive",
     "tidybot",
 ]
 for domain in DOMAINS:
