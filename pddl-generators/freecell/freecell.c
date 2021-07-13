@@ -375,13 +375,13 @@ void print_statics( void )
   }
 
   for ( i = 0; i < gsuits; i++ ) {
-    printf("\n(SUIT ");
+    printf("\n(HASSUIT ");
     print_suit( i );
     printf("0 ");
     print_suit( i );
     printf(")");
     for ( j = 0; j < gsuit_size[i]; j++ ) {
-      printf("\n(SUIT ");
+      printf("\n(HASSUIT ");
       print_suit( i );
       print_card( j );
       printf(" ");
