@@ -7,10 +7,12 @@ Creates domain.pddl and problem.pddl files in the current directory.
 """
 
 import argparse
+from collections import defaultdict
 import os.path
 from pathlib import Path
 import re
 import subprocess
+import sys
 
 DIR = Path(__file__).parent.resolve()
 
@@ -80,18 +82,19 @@ def parse_args():
     return parser.parse_args()
 
 
-def get_constants(dummy_actions):
-    return re.findall(r"\(available ([^\)]+)\)", dummy_actions)
-
-
-def remove_constants(problem_file, constants):
+def extract_molecules(problem_file):
+    molecules = defaultdict(list)
     new_lines = []
     with open(problem_file) as f:
         for line in f:
-            if not any(f"\t{c} - complex\n" == line for c in constants):
-                new_lines.append(line.replace("\t", " " * 4))
+            match = re.match(r"\t(.+) - (simple|complex)\n", line)
+            if match:
+                molecules[match.group(2)].append(match.group(1))
+            else:
+                new_lines.append(line)
     with open(problem_file, "w") as f:
         f.writelines(new_lines)
+    return molecules
 
 
 def main():
@@ -111,8 +114,14 @@ def main():
         universal_newlines=True,
         check=True)
     dummy_actions = p.stdout.strip().replace("\t", "    ")
-    constants = get_constants(dummy_actions)
-    constants_pddl = "(:constants {} - complex)\n".format(" ".join(constants))
+
+    molecules = extract_molecules(problem_file)
+    duplicate_molecules = set(molecules["simple"]) & set(molecules["complex"])
+    if duplicate_molecules:
+        sys.exit(f"Simple and complex molecules overlap: {duplicate_molecules}")
+
+    constants_pddl = "(:constants\n    {} - simple\n\n    {} - complex)\n".format(
+        " ".join(molecules["simple"]), " ".join(molecules["complex"]))
 
     goal_predicates = "\n".join([f"    (goal{goal})" for goal in range(1, args.goals + 1)])
 
@@ -120,8 +129,6 @@ def main():
 
     with open(args.domain, "w") as f:
         f.write("\n".join(domain_parts))
-
-    remove_constants(problem_file, constants)
 
 
 main()
