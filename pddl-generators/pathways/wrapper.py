@@ -97,6 +97,23 @@ def extract_molecules(problem_file):
     return molecules
 
 
+def get_goals(dummy_actions):
+    molecules = re.findall(r"\(available ([^\)]+)\)", dummy_actions)
+    goals = re.findall(r":effect \(and \((.+)\)\)\)", dummy_actions)
+    assert len(molecules) % 2 == 0
+    assert len(goals) == len(molecules) / 2
+    return list(zip(molecules[::2], molecules[1::2], goals))
+
+
+def make_strips_dummy_action(molecule, action_index, goal):
+    return f"""\
+(:action DUMMY-STRIPS-ACTION-{action_index}
+ :parameters ()
+ :precondition (available {molecule})
+ :effect (and ({goal})))
+"""
+
+
 def main():
     args = parse_args()
 
@@ -113,7 +130,14 @@ def main():
         stdout=subprocess.PIPE,
         universal_newlines=True,
         check=True)
-    dummy_actions = p.stdout.strip().replace("\t", "    ")
+    dummy_actions_string_original = p.stdout.strip().replace("\t", "    ")
+
+    goals = get_goals(dummy_actions_string_original)
+
+    dummy_strips_actions = []
+    for mol1, mol2, goal in goals:
+        for molecule in [mol1, mol2]:
+            dummy_strips_actions.append(make_strips_dummy_action(molecule, len(dummy_strips_actions), goal))
 
     molecules = extract_molecules(problem_file)
     duplicate_molecules = set(molecules["simple"]) & set(molecules["complex"])
@@ -124,8 +148,9 @@ def main():
         " ".join(molecules["simple"]), " ".join(molecules["complex"]))
 
     goal_predicates = "\n".join([f"    (goal{goal})" for goal in range(1, args.goals + 1)])
+    dummy_actions_string = "\n".join([f"{action}" for action in dummy_strips_actions])
 
-    domain_parts = [DOMAIN_HEADER, constants_pddl, PREDICATES.format(**locals()), ACTIONS, f"{dummy_actions}\n)", ""]
+    domain_parts = [DOMAIN_HEADER, constants_pddl, PREDICATES.format(**locals()), ACTIONS, f"{dummy_actions_string}\n)", ""]
 
     with open(args.domain, "w") as f:
         f.write("\n".join(domain_parts))
