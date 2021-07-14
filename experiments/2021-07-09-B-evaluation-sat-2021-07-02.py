@@ -6,12 +6,17 @@ import pathlib
 
 from lab.environments import LocalEnvironment, BaselSlurmEnvironment
 
-BENCHMARKS_DIR = pathlib.Path("2021-07-02-opt")
+BENCHMARKS_DIR = pathlib.Path("2021-07-02-sat")
 DOMAINS = [
-    "agricola", "airport", "freecell", "ged", "mprime", "mystery",
-    "organic-synthesis-split", "parcprinter", "pegsol",
-    "pipesworld-notankage", "pipesworld-tankage", "sokoban", "tetris",
-    "thoughtful", "tidybot",
+    "agricola", "airport", "barman", "blocksworld", "childsnack",
+    "data-network", "depots", "driverlog", "elevators", "floortile",
+    "freecell", "ged", "grid", "gripper", "hiking", "logistics",
+    "miconic", "mprime", "mystery", "nomystery", "openstacks",
+    "organic-synthesis-split", "parcprinter", "parking", "pathways",
+    "pegsol", "pipesworld-notankage", "pipesworld-tankage", "rovers",
+    "satellite", "scanalyzer", "snake", "sokoban", "storage", "termes",
+    "tetris", "thoughtful", "tidybot", "tpp", "transport", "visitall",
+    "woodworking", "zenotravel",
 ]
 PLANNERS = [
     "fd1906-gbfs-ff",
