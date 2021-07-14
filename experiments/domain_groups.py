@@ -28,7 +28,7 @@ DOMAIN_GROUPS = {
     "optical-telegraphs": ["optical-telegraphs"],
     "parcprinter": ["parcprinter-08-strips", "parcprinter-opt11-strips", "parcprinter-sat11-strips"],
     "parking": ["parking-opt11-strips", "parking-opt14-strips", "parking-sat11-strips", "parking-sat14-strips"],
-    "pathways": ["pathways", "pathways-new"],
+    "pathways": ["pathways", "pathways-new", "pathways-exhaustive"],
     "pathways-noneg": ["pathways-noneg"],
     "pegsol": ["pegsol-08-strips", "pegsol-opt11-strips", "pegsol-sat11-strips"],
     "philosophers": ["philosophers"],
