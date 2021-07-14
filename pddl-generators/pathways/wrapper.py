@@ -82,6 +82,11 @@ def parse_args():
     return parser.parse_args()
 
 
+def get_simplesubs():
+    with open(DIR / "Pathways-SimpleSubs") as f:
+        return set(f.read().splitlines())
+
+
 def extract_molecules(problem_file):
     molecules = defaultdict(list)
     new_lines = []
@@ -117,6 +122,8 @@ def make_strips_dummy_action(molecule, action_index, goal):
 def main():
     args = parse_args()
 
+    simplesubs = get_simplesubs()
+
     problem_file = os.path.abspath(args.problem)
 
     p = subprocess.run([
@@ -132,6 +139,7 @@ def main():
         check=True)
     dummy_actions_string_original = p.stdout.strip().replace("\t", "    ")
 
+    # Define molecules in domain file instead of problem file. Not sure if this is necessary.
     molecules = extract_molecules(problem_file)
     duplicate_molecules = set(molecules["simple"]) & set(molecules["complex"])
     if duplicate_molecules:
@@ -142,8 +150,13 @@ def main():
     for mol1, mol2, goal in goals:
         for molecule in [mol1, mol2]:
             if molecule not in set(molecules["simple"]) | set(molecules["complex"]):
-                sys.exit(f"Error: molecule {molecule} is undefined")
+                print(f"Molecule {molecule} is undefined --> will define it now")
+                if molecule in simplesubs:
+                    molecules["simple"].append(molecule)
+                else:
+                    molecules["complex"].append(molecule)
 
+    # Turn each disjunctive dummy action into two STRIPS actions with a single precondition.
     dummy_strips_actions = []
     for mol1, mol2, goal in goals:
         for molecule in [mol1, mol2]:
