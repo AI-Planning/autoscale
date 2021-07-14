@@ -132,17 +132,22 @@ def main():
         check=True)
     dummy_actions_string_original = p.stdout.strip().replace("\t", "    ")
 
+    molecules = extract_molecules(problem_file)
+    duplicate_molecules = set(molecules["simple"]) & set(molecules["complex"])
+    if duplicate_molecules:
+        sys.exit(f"Error: simple and complex molecules overlap: {duplicate_molecules}")
+
     goals = get_goals(dummy_actions_string_original)
+
+    for mol1, mol2, goal in goals:
+        for molecule in [mol1, mol2]:
+            if molecule not in set(molecules["simple"]) | set(molecules["complex"]):
+                sys.exit(f"Error: molecule {molecule} is undefined")
 
     dummy_strips_actions = []
     for mol1, mol2, goal in goals:
         for molecule in [mol1, mol2]:
             dummy_strips_actions.append(make_strips_dummy_action(molecule, len(dummy_strips_actions), goal))
-
-    molecules = extract_molecules(problem_file)
-    duplicate_molecules = set(molecules["simple"]) & set(molecules["complex"])
-    if duplicate_molecules:
-        sys.exit(f"Simple and complex molecules overlap: {duplicate_molecules}")
 
     constants_pddl = "(:constants\n    {} - simple\n\n    {} - complex)\n".format(
         " ".join(molecules["simple"]), " ".join(molecules["complex"]))
