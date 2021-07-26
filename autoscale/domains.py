@@ -69,6 +69,11 @@ class LinearAttr:
             if use_m:
                 val += m
 
+    def __str__(self):
+        return f"Linear(b=[{self.lower_b}, {self.upper_b}], m=[{0 if self.optional_m else self.lower_m}, {self.upper_m}{'' if self.base_attr is None else ' + ' +self.base_attr}])"
+
+    def __repr__(self):
+        return str(self)
 
 class GridAttr:
     def __init__(self, name, name_x, name_y, lower_x, upper_x, lower_m=0.1, upper_m=3.0, default_m=1.0,
@@ -129,6 +134,13 @@ class GridAttr:
 
             val += m
 
+    def __str__(self):
+        return f"Grid(x=[{self.lower_x}, {self.upper_x}], m=[{0 if self.optional_m else self.lower_m}, {self.upper_m}])"
+
+    def __repr__(self):
+        return str(self)
+
+
 
 class ConstantAttr:
     def __init__(self, name, value):
@@ -145,6 +157,11 @@ class ConstantAttr:
     def has_lowest_value(self, cfg):
         return True
 
+    def __str__(self):
+        return f"Constant({self.value})"
+
+    def __repr__(self):
+        return str(self)
 
 class EnumAttr:
     def __init__(self, name, values):
@@ -161,6 +178,13 @@ class EnumAttr:
 
     def get_values(self):
         return self.values
+
+    def __str__(self):
+        return f"Enum({self.values})"
+
+    def __repr__(self):
+        return str(self)
+
 
 
 def eliminate_duplicates(list_elements):
@@ -290,11 +314,19 @@ class Domain:
 
 
 def adapt_parameters_floortile(parameters):
+    """
+    Ensures that there are no more robots than columns. May cause num_robots to have multiple values accross a sequence
+    """
+
     parameters["num_robots"] = min(parameters["num_robots"], parameters["num_columns"])
     return parameters
 
 
 def adapt_parameters_grid(parameters):
+    """
+    Ensure that there are no more shapes/keys/locks than cells, and no more shapes than locks
+    """
+
     parameters["shapes"] = min(parameters["x"] * parameters["y"] - 1, parameters["shapes"])
     parameters["keys"] = min(parameters["x"] * parameters["y"] - 1, parameters["shapes"] + parameters["extra_keys"])
     parameters["locks"] = int(parameters["x"] * parameters["y"] * parameters["percentage_cells_locked"])
@@ -396,12 +428,13 @@ DOMAIN_LIST = [
             LinearAttr("depots", lower_b=1, upper_b=10, optional_m=True),
             LinearAttr("goods", lower_b=3, upper_b=10)],
            ),
-    Domain("trucks",
-           f"trucks-strips.sh {TMP_DOMAIN} {TMP_PROBLEM} -seed {{seed}} -t 1 -l {{locations}} -p {{packages}} -a {{areas}} -n 1",
-           [LinearAttr("areas", lower_b=2, upper_b=10, upper_m=1, optional_m=True),
-            LinearAttr("packages", lower_b=2, upper_b=15, upper_m=5),
-            LinearAttr("locations", lower_b=2, upper_b=10, upper_m=2, optional_m=True)],
-           ),
+    # Removed because it is an ADL domain and pre-grounding it generates instances that are just too large
+    #Domain("trucks",
+    #       f"trucks-strips.sh {TMP_DOMAIN} {TMP_PROBLEM} -seed {{seed}} -t 1 -l {{locations}} -p {{packages}} -a {{areas}} -n 1",
+    #       [LinearAttr("areas", lower_b=2, upper_b=10, upper_m=1, optional_m=True),
+    #        LinearAttr("packages", lower_b=2, upper_b=15, upper_m=5),
+    #        LinearAttr("locations", lower_b=2, upper_b=10, upper_m=2, optional_m=True)],
+    #       ),
     Domain("visitall",
            "grid -x {x} -y {y} -r {r} -u 0 -s {seed}",
            [GridAttr("grid", "x", "y", lower_x=3, upper_x=8),
@@ -509,14 +542,14 @@ DOMAIN_LIST = [
             ],
            adapt_parameters=adapt_parameters_snake
            ),
-
-    Domain("pathways",
-           f"wrapper.py --seed {{seed}} --reactions {{reactions}} --goals {{num_goals}} --initial-substances {{substances}} {TMP_DOMAIN} {TMP_PROBLEM}",
-           [LinearAttr("reactions", lower_b=10, upper_b=20, upper_m=10),
-            LinearAttr("num_goals", lower_b=1, upper_b=10),
-            LinearAttr("substances", lower_b=2, upper_b=10),
-            ]
-           ),
+# Disabled pathways because generator may return unsolvable instances -> moved to domains-without-generator
+#    Domain("pathways",
+#           f"wrapper.py --seed {{seed}} --reactions {{reactions}} --goals {{num_goals}} --initial-substances {{substances}} {TMP_DOMAIN} {TMP_PROBLEM}",
+#           [LinearAttr("reactions", lower_b=10, upper_b=20, upper_m=10),
+#            LinearAttr("num_goals", lower_b=1, upper_b=10),
+#            LinearAttr("substances", lower_b=2, upper_b=10),
+#            ]
+#           ),
 
     Domain("scanalyzer",
            "generator.py {size} {segment_type} {inout} --seed {seed}",
@@ -588,15 +621,15 @@ DOMAIN_LIST = [
             ],
            adapt_parameters=adapt_parameters_datanetwork
            ),
-
-    Domain("agricola", "GenAgricola.py {stages} {seed} --num_workers {workers}  {all_workers_flag}",
+# Disabled agricola because generator may return unsolvable instances -> moved to domains-without-generator
+#    Domain("agricola", "GenAgricola.py {stages} {seed} --num_workers {workers}  {all_workers_flag}",
            # --num_ints {num_ints} --num_rounds {num_rounds}  num ints, num rounds excluded because they were not used in IPC'18
-           [LinearAttr("stages", lower_b=3, upper_b=7, lower_m=0.1, upper_m=2),
-            LinearAttr("workers", lower_b=3, upper_b=7, lower_m=0.1, upper_m=2),
-            EnumAttr("all_workers", ["false", "true"]),
-            ],
-           adapt_parameters=adapt_parameters_agricola
-           ),
+#           [LinearAttr("stages", lower_b=3, upper_b=7, lower_m=0.1, upper_m=2),
+#            LinearAttr("workers", lower_b=3, upper_b=7, lower_m=0.1, upper_m=2),
+#            EnumAttr("all_workers", ["false", "true"]),
+#            ],
+#           adapt_parameters=adapt_parameters_agricola
+#           ),
 
     Domain("termes",
            "./generate-autoscale.py {seed} pddl --size_x {x} --size_y {y} --min_height {min_height} --max_height {max_height} --num_towers {num_towers} --ensure_plan --dont_remove_slack",
