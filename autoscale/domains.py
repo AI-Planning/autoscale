@@ -223,7 +223,9 @@ class Domain:
     def __init__(
             self, name, generator_command, attributes, adapt_parameters=None, discard_sequence_function=None,
             num_sequences_linear_hierarchy=3,
-            penalty_for_instances_with_duplicated_parameters=100.0):
+            penalty_for_instances_with_duplicated_parameters=100.0,
+            time_limit_to_consider_trivial=30 # An instance is trivial if the baseline solves it under this time limit
+        ):
         self.name = name
         self.attributes = attributes
         self.generator_command = generator_command
@@ -235,6 +237,7 @@ class Domain:
 
         self.penalty_for_instances_with_duplicated_parameters = penalty_for_instances_with_duplicated_parameters
         self.discard_sequence_function = discard_sequence_function
+        self.time_limit_to_consider_trivial = time_limit_to_consider_trivial
 
     def get_penalty_for_instances_with_duplicated_parameters(self):
         return self.penalty_for_instances_with_duplicated_parameters
@@ -246,6 +249,9 @@ class Domain:
 
     def get_domain_file(self, generators_dir):
         return Path(generators_dir) / self.name / "domain.pddl"
+
+    def get_time_limit_to_consider_trivial(self):
+        return self.time_limit_to_consider_trivial
 
     def get_linear_attributes_names(self):
         return (

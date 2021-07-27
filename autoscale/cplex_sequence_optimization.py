@@ -57,7 +57,7 @@ class CPLEXSequence:
             map(lambda x: sequences.compute_average(x, 2 * planner_time_limit), runtimes_baseline))
         self.runtimes_sart = list(map(lambda x: sequences.compute_average(x, 2 * planner_time_limit), runtimes_sart))
 
-        self.trivial_instances = len([t for t in self.runtimes_baseline if t < 30])
+        self.trivial_instances = len([t for t in self.runtimes_baseline if t < domain.get_time_limit_to_consider_trivial()])
         self.solved_instances = len(self.runtimes_sart)
 
         if is_domain_without_generator or self.solved_instances < sequence_length:
@@ -115,7 +115,7 @@ class CPLEXSequence:
 
         self.parameters_of_evaluated_instances = [self.parameters_of_instances[i] for i in self.evaluated_instances]
         self.parameters_of_trivial_instances = [self.parameters_of_instances[i] for i, t in
-                                                  enumerate(self.runtimes_baseline) if t <= 30]
+                                                  enumerate(self.runtimes_baseline) if t <= domain.get_time_limit_to_consider_trivial()]
 
     def __str__(self):
         return f"Sequence({self.seq_id}, length={self.latest_end}, penalty={self.penalty}, penalty_baseline={self.penalty_baseline}, penalty_sart={self.penalty_sart}, config={self.config}, runtimes_baseline={self.runtimes_baseline}, runtimes_sart={self.runtimes_sart}"
@@ -304,13 +304,14 @@ class CPLEXSequenceManager:
                     CPLEXConstraint(cplex_problem, intersection_penalty_variables,
                                     [1 for _ in intersection_penalty_variables], "L", 1))
 
+            assert len(self.trivial_instances) >= 2, "Error: there are not enough instances that are considered trivial so the constraint cannot be satisfied. Consider increasing the time limit to consider an instance trivial"
             constraint_list += [
                 CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_instances, "E", tasks),
                 CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_solved, "G", 3,
                                 penalties=[(x, 2 * x ** 2) for x in range(1, tasks)]),
                 CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_solved, "L", 15,
                                 penalties=[(-x, 2 * x ** 2) for x in range(1, tasks)]),
-                CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_trivial, "G", min(2, len(self.trivial_instances)),
+                CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_trivial, "G", 2,
                                 penalties=[(1, 2)]),
                 CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_trivial, "L", 6,
                                 penalties=[(-x, 2 * x ** 2) for x in range(1, tasks)])]

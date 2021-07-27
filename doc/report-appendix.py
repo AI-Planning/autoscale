@@ -4,17 +4,14 @@
 
 import os
 import json
-import itertools
-from collections import defaultdict, Counter
+from collections import defaultdict
 import ast
 import inspect
-
-from numpy.distutils.command.config import config
-from smac.configspace import convert_configurations_to_array
 
 import domain_groups
 import re
 
+# Requires autoscale folder to be included in the PYTHONPATH environment variable.
 import domains
 import planners
 
@@ -61,60 +58,8 @@ for name, filenames in FILENAMES.items():
             all_runs[(name, run["domain"])].append(run)
 
 
-def compute_instances(properties, atr_name, runs, time_limit=100000):
-    num_instances = Counter()
-    for run in runs:
-        num_instances[run["algorithm"]] += 1
-
-    num_instances = set([v for v in num_instances.values()])
-    assert len(num_instances) == 1, f"Different number of instances per planner {num_instances}"
-
-    properties[atr_name] = next(iter(num_instances))
-
-
-def compute_coverage(properties, atr_name, runs, time_limit=100000):
-    coverage = Counter()
-    for run in runs:
-        if "coverage" in run and run["coverage"] == 1 and run["planner_wall_clock_time"] <= time_limit:
-            coverage[run["algorithm"]] += 1
-    properties[atr_name] = coverage
-
-
-def compute_coverage_range(properties, atr_name, cov_atr_name, plannerset):
-    coverage = properties[cov_atr_name]
-    min_coverage = min([coverage[p] if p in coverage else 0 for p in plannerset])
-    max_coverage = max([c for p, c in coverage.items() if p in plannerset])
-    properties[atr_name] = f"{min_coverage}-{max_coverage}"
-
-
-def compute_comparisons(properties, comp_atr_name, cov_atr_name, planners):
-    coverage = properties[cov_atr_name]
-    properties[comp_atr_name] = sum(
-        [1 for (p1, p2) in itertools.combinations(planners, 2) if coverage[p1] != coverage[p2]])
-
-
-def compute_comparisons_pair(properties, comp_atr_name, cov_atr_name, planners, planners2):
-    coverage = properties[cov_atr_name]
-    properties[comp_atr_name] = sum(
-        [1 for (p1, p2) in itertools.product(planners, planners2) if coverage[p1] != coverage[p2]])
-
-
-def compute_runtimes(properties, atr_name, runs, planners):
-    minimum_runtime = {}
-    for run in runs:
-        if "coverage" in run and run["coverage"] == 1 and run["algorithm"] in planners:
-            problem_id = int(run["problem"].split("-p")[1].replace(".pddl", ""))
-            if problem_id in minimum_runtime:
-                minimum_runtime[problem_id] = min(minimum_runtime[problem_id], run["planner_wall_clock_time"])
-            else:
-                minimum_runtime[problem_id] = run["planner_wall_clock_time"]
-
-    properties[atr_name] = [minimum_runtime[p] if p in minimum_runtime else "unsolved" for p in range(1, 31)]
-
-
 def defdict():
     return defaultdict(dict)
-
 
 # Step 2: Compute all aggregated properties for a dataset
 properties_dataset = defaultdict(defdict)
@@ -218,15 +163,17 @@ def parse_CPLEX_log(content):
             instance_name, data_instance = l.split(":", 1)
             configuration, estimated_runtime = data_instance.split("   ")
 
+            estimated_runtime = estimated_runtime.strip()
             data_instance = {
                 "name" : instance_name,
                 "config" :  ast.literal_eval(configuration.strip()) if configuration.strip().startswith("{") else configuration,
                 "estimated_time" : estimated_runtime
             }
-            data['instances'].append(data_instance)
 
-        p01: {'num_cocktails': 1, 'num_shots': 4, 'num_ingredients': 2}
-        0.7466666666666667
+            if " " in estimated_runtime:
+                data_instance["estimated_time"], data_instance["real_baseline_time"], data_instance["real_sart_time"] = estimated_runtime.split(" ")
+
+            data['instances'].append(data_instance)
 
         if l.startswith("Estimated runtimes:"):
             runtimes_sequence = list(map(float, l.split(":")[1].replace('[', '').replace(']', '').split(",")))
@@ -274,29 +221,6 @@ for dset, logdir in LOGDIRS.items():
         data = parse_CPLEX_log(content)
         properties_dataset[dataset][domain].update(data)
 
-import statistics
-
-
-def compute_smoothness(properties, atr_name, runtimes):
-    runtimes = sorted([r for r in runtimes if r != "unsolved"])
-
-    factors = [r / runtimes[i] for i, r in enumerate(runtimes[1:])]
-    runtimes_g5 = [r for r in runtimes if r > 5]
-    factors_g5 = [r / runtimes_g5[i] for i, r in enumerate(runtimes_g5[1:])]
-
-    properties[f"max_runtime_{atr_name}"] = max(runtimes) if runtimes else "-"
-    properties[f"min_runtime_{atr_name}"] = min(runtimes) if runtimes else "-"
-
-    properties[f"min_factor_runtime_{atr_name}"] = min(factors) if factors else "-"
-    properties[f"max_factor_runtime_{atr_name}"] = max(factors) if factors else "-"
-    properties[f"gmean_factor_runtime_{atr_name}"] = statistics.geometric_mean(factors) if factors else "-"
-
-    properties[f"min_factorg5_runtime_{atr_name}"] = min(factors_g5) if factors_g5 else "-"
-    properties[f"max_factorg5_runtime_{atr_name}"] = max(factors_g5) if factors_g5 else "-"
-    properties[f"gmean_factorg5_runtime_{atr_name}"] = statistics.geometric_mean(factors_g5) if factors_g5 else "-"
-
-    return properties
-
 
 # for dataset, domain in properties_dataset:
 #    properties_dataset[dataset] [domain] = compute_smoothness(properties_dataset[dataset] [domain], "estimated", properties_dataset[dataset] [domain]["runtimes-estimated"])
@@ -305,84 +229,20 @@ def compute_smoothness(properties, atr_name, runtimes):
 #    if "runtimes-eval" in properties_dataset[dataset] [domain]:
 #        properties_dataset[dataset] [domain] = compute_smoothness(properties_dataset[dataset] [domain], "eval", properties_dataset[dataset] [domain]["runtimes-eval"])
 
-import statistics
+#for dataset in properties_dataset:
+#    for domain in properties_dataset[dataset]:
+#        estimated_error(properties_dataset[dataset][domain])
 
 
-def estimated_error(properties):
-    if "runtimes-training" not in properties:
-        return
-    properties["coverage-estimated"] = len([r for r in properties["runtimes-estimated"] if r < 1800])
-    properties["coverage-training"] = len([r for r in properties["runtimes-training"] if r != "unsolved"])
-    properties["estimated-error-coverage"] = abs(properties["coverage-estimated"] - properties["coverage-training"])
-
-    properties["estimated-instance-error-coverage"] = 0
-    properties["estimated-instance-error-runtime"] = 0
-    paired_runtimes = zip([r if r < 1800 else "unsolved" for r in properties["runtimes-estimated"]],
-                          properties["runtimes-training"])
-    for (est, tr) in paired_runtimes:
-        if est == tr:
-            continue
-        if est == "unsolved" or tr == "unsolved":
-            properties["estimated-instance-error-coverage"] += 1
-        else:
-            properties["estimated-instance-error-runtime"] += abs(est - tr)
-
-    paired_sorted_runtimes = zip([r for r in sorted(properties["runtimes-estimated"]) if r < 1800],
-                                 sorted([r for r in properties["runtimes-training"] if r != "unsolved"]))
-
-    error_runtime = [max(est, tr) / min(est, tr) for (est, tr) in paired_sorted_runtimes]
-
-    properties["estimated-error-runtime"] = statistics.geometric_mean(error_runtime) if error_runtime else "a lot"
-
-
-for dataset in properties_dataset:
-    for domain in properties_dataset[dataset]:
-        estimated_error(properties_dataset[dataset][domain])
-
-
-def penalty_by_factor(factor):
-    if factor <= 1:  # Runtime is not increasing: maximum penalty of 1
-        return 1
-    elif factor <= 1.5:
-        return 3 - 2 * factor
-    elif factor <= 2:  # Runtime is increasing, but not very quickly
-        return 0
-    elif factor > 2:  # Runtime is increasing too quickly
-        return 1 - (2 / factor)
-
-
-def evaluate_runtimes_single_sequence(runtimes, num_expected_runtimes=5):
-    penalty = 0
-    sorted_runtimes = sorted(runtimes)
-
-    # The default scaling only works if all instances are solvable. For each unsolvable
-    # instance apply a double penalty.
-    if len(runtimes) < num_expected_runtimes:
-        penalty += 2 * (num_expected_runtimes - len(runtimes))
-
-    for i in range(1, len(runtimes)):
-        factor = sorted_runtimes[i] / sorted_runtimes[i - 1]
-        penalty += penalty_by_factor(factor)
-
-    return penalty
-
-
-def compute_runtime_penalty(properties, atr_name, runtimes):
-    s_runtimes = sorted([t for t in runtimes if t != "unsolved" and t >= 5])[:5]
-    penalty = evaluate_runtimes_single_sequence(s_runtimes)
-
-    properties[f"{atr_name}"] = penalty
-
-
-for dataset in properties_dataset:
-    for domain in properties_dataset[dataset]:
-        if "runtimes-training" in properties_dataset[dataset][domain]:
-            compute_runtime_penalty(properties_dataset[dataset][domain], "penalty-estimated",
-                                    properties_dataset[dataset][domain]["runtimes-estimated"])
-            compute_runtime_penalty(properties_dataset[dataset][domain], "penalty-training",
-                                    properties_dataset[dataset][domain]["runtimes-training"])
-            compute_runtime_penalty(properties_dataset[dataset][domain], "penalty-eval",
-                                    properties_dataset[dataset][domain]["runtimes-eval"])
+#for dataset in properties_dataset:
+#    for domain in properties_dataset[dataset]:
+#        if "runtimes-training" in properties_dataset[dataset][domain]:
+#            compute_runtime_penalty(properties_dataset[dataset][domain], "penalty-estimated",
+#                                    properties_dataset[dataset][domain]["runtimes-estimated"])
+#            compute_runtime_penalty(properties_dataset[dataset][domain], "penalty-training",
+#                                    properties_dataset[dataset][domain]["runtimes-training"])
+#            compute_runtime_penalty(properties_dataset[dataset][domain], "penalty-eval",
+#                                    properties_dataset[dataset][domain]["runtimes-eval"])
 
 
 # with open("dataset.json", "w") as outfile:
@@ -392,6 +252,26 @@ for dataset in properties_dataset:
 def latex_str(x):
     return str(x).replace("_", "\\_").replace("%", "\\%")
 
+
+
+
+def write_table_instances(properties):
+    instances_colums = ["config", "real_baseline_time", "real_sart_time"]
+    instances_data = [
+        "&".join(map(latex_str, [instance[x] for x in instances_colums]))
+        for instance in properties['instances']
+    ]
+
+    instances_data_text = '\\\\\n'.join(instances_data)
+    return f"""
+                            \\begin{{center}}
+                            \\scriptsize
+                            \\begin{{tabular}}{{{"|".join(["r" for _ in instances_colums])}}}
+                            {" & ".join(map(latex_str, instances_colums))}\\\\\\midrule
+                            {instances_data_text}
+                            \\end{{tabular}}
+                            \\end{{center}}
+                    """
 
 def write_appendix(dataset, outfilename):
     with open(outfilename, "w") as outfile:
@@ -409,12 +289,13 @@ def write_appendix(dataset, outfilename):
 
         DOMAINS_WITHOUT_GENERATOR = sorted(
             [d for d in set (list(properties_dataset[dataset + "-opt"].keys()) + list(properties_dataset[dataset + "-sat"].keys())) if d not in DOMAINS_WITH_GENERATOR])
+
         for domain in DOMAINS_WITH_GENERATOR + DOMAINS_WITHOUT_GENERATOR:
             properties_sat = properties_dataset[dataset + "-sat"][domain]
             properties_opt = properties_dataset[dataset + "-opt"][domain]
 
-            outfile.write(f""" \section{{{domain.capitalize()}}}""")
-            if domain in domains.get_domains():
+            outfile.write(f"""\\newpage \section{{{domain.capitalize()}}}""")
+            if domain in domains.get_domains(): # This is a domain with an automatic instance generator
                 config_domain = domains.get_domains()[domain]
 
                 adapt_parameters_function = "" if config_domain.adapt_parameters is None else f"""
@@ -431,10 +312,12 @@ def write_appendix(dataset, outfilename):
                 attributes_data = '\\\\\n'.join(
                     map(lambda x: f"{latex_str(x.name)} & {latex_str(x)}", config_domain.attributes))
                 outfile.write(f"""
+                    \\subsection*{{Domain Info}}
+
                     \\begin{{center}}
                     \\begin{{tabular}}{{p{{0.2\\textwidth}}p{{0.8\\textwidth}}}}
                     %\\begin{{tabular}}{{ll}}
-                    \\multicolumn{{2}}{{c}}{{Attributes}}\\\\\\midrule
+                    \\multicolumn{{2}}{{c}}{{\\bf \\large Attributes}}\\\\\\midrule
                     {attributes_data}
                     {adapt_parameters_function}
                     {discard_sequence_function} \\\\\\midrule
@@ -479,9 +362,11 @@ def write_appendix(dataset, outfilename):
 
                     sequences_sat = '\\\\\n'.join(sequences_data)
                     outfile.write(f"""
+                         \\subsection*{{Agile/Satisficing Set}}
+
                         \\begin{{center}}
                         \\begin{{tabular}}{{{"|".join(["l" for _ in sequences_columns])}}}
-                        \\multicolumn{{{len(sequences_columns)}}}{{c}}{{Sequences for agile/satisficing planning}}\\\\
+                        \\multicolumn{{{len(sequences_columns)}}}{{c}}{{\\bf \\large Sequences for agile/satisficing planning}}\\\\
                         {" & ".join(sequences_columns)}\\\\\\midrule
                         {sequences_sat}
                         \\end{{tabular}}
@@ -502,9 +387,11 @@ def write_appendix(dataset, outfilename):
 
                     sequences_opt = '\\\\\n'.join(sequences_data)
                     outfile.write(f"""
+                            \\subsection*{{Optimal Set}}
+
                             \\begin{{center}}
                             \\begin{{tabular}}{{{"|".join(["l" for _ in sequences_columns])}}}
-                            \\multicolumn{{{len(sequences_columns)}}}{{c}}{{Sequences for optimal planning}}\\\\
+                            \\multicolumn{{{len(sequences_columns)}}}{{c}}{{\\bf \\large Sequences for optimal planning}}\\\\
                             {" & ".join(sequences_columns)}\\\\\\midrule
                             {sequences_opt}
                             \\end{{tabular}}
@@ -513,4 +400,18 @@ def write_appendix(dataset, outfilename):
                 else:
                         outfile.write("WARNING: NO OPT SEQUENCES")
 
+            else: # This is a domain without an instance generator
+                outfile.write(f"""
+                    \\subsection*{{Optimal Set}}
+                    {write_table_instances(properties_dataset[dataset + "-opt"][domain])}
+                    
+                    \\subsection*{{Satisficing/Agile Set}}
+                    {write_table_instances(properties_dataset[dataset + "-sat"][domain])}
+                """)
+
+
         outfile.write("\\end{document}")
+
+
+write_appendix("2021-07-02", "appendix.tex")
+

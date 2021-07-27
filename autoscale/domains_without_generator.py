@@ -11,8 +11,6 @@ DOMAIN_RENAMINGS = {
     "pathways-new": "pathways",
     "tetris-hard": "tetris"
 }
-
-
 def get_domain_renaming(dom):
     if dom in DOMAIN_RENAMINGS:
         return DOMAIN_RENAMINGS[dom]
@@ -116,6 +114,9 @@ LINEAR_ATTRIBUTES = {
     "tetris": lambda x: list(map(int, x.split("-")[1:3]))
 }
 
+RUNTIME_TRIVIAL_INSTANCES = {
+    "agricola" : 300,
+}
 
 class DataTask:
     def __init__(self, domain, problem):
@@ -251,6 +252,9 @@ class DataDomain:
 
     def max_runtime_baseline_sat(self):
         return max([v.get_baseline_sat_runtime() for t, v in self.tasks.items()])
+
+    def get_time_limit_to_consider_trivial(self):
+        return RUNTIME_TRIVIAL_INSTANCES[self.domain] if self.domain in RUNTIME_TRIVIAL_INSTANCES else 30
 
     def num_tasks(self):
         return len(self.tasks)
