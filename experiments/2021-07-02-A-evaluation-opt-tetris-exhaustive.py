@@ -33,9 +33,9 @@ ATTRIBUTES = [
     "out_of_memory"
 ]
 ENVIRONMENT = BaselSlurmEnvironment(
-    partition="infai_2",
+    partition="infai_1",
     memory_per_cpu="6354M",
-    cpus_per_task=1,
+    cpus_per_task=2,
     email=project.USER.email,
     export=[],
     # paths obtained via:
