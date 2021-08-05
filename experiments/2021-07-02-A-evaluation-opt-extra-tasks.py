@@ -53,6 +53,6 @@ DOMAINS = [
     "tidybot",
 ]
 for domain in DOMAINS:
-    exp.add_fetcher(f'data/2021-07-02-B-evaluation-sat-{domain}-eval', merge=True)
+    exp.add_fetcher(f'data/2021-07-02-A-evaluation-opt-{domain}-eval', merge=True)
 
 exp.run_steps()
