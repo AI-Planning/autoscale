@@ -41,8 +41,8 @@ def parse_args():
 
     parser.add_argument("--extra_tasks_dir", default="../tasks-of-domains-without-usable-generator/", help="Directory where the problem and domain files are stored")
 
-    parser.add_argument("--database_opt", nargs="+", default=["../experiments/results/2021-07-02-A-evaluation-opt-extra-tasks-30m-properties.json"], help="path to json file(s) with the information needed")
-    parser.add_argument("--database_sat", nargs="+", default=["../experiments/results/2021-07-02-D-sat-fetch-evaluation-properties.json"], help="path to json file(s) with the information needed")
+    parser.add_argument("--database_opt", nargs="+", default=["../experiments/results/2021-07-02-A-evaluation-opt-extra-tasks-properties.json"], help="path to json file(s) with the information needed")
+    parser.add_argument("--database_sat", nargs="+", default=["../experiments/results/2021-07-02-B-evaluation-sat-extra-tasks-properties.json"], help="path to json file(s) with the information needed")
     # ../experiments/results/2021-06-14-B-evaluation-sat-extra-tasks-properties.json
     # ../experiments/results/2021-06-14-A-evaluation-opt-extra-tasks-properties.json
 

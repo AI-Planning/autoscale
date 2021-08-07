@@ -53,19 +53,33 @@ class CPLEXSequence:
 
         self.penalty = self.penalty_baseline + self.penalty_sart
 
-        self.runtimes_baseline = list(
-            map(lambda x: sequences.compute_average(x, 2 * planner_time_limit), runtimes_baseline))
+        self.runtimes_baseline = list(map(lambda x: sequences.compute_average(x, 2 * planner_time_limit), runtimes_baseline))
         self.runtimes_sart = list(map(lambda x: sequences.compute_average(x, 2 * planner_time_limit), runtimes_sart))
 
+        # If baseline runtimes are better than sota runtimes, we take the baseline runtimes
+        # If the difference is significant then we raise a warning in debug mode and increase
+        # the penalty of the sequence to avoid using it if possible
+
+        for i, value in enumerate(self.runtimes_baseline):
+            if len(self.runtimes_sart) == i:
+                self.runtimes_sart.append(value)
+                logging.warning("Warning: some instances were solved by baseline but not by the SOTA planners, increasing penalty of sequence")
+                self.penalty += 20
+            elif self.runtimes_sart[i] > value:
+                if self.runtimes_sart[i] > value*2 and self.runtimes_sart[i] > value + 10:
+                    logging.warning(f"Warning: some sota runtimes are outperformed by the baseline, increasing penalty of sequence. SOTA: {self.runtimes_sart[i]}, baseline: {value}")
+                    self.penalty += 20
+                self.runtimes_sart[i] = value
+
         self.trivial_instances = len([t for t in self.runtimes_baseline if t < domain.get_time_limit_to_consider_trivial()])
-        self.solved_instances = len(self.runtimes_sart)
+        self.solved_instances = len([r for r in self.runtimes_sart if r < 1800])
 
         if is_domain_without_generator or self.solved_instances < sequence_length:
             self.runtimes = self.runtimes_sart
             self.use_baseline_instead_of_sart = False
         else:
             # All instances were solved by the baseline so we switch to use baseline runtimes instead
-            self.solved_instances = len(self.runtimes_baseline)
+            self.solved_instances = len([r for r in self.runtimes_baseline if r < 1800])
             self.runtimes = self.runtimes_baseline
             self.use_baseline_instead_of_sart = True
 
@@ -94,16 +108,16 @@ class CPLEXSequence:
 
         # Determine where the sequence may start and end
         # We may start up until the point where the state of the art takes 300 seconds
-        self.latest_start = next(i for i, v in enumerate(self.sorted_runtimes) if v > 300) if self.sorted_runtimes[
-                                                                                                  -1] > 300 else len(
-            self.sorted_runtimes)
+        self.latest_start = next(i for i, v in enumerate(self.sorted_runtimes) if v > 300) + 1 if self.sorted_runtimes[-1] > 300 else len(self.sorted_runtimes)
+
         # We may stop right after the state of the art
         self.earliest_end = min(len(self.sorted_runtimes) - 1,
                                 max(next(i for i, v in enumerate(self.sorted_runtimes) if v > 2000) if
                                     self.sorted_runtimes[-1] > 2000 else len(self.sorted_runtimes),
-                                    self.latest_start + 1))
+                                    self.latest_start))
         self.latest_end = len(self.sorted_runtimes)
 
+        assert self.solved_instances <= self.earliest_end + 1
         assert self.earliest_end < self.latest_end
 
         self.parameters_of_instances = domain.get_configs(self.config, len(self.sorted_runtimes))
@@ -171,8 +185,7 @@ class CPLEXSequence:
             else:
                 return 0
 
-        objective_values = [penalty_termination(self.sorted_runtimes[t]) for t in
-                            range(self.earliest_end, self.latest_end)]
+        objective_values = [penalty_termination(self.sorted_runtimes[t]) for t in range(self.earliest_end, self.latest_end)]
         # Add penalty for terminating sequence at the wrong point
 
         self.end_var_index = {self.end_var_names[i]: index for i, index in enumerate(
@@ -197,11 +210,21 @@ class CPLEXSequence:
         return self.end_var_index
 
     def get_info_per_option(self):  # var, instances, solved, trivial
-        return [(self.start_var_index[f"seq-{self.seq_id}-{i}"], self.earliest_end - i,
-                 max(0, self.solved_instances - i), max(0, self.trivial_instances - i)) for i in
-                range(self.latest_start)] + \
-               [(self.end_var_index[f"end-{self.seq_id}-{i}"], i + 1 - self.earliest_end, 0, 0) for i in
-                range(self.earliest_end, self.latest_end)]
+        info_start = [(f"seq-{self.seq_id}-{i}", self.start_var_index[f"seq-{self.seq_id}-{i}"], # var id
+                       self.earliest_end + 1 - i,  # number of instances
+                       max(0, self.solved_instances - i), # solved instances
+                       max(0, self.trivial_instances - i)) # trivial instances
+                      for i in range(self.latest_start)]
+
+        assert self.solved_instances <= self.earliest_end + 1
+        assert self.trivial_instances <= self.solved_instances
+        info_end = [(f"end-{self.seq_id}-{i}", self.end_var_index[f"end-{self.seq_id}-{i}"],
+                     i - self.earliest_end, # instances
+                     0,  # solved instances
+                     0)  # trivial instances
+                    for i in range(self.earliest_end, self.latest_end)]
+
+        return info_start + info_end
 
     def get_start_vars_per_option(self):
         return [self.start_var_index[f"seq-{self.seq_id}-{i}"] for i in range(self.latest_start)]
@@ -251,6 +274,8 @@ class CPLEXSequenceManager:
             self.SEQ_ID += 1
             self.previous_parameters_of_evaluated_instances.append(new_seq.parameters_of_evaluated_instances)
             self.sequences_by_id[new_seq.seq_id] = new_seq
+            for t in new_seq.parameters_of_trivial_instances:
+                self.trivial_instances.add(str(t))
             return new_seq
 
     def perform_cplex_optimization(self, domain, tasks, candidate_sequences):
@@ -266,8 +291,12 @@ class CPLEXSequenceManager:
             all_options_trivial = []
             for seq in candidate_sequences:
                 constraint_list += seq.add_cplex_variables(cplex_problem)
-                for var, instances, solved, trivial in seq.get_info_per_option():
+                for varname, var, instances, solved, trivial in seq.get_info_per_option():
                     all_options_cplex_vars.append(var)
+
+                    assert solved <= instances
+                    assert trivial <= solved
+
                     all_options_instances.append(instances)
                     all_options_solved.append(solved)
                     all_options_trivial.append(trivial)
@@ -311,11 +340,10 @@ class CPLEXSequenceManager:
                                 penalties=[(x, 2 * x ** 2) for x in range(1, tasks)]),
                 CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_solved, "L", 15,
                                 penalties=[(-x, 2 * x ** 2) for x in range(1, tasks)]),
-                CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_trivial, "G", 2,
-                                penalties=[(1, 2)]),
+                CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_trivial, "G", 2),
                 CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_trivial, "L", 6,
-                                penalties=[(-x, 2 * x ** 2) for x in range(1, tasks)])]
-
+                                penalties=[(-x, 2 * x ** 2) for x in range(1, tasks)])
+                ]
 
             for c in constraint_list:
                 c.apply()
@@ -338,9 +366,13 @@ class CPLEXSequenceManager:
         if cplex_problem.solution.get_status() == 103:
             sys.exit()
 
+
+
         self.logging.info(f"Solution value  = {str(cplex_problem.solution.get_objective_value())}")
 
         x = cplex_problem.solution.get_values()
+        self.logging.info (f"CPLEX Solved Instances: {sum([x[var]*val for var, val in zip (all_options_cplex_vars, all_options_solved)])}")
+        self.logging.info (f"CPLEX Trivial Instances: {sum([x[var] * val for var, val in zip(all_options_cplex_vars, all_options_trivial)])}")
 
         final_selection = []
         final_selection_runtimes = []
