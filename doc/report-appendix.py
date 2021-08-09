@@ -29,7 +29,8 @@ FILENAMES = {
 }
 
 LOGDIRS = {  # "2020-12-10" : "../logfiles/2020-12-10/",
-    "2021-07-02": "../logfiles/2021-07-02/"}
+    "2021-07-02": "../logfiles/2021-07-02/",
+    "2021-07-29": "../logfiles/2021-07-29/"}
 
 
 def read_runs(filename):
@@ -256,6 +257,8 @@ def latex_str(x):
 
 
 def write_table_instances(properties):
+    if 'instances' not in properties:
+        return "Warning: no instances selected"
     instances_colums = ["config", "real_baseline_time", "real_sart_time"]
     instances_data = [
         "&".join(map(latex_str, [instance[x] for x in instances_colums]))
@@ -413,5 +416,5 @@ def write_appendix(dataset, outfilename):
         outfile.write("\\end{document}")
 
 
-write_appendix("2021-07-02", "appendix.tex")
+write_appendix("2021-07-29", "appendix_29.tex")
 

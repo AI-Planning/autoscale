@@ -116,6 +116,9 @@ LINEAR_ATTRIBUTES = {
 
 RUNTIME_TRIVIAL_INSTANCES = {
     "agricola" : 300,
+    "organic-synthesis-split" : 60,
+    "thoughtful" : 60
+
 }
 
 class DataTask:
@@ -227,7 +230,7 @@ class DataDomain:
             self.tasks[prob].solved(data['algorithm'], data['runtime'], is_opt)
             # if data['runtime'] > 600:
             #     self.planners_that_do_not_solve_the_domain.add(data['algorithm'])
-        elif 'coverage' not in data or data['coverage'] == 0:
+        elif 'coverage' not in data or data['coverage'] == 0 or data['runtime'] > 60:
             self.planners_that_do_not_solve_the_domain.add(data['algorithm'])
             assert not ('runtime' in data)
 
