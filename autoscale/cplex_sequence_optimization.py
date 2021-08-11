@@ -57,18 +57,10 @@ class CPLEXSequence:
         self.runtimes_sart = list(map(lambda x: sequences.compute_average(x, 2 * planner_time_limit), runtimes_sart))
 
         # If baseline runtimes are better than sota runtimes, we take the baseline runtimes
-        # If the difference is significant then we raise a warning in debug mode and increase
-        # the penalty of the sequence to avoid using it if possible
-
         for i, value in enumerate(self.runtimes_baseline):
             if len(self.runtimes_sart) == i:
                 self.runtimes_sart.append(value)
-                logging.warning("Warning: some instances were solved by baseline but not by the SOTA planners, increasing penalty of sequence")
-                self.penalty += 20
             elif self.runtimes_sart[i] > value:
-                if self.runtimes_sart[i] > value*2 and self.runtimes_sart[i] > value + 10:
-                    logging.warning(f"Warning: some sota runtimes are outperformed by the baseline, increasing penalty of sequence. SOTA: {self.runtimes_sart[i]}, baseline: {value}")
-                    self.penalty += 20
                 self.runtimes_sart[i] = value
 
         self.trivial_instances = len([t for t in self.runtimes_baseline if t < domain.get_time_limit_to_consider_trivial()])
@@ -387,7 +379,7 @@ class CPLEXSequenceManager:
 
                             seq_runtimes = self.sequences_by_id[seq_id].get_runtimes(i, endi + 1)
                             runtimes = ", ".join(list(map('{:.2g}'.format, seq_runtimes)))
-                            final_selection_runtimes += seq_runtimes
+                            final_selection_runtimes.append(seq_runtimes)
 
                             print(f"Selected: sequence {seq_id}, {endi + 1 - i} instances from {i} to {endi}")
                             print(f"Configuration: {self.sequences_by_id[seq_id].config}")
@@ -396,11 +388,36 @@ class CPLEXSequenceManager:
                             print(f"Penalty baseline: {'{:.2f}'.format(self.sequences_by_id[seq_id].penalty_baseline)}")
                             print(f"Seq Estimated runtimes: {runtimes}")
 
-                            final_selection += self.sequences_by_id[seq_id].get_instances(i, endi + 1)
+                            final_selection.append(self.sequences_by_id[seq_id].get_instances(i, endi + 1))
 
             for name, idt in seq.get_cplex_end_index().items():
                 if x[idt] > 0.9:
                     self.logging.debug(f"END: {name} {idt}")
+
+        # Sort resulting instances by which one has the easiest instance
+        #order = sorted(range(len(final_selection)), key=lambda x : final_selection_runtimes[x][0])
+        #final_selection = [instance for index in order for instance in final_selection[index]]
+        #final_selection_runtimes = [r for index in order for r in final_selection_runtimes[index] ]
+
+        # Sort all instances by which one is estimated to be easiest
+        final_selection_by_sequence = final_selection
+        final_selection_runtimes_by_sequence = final_selection_runtimes
+        final_selection = []
+        final_selection_runtimes = []
+        while final_selection_by_sequence:
+            assert(len(final_selection_runtimes_by_sequence) == len(final_selection_by_sequence))
+            order = sorted(range(len(final_selection_runtimes_by_sequence)), key=lambda x: final_selection_runtimes_by_sequence[x][0])
+            sel = order[0]
+
+            assert (final_selection_by_sequence[sel])
+            final_selection.append(final_selection_by_sequence[sel][0])
+            final_selection_runtimes.append(final_selection_runtimes_by_sequence[sel][0])
+
+            final_selection_runtimes_by_sequence[sel] = final_selection_runtimes_by_sequence[sel][1:]
+            final_selection_runtimes_by_sequence = [x for x in final_selection_runtimes_by_sequence if x]
+
+            final_selection_by_sequence[sel] = final_selection_by_sequence[sel][1:]
+            final_selection_by_sequence = [x for x in final_selection_by_sequence if x]
 
         if getattr(domain, "get_estimated_baseline_runtime", None):
             print("  " + "\n  ".join(f"p{i + 1:02d}: {config}   {final_selection_runtimes[i]} {domain.get_estimated_baseline_runtime(config)} {domain.get_estimated_runtime(config)}" for (i, config) in enumerate(final_selection)))

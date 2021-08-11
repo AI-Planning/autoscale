@@ -7,31 +7,13 @@ import json
 from collections import defaultdict
 import ast
 import inspect
+import argparse
 
 import domain_groups
 import re
 
 # Requires autoscale folder to be included in the PYTHONPATH environment variable.
 import domains
-import planners
-
-DIR = "../experiments/"
-
-BENCHMARKS = [f"{version}-{track}" for track in ["opt", "sat"] for version in ["ipc", "2020-12-10", "2021-06-30"]]
-
-FILENAMES = {
-    #    "ipc-opt": ["2020-11-23-A-optimization-planners-ipc-properties.json", "2020-12-05-A-evaluation-opt-ipc-properties.json"],
-    #    "ipc-sat": ["2020-11-23-D-optimization-planners-sat-ipc-properties.json","2020-12-05-B-evaluation-sat-ipc-properties.json"],
-    #    "2020-12-10-opt": ["2020-12-13-A-evaluation-opt-new2014-properties.json"],
-    #    "2020-12-10-sat": ["2020-12-13-B-evaluation-sat-new2014-properties.json"],
-    "2021-07-02-opt": ["2021-07-09-A-evaluation-opt-2021-07-02-properties.json"],
-    "2021-07-02-sat": ["2021-07-09-B-evaluation-sat-2021-07-02-properties.json"],
-}
-
-LOGDIRS = {  # "2020-12-10" : "../logfiles/2020-12-10/",
-    "2021-07-02": "../logfiles/2021-07-02/",
-    "2021-07-29": "../logfiles/2021-07-29/"}
-
 
 def read_runs(filename):
     with open(filename) as f:
@@ -43,80 +25,7 @@ def read_runs(filename):
         return data.values()
 
 
-# Step 1: gather all runs and label them by dataset and domain
-all_runs = defaultdict(list)
-for name, filenames in FILENAMES.items():
-    for filename in filenames:
-        new_runs = read_runs(os.path.join(DIR, "results", filename))
-        # Hack, remove IPC openstacks because it is the ADL version which should not be compared to our openstacks which is the strips version
-        if "-ipc" in name:
-            new_runs = [run for run in new_runs if run["domain"] != "openstacks"]
-        new_runs = [domain_groups.group_domains(run) for run in new_runs if run]
-        #       new_runs = [run for run in new_runs if run and  run["domain"] in DOMAINS]
-
-        for run in new_runs:
-            run["dataset"] = name
-            all_runs[(name, run["domain"])].append(run)
-
-
-def defdict():
-    return defaultdict(dict)
-
 # Step 2: Compute all aggregated properties for a dataset
-properties_dataset = defaultdict(defdict)
-
-#for dataset, domain in all_runs:
-#    if "-ipc" in dataset:
-#        continue
-
-#    ipcdataset = dataset.split("-")[0] + "-ipc"
-
-#    properties_dataset[dataset][domain]["track"] = dataset
-#    properties_dataset[dataset][domain]["domain"] = domain
-
-
-#    for planner in TRAINING_PLANNERS[dataset] + EVALUATION_PLANNERS[dataset]:
-#        compute_runtimes(properties_dataset[dataset] [domain], f"runtimes-{planner}", all_runs[dataset] [domain], [planner])
-
-#    compute_instances(properties_dataset[dataset] [domain], "num-ipc-instances", all_runs[(ipcdataset, domain)])
-
-#    compute_coverage(properties_dataset[dataset] [domain], "coverage", all_runs[dataset] [domain])
-#    compute_coverage(properties_dataset[dataset] [domain], "coverage-ipc", all_runs[(ipcdataset, domain)])
-
-#    compute_coverage_range(properties_dataset[dataset] [domain], "covrange-training", "coverage", TRAINING_PLANNERS[dataset])
-#    compute_coverage_range(properties_dataset[dataset] [domain], "covrange-ipc-training", "coverage-ipc", TRAINING_PLANNERS[dataset])
-
-#    compute_coverage_range(properties_dataset[dataset] [domain], "covrange-eval", "coverage", EVALUATION_PLANNERS[dataset])
-#    compute_coverage_range(properties_dataset[dataset] [domain], "covrange-ipc-eval", "coverage-ipc", EVALUATION_PLANNERS[dataset]
-# )
-#   compute_comparisons(properties_dataset[dataset] [domain], "comparisons-training", "coverage", TRAINING_PLANNERS[dataset])
-#   compute_comparisons(properties_dataset[dataset] [domain], "comparisons-eval", "coverage", EVALUATION_PLANNERS[dataset])
-#   compute_comparisons_pair(properties_dataset[dataset] [domain], "comparisons-treval", "coverage", TRAINING_PLANNERS[dataset], EVALUATION_PLANNERS[dataset])
-#   compute_comparisons(properties_dataset[dataset] [domain], "comparisons-all", "coverage", TRAINING_PLANNERS[dataset] + EVALUATION_PLANNERS[dataset])
-
-#    compute_comparisons(properties_dataset[dataset] [domain], "comparisons-training-ipc", "coverage-ipc", TRAINING_PLANNERS[dataset])
-#    compute_comparisons(properties_dataset[dataset] [domain], "comparisons-eval-ipc", "coverage-ipc", EVALUATION_PLANNERS[dataset])
-#    compute_comparisons_pair(properties_dataset[dataset] [domain], "comparisons-treval-ipc", "coverage-ipc", TRAINING_PLANNERS[dataset], EVALUATION_PLANNERS[dataset])
-#    compute_comparisons(properties_dataset[dataset] [domain], "comparisons-all-ipc", "coverage-ipc", TRAINING_PLANNERS[dataset] + EVALUATION_PLANNERS[dataset])
-
-#    for y in ["comparisons-training","comparisons-treval", "comparisons-eval", "comparisons-all"]:
-#        properties_dataset[dataset] [domain][f"{y}-ipcdiff"] = properties_dataset[dataset] [domain][y] - properties_dataset[dataset] [domain][f"{y}-ipc"]
-
-#    for x in [30, 300]:
-#        compute_coverage(properties_dataset[dataset] [domain], f"coverage{x}s", all_runs[dataset] [domain], x)
-#        compute_coverage(properties_dataset[dataset] [domain], f"coverage{x}s-ipc", all_runs[(ipcdataset, domain)], x)
-
-#        compute_comparisons(properties_dataset[dataset] [domain], f"comparisons{x}s-training", f"coverage{x}s", TRAINING_PLANNERS[dataset])
-#        compute_comparisons(properties_dataset[dataset] [domain], f"comparisons{x}s-eval", f"coverage{x}s", EVALUATION_PLANNERS[dataset])
-#        compute_comparisons_pair(properties_dataset[dataset] [domain], f"comparisons{x}s-treval", f"coverage{x}s", TRAINING_PLANNERS[dataset], EVALUATION_PLANNERS[dataset])
-
-#        compute_comparisons(properties_dataset[dataset] [domain], f"comparisons{x}s-training-ipc", f"coverage{x}s-ipc", TRAINING_PLANNERS[dataset])
-#        compute_comparisons(properties_dataset[dataset] [domain], f"comparisons{x}s-eval-ipc", f"coverage{x}s-ipc", EVALUATION_PLANNERS[dataset])
-#        compute_comparisons_pair(properties_dataset[dataset] [domain], f"comparisons{x}s-treval-ipc", f"coverage{x}s-ipc", TRAINING_PLANNERS[dataset], EVALUATION_PLANNERS[dataset])
-
-#        for y in [f"comparisons{x}s-training",f"comparisons{x}s-treval", f"comparisons{x}s-eval"]:
-#            properties_dataset[dataset] [domain][f"{y}-ipcdiff"] = properties_dataset[dataset] [domain][y] - properties_dataset[dataset] [domain][f"{y}-ipc"]
-
 
 def parse_CPLEX_log(content):
     regex_int = [re.compile(x) for x in [".*Different evaluated sequences: (?P<evaluated_sequences>(\d+))",
@@ -204,7 +113,12 @@ def parse_CPLEX_log(content):
     return data
 
 
-for dset, logdir in LOGDIRS.items():
+def read_logdir(dset, logdir):
+    def defdict():
+        return defaultdict(dict)
+
+    properties_dataset = defaultdict(defdict)
+
     for logfile in sorted(os.listdir(logdir)):
         if logfile == "errors":
             continue
@@ -222,39 +136,10 @@ for dset, logdir in LOGDIRS.items():
         data = parse_CPLEX_log(content)
         properties_dataset[dataset][domain].update(data)
 
-
-# for dataset, domain in properties_dataset:
-#    properties_dataset[dataset] [domain] = compute_smoothness(properties_dataset[dataset] [domain], "estimated", properties_dataset[dataset] [domain]["runtimes-estimated"])
-#    if "runtimes-training" in properties_dataset[dataset] [domain]:
-#        properties_dataset[dataset] [domain] = compute_smoothness(properties_dataset[dataset] [domain], "training", properties_dataset[dataset] [domain]["runtimes-training"])
-#    if "runtimes-eval" in properties_dataset[dataset] [domain]:
-#        properties_dataset[dataset] [domain] = compute_smoothness(properties_dataset[dataset] [domain], "eval", properties_dataset[dataset] [domain]["runtimes-eval"])
-
-#for dataset in properties_dataset:
-#    for domain in properties_dataset[dataset]:
-#        estimated_error(properties_dataset[dataset][domain])
-
-
-#for dataset in properties_dataset:
-#    for domain in properties_dataset[dataset]:
-#        if "runtimes-training" in properties_dataset[dataset][domain]:
-#            compute_runtime_penalty(properties_dataset[dataset][domain], "penalty-estimated",
-#                                    properties_dataset[dataset][domain]["runtimes-estimated"])
-#            compute_runtime_penalty(properties_dataset[dataset][domain], "penalty-training",
-#                                    properties_dataset[dataset][domain]["runtimes-training"])
-#            compute_runtime_penalty(properties_dataset[dataset][domain], "penalty-eval",
-#                                    properties_dataset[dataset][domain]["runtimes-eval"])
-
-
-# with open("dataset.json", "w") as outfile:
-#    json.dump (list(properties_dataset.values()), outfile)
-
+    return properties_dataset
 
 def latex_str(x):
     return str(x).replace("_", "\\_").replace("%", "\\%")
-
-
-
 
 def write_table_instances(properties):
     if 'instances' not in properties:
@@ -276,7 +161,7 @@ def write_table_instances(properties):
                             \\end{{center}}
                     """
 
-def write_appendix(dataset, outfilename):
+def write_appendix(properties_dataset, dataset, outfilename):
     with open(outfilename, "w") as outfile:
         outfile.write("""\\documentclass{article}
         \\usepackage{{booktabs}}
@@ -416,5 +301,31 @@ def write_appendix(dataset, outfilename):
         outfile.write("\\end{document}")
 
 
-write_appendix("2021-07-29", "appendix_29.tex")
+def parse_args():
+    DIR = os.path.abspath(os.path.dirname(__file__))
+    REPO = os.path.dirname(DIR)
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument(
+        "--benchmark",
+        default="2021-08-11",
+        help="name of benchmark set")
+
+    parser.add_argument(
+        "--logdir",
+        default=os.path.join(REPO, "logfiles"),
+        help="path to directory containing the logdirs")
+
+    parser.add_argument(
+        "--output", default="appendix.tex",
+        help="Output file",
+    )
+    return parser.parse_args()
+
+
+ARGS = parse_args()
+
+
+prop = read_logdir(ARGS.benchmark, f"{ARGS.logdir}/{ARGS.benchmark}")
+write_appendix(prop, ARGS.benchmark, ARGS.output)
 

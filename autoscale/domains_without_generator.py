@@ -5,18 +5,12 @@ import random
 import os
 from typing import Any, Union
 
-DOMAIN_RENAMINGS = {
-    "agricola-hard": "agricola",
-    "mystery-hard": "mystery",
-    "pathways-new": "pathways",
-    "tetris-hard": "tetris"
-}
-def get_domain_renaming(dom):
-    if dom in DOMAIN_RENAMINGS:
-        return DOMAIN_RENAMINGS[dom]
-    else:
-        return dom
 
+def get_domain_renaming(dom):
+    for ending in ["-hard", "-exhaustive", "-new"]:
+        if dom.endswith(ending):
+            return dom.replace(ending, "")
+    return dom
 
 BASELINE_PLANNERS = ['fd1906-blind', 'fd1906-gbfs-ff']
 SOLVABLE_BY_CONSTRUCTION_DOMAINS = ['airport', 'tidybot', 'freecell', 'organic-synthesis-split']
@@ -103,22 +97,23 @@ SEQUENCES_BY_RUNTIME = {
     "parcprinter": lambda x: "",
     "mprime": lambda x: "",
     "agricola": lambda x: x.split("-")[1],
-    "mystery": lambda x: "",
+  #  "mystery": lambda x: "", excluded mystery
     "tetris": lambda x: "",
     "pathways": lambda x: None if not "-" in x else "",
     "ged": lambda x: x.split("-")[0],
+    "freecell" : lambda x: "",
 }
 
 LINEAR_ATTRIBUTES = {
     "agricola": lambda x: list(map(int, x.split("-")[2:4])),
     "tetris": lambda x: list(map(int, x.split("-")[1:3]))
+
 }
 
 RUNTIME_TRIVIAL_INSTANCES = {
     "agricola" : 300,
     "organic-synthesis-split" : 60,
     "thoughtful" : 60
-
 }
 
 class DataTask:
@@ -303,9 +298,13 @@ class DataDomain:
             tasks_by_attributes[atr].append(t)
 
         # Pick easy instance
-        easy_instances = [t for t in seq if self.tasks[t].get_baseline_runtime(self.track, 1000) < 30] or \
+        easy_instances = [t for t in seq if self.tasks[t].get_baseline_runtime(self.track, 1000) < 5] or \
+                         [t for t in seq if self.tasks[t].get_baseline_runtime(self.track, 1000) < 10] or \
+                         [t for t in seq if self.tasks[t].get_baseline_runtime(self.track, 1000) < 30] or \
                          [t for t in seq if self.tasks[t].get_baseline_runtime(self.track, 1000) < 60] or \
                          [t for t in seq if self.tasks[t].get_baseline_runtime(self.track) != "unsolved"] or \
+                         [t for t in seq if self.tasks[t].get_runtime(self.track, 1000) < 5] or \
+                         [t for t in seq if self.tasks[t].get_runtime(self.track, 1000) < 10] or \
                          [t for t in seq if self.tasks[t].get_runtime(self.track, 1000) < 30] or \
                          [t for t in seq if self.tasks[t].get_runtime(self.track, 1000) < 60]
 
@@ -356,8 +355,10 @@ class DataDomain:
     def extract_random_subsequence(self, seq, subseq_length=30):
         current_seq = []
 
-        criteria = [(2, lambda x: self.tasks[x].get_baseline_runtime(self.track, 100000) < 30),  # 2 trivial instances
-                    (5, lambda x: 2 < self.tasks[x].get_runtime(self.track, 100000) < 60),  # 5 easy instances
+        criteria = [(2, lambda x: self.tasks[x].get_baseline_runtime(self.track, 100000) < 10),  # 2 trivial instances
+                    (3, lambda x: 10 < self.tasks[x].get_baseline_runtime(self.track, 100000) < 60),  # 3 easy baseline instances
+                    (3, lambda x: 60 < self.tasks[x].get_baseline_runtime(self.track, 100000) < 300), # 3 medium baseline instances
+                    (4, lambda x: 2 < self.tasks[x].get_runtime(self.track, 100000) < 60),  # 5 easy instances
                     (5, lambda x: 60 < self.tasks[x].get_runtime(self.track, 100000) < 600),  # 5 medium instances
                     (5, lambda x: 600 < self.tasks[x].get_runtime(self.track, 100000) < 100000),  # 5 hard instances
                     (8, lambda x: self.tasks[x].get_runtime(self.track) == "unsolved")  # 8 unsolved instances
