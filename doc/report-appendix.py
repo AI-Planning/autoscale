@@ -120,7 +120,7 @@ def read_logdir(dset, logdir):
     properties_dataset = defaultdict(defdict)
 
     for logfile in sorted(os.listdir(logdir)):
-        if logfile == "errors":
+        if logfile.startswith("error"):
             continue
         print(f"Reading {logfile}")
         _, track, domain = logfile.split("_")
@@ -308,7 +308,7 @@ def parse_args():
 
     parser.add_argument(
         "--benchmark",
-        default="2021-08-11",
+        default="2021.08",
         help="name of benchmark set")
 
     parser.add_argument(
