@@ -45,10 +45,10 @@ class Problem:
 
 def construct_problems(dirs):
     problems = []
-    for d in args.dirs:
+    for d in dirs:
         path = Path(d)
         assert path.exists()
-        # Iterated over sorted files due to the assumption that we then
+        # Iterate over sorted files due to the assumption that we then
         # get task and and corresponding partially ground domain files
         # next to each other.
         previous_domain_file = None
