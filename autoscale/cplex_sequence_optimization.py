@@ -378,46 +378,51 @@ class CPLEXSequenceManager:
                             seq_id, endi = map(int, nameend.split("-")[1:])
 
                             seq_runtimes = self.sequences_by_id[seq_id].get_runtimes(i, endi + 1)
-                            runtimes = ", ".join(list(map('{:.2g}'.format, seq_runtimes)))
+
                             final_selection_runtimes.append(seq_runtimes)
+                            seq_instances = self.sequences_by_id[seq_id].get_instances(i, endi + 1)
+                            final_selection.append(seq_instances)
 
                             print(f"Selected: sequence {seq_id}, {endi + 1 - i} instances from {i} to {endi}")
                             print(f"Configuration: {self.sequences_by_id[seq_id].config}")
                             print(f"Penalty: {'{:.2f}'.format(self.sequences_by_id[seq_id].penalty)}")
                             print(f"Penalty sart: {'{:.2f}'.format(self.sequences_by_id[seq_id].penalty_sart)}")
                             print(f"Penalty baseline: {'{:.2f}'.format(self.sequences_by_id[seq_id].penalty_baseline)}")
-                            print(f"Seq Estimated runtimes: {runtimes}")
+                            print(f"Seq Estimated runtimes: {','.join(list(map('{:.2g}'.format, seq_runtimes)))}")
+                            print(f"Seq instances: {seq_instances}")
 
-                            final_selection.append(self.sequences_by_id[seq_id].get_instances(i, endi + 1))
+
+
+
 
             for name, idt in seq.get_cplex_end_index().items():
                 if x[idt] > 0.9:
                     self.logging.debug(f"END: {name} {idt}")
 
         # Sort resulting instances by which one has the easiest instance
-        #order = sorted(range(len(final_selection)), key=lambda x : final_selection_runtimes[x][0])
-        #final_selection = [instance for index in order for instance in final_selection[index]]
-        #final_selection_runtimes = [r for index in order for r in final_selection_runtimes[index] ]
+        order = sorted(range(len(final_selection)), key=lambda x : final_selection_runtimes[x][0])
+        final_selection = [instance for index in order for instance in final_selection[index]]
+        final_selection_runtimes = [r for index in order for r in final_selection_runtimes[index] ]
 
         # Sort all instances by which one is estimated to be easiest
-        final_selection_by_sequence = final_selection
-        final_selection_runtimes_by_sequence = final_selection_runtimes
-        final_selection = []
-        final_selection_runtimes = []
-        while final_selection_by_sequence:
-            assert(len(final_selection_runtimes_by_sequence) == len(final_selection_by_sequence))
-            order = sorted(range(len(final_selection_runtimes_by_sequence)), key=lambda x: final_selection_runtimes_by_sequence[x][0])
-            sel = order[0]
+        #final_selection_by_sequence = final_selection
+        #final_selection_runtimes_by_sequence = final_selection_runtimes
+        #final_selection = []
+        #final_selection_runtimes = []
+        #while final_selection_by_sequence:
+        #    assert(len(final_selection_runtimes_by_sequence) == len(final_selection_by_sequence))
+        #    order = sorted(range(len(final_selection_runtimes_by_sequence)), key=lambda x: final_selection_runtimes_by_sequence[x][0])
+        #    sel = order[0]
 
-            assert (final_selection_by_sequence[sel])
-            final_selection.append(final_selection_by_sequence[sel][0])
-            final_selection_runtimes.append(final_selection_runtimes_by_sequence[sel][0])
+        #    assert (final_selection_by_sequence[sel])
+        #    final_selection.append(final_selection_by_sequence[sel][0])
+        #    final_selection_runtimes.append(final_selection_runtimes_by_sequence[sel][0])
 
-            final_selection_runtimes_by_sequence[sel] = final_selection_runtimes_by_sequence[sel][1:]
-            final_selection_runtimes_by_sequence = [x for x in final_selection_runtimes_by_sequence if x]
+        #    final_selection_runtimes_by_sequence[sel] = final_selection_runtimes_by_sequence[sel][1:]
+        #    final_selection_runtimes_by_sequence = [x for x in final_selection_runtimes_by_sequence if x]
 
-            final_selection_by_sequence[sel] = final_selection_by_sequence[sel][1:]
-            final_selection_by_sequence = [x for x in final_selection_by_sequence if x]
+        #    final_selection_by_sequence[sel] = final_selection_by_sequence[sel][1:]
+        #    final_selection_by_sequence = [x for x in final_selection_by_sequence if x]
 
         if getattr(domain, "get_estimated_baseline_runtime", None):
             print("  " + "\n  ".join(f"p{i + 1:02d}: {config}   {final_selection_runtimes[i]} {domain.get_estimated_baseline_runtime(config)} {domain.get_estimated_runtime(config)}" for (i, config) in enumerate(final_selection)))
