@@ -239,7 +239,7 @@ class DataDomain:
             if md5 in self.md5hash:
                 self.md5duplicates[prob] = self.md5hash[md5]
                 prob = self.md5hash[md5]
-                logging.info (f"Warning: {problem_file} is a duplicate of {prob}")
+                logging.info (f"Warning: {problem_file} is a duplicate of {self.tasks[prob].domain}/{prob}")
             else:
                 self.tasks[prob] = DataTask(data['domain'], data['problem'])
                 self.md5hash[md5] = prob
