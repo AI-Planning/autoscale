@@ -30,6 +30,14 @@ class LinearAttr:
     def has_lowest_value(self, cfg):
         return self.lower_b == cfg[f"{self.name}_b"]
 
+    def check_range(self, cfg):
+        b = cfg[f'{self.name}_b']
+        m = cfg[f'{self.name}_m']
+
+        return self.lower_b <= b <= self.upper_b and \
+               self.lower_m <= m <= self.upper_m and \
+               (self.optional_m or f'{self.name}_optional_m' not in cfg or cfg[f'{self.name}_optional_m'] == False)
+
     def get_hyperparameters(self, modifier=None):
         attr = f"{modifier}_{self.name}" if modifier else self.name
 
@@ -92,6 +100,16 @@ class GridAttr:
 
     def has_lowest_value(self, cfg):
         return self.lower_x == cfg[f"{self.name}_x"]
+
+    def check_range(self, cfg):
+        x = cfg[f'{self.name}_x']
+        m = cfg[f'{self.name}_m']
+
+        return self.lower_x <= x <= self.upper_x and \
+               self.lower_m <= m <= self.upper_m and \
+               (self.optional_m or f'{self.name}_optional_m' not in cfg or cfg[f'{self.name}_optional_m'] == False)
+
+
 
     def get_hyperparameters(self, modifier=None):
         attr = f"{modifier}_{self.name}" if modifier else self.name
@@ -157,6 +175,9 @@ class ConstantAttr:
     def has_lowest_value(self, cfg):
         return True
 
+    def check_range(self, cfg):
+        return True
+
     def __str__(self):
         return f"Constant({self.value})"
 
@@ -176,6 +197,9 @@ class EnumAttr:
         for i, Yi in enumerate(Y):
             Yi[self.name] = value
 
+    def check_range(self, cfg):
+        return cfg[f"{self.name}"] in self.values
+
     def get_values(self):
         return self.values
 
@@ -184,8 +208,6 @@ class EnumAttr:
 
     def __repr__(self):
         return str(self)
-
-
 
 def eliminate_duplicates(list_elements):
     seen = set()
@@ -316,6 +338,11 @@ class Domain:
     def discard_sequence(self, sequence):
         if self.discard_sequence_function is not None:
             return self.discard_sequence_function(sequence)
+
+        for attr in self.attributes:
+            if not attr.check_range(sequence['config']):
+                print(f"Sequence discarded: {sequence['config']} due to {attr}")
+                return True
         return False
 
 

@@ -1,9 +1,11 @@
 import json
+import logging
 import shutil
 from collections import defaultdict
 import random
 import os
 from typing import Any, Union
+from subprocess import check_output
 
 
 def get_domain_renaming(dom):
@@ -116,6 +118,11 @@ RUNTIME_TRIVIAL_INSTANCES = {
     "thoughtful" : 60
 }
 
+def compute_md5(f):
+    output = check_output(["md5sum", f]).decode("utf-8")
+    md5 = output.split(' ')[0]
+    return md5
+
 class DataTask:
     def __init__(self, domain, problem):
         self.domain = domain
@@ -203,22 +210,39 @@ class DataDomain:
         self.excluded_tasks = set()
         self.logging = logging
         self.extra_tasks_dir = extra_tasks_dir
+        self.md5hash = {}
+        self.md5duplicates = {}
 
     def add(self, data, is_opt):
         assert self.domain is None or self.domain == get_domain_renaming(data['domain'])
         self.domain = self.domain or get_domain_renaming(data['domain'])
 
         prob = data['problem']
+
+        problem_file = f"{self.extra_tasks_dir}/{data['domain']}/{prob}"
         if prob in self.excluded_tasks:
             return
-        elif not os.path.exists(f"{self.extra_tasks_dir}/{data['domain']}/{prob}"):
+        elif not os.path.exists(problem_file):
             self.excluded_tasks.add(prob)
             self.logging.warning(
                 f"Warning: We have read data about {data['problem']}, but there is no file at '{self.extra_tasks_dir}/{data['domain']}/{prob}'")
             return
+        if prob in self.md5duplicates:
+            prob = self.md5duplicates[prob]
+        elif prob not in self.tasks:
 
-        if prob not in self.tasks:
-            self.tasks[prob] = DataTask(data['domain'], data['problem'])
+            if self.domain in GET_DOMAIN_FILENAME_INSTANCE:
+                domain_file = f"{self.extra_tasks_dir}/{data['domain']}/{GET_DOMAIN_FILENAME_INSTANCE[self.domain](data['problem'])}"
+                md5 = (compute_md5(domain_file), compute_md5(problem_file))
+            else:
+                md5 = compute_md5(problem_file)
+            if md5 in self.md5hash:
+                self.md5duplicates[prob] = self.md5hash[md5]
+                prob = self.md5hash[md5]
+                logging.info (f"Warning: {problem_file} is a duplicate of {self.tasks[prob].domain}/{prob}")
+            else:
+                self.tasks[prob] = DataTask(data['domain'], data['problem'])
+                self.md5hash[md5] = prob
 
         if 'coverage' in data and data['coverage'] == 1:
             assert ('runtime' in data)

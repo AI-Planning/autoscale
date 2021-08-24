@@ -62,14 +62,14 @@ def parse_CPLEX_log(content):
             seqlength =  1 + to_instance - from_instance
             data["selected_sequences"].append({
                 "length": seqlength,
-                "instance_indexes" : range(current_instance_index, current_instance_index +seqlength)
+                #"instance_indexes" : range(current_instance_index, current_instance_index +seqlength)
             })
             current_instance_index += seqlength
 
 
         if l.startswith("Configuration:"):
             data['selected_sequences'][-1]["configuration"] = ast.literal_eval(l.split(":", 1)[1].strip())
-        if l.startswith("  p"):
+        elif l.startswith("  p"):
             instance_name, data_instance = l.split(":", 1)
             configuration, estimated_runtime = data_instance.split("   ")
 
@@ -85,19 +85,20 @@ def parse_CPLEX_log(content):
 
             data['instances'].append(data_instance)
 
-        if l.startswith("Estimated runtimes:"):
+        elif l.startswith("Seq Estimated runtimes:"):
             runtimes_sequence = list(map(float, l.split(":")[1].replace('[', '').replace(']', '').split(",")))
             if len(runtimes_sequence) == 30:
                 data["runtimes-estimated"] += runtimes_sequence[from_instance:to_instance + 1]
                 data["selected_sequences"][-1]["runtimes-estimated"] = runtimes_sequence[from_instance:to_instance + 1]
             else:
                 data["runtimes-estimated"] += runtimes_sequence[:to_instance - from_instance + 1]
-
                 data["selected_sequences"][-1]["runtimes-estimated"] = runtimes_sequence[:to_instance - from_instance + 1]
 
-
-        if l.startswith("Total Estimated Runtimes:"):
+        elif l.startswith("Total Estimated Runtimes:"):
             data["runtimes-estimated"] = list(map(float, l.split(":")[1].replace('[', '').replace(']', '').split(",")))
+        elif l.startswith("Seq instances:"):
+            data["selected_sequences"][-1]["config_instances"] = ast.literal_eval(l.replace("Seq instances: ", ""))
+
 
         for reg in regex_int:
             if reg.match(l):
@@ -216,8 +217,8 @@ def write_appendix(properties_dataset, dataset, outfilename):
 
 
                 def find_scaling(properties, seq, atr):
-                    config_b = properties['instances'][seq['instance_indexes'][0]]['config']
-                    config_e = properties['instances'][seq['instance_indexes'][-1]]['config']
+                    config_b = seq['config_instances'][0]
+                    config_e = seq['config_instances'][-1]
                     if isinstance(atr, domains.GridAttr):
                         xatr = atr.name_x
                         yatr = atr.name_y
@@ -242,10 +243,10 @@ def write_appendix(properties_dataset, dataset, outfilename):
 
                 if 'selected_sequences' in properties_sat:
                     relevant_attributes = [atr for atr in domains.get_domains()[domain].attributes if not isinstance(atr, domains.ConstantAttr)]
-                    sequences_columns = ["\#"] + [latex_str(atr.name) for atr in relevant_attributes]
+                    sequences_columns = ["\#"] + [latex_str(atr.name) for atr in relevant_attributes] + ["Estimated Time"]
                     sequences_data = [
-                        "&".join(map(str, [seq['length']] + [find_scaling(properties_sat, seq, atr) for atr in relevant_attributes]))
-                        for seq in properties_sat['selected_sequences']
+                        "&".join(map(str, [seq['length']] + [find_scaling(properties_sat, seq, atr) for atr in relevant_attributes]+ [f"{seq['runtimes-estimated'][0]} $\\rightarrow$ {seq['runtimes-estimated'][-1]}"]))
+                        for seq in sorted(properties_sat['selected_sequences'], key=lambda x : x["runtimes-estimated"][0])
                     ]
 
                     sequences_sat = '\\\\\n'.join(sequences_data)
@@ -267,10 +268,10 @@ def write_appendix(properties_dataset, dataset, outfilename):
                     relevant_attributes = [atr for atr in domains.get_domains()[domain].attributes if
                                            not isinstance(atr, domains.ConstantAttr)]
 
-                    sequences_columns = ["\#"] + [latex_str(atr.name) for atr in relevant_attributes]
+                    sequences_columns = ["\#"] + [latex_str(atr.name) for atr in relevant_attributes] + ["Estimated time"]
                     sequences_data = [
-                        "&".join(map(str, [seq['length']] + [find_scaling(properties_opt, seq, atr) for atr in relevant_attributes]))
-                        for seq in properties_opt['selected_sequences']
+                        "&".join(map(str, [seq['length']] + [find_scaling(properties_opt, seq, atr) for atr in relevant_attributes] + [f"{seq['runtimes-estimated'][0]} $\\rightarrow$ {seq['runtimes-estimated'][-1]}"]))
+                        for seq in sorted(properties_opt['selected_sequences'], key=lambda x : x["runtimes-estimated"][0])
                     ]
 
                     sequences_opt = '\\\\\n'.join(sequences_data)
@@ -308,7 +309,7 @@ def parse_args():
 
     parser.add_argument(
         "--benchmark",
-        default="2021.08",
+        default="2021-08-19",
         help="name of benchmark set")
 
     parser.add_argument(
@@ -317,7 +318,7 @@ def parse_args():
         help="path to directory containing the logdirs")
 
     parser.add_argument(
-        "--output", default="appendix.tex",
+        "--output", default=os.path.join(REPO, "appendix.tex"),
         help="Output file",
     )
     return parser.parse_args()
