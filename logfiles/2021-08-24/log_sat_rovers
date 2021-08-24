@@ -1,0 +1,59 @@
+2021-08-24 20:14:36,983 INFO     No run directory, so we will not run anything
+2021-08-24 20:14:39,728 INFO     Loading cache data for baseline planners: 1470
+2021-08-24 20:14:39,775 INFO     baseline cache contains data for 1401 parameter values, with min 3 max 15 avg 3.147751605995717 runtimes
+2021-08-24 20:14:39,775 INFO     Loading cache data for sart planners: 4003
+2021-08-24 20:14:39,908 INFO     sart cache contains data for 3825 parameter values, with min 3 max 15 avg 3.139607843137255 runtimes
+2021-08-24 20:14:40,958 INFO     Loading cache data for baseline planners: 2670
+2021-08-24 20:14:41,042 INFO     baseline cache contains data for 4014 parameter values, with min 3 max 15 avg 3.094170403587444 runtimes
+2021-08-24 20:14:41,042 INFO     Loading cache data for sart planners: 6756
+2021-08-24 20:14:41,255 INFO     sart cache contains data for 10498 parameter values, with min 3 max 15 avg 3.074585635359116 runtimes
+2021-08-24 20:14:41,256 INFO     Stored sequences: 361
+2021-08-24 20:14:43,397 INFO     Different evaluated sequences: 341
+2021-08-24 20:14:44,277 INFO     Candidate sequences: 341
+2021-08-24 20:14:44,286 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 315 use baseline 26 use sart
+2021-08-24 20:14:44,291 INFO     Using sart runtimes on CPLEX optimization
+2021-08-24 20:14:44,323 INFO     CPLEX solve
+
+2021-08-24 20:14:44,363 INFO     Solution status = 101: MIP_optimal
+2021-08-24 20:14:44,363 INFO     Solution value  = 825.3754353055854
+2021-08-24 20:14:44,364 INFO     CPLEX Solved Instances: 23.0
+2021-08-24 20:14:44,364 INFO     CPLEX Trivial Instances: 3.0
+Selected: sequence 97, 30 instances from 0 to 29
+Configuration: {'cameras_b': 2, 'cameras_m': 4.3999999999999995, 'cameras_optional_m': 'false', 'goals_b': 9, 'goals_m': 4.0, 'objectives_b': 3, 'objectives_m': 4.9, 'objectives_optional_m': 'false', 'rovers_b': 7, 'rovers_m': 2.0, 'rovers_optional_m': 'false', 'waypoints_b': 7, 'waypoints_m': 1.0}
+Penalty: 15.53
+Penalty sart: 5.53
+Penalty baseline: 10.00
+Seq Estimated runtimes: 0.57,0.84,1.3,1.8,2.9,3.2,5.6,6.6,9.5,14,16,22,26,29,37,42,50,65,69,74,92,1.1e+02,1.2e+02,1.8e+02,2.8e+02,4.4e+02,6.9e+02,1.1e+03,1.7e+03,2.6e+03
+Seq instances: [{'rovers': 7, 'objectives': 3, 'cameras': 2, 'goals': 9, 'waypoints': 7}, {'rovers': 9, 'objectives': 7, 'cameras': 6, 'goals': 13, 'waypoints': 8}, {'rovers': 11, 'objectives': 12, 'cameras': 10, 'goals': 17, 'waypoints': 9}, {'rovers': 13, 'objectives': 17, 'cameras': 15, 'goals': 21, 'waypoints': 10}, {'rovers': 15, 'objectives': 22, 'cameras': 19, 'goals': 25, 'waypoints': 11}, {'rovers': 17, 'objectives': 27, 'cameras': 23, 'goals': 29, 'waypoints': 12}, {'rovers': 19, 'objectives': 32, 'cameras': 28, 'goals': 33, 'waypoints': 13}, {'rovers': 21, 'objectives': 37, 'cameras': 32, 'goals': 37, 'waypoints': 14}, {'rovers': 23, 'objectives': 42, 'cameras': 37, 'goals': 41, 'waypoints': 15}, {'rovers': 25, 'objectives': 47, 'cameras': 41, 'goals': 45, 'waypoints': 16}, {'rovers': 27, 'objectives': 51, 'cameras': 45, 'goals': 49, 'waypoints': 17}, {'rovers': 29, 'objectives': 56, 'cameras': 50, 'goals': 53, 'waypoints': 18}, {'rovers': 31, 'objectives': 61, 'cameras': 54, 'goals': 57, 'waypoints': 19}, {'rovers': 33, 'objectives': 66, 'cameras': 59, 'goals': 61, 'waypoints': 20}, {'rovers': 35, 'objectives': 71, 'cameras': 63, 'goals': 65, 'waypoints': 21}, {'rovers': 37, 'objectives': 76, 'cameras': 67, 'goals': 69, 'waypoints': 22}, {'rovers': 39, 'objectives': 81, 'cameras': 72, 'goals': 73, 'waypoints': 23}, {'rovers': 41, 'objectives': 86, 'cameras': 76, 'goals': 77, 'waypoints': 24}, {'rovers': 43, 'objectives': 91, 'cameras': 81, 'goals': 81, 'waypoints': 25}, {'rovers': 45, 'objectives': 96, 'cameras': 85, 'goals': 85, 'waypoints': 26}, {'rovers': 47, 'objectives': 101, 'cameras': 90, 'goals': 89, 'waypoints': 27}, {'rovers': 49, 'objectives': 105, 'cameras': 94, 'goals': 93, 'waypoints': 28}, {'rovers': 51, 'objectives': 110, 'cameras': 98, 'goals': 97, 'waypoints': 29}, {'rovers': 53, 'objectives': 115, 'cameras': 103, 'goals': 101, 'waypoints': 30}, {'rovers': 55, 'objectives': 120, 'cameras': 107, 'goals': 105, 'waypoints': 31}, {'rovers': 57, 'objectives': 125, 'cameras': 112, 'goals': 109, 'waypoints': 32}, {'rovers': 59, 'objectives': 130, 'cameras': 116, 'goals': 113, 'waypoints': 33}, {'rovers': 61, 'objectives': 135, 'cameras': 120, 'goals': 117, 'waypoints': 34}, {'rovers': 63, 'objectives': 140, 'cameras': 125, 'goals': 121, 'waypoints': 35}, {'rovers': 65, 'objectives': 145, 'cameras': 129, 'goals': 125, 'waypoints': 36}]
+  p01: {'rovers': 7, 'objectives': 3, 'cameras': 2, 'goals': 9, 'waypoints': 7}   0.5733333333333334
+  p02: {'rovers': 9, 'objectives': 7, 'cameras': 6, 'goals': 13, 'waypoints': 8}   0.8366666666666667
+  p03: {'rovers': 11, 'objectives': 12, 'cameras': 10, 'goals': 17, 'waypoints': 9}   1.2666666666666666
+  p04: {'rovers': 13, 'objectives': 17, 'cameras': 15, 'goals': 21, 'waypoints': 10}   1.79
+  p05: {'rovers': 15, 'objectives': 22, 'cameras': 19, 'goals': 25, 'waypoints': 11}   2.93
+  p06: {'rovers': 17, 'objectives': 27, 'cameras': 23, 'goals': 29, 'waypoints': 12}   3.23
+  p07: {'rovers': 19, 'objectives': 32, 'cameras': 28, 'goals': 33, 'waypoints': 13}   5.5633333333333335
+  p08: {'rovers': 21, 'objectives': 37, 'cameras': 32, 'goals': 37, 'waypoints': 14}   6.6433333333333335
+  p09: {'rovers': 23, 'objectives': 42, 'cameras': 37, 'goals': 41, 'waypoints': 15}   9.466666666666667
+  p10: {'rovers': 25, 'objectives': 47, 'cameras': 41, 'goals': 45, 'waypoints': 16}   13.8
+  p11: {'rovers': 27, 'objectives': 51, 'cameras': 45, 'goals': 49, 'waypoints': 17}   16.496666666666666
+  p12: {'rovers': 29, 'objectives': 56, 'cameras': 50, 'goals': 53, 'waypoints': 18}   22.363333333333333
+  p13: {'rovers': 31, 'objectives': 61, 'cameras': 54, 'goals': 57, 'waypoints': 19}   26.336666666666666
+  p14: {'rovers': 33, 'objectives': 66, 'cameras': 59, 'goals': 61, 'waypoints': 20}   28.693333333333335
+  p15: {'rovers': 35, 'objectives': 71, 'cameras': 63, 'goals': 65, 'waypoints': 21}   36.54
+  p16: {'rovers': 37, 'objectives': 76, 'cameras': 67, 'goals': 69, 'waypoints': 22}   42.39333333333333
+  p17: {'rovers': 39, 'objectives': 81, 'cameras': 72, 'goals': 73, 'waypoints': 23}   49.64
+  p18: {'rovers': 41, 'objectives': 86, 'cameras': 76, 'goals': 77, 'waypoints': 24}   65.28333333333333
+  p19: {'rovers': 43, 'objectives': 91, 'cameras': 81, 'goals': 81, 'waypoints': 25}   68.67666666666666
+  p20: {'rovers': 45, 'objectives': 96, 'cameras': 85, 'goals': 85, 'waypoints': 26}   74.22333333333333
+  p21: {'rovers': 47, 'objectives': 101, 'cameras': 90, 'goals': 89, 'waypoints': 27}   92.22
+  p22: {'rovers': 49, 'objectives': 105, 'cameras': 94, 'goals': 93, 'waypoints': 28}   105.41333333333333
+  p23: {'rovers': 51, 'objectives': 110, 'cameras': 98, 'goals': 97, 'waypoints': 29}   115.05
+  p24: {'rovers': 53, 'objectives': 115, 'cameras': 103, 'goals': 101, 'waypoints': 30}   180.0
+  p25: {'rovers': 55, 'objectives': 120, 'cameras': 107, 'goals': 105, 'waypoints': 31}   281.6166883963494
+  p26: {'rovers': 57, 'objectives': 125, 'cameras': 112, 'goals': 109, 'waypoints': 32}   440.5997732407031
+  p27: {'rovers': 59, 'objectives': 130, 'cameras': 116, 'goals': 113, 'waypoints': 33}   689.3347169346072
+  p28: {'rovers': 61, 'objectives': 135, 'cameras': 120, 'goals': 117, 'waypoints': 34}   1078.489778776439
+  p29: {'rovers': 63, 'objectives': 140, 'cameras': 125, 'goals': 121, 'waypoints': 35}   1687.3373331574012
+  p30: {'rovers': 65, 'objectives': 145, 'cameras': 129, 'goals': 125, 'waypoints': 36}   2639.901955396195
+Total Estimated Runtimes: [0.5733333333333334, 0.8366666666666667, 1.2666666666666666, 1.79, 2.93, 3.23, 5.5633333333333335, 6.6433333333333335, 9.466666666666667, 13.8, 16.496666666666666, 22.363333333333333, 26.336666666666666, 28.693333333333335, 36.54, 42.39333333333333, 49.64, 65.28333333333333, 68.67666666666666, 74.22333333333333, 92.22, 105.41333333333333, 115.05, 180.0, 281.6166883963494, 440.5997732407031, 689.3347169346072, 1078.489778776439, 1687.3373331574012, 2639.901955396195]
+Total Estimated Solved: 29

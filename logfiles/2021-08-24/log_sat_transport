@@ -1,0 +1,119 @@
+2021-08-24 20:25:56,092 INFO     No run directory, so we will not run anything
+2021-08-24 20:25:56,853 INFO     Loading cache data for baseline planners: 1598
+2021-08-24 20:25:56,914 INFO     baseline cache contains data for 1113 parameter values, with min 3 max 39 avg 4.307277628032345 runtimes
+2021-08-24 20:25:56,914 INFO     Loading cache data for sart planners: 6646
+2021-08-24 20:25:57,151 INFO     sart cache contains data for 5244 parameter values, with min 3 max 39 avg 3.8020594965675056 runtimes
+2021-08-24 20:25:58,075 INFO     Loading cache data for baseline planners: 486
+2021-08-24 20:25:58,090 INFO     baseline cache contains data for 1511 parameter values, with min 3 max 39 avg 4.13765718067505 runtimes
+2021-08-24 20:25:58,090 INFO     Loading cache data for sart planners: 2768
+2021-08-24 20:25:58,184 INFO     sart cache contains data for 7708 parameter values, with min 3 max 39 avg 3.6639854696419305 runtimes
+2021-08-24 20:25:59,221 INFO     Loading cache data for baseline planners: 355
+2021-08-24 20:25:59,232 INFO     baseline cache contains data for 1821 parameter values, with min 3 max 39 avg 4.018121911037891 runtimes
+2021-08-24 20:25:59,232 INFO     Loading cache data for sart planners: 2173
+2021-08-24 20:25:59,308 INFO     sart cache contains data for 9721 parameter values, with min 3 max 39 avg 3.575866680382677 runtimes
+2021-08-24 20:26:00,342 INFO     Loading cache data for baseline planners: 504
+2021-08-24 20:26:00,362 INFO     baseline cache contains data for 2086 parameter values, with min 3 max 39 avg 4.2325023969319275 runtimes
+2021-08-24 20:26:00,362 INFO     Loading cache data for sart planners: 646
+2021-08-24 20:26:00,389 INFO     sart cache contains data for 10101 parameter values, with min 3 max 39 avg 3.6332046332046333 runtimes
+2021-08-24 20:26:00,389 INFO     Stored sequences: 4164
+Warning: No output dir has been provided for Runner but I have no data for {'size': 1000, 'mindistance': 100, 'nodes': 11, 'packages': 4, 'trucks': 2, 'degree': 5, 'generator': 'city-generator.py'}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'size': 1000, 'mindistance': 100, 'nodes': 11, 'packages': 4, 'trucks': 2, 'degree': 5, 'generator': 'city-generator.py'}, so I consider it unsolved within the time and memory limits
+2021-08-24 20:26:09,623 INFO     Different evaluated sequences: 801
+degree 3 88 86
+degree 4 81 81
+degree 5 600 539
+generator city-generator.py 89 87
+generator two-cities-generator.py 456 447
+generator three-cities-generator.py 224 172
+degree 3 5 5
+degree 4 6 6
+degree 5 6 5
+generator city-generator.py 5 5
+generator two-cities-generator.py 7 7
+generator three-cities-generator.py 5 5
+degree 3 2 2
+degree 4 2 2
+degree 5 2 2
+generator city-generator.py 4 4
+generator two-cities-generator.py 1 1
+generator three-cities-generator.py 1 1
+degree 3 1 1
+degree 4 1 1
+degree 5 3 3
+generator city-generator.py 5 5
+generator two-cities-generator.py 0 0
+generator three-cities-generator.py 0 0
+degree 3 3 3
+degree 4 0 0
+degree 5 0 0
+generator city-generator.py 3 3
+generator two-cities-generator.py 0 0
+generator three-cities-generator.py 0 0
+degree 3 1 1
+degree 4 0 0
+degree 5 0 0
+generator city-generator.py 1 1
+generator two-cities-generator.py 0 0
+generator three-cities-generator.py 0 0
+2021-08-24 20:26:28,072 INFO     Candidate sequences: 738
+2021-08-24 20:26:28,083 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 70 use baseline 668 use sart
+2021-08-24 20:26:28,089 INFO     Using sart runtimes on CPLEX optimization
+2021-08-24 20:26:37,100 INFO     CPLEX solve
+
+2021-08-24 20:26:44,748 INFO     Solution status = 101: MIP_optimal
+2021-08-24 20:26:44,748 INFO     Solution value  = 22.735371945460386
+2021-08-24 20:26:44,763 INFO     CPLEX Solved Instances: 11.0
+2021-08-24 20:26:44,764 INFO     CPLEX Trivial Instances: 2.0
+Selected: sequence 105, 13 instances from 9 to 21
+Configuration: {'degree': 3, 'generator': 'city-generator.py', 'nodes_b': 2, 'nodes_m': 2.5000000000000004, 'nodes_optional_m': 'false', 'packages_b': 2, 'packages_m': 4.7, 'trucks_b': 4, 'trucks_m': 4.3999999999999995, 'trucks_optional_m': 'false'}
+Penalty: 8.11
+Penalty sart: 0.11
+Penalty baseline: 8.00
+Seq Estimated runtimes: 1e+02,1.4e+02,2.3e+02,3.7e+02,5.9e+02,9.3e+02,1.5e+03,2.4e+03,3.8e+03,6.1e+03,9.7e+03,1.5e+04,2.5e+04
+Seq instances: [{'size': 1000, 'mindistance': 100, 'nodes': 24, 'packages': 44, 'trucks': 43, 'degree': 3, 'generator': 'city-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 27, 'packages': 49, 'trucks': 47, 'degree': 3, 'generator': 'city-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 29, 'packages': 53, 'trucks': 52, 'degree': 3, 'generator': 'city-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 58, 'trucks': 56, 'degree': 3, 'generator': 'city-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 34, 'packages': 63, 'trucks': 61, 'degree': 3, 'generator': 'city-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 37, 'packages': 67, 'trucks': 65, 'degree': 3, 'generator': 'city-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 39, 'packages': 72, 'trucks': 69, 'degree': 3, 'generator': 'city-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 42, 'packages': 77, 'trucks': 74, 'degree': 3, 'generator': 'city-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 44, 'packages': 81, 'trucks': 78, 'degree': 3, 'generator': 'city-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 47, 'packages': 86, 'trucks': 83, 'degree': 3, 'generator': 'city-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 49, 'packages': 91, 'trucks': 87, 'degree': 3, 'generator': 'city-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 52, 'packages': 96, 'trucks': 92, 'degree': 3, 'generator': 'city-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 54, 'packages': 100, 'trucks': 96, 'degree': 3, 'generator': 'city-generator.py'}]
+Selected: sequence 602, 12 instances from 1 to 12
+Configuration: {'degree': 5, 'generator': 'three-cities-generator.py', 'nodes_b': 32, 'nodes_m': 9.6, 'nodes_optional_m': 'true', 'packages_b': 3, 'packages_m': 1.4, 'trucks_b': 2, 'trucks_m': 0.1, 'trucks_optional_m': 'false'}
+Penalty: 6.35
+Penalty sart: 3.19
+Penalty baseline: 3.16
+Seq Estimated runtimes: 2.7,3.2,4.1,4.6,5.4,6,6.5,7.5,7.9,1.8e+02,4.1e+03,9.2e+04
+Seq instances: [{'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 4, 'trucks': 2, 'degree': 5, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 5, 'trucks': 2, 'degree': 5, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 7, 'trucks': 2, 'degree': 5, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 8, 'trucks': 2, 'degree': 5, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 10, 'trucks': 2, 'degree': 5, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 11, 'trucks': 2, 'degree': 5, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 12, 'trucks': 2, 'degree': 5, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 14, 'trucks': 2, 'degree': 5, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 15, 'trucks': 2, 'degree': 5, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 17, 'trucks': 3, 'degree': 5, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 18, 'trucks': 3, 'degree': 5, 'generator': 'three-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 19, 'trucks': 3, 'degree': 5, 'generator': 'three-cities-generator.py'}]
+Selected: sequence 539, 5 instances from 12 to 16
+Configuration: {'degree': 5, 'generator': 'two-cities-generator.py', 'nodes_b': 2, 'nodes_m': 1.9000000000000001, 'nodes_optional_m': 'false', 'packages_b': 2, 'packages_m': 1.8, 'trucks_b': 6, 'trucks_m': 2.0, 'trucks_optional_m': 'false'}
+Penalty: 8.28
+Penalty sart: 0.28
+Penalty baseline: 8.00
+Seq Estimated runtimes: 5.5e+02,1.7e+03,5e+03,1.5e+04,4.6e+04
+Seq instances: [{'size': 1000, 'mindistance': 100, 'nodes': 24, 'packages': 23, 'trucks': 30, 'degree': 5, 'generator': 'two-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 26, 'packages': 25, 'trucks': 32, 'degree': 5, 'generator': 'two-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 28, 'packages': 27, 'trucks': 34, 'degree': 5, 'generator': 'two-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 30, 'packages': 29, 'trucks': 36, 'degree': 5, 'generator': 'two-cities-generator.py'}, {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 30, 'trucks': 38, 'degree': 5, 'generator': 'two-cities-generator.py'}]
+  p01: {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 4, 'trucks': 2, 'degree': 5, 'generator': 'three-cities-generator.py'}   2.6933333333333334
+  p02: {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 5, 'trucks': 2, 'degree': 5, 'generator': 'three-cities-generator.py'}   3.1766666666666667
+  p03: {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 7, 'trucks': 2, 'degree': 5, 'generator': 'three-cities-generator.py'}   4.1499999999999995
+  p04: {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 8, 'trucks': 2, 'degree': 5, 'generator': 'three-cities-generator.py'}   4.5633333333333335
+  p05: {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 10, 'trucks': 2, 'degree': 5, 'generator': 'three-cities-generator.py'}   5.406666666666666
+  p06: {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 11, 'trucks': 2, 'degree': 5, 'generator': 'three-cities-generator.py'}   6.03
+  p07: {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 12, 'trucks': 2, 'degree': 5, 'generator': 'three-cities-generator.py'}   6.453333333333333
+  p08: {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 14, 'trucks': 2, 'degree': 5, 'generator': 'three-cities-generator.py'}   7.47
+  p09: {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 15, 'trucks': 2, 'degree': 5, 'generator': 'three-cities-generator.py'}   7.943333333333333
+  p10: {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 17, 'trucks': 3, 'degree': 5, 'generator': 'three-cities-generator.py'}   180.0
+  p11: {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 18, 'trucks': 3, 'degree': 5, 'generator': 'three-cities-generator.py'}   4078.8921527486364
+  p12: {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 19, 'trucks': 3, 'degree': 5, 'generator': 'three-cities-generator.py'}   92429.7844097467
+  p13: {'size': 1000, 'mindistance': 100, 'nodes': 24, 'packages': 44, 'trucks': 43, 'degree': 3, 'generator': 'city-generator.py'}   103.25
+  p14: {'size': 1000, 'mindistance': 100, 'nodes': 27, 'packages': 49, 'trucks': 47, 'degree': 3, 'generator': 'city-generator.py'}   143.63
+  p15: {'size': 1000, 'mindistance': 100, 'nodes': 29, 'packages': 53, 'trucks': 52, 'degree': 3, 'generator': 'city-generator.py'}   229.37722711176426
+  p16: {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 58, 'trucks': 56, 'degree': 3, 'generator': 'city-generator.py'}   366.3156187250705
+  p17: {'size': 1000, 'mindistance': 100, 'nodes': 34, 'packages': 63, 'trucks': 61, 'degree': 3, 'generator': 'city-generator.py'}   585.0063417871402
+  p18: {'size': 1000, 'mindistance': 100, 'nodes': 37, 'packages': 67, 'trucks': 65, 'degree': 3, 'generator': 'city-generator.py'}   934.2556048313809
+  p19: {'size': 1000, 'mindistance': 100, 'nodes': 39, 'packages': 72, 'trucks': 69, 'degree': 3, 'generator': 'city-generator.py'}   1492.006962680821
+  p20: {'size': 1000, 'mindistance': 100, 'nodes': 42, 'packages': 77, 'trucks': 74, 'degree': 3, 'generator': 'city-generator.py'}   2382.7363359407664
+  p21: {'size': 1000, 'mindistance': 100, 'nodes': 44, 'packages': 81, 'trucks': 78, 'degree': 3, 'generator': 'city-generator.py'}   3805.2318713119694
+  p22: {'size': 1000, 'mindistance': 100, 'nodes': 47, 'packages': 86, 'trucks': 83, 'degree': 3, 'generator': 'city-generator.py'}   6076.958401161661
+  p23: {'size': 1000, 'mindistance': 100, 'nodes': 49, 'packages': 91, 'trucks': 87, 'degree': 3, 'generator': 'city-generator.py'}   9704.907521631985
+  p24: {'size': 1000, 'mindistance': 100, 'nodes': 52, 'packages': 96, 'trucks': 92, 'degree': 3, 'generator': 'city-generator.py'}   15498.745225148292
+  p25: {'size': 1000, 'mindistance': 100, 'nodes': 54, 'packages': 100, 'trucks': 96, 'degree': 3, 'generator': 'city-generator.py'}   24751.508761792185
+  p26: {'size': 1000, 'mindistance': 100, 'nodes': 24, 'packages': 23, 'trucks': 30, 'degree': 5, 'generator': 'two-cities-generator.py'}   546.1901550910317
+  p27: {'size': 1000, 'mindistance': 100, 'nodes': 26, 'packages': 25, 'trucks': 32, 'degree': 5, 'generator': 'two-cities-generator.py'}   1657.3538084353625
+  p28: {'size': 1000, 'mindistance': 100, 'nodes': 28, 'packages': 27, 'trucks': 34, 'degree': 5, 'generator': 'two-cities-generator.py'}   5029.057409277904
+  p29: {'size': 1000, 'mindistance': 100, 'nodes': 30, 'packages': 29, 'trucks': 36, 'degree': 5, 'generator': 'two-cities-generator.py'}   15260.120257417782
+  p30: {'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 30, 'trucks': 38, 'degree': 5, 'generator': 'two-cities-generator.py'}   46305.15250059341
+Total Estimated Runtimes: [2.6933333333333334, 3.1766666666666667, 4.1499999999999995, 4.5633333333333335, 5.406666666666666, 6.03, 6.453333333333333, 7.47, 7.943333333333333, 103.25, 143.63, 180.0, 229.37722711176426, 366.3156187250705, 546.1901550910317, 585.0063417871402, 934.2556048313809, 1492.006962680821, 1657.3538084353625, 2382.7363359407664, 3805.2318713119694, 4078.8921527486364, 5029.057409277904, 6076.958401161661, 9704.907521631985, 15260.120257417782, 15498.745225148292, 24751.508761792185, 46305.15250059341, 92429.7844097467]
+Total Estimated Solved: 19

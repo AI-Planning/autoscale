@@ -1,0 +1,67 @@
+2021-08-24 19:17:15,978 INFO     No run directory, so we will not run anything
+2021-08-24 19:17:16,758 INFO     Loading cache data for baseline planners: 2052
+2021-08-24 19:17:16,829 INFO     baseline cache contains data for 1526 parameter values, with min 3 max 39 avg 4.034076015727392 runtimes
+2021-08-24 19:17:16,829 INFO     Loading cache data for sart planners: 5039
+2021-08-24 19:17:17,015 INFO     sart cache contains data for 3904 parameter values, with min 3 max 39 avg 3.8721823770491803 runtimes
+2021-08-24 19:17:17,973 INFO     Loading cache data for baseline planners: 833
+2021-08-24 19:17:17,999 INFO     baseline cache contains data for 2296 parameter values, with min 3 max 39 avg 3.7695993031358883 runtimes
+2021-08-24 19:17:17,999 INFO     Loading cache data for sart planners: 2240
+2021-08-24 19:17:18,080 INFO     sart cache contains data for 5884 parameter values, with min 3 max 39 avg 3.7112508497620667 runtimes
+2021-08-24 19:17:19,139 INFO     Loading cache data for baseline planners: 565
+2021-08-24 19:17:19,158 INFO     baseline cache contains data for 2838 parameter values, with min 3 max 39 avg 3.6469344608879495 runtimes
+2021-08-24 19:17:19,158 INFO     Loading cache data for sart planners: 1539
+2021-08-24 19:17:19,220 INFO     sart cache contains data for 7310 parameter values, with min 3 max 39 avg 3.618878248974008 runtimes
+2021-08-24 19:17:20,265 INFO     Loading cache data for baseline planners: 11
+2021-08-24 19:17:20,267 INFO     baseline cache contains data for 2847 parameter values, with min 3 max 39 avg 3.646996838777661 runtimes
+2021-08-24 19:17:20,267 INFO     Loading cache data for sart planners: 11
+2021-08-24 19:17:20,271 INFO     sart cache contains data for 7319 parameter values, with min 3 max 39 avg 3.6189370132531766 runtimes
+2021-08-24 19:17:20,271 INFO     Stored sequences: 8415
+2021-08-24 19:18:02,652 INFO     Different evaluated sequences: 1032
+2021-08-24 19:18:21,249 INFO     Candidate sequences: 929
+2021-08-24 19:18:21,267 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 110 use baseline 819 use sart
+2021-08-24 19:18:21,277 INFO     Using sart runtimes on CPLEX optimization
+2021-08-24 19:18:30,288 INFO     CPLEX solve
+
+2021-08-24 19:18:35,970 INFO     Solution status = 101: MIP_optimal
+2021-08-24 19:18:35,971 INFO     Solution value  = 5.959819355501138
+2021-08-24 19:18:35,987 INFO     CPLEX Solved Instances: 15.999999999999655
+2021-08-24 19:18:35,990 INFO     CPLEX Trivial Instances: 2.999999999999935
+Selected: sequence 664, 30 instances from 0 to 29
+Configuration: {'drivers_b': 4, 'drivers_m': 0.1, 'drivers_optional_m': 'false', 'packages_b': 12, 'packages_m': 4.300000000000001, 'roadjunctions_b': 10, 'roadjunctions_m': 4.0, 'roadjunctions_optional_m': 'false', 'trucks_b': 0, 'trucks_m': 0.0, 'trucks_optional_m': 'false'}
+Penalty: 3.96
+Penalty sart: 1.49
+Penalty baseline: 2.47
+Seq Estimated runtimes: 0.48,0.91,1.8,2.1,3.7,4.1,6.1,7.5,10,15,17,40,60,77,1.3e+02,1.8e+02,2.8e+02,4.4e+02,6.8e+02,1e+03,1.6e+03,2.5e+03,3.9e+03,6e+03,9.3e+03,1.4e+04,2.2e+04,3.4e+04,5.3e+04,8.2e+04
+Seq instances: [{'drivers': 4, 'packages': 12, 'roadjunctions': 10, 'trucks': 4}, {'drivers': 4, 'packages': 16, 'roadjunctions': 14, 'trucks': 4}, {'drivers': 4, 'packages': 20, 'roadjunctions': 18, 'trucks': 4}, {'drivers': 4, 'packages': 24, 'roadjunctions': 22, 'trucks': 4}, {'drivers': 4, 'packages': 29, 'roadjunctions': 26, 'trucks': 4}, {'drivers': 4, 'packages': 33, 'roadjunctions': 30, 'trucks': 4}, {'drivers': 4, 'packages': 37, 'roadjunctions': 34, 'trucks': 4}, {'drivers': 4, 'packages': 42, 'roadjunctions': 38, 'trucks': 4}, {'drivers': 4, 'packages': 46, 'roadjunctions': 42, 'trucks': 4}, {'drivers': 4, 'packages': 50, 'roadjunctions': 46, 'trucks': 4}, {'drivers': 4, 'packages': 54, 'roadjunctions': 50, 'trucks': 4}, {'drivers': 5, 'packages': 59, 'roadjunctions': 54, 'trucks': 5}, {'drivers': 5, 'packages': 63, 'roadjunctions': 58, 'trucks': 5}, {'drivers': 5, 'packages': 67, 'roadjunctions': 62, 'trucks': 5}, {'drivers': 5, 'packages': 72, 'roadjunctions': 66, 'trucks': 5}, {'drivers': 5, 'packages': 76, 'roadjunctions': 70, 'trucks': 5}, {'drivers': 5, 'packages': 80, 'roadjunctions': 74, 'trucks': 5}, {'drivers': 5, 'packages': 85, 'roadjunctions': 78, 'trucks': 5}, {'drivers': 5, 'packages': 89, 'roadjunctions': 82, 'trucks': 5}, {'drivers': 5, 'packages': 93, 'roadjunctions': 86, 'trucks': 5}, {'drivers': 5, 'packages': 97, 'roadjunctions': 90, 'trucks': 5}, {'drivers': 6, 'packages': 102, 'roadjunctions': 94, 'trucks': 6}, {'drivers': 6, 'packages': 106, 'roadjunctions': 98, 'trucks': 6}, {'drivers': 6, 'packages': 110, 'roadjunctions': 102, 'trucks': 6}, {'drivers': 6, 'packages': 115, 'roadjunctions': 106, 'trucks': 6}, {'drivers': 6, 'packages': 119, 'roadjunctions': 110, 'trucks': 6}, {'drivers': 6, 'packages': 123, 'roadjunctions': 114, 'trucks': 6}, {'drivers': 6, 'packages': 128, 'roadjunctions': 118, 'trucks': 6}, {'drivers': 6, 'packages': 132, 'roadjunctions': 122, 'trucks': 6}, {'drivers': 6, 'packages': 136, 'roadjunctions': 126, 'trucks': 6}]
+  p01: {'drivers': 4, 'packages': 12, 'roadjunctions': 10, 'trucks': 4}   0.48
+  p02: {'drivers': 4, 'packages': 16, 'roadjunctions': 14, 'trucks': 4}   0.9077777777777778
+  p03: {'drivers': 4, 'packages': 20, 'roadjunctions': 18, 'trucks': 4}   1.8258333333333334
+  p04: {'drivers': 4, 'packages': 24, 'roadjunctions': 22, 'trucks': 4}   2.061111111111111
+  p05: {'drivers': 4, 'packages': 29, 'roadjunctions': 26, 'trucks': 4}   3.715
+  p06: {'drivers': 4, 'packages': 33, 'roadjunctions': 30, 'trucks': 4}   4.138333333333334
+  p07: {'drivers': 4, 'packages': 37, 'roadjunctions': 34, 'trucks': 4}   6.125
+  p08: {'drivers': 4, 'packages': 42, 'roadjunctions': 38, 'trucks': 4}   7.463333333333333
+  p09: {'drivers': 4, 'packages': 46, 'roadjunctions': 42, 'trucks': 4}   9.971666666666668
+  p10: {'drivers': 4, 'packages': 50, 'roadjunctions': 46, 'trucks': 4}   14.85
+  p11: {'drivers': 4, 'packages': 54, 'roadjunctions': 50, 'trucks': 4}   17.413333333333334
+  p12: {'drivers': 5, 'packages': 59, 'roadjunctions': 54, 'trucks': 5}   39.81
+  p13: {'drivers': 5, 'packages': 63, 'roadjunctions': 58, 'trucks': 5}   59.596666666666664
+  p14: {'drivers': 5, 'packages': 67, 'roadjunctions': 62, 'trucks': 5}   76.87333333333333
+  p15: {'drivers': 5, 'packages': 72, 'roadjunctions': 66, 'trucks': 5}   125.08666666666667
+  p16: {'drivers': 5, 'packages': 76, 'roadjunctions': 70, 'trucks': 5}   183.33666666666667
+  p17: {'drivers': 5, 'packages': 80, 'roadjunctions': 74, 'trucks': 5}   283.5901434194162
+  p18: {'drivers': 5, 'packages': 85, 'roadjunctions': 78, 'trucks': 5}   438.66494851718187
+  p19: {'drivers': 5, 'packages': 89, 'roadjunctions': 82, 'trucks': 5}   678.5388756371253
+  p20: {'drivers': 5, 'packages': 93, 'roadjunctions': 86, 'trucks': 5}   1049.5823915433273
+  p21: {'drivers': 5, 'packages': 97, 'roadjunctions': 90, 'trucks': 5}   1623.5225956706208
+  p22: {'drivers': 6, 'packages': 102, 'roadjunctions': 94, 'trucks': 6}   2511.3089166609384
+  p23: {'drivers': 6, 'packages': 106, 'roadjunctions': 98, 'trucks': 6}   3884.5609489627514
+  p24: {'drivers': 6, 'packages': 110, 'roadjunctions': 102, 'trucks': 6}   6008.744549941694
+  p25: {'drivers': 6, 'packages': 115, 'roadjunctions': 106, 'trucks': 6}   9294.489529400922
+  p26: {'drivers': 6, 'packages': 119, 'roadjunctions': 110, 'trucks': 6}   14376.969247757695
+  p27: {'drivers': 6, 'packages': 123, 'roadjunctions': 114, 'trucks': 6}   22238.68713791463
+  p28: {'drivers': 6, 'packages': 128, 'roadjunctions': 118, 'trucks': 6}   34399.40623752697
+  p29: {'drivers': 6, 'packages': 132, 'roadjunctions': 122, 'trucks': 6}   53209.937356282804
+  p30: {'drivers': 6, 'packages': 136, 'roadjunctions': 126, 'trucks': 6}   82306.57860515114
+Total Estimated Runtimes: [0.48, 0.9077777777777778, 1.8258333333333334, 2.061111111111111, 3.715, 4.138333333333334, 6.125, 7.463333333333333, 9.971666666666668, 14.85, 17.413333333333334, 39.81, 59.596666666666664, 76.87333333333333, 125.08666666666667, 183.33666666666667, 283.5901434194162, 438.66494851718187, 678.5388756371253, 1049.5823915433273, 1623.5225956706208, 2511.3089166609384, 3884.5609489627514, 6008.744549941694, 9294.489529400922, 14376.969247757695, 22238.68713791463, 34399.40623752697, 53209.937356282804, 82306.57860515114]
+Total Estimated Solved: 21

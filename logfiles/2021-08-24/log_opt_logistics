@@ -1,0 +1,90 @@
+2021-08-24 19:41:44,347 INFO     No run directory, so we will not run anything
+2021-08-24 19:41:44,908 INFO     Loading cache data for baseline planners: 954
+2021-08-24 19:41:44,955 INFO     baseline cache contains data for 377 parameter values, with min 3 max 39 avg 7.591511936339523 runtimes
+2021-08-24 19:41:44,955 INFO     Loading cache data for sart planners: 6583
+2021-08-24 19:41:45,280 INFO     sart cache contains data for 2865 parameter values, with min 3 max 39 avg 6.893193717277487 runtimes
+2021-08-24 19:41:46,979 INFO     Loading cache data for baseline planners: 208
+2021-08-24 19:41:46,988 INFO     baseline cache contains data for 498 parameter values, with min 3 max 39 avg 7 runtimes
+2021-08-24 19:41:46,989 INFO     Loading cache data for sart planners: 2333
+2021-08-24 19:41:47,092 INFO     sart cache contains data for 4316 parameter values, with min 3 max 39 avg 6.197405004633921 runtimes
+2021-08-24 19:41:48,936 INFO     Loading cache data for baseline planners: 214
+2021-08-24 19:41:48,947 INFO     baseline cache contains data for 632 parameter values, with min 3 max 39 avg 6.531645569620253 runtimes
+2021-08-24 19:41:48,948 INFO     Loading cache data for sart planners: 2875
+2021-08-24 19:41:49,073 INFO     sart cache contains data for 6435 parameter values, with min 3 max 39 avg 5.496969696969697 runtimes
+2021-08-24 19:41:50,861 INFO     Loading cache data for baseline planners: 92
+2021-08-24 19:41:50,865 INFO     baseline cache contains data for 686 parameter values, with min 3 max 39 avg 6.419825072886297 runtimes
+2021-08-24 19:41:50,865 INFO     Loading cache data for sart planners: 2192
+2021-08-24 19:41:50,961 INFO     sart cache contains data for 8023 parameter values, with min 3 max 39 avg 5.228592795712327 runtimes
+2021-08-24 19:41:50,961 INFO     Stored sequences: 2421
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 5, 'num_cities': 3, 'city_size': 2, 'num_packages': 55, 'extra_trucks': 10, 'num_trucks': 13}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 12, 'num_cities': 3, 'city_size': 2, 'num_packages': 14, 'extra_trucks': 1, 'num_trucks': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 18, 'num_cities': 2, 'city_size': 4, 'num_packages': 23, 'extra_trucks': 1, 'num_trucks': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 18, 'num_cities': 2, 'city_size': 3, 'num_packages': 27, 'extra_trucks': 1, 'num_trucks': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 11, 'num_cities': 2, 'city_size': 3, 'num_packages': 17, 'extra_trucks': 1, 'num_trucks': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 12, 'num_cities': 2, 'city_size': 3, 'num_packages': 17, 'extra_trucks': 8, 'num_trucks': 10}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 6, 'num_cities': 3, 'city_size': 2, 'num_packages': 11, 'extra_trucks': 1, 'num_trucks': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 10, 'num_cities': 2, 'city_size': 2, 'num_packages': 11, 'extra_trucks': 1, 'num_trucks': 3}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 11, 'num_cities': 2, 'city_size': 2, 'num_packages': 11, 'extra_trucks': 5, 'num_trucks': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 13, 'num_cities': 2, 'city_size': 3, 'num_packages': 19, 'extra_trucks': 5, 'num_trucks': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 19, 'num_cities': 2, 'city_size': 3, 'num_packages': 26, 'extra_trucks': 5, 'num_trucks': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 9, 'num_cities': 2, 'city_size': 2, 'num_packages': 16, 'extra_trucks': 2, 'num_trucks': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 11, 'num_cities': 3, 'city_size': 2, 'num_packages': 18, 'extra_trucks': 1, 'num_trucks': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 13, 'num_cities': 2, 'city_size': 3, 'num_packages': 19, 'extra_trucks': 5, 'num_trucks': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 16, 'num_cities': 2, 'city_size': 3, 'num_packages': 20, 'extra_trucks': 5, 'num_trucks': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'num_airplanes': 1, 'num_cities': 2, 'city_size': 4, 'num_packages': 65, 'extra_trucks': 1, 'num_trucks': 3}, so I consider it unsolved within the time and memory limits
+2021-08-24 19:42:06,284 INFO     Different evaluated sequences: 1016
+2021-08-24 19:42:24,336 INFO     Candidate sequences: 969
+2021-08-24 19:42:24,356 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 46 use baseline 923 use sart
+2021-08-24 19:42:24,367 INFO     Using sart runtimes on CPLEX optimization
+2021-08-24 19:42:42,145 INFO     CPLEX solve
+
+2021-08-24 19:42:47,046 INFO     Solution status = 101: MIP_optimal
+2021-08-24 19:42:47,046 INFO     Solution value  = 18.00740027428983
+2021-08-24 19:42:47,069 INFO     CPLEX Solved Instances: 15.0
+2021-08-24 19:42:47,072 INFO     CPLEX Trivial Instances: 2.0
+Selected: sequence 781, 15 instances from 15 to 29
+Configuration: {'city_size_b': 2, 'city_size_m': 0.0, 'city_size_optional_m': 'false', 'extra_trucks_b': 10, 'extra_trucks_m': 0.7000000000000001, 'extra_trucks_optional_m': 'false', 'num_airplanes_b': 3, 'num_airplanes_m': 1.0, 'num_airplanes_optional_m': 'true', 'num_cities_b': 2, 'num_cities_m': 0.1, 'num_cities_optional_m': 'false', 'num_packages_b': 2, 'num_packages_m': 2.6}
+Penalty: 8.77
+Penalty sart: 0.77
+Penalty baseline: 8.00
+Seq Estimated runtimes: 18,23,27,33,1.4e+02,2.5e+02,4.3e+02,7.6e+02,1.3e+03,2.4e+03,4.2e+03,7.3e+03,1.3e+04,2.3e+04,4e+04
+Seq instances: [{'num_airplanes': 3, 'num_cities': 3, 'city_size': 2, 'num_packages': 41, 'extra_trucks': 20, 'num_trucks': 23}, {'num_airplanes': 3, 'num_cities': 3, 'city_size': 2, 'num_packages': 43, 'extra_trucks': 21, 'num_trucks': 24}, {'num_airplanes': 3, 'num_cities': 3, 'city_size': 2, 'num_packages': 46, 'extra_trucks': 21, 'num_trucks': 24}, {'num_airplanes': 3, 'num_cities': 3, 'city_size': 2, 'num_packages': 48, 'extra_trucks': 22, 'num_trucks': 25}, {'num_airplanes': 3, 'num_cities': 3, 'city_size': 2, 'num_packages': 51, 'extra_trucks': 23, 'num_trucks': 26}, {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 54, 'extra_trucks': 23, 'num_trucks': 27}, {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 56, 'extra_trucks': 24, 'num_trucks': 28}, {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 59, 'extra_trucks': 25, 'num_trucks': 29}, {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 61, 'extra_trucks': 26, 'num_trucks': 30}, {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 64, 'extra_trucks': 26, 'num_trucks': 30}, {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 67, 'extra_trucks': 27, 'num_trucks': 31}, {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 69, 'extra_trucks': 28, 'num_trucks': 32}, {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 72, 'extra_trucks': 28, 'num_trucks': 32}, {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 74, 'extra_trucks': 29, 'num_trucks': 33}, {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 77, 'extra_trucks': 30, 'num_trucks': 34}]
+Selected: sequence 712, 15 instances from 0 to 14
+Configuration: {'city_size_b': 2, 'city_size_m': 0.1, 'city_size_optional_m': 'false', 'extra_trucks_b': 10, 'extra_trucks_m': 0.9, 'extra_trucks_optional_m': 'true', 'num_airplanes_b': 1, 'num_airplanes_m': 1.2, 'num_airplanes_optional_m': 'false', 'num_cities_b': 2, 'num_cities_m': 0.2, 'num_cities_optional_m': 'false', 'num_packages_b': 3, 'num_packages_m': 1.5}
+Penalty: 9.24
+Penalty sart: 1.75
+Penalty baseline: 7.49
+Seq Estimated runtimes: 0.44,0.46,0.46,0.55,0.59,5,8.6,38,45,45,1.8e+02,7.2e+02,2.9e+03,1.1e+04,4.6e+04
+Seq instances: [{'num_airplanes': 1, 'num_cities': 2, 'city_size': 2, 'num_packages': 3, 'extra_trucks': 10, 'num_trucks': 12}, {'num_airplanes': 2, 'num_cities': 2, 'city_size': 2, 'num_packages': 4, 'extra_trucks': 10, 'num_trucks': 12}, {'num_airplanes': 3, 'num_cities': 2, 'city_size': 2, 'num_packages': 6, 'extra_trucks': 10, 'num_trucks': 12}, {'num_airplanes': 4, 'num_cities': 2, 'city_size': 2, 'num_packages': 7, 'extra_trucks': 10, 'num_trucks': 12}, {'num_airplanes': 5, 'num_cities': 2, 'city_size': 2, 'num_packages': 9, 'extra_trucks': 10, 'num_trucks': 12}, {'num_airplanes': 7, 'num_cities': 3, 'city_size': 2, 'num_packages': 10, 'extra_trucks': 10, 'num_trucks': 13}, {'num_airplanes': 8, 'num_cities': 3, 'city_size': 2, 'num_packages': 12, 'extra_trucks': 10, 'num_trucks': 13}, {'num_airplanes': 9, 'num_cities': 3, 'city_size': 2, 'num_packages': 13, 'extra_trucks': 10, 'num_trucks': 13}, {'num_airplanes': 10, 'num_cities': 3, 'city_size': 2, 'num_packages': 15, 'extra_trucks': 10, 'num_trucks': 13}, {'num_airplanes': 11, 'num_cities': 3, 'city_size': 2, 'num_packages': 16, 'extra_trucks': 10, 'num_trucks': 13}, {'num_airplanes': 12, 'num_cities': 4, 'city_size': 3, 'num_packages': 18, 'extra_trucks': 10, 'num_trucks': 14}, {'num_airplanes': 14, 'num_cities': 4, 'city_size': 3, 'num_packages': 19, 'extra_trucks': 10, 'num_trucks': 14}, {'num_airplanes': 15, 'num_cities': 4, 'city_size': 3, 'num_packages': 21, 'extra_trucks': 10, 'num_trucks': 14}, {'num_airplanes': 16, 'num_cities': 4, 'city_size': 3, 'num_packages': 22, 'extra_trucks': 10, 'num_trucks': 14}, {'num_airplanes': 17, 'num_cities': 4, 'city_size': 3, 'num_packages': 24, 'extra_trucks': 10, 'num_trucks': 14}]
+  p01: {'num_airplanes': 1, 'num_cities': 2, 'city_size': 2, 'num_packages': 3, 'extra_trucks': 10, 'num_trucks': 12}   0.44
+  p02: {'num_airplanes': 2, 'num_cities': 2, 'city_size': 2, 'num_packages': 4, 'extra_trucks': 10, 'num_trucks': 12}   0.46
+  p03: {'num_airplanes': 3, 'num_cities': 2, 'city_size': 2, 'num_packages': 6, 'extra_trucks': 10, 'num_trucks': 12}   0.4611111111111111
+  p04: {'num_airplanes': 4, 'num_cities': 2, 'city_size': 2, 'num_packages': 7, 'extra_trucks': 10, 'num_trucks': 12}   0.5533333333333333
+  p05: {'num_airplanes': 5, 'num_cities': 2, 'city_size': 2, 'num_packages': 9, 'extra_trucks': 10, 'num_trucks': 12}   0.59
+  p06: {'num_airplanes': 7, 'num_cities': 3, 'city_size': 2, 'num_packages': 10, 'extra_trucks': 10, 'num_trucks': 13}   5.026666666666666
+  p07: {'num_airplanes': 8, 'num_cities': 3, 'city_size': 2, 'num_packages': 12, 'extra_trucks': 10, 'num_trucks': 13}   8.596666666666666
+  p08: {'num_airplanes': 9, 'num_cities': 3, 'city_size': 2, 'num_packages': 13, 'extra_trucks': 10, 'num_trucks': 13}   37.99666666666667
+  p09: {'num_airplanes': 10, 'num_cities': 3, 'city_size': 2, 'num_packages': 15, 'extra_trucks': 10, 'num_trucks': 13}   44.836666666666666
+  p10: {'num_airplanes': 11, 'num_cities': 3, 'city_size': 2, 'num_packages': 16, 'extra_trucks': 10, 'num_trucks': 13}   45.135
+  p11: {'num_airplanes': 12, 'num_cities': 4, 'city_size': 3, 'num_packages': 18, 'extra_trucks': 10, 'num_trucks': 14}   180.0
+  p12: {'num_airplanes': 14, 'num_cities': 4, 'city_size': 3, 'num_packages': 19, 'extra_trucks': 10, 'num_trucks': 14}   717.8464606181456
+  p13: {'num_airplanes': 15, 'num_cities': 4, 'city_size': 3, 'num_packages': 21, 'extra_trucks': 10, 'num_trucks': 14}   2862.7974501222157
+  p14: {'num_airplanes': 16, 'num_cities': 4, 'city_size': 3, 'num_packages': 22, 'extra_trucks': 10, 'num_trucks': 14}   11416.938983538248
+  p15: {'num_airplanes': 17, 'num_cities': 4, 'city_size': 3, 'num_packages': 24, 'extra_trucks': 10, 'num_trucks': 14}   45531.16244681256
+  p16: {'num_airplanes': 3, 'num_cities': 3, 'city_size': 2, 'num_packages': 41, 'extra_trucks': 20, 'num_trucks': 23}   17.596666666666668
+  p17: {'num_airplanes': 3, 'num_cities': 3, 'city_size': 2, 'num_packages': 43, 'extra_trucks': 21, 'num_trucks': 24}   22.826666666666668
+  p18: {'num_airplanes': 3, 'num_cities': 3, 'city_size': 2, 'num_packages': 46, 'extra_trucks': 21, 'num_trucks': 24}   27.436666666666664
+  p19: {'num_airplanes': 3, 'num_cities': 3, 'city_size': 2, 'num_packages': 48, 'extra_trucks': 22, 'num_trucks': 25}   32.84
+  p20: {'num_airplanes': 3, 'num_cities': 3, 'city_size': 2, 'num_packages': 51, 'extra_trucks': 23, 'num_trucks': 26}   139.93
+  p21: {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 54, 'extra_trucks': 23, 'num_trucks': 27}   246.36458985839874
+  p22: {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 56, 'extra_trucks': 24, 'num_trucks': 28}   433.75624337952564
+  p23: {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 59, 'extra_trucks': 25, 'num_trucks': 29}   763.6831201223227
+  p24: {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 61, 'extra_trucks': 26, 'num_trucks': 30}   1344.5614140693083
+  p25: {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 64, 'extra_trucks': 26, 'num_trucks': 30}   2367.2716452269974
+  p26: {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 67, 'extra_trucks': 27, 'num_trucks': 31}   4167.883284211863
+  p27: {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 69, 'extra_trucks': 28, 'num_trucks': 32}   7338.0894439543445
+  p28: {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 72, 'extra_trucks': 28, 'num_trucks': 32}   12919.641222068587
+  p29: {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 74, 'extra_trucks': 29, 'num_trucks': 33}   22746.674128439856
+  p30: {'num_airplanes': 3, 'num_cities': 4, 'city_size': 2, 'num_packages': 77, 'extra_trucks': 30, 'num_trucks': 34}   40048.41736793922
+Total Estimated Runtimes: [0.44, 0.46, 0.4611111111111111, 0.5533333333333333, 0.59, 5.026666666666666, 8.596666666666666, 17.596666666666668, 22.826666666666668, 27.436666666666664, 32.84, 37.99666666666667, 44.836666666666666, 45.135, 139.93, 180.0, 246.36458985839874, 433.75624337952564, 717.8464606181456, 763.6831201223227, 1344.5614140693083, 2367.2716452269974, 2862.7974501222157, 4167.883284211863, 7338.0894439543445, 11416.938983538248, 12919.641222068587, 22746.674128439856, 40048.41736793922, 45531.16244681256]
+Total Estimated Solved: 21

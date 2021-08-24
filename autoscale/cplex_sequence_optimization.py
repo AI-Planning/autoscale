@@ -278,9 +278,12 @@ class CPLEXSequenceManager:
 
             constraint_list = []
 
-            enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
-                                getattr(atr, "get_enum_constraint", None) and atr.get_enum_constraint() for
-                                (val, num) in atr.get_enum_constraint() if num > 0}
+            if getattr(domain, "attributes", None):
+                enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+                                    getattr(atr, "get_enum_constraint", None) and atr.get_enum_constraint() for
+                                    (val, num) in atr.get_enum_constraint() if num > 0}
+            else:
+                enum_constraints = {}
 
             all_options_cplex_vars = []
             all_options_instances = []

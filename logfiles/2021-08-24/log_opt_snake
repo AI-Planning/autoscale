@@ -1,0 +1,74 @@
+2021-08-24 20:15:44,724 INFO     No run directory, so we will not run anything
+2021-08-24 20:15:46,619 INFO     Loading cache data for baseline planners: 492
+2021-08-24 20:15:46,636 INFO     baseline cache contains data for 105 parameter values, with min 3 max 15 avg 14.057142857142857 runtimes
+2021-08-24 20:15:46,636 INFO     Loading cache data for sart planners: 483
+2021-08-24 20:15:46,651 INFO     sart cache contains data for 105 parameter values, with min 3 max 15 avg 13.8 runtimes
+2021-08-24 20:15:48,153 INFO     Loading cache data for baseline planners: 1
+2021-08-24 20:15:48,153 INFO     baseline cache contains data for 106 parameter values, with min 3 max 15 avg 13.952830188679245 runtimes
+2021-08-24 20:15:48,158 INFO     Loading cache data for sart planners: 1
+2021-08-24 20:15:48,158 INFO     sart cache contains data for 106 parameter values, with min 3 max 15 avg 13.69811320754717 runtimes
+2021-08-24 20:15:49,586 INFO     Loading cache data for baseline planners: 0
+2021-08-24 20:15:49,587 INFO     baseline cache contains data for 106 parameter values, with min 3 max 15 avg 13.952830188679245 runtimes
+2021-08-24 20:15:49,587 INFO     Loading cache data for sart planners: 0
+2021-08-24 20:15:49,587 INFO     sart cache contains data for 106 parameter values, with min 3 max 15 avg 13.69811320754717 runtimes
+2021-08-24 20:15:49,587 INFO     Stored sequences: 4696
+2021-08-24 20:16:12,577 INFO     Different evaluated sequences: 361
+num_spawn_apples 40% 141 84
+num_spawn_apples 55% 99 63
+num_spawn_apples 70% 59 42
+num_spawn_apples 85% 33 29
+num_spawn_apples 100% 29 26
+2021-08-24 20:16:12,754 INFO     Candidate sequences: 244
+2021-08-24 20:16:12,757 INFO     Using sart runtimes on CPLEX optimization
+2021-08-24 20:16:14,471 INFO     CPLEX solve
+
+2021-08-24 20:16:15,312 INFO     Solution status = 101: MIP_optimal
+2021-08-24 20:16:15,312 INFO     Solution value  = 7.937263158660274
+2021-08-24 20:16:15,317 INFO     CPLEX Solved Instances: 13.0
+2021-08-24 20:16:15,317 INFO     CPLEX Trivial Instances: 7.0
+Selected: sequence 213, 18 instances from 9 to 26
+Configuration: {'grid_m': 1.1, 'grid_maxdiff': 5, 'grid_x': 3, 'num_spawn_apples': '40%'}
+Penalty: 3.01
+Penalty sart: 1.60
+Penalty baseline: 1.41
+Seq Estimated runtimes: 3.1,4.2,5.6,8.2,10,11,26,46,1.5e+02,3.1e+02,6.5e+02,1.4e+03,2.9e+03,6.1e+03,1.3e+04,2.7e+04,5.6e+04,1.2e+05
+Seq instances: [{'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 5, 'num_spawn_apples': '40%', 'board': 'empty-5x5'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 4, 'y_grid': 7, 'num_spawn_apples': '40%', 'board': 'empty-4x7'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 4, 'y_grid': 8, 'num_spawn_apples': '40%', 'board': 'empty-4x8'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 7, 'num_spawn_apples': '40%', 'board': 'empty-5x7'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 4, 'y_grid': 9, 'num_spawn_apples': '40%', 'board': 'empty-4x9'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 6, 'num_spawn_apples': '40%', 'board': 'empty-6x6'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 8, 'num_spawn_apples': '40%', 'board': 'empty-5x8'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 7, 'num_spawn_apples': '40%', 'board': 'empty-6x7'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 9, 'num_spawn_apples': '40%', 'board': 'empty-5x9'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 8, 'num_spawn_apples': '40%', 'board': 'empty-6x8'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 7, 'y_grid': 7, 'num_spawn_apples': '40%', 'board': 'empty-7x7'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 9, 'num_spawn_apples': '40%', 'board': 'empty-6x9'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 7, 'y_grid': 8, 'num_spawn_apples': '40%', 'board': 'empty-7x8'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 10, 'num_spawn_apples': '40%', 'board': 'empty-6x10'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 7, 'y_grid': 9, 'num_spawn_apples': '40%', 'board': 'empty-7x9'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 8, 'y_grid': 8, 'num_spawn_apples': '40%', 'board': 'empty-8x8'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 11, 'num_spawn_apples': '40%', 'board': 'empty-6x11'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 7, 'y_grid': 10, 'num_spawn_apples': '40%', 'board': 'empty-7x10'}]
+Selected: sequence 15, 12 instances from 13 to 24
+Configuration: {'grid_m': 0.4, 'grid_maxdiff': 5, 'grid_x': 3, 'num_spawn_apples': '55%'}
+Penalty: 2.93
+Penalty sart: 1.42
+Penalty baseline: 1.51
+Seq Estimated runtimes: 52,95,1.1e+02,3.4e+02,7.3e+02,1.5e+03,3.2e+03,6.8e+03,1.4e+04,3e+04,6.4e+04,1.3e+05
+Seq instances: [{'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 7, 'num_spawn_apples': '55%', 'board': 'empty-5x7'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 4, 'y_grid': 9, 'num_spawn_apples': '55%', 'board': 'empty-4x9'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 6, 'num_spawn_apples': '55%', 'board': 'empty-6x6'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 8, 'num_spawn_apples': '55%', 'board': 'empty-5x8'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 7, 'num_spawn_apples': '55%', 'board': 'empty-6x7'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 9, 'num_spawn_apples': '55%', 'board': 'empty-5x9'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 8, 'num_spawn_apples': '55%', 'board': 'empty-6x8'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 7, 'y_grid': 7, 'num_spawn_apples': '55%', 'board': 'empty-7x7'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 10, 'num_spawn_apples': '55%', 'board': 'empty-5x10'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 9, 'num_spawn_apples': '55%', 'board': 'empty-6x9'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 7, 'y_grid': 8, 'num_spawn_apples': '55%', 'board': 'empty-7x8'}, {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 10, 'num_spawn_apples': '55%', 'board': 'empty-6x10'}]
+  p01: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 5, 'num_spawn_apples': '40%', 'board': 'empty-5x5'}   3.146
+  p02: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 4, 'y_grid': 7, 'num_spawn_apples': '40%', 'board': 'empty-4x7'}   4.150666666666667
+  p03: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 4, 'y_grid': 8, 'num_spawn_apples': '40%', 'board': 'empty-4x8'}   5.622
+  p04: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 7, 'num_spawn_apples': '40%', 'board': 'empty-5x7'}   8.214
+  p05: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 4, 'y_grid': 9, 'num_spawn_apples': '40%', 'board': 'empty-4x9'}   9.970666666666666
+  p06: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 6, 'num_spawn_apples': '40%', 'board': 'empty-6x6'}   11.42
+  p07: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 8, 'num_spawn_apples': '40%', 'board': 'empty-5x8'}   25.997333333333334
+  p08: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 7, 'num_spawn_apples': '40%', 'board': 'empty-6x7'}   45.784666666666666
+  p09: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 9, 'num_spawn_apples': '40%', 'board': 'empty-5x9'}   147.75466666666668
+  p10: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 8, 'num_spawn_apples': '40%', 'board': 'empty-6x8'}   310.6589124060888
+  p11: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 7, 'y_grid': 7, 'num_spawn_apples': '40%', 'board': 'empty-7x7'}   653.1702993520832
+  p12: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 9, 'num_spawn_apples': '40%', 'board': 'empty-6x9'}   1373.3114451839826
+  p13: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 7, 'y_grid': 8, 'num_spawn_apples': '40%', 'board': 'empty-7x8'}   2887.4312370665566
+  p14: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 10, 'num_spawn_apples': '40%', 'board': 'empty-6x10'}   6070.916526637381
+  p15: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 7, 'y_grid': 9, 'num_spawn_apples': '40%', 'board': 'empty-7x9'}   12764.296167565959
+  p16: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 8, 'y_grid': 8, 'num_spawn_apples': '40%', 'board': 'empty-8x8'}   26837.340941596303
+  p17: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 11, 'num_spawn_apples': '40%', 'board': 'empty-6x11'}   56426.367686893405
+  p18: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 7, 'y_grid': 10, 'num_spawn_apples': '40%', 'board': 'empty-7x10'}   118638.24278513285
+  p19: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 7, 'num_spawn_apples': '55%', 'board': 'empty-5x7'}   52.03333333333333
+  p20: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 4, 'y_grid': 9, 'num_spawn_apples': '55%', 'board': 'empty-4x9'}   95.05
+  p21: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 6, 'num_spawn_apples': '55%', 'board': 'empty-6x6'}   110.09533333333333
+  p22: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 8, 'num_spawn_apples': '55%', 'board': 'empty-5x8'}   344.8186666666667
+  p23: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 7, 'num_spawn_apples': '55%', 'board': 'empty-6x7'}   726.9183334560215
+  p24: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 9, 'num_spawn_apples': '55%', 'board': 'empty-5x9'}   1532.4294030325495
+  p25: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 8, 'num_spawn_apples': '55%', 'board': 'empty-6x8'}   3230.5415439364074
+  p26: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 7, 'y_grid': 7, 'num_spawn_apples': '55%', 'board': 'empty-7x7'}   6810.361799666769
+  p27: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 5, 'y_grid': 10, 'num_spawn_apples': '55%', 'board': 'empty-5x10'}   14357.044232851815
+  p28: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 9, 'num_spawn_apples': '55%', 'board': 'empty-6x9'}   30266.339023889926
+  p29: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 7, 'y_grid': 8, 'num_spawn_apples': '55%', 'board': 'empty-7x8'}   63805.00491967086
+  p30: {'snake_size': '1', 'num_initial_apples': 5, 'x_grid': 6, 'y_grid': 10, 'num_spawn_apples': '55%', 'board': 'empty-6x10'}   134508.46002834453
+Total Estimated Runtimes: [3.146, 4.150666666666667, 5.622, 8.214, 9.970666666666666, 11.42, 25.997333333333334, 45.784666666666666, 52.03333333333333, 95.05, 110.09533333333333, 147.75466666666668, 310.6589124060888, 344.8186666666667, 653.1702993520832, 726.9183334560215, 1373.3114451839826, 1532.4294030325495, 2887.4312370665566, 3230.5415439364074, 6070.916526637381, 6810.361799666769, 12764.296167565959, 14357.044232851815, 26837.340941596303, 30266.339023889926, 56426.367686893405, 63805.00491967086, 118638.24278513285, 134508.46002834453]
+Total Estimated Solved: 18

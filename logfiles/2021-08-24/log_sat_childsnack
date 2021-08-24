@@ -1,0 +1,82 @@
+2021-08-24 19:11:05,915 INFO     No run directory, so we will not run anything
+2021-08-24 19:11:06,698 INFO     Loading cache data for baseline planners: 1504
+2021-08-24 19:11:06,762 INFO     baseline cache contains data for 243 parameter values, with min 3 max 39 avg 18.567901234567902 runtimes
+2021-08-24 19:11:06,762 INFO     Loading cache data for sart planners: 4425
+2021-08-24 19:11:06,990 INFO     sart cache contains data for 604 parameter values, with min 3 max 39 avg 21.978476821192054 runtimes
+2021-08-24 19:11:07,948 INFO     Loading cache data for baseline planners: 8
+2021-08-24 19:11:07,948 INFO     baseline cache contains data for 245 parameter values, with min 3 max 39 avg 18.514285714285716 runtimes
+2021-08-24 19:11:07,948 INFO     Loading cache data for sart planners: 12
+2021-08-24 19:11:07,949 INFO     sart cache contains data for 607 parameter values, with min 3 max 39 avg 21.929159802306426 runtimes
+2021-08-24 19:11:09,004 INFO     Loading cache data for baseline planners: 0
+2021-08-24 19:11:09,004 INFO     baseline cache contains data for 245 parameter values, with min 3 max 39 avg 18.514285714285716 runtimes
+2021-08-24 19:11:09,004 INFO     Loading cache data for sart planners: 0
+2021-08-24 19:11:09,005 INFO     sart cache contains data for 607 parameter values, with min 3 max 39 avg 21.929159802306426 runtimes
+2021-08-24 19:11:10,017 INFO     Loading cache data for baseline planners: 0
+2021-08-24 19:11:10,017 INFO     baseline cache contains data for 245 parameter values, with min 3 max 39 avg 18.514285714285716 runtimes
+2021-08-24 19:11:10,017 INFO     Loading cache data for sart planners: 0
+2021-08-24 19:11:10,018 INFO     sart cache contains data for 607 parameter values, with min 3 max 39 avg 21.929159802306426 runtimes
+2021-08-24 19:11:10,018 INFO     Stored sequences: 5589
+2021-08-24 19:11:41,749 INFO     Different evaluated sequences: 1684
+const_ratio 1 659 333
+const_ratio 1.3 555 289
+const_ratio 2 470 240
+num_trays 2 544 279
+num_trays 3 565 283
+num_trays 4 575 300
+gluten_factor 0.4 617 297
+gluten_factor 0.6 537 290
+gluten_factor 0.8 530 275
+2021-08-24 19:11:54,165 INFO     Candidate sequences: 862
+2021-08-24 19:11:54,176 INFO     Using sart runtimes on CPLEX optimization
+2021-08-24 19:12:06,133 INFO     CPLEX solve
+
+2021-08-24 19:12:08,743 INFO     Solution status = 101: MIP_optimal
+2021-08-24 19:12:08,743 INFO     Solution value  = 12.38129959718205
+2021-08-24 19:12:08,756 INFO     CPLEX Solved Instances: 15.0
+2021-08-24 19:12:08,758 INFO     CPLEX Trivial Instances: 2.0
+Selected: sequence 189, 22 instances from 0 to 21
+Configuration: {'const_ratio': 1, 'gluten_factor': 0.8, 'num_children_b': 5, 'num_children_m': 1.4, 'num_trays': 4}
+Penalty: 6.21
+Penalty sart: 1.76
+Penalty baseline: 4.45
+Seq Estimated runtimes: 0.31,0.35,0.47,0.8,1,1.7,2.4,3.7,10,16,35,50,1.1e+02,1.7e+02,2.7e+02,5e+02,9.5e+02,1.8e+03,3.4e+03,6.5e+03,1.2e+04,2.3e+04
+Seq instances: [{'num_children': 5, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}, {'num_children': 6, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}, {'num_children': 7, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}, {'num_children': 9, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}, {'num_children': 10, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}, {'num_children': 12, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}, {'num_children': 13, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}, {'num_children': 14, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}, {'num_children': 16, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}, {'num_children': 17, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}, {'num_children': 19, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}, {'num_children': 20, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}, {'num_children': 21, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}, {'num_children': 23, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}, {'num_children': 24, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}, {'num_children': 25, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}, {'num_children': 27, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}, {'num_children': 28, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}, {'num_children': 30, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}, {'num_children': 31, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}, {'num_children': 32, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}, {'num_children': 34, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}]
+Selected: sequence 158, 8 instances from 18 to 25
+Configuration: {'const_ratio': 2, 'gluten_factor': 0.6, 'num_children_b': 2, 'num_children_m': 1.0, 'num_trays': 2}
+Penalty: 6.17
+Penalty sart: 0.93
+Penalty baseline: 5.24
+Seq Estimated runtimes: 3.2e+02,6.5e+02,1.3e+03,2.7e+03,5.4e+03,1.1e+04,2.2e+04,4.4e+04
+Seq instances: [{'num_children': 20, 'const_ratio': 2, 'num_trays': 2, 'gluten_factor': 0.6}, {'num_children': 21, 'const_ratio': 2, 'num_trays': 2, 'gluten_factor': 0.6}, {'num_children': 22, 'const_ratio': 2, 'num_trays': 2, 'gluten_factor': 0.6}, {'num_children': 23, 'const_ratio': 2, 'num_trays': 2, 'gluten_factor': 0.6}, {'num_children': 24, 'const_ratio': 2, 'num_trays': 2, 'gluten_factor': 0.6}, {'num_children': 25, 'const_ratio': 2, 'num_trays': 2, 'gluten_factor': 0.6}, {'num_children': 26, 'const_ratio': 2, 'num_trays': 2, 'gluten_factor': 0.6}, {'num_children': 27, 'const_ratio': 2, 'num_trays': 2, 'gluten_factor': 0.6}]
+  p01: {'num_children': 5, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}   0.31384615384615383
+  p02: {'num_children': 6, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}   0.3484615384615385
+  p03: {'num_children': 7, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}   0.4674358974358974
+  p04: {'num_children': 9, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}   0.7966666666666666
+  p05: {'num_children': 10, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}   1.0476923076923077
+  p06: {'num_children': 12, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}   1.6582051282051282
+  p07: {'num_children': 13, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}   2.38
+  p08: {'num_children': 14, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}   3.7056666666666667
+  p09: {'num_children': 16, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}   10.274871794871794
+  p10: {'num_children': 17, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}   16.004358974358976
+  p11: {'num_children': 19, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}   34.79358974358974
+  p12: {'num_children': 20, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}   49.66025641025641
+  p13: {'num_children': 21, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}   108.2251282051282
+  p14: {'num_children': 23, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}   168.48727272727274
+  p15: {'num_children': 24, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}   265.99466666666666
+  p16: {'num_children': 25, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}   503.35734008235005
+  p17: {'num_children': 27, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}   952.5326766505792
+  p18: {'num_children': 28, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}   1802.533563807132
+  p19: {'num_children': 30, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}   3411.0401966221766
+  p20: {'num_children': 31, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}   6454.91182888021
+  p21: {'num_children': 32, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}   12215.00900513509
+  p22: {'num_children': 34, 'const_ratio': 1, 'num_trays': 4, 'gluten_factor': 0.8}   23115.179409261662
+  p23: {'num_children': 20, 'const_ratio': 2, 'num_trays': 2, 'gluten_factor': 0.6}   321.07137309916993
+  p24: {'num_children': 21, 'const_ratio': 2, 'num_trays': 2, 'gluten_factor': 0.6}   649.0966578088019
+  p25: {'num_children': 22, 'const_ratio': 2, 'num_trays': 2, 'gluten_factor': 0.6}   1312.2517498575648
+  p26: {'num_children': 23, 'const_ratio': 2, 'num_trays': 2, 'gluten_factor': 0.6}   2652.9248522359135
+  p27: {'num_children': 24, 'const_ratio': 2, 'num_trays': 2, 'gluten_factor': 0.6}   5363.30797225065
+  p28: {'num_children': 25, 'const_ratio': 2, 'num_trays': 2, 'gluten_factor': 0.6}   10842.77693767461
+  p29: {'num_children': 26, 'const_ratio': 2, 'num_trays': 2, 'gluten_factor': 0.6}   21920.39172996311
+  p30: {'num_children': 27, 'const_ratio': 2, 'num_trays': 2, 'gluten_factor': 0.6}   44315.545395521716
+Total Estimated Runtimes: [0.31384615384615383, 0.3484615384615385, 0.4674358974358974, 0.7966666666666666, 1.0476923076923077, 1.6582051282051282, 2.38, 3.7056666666666667, 10.274871794871794, 16.004358974358976, 34.79358974358974, 49.66025641025641, 108.2251282051282, 168.48727272727274, 265.99466666666666, 321.07137309916993, 503.35734008235005, 649.0966578088019, 952.5326766505792, 1312.2517498575648, 1802.533563807132, 2652.9248522359135, 3411.0401966221766, 5363.30797225065, 6454.91182888021, 10842.77693767461, 12215.00900513509, 21920.39172996311, 23115.179409261662, 44315.545395521716]
+Total Estimated Solved: 20

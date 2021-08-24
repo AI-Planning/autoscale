@@ -309,7 +309,7 @@ def parse_args():
 
     parser.add_argument(
         "--benchmark",
-        default="2021-08-19",
+        default="2021-08-24",
         help="name of benchmark set")
 
     parser.add_argument(
@@ -318,7 +318,7 @@ def parse_args():
         help="path to directory containing the logdirs")
 
     parser.add_argument(
-        "--output", default=os.path.join(REPO, "appendix.tex"),
+        "--output", default=os.path.join(REPO, "appendix-08-24.tex"),
         help="Output file",
     )
     return parser.parse_args()

@@ -1,0 +1,2269 @@
+\documentclass{article}
+        \usepackage{{booktabs}}
+    
+        \usepackage[margin=1in]{{geometry}}
+    
+        
+        \begin{document}
+        
+        \newpage \section{Barman}
+                    \subsection*{Domain Info}
+
+                    \begin{center}
+                    \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+                    %\begin{tabular}{ll}
+                    \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
+                    num\_cocktails & Linear(b=[1, 10], m=[0.33, 5.0])\\
+num\_shots & Linear(b=[1, 5], m=[0, 5.0 + num\_cocktails])\\
+num\_ingredients & Enum([2, 3, 4, 5, 6])
+                    
+                     \\\midrule
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
+                    \end{tabular}
+                    \end{center}
+                
+                         \subsection*{Agile/Satisficing Set}
+
+                        \begin{center}
+                        \begin{tabular}{l|l|l|l|l}
+                        \multicolumn{5}{c}{\bf \large Sequences for agile/satisficing planning}\\
+                        \# & num\_cocktails & num\_shots & num\_ingredients & Estimated Time\\\midrule
+                        18&9 $\rightarrow$ 70&14 $\rightarrow$ 78&2&1.2 $\rightarrow$ 63000.0\\
+12&25 $\rightarrow$ 38&31 $\rightarrow$ 47&3&210.0 $\rightarrow$ 65000.0
+                        \end{tabular}
+                        \end{center}
+                    
+                            \subsection*{Optimal Set}
+
+                            \begin{center}
+                            \begin{tabular}{l|l|l|l|l}
+                            \multicolumn{5}{c}{\bf \large Sequences for optimal planning}\\
+                            \# & num\_cocktails & num\_shots & num\_ingredients & Estimated time\\\midrule
+                            11&1 $\rightarrow$ 5&3 $\rightarrow$ 13&2&0.63 $\rightarrow$ 160000.0\\
+11&1 $\rightarrow$ 13&2 $\rightarrow$ 14&2&0.72 $\rightarrow$ 160000.0\\
+8&2 $\rightarrow$ 6&4 $\rightarrow$ 11&4&3.8 $\rightarrow$ 75000.0
+                            \end{tabular}
+                            \end{center}
+                    \newpage \section{Blocksworld}
+                    \subsection*{Domain Info}
+
+                    \begin{center}
+                    \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+                    %\begin{tabular}{ll}
+                    \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
+                    n & Linear(b=[5, 10], m=[1, 5])
+                    
+                     \\\midrule
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
+                    \end{tabular}
+                    \end{center}
+                
+                         \subsection*{Agile/Satisficing Set}
+
+                        \begin{center}
+                        \begin{tabular}{l|l|l}
+                        \multicolumn{3}{c}{\bf \large Sequences for agile/satisficing planning}\\
+                        \# & n & Estimated Time\\\midrule
+                        30&9 $\rightarrow$ 151&0.52 $\rightarrow$ 100000.0
+                        \end{tabular}
+                        \end{center}
+                    
+                            \subsection*{Optimal Set}
+
+                            \begin{center}
+                            \begin{tabular}{l|l|l}
+                            \multicolumn{3}{c}{\bf \large Sequences for optimal planning}\\
+                            \# & n & Estimated time\\\midrule
+                            17&5 $\rightarrow$ 21&0.54 $\rightarrow$ 330000.0\\
+13&5 $\rightarrow$ 20&0.54 $\rightarrow$ 230000.0
+                            \end{tabular}
+                            \end{center}
+                    \newpage \section{Childsnack}
+                    \subsection*{Domain Info}
+
+                    \begin{center}
+                    \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+                    %\begin{tabular}{ll}
+                    \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
+                    num\_children & Linear(b=[2, 12], m=[1, 3])\\
+const\_ratio & Enum([1, 1.3, 2])\\
+num\_trays & Enum([2, 3, 4])\\
+gluten\_factor & Enum([0.4, 0.6, 0.8])
+                    
+                     \\\midrule
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
+                    \end{tabular}
+                    \end{center}
+                
+                         \subsection*{Agile/Satisficing Set}
+
+                        \begin{center}
+                        \begin{tabular}{l|l|l|l|l|l}
+                        \multicolumn{6}{c}{\bf \large Sequences for agile/satisficing planning}\\
+                        \# & num\_children & const\_ratio & num\_trays & gluten\_factor & Estimated Time\\\midrule
+                        22&5 $\rightarrow$ 34&1&4&0.8&0.31 $\rightarrow$ 23000.0\\
+8&20 $\rightarrow$ 27&2&2&0.6&320.0 $\rightarrow$ 44000.0
+                        \end{tabular}
+                        \end{center}
+                    
+                            \subsection*{Optimal Set}
+
+                            \begin{center}
+                            \begin{tabular}{l|l|l|l|l|l}
+                            \multicolumn{6}{c}{\bf \large Sequences for optimal planning}\\
+                            \# & num\_children & const\_ratio & num\_trays & gluten\_factor & Estimated time\\\midrule
+                            12&3 $\rightarrow$ 15&1&2&0.8&0.52 $\rightarrow$ 130000.0\\
+9&4 $\rightarrow$ 12&2&3&0.4&0.67 $\rightarrow$ 140000.0\\
+9&7 $\rightarrow$ 16&1&3&0.8&27.0 $\rightarrow$ 66000.0
+                            \end{tabular}
+                            \end{center}
+                    \newpage \section{Data-network}
+                    \subsection*{Domain Info}
+
+                    \begin{center}
+                    \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+                    %\begin{tabular}{ll}
+                    \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
+                    network & Enum(['tiny-network', 'small-network', 'ring-network'])\\
+layers & Enum([2, 3, 4, 5, 6])\\
+extra\_items & Linear(b=[2, 20], m=[1, 5])\\
+extra\_scripts & Linear(b=[2, 25], m=[0, 5])
+                    
+                    \\\midrule
+                    Adapt parameters: & Yes  
+                
+                     \\\midrule
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
+                    \end{tabular}
+                    \end{center}
+                
+                         \subsection*{Agile/Satisficing Set}
+
+                        \begin{center}
+                        \begin{tabular}{l|l|l|l|l|l}
+                        \multicolumn{6}{c}{\bf \large Sequences for agile/satisficing planning}\\
+                        \# & network & layers & extra\_items & extra\_scripts & Estimated Time\\\midrule
+                        21&ring-network&3&9 $\rightarrow$ 47&42 $\rightarrow$ 140&2.0 $\rightarrow$ 28000.0\\
+9&ring-network&4&42 $\rightarrow$ 61&61 $\rightarrow$ 89&320.0 $\rightarrow$ 20000.0
+                        \end{tabular}
+                        \end{center}
+                    
+                            \subsection*{Optimal Set}
+
+                            \begin{center}
+                            \begin{tabular}{l|l|l|l|l|l}
+                            \multicolumn{6}{c}{\bf \large Sequences for optimal planning}\\
+                            \# & network & layers & extra\_items & extra\_scripts & Estimated time\\\midrule
+                            16&tiny-network&3&2 $\rightarrow$ 17&22 $\rightarrow$ 70&1.4 $\rightarrow$ 140000.0\\
+14&tiny-network&4&4 $\rightarrow$ 17&30 $\rightarrow$ 62&19.0 $\rightarrow$ 45000.0
+                            \end{tabular}
+                            \end{center}
+                    \newpage \section{Depots}
+                    \subsection*{Domain Info}
+
+                    \begin{center}
+                    \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+                    %\begin{tabular}{ll}
+                    \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
+                    depots & Linear(b=[3, 10], m=[0, 5.0])\\
+distributors & Linear(b=[2, 10], m=[0, 5.0])\\
+trucks & Linear(b=[2, 10], m=[0, 5.0])\\
+pallets & Linear(b=[2, 20], m=[0, 5.0])\\
+hoists & Linear(b=[2, 20], m=[0, 5.0])\\
+crates & Linear(b=[3, 20], m=[1, 5.0])
+                    
+                     \\\midrule
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
+                    \end{tabular}
+                    \end{center}
+                
+                         \subsection*{Agile/Satisficing Set}
+
+                        \begin{center}
+                        \begin{tabular}{l|l|l|l|l|l|l|l}
+                        \multicolumn{8}{c}{\bf \large Sequences for agile/satisficing planning}\\
+                        \# & depots & distributors & trucks & pallets & hoists & crates & Estimated Time\\\midrule
+                        30&3 $\rightarrow$ 49&3 $\rightarrow$ 113&2&19 $\rightarrow$ 135&20 $\rightarrow$ 49&5 $\rightarrow$ 34&1.8 $\rightarrow$ 25000.0
+                        \end{tabular}
+                        \end{center}
+                    
+                            \subsection*{Optimal Set}
+
+                            \begin{center}
+                            \begin{tabular}{l|l|l|l|l|l|l|l}
+                            \multicolumn{8}{c}{\bf \large Sequences for optimal planning}\\
+                            \# & depots & distributors & trucks & pallets & hoists & crates & Estimated time\\\midrule
+                            12&3&2&2&2 $\rightarrow$ 14&3&3 $\rightarrow$ 15&0.59 $\rightarrow$ 120000.0\\
+12&3&2&2&2 $\rightarrow$ 11&2&3 $\rightarrow$ 14&0.63 $\rightarrow$ 96000.0\\
+6&3&2&2 $\rightarrow$ 3&2&10 $\rightarrow$ 18&8 $\rightarrow$ 13&68.0 $\rightarrow$ 72000.0
+                            \end{tabular}
+                            \end{center}
+                    \newpage \section{Driverlog}
+                    \subsection*{Domain Info}
+
+                    \begin{center}
+                    \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+                    %\begin{tabular}{ll}
+                    \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
+                    drivers & Linear(b=[1, 10], m=[0, 5.0])\\
+packages & Linear(b=[2, 15], m=[1, 5])\\
+roadjunctions & Linear(b=[2, 10], m=[0, 5.0])\\
+trucks & Linear(b=[0, 1], m=[0, 1 + drivers])
+                    
+                     \\\midrule
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
+                    \end{tabular}
+                    \end{center}
+                
+                         \subsection*{Agile/Satisficing Set}
+
+                        \begin{center}
+                        \begin{tabular}{l|l|l|l|l|l}
+                        \multicolumn{6}{c}{\bf \large Sequences for agile/satisficing planning}\\
+                        \# & drivers & packages & roadjunctions & trucks & Estimated Time\\\midrule
+                        30&4 $\rightarrow$ 6&12 $\rightarrow$ 136&10 $\rightarrow$ 126&4 $\rightarrow$ 6&0.48 $\rightarrow$ 82000.0
+                        \end{tabular}
+                        \end{center}
+                    
+                            \subsection*{Optimal Set}
+
+                            \begin{center}
+                            \begin{tabular}{l|l|l|l|l|l}
+                            \multicolumn{6}{c}{\bf \large Sequences for optimal planning}\\
+                            \# & drivers & packages & roadjunctions & trucks & Estimated time\\\midrule
+                            30&3&2 $\rightarrow$ 39&2&4 $\rightarrow$ 33&0.47 $\rightarrow$ 140000.0
+                            \end{tabular}
+                            \end{center}
+                    \newpage \section{Elevators}
+                    \subsection*{Domain Info}
+
+                    \begin{center}
+                    \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+                    %\begin{tabular}{ll}
+                    \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
+                    num\_areas & Enum([2, 3, 4])\\
+area\_size & Linear(b=[2, 10], m=[0, 1])\\
+passengers & Linear(b=[3, 15], m=[1, 5.0])\\
+fast\_elevators & Enum([1, 2, 3])\\
+slow\_elevators & Constant(1)\\
+fast\_cost & Constant(3)\\
+stop\_fast\_cost & Constant(1)\\
+fast\_capacity & Constant(3)\\
+slow\_cost & Constant(1)\\
+stop\_slow\_cost & Constant(5)\\
+slow\_capacity & Constant(2)
+                    
+                     \\\midrule
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
+                    \end{tabular}
+                    \end{center}
+                
+                         \subsection*{Agile/Satisficing Set}
+
+                        \begin{center}
+                        \begin{tabular}{l|l|l|l|l|l}
+                        \multicolumn{6}{c}{\bf \large Sequences for agile/satisficing planning}\\
+                        \# & num\_areas & area\_size & passengers & fast\_elevators & Estimated Time\\\midrule
+                        28&3&6 $\rightarrow$ 33&3 $\rightarrow$ 97&1&0.69 $\rightarrow$ 35000.0\\
+2&3&29 $\rightarrow$ 30&86 $\rightarrow$ 90&1&2200.0 $\rightarrow$ 26000.0
+                        \end{tabular}
+                        \end{center}
+                    
+                            \subsection*{Optimal Set}
+
+                            \begin{center}
+                            \begin{tabular}{l|l|l|l|l|l}
+                            \multicolumn{6}{c}{\bf \large Sequences for optimal planning}\\
+                            \# & num\_areas & area\_size & passengers & fast\_elevators & Estimated time\\\midrule
+                            13&2&2&4 $\rightarrow$ 16&1&1.1 $\rightarrow$ 61000.0\\
+9&3&2&6 $\rightarrow$ 15&1&13.0 $\rightarrow$ 160000.0\\
+8&2&3&7 $\rightarrow$ 15&1&34.0 $\rightarrow$ 170000.0
+                            \end{tabular}
+                            \end{center}
+                    \newpage \section{Floortile}
+                    \subsection*{Domain Info}
+
+                    \begin{center}
+                    \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+                    %\begin{tabular}{ll}
+                    \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
+                    grid & Grid(x=[2, 10], m=[0.1, 10])\\
+num\_robots & Enum([2, 3, 4, 5])
+                    
+                    \\\midrule
+                    Adapt parameters: & Ensures that there are no more robots than columns. May cause num\_robots to have multiple values accross a sequence  
+                
+                     \\\midrule
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
+                    \end{tabular}
+                    \end{center}
+                
+                         \subsection*{Agile/Satisficing Set}
+
+                        \begin{center}
+                        \begin{tabular}{l|l|l|l}
+                        \multicolumn{4}{c}{\bf \large Sequences for agile/satisficing planning}\\
+                        \# & grid & num\_robots & Estimated Time\\\midrule
+                        30&2-2 $\rightarrow$ 40-42&2 $\rightarrow$ 4&0.21 $\rightarrow$ 57000.0
+                        \end{tabular}
+                        \end{center}
+                    
+                            \subsection*{Optimal Set}
+
+                            \begin{center}
+                            \begin{tabular}{l|l|l|l}
+                            \multicolumn{4}{c}{\bf \large Sequences for optimal planning}\\
+                            \# & grid & num\_robots & Estimated time\\\midrule
+                            20&2-2 $\rightarrow$ 5-7&2 $\rightarrow$ 3&0.84 $\rightarrow$ 100000.0\\
+10&4-9 $\rightarrow$ 6-10&2&370.0 $\rightarrow$ 170000.0
+                            \end{tabular}
+                            \end{center}
+                    \newpage \section{Grid}
+                    \subsection*{Domain Info}
+
+                    \begin{center}
+                    \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+                    %\begin{tabular}{ll}
+                    \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
+                    grid & Grid(x=[3, 10], m=[0.1, 10])\\
+prob\_key\_in\_goal & Enum([0.5, 0.75, 1])\\
+shapes & Linear(b=[1, 5], m=[0, 1])\\
+extra\_keys & Linear(b=[1, 5], m=[0, 3])\\
+percentage\_cells\_locked & Enum([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
+                    
+                    \\\midrule
+                    Adapt parameters: & Ensure that there are no more shapes/keys/locks than cells, and no more shapes than locks  
+                
+                     \\\midrule
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
+                    \end{tabular}
+                    \end{center}
+                
+                         \subsection*{Agile/Satisficing Set}
+
+                        \begin{center}
+                        \begin{tabular}{l|l|l|l|l|l|l}
+                        \multicolumn{7}{c}{\bf \large Sequences for agile/satisficing planning}\\
+                        \# & grid & prob\_key\_in\_goal & shapes & extra\_keys & percentage\_cells\_locked & Estimated Time\\\midrule
+                        30&7-7 $\rightarrow$ 140-140&0.5&2 $\rightarrow$ 7&1&0.5&0.67 $\rightarrow$ 88000.0
+                        \end{tabular}
+                        \end{center}
+                    
+                            \subsection*{Optimal Set}
+
+                            \begin{center}
+                            \begin{tabular}{l|l|l|l|l|l|l}
+                            \multicolumn{7}{c}{\bf \large Sequences for optimal planning}\\
+                            \# & grid & prob\_key\_in\_goal & shapes & extra\_keys & percentage\_cells\_locked & Estimated time\\\midrule
+                            30&3-3 $\rightarrow$ 11-11&0.5&1&5&0.5&1.0 $\rightarrow$ 79000.0
+                            \end{tabular}
+                            \end{center}
+                    \newpage \section{Gripper}
+                    \subsection*{Domain Info}
+
+                    \begin{center}
+                    \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+                    %\begin{tabular}{ll}
+                    \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
+                    n & Linear(b=[8, 20], m=[0.1, 5.0])
+                    
+                     \\\midrule
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: inf}
+                    \end{tabular}
+                    \end{center}
+                
+                         \subsection*{Agile/Satisficing Set}
+
+                        \begin{center}
+                        \begin{tabular}{l|l|l}
+                        \multicolumn{3}{c}{\bf \large Sequences for agile/satisficing planning}\\
+                        \# & n & Estimated Time\\\midrule
+                        30&20 $\rightarrow$ 165&0.59 $\rightarrow$ 82.0
+                        \end{tabular}
+                        \end{center}
+                    
+                            \subsection*{Optimal Set}
+
+                            \begin{center}
+                            \begin{tabular}{l|l|l}
+                            \multicolumn{3}{c}{\bf \large Sequences for optimal planning}\\
+                            \# & n & Estimated time\\\midrule
+                            30&8 $\rightarrow$ 37&1.4 $\rightarrow$ 490000000.0
+                            \end{tabular}
+                            \end{center}
+                    \newpage \section{Hiking}
+                    \subsection*{Domain Info}
+
+                    \begin{center}
+                    \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+                    %\begin{tabular}{ll}
+                    \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
+                    n\_couples & Linear(b=[1, 10], m=[0, 5.0])\\
+n\_places & Linear(b=[2, 20], m=[0.1, 5.0])\\
+n\_cars & Linear(b=[1, 5], m=[0, 5.0 + n\_couples])
+                    
+                     \\\midrule
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
+                    \end{tabular}
+                    \end{center}
+                
+                         \subsection*{Agile/Satisficing Set}
+
+                        \begin{center}
+                        \begin{tabular}{l|l|l|l|l}
+                        \multicolumn{5}{c}{\bf \large Sequences for agile/satisficing planning}\\
+                        \# & n\_couples & n\_places & n\_cars & Estimated Time\\\midrule
+                        20&1&9 $\rightarrow$ 28&4 $\rightarrow$ 6&1.8 $\rightarrow$ 160000.0\\
+10&1&16 $\rightarrow$ 28&4&17.0 $\rightarrow$ 64000.0
+                        \end{tabular}
+                        \end{center}
+                    
+                            \subsection*{Optimal Set}
+
+                            \begin{center}
+                            \begin{tabular}{l|l|l|l|l}
+                            \multicolumn{5}{c}{\bf \large Sequences for optimal planning}\\
+                            \# & n\_couples & n\_places & n\_cars & Estimated time\\\midrule
+                            16&1&5 $\rightarrow$ 18&2 $\rightarrow$ 4&0.71 $\rightarrow$ 77000.0\\
+14&1&14 $\rightarrow$ 27&3&88.0 $\rightarrow$ 67000.0
+                            \end{tabular}
+                            \end{center}
+                    \newpage \section{Logistics}
+                    \subsection*{Domain Info}
+
+                    \begin{center}
+                    \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+                    %\begin{tabular}{ll}
+                    \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
+                    num\_airplanes & Linear(b=[1, 5], m=[0, 2])\\
+num\_cities & Linear(b=[2, 10], m=[0, 2])\\
+city\_size & Linear(b=[2, 15], m=[0, 2])\\
+num\_packages & Linear(b=[1, 30], m=[1, 10])\\
+extra\_trucks & Linear(b=[1, 10], m=[0, 2])
+                    
+                    \\\midrule
+                    Adapt parameters: & Yes  
+                
+                     \\\midrule
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
+                    \end{tabular}
+                    \end{center}
+                
+                         \subsection*{Agile/Satisficing Set}
+
+                        \begin{center}
+                        \begin{tabular}{l|l|l|l|l|l|l}
+                        \multicolumn{7}{c}{\bf \large Sequences for agile/satisficing planning}\\
+                        \# & num\_airplanes & num\_cities & city\_size & num\_packages & extra\_trucks & Estimated Time\\\midrule
+                        26&1&7 $\rightarrow$ 25&11 $\rightarrow$ 29&32 $\rightarrow$ 175&11 $\rightarrow$ 54&2.2 $\rightarrow$ 26000.0\\
+4&1&14 $\rightarrow$ 16&18 $\rightarrow$ 21&133 $\rightarrow$ 160&26 $\rightarrow$ 31&180.0 $\rightarrow$ 43000.0
+                        \end{tabular}
+                        \end{center}
+                    
+                            \subsection*{Optimal Set}
+
+                            \begin{center}
+                            \begin{tabular}{l|l|l|l|l|l|l}
+                            \multicolumn{7}{c}{\bf \large Sequences for optimal planning}\\
+                            \# & num\_airplanes & num\_cities & city\_size & num\_packages & extra\_trucks & Estimated time\\\midrule
+                            15&1 $\rightarrow$ 17&2 $\rightarrow$ 4&2 $\rightarrow$ 3&3 $\rightarrow$ 24&10&0.44 $\rightarrow$ 46000.0\\
+15&3&3 $\rightarrow$ 4&2&41 $\rightarrow$ 77&20 $\rightarrow$ 30&18.0 $\rightarrow$ 40000.0
+                            \end{tabular}
+                            \end{center}
+                    \newpage \section{Miconic}
+                    \subsection*{Domain Info}
+
+                    \begin{center}
+                    \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+                    %\begin{tabular}{ll}
+                    \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
+                    passengers & Linear(b=[5, 20], m=[0.1, 5])\\
+floors & Linear(b=[5, 15], m=[0, 5])
+                    
+                     \\\midrule
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
+                    \end{tabular}
+                    \end{center}
+                
+                         \subsection*{Agile/Satisficing Set}
+
+                        \begin{center}
+                        \begin{tabular}{l|l|l|l}
+                        \multicolumn{4}{c}{\bf \large Sequences for agile/satisficing planning}\\
+                        \# & passengers & floors & Estimated Time\\\midrule
+                        30&19 $\rightarrow$ 155&11 $\rightarrow$ 124&0.53 $\rightarrow$ 19.0
+                        \end{tabular}
+                        \end{center}
+                    
+                            \subsection*{Optimal Set}
+
+                            \begin{center}
+                            \begin{tabular}{l|l|l|l}
+                            \multicolumn{4}{c}{\bf \large Sequences for optimal planning}\\
+                            \# & passengers & floors & Estimated time\\\midrule
+                            30&8 $\rightarrow$ 60&6 $\rightarrow$ 61&0.5 $\rightarrow$ 130000.0
+                            \end{tabular}
+                            \end{center}
+                    \newpage \section{Nomystery}
+                    \subsection*{Domain Info}
+
+                    \begin{center}
+                    \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+                    %\begin{tabular}{ll}
+                    \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
+                    locations & Linear(b=[3, 10], m=[0.1, 1])\\
+packages & Linear(b=[2, 20], m=[1, 5.0])\\
+edgefactor & Constant(1.5)\\
+edgeweight & Constant(25)\\
+constrainedness & Enum([1.1, 1.5, 2.0])
+                    
+                     \\\midrule
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
+                    \end{tabular}
+                    \end{center}
+                
+                         \subsection*{Agile/Satisficing Set}
+
+                        \begin{center}
+                        \begin{tabular}{l|l|l|l|l}
+                        \multicolumn{5}{c}{\bf \large Sequences for agile/satisficing planning}\\
+                        \# & locations & packages & constrainedness & Estimated Time\\\midrule
+                        17&12 $\rightarrow$ 28&6 $\rightarrow$ 27&2.0&3.7 $\rightarrow$ 19000.0\\
+13&16 $\rightarrow$ 21&52 $\rightarrow$ 86&1.5&200.0 $\rightarrow$ 100000.0
+                        \end{tabular}
+                        \end{center}
+                    
+                            \subsection*{Optimal Set}
+
+                            \begin{center}
+                            \begin{tabular}{l|l|l|l|l}
+                            \multicolumn{5}{c}{\bf \large Sequences for optimal planning}\\
+                            \# & locations & packages & constrainedness & Estimated time\\\midrule
+                            30&7 $\rightarrow$ 12&3 $\rightarrow$ 40&1.5&0.94 $\rightarrow$ 49000.0
+                            \end{tabular}
+                            \end{center}
+                    \newpage \section{Openstacks}
+                    \subsection*{Domain Info}
+
+                    \begin{center}
+                    \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+                    %\begin{tabular}{ll}
+                    \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
+                    density & Enum([10, 20, 33, 50, 66, 80])\\
+products & Linear(b=[5, 100], m=[0.5, 40])\\
+orders & Linear(b=[5, 100], m=[1, 40])
+                    
+                     \\\midrule
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
+                    \end{tabular}
+                    \end{center}
+                
+                         \subsection*{Agile/Satisficing Set}
+
+                        \begin{center}
+                        \begin{tabular}{l|l|l|l|l}
+                        \multicolumn{5}{c}{\bf \large Sequences for agile/satisficing planning}\\
+                        \# & density & products & orders & Estimated Time\\\midrule
+                        14&66&5 $\rightarrow$ 450&5 $\rightarrow$ 508&0.2 $\rightarrow$ 23000.0\\
+16&10&5 $\rightarrow$ 530&5 $\rightarrow$ 585&0.22 $\rightarrow$ 22000.0
+                        \end{tabular}
+                        \end{center}
+                    
+                            \subsection*{Optimal Set}
+
+                            \begin{center}
+                            \begin{tabular}{l|l|l|l|l}
+                            \multicolumn{5}{c}{\bf \large Sequences for optimal planning}\\
+                            \# & density & products & orders & Estimated time\\\midrule
+                            20&80&5 $\rightarrow$ 71&19 $\rightarrow$ 39&1.6 $\rightarrow$ 33000.0\\
+10&80&48 $\rightarrow$ 72&37 $\rightarrow$ 47&260.0 $\rightarrow$ 95000.0
+                            \end{tabular}
+                            \end{center}
+                    \newpage \section{Parking}
+                    \subsection*{Domain Info}
+
+                    \begin{center}
+                    \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+                    %\begin{tabular}{ll}
+                    \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
+                    curbs & Linear(b=[3, 20], m=[1, 5.0])\\
+cars\_diff & Enum([0, -1, -2])
+                    
+                    \\\midrule
+                    Adapt parameters: & Yes  
+                
+                     \\\midrule
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
+                    \end{tabular}
+                    \end{center}
+                
+                         \subsection*{Agile/Satisficing Set}
+
+                        \begin{center}
+                        \begin{tabular}{l|l|l|l}
+                        \multicolumn{4}{c}{\bf \large Sequences for agile/satisficing planning}\\
+                        \# & curbs & cars\_diff & Estimated Time\\\midrule
+                        30&9 $\rightarrow$ 43&0&2.9 $\rightarrow$ 70000.0
+                        \end{tabular}
+                        \end{center}
+                    
+                            \subsection*{Optimal Set}
+
+                            \begin{center}
+                            \begin{tabular}{l|l|l|l}
+                            \multicolumn{4}{c}{\bf \large Sequences for optimal planning}\\
+                            \# & curbs & cars\_diff & Estimated time\\\midrule
+                            13&4 $\rightarrow$ 17&-2&0.58 $\rightarrow$ 150000.0\\
+8&3 $\rightarrow$ 10&0&0.73 $\rightarrow$ 22000.0\\
+9&6 $\rightarrow$ 15&-1&2.0 $\rightarrow$ 77000.0
+                            \end{tabular}
+                            \end{center}
+                    \newpage \section{Rovers}
+                    \subsection*{Domain Info}
+
+                    \begin{center}
+                    \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+                    %\begin{tabular}{ll}
+                    \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
+                    rovers & Linear(b=[1, 10], m=[0, 2])\\
+objectives & Linear(b=[1, 10], m=[0, 5.0])\\
+cameras & Linear(b=[1, 10], m=[0, 5.0])\\
+goals & Linear(b=[1, 20], m=[1, 5.0])\\
+waypoints & Linear(b=[4, 20], m=[0.5, 1])
+                    
+                     \\\midrule
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
+                    \end{tabular}
+                    \end{center}
+                
+                         \subsection*{Agile/Satisficing Set}
+
+                        \begin{center}
+                        \begin{tabular}{l|l|l|l|l|l|l}
+                        \multicolumn{7}{c}{\bf \large Sequences for agile/satisficing planning}\\
+                        \# & rovers & objectives & cameras & goals & waypoints & Estimated Time\\\midrule
+                        30&7 $\rightarrow$ 65&3 $\rightarrow$ 145&2 $\rightarrow$ 129&9 $\rightarrow$ 125&7 $\rightarrow$ 36&0.57 $\rightarrow$ 2600.0
+                        \end{tabular}
+                        \end{center}
+                    
+                            \subsection*{Optimal Set}
+
+                            \begin{center}
+                            \begin{tabular}{l|l|l|l|l|l|l}
+                            \multicolumn{7}{c}{\bf \large Sequences for optimal planning}\\
+                            \# & rovers & objectives & cameras & goals & waypoints & Estimated time\\\midrule
+                            18&1&5 $\rightarrow$ 10&1&8 $\rightarrow$ 28&9 $\rightarrow$ 26&1.1 $\rightarrow$ 150000.0\\
+12&1&4 $\rightarrow$ 6&5&20 $\rightarrow$ 31&22 $\rightarrow$ 32&60.0 $\rightarrow$ 31000.0
+                            \end{tabular}
+                            \end{center}
+                    \newpage \section{Satellite}
+                    \subsection*{Domain Info}
+
+                    \begin{center}
+                    \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+                    %\begin{tabular}{ll}
+                    \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
+                    satellites & Linear(b=[1, 10], m=[0, 2.0])\\
+targets & Linear(b=[5, 20], m=[0.5, 10])\\
+modes & Linear(b=[2, 10], m=[0, 1.0])\\
+observations & Linear(b=[5, 40], m=[1, 10])
+                    
+                     \\\midrule
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
+                    \end{tabular}
+                    \end{center}
+                
+                         \subsection*{Agile/Satisficing Set}
+
+                        \begin{center}
+                        \begin{tabular}{l|l|l|l|l|l}
+                        \multicolumn{6}{c}{\bf \large Sequences for agile/satisficing planning}\\
+                        \# & satellites & targets & modes & observations & Estimated Time\\\midrule
+                        30&2 $\rightarrow$ 57&12 $\rightarrow$ 278&3&5 $\rightarrow$ 60&0.69 $\rightarrow$ 90000.0
+                        \end{tabular}
+                        \end{center}
+                    
+                            \subsection*{Optimal Set}
+
+                            \begin{center}
+                            \begin{tabular}{l|l|l|l|l|l}
+                            \multicolumn{6}{c}{\bf \large Sequences for optimal planning}\\
+                            \# & satellites & targets & modes & observations & Estimated time\\\midrule
+                            24&1&18 $\rightarrow$ 39&7&8 $\rightarrow$ 33&1.0 $\rightarrow$ 110000.0\\
+6&1&30 $\rightarrow$ 34&6&25 $\rightarrow$ 30&180.0 $\rightarrow$ 75000.0
+                            \end{tabular}
+                            \end{center}
+                    \newpage \section{Scanalyzer}
+                    \subsection*{Domain Info}
+
+                    \begin{center}
+                    \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+                    %\begin{tabular}{ll}
+                    \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
+                    segment\_type & Enum(['empty', 'ab'])\\
+inout & Enum(['none', 'both', 'in'])\\
+size & Linear(b=[1, 4], m=[1, 3])
+                    
+                     \\\midrule
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
+                    \end{tabular}
+                    \end{center}
+                
+                         \subsection*{Agile/Satisficing Set}
+
+                        \begin{center}
+                        \begin{tabular}{l|l|l|l|l}
+                        \multicolumn{5}{c}{\bf \large Sequences for agile/satisficing planning}\\
+                        \# & segment\_type & inout & size & Estimated Time\\\midrule
+                        30&empty&in&4 $\rightarrow$ 33&0.71 $\rightarrow$ 73000.0
+                        \end{tabular}
+                        \end{center}
+                    
+                            \subsection*{Optimal Set}
+
+                            \begin{center}
+                            \begin{tabular}{l|l|l|l|l}
+                            \multicolumn{5}{c}{\bf \large Sequences for optimal planning}\\
+                            \# & segment\_type & inout & size & Estimated time\\\midrule
+                            7&empty&in&1 $\rightarrow$ 7&0.5 $\rightarrow$ 150000.0\\
+19&empty&both&1 $\rightarrow$ 20&0.51 $\rightarrow$ 180000.0\\
+4&empty&none&4 $\rightarrow$ 7&10.0 $\rightarrow$ 53000.0
+                            \end{tabular}
+                            \end{center}
+                    \newpage \section{Snake}
+                    \subsection*{Domain Info}
+
+                    \begin{center}
+                    \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+                    %\begin{tabular}{ll}
+                    \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
+                    snake\_size & Constant(1)\\
+num\_initial\_apples & Constant(5)\\
+grid & Grid(x=[3, 8], m=[0.1, 3.0])\\
+num\_spawn\_apples & Enum(['40\%', '55\%', '70\%', '85\%', '100\%'])
+                    
+                    \\\midrule
+                    Adapt parameters: & Yes  
+                
+                     \\\midrule
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
+                    \end{tabular}
+                    \end{center}
+                
+                         \subsection*{Agile/Satisficing Set}
+
+                        \begin{center}
+                        \begin{tabular}{l|l|l|l}
+                        \multicolumn{4}{c}{\bf \large Sequences for agile/satisficing planning}\\
+                        \# & grid & num\_spawn\_apples & Estimated Time\\\midrule
+                        30&5-5 $\rightarrow$ 13-14&40\%&0.79 $\rightarrow$ 130000.0
+                        \end{tabular}
+                        \end{center}
+                    
+                            \subsection*{Optimal Set}
+
+                            \begin{center}
+                            \begin{tabular}{l|l|l|l}
+                            \multicolumn{4}{c}{\bf \large Sequences for optimal planning}\\
+                            \# & grid & num\_spawn\_apples & Estimated time\\\midrule
+                            18&5-5 $\rightarrow$ 7-10&40\%&3.1 $\rightarrow$ 120000.0\\
+12&5-7 $\rightarrow$ 6-10&55\%&52.0 $\rightarrow$ 130000.0
+                            \end{tabular}
+                            \end{center}
+                    \newpage \section{Storage}
+                    \subsection*{Domain Info}
+
+                    \begin{center}
+                    \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+                    %\begin{tabular}{ll}
+                    \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
+                    crates & Linear(b=[2, 15], m=[1, 5])\\
+hoists & Linear(b=[2, 5], m=[0, 5.0])\\
+store\_areas & Linear(b=[0, 10], m=[0, 5.0])\\
+depots & Linear(b=[1, 5], m=[0, 1])
+                    
+                    \\\midrule
+                    Adapt parameters: & Yes  
+                
+                     \\\midrule
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
+                    \end{tabular}
+                    \end{center}
+                
+                         \subsection*{Agile/Satisficing Set}
+
+                        \begin{center}
+                        \begin{tabular}{l|l|l|l|l|l}
+                        \multicolumn{6}{c}{\bf \large Sequences for agile/satisficing planning}\\
+                        \# & crates & hoists & store\_areas & depots & Estimated Time\\\midrule
+                        24&4 $\rightarrow$ 27&6 $\rightarrow$ 50&15 $\rightarrow$ 156&2 $\rightarrow$ 21&0.42 $\rightarrow$ 160000.0\\
+6&13 $\rightarrow$ 18&19 $\rightarrow$ 27&27 $\rightarrow$ 39&4&16.0 $\rightarrow$ 71000.0
+                        \end{tabular}
+                        \end{center}
+                    
+                            \subsection*{Optimal Set}
+
+                            \begin{center}
+                            \begin{tabular}{l|l|l|l|l|l}
+                            \multicolumn{6}{c}{\bf \large Sequences for optimal planning}\\
+                            \# & crates & hoists & store\_areas & depots & Estimated time\\\midrule
+                            21&2 $\rightarrow$ 22&2&2 $\rightarrow$ 22&1 $\rightarrow$ 21&0.54 $\rightarrow$ 92000.0\\
+9&10 $\rightarrow$ 18&2&13 $\rightarrow$ 21&9 $\rightarrow$ 17&88.0 $\rightarrow$ 160000.0
+                            \end{tabular}
+                            \end{center}
+                    \newpage \section{Termes}
+                    \subsection*{Domain Info}
+
+                    \begin{center}
+                    \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+                    %\begin{tabular}{ll}
+                    \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
+                    grid & Grid(x=[3, 10], m=[0, 5])\\
+min\_height & Linear(b=[1, 5], m=[0, 1])\\
+max\_height & Linear(b=[0, 5], m=[0, 1 + min\_height])\\
+num\_towers & Linear(b=[1, 4], m=[0, 2])
+                    
+                    
+                                \\\midrule
+                                Discard Sequences: & Yes 
+                             \\\midrule
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
+                    \end{tabular}
+                    \end{center}
+                
+                         \subsection*{Agile/Satisficing Set}
+
+                        \begin{center}
+                        \begin{tabular}{l|l|l|l|l|l}
+                        \multicolumn{6}{c}{\bf \large Sequences for agile/satisficing planning}\\
+                        \# & grid & min\_height & max\_height & num\_towers & Estimated Time\\\midrule
+                        16&7-7&1&2 $\rightarrow$ 6&10 $\rightarrow$ 34&1.5 $\rightarrow$ 79000.0\\
+14&6-6&3&3 $\rightarrow$ 6&1 $\rightarrow$ 23&2.0 $\rightarrow$ 110000.0
+                        \end{tabular}
+                        \end{center}
+                    
+                            \subsection*{Optimal Set}
+
+                            \begin{center}
+                            \begin{tabular}{l|l|l|l|l|l}
+                            \multicolumn{6}{c}{\bf \large Sequences for optimal planning}\\
+                            \# & grid & min\_height & max\_height & num\_towers & Estimated time\\\midrule
+                            13&3-3&2&4 $\rightarrow$ 11&1 $\rightarrow$ 6&1.4 $\rightarrow$ 140000.0\\
+9&3-3&2 $\rightarrow$ 8&4 $\rightarrow$ 14&2 $\rightarrow$ 4&1.9 $\rightarrow$ 33000.0\\
+8&10-13 $\rightarrow$ 15-20&1 $\rightarrow$ 3&1 $\rightarrow$ 3&2 $\rightarrow$ 3&21.0 $\rightarrow$ 67000.0
+                            \end{tabular}
+                            \end{center}
+                    \newpage \section{Tpp}
+                    \subsection*{Domain Info}
+
+                    \begin{center}
+                    \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+                    %\begin{tabular}{ll}
+                    \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
+                    products & Linear(b=[2, 20], m=[1, 5.0])\\
+markets & Linear(b=[1, 10], m=[0, 5.0])\\
+trucks & Linear(b=[2, 10], m=[0, 5.0])\\
+depots & Linear(b=[1, 10], m=[0, 5.0])\\
+goods & Linear(b=[3, 10], m=[0.1, 5.0])
+                    
+                     \\\midrule
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
+                    \end{tabular}
+                    \end{center}
+                
+                         \subsection*{Agile/Satisficing Set}
+
+                        \begin{center}
+                        \begin{tabular}{l|l|l|l|l|l|l}
+                        \multicolumn{7}{c}{\bf \large Sequences for agile/satisficing planning}\\
+                        \# & products & markets & trucks & depots & goods & Estimated Time\\\midrule
+                        30&2 $\rightarrow$ 31&3&2 $\rightarrow$ 13&1 $\rightarrow$ 64&7 $\rightarrow$ 12&0.67 $\rightarrow$ 180000.0
+                        \end{tabular}
+                        \end{center}
+                    
+                            \subsection*{Optimal Set}
+
+                            \begin{center}
+                            \begin{tabular}{l|l|l|l|l|l|l}
+                            \multicolumn{7}{c}{\bf \large Sequences for optimal planning}\\
+                            \# & products & markets & trucks & depots & goods & Estimated time\\\midrule
+                            30&2 $\rightarrow$ 42&1&2&5 $\rightarrow$ 7&3 $\rightarrow$ 34&0.58 $\rightarrow$ 160000.0
+                            \end{tabular}
+                            \end{center}
+                    \newpage \section{Transport}
+                    \subsection*{Domain Info}
+
+                    \begin{center}
+                    \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+                    %\begin{tabular}{ll}
+                    \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
+                    size & Constant(1000)\\
+mindistance & Constant(100)\\
+nodes & Linear(b=[2, 60], m=[0, 10])\\
+packages & Linear(b=[2, 10], m=[1, 10])\\
+trucks & Linear(b=[2, 10], m=[0, 5.0])\\
+degree & Enum([3, 4, 5])\\
+generator & Enum(['city-generator.py', 'two-cities-generator.py', 'three-cities-generator.py'])
+                    
+                    
+                                \\\midrule
+                                Discard Sequences: & Yes 
+                             \\\midrule
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
+                    \end{tabular}
+                    \end{center}
+                
+                         \subsection*{Agile/Satisficing Set}
+
+                        \begin{center}
+                        \begin{tabular}{l|l|l|l|l|l|l}
+                        \multicolumn{7}{c}{\bf \large Sequences for agile/satisficing planning}\\
+                        \# & nodes & packages & trucks & degree & generator & Estimated Time\\\midrule
+                        12&32&4 $\rightarrow$ 19&2 $\rightarrow$ 3&5&three-cities-generator.py&2.7 $\rightarrow$ 92000.0\\
+13&24 $\rightarrow$ 54&44 $\rightarrow$ 100&43 $\rightarrow$ 96&3&city-generator.py&100.0 $\rightarrow$ 25000.0\\
+5&24 $\rightarrow$ 32&23 $\rightarrow$ 30&30 $\rightarrow$ 38&5&two-cities-generator.py&550.0 $\rightarrow$ 46000.0
+                        \end{tabular}
+                        \end{center}
+                    
+                            \subsection*{Optimal Set}
+
+                            \begin{center}
+                            \begin{tabular}{l|l|l|l|l|l|l}
+                            \multicolumn{7}{c}{\bf \large Sequences for optimal planning}\\
+                            \# & nodes & packages & trucks & degree & generator & Estimated time\\\midrule
+                            5&2 $\rightarrow$ 22&2 $\rightarrow$ 9&2&3&three-cities-generator.py&0.57 $\rightarrow$ 1000000.0\\
+8&7&4 $\rightarrow$ 11&2&3&city-generator.py&0.88 $\rightarrow$ 130000.0\\
+5&6&3 $\rightarrow$ 7&2&5&two-cities-generator.py&0.89 $\rightarrow$ 49000.0\\
+6&7&7 $\rightarrow$ 12&2&5&city-generator.py&29.0 $\rightarrow$ 61000.0\\
+6&8&6 $\rightarrow$ 11&3&3&city-generator.py&36.0 $\rightarrow$ 120000.0
+                            \end{tabular}
+                            \end{center}
+                    \newpage \section{Visitall}
+                    \subsection*{Domain Info}
+
+                    \begin{center}
+                    \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+                    %\begin{tabular}{ll}
+                    \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
+                    grid & Grid(x=[3, 8], m=[0.1, 3.0])\\
+r & Enum([0.5, 0.75, 1])
+                    
+                     \\\midrule
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
+                    \end{tabular}
+                    \end{center}
+                
+                         \subsection*{Agile/Satisficing Set}
+
+                        \begin{center}
+                        \begin{tabular}{l|l|l|l}
+                        \multicolumn{4}{c}{\bf \large Sequences for agile/satisficing planning}\\
+                        \# & grid & r & Estimated Time\\\midrule
+                        30&7-7 $\rightarrow$ 94-94&0.75&0.42 $\rightarrow$ 60000.0
+                        \end{tabular}
+                        \end{center}
+                    
+                            \subsection*{Optimal Set}
+
+                            \begin{center}
+                            \begin{tabular}{l|l|l|l}
+                            \multicolumn{4}{c}{\bf \large Sequences for optimal planning}\\
+                            \# & grid & r & Estimated time\\\midrule
+                            20&4-9 $\rightarrow$ 9-11&0.5&0.97 $\rightarrow$ 170000.0\\
+10&7-7 $\rightarrow$ 8-9&0.75&150.0 $\rightarrow$ 140000.0
+                            \end{tabular}
+                            \end{center}
+                    \newpage \section{Woodworking}
+                    \subsection*{Domain Info}
+
+                    \begin{center}
+                    \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+                    %\begin{tabular}{ll}
+                    \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
+                    size & Linear(b=[2, 30], m=[1, 10])\\
+num\_machines & Enum([1, 2, 3])\\
+wood\_factor & Enum([1.0, 1.25, 1.5, 2.0])
+                    
+                     \\\midrule
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
+                    \end{tabular}
+                    \end{center}
+                
+                         \subsection*{Agile/Satisficing Set}
+
+                        \begin{center}
+                        \begin{tabular}{l|l|l|l|l}
+                        \multicolumn{5}{c}{\bf \large Sequences for agile/satisficing planning}\\
+                        \# & size & num\_machines & wood\_factor & Estimated Time\\\midrule
+                        30&5 $\rightarrow$ 167&2&2.0&0.28 $\rightarrow$ 95000.0
+                        \end{tabular}
+                        \end{center}
+                    
+                            \subsection*{Optimal Set}
+
+                            \begin{center}
+                            \begin{tabular}{l|l|l|l|l}
+                            \multicolumn{5}{c}{\bf \large Sequences for optimal planning}\\
+                            \# & size & num\_machines & wood\_factor & Estimated time\\\midrule
+                            19&3 $\rightarrow$ 22&1&1.5&0.64 $\rightarrow$ 130000.0\\
+11&8 $\rightarrow$ 18&3&2.0&36.0 $\rightarrow$ 90000.0
+                            \end{tabular}
+                            \end{center}
+                    \newpage \section{Zenotravel}
+                    \subsection*{Domain Info}
+
+                    \begin{center}
+                    \begin{tabular}{p{0.2\textwidth}p{0.8\textwidth}}
+                    %\begin{tabular}{ll}
+                    \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
+                    planes & Linear(b=[1, 20], m=[0, 5.0])\\
+people & Linear(b=[5, 20], m=[1, 10])\\
+cities & Linear(b=[3, 30], m=[0, 5.0])
+                    
+                     \\\midrule
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
+                    \end{tabular}
+                    \end{center}
+                
+                         \subsection*{Agile/Satisficing Set}
+
+                        \begin{center}
+                        \begin{tabular}{l|l|l|l|l}
+                        \multicolumn{5}{c}{\bf \large Sequences for agile/satisficing planning}\\
+                        \# & planes & people & cities & Estimated Time\\\midrule
+                        30&7 $\rightarrow$ 41&5 $\rightarrow$ 48&19 $\rightarrow$ 114&6.1 $\rightarrow$ 150000.0
+                        \end{tabular}
+                        \end{center}
+                    
+                            \subsection*{Optimal Set}
+
+                            \begin{center}
+                            \begin{tabular}{l|l|l|l|l}
+                            \multicolumn{5}{c}{\bf \large Sequences for optimal planning}\\
+                            \# & planes & people & cities & Estimated time\\\midrule
+                            30&3 $\rightarrow$ 14&5 $\rightarrow$ 42&3&0.61 $\rightarrow$ 140000.0
+                            \end{tabular}
+                            \end{center}
+                    \newpage \section{Agricola}
+                    \subsection*{Optimal Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             p-empty-3-3-1537364731.pddl&269.249&12.2705\\
+ p-empty-3-4-1922988331.pddl&153.157&18.9177\\
+ p-empty-3-5-521102280.pddl&334.521&42.9451\\
+ p-empty-3-7-1100262711.pddl&unsolved&176.754\\
+ p-empty-4-7-852697554.pddl&unsolved&765.045\\
+ p-empty-4-9-531110876.pddl&unsolved&unsolved\\
+ p-empty-4-10-574014784.pddl&unsolved&unsolved\\
+ p-empty-3-3-2043812384.pddl&170.445&12.7101\\
+ p-empty-3-4-71303735.pddl&unsolved&27.4648\\
+ p-empty-3-5-1688291518.pddl&unsolved&55.1324\\
+ p-empty-4-7-441365315.pddl&unsolved&485.709\\
+ p-empty-4-9-1922988331.pddl&unsolved&unsolved\\
+ p-empty-4-10-817261659.pddl&unsolved&1479.26\\
+ p-empty-4-13-319529834.pddl&unsolved&unsolved\\
+ p-must\_create\_workers-3-3-491263.pddl&unsolved&12.7121\\
+ p-must\_create\_workers-3-5-1777531198.pddl&unsolved&37.8595\\
+ p-must\_create\_workers-4-5-1243172921.pddl&unsolved&120.592\\
+ p-must\_create\_workers-6-5-590468454.pddl&unsolved&932.769\\
+ p-must\_create\_workers-7-5-1323345508.pddl&unsolved&2522.58\\
+ p-must\_create\_workers-9-5-1379668586.pddl&unsolved&unsolved\\
+ p-must\_create\_workers-10-5-1251420212.pddl&unsolved&unsolved\\
+ p-must\_create\_workers-11-5-1857553071.pddl&unsolved&unsolved\\
+ p-empty-5-4-649811619.pddl&unsolved&117.322\\
+ p-empty-8-4-441365315.pddl&unsolved&unsolved\\
+ p-empty-10-5-1562238070.pddl&unsolved&unsolved\\
+ p-must\_create\_workers-6-5-625090818.pddl&unsolved&412.065\\
+ p-must\_create\_workers-7-5-2053992125.pddl&unsolved&2792.61\\
+ p-must\_create\_workers-8-5-0.pddl&unsolved&unsolved\\
+ p-must\_create\_workers-9-5-508457864.pddl&unsolved&unsolved\\
+ p-must\_create\_workers-11-5-1562238070.pddl&unsolved&unsolved
+                            \end{tabular}
+                            \end{center}
+                    
+                    
+                    \subsection*{Satisficing/Agile Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             p-empty-3-3-1325499003.pddl&4.38928&2.76375\\
+ p-empty-4-4-1922988331.pddl&11.2644&6.1535\\
+ p-empty-5-4-649811619.pddl&16.6109&7.9723\\
+ p-empty-8-4-1783957654.pddl&29.2359&11.83\\
+ p-empty-10-5-887852006.pddl&84.1154&22.3745\\
+ p-empty-12-5-784538286.pddl&128.938&26.2543\\
+ p-empty-12-8-1656261043.pddl&333.239&95.034\\
+ p-empty-12-10-1140404166.pddl&625.947&252.59\\
+ p-empty-3-3-557203740.pddl&4.74593&2.83165\\
+ p-empty-3-4-2074063949.pddl&11.0128&5.67389\\
+ p-empty-3-5-521102280.pddl&14.4479&8.85572\\
+ p-empty-3-7-550290313.pddl&38.6937&19.2671\\
+ p-empty-4-7-852697554.pddl&55.1839&25.0971\\
+ p-empty-6-9-784538286.pddl&210.14&69.7348\\
+ p-empty-8-9-574014784.pddl&347.556&81.0038\\
+ p-empty-9-11-403505789.pddl&571.869&182.949\\
+ p-empty-10-11-1389126323.pddl&402.438&321.208\\
+ p-must\_create\_workers-3-5-5855357.pddl&12075.5&21.5562\\
+ p-must\_create\_workers-4-5-213091913.pddl&8258.77&29.9939\\
+ p-must\_create\_workers-6-5-1673791286.pddl&unsolved&28.9759\\
+ p-must\_create\_workers-8-5-1392084856.pddl&16446.3&237.315\\
+ p-must\_create\_workers-9-5-946582365.pddl&11880.2&245.256\\
+ p-must\_create\_workers-10-5-2141112004.pddl&unsolved&172.784\\
+ p-must\_create\_workers-11-5-1857553071.pddl&unsolved&154.824\\
+ p-must\_create\_workers-4-5-254862438.pddl&unsolved&30.0896\\
+ p-must\_create\_workers-6-5-1795361877.pddl&11484.0&78.1757\\
+ p-must\_create\_workers-7-5-139320598.pddl&unsolved&155.105\\
+ p-must\_create\_workers-8-5-1621423066.pddl&unsolved&257.247\\
+ p-must\_create\_workers-10-5-1251420212.pddl&unsolved&55.5709\\
+ p-must\_create\_workers-11-5-1074517750.pddl&unsolved&138.357
+                            \end{tabular}
+                            \end{center}
+                    
+                \newpage \section{Airport}
+                    \subsection*{Optimal Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             p21-airport4halfMUC-p2.pddl&3.35887&3.35887\\
+ p22-airport4halfMUC-p3.pddl&80.9628&4.85446\\
+ p23-airport4halfMUC-p4.pddl&unsolved&5.75696\\
+ p24-airport4halfMUC-p4.pddl&unsolved&5.79054\\
+ p25-airport4halfMUC-p5.pddl&unsolved&18.7642\\
+ p26-airport4halfMUC-p6.pddl&unsolved&84.1325\\
+ p27-airport4halfMUC-p6.pddl&unsolved&37.6244\\
+ p28-airport4halfMUC-p7.pddl&unsolved&1930.58\\
+ p29-airport4halfMUC-p8.pddl&unsolved&unsolved\\
+ p30-airport4halfMUC-p8.pddl&unsolved&1821.92\\
+ p31-airport4halfMUC-p9.pddl&unsolved&2365.58\\
+ p32-airport4halfMUC-p10.pddl&unsolved&unsolved\\
+ p33-airport4halfMUC-p10.pddl&unsolved&2871.16\\
+ p34-airport4halfMUC-p11.pddl&unsolved&unsolved\\
+ p35-airport4halfMUC-p12.pddl&unsolved&unsolved\\
+ p36-airport5MUC-p2.pddl&6.23384&4.90904\\
+ p37-airport5MUC-p3.pddl&1565.18&70.2583\\
+ p38-airport5MUC-p3.pddl&814.929&103.833\\
+ p39-airport5MUC-p4.pddl&unsolved&635.268\\
+ p40-airport5MUC-p4.pddl&unsolved&494.931\\
+ p41-airport5MUC-p4.pddl&unsolved&320.646\\
+ p42-airport5MUC-p5.pddl&unsolved&1164.92\\
+ p43-airport5MUC-p5.pddl&unsolved&940.269\\
+ p44-airport5MUC-p5.pddl&unsolved&2830.65\\
+ p45-airport5MUC-p6.pddl&unsolved&unsolved\\
+ p46-airport5MUC-p6.pddl&unsolved&1619.95\\
+ p47-airport5MUC-p8.pddl&unsolved&unsolved\\
+ p48-airport5MUC-p9.pddl&unsolved&unsolved\\
+ p49-airport5MUC-p10.pddl&unsolved&unsolved\\
+ p50-airport5MUC-p15.pddl&unsolved&unsolved
+                            \end{tabular}
+                            \end{center}
+                    
+                    
+                    \subsection*{Satisficing/Agile Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             p21-airport4halfMUC-p2.pddl&3.25073&2.53663\\
+ p22-airport4halfMUC-p3.pddl&4.21286&4.21286\\
+ p23-airport4halfMUC-p4.pddl&4.50235&4.50235\\
+ p24-airport4halfMUC-p4.pddl&5.47385&5.47385\\
+ p25-airport4halfMUC-p5.pddl&27.996&22.2386\\
+ p26-airport4halfMUC-p6.pddl&1007.84&28.4182\\
+ p27-airport4halfMUC-p6.pddl&12401.1&15.9131\\
+ p28-airport4halfMUC-p7.pddl&9.99122&9.99122\\
+ p29-airport4halfMUC-p8.pddl&unsolved&40.7479\\
+ p30-airport4halfMUC-p8.pddl&unsolved&39.0477\\
+ p31-airport4halfMUC-p9.pddl&unsolved&78.8954\\
+ p32-airport4halfMUC-p10.pddl&unsolved&93.8294\\
+ p33-airport4halfMUC-p10.pddl&unsolved&99.4606\\
+ p34-airport4halfMUC-p11.pddl&unsolved&108.956\\
+ p35-airport4halfMUC-p12.pddl&unsolved&110.617\\
+ p36-airport5MUC-p2.pddl&4.53924&4.28709\\
+ p37-airport5MUC-p3.pddl&6.33258&6.33258\\
+ p38-airport5MUC-p3.pddl&6.13573&6.13573\\
+ p39-airport5MUC-p4.pddl&1187.32&32.6013\\
+ p40-airport5MUC-p4.pddl&27.5752&12.5865\\
+ p41-airport5MUC-p4.pddl&8.24281&8.24281\\
+ p42-airport5MUC-p5.pddl&unsolved&33.446\\
+ p43-airport5MUC-p5.pddl&18.6222&18.6222\\
+ p44-airport5MUC-p5.pddl&16.6175&13.1963\\
+ p45-airport5MUC-p6.pddl&675.229&18.5721\\
+ p46-airport5MUC-p6.pddl&unsolved&90.6469\\
+ p47-airport5MUC-p8.pddl&unsolved&221.201\\
+ p48-airport5MUC-p9.pddl&unsolved&11994.6\\
+ p49-airport5MUC-p10.pddl&unsolved&12040.8\\
+ p50-airport5MUC-p15.pddl&unsolved&unsolved
+                            \end{tabular}
+                            \end{center}
+                    
+                \newpage \section{Freecell}
+                    \subsection*{Optimal Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             p-3-7-6-4-0.pddl&20.2603&0.83876\\
+ p-4-4-4-8-0.pddl&17.5011&2.53693\\
+ p-3-8-2-4-0.pddl&38.7466&0.912679\\
+ p-4-8-6-4-0.pddl&80.7128&1.01701\\
+ p-4-8-7-4-0.pddl&121.943&0.992306\\
+ p-2-7-1-5-0.pddl&126.926&0.911262\\
+ p-3-7-4-8-0.pddl&unsolved&2.24166\\
+ p-4-6-5-7-0.pddl&unsolved&2.60978\\
+ p-3-6-5-9-0.pddl&unsolved&19.6577\\
+ p-3-7-4-10-0.pddl&unsolved&58.3959\\
+ p-3-8-3-9-0.pddl&unsolved&67.6506\\
+ p-4-7-3-9-0.pddl&unsolved&122.078\\
+ p-2-7-5-11-0.pddl&unsolved&134.708\\
+ p15.pddl&unsolved&277.602\\
+ p-2-8-8-12-0.pddl&unsolved&464.061\\
+ p-3-8-6-12-0.pddl&unsolved&859.57\\
+ p-4-8-8-18-0.pddl&unsolved&2252.98\\
+ probfreecell-10-4.pddl&unsolved&2717.04\\
+ p-4-8-7-13-0.pddl&unsolved&4529.85\\
+ p-4-8-3-16-0.pddl&unsolved&4958.05\\
+ p-3-8-5-14-0.pddl&unsolved&unsolved\\
+ p19.pddl&unsolved&unsolved\\
+ probfreecell-13-1.pddl&unsolved&unsolved\\
+ p-4-8-8-14-0.pddl&unsolved&unsolved\\
+ probfreecell-11-3.pddl&unsolved&117.156\\
+ probfreecell-11-4.pddl&unsolved&unsolved\\
+ probfreecell-11-5.pddl&unsolved&unsolved\\
+ probfreecell-12-3.pddl&unsolved&288.391\\
+ probfreecell-12-4.pddl&unsolved&unsolved\\
+ probfreecell-12-5.pddl&unsolved&unsolved
+                            \end{tabular}
+                            \end{center}
+                    
+                    
+                    \subsection*{Satisficing/Agile Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             p-3-8-2-2-0.pddl&0.595351&0.162553\\
+ p-4-7-5-4-0.pddl&0.807543&0.242525\\
+ p-3-8-2-4-0.pddl&0.79961&0.248546\\
+ p-3-5-2-5-0.pddl&0.784502&0.27537\\
+ p-3-8-1-4-0.pddl&0.830873&0.280352\\
+ p-3-5-4-6-0.pddl&0.83349&0.315812\\
+ p-2-8-2-6-0.pddl&0.894393&0.369889\\
+ p-4-3-3-7-0.pddl&0.88692&0.423162\\
+ p-2-7-6-8-0.pddl&1.08578&0.559826\\
+ p-2-7-3-8-0.pddl&1.13847&0.72531\\
+ p-4-8-5-8-0.pddl&1.50289&0.758923\\
+ p-3-6-3-8-0.pddl&1.25475&0.773649\\
+ p-2-7-6-9-0.pddl&3.0857&0.85823\\
+ p-3-8-6-8-0.pddl&1.28709&0.906114\\
+ p-3-8-3-13-0.pddl&7.86068&1.88025\\
+ p-3-7-4-11-0.pddl&6.57654&2.53705\\
+ probfreecell-9-3.pddl&5.00702&3.15064\\
+ probfreecell-9-1.pddl&5.45459&3.20905\\
+ p-4-8-7-13-0.pddl&25.1891&1.55344\\
+ p-3-7-4-14-0.pddl&58.6978&3.53753\\
+ p-3-8-2-11-0.pddl&79.5677&1.89638\\
+ p-4-7-4-16-0.pddl&140.789&4.44324\\
+ p-3-8-4-14-0.pddl&158.656&3.14469\\
+ p-4-8-8-15-0.pddl&561.213&4.07026\\
+ probfreecell-11-4.pddl&18.4792&6.16901\\
+ probfreecell-13-1.pddl&55.6212&8.58212\\
+ p-4-8-4-16-0.pddl&80.7941&6.99453\\
+ p-4-8-5-18-0.pddl&1749.21&5.96481\\
+ p-4-8-5-17-0.pddl&2253.51&11.4138\\
+ p-2-8-6-15-0.pddl&4399.37&563.68
+                            \end{tabular}
+                            \end{center}
+                    
+                \newpage \section{Ged}
+                    \subsection*{Optimal Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             ds1-d-2-3.pddl&0.620702&0.608743\\
+ ds1-d-3-2.pddl&0.651927&0.612614\\
+ ds1-d-4-5.pddl&0.736393&0.736393\\
+ ds1-d-5-4.pddl&0.758061&0.758061\\
+ ds1-d-7-6.pddl&unsolved&37.4734\\
+ ds1-d-6-7.pddl&unsolved&50.8997\\
+ ds1-d-8-4.pddl&unsolved&unsolved\\
+ ds1-d-3-1.pddl&unsolved&unsolved\\
+ d-1-2.pddl&0.652211&0.623114\\
+ d-2-1.pddl&0.624197&0.624197\\
+ d-4-2.pddl&0.694113&0.669005\\
+ d-3-2.pddl&0.739614&0.739614\\
+ d-2-3.pddl&0.795512&0.765722\\
+ d-1-3.pddl&1.75104&1.75104\\
+ d-3-1.pddl&1.7973&1.7973\\
+ d-7-6.pddl&2.21231&2.14781\\
+ d-7-5.pddl&5.28565&2.84941\\
+ d-1-8.pddl&5.396&2.97468\\
+ d-8-1.pddl&5.24055&3.69684\\
+ d-3-4.pddl&23.9907&5.79874\\
+ d-4-3.pddl&22.8963&6.81045\\
+ d-4-8.pddl&unsolved&44.4088\\
+ d-2-8.pddl&unsolved&47.2781\\
+ d-8-2.pddl&unsolved&48.5584\\
+ d-8-4.pddl&unsolved&48.6235\\
+ d-8-9.pddl&unsolved&353.062\\
+ d-10-3.pddl&unsolved&unsolved\\
+ d-3-6.pddl&unsolved&unsolved\\
+ ds2nd-d-9-8.pddl&unsolved&357.526\\
+ ds2nd-d-3-8.pddl&unsolved&unsolved
+                            \end{tabular}
+                            \end{center}
+                    
+                    
+                    \subsection*{Satisficing/Agile Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             ds1-d-3-2.pddl&0.630554&0.148197\\
+ ds1-d-4-5.pddl&0.694521&0.172543\\
+ ds1-d-7-6.pddl&2.00969&0.296594\\
+ ds1-d-4-8.pddl&unsolved&1.92034\\
+ ds1-d-4-1.pddl&unsolved&1.92287\\
+ ds1-d-8-5.pddl&unsolved&1.92923\\
+ ds1-d-8-4.pddl&unsolved&2.01824\\
+ ds1-d-1-3.pddl&unsolved&3.01121\\
+ ds1-d-2-1.pddl&unsolved&3.03175\\
+ ds1-d-10-11.pddl&unsolved&3.2386\\
+ ds1-d-8-1.pddl&unsolved&3.94054\\
+ ds1-d-1-9.pddl&unsolved&4.75106\\
+ ds1-d-9-1.pddl&unsolved&4.91246\\
+ ds1-d-7-5.pddl&unsolved&6.14678\\
+ ds1-d-9-6.pddl&unsolved&6.23143\\
+ ds1-d-8-3.pddl&unsolved&6.90946\\
+ ds1-d-10-7.pddl&unsolved&7.3945\\
+ ds1-d-3-7.pddl&unsolved&7.91684\\
+ ds1-d-9-11.pddl&unsolved&7.99288\\
+ ds1-d-4-10.pddl&unsolved&8.113\\
+ ds1-d-5-11.pddl&unsolved&8.1641\\
+ ds1-d-5-6.pddl&unsolved&8.17042\\
+ ds1-d-1-11.pddl&unsolved&8.97106\\
+ ds1-d-10-3.pddl&unsolved&9.3913\\
+ ds1-d-11-7.pddl&unsolved&9.40238\\
+ ds1-d-3-11.pddl&unsolved&9.48222\\
+ ds1-d-3-10.pddl&unsolved&9.90972\\
+ ds1-d-2-11.pddl&unsolved&10.3987\\
+ ds1-d-6-10.pddl&unsolved&23.4912\\
+ ds1-d-3-9.pddl&unsolved&1148.8
+                            \end{tabular}
+                            \end{center}
+                    
+                \newpage \section{Mprime}
+                    \subsection*{Optimal Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             prob03.pddl&1.28649&0.957467\\
+ prob34.pddl&1.46922&1.46922\\
+ prob16.pddl&66.0868&4.39121\\
+ prob09.pddl&87.02&1.01893\\
+ prob02.pddl&204.808&1.164\\
+ p-5-5-10-4-6-0.pddl&unsolved&2.30322\\
+ p-5-5-15-2-2-0.pddl&unsolved&4.80716\\
+ prob17.pddl&44.5005&12.8414\\
+ prob26.pddl&48.6717&5.35948\\
+ p-5-10-15-2-4-0.pddl&unsolved&21.0273\\
+ prob21.pddl&36.9146&32.8364\\
+ p-5-10-10-2-4-0.pddl&unsolved&46.6111\\
+ p-5-10-10-4-4-0.pddl&unsolved&67.4776\\
+ prob24.pddl&unsolved&214.396\\
+ prob06.pddl&unsolved&226.286\\
+ p-5-5-10-2-14-0.pddl&unsolved&311.87\\
+ p-5-5-15-2-12-0.pddl&unsolved&321.679\\
+ p-5-5-10-2-16-0.pddl&unsolved&601.558\\
+ p-5-5-15-2-16-0.pddl&unsolved&665.222\\
+ p-10-5-10-2-6-0.pddl&unsolved&705.144\\
+ p-5-10-10-2-8-0.pddl&unsolved&719.556\\
+ p-5-15-10-2-2-0.pddl&unsolved&1262.24\\
+ p-5-10-10-4-16-0.pddl&unsolved&unsolved\\
+ p-25-5-15-4-12-0.pddl&unsolved&unsolved\\
+ p-10-10-15-4-16-0.pddl&unsolved&unsolved\\
+ p-10-15-10-2-14-0.pddl&unsolved&unsolved\\
+ p-5-25-15-2-2-0.pddl&unsolved&unsolved\\
+ p-15-15-15-2-10-0.pddl&unsolved&unsolved\\
+ p-30-5-15-2-10-0.pddl&unsolved&unsolved\\
+ p-40-15-15-2-6-0.pddl&unsolved&unsolved
+                            \end{tabular}
+                            \end{center}
+                    
+                    
+                    \subsection*{Satisficing/Agile Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             p-10-10-15-4-2-0.pddl&23.9053&3.79763\\
+ prob24.pddl&23.696&4.6764\\
+ p-15-5-10-2-14-0.pddl&65.3921&0.862331\\
+ p-20-5-10-2-6-0.pddl&107.921&1.18441\\
+ p-5-10-15-2-8-0.pddl&199.022&4.06447\\
+ p-20-5-15-4-12-0.pddl&886.115&2.7095\\
+ p-15-5-15-2-16-0.pddl&13736.4&1.78823\\
+ p-5-10-10-2-14-0.pddl&unsolved&2.45461\\
+ p-20-10-15-2-8-0.pddl&unsolved&10.6989\\
+ p-10-15-10-4-8-0.pddl&unsolved&11.6719\\
+ p-15-10-15-4-16-0.pddl&unsolved&11.8291\\
+ p-25-5-15-4-16-0.pddl&unsolved&19.8653\\
+ p-5-25-15-4-2-0.pddl&unsolved&26.9936\\
+ p-25-15-15-4-14-0.pddl&unsolved&69.3575\\
+ p-30-10-15-2-16-0.pddl&unsolved&71.4793\\
+ p-20-15-15-4-12-0.pddl&unsolved&95.2204\\
+ p-35-5-15-2-6-0.pddl&unsolved&127.166\\
+ p-20-10-10-4-12-0.pddl&unsolved&494.322\\
+ p-20-20-15-4-16-0.pddl&unsolved&636.554\\
+ p-20-20-15-4-4-0.pddl&unsolved&700.154\\
+ p-30-5-10-4-12-0.pddl&unsolved&3587.69\\
+ p-35-25-15-4-6-0.pddl&unsolved&7301.79\\
+ p-20-20-15-2-10-0.pddl&unsolved&7309.83\\
+ p-40-20-15-2-10-0.pddl&unsolved&7491.37\\
+ p-25-10-10-4-6-0.pddl&unsolved&10771.4\\
+ p-35-25-15-4-10-0.pddl&unsolved&11685.7\\
+ p-20-25-10-2-6-0.pddl&unsolved&5276.77\\
+ p-25-25-15-4-12-0.pddl&unsolved&6232.87\\
+ p-40-15-15-2-16-0.pddl&unsolved&7299.34\\
+ p-25-25-15-2-16-0.pddl&unsolved&11563.3
+                            \end{tabular}
+                            \end{center}
+                    
+                \newpage \section{Mystery}
+                    \subsection*{Optimal Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                            
+                            \end{tabular}
+                            \end{center}
+                    
+                    
+                    \subsection*{Satisficing/Agile Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                            
+                            \end{tabular}
+                            \end{center}
+                    
+                \newpage \section{Organic-synthesis-split}
+                    \subsection*{Optimal Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             MIT-p4.pddl&28.3678&27.9823\\
+ MIT-p6.pddl&78.7815&32.5402\\
+ MIT-p8.pddl&40.04&37.2362\\
+ MIT-p3.pddl&38.9661&37.566\\
+ MIT-p15.pddl&48.3957&42.1433\\
+ MIT-p2.pddl&48.8285&42.1743\\
+ MIT-p14.pddl&231.091&41.6657\\
+ MIT-p9.pddl&89.9167&45.1585\\
+ MIT-p20.pddl&unsolved&47.5548\\
+ MIT-p19.pddl&245.157&60.9764\\
+ MIT-p7.pddl&120.078&120.078\\
+ MIT-p12.pddl&unsolved&131.481\\
+ MIT-p5.pddl&unsolved&431.102\\
+ MIT-p11.pddl&unsolved&479.03\\
+ MIT-p17.pddl&unsolved&617.705\\
+ MIT-p16.pddl&unsolved&896.131\\
+ MIT-p13.pddl&unsolved&906.568\\
+ MIT-p10.pddl&unsolved&2101.53\\
+ original-p2.pddl&unsolved&227.164\\
+ original-p6.pddl&unsolved&324.733\\
+ original-p4.pddl&unsolved&1180.72\\
+ original-p5.pddl&unsolved&2897.17\\
+ original-p19.pddl&unsolved&3730.44\\
+ original-p13.pddl&unsolved&7661.83\\
+ original-p10.pddl&unsolved&unsolved\\
+ original-p3.pddl&unsolved&unsolved\\
+ original-p14.pddl&unsolved&unsolved\\
+ original-p8.pddl&unsolved&unsolved\\
+ original-p7.pddl&unsolved&unsolved\\
+ original-p16.pddl&unsolved&unsolved
+                            \end{tabular}
+                            \end{center}
+                    
+                    
+                    \subsection*{Satisficing/Agile Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             original-p6.pddl&39.2317&8.15731\\
+ original-p4.pddl&92.05&41.6666\\
+ original-p2.pddl&57.5376&50.0972\\
+ original-p19.pddl&710.795&60.5018\\
+ original-p10.pddl&100.429&100.429\\
+ original-p5.pddl&149.185&149.185\\
+ original-p13.pddl&330.623&149.119\\
+ original-p3.pddl&288.728&288.728\\
+ original-p14.pddl&1005.07&441.489\\
+ original-p8.pddl&1152.3&525.753\\
+ original-p7.pddl&2278.4&1129.24\\
+ original-p16.pddl&unsolved&2048.55\\
+ original-p9.pddl&unsolved&6465.11\\
+ original-p20.pddl&unsolved&6970.53\\
+ original-p11.pddl&unsolved&9004.03\\
+ original-p1.pddl&unsolved&unsolved\\
+ original-p12.pddl&unsolved&unsolved\\
+ original-p15.pddl&unsolved&unsolved\\
+ original-p17.pddl&unsolved&unsolved\\
+ MIT-p9.pddl&38.706&14.2118\\
+ MIT-p7.pddl&45.0728&18.6462\\
+ MIT-p19.pddl&48.5395&18.7269\\
+ MIT-p20.pddl&50.0051&23.8831\\
+ MIT-p16.pddl&46.1312&24.5822\\
+ MIT-p11.pddl&46.0896&30.985\\
+ MIT-p17.pddl&62.5141&62.5141\\
+ MIT-p13.pddl&66.9453&55.7237\\
+ MIT-p10.pddl&71.3521&71.3521\\
+ MIT-p5.pddl&96.3958&96.3958\\
+ MIT-p12.pddl&511.75&217.161
+                            \end{tabular}
+                            \end{center}
+                    
+                \newpage \section{Parcprinter}
+                    \subsection*{Optimal Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             ipc08-p21.pddl&0.432052&0.419056\\
+ ipc08-p01.pddl&0.439874&0.439874\\
+ ipc08-p03.pddl&0.457633&0.447941\\
+ ipc08-p12.pddl&0.554637&0.491266\\
+ ipc08-p13.pddl&8.86954&0.603811\\
+ ipc08-p04.pddl&64.8735&0.496043\\
+ ipc08-p24.pddl&unsolved&0.483001\\
+ ipc08-p26.pddl&unsolved&0.521389\\
+ ipc08-p27.pddl&unsolved&0.5568\\
+ ipc08-p06.pddl&unsolved&0.570971\\
+ ipc08-p25.pddl&unsolved&0.580544\\
+ ipc08-p28.pddl&unsolved&0.587892\\
+ ipc08-p08.pddl&unsolved&0.633589\\
+ ipc08-p07.pddl&unsolved&0.644485\\
+ ipc11sat-p11.pddl&unsolved&0.671244\\
+ ipc08-p09.pddl&unsolved&0.70383\\
+ ipc08-p10.pddl&unsolved&0.711392\\
+ ipc11sat-p12.pddl&unsolved&0.839268\\
+ ipc08-p29.pddl&unsolved&0.868827\\
+ ipc08-p30.pddl&unsolved&0.88238\\
+ ipc11sat-p18.pddl&unsolved&0.888939\\
+ ipc11sat-p13.pddl&unsolved&1.15594\\
+ ipc11sat-p20.pddl&unsolved&1.27096\\
+ ipc08-p17.pddl&unsolved&2.22832\\
+ ipc08-p18.pddl&unsolved&2.29542\\
+ ipc08-p19.pddl&unsolved&5.01573\\
+ ipc08-p20.pddl&unsolved&37.7796\\
+ ipc11sat-p15.pddl&unsolved&39.6217\\
+ ipc11sat-p14.pddl&unsolved&584.532\\
+ ipc11sat-p16.pddl&unsolved&unsolved
+                            \end{tabular}
+                            \end{center}
+                    
+                    
+                    \subsection*{Satisficing/Agile Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             ipc08-p21.pddl&0.449169&0.18594\\
+ ipc08-p22.pddl&0.446944&0.194449\\
+ ipc08-p12.pddl&0.495092&0.197038\\
+ ipc08-p13.pddl&0.504379&0.198303\\
+ ipc08-p03.pddl&0.447523&0.203514\\
+ ipc08-p05.pddl&1.98893&0.21324\\
+ ipc08-p14.pddl&0.598684&0.242598\\
+ ipc08-p27.pddl&1.05616&0.336669\\
+ ipc08-p16.pddl&8.37109&0.496534\\
+ ipc08-p15.pddl&7.74898&1.06028\\
+ ipc08-p06.pddl&16.1008&0.240381\\
+ ipc08-p30.pddl&36.4572&0.899847\\
+ ipc08-p17.pddl&79.3715&0.750653\\
+ ipc08-p18.pddl&408.939&1.57311\\
+ ipc11sat-p11.pddl&576.414&0.505445\\
+ ipc08-p07.pddl&957.276&0.294415\\
+ ipc08-p08.pddl&unsolved&0.319903\\
+ ipc08-p09.pddl&unsolved&0.419951\\
+ ipc08-p28.pddl&unsolved&0.425702\\
+ ipc11sat-p18.pddl&unsolved&0.708782\\
+ ipc11sat-p12.pddl&unsolved&0.846641\\
+ ipc11sat-p19.pddl&unsolved&3.35513\\
+ ipc11sat-p13.pddl&unsolved&4.12814\\
+ ipc08-p20.pddl&unsolved&5.50593\\
+ ipc08-p29.pddl&unsolved&11.6034\\
+ ipc08-p19.pddl&unsolved&12.4354\\
+ ipc11sat-p20.pddl&39.93&39.93\\
+ ipc11sat-p15.pddl&unsolved&36.1385\\
+ ipc11sat-p14.pddl&unsolved&83.6029\\
+ ipc11sat-p16.pddl&unsolved&unsolved
+                            \end{tabular}
+                            \end{center}
+                    
+                \newpage \section{Pathways}
+                    \subsection*{Optimal Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             p-31-1-7-0.pddl&0.354081&0.354081\\
+ p-8-1-1947-0.pddl&1.27912&1.23946\\
+ p-10-10-10-0.pddl&14.5902&0.422324\\
+ p-60-10-40-0.pddl&14.9934&0.507084\\
+ p-40-10-10-0.pddl&15.1475&0.412176\\
+ p-4-16-22-0.pddl&161.565&0.632497\\
+ p-4-15-361-0.pddl&174.216&4.20172\\
+ p-1-21-7-0.pddl&293.089&0.712651\\
+ p-22-16-16-0.pddl&unsolved&1.74073\\
+ p-3-55-126-0.pddl&unsolved&14.3582\\
+ p-4-21-13-0.pddl&unsolved&19.6951\\
+ p-4-101-7-0.pddl&unsolved&19.7423\\
+ p-4-101-13-0.pddl&unsolved&37.4744\\
+ p-4-101-22-0.pddl&unsolved&60.2491\\
+ p-2-101259-338-0.pddl&unsolved&306.253\\
+ p-3-6021-33-0.pddl&unsolved&396.111\\
+ p-1-380-165-0.pddl&unsolved&1063.22\\
+ p-7-21-10-0.pddl&unsolved&2593.92\\
+ p-7-101-19-0.pddl&unsolved&7225.3\\
+ p-7-101-16-0.pddl&unsolved&7283.04\\
+ p-7-21-13-0.pddl&unsolved&7779.78\\
+ p-70-60-60-0.pddl&unsolved&unsolved\\
+ p-20-410-20-0.pddl&unsolved&unsolved\\
+ p-30-560-20-0.pddl&unsolved&unsolved\\
+ p-30-560-50-0.pddl&unsolved&unsolved\\
+ p-10-560-70-0.pddl&unsolved&unsolved\\
+ p-80-460-70-0.pddl&unsolved&unsolved\\
+ p-60-610-70-0.pddl&unsolved&unsolved\\
+ p-90-1010-50-0.pddl&unsolved&unsolved\\
+ p-90-710-70-0.pddl&unsolved&unsolved
+                            \end{tabular}
+                            \end{center}
+                    
+                    
+                    \subsection*{Satisficing/Agile Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             p-13-1-22-0.pddl&0.414224&0.128134\\
+ p-1-6-7-0.pddl&0.406243&0.133966\\
+ p-31-11-16-0.pddl&0.429211&0.13459\\
+ p-1-11-13-0.pddl&0.427236&0.138118\\
+ p-19-1-16-0.pddl&0.401745&0.146363\\
+ p-60-110-30-0.pddl&13.1576&0.267027\\
+ p-60-110-50-0.pddl&15.4126&0.359152\\
+ p-30-110-80-0.pddl&38.5153&0.610057\\
+ p-50-160-40-0.pddl&57.5192&0.30336\\
+ p-50-110-20-0.pddl&124.013&0.713401\\
+ p-10-710-30-0.pddl&158.601&0.958336\\
+ p-80-160-80-0.pddl&285.699&0.637337\\
+ p-70-510-30-0.pddl&unsolved&0.84583\\
+ p-50-660-40-0.pddl&unsolved&1.13431\\
+ p-70-410-60-0.pddl&unsolved&1.18599\\
+ p-10-560-80-0.pddl&unsolved&1.37674\\
+ p-50-410-80-0.pddl&unsolved&1.40825\\
+ p-50-710-60-0.pddl&unsolved&1.86203\\
+ p-60-1010-70-0.pddl&unsolved&2.05283\\
+ p-30-1010-80-0.pddl&unsolved&2.07249\\
+ p-90-1010-80-0.pddl&unsolved&2.67921\\
+ p-125-96-536-0.pddl&unsolved&3.55727\\
+ p-5-69280-402-0.pddl&12434.8&6.93441\\
+ p-41-257841-304-0.pddl&unsolved&6.62749\\
+ p-748-13012-52-0.pddl&unsolved&71.4646\\
+ p-90-210-20-0.pddl&unsolved&98.2879\\
+ p-289-38170-51-0.pddl&unsolved&119.248\\
+ p-20-660-20-0.pddl&unsolved&121.794\\
+ p-50-560-20-0.pddl&unsolved&275.965\\
+ p-80-210-20-0.pddl&unsolved&2249.5
+                            \end{tabular}
+                            \end{center}
+                    
+                \newpage \section{Pegsol}
+                    \subsection*{Optimal Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             generator-repo-p033.pddl&0.438628&0.434554\\
+ generator-repo-p004.pddl&0.445774&0.443536\\
+ generator-repo-p082.pddl&0.443651&0.443651\\
+ generator-repo-p021.pddl&0.443726&0.443726\\
+ generator-repo-p032.pddl&0.447229&0.447229\\
+ generator-repo-p075.pddl&0.448804&0.447313\\
+ generator-repo-p014.pddl&0.451183&0.448234\\
+ generator-repo-p068.pddl&0.449759&0.449759\\
+ ipc08-p04.pddl&0.459813&0.451605\\
+ generator-repo-p006.pddl&0.452129&0.452129\\
+ generator-repo-p018.pddl&0.457654&0.457654\\
+ generator-repo-p070.pddl&0.482984&0.482984\\
+ ipc11opt-p11.pddl&0.641605&0.632952\\
+ generator-repo-p073.pddl&0.681912&0.681912\\
+ ipc11sat-p05.pddl&1.11813&0.686251\\
+ generator-repo-p087.pddl&1.14118&1.14118\\
+ generator-repo-p044.pddl&1.69203&1.69203\\
+ ipc11sat-p10.pddl&1.69676&1.69676\\
+ generator-repo-p080.pddl&2.0001&2.0001\\
+ ipc11sat-p12.pddl&3.79379&3.79379\\
+ ipc11sat-p09.pddl&5.01921&5.01921\\
+ generator-repo-p031.pddl&5.11161&5.11161\\
+ generator-repo-p104.pddl&22.2057&6.59562\\
+ ipc11sat-p16.pddl&22.0993&6.66515\\
+ generator-repo-p084.pddl&16.8956&8.17042\\
+ generator-repo-p074.pddl&unsolved&23.3188\\
+ generator-repo-p099.pddl&unsolved&46.5913\\
+ ipc11sat-p19.pddl&unsolved&48.8754\\
+ ipc11sat-p20.pddl&unsolved&unsolved\\
+ generator-repo-p105.pddl&unsolved&unsolved
+                            \end{tabular}
+                            \end{center}
+                    
+                    
+                    \subsection*{Satisficing/Agile Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             ipc08-p01.pddl&0.427393&0.427393\\
+ generator-repo-p033.pddl&0.439038&0.439038\\
+ generator-repo-p061.pddl&0.44138&0.44138\\
+ ipc08-p05.pddl&0.444479&0.444479\\
+ generator-repo-p002.pddl&0.452334&0.452334\\
+ generator-repo-p063.pddl&0.461122&0.461122\\
+ generator-repo-p092.pddl&0.461911&0.461911\\
+ generator-repo-p055.pddl&0.464118&0.464118\\
+ generator-repo-p088.pddl&0.46447&0.46447\\
+ ipc08-p03.pddl&0.466284&0.466284\\
+ ipc08-p07.pddl&0.467507&0.467507\\
+ ipc11sat-p10.pddl&0.469517&0.469517\\
+ generator-repo-p101.pddl&0.473333&0.473333\\
+ generator-repo-p034.pddl&0.47807&0.47807\\
+ generator-repo-p041.pddl&0.479117&0.479117\\
+ ipc08-p15.pddl&0.479992&0.479992\\
+ generator-repo-p068.pddl&0.4808&0.4808\\
+ generator-repo-p051.pddl&0.484474&0.484474\\
+ generator-repo-p084.pddl&0.485754&0.485754\\
+ ipc11sat-p03.pddl&0.486562&0.486562\\
+ generator-repo-p053.pddl&0.488755&0.488755\\
+ generator-repo-p042.pddl&0.491466&0.491466\\
+ generator-repo-p071.pddl&0.494907&0.494907\\
+ generator-repo-p052.pddl&0.495521&0.495521\\
+ ipc11sat-p01.pddl&1.85681&1.85681\\
+ generator-repo-p030.pddl&1.87396&1.87396\\
+ generator-repo-p099.pddl&10.9834&10.9834\\
+ ipc11sat-p19.pddl&11.0413&11.0413\\
+ ipc11sat-p20.pddl&43.3854&43.3854\\
+ generator-repo-p105.pddl&43.4533&43.4533
+                            \end{tabular}
+                            \end{center}
+                    
+                \newpage \section{Pipesworld-notankage}
+                    \subsection*{Optimal Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             p01-net1-b6-g2.pddl&0.44852&0.44852\\
+ p02-net1-b6-g4.pddl&0.485965&0.476197\\
+ p03-net1-b8-g3.pddl&0.508495&0.508495\\
+ p04-net1-b8-g5.pddl&0.577665&0.506003\\
+ p05-net1-b10-g4.pddl&0.615206&0.532419\\
+ p06-net1-b10-g6.pddl&0.901641&0.546577\\
+ p07-net1-b12-g5.pddl&0.720274&0.590118\\
+ p08-net1-b12-g7.pddl&1.66442&0.589102\\
+ p09-net1-b14-g6.pddl&43.4816&0.726033\\
+ p10-net1-b14-g8.pddl&406.838&1.90831\\
+ p11-net2-b10-g2.pddl&4.3816&1.15802\\
+ p12-net2-b10-g4.pddl&13.354&1.67175\\
+ p13-net2-b12-g3.pddl&4.03634&1.09859\\
+ p14-net2-b12-g5.pddl&unsolved&38.2425\\
+ p15-net2-b14-g4.pddl&40.0052&5.23347\\
+ p16-net2-b14-g6.pddl&unsolved&149.492\\
+ p17-net2-b16-g5.pddl&unsolved&160.216\\
+ p18-net2-b16-g7.pddl&unsolved&800.053\\
+ p19-net2-b18-g6.pddl&unsolved&192.631\\
+ p20-net2-b18-g8.pddl&unsolved&261.236\\
+ p21-net3-b12-g2.pddl&2.27823&1.13909\\
+ p22-net3-b12-g4.pddl&unsolved&48.545\\
+ p23-net3-b14-g3.pddl&191.476&15.6303\\
+ p24-net3-b14-g5.pddl&unsolved&315.448\\
+ p25-net3-b16-g5.pddl&unsolved&unsolved\\
+ p26-net3-b16-g7.pddl&unsolved&unsolved\\
+ p31-net4-b14-g3.pddl&unsolved&394.674\\
+ p32-net4-b14-g5.pddl&unsolved&unsolved\\
+ p33-net4-b16-g5.pddl&unsolved&unsolved\\
+ p34-net4-b16-g6.pddl&unsolved&unsolved
+                            \end{tabular}
+                            \end{center}
+                    
+                    
+                    \subsection*{Satisficing/Agile Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             p21-net3-b12-g2.pddl&199.303&0.24019\\
+ p22-net3-b12-g4.pddl&3427.84&0.435471\\
+ p23-net3-b14-g3.pddl&1.08074&0.430455\\
+ p24-net3-b14-g5.pddl&1.76602&0.600702\\
+ p25-net3-b16-g5.pddl&unsolved&0.902765\\
+ p26-net3-b16-g7.pddl&1213.13&0.826826\\
+ p27-net3-b18-g6.pddl&46.9031&0.942328\\
+ p28-net3-b18-g7.pddl&8.10312&0.934438\\
+ p29-net3-b20-g6.pddl&unsolved&1.23155\\
+ p30-net3-b20-g8.pddl&507.473&1.20084\\
+ p31-net4-b14-g3.pddl&508.202&0.434281\\
+ p32-net4-b14-g5.pddl&2.10495&0.749071\\
+ p33-net4-b16-g5.pddl&unsolved&0.896593\\
+ p34-net4-b16-g6.pddl&77.3846&0.860648\\
+ p35-net4-b18-g4.pddl&unsolved&1.10689\\
+ p36-net4-b18-g6.pddl&unsolved&1.16035\\
+ p37-net4-b20-g5.pddl&unsolved&1.11674\\
+ p38-net4-b20-g7.pddl&unsolved&1.02918\\
+ p39-net4-b22-g7.pddl&unsolved&1.37563\\
+ p40-net4-b22-g8.pddl&unsolved&1.62625\\
+ p41-net5-b22-g2.pddl&7.11909&1.25598\\
+ p42-net5-b22-g4.pddl&unsolved&43.9976\\
+ p43-net5-b24-g3.pddl&unsolved&unsolved\\
+ p44-net5-b24-g5.pddl&unsolved&15.8364\\
+ p45-net5-b26-g4.pddl&unsolved&7.9768\\
+ p46-net5-b26-g6.pddl&unsolved&3.66837\\
+ p47-net5-b28-g5.pddl&unsolved&18.7594\\
+ p48-net5-b28-g7.pddl&unsolved&9.56502\\
+ p49-net5-b30-g6.pddl&unsolved&4.48853\\
+ p50-net5-b30-g8.pddl&unsolved&6.1368
+                            \end{tabular}
+                            \end{center}
+                    
+                \newpage \section{Pipesworld-tankage}
+                    \subsection*{Optimal Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             p01-net1-b6-g2-t50.pddl&0.498774&0.498774\\
+ p02-net1-b6-g4-t50.pddl&0.512473&0.492584\\
+ p03-net1-b8-g3-t80.pddl&1.07057&0.735892\\
+ p04-net1-b8-g5-t80.pddl&2.50302&1.0566\\
+ p05-net1-b10-g4-t50.pddl&0.93853&0.739645\\
+ p06-net1-b10-g6-t50.pddl&1.45775&0.74924\\
+ p07-net1-b12-g5-t80.pddl&83.2619&1.49078\\
+ p08-net1-b12-g7-t80.pddl&unsolved&5.78155\\
+ p09-net1-b14-g6-t50.pddl&unsolved&19.8385\\
+ p10-net1-b14-g8-t50.pddl&unsolved&26.0039\\
+ p11-net2-b10-g2-t30.pddl&20.0593&5.44915\\
+ p12-net2-b10-g4-t60.pddl&unsolved&26.3249\\
+ p13-net2-b12-g3-t70.pddl&unsolved&30.9928\\
+ p14-net2-b12-g5-t30.pddl&unsolved&351.761\\
+ p15-net2-b14-g4-t30.pddl&143.236&37.5867\\
+ p16-net2-b14-g6-t80.pddl&unsolved&unsolved\\
+ p17-net2-b16-g5-t20.pddl&207.89&67.2655\\
+ p18-net2-b16-g7-t60.pddl&unsolved&unsolved\\
+ p19-net2-b18-g6-t60.pddl&unsolved&936.031\\
+ p20-net2-b18-g8-t90.pddl&unsolved&unsolved\\
+ p21-net3-b12-g2-t60.pddl&46.3792&21.1896\\
+ p22-net3-b12-g4-t60.pddl&unsolved&425.57\\
+ p23-net3-b14-g3-t60.pddl&unsolved&1598.98\\
+ p24-net3-b14-g5-t60.pddl&unsolved&unsolved\\
+ p25-net3-b16-g5-t60.pddl&unsolved&unsolved\\
+ p26-net3-b16-g7-t70.pddl&unsolved&unsolved\\
+ p27-net3-b18-g6-t70.pddl&unsolved&unsolved\\
+ p41-net5-b22-g2-t20.pddl&unsolved&223.768\\
+ p42-net5-b22-g4-t50.pddl&unsolved&unsolved\\
+ p43-net5-b24-g3-t80.pddl&unsolved&unsolved
+                            \end{tabular}
+                            \end{center}
+                    
+                    
+                    \subsection*{Satisficing/Agile Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             p11-net2-b10-g2-t30.pddl&64.4204&0.672817\\
+ p12-net2-b10-g4-t60.pddl&8.09187&1.01045\\
+ p13-net2-b12-g3-t70.pddl&1.86398&1.04327\\
+ p14-net2-b12-g5-t30.pddl&13.0622&0.922451\\
+ p15-net2-b14-g4-t30.pddl&37.9514&1.4075\\
+ p16-net2-b14-g6-t80.pddl&320.321&2.8803\\
+ p17-net2-b16-g5-t20.pddl&22.2837&2.41609\\
+ p18-net2-b16-g7-t60.pddl&30.9303&3.20094\\
+ p19-net2-b18-g6-t60.pddl&unsolved&2.90102\\
+ p20-net2-b18-g8-t90.pddl&unsolved&6.55666\\
+ p21-net3-b12-g2-t60.pddl&4401.91&0.698073\\
+ p22-net3-b12-g4-t60.pddl&unsolved&1.32467\\
+ p23-net3-b14-g3-t60.pddl&unsolved&4.83298\\
+ p24-net3-b14-g5-t60.pddl&2811.17&3.91347\\
+ p25-net3-b16-g5-t60.pddl&unsolved&5.71346\\
+ p26-net3-b16-g7-t70.pddl&unsolved&10.3468\\
+ p27-net3-b18-g6-t70.pddl&unsolved&6.37664\\
+ p28-net3-b18-g7-t70.pddl&unsolved&19.139\\
+ p29-net3-b20-g6-t70.pddl&unsolved&10.6067\\
+ p30-net3-b20-g8-t70.pddl&unsolved&15.8548\\
+ p31-net4-b14-g3-t20.pddl&43.4086&3.644\\
+ p32-net4-b14-g5-t30.pddl&191.229&3.72824\\
+ p33-net4-b16-g5-t60.pddl&723.05&4.09284\\
+ p34-net4-b16-g6-t60.pddl&209.851&5.84452\\
+ p35-net4-b18-g4-t90.pddl&unsolved&13.6437\\
+ p36-net4-b18-g6-t90.pddl&unsolved&31.1087\\
+ p37-net4-b20-g5-t60.pddl&unsolved&9.40614\\
+ p38-net4-b20-g7-t60.pddl&unsolved&12.7058\\
+ p39-net4-b22-g7-t50.pddl&unsolved&13.8137\\
+ p40-net4-b22-g8-t50.pddl&unsolved&12.6717
+                            \end{tabular}
+                            \end{center}
+                    
+                \newpage \section{Sokoban}
+                    \subsection*{Optimal Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             ipc11sat-p09.pddl&0.803167&0.803167\\
+ ipc11sat-p02.pddl&6.46074&1.64272\\
+ ipc11sat-p07.pddl&179.922&1.55747\\
+ ipc11sat-p06.pddl&422.604&2.48237\\
+ ipc11sat-p14.pddl&unsolved&2.93855\\
+ ipc11sat-p05.pddl&unsolved&3.35365\\
+ ipc11sat-p01.pddl&unsolved&3.83244\\
+ ipc11sat-p04.pddl&unsolved&4.41381\\
+ ipc11sat-p15.pddl&359.985&10.9616\\
+ ipc11sat-p10.pddl&489.633&9.76356\\
+ ipc11sat-p19.pddl&unsolved&7.61058\\
+ ipc11sat-p20.pddl&unsolved&8.12401\\
+ ipc11sat-p03.pddl&unsolved&12.0614\\
+ ipc11sat-p16.pddl&unsolved&12.1353\\
+ ipc11sat-p18.pddl&unsolved&13.9032\\
+ ipc11sat-p08.pddl&unsolved&16.6871\\
+ ipc11sat-p17.pddl&unsolved&40.0883\\
+ ipc11sat-p13.pddl&unsolved&44.166\\
+ ipc11sat-p12.pddl&unsolved&44.7927\\
+ ipc11sat-p11.pddl&unsolved&158.037\\
+ generator-repo-p017-multiban-sequential.pddl&unsolved&32.3643\\
+ generator-repo-p006-hexoban-sequential.pddl&unsolved&60.2888\\
+ generator-repo-p122-microban-sequential.pddl&unsolved&100.297\\
+ generator-repo-p111-microban-sequential.pddl&unsolved&235.176\\
+ generator-repo-p014-hexoban-sequential.pddl&unsolved&236.09\\
+ generator-repo-p003-multiban-sequential.pddl&unsolved&293.557\\
+ generator-repo-p007-multiban-sequential.pddl&unsolved&2020.93\\
+ generator-repo-p139-microban-sequential.pddl&unsolved&2223.45\\
+ generator-repo-p018-multiban-sequential.pddl&unsolved&unsolved\\
+ generator-repo-p016-hexoban-sequential.pddl&unsolved&unsolved
+                            \end{tabular}
+                            \end{center}
+                    
+                    
+                    \subsection*{Satisficing/Agile Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             generator-repo-p003-hexoban-sequential.pddl&0.492932&0.165123\\
+ generator-repo-p028-microban-sequential.pddl&0.473135&0.208074\\
+ generator-repo-p005-microban-sequential.pddl&0.584091&0.257552\\
+ generator-repo-p075-microban-sequential.pddl&0.560737&0.402344\\
+ generator-repo-p104-microban-sequential.pddl&0.544005&0.447314\\
+ generator-repo-p061-microban-sequential.pddl&0.550346&0.473647\\
+ generator-repo-p054-microban-sequential.pddl&0.611635&0.611635\\
+ generator-repo-p072-microban-sequential.pddl&0.642969&0.623095\\
+ generator-repo-p132-microban-sequential.pddl&1.3901&0.701349\\
+ generator-repo-p059-microban-sequential.pddl&0.920447&0.856222\\
+ generator-repo-p014-hexoban-sequential.pddl&14.6704&1.33544\\
+ generator-repo-p011-hexoban-sequential.pddl&16.6466&0.289766\\
+ generator-repo-p012-multiban-sequential.pddl&140.792&2.82886\\
+ generator-repo-p020-hexoban-sequential.pddl&293.234&4.43052\\
+ generator-repo-p022-hexoban-sequential.pddl&unsolved&2.39157\\
+ generator-repo-p017-multiban-sequential.pddl&unsolved&3.80617\\
+ generator-repo-p016-multiban-sequential.pddl&unsolved&4.37653\\
+ generator-repo-p138-microban-sequential.pddl&37.6291&6.11947\\
+ generator-repo-p143-microban-sequential.pddl&45.953&12.0812\\
+ generator-repo-p108-microban-sequential.pddl&102.671&6.38648\\
+ generator-repo-p019-multiban-sequential.pddl&261.065&21.5361\\
+ generator-repo-p111-microban-sequential.pddl&161.268&30.3346\\
+ generator-repo-p098-microban-sequential.pddl&189.268&48.1986\\
+ generator-repo-p122-microban-sequential.pddl&unsolved&64.9601\\
+ generator-repo-p011-multiban-sequential.pddl&12174.0&91.5632\\
+ generator-repo-p010-multiban-sequential.pddl&unsolved&109.16\\
+ generator-repo-p144-microban-sequential.pddl&unsolved&116.608\\
+ generator-repo-p015-hexoban-sequential.pddl&unsolved&507.903\\
+ generator-repo-p003-multiban-sequential.pddl&unsolved&unsolved\\
+ generator-repo-p007-multiban-sequential.pddl&unsolved&unsolved
+                            \end{tabular}
+                            \end{center}
+                    
+                \newpage \section{Tetris}
+                    \subsection*{Optimal Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             p-1-4-550290313.pddl&0.497507&0.490996\\
+ p-1-6-0.pddl&183.547&2.03363\\
+ p-1-8-3.pddl&unsolved&18.2892\\
+ p-1-10-827394048.pddl&unsolved&1883.5\\
+ p-2-12-1.pddl&4.47893&2.16582\\
+ p-3-14-1537364731.pddl&274.376&70.4462\\
+ p-3-18-852697554.pddl&20.5629&20.5629\\
+ p-3-22-2.pddl&10.6494&10.6494\\
+ p-3-24-4.pddl&380.968&197.685\\
+ p-4-26-1.pddl&unsolved&unsolved\\
+ p-4-28-4.pddl&unsolved&unsolved\\
+ p-1-4-2.pddl&0.514259&0.514259\\
+ p-1-8-735821750.pddl&unsolved&1587.27\\
+ p-1-12-1742549358.pddl&unsolved&unsolved\\
+ p-1-14-0.pddl&unsolved&unsolved\\
+ p-1-4-654687587.pddl&3.30663&0.714677\\
+ p-2-6-0.pddl&1.03247&0.865833\\
+ p-2-10-1.pddl&1.74979&1.22288\\
+ p-3-12-4.pddl&10.6787&10.6787\\
+ p-3-14-1660622299.pddl&unsolved&170.945\\
+ p-3-16-0.pddl&unsolved&1245.74\\
+ p-3-18-3.pddl&73.2692&73.2692\\
+ p-3-22-4.pddl&355.336&189.392\\
+ p-3-26-4.pddl&647.395&265.197\\
+ p-3-28-4.pddl&unsolved&362.002\\
+ p-3-32-2019001128.pddl&unsolved&unsolved\\
+ p-3-34-2.pddl&35.046&35.046\\
+ p-3-38-1.pddl&unsolved&2848.05\\
+ p-3-42-547112994.pddl&unsolved&unsolved\\
+ p-3-46-1.pddl&unsolved&unsolved
+                            \end{tabular}
+                            \end{center}
+                    
+                    
+                    \subsection*{Satisficing/Agile Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             p-1-4-536572609.pddl&0.532179&0.430812\\
+ p-1-6-2.pddl&0.584459&0.462419\\
+ p-1-10-558421210.pddl&133.909&27.3804\\
+ p-1-14-32397368.pddl&unsolved&62.4373\\
+ p-1-16-3.pddl&unsolved&73.5099\\
+ p-1-18-4.pddl&unsolved&130.157\\
+ p-1-20-2.pddl&2.97854&0.942654\\
+ p-1-24-4.pddl&unsolved&1361.6\\
+ p-1-28-2.pddl&unsolved&4192.73\\
+ p-1-30-2.pddl&unsolved&5962.59\\
+ p-1-34-0.pddl&unsolved&11115.6\\
+ p-1-38-2.pddl&unsolved&25.1555\\
+ p-1-40-2.pddl&unsolved&34.3716\\
+ p-1-44-2.pddl&unsolved&45.1428\\
+ p-2-46-2.pddl&unsolved&6.91931\\
+ p-2-50-1.pddl&unsolved&694.969\\
+ p-3-50-3.pddl&unsolved&11167.8\\
+ p-1-18-1.pddl&601.753&6.58663\\
+ p-1-22-2.pddl&4.79476&1.06713\\
+ p-1-26-0.pddl&unsolved&2890.72\\
+ p-1-30-4.pddl&unsolved&1942.49\\
+ p-1-32-2.pddl&unsolved&23.0141\\
+ p-1-34-1.pddl&unsolved&6193.12\\
+ p-1-36-0.pddl&unsolved&14654.8\\
+ p-2-38-2.pddl&unsolved&4.09228\\
+ p-2-40-2.pddl&unsolved&4.95782\\
+ p-3-42-547112994.pddl&unsolved&539.209\\
+ p-3-46-4.pddl&unsolved&1165.1\\
+ p-3-48-1.pddl&unsolved&297.743\\
+ p-3-50-4.pddl&unsolved&10547.3
+                            \end{tabular}
+                            \end{center}
+                    
+                \newpage \section{Thoughtful}
+                    \subsection*{Optimal Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             bootstrap-typed-02.pddl&12.9116&0.969606\\
+ bootstrap-typed-03.pddl&33.5964&0.933331\\
+ bootstrap-typed-04.pddl&30.6116&1.22643\\
+ bootstrap-typed-05.pddl&30.1086&1.39922\\
+ bootstrap-typed-01.pddl&54.605&1.45702\\
+ target-typed-06.pddl&unsolved&997.695\\
+ target-typed-08.pddl&unsolved&1245.68\\
+ target-typed-04.pddl&unsolved&unsolved\\
+ target-typed-05.pddl&unsolved&unsolved\\
+ target-typed-03.pddl&unsolved&unsolved\\
+ target-typed-10.pddl&unsolved&unsolved\\
+ target-typed-29.pddl&unsolved&unsolved\\
+ target-typed-07.pddl&unsolved&unsolved\\
+ thoughtful\_11\_6\_80-typed.pddl&unsolved&1084.82\\
+ thoughtful\_13\_7\_75-typed.pddl&unsolved&2443.71\\
+ thoughtful\_11\_6\_75-typed.pddl&unsolved&3116.33\\
+ thoughtful\_11\_6\_89-typed.pddl&unsolved&4143.86\\
+ thoughtful\_11\_6\_74-typed.pddl&unsolved&unsolved\\
+ thoughtful\_11\_6\_65-typed.pddl&unsolved&unsolved\\
+ thoughtful\_11\_6\_59-typed.pddl&unsolved&unsolved\\
+ thoughtful\_11\_6\_88-typed.pddl&unsolved&unsolved\\
+ thoughtful\_13\_7\_56-typed.pddl&unsolved&unsolved\\
+ thoughtful\_13\_7\_55-typed.pddl&unsolved&unsolved\\
+ thoughtful\_13\_7\_58-typed.pddl&unsolved&unsolved\\
+ thoughtful\_13\_7\_77-typed.pddl&unsolved&unsolved\\
+ thoughtful\_13\_7\_74-typed.pddl&unsolved&unsolved\\
+ thoughtful\_13\_7\_72-typed.pddl&unsolved&unsolved\\
+ thoughtful\_13\_7\_69-typed.pddl&unsolved&unsolved\\
+ thoughtful\_11\_6\_78-typed.pddl&unsolved&unsolved\\
+ thoughtful\_11\_6\_99-typed.pddl&unsolved&unsolved
+                            \end{tabular}
+                            \end{center}
+                    
+                    
+                    \subsection*{Satisficing/Agile Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             thoughtful\_11\_6\_74-typed.pddl&3.95988&3.95988\\
+ thoughtful\_11\_6\_65-typed.pddl&4.20194&4.20194\\
+ thoughtful\_11\_6\_59-typed.pddl&4.41846&4.41846\\
+ thoughtful\_11\_6\_75-typed.pddl&4.42328&4.42328\\
+ thoughtful\_11\_6\_88-typed.pddl&4.48502&4.48502\\
+ thoughtful\_13\_7\_56-typed.pddl&4.65313&4.65313\\
+ thoughtful\_13\_7\_55-typed.pddl&4.89451&4.89451\\
+ thoughtful\_13\_7\_58-typed.pddl&6.22302&5.33551\\
+ thoughtful\_13\_7\_77-typed.pddl&6.20357&6.20357\\
+ thoughtful\_13\_7\_74-typed.pddl&6.29263&6.29263\\
+ thoughtful\_13\_7\_72-typed.pddl&7.84385&7.84385\\
+ thoughtful\_13\_7\_69-typed.pddl&888.856&8.02587\\
+ thoughtful\_11\_6\_78-typed.pddl&unsolved&5.01122\\
+ thoughtful\_11\_6\_99-typed.pddl&unsolved&5.32393\\
+ thoughtful\_13\_7\_75-typed.pddl&unsolved&5.55591\\
+ thoughtful\_13\_7\_52-typed.pddl&unsolved&5.56198\\
+ thoughtful\_13\_7\_61-typed.pddl&unsolved&6.19906\\
+ thoughtful\_13\_7\_79-typed.pddl&unsolved&6.29838\\
+ thoughtful\_13\_7\_86-typed.pddl&unsolved&6.50795\\
+ thoughtful\_11\_6\_89-typed.pddl&unsolved&7.29345\\
+ thoughtful\_13\_7\_64-typed.pddl&unsolved&7.65745\\
+ thoughtful\_11\_6\_82-typed.pddl&unsolved&12.5904\\
+ thoughtful\_11\_6\_98-typed.pddl&unsolved&14.5674\\
+ thoughtful\_11\_6\_80-typed.pddl&unsolved&16.8443\\
+ thoughtful\_11\_6\_62-typed.pddl&unsolved&17.9394\\
+ thoughtful\_13\_7\_68-typed.pddl&unsolved&22.6398\\
+ thoughtful\_13\_7\_62-typed.pddl&unsolved&23.0651\\
+ thoughtful\_11\_6\_53-typed.pddl&unsolved&25.3683\\
+ thoughtful\_13\_7\_78-typed.pddl&unsolved&46.1068\\
+ thoughtful\_13\_7\_51-typed.pddl&unsolved&unsolved
+                            \end{tabular}
+                            \end{center}
+                    
+                \newpage \section{Tidybot}
+                    \subsection*{Optimal Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             p-3-4-1-1-8-9-0.pddl&14.2312&13.1646\\
+ p-1-4-1-1-6-9-0.pddl&20.419&13.7139\\
+ ipc14opt-p11.pddl&55.4806&10.3178\\
+ ipc11opt-p05.pddl&75.2464&7.79163\\
+ p-3-4-1-1-6-9-1.pddl&100.761&21.8516\\
+ ipc14opt-p03.pddl&120.176&19.1456\\
+ p-2-4-1-1-0-11-1.pddl&33.5205&29.4433\\
+ p-1-4-1-1-10-10-0.pddl&unsolved&57.8305\\
+ p-1-4-1-1-4-13-1.pddl&149.975&90.8739\\
+ p-1-4-3-1-2-9-1.pddl&unsolved&140.529\\
+ p-1-4-1-1-4-14-1.pddl&390.947&189.575\\
+ p-1-4-5-1-10-9-0.pddl&unsolved&355.831\\
+ p-3-4-1-1-6-11-1.pddl&unsolved&498.754\\
+ p-3-4-3-1-2-10-1.pddl&unsolved&547.203\\
+ p-1-4-3-1-4-13-0.pddl&unsolved&1837.95\\
+ p-2-4-5-1-10-10-1.pddl&unsolved&2515.45\\
+ p-2-4-1-1-6-10-1.pddl&unsolved&2650.44\\
+ p-1-4-5-1-8-9-1.pddl&unsolved&2873.76\\
+ p-2-4-5-1-6-9-1.pddl&unsolved&5618.46\\
+ p-3-4-1-1-6-12-0.pddl&unsolved&unsolved\\
+ p-1-4-3-1-10-13-0.pddl&unsolved&unsolved\\
+ p-1-5-5-1-4-10-0.pddl&unsolved&unsolved\\
+ p-1-4-3-1-8-11-0.pddl&unsolved&1016.97\\
+ p-1-4-3-1-4-10-1.pddl&unsolved&1958.62\\
+ p-3-4-5-1-10-10-1.pddl&unsolved&2192.43\\
+ ipc14opt-p06.pddl&unsolved&4488.12\\
+ p-3-5-3-1-2-11-0.pddl&unsolved&9909.02\\
+ p-2-4-5-1-10-12-0.pddl&unsolved&unsolved\\
+ p-2-4-3-1-4-11-0.pddl&unsolved&unsolved\\
+ p-1-5-3-1-2-12-1.pddl&unsolved&unsolved
+                            \end{tabular}
+                            \end{center}
+                    
+                    
+                    \subsection*{Satisficing/Agile Set}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{r|r|r}
+                            config & real\_baseline\_time & real\_sart\_time\\\midrule
+                             p-2-4-1-1-0-5-1.pddl&2.10691&0.324448\\
+ ipc11opt-p02.pddl&3.05007&0.746927\\
+ p-2-4-1-1-0-10-1.pddl&19.5488&13.7418\\
+ p-1-4-1-1-10-9-0.pddl&16.8943&15.977\\
+ p-3-4-5-3-8-11-1.pddl&unsolved&22.6218\\
+ p-3-4-5-3-4-11-1.pddl&39.6999&25.9292\\
+ p-2-4-5-1-2-11-1.pddl&41.0873&28.5144\\
+ p-3-4-1-1-4-12-0.pddl&58.9335&49.916\\
+ p-1-4-5-3-10-13-1.pddl&1074.05&48.636\\
+ p-1-4-1-1-10-13-1.pddl&unsolved&52.4035\\
+ p-3-5-5-1-4-11-0.pddl&unsolved&55.8305\\
+ p-1-4-5-1-6-14-0.pddl&1499.96&75.2993\\
+ p-1-4-5-5-10-15-0.pddl&275.422&90.8904\\
+ p-1-4-5-3-2-14-0.pddl&112.017&112.017\\
+ p-3-5-3-1-8-14-0.pddl&unsolved&119.734\\
+ p-1-5-3-3-4-12-1.pddl&unsolved&149.252\\
+ p-3-4-5-1-2-13-0.pddl&294.682&243.43\\
+ p-2-5-1-1-4-13-1.pddl&3043.55&278.952\\
+ p-1-5-5-3-2-13-0.pddl&unsolved&360.991\\
+ p-2-5-3-1-6-13-1.pddl&unsolved&380.781\\
+ p-1-5-3-3-10-13-0.pddl&unsolved&386.552\\
+ p-1-5-5-1-2-14-1.pddl&unsolved&429.526\\
+ p-3-4-3-1-6-15-0.pddl&unsolved&747.029\\
+ p-2-4-3-3-8-15-0.pddl&unsolved&951.75\\
+ p-3-4-5-5-2-15-0.pddl&unsolved&1279.98\\
+ p-2-5-3-3-6-15-0.pddl&unsolved&2809.41\\
+ p-2-5-5-1-4-14-1.pddl&unsolved&3420.59\\
+ p-2-5-3-1-10-15-0.pddl&unsolved&4097.3\\
+ p-2-5-3-1-6-15-1.pddl&unsolved&9325.41\\
+ p-3-5-1-1-8-14-1.pddl&unsolved&15947.5
+                            \end{tabular}
+                            \end{center}
+                    
+                \end{document}

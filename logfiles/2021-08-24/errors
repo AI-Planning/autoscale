@@ -1,0 +1,765 @@
+agricola
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m8.501s
+user	0m5.265s
+sys	0m2.883s
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m9.232s
+user	0m6.091s
+sys	0m3.185s
+airport
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m4.502s
+user	0m3.090s
+sys	0m1.334s
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m4.380s
+user	0m2.996s
+sys	0m1.386s
+freecell
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m19.269s
+user	0m5.187s
+sys	0m14.233s
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m18.684s
+user	0m5.404s
+sys	0m13.532s
+ged
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m6.591s
+user	0m3.644s
+sys	0m2.948s
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m7.008s
+user	0m4.122s
+sys	0m2.924s
+mprime
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m20.282s
+user	0m4.409s
+sys	0m16.091s
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m20.540s
+user	0m4.932s
+sys	0m15.925s
+mystery
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m23.707s
+user	0m4.040s
+sys	0m19.893s
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m23.400s
+user	0m3.976s
+sys	0m19.824s
+organic-synthesis-split
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m4.695s
+user	0m2.995s
+sys	0m1.613s
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m4.557s
+user	0m2.974s
+sys	0m1.585s
+parcprinter
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m5.149s
+user	0m3.253s
+sys	0m1.854s
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m5.152s
+user	0m3.293s
+sys	0m1.862s
+pathways
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	1m15.883s
+user	0m7.298s
+sys	1m9.115s
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	1m18.222s
+user	0m7.993s
+sys	1m11.682s
+parcprinter
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m5.190s
+user	0m3.344s
+sys	0m1.858s
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m5.236s
+user	0m3.449s
+sys	0m1.785s
+pegsol
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m5.415s
+user	0m3.781s
+sys	0m1.621s
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m5.198s
+user	0m3.607s
+sys	0m1.595s
+pipesworld-notankage
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m4.071s
+user	0m3.095s
+sys	0m0.956s
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m4.115s
+user	0m3.091s
+sys	0m1.009s
+pipesworld-tankage
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m4.404s
+user	0m3.293s
+sys	0m1.075s
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m4.273s
+user	0m3.171s
+sys	0m1.095s
+sokoban
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m6.052s
+user	0m3.528s
+sys	0m2.508s
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m5.991s
+user	0m3.578s
+sys	0m2.434s
+tetris
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m13.577s
+user	0m5.569s
+sys	0m8.050s
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m14.488s
+user	0m6.675s
+sys	0m7.950s
+thoughtful
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m4.251s
+user	0m3.026s
+sys	0m1.199s
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m4.306s
+user	0m3.104s
+sys	0m1.200s
+tidybot
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m24.295s
+user	0m5.480s
+sys	0m19.038s
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 281, in perform_cplex_optimization
+    enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+AttributeError: 'DataDomain' object has no attribute 'attributes'
+
+real	0m24.489s
+user	0m5.963s
+sys	0m18.880s
+barman
+
+real	0m9.487s
+user	0m8.524s
+sys	0m1.564s
+
+real	2m54.246s
+user	3m30.855s
+sys	0m4.663s
+blocksworld
+
+real	0m7.256s
+user	0m6.802s
+sys	0m1.594s
+
+real	0m22.006s
+user	0m30.381s
+sys	0m1.657s
+childsnack
+
+real	0m11.089s
+user	0m10.521s
+sys	0m1.436s
+
+real	1m4.525s
+user	1m6.979s
+sys	0m1.772s
+data-network
+
+real	1m34.905s
+user	1m45.491s
+sys	0m21.030s
+
+real	0m20.489s
+user	0m27.067s
+sys	0m20.674s
+depots
+
+real	1m7.358s
+user	1m8.617s
+sys	0m1.823s
+
+real	0m12.674s
+user	0m13.790s
+sys	0m1.462s
+driverlog
+
+real	1m50.075s
+user	2m4.953s
+sys	0m3.244s
+
+real	1m21.513s
+user	1m40.983s
+sys	0m2.191s
+elevators
+
+real	0m18.322s
+user	0m17.499s
+sys	0m1.748s
+
+real	1m20.303s
+user	1m20.109s
+sys	0m1.691s
+floortile
+
+real	0m19.236s
+user	0m18.739s
+sys	0m2.059s
+
+real	3m27.461s
+user	5m20.454s
+sys	0m15.875s
+grid
+
+real	0m38.160s
+user	0m42.303s
+sys	0m2.295s
+
+real	8m22.333s
+user	8m35.176s
+sys	0m2.450s
+gripper
+
+real	0m29.832s
+user	0m28.962s
+sys	0m1.703s
+
+real	1m51.136s
+user	2m6.065s
+sys	0m1.927s
+hiking
+
+real	3m37.330s
+user	4m4.493s
+sys	0m3.802s
+
+real	2m42.719s
+user	3m19.849s
+sys	0m3.639s
+logistics
+
+real	1m4.391s
+user	1m10.211s
+sys	0m2.772s
+
+real	0m19.701s
+user	0m22.162s
+sys	0m1.571s
+miconic
+
+real	3m24.637s
+user	4m37.633s
+sys	0m5.475s
+
+real	5m0.250s
+user	5m11.229s
+sys	0m2.701s
+nomystery
+
+real	5m43.403s
+user	12m2.029s
+sys	0m13.171s
+
+real	15m10.516s
+user	16m43.815s
+sys	0m25.742s
+openstacks
+
+real	1m2.825s
+user	2m13.832s
+sys	0m2.947s
+
+real	0m16.261s
+user	0m16.074s
+sys	0m1.668s
+parking
+
+real	0m7.840s
+user	0m7.172s
+sys	0m1.640s
+
+real	0m32.718s
+user	0m32.774s
+sys	0m1.722s
+rovers
+
+real	0m10.143s
+user	0m10.038s
+sys	0m1.740s
+
+real	0m20.630s
+user	0m19.986s
+sys	0m1.465s
+satellite
+
+real	0m14.430s
+user	0m14.920s
+sys	0m1.943s
+
+real	0m11.100s
+user	0m11.611s
+sys	0m1.396s
+scanalyzer
+
+real	0m7.960s
+user	0m7.045s
+sys	0m1.783s
+
+real	0m13.617s
+user	0m13.292s
+sys	0m1.544s
+snake
+
+real	0m32.486s
+user	0m32.200s
+sys	0m1.875s
+
+real	1m11.014s
+user	1m22.162s
+sys	0m2.526s
+storage
+
+real	1m16.317s
+user	1m16.341s
+sys	0m1.937s
+
+real	0m29.928s
+user	0m37.971s
+sys	0m2.350s
+termes
+
+real	1m1.615s
+user	1m6.070s
+sys	0m21.286s
+
+real	2m29.002s
+user	2m33.312s
+sys	0m20.909s
+tpp
+
+real	1m45.458s
+user	2m11.318s
+sys	0m2.685s
+
+real	1m18.005s
+user	1m20.552s
+sys	0m1.906s
+transport
+
+real	0m7.541s
+user	0m6.759s
+sys	0m1.719s
+
+real	0m51.006s
+user	1m20.771s
+sys	0m2.568s
+visitall
+
+real	0m51.719s
+user	0m51.800s
+sys	0m1.927s
+
+real	4m47.250s
+user	4m49.495s
+sys	0m1.674s
+woodworking
+
+real	0m11.776s
+user	0m11.313s
+sys	0m1.618s
+
+real	10m25.911s
+user	25m30.547s
+sys	0m14.266s
+zenotravel
+
+real	1m15.240s
+user	1m49.638s
+sys	0m3.408s
+
+real	0m16.356s
+user	0m18.397s
+sys	0m1.410s
+agricola
+
+real	0m38.922s
+user	0m39.606s
+sys	0m3.559s
+
+real	0m37.093s
+user	0m47.060s
+sys	0m3.744s
+airport
+
+real	0m4.281s
+user	0m2.813s
+sys	0m1.472s
+
+real	0m4.260s
+user	0m2.862s
+sys	0m1.401s
+freecell
+
+real	0m19.628s
+user	0m7.167s
+sys	0m13.991s
+
+real	0m19.461s
+user	0m6.657s
+sys	0m13.746s
+ged
+
+real	0m8.756s
+user	0m6.347s
+sys	0m2.997s
+
+real	0m14.220s
+user	0m25.670s
+sys	0m3.008s
+mprime
+
+real	0m21.004s
+user	0m4.749s
+sys	0m16.566s
+
+real	0m23.284s
+user	0m9.299s
+sys	0m16.371s
+mystery
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 343, in perform_cplex_optimization
+    assert len(self.trivial_instances) >= 2, "Error: there are not enough instances that are considered trivial so the constraint cannot be satisfied. Consider increasing the time limit to consider an instance trivial"
+AssertionError: Error: there are not enough instances that are considered trivial so the constraint cannot be satisfied. Consider increasing the time limit to consider an instance trivial
+
+real	0m23.034s
+user	0m3.683s
+sys	0m19.732s
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 343, in perform_cplex_optimization
+    assert len(self.trivial_instances) >= 2, "Error: there are not enough instances that are considered trivial so the constraint cannot be satisfied. Consider increasing the time limit to consider an instance trivial"
+AssertionError: Error: there are not enough instances that are considered trivial so the constraint cannot be satisfied. Consider increasing the time limit to consider an instance trivial
+
+real	0m22.724s
+user	0m3.406s
+sys	0m19.694s
+organic-synthesis-split
+
+real	0m4.332s
+user	0m2.717s
+sys	0m1.623s
+
+real	0m4.277s
+user	0m2.712s
+sys	0m1.583s
+parcprinter
+
+real	0m5.449s
+user	0m3.621s
+sys	0m1.866s
+
+real	0m5.555s
+user	0m3.675s
+sys	0m1.914s
+pathways
+
+real	1m15.006s
+user	0m7.351s
+sys	1m9.137s
+
+real	1m17.172s
+user	0m10.100s
+sys	1m9.974s
+parcprinter
+
+real	0m5.757s
+user	0m3.914s
+sys	0m1.877s
+
+real	0m5.568s
+user	0m3.719s
+sys	0m1.876s
+pegsol
+
+real	0m5.650s
+user	0m4.055s
+sys	0m1.619s
+
+real	0m5.283s
+user	0m3.716s
+sys	0m1.593s
+pipesworld-notankage
+
+real	0m3.918s
+user	0m2.901s
+sys	0m1.024s
+
+real	0m3.759s
+user	0m2.722s
+sys	0m1.029s
+pipesworld-tankage
+
+real	0m3.658s
+user	0m2.737s
+sys	0m0.944s
+
+real	0m3.731s
+user	0m2.760s
+sys	0m0.969s
+sokoban
+
+real	0m6.655s
+user	0m4.965s
+sys	0m2.579s
+
+real	0m6.339s
+user	0m4.127s
+sys	0m2.388s
+tetris
+
+real	0m49.312s
+user	0m57.603s
+sys	0m8.455s
+
+real	0m35.678s
+user	0m28.860s
+sys	0m8.334s
+thoughtful
+
+real	0m3.971s
+user	0m2.754s
+sys	0m1.205s
+
+real	0m3.894s
+user	0m2.667s
+sys	0m1.225s
+tidybot
+
+real	0m27.390s
+user	0m11.063s
+sys	0m19.509s
+
+real	0m25.050s
+user	0m7.339s
+sys	0m18.785s

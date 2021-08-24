@@ -1,0 +1,166 @@
+2021-08-24 19:14:05,844 INFO     No run directory, so we will not run anything
+2021-08-24 19:14:06,326 INFO     Loading cache data for baseline planners: 860
+2021-08-24 19:14:06,360 INFO     baseline cache contains data for 261 parameter values, with min 3 max 39 avg 9.885057471264368 runtimes
+2021-08-24 19:14:06,360 INFO     Loading cache data for sart planners: 1774
+2021-08-24 19:14:06,430 INFO     sart cache contains data for 664 parameter values, with min 3 max 39 avg 8.015060240963855 runtimes
+2021-08-24 19:14:07,797 INFO     Loading cache data for baseline planners: 79
+2021-08-24 19:14:07,800 INFO     baseline cache contains data for 311 parameter values, with min 3 max 39 avg 9.057877813504824 runtimes
+2021-08-24 19:14:07,800 INFO     Loading cache data for sart planners: 199
+2021-08-24 19:14:07,807 INFO     sart cache contains data for 790 parameter values, with min 3 max 39 avg 7.492405063291139 runtimes
+2021-08-24 19:14:09,285 INFO     Loading cache data for baseline planners: 4
+2021-08-24 19:14:09,285 INFO     baseline cache contains data for 315 parameter values, with min 3 max 39 avg 8.980952380952381 runtimes
+2021-08-24 19:14:09,289 INFO     Loading cache data for sart planners: 16
+2021-08-24 19:14:09,290 INFO     sart cache contains data for 803 parameter values, with min 3 max 39 avg 7.430884184308842 runtimes
+2021-08-24 19:14:10,751 INFO     Loading cache data for baseline planners: 241
+2021-08-24 19:14:10,758 INFO     baseline cache contains data for 449 parameter values, with min 3 max 39 avg 7.910913140311804 runtimes
+2021-08-24 19:14:10,759 INFO     Loading cache data for sart planners: 553
+2021-08-24 19:14:10,778 INFO     sart cache contains data for 1155 parameter values, with min 3 max 39 avg 6.602597402597403 runtimes
+2021-08-24 19:14:10,778 INFO     Stored sequences: 17352
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 4, 'distributors': 3, 'trucks': 2, 'pallets': 2, 'hoists': 2, 'crates': 8}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 2, 'trucks': 4, 'pallets': 3, 'hoists': 4, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 2, 'trucks': 5, 'pallets': 3, 'hoists': 4, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 4, 'trucks': 5, 'pallets': 3, 'hoists': 4, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 4, 'trucks': 2, 'pallets': 3, 'hoists': 2, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 4, 'distributors': 2, 'trucks': 3, 'pallets': 3, 'hoists': 3, 'crates': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 4, 'distributors': 2, 'trucks': 3, 'pallets': 3, 'hoists': 3, 'crates': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 3, 'trucks': 3, 'pallets': 4, 'hoists': 2, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 4, 'trucks': 2, 'pallets': 5, 'hoists': 4, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 2, 'trucks': 2, 'pallets': 5, 'hoists': 2, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 4, 'trucks': 2, 'pallets': 5, 'hoists': 4, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 6, 'distributors': 5, 'trucks': 2, 'pallets': 5, 'hoists': 2, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 4, 'trucks': 2, 'pallets': 2, 'hoists': 3, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 4, 'trucks': 2, 'pallets': 2, 'hoists': 3, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 4, 'trucks': 2, 'pallets': 4, 'hoists': 4, 'crates': 6}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 4, 'trucks': 2, 'pallets': 5, 'hoists': 4, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 4, 'trucks': 2, 'pallets': 4, 'hoists': 4, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 4, 'trucks': 2, 'pallets': 4, 'hoists': 4, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 3, 'trucks': 3, 'pallets': 5, 'hoists': 3, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 4, 'trucks': 2, 'pallets': 2, 'hoists': 2, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 4, 'trucks': 2, 'pallets': 2, 'hoists': 2, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 4, 'trucks': 2, 'pallets': 5, 'hoists': 4, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 4, 'trucks': 2, 'pallets': 5, 'hoists': 4, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 4, 'trucks': 2, 'pallets': 4, 'hoists': 5, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 4, 'distributors': 4, 'trucks': 2, 'pallets': 4, 'hoists': 4, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 4, 'trucks': 2, 'pallets': 2, 'hoists': 3, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 4, 'trucks': 2, 'pallets': 2, 'hoists': 3, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 5, 'trucks': 2, 'pallets': 3, 'hoists': 4, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 4, 'trucks': 2, 'pallets': 4, 'hoists': 5, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 4, 'distributors': 2, 'trucks': 5, 'pallets': 3, 'hoists': 3, 'crates': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 4, 'distributors': 2, 'trucks': 5, 'pallets': 3, 'hoists': 3, 'crates': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 5, 'trucks': 2, 'pallets': 6, 'hoists': 7, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 5, 'trucks': 2, 'pallets': 4, 'hoists': 2, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 6, 'trucks': 2, 'pallets': 2, 'hoists': 2, 'crates': 8}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 4, 'trucks': 2, 'pallets': 5, 'hoists': 2, 'crates': 6}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 9, 'hoists': 2, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 7, 'hoists': 2, 'crates': 6}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 5, 'trucks': 2, 'pallets': 4, 'hoists': 2, 'crates': 6}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 2, 'trucks': 3, 'pallets': 4, 'hoists': 2, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 2, 'trucks': 2, 'pallets': 4, 'hoists': 2, 'crates': 6}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 2, 'trucks': 3, 'pallets': 9, 'hoists': 2, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 4, 'hoists': 4, 'crates': 6}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 9, 'hoists': 2, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 9, 'hoists': 2, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 7, 'hoists': 2, 'crates': 6}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 4, 'trucks': 4, 'pallets': 3, 'hoists': 4, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 4, 'trucks': 2, 'pallets': 3, 'hoists': 2, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 4, 'distributors': 2, 'trucks': 4, 'pallets': 2, 'hoists': 3, 'crates': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 4, 'distributors': 2, 'trucks': 4, 'pallets': 2, 'hoists': 3, 'crates': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 4, 'trucks': 4, 'pallets': 2, 'hoists': 4, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 2, 'trucks': 5, 'pallets': 3, 'hoists': 4, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 3, 'trucks': 4, 'pallets': 4, 'hoists': 2, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 6, 'distributors': 5, 'trucks': 2, 'pallets': 4, 'hoists': 5, 'crates': 6}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 5, 'trucks': 2, 'pallets': 4, 'hoists': 4, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 4, 'distributors': 4, 'trucks': 2, 'pallets': 4, 'hoists': 4, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 4, 'trucks': 2, 'pallets': 4, 'hoists': 6, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 4, 'trucks': 2, 'pallets': 4, 'hoists': 3, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 4, 'trucks': 4, 'pallets': 4, 'hoists': 4, 'crates': 6}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 5, 'trucks': 2, 'pallets': 5, 'hoists': 4, 'crates': 6}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 2, 'trucks': 3, 'pallets': 3, 'hoists': 3, 'crates': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 2, 'trucks': 3, 'pallets': 3, 'hoists': 3, 'crates': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 4, 'trucks': 2, 'pallets': 4, 'hoists': 4, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 4, 'trucks': 2, 'pallets': 4, 'hoists': 4, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 4, 'distributors': 3, 'trucks': 4, 'pallets': 3, 'hoists': 3, 'crates': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 4, 'distributors': 3, 'trucks': 4, 'pallets': 3, 'hoists': 3, 'crates': 4}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 4, 'distributors': 4, 'trucks': 2, 'pallets': 4, 'hoists': 4, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 2, 'trucks': 3, 'pallets': 4, 'hoists': 4, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 3, 'trucks': 5, 'pallets': 2, 'hoists': 2, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 5, 'distributors': 3, 'trucks': 2, 'pallets': 4, 'hoists': 4, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 6, 'distributors': 2, 'trucks': 2, 'pallets': 4, 'hoists': 4, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 6, 'distributors': 2, 'trucks': 2, 'pallets': 4, 'hoists': 2, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 5, 'hoists': 5, 'crates': 6}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 4, 'trucks': 2, 'pallets': 2, 'hoists': 2, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 4, 'trucks': 2, 'pallets': 2, 'hoists': 2, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 7, 'hoists': 2, 'crates': 6}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 4, 'trucks': 2, 'pallets': 2, 'hoists': 2, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 4, 'trucks': 2, 'pallets': 2, 'hoists': 2, 'crates': 5}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 7, 'trucks': 2, 'pallets': 5, 'hoists': 2, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 9, 'hoists': 2, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 2, 'trucks': 3, 'pallets': 3, 'hoists': 2, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 2, 'trucks': 3, 'pallets': 4, 'hoists': 2, 'crates': 7}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 11, 'hoists': 2, 'crates': 8}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 4, 'hoists': 4, 'crates': 6}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 2, 'trucks': 3, 'pallets': 4, 'hoists': 2, 'crates': 6}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 7, 'hoists': 2, 'crates': 6}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'depots': 3, 'distributors': 5, 'trucks': 2, 'pallets': 2, 'hoists': 8, 'crates': 8}, so I consider it unsolved within the time and memory limits
+2021-08-24 19:14:59,246 INFO     Different evaluated sequences: 684
+2021-08-24 19:15:03,346 INFO     Candidate sequences: 607
+2021-08-24 19:15:03,354 INFO     Using sart runtimes on CPLEX optimization
+2021-08-24 19:15:09,986 INFO     CPLEX solve
+
+2021-08-24 19:15:11,898 INFO     Solution status = 101: MIP_optimal
+2021-08-24 19:15:11,898 INFO     Solution value  = 35.93336384144297
+2021-08-24 19:15:11,919 INFO     CPLEX Solved Instances: 15.0
+2021-08-24 19:15:11,921 INFO     CPLEX Trivial Instances: 6.0
+Selected: sequence 410, 6 instances from 5 to 10
+Configuration: {'crates_b': 3, 'crates_m': 1.0, 'depots_b': 3, 'depots_m': 2.2, 'depots_optional_m': 'true', 'distributors_b': 2, 'distributors_m': 3.5000000000000004, 'distributors_optional_m': 'true', 'hoists_b': 3, 'hoists_m': 1.5000000000000002, 'hoists_optional_m': 'false', 'pallets_b': 2, 'pallets_m': 1.6, 'pallets_optional_m': 'true', 'trucks_b': 2, 'trucks_m': 0.1, 'trucks_optional_m': 'false'}
+Penalty: 11.31
+Penalty sart: 3.87
+Penalty baseline: 7.44
+Seq Estimated runtimes: 68,1.8e+02,8.2e+02,3.6e+03,1.6e+04,7.2e+04
+Seq instances: [{'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 2, 'hoists': 10, 'crates': 8}, {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 2, 'hoists': 12, 'crates': 9}, {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 2, 'hoists': 13, 'crates': 10}, {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 2, 'hoists': 15, 'crates': 11}, {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 2, 'hoists': 16, 'crates': 12}, {'depots': 3, 'distributors': 2, 'trucks': 3, 'pallets': 2, 'hoists': 18, 'crates': 13}]
+Selected: sequence 225, 12 instances from 0 to 11
+Configuration: {'crates_b': 3, 'crates_m': 1.0, 'depots_b': 3, 'depots_m': 0.5, 'depots_optional_m': 'true', 'distributors_b': 2, 'distributors_m': 0.1, 'distributors_optional_m': 'true', 'hoists_b': 2, 'hoists_m': 3.1, 'hoists_optional_m': 'true', 'pallets_b': 2, 'pallets_m': 0.9, 'pallets_optional_m': 'false', 'trucks_b': 2, 'trucks_m': 1.4000000000000001, 'trucks_optional_m': 'true'}
+Penalty: 12.10
+Penalty sart: 4.51
+Penalty baseline: 7.59
+Seq Estimated runtimes: 0.63,0.75,1.3,5.9,20,1.1e+02,1.8e+02,6.3e+02,2.2e+03,7.7e+03,2.7e+04,9.6e+04
+Seq instances: [{'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 2, 'hoists': 2, 'crates': 3}, {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 2, 'hoists': 2, 'crates': 4}, {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 3, 'hoists': 2, 'crates': 5}, {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 4, 'hoists': 2, 'crates': 6}, {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 5, 'hoists': 2, 'crates': 7}, {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 6, 'hoists': 2, 'crates': 8}, {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 7, 'hoists': 2, 'crates': 9}, {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 8, 'hoists': 2, 'crates': 10}, {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 9, 'hoists': 2, 'crates': 11}, {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 10, 'hoists': 2, 'crates': 12}, {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 11, 'hoists': 2, 'crates': 13}, {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 11, 'hoists': 2, 'crates': 14}]
+Selected: sequence 203, 12 instances from 0 to 11
+Configuration: {'crates_b': 3, 'crates_m': 1.1, 'depots_b': 3, 'depots_m': 1.4000000000000001, 'depots_optional_m': 'true', 'distributors_b': 2, 'distributors_m': 0.2, 'distributors_optional_m': 'true', 'hoists_b': 3, 'hoists_m': 2.9000000000000004, 'hoists_optional_m': 'true', 'pallets_b': 2, 'pallets_m': 1.1, 'pallets_optional_m': 'false', 'trucks_b': 2, 'trucks_m': 1.4000000000000001, 'trucks_optional_m': 'true'}
+Penalty: 12.53
+Penalty sart: 5.03
+Penalty baseline: 7.49
+Seq Estimated runtimes: 0.59,0.75,0.78,6.5,19,75,2.6e+02,8.7e+02,3e+03,1e+04,3.5e+04,1.2e+05
+Seq instances: [{'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 2, 'hoists': 3, 'crates': 3}, {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 3, 'hoists': 3, 'crates': 4}, {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 4, 'hoists': 3, 'crates': 5}, {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 5, 'hoists': 3, 'crates': 6}, {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 6, 'hoists': 3, 'crates': 7}, {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 7, 'hoists': 3, 'crates': 8}, {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 8, 'hoists': 3, 'crates': 9}, {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 9, 'hoists': 3, 'crates': 10}, {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 10, 'hoists': 3, 'crates': 11}, {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 11, 'hoists': 3, 'crates': 12}, {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 12, 'hoists': 3, 'crates': 13}, {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 14, 'hoists': 3, 'crates': 15}]
+  p01: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 2, 'hoists': 3, 'crates': 3}   0.588
+  p02: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 3, 'hoists': 3, 'crates': 4}   0.7490476190476191
+  p03: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 4, 'hoists': 3, 'crates': 5}   0.7766666666666667
+  p04: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 5, 'hoists': 3, 'crates': 6}   6.546666666666667
+  p05: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 6, 'hoists': 3, 'crates': 7}   18.71
+  p06: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 7, 'hoists': 3, 'crates': 8}   74.58333333333333
+  p07: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 8, 'hoists': 3, 'crates': 9}   255.23255055077746
+  p08: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 9, 'hoists': 3, 'crates': 10}   873.4344785786169
+  p09: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 10, 'hoists': 3, 'crates': 11}   2988.9909681333024
+  p10: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 11, 'hoists': 3, 'crates': 12}   10228.663084289168
+  p11: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 12, 'hoists': 3, 'crates': 13}   35003.63487456143
+  p12: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 14, 'hoists': 3, 'crates': 15}   119786.37328602177
+  p13: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 2, 'hoists': 2, 'crates': 3}   0.6269230769230769
+  p14: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 2, 'hoists': 2, 'crates': 4}   0.7461538461538462
+  p15: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 3, 'hoists': 2, 'crates': 5}   1.3366666666666667
+  p16: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 4, 'hoists': 2, 'crates': 6}   5.917777777777777
+  p17: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 5, 'hoists': 2, 'crates': 7}   20.457142857142856
+  p18: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 6, 'hoists': 2, 'crates': 8}   112.40833333333333
+  p19: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 7, 'hoists': 2, 'crates': 9}   178.59333333333333
+  p20: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 8, 'hoists': 2, 'crates': 10}   627.4881362110424
+  p21: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 9, 'hoists': 2, 'crates': 11}   2204.681181187844
+  p22: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 10, 'hoists': 2, 'crates': 12}   7746.153003041097
+  p23: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 11, 'hoists': 2, 'crates': 13}   27216.128508065773
+  p24: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 11, 'hoists': 2, 'crates': 14}   95623.93754380386
+  p25: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 2, 'hoists': 10, 'crates': 8}   68.16666666666667
+  p26: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 2, 'hoists': 12, 'crates': 9}   183.68333333333334
+  p27: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 2, 'hoists': 13, 'crates': 10}   816.9244361183189
+  p28: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 2, 'hoists': 15, 'crates': 11}   3633.2394573663005
+  p29: {'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 2, 'hoists': 16, 'crates': 12}   16158.69029121745
+  p30: {'depots': 3, 'distributors': 2, 'trucks': 3, 'pallets': 2, 'hoists': 18, 'crates': 13}   71865.142661628
+Total Estimated Runtimes: [0.588, 0.6269230769230769, 0.7461538461538462, 0.7490476190476191, 0.7766666666666667, 1.3366666666666667, 5.917777777777777, 6.546666666666667, 18.71, 20.457142857142856, 68.16666666666667, 74.58333333333333, 112.40833333333333, 178.59333333333333, 183.68333333333334, 255.23255055077746, 627.4881362110424, 816.9244361183189, 873.4344785786169, 2204.681181187844, 2988.9909681333024, 3633.2394573663005, 7746.153003041097, 10228.663084289168, 16158.69029121745, 27216.128508065773, 35003.63487456143, 71865.142661628, 95623.93754380386, 119786.37328602177]
+Total Estimated Solved: 19

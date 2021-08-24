@@ -1,0 +1,71 @@
+2021-08-24 19:43:08,446 INFO     No run directory, so we will not run anything
+2021-08-24 19:43:09,015 INFO     Loading cache data for baseline planners: 1510
+2021-08-24 19:43:09,099 INFO     baseline cache contains data for 271 parameter values, with min 3 max 39 avg 16.715867158671585 runtimes
+2021-08-24 19:43:09,099 INFO     Loading cache data for sart planners: 8158
+2021-08-24 19:43:09,585 INFO     sart cache contains data for 2062 parameter values, with min 3 max 39 avg 11.86905916585839 runtimes
+2021-08-24 19:43:11,322 INFO     Loading cache data for baseline planners: 125
+2021-08-24 19:43:11,327 INFO     baseline cache contains data for 370 parameter values, with min 3 max 39 avg 13.256756756756756 runtimes
+2021-08-24 19:43:11,327 INFO     Loading cache data for sart planners: 659
+2021-08-24 19:43:11,355 INFO     sart cache contains data for 2545 parameter values, with min 3 max 39 avg 10.393320235756384 runtimes
+2021-08-24 19:43:13,207 INFO     Loading cache data for baseline planners: 9
+2021-08-24 19:43:13,208 INFO     baseline cache contains data for 376 parameter values, with min 3 max 39 avg 13.117021276595745 runtimes
+2021-08-24 19:43:13,208 INFO     Loading cache data for sart planners: 173
+2021-08-24 19:43:13,216 INFO     sart cache contains data for 2693 parameter values, with min 3 max 39 avg 10.014853323431117 runtimes
+2021-08-24 19:43:15,043 INFO     Loading cache data for baseline planners: 18
+2021-08-24 19:43:15,045 INFO     baseline cache contains data for 394 parameter values, with min 3 max 39 avg 12.654822335025381 runtimes
+2021-08-24 19:43:15,045 INFO     Loading cache data for sart planners: 83
+2021-08-24 19:43:15,050 INFO     sart cache contains data for 2769 parameter values, with min 3 max 39 avg 9.829902491874323 runtimes
+2021-08-24 19:43:15,050 INFO     Stored sequences: 8947
+Warning: No output dir has been provided for Runner but I have no data for {'passengers': 28, 'floors': 70}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'passengers': 27, 'floors': 92}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'passengers': 28, 'floors': 70}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'passengers': 28, 'floors': 70}, so I consider it unsolved within the time and memory limits
+2021-08-24 19:44:56,614 INFO     Different evaluated sequences: 3543
+2021-08-24 19:45:36,245 INFO     Candidate sequences: 1000
+2021-08-24 19:45:36,265 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 18 use baseline 982 use sart
+2021-08-24 19:45:36,276 INFO     Using sart runtimes on CPLEX optimization
+2021-08-24 19:46:05,418 INFO     CPLEX solve
+
+2021-08-24 19:46:30,195 INFO     Solution status = 101: MIP_optimal
+2021-08-24 19:46:30,195 INFO     Solution value  = 10.536042542475105
+2021-08-24 19:46:30,252 INFO     CPLEX Solved Instances: 15.0
+2021-08-24 19:46:30,256 INFO     CPLEX Trivial Instances: 2.0
+Selected: sequence 2137, 30 instances from 0 to 29
+Configuration: {'floors_b': 6, 'floors_m': 1.9000000000000001, 'floors_optional_m': 'false', 'passengers_b': 8, 'passengers_m': 1.8000000000000003}
+Penalty: 10.54
+Penalty sart: 3.62
+Penalty baseline: 6.91
+Seq Estimated runtimes: 0.5,0.52,0.53,0.59,0.69,0.87,1.7,9.9,16,48,62,81,1.2e+02,1.4e+02,1.5e+02,2.4e+02,3.8e+02,5.9e+02,9.2e+02,1.4e+03,2.3e+03,3.6e+03,5.6e+03,8.7e+03,1.4e+04,2.1e+04,3.4e+04,5.3e+04,8.2e+04,1.3e+05
+Seq instances: [{'passengers': 8, 'floors': 6}, {'passengers': 9, 'floors': 7}, {'passengers': 11, 'floors': 9}, {'passengers': 13, 'floors': 11}, {'passengers': 15, 'floors': 13}, {'passengers': 17, 'floors': 15}, {'passengers': 18, 'floors': 17}, {'passengers': 20, 'floors': 19}, {'passengers': 22, 'floors': 21}, {'passengers': 24, 'floors': 23}, {'passengers': 26, 'floors': 24}, {'passengers': 27, 'floors': 26}, {'passengers': 29, 'floors': 28}, {'passengers': 31, 'floors': 30}, {'passengers': 33, 'floors': 32}, {'passengers': 35, 'floors': 34}, {'passengers': 36, 'floors': 36}, {'passengers': 38, 'floors': 38}, {'passengers': 40, 'floors': 40}, {'passengers': 42, 'floors': 42}, {'passengers': 43, 'floors': 43}, {'passengers': 45, 'floors': 45}, {'passengers': 47, 'floors': 47}, {'passengers': 49, 'floors': 49}, {'passengers': 51, 'floors': 51}, {'passengers': 52, 'floors': 53}, {'passengers': 54, 'floors': 55}, {'passengers': 56, 'floors': 57}, {'passengers': 58, 'floors': 59}, {'passengers': 60, 'floors': 61}]
+  p01: {'passengers': 8, 'floors': 6}   0.5048717948717949
+  p02: {'passengers': 9, 'floors': 7}   0.517948717948718
+  p03: {'passengers': 11, 'floors': 9}   0.5323076923076924
+  p04: {'passengers': 13, 'floors': 11}   0.5938461538461539
+  p05: {'passengers': 15, 'floors': 13}   0.686923076923077
+  p06: {'passengers': 17, 'floors': 15}   0.8681818181818182
+  p07: {'passengers': 18, 'floors': 17}   1.715
+  p08: {'passengers': 20, 'floors': 19}   9.910555555555556
+  p09: {'passengers': 22, 'floors': 21}   15.837222222222222
+  p10: {'passengers': 24, 'floors': 23}   47.861111111111114
+  p11: {'passengers': 26, 'floors': 24}   62.49
+  p12: {'passengers': 27, 'floors': 26}   81.24777777777778
+  p13: {'passengers': 29, 'floors': 28}   120.61666666666666
+  p14: {'passengers': 31, 'floors': 30}   137.5
+  p15: {'passengers': 33, 'floors': 32}   153.41333333333333
+  p16: {'passengers': 35, 'floors': 34}   240.3366185217292
+  p17: {'passengers': 36, 'floors': 36}   376.510235110763
+  p18: {'passengers': 38, 'floors': 38}   589.8391931080004
+  p19: {'passengers': 40, 'floors': 40}   924.0393521412441
+  p20: {'passengers': 42, 'floors': 42}   1447.5957757341994
+  p21: {'passengers': 43, 'floors': 43}   2267.7968476857527
+  p22: {'passengers': 45, 'floors': 45}   3552.720053887303
+  p23: {'passengers': 47, 'floors': 47}   5565.674806441922
+  p24: {'passengers': 49, 'floors': 49}   8719.160412644476
+  p25: {'passengers': 51, 'floors': 51}   13659.396379650825
+  p26: {'passengers': 52, 'floors': 53}   21398.747198852096
+  p27: {'passengers': 54, 'floors': 55}   33523.17840066121
+  p28: {'passengers': 56, 'floors': 57}   52517.25625053614
+  p29: {'passengers': 58, 'floors': 59}   82273.29076977014
+  p30: {'passengers': 60, 'floors': 61}   128888.95683726894
+Total Estimated Runtimes: [0.5048717948717949, 0.517948717948718, 0.5323076923076924, 0.5938461538461539, 0.686923076923077, 0.8681818181818182, 1.715, 9.910555555555556, 15.837222222222222, 47.861111111111114, 62.49, 81.24777777777778, 120.61666666666666, 137.5, 153.41333333333333, 240.3366185217292, 376.510235110763, 589.8391931080004, 924.0393521412441, 1447.5957757341994, 2267.7968476857527, 3552.720053887303, 5565.674806441922, 8719.160412644476, 13659.396379650825, 21398.747198852096, 33523.17840066121, 52517.25625053614, 82273.29076977014, 128888.95683726894]
+Total Estimated Solved: 20
