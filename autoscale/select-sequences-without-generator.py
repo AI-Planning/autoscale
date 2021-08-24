@@ -141,6 +141,4 @@ if ARGS.output:
         assert selected_task not in selected_tasks, "Error, we are selecting the same task twice"
         selected_tasks.add(selected_task)
 
-
-
         DATA_DOMAIN.generate_problem(selected_task, f"{ARGS.output}/{ARGS.domain}", f"p{i+1:02d}.pddl")

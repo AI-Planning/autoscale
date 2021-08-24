@@ -56,6 +56,7 @@ class CPLEXSequence:
         self.runtimes_baseline = list(map(lambda x: sequences.compute_average(x, 2 * planner_time_limit), runtimes_baseline))
         self.runtimes_sart = list(map(lambda x: sequences.compute_average(x, 2 * planner_time_limit), runtimes_sart))
 
+
         # If baseline runtimes are better than sota runtimes, we take the baseline runtimes
         for i, value in enumerate(self.runtimes_baseline):
             if len(self.runtimes_sart) == i:
@@ -201,7 +202,7 @@ class CPLEXSequence:
     def get_cplex_end_index(self):
         return self.end_var_index
 
-    def get_info_per_option(self):  # var, instances, solved, trivial
+    def get_info_per_option(self):  # name, var, instances, solved, trivial
         info_start = [(f"seq-{self.seq_id}-{i}", self.start_var_index[f"seq-{self.seq_id}-{i}"], # var id
                        self.earliest_end + 1 - i,  # number of instances
                        max(0, self.solved_instances - i), # solved instances
@@ -277,6 +278,10 @@ class CPLEXSequenceManager:
 
             constraint_list = []
 
+            enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
+                                getattr(atr, "get_enum_constraint", None) and atr.get_enum_constraint() for
+                                (val, num) in atr.get_enum_constraint() if num > 0}
+
             all_options_cplex_vars = []
             all_options_instances = []
             all_options_solved = []
@@ -292,6 +297,13 @@ class CPLEXSequenceManager:
                     all_options_instances.append(instances)
                     all_options_solved.append(solved)
                     all_options_trivial.append(trivial)
+
+                    for (atr, value, _), options in enum_constraints.items():
+                        if seq.has_enum_value(atr, value):
+                            options.append(instances)
+                        else:
+                            options.append(0)
+
 
             intersection_penalty_variables = []
 
@@ -336,6 +348,10 @@ class CPLEXSequenceManager:
                 CPLEXConstraint(cplex_problem, all_options_cplex_vars, all_options_trivial, "L", 6,
                                 penalties=[(-x, 2 * x ** 2) for x in range(1, tasks)])
                 ]
+
+            constraint_list += [CPLEXConstraint(cplex_problem, all_options_cplex_vars, options, "G", num, penalties=[(-x, 2 * x ** 2) for x in range(1, tasks)]) for (_, _, num), options in enum_constraints.items()]
+
+
 
             for c in constraint_list:
                 c.apply()

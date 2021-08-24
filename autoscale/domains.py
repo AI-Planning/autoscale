@@ -185,9 +185,11 @@ class ConstantAttr:
         return str(self)
 
 class EnumAttr:
-    def __init__(self, name, values):
+    def __init__(self, name, values, atleast_instances=None):
         self.values = values
         self.name = name
+        self.atleast_instances = atleast_instances
+        assert not self.atleast_instances or len(self.atleast_instances) == len(self.values)
 
     def get_hyperparameters(self):
         return [CategoricalHyperparameter(self.name, self.values)]
@@ -208,6 +210,11 @@ class EnumAttr:
 
     def __repr__(self):
         return str(self)
+
+    def get_enum_constraint(self):
+        if self.atleast_instances:
+            return zip(self.values, self.atleast_instances)
+
 
 def eliminate_duplicates(list_elements):
     seen = set()
@@ -425,6 +432,18 @@ def discard_sequence_termes(sequence):
     return False
 
 
+def discard_sequence_transport(sequence):
+    """
+    Ensure that there are instances with more than 5 nodes
+    """
+
+    m_nodes = float(sequence['config']["nodes_m"]) if sequence['config']["nodes_optional_m"] == 'false' else 0
+    b_nodes = float(sequence['config']["nodes_b"])
+
+    return b_nodes + 5*m_nodes <=5
+
+
+
 DOMAIN_LIST = [
     Domain("blocksworld", "blocksworld 4 {n} {seed}", [LinearAttr("n", lower_b=5, upper_b=10, lower_m=1, upper_m=5)]),
     Domain("gripper", "gripper -n {n}", [LinearAttr("n", lower_b=8, upper_b=20)],
@@ -500,7 +519,7 @@ DOMAIN_LIST = [
            ),
     Domain("barman",
            "barman-generator.py {num_cocktails} {num_ingredients} {num_shots} {seed}",
-           [LinearAttr("num_cocktails", lower_b=1, upper_b=10),
+           [LinearAttr("num_cocktails", lower_b=1, upper_b=10, lower_m=0.33),
             LinearAttr("num_shots", base_attr="num_cocktails", lower_b=1, upper_b=5, optional_m=True),
             EnumAttr("num_ingredients", [2, 3, 4, 5, 6])
             ],
@@ -553,8 +572,8 @@ DOMAIN_LIST = [
             LinearAttr("packages", lower_b=2, upper_b=10, lower_m=1, upper_m=10),
             LinearAttr("trucks", lower_b=2, upper_b=10, optional_m=True),
             EnumAttr("degree", [3, 4, 5]),
-            EnumAttr("generator", ["city-generator.py", "two-cities-generator.py", "three-cities-generator.py"]),
-            ],
+            EnumAttr("generator", ["city-generator.py", "two-cities-generator.py", "three-cities-generator.py"], atleast_instances=[5,5,5]),
+            ],discard_sequence_function=discard_sequence_transport
            ),
 
     Domain("nomystery",
