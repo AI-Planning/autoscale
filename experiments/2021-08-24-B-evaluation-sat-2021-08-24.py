@@ -11,7 +11,7 @@ DOMAINS = [
     "agricola", "airport", "barman", "blocksworld", "childsnack",
     "data-network", "depots", "driverlog", "elevators", "floortile",
     "freecell", "ged", "grid", "gripper", "hiking", "logistics",
-    "miconic", "mprime", "mystery", "nomystery", "openstacks",
+    "miconic", "mprime", "nomystery", "openstacks",
     "organic-synthesis-split", "parcprinter", "parking", "pathways",
     "pegsol", "pipesworld-notankage", "pipesworld-tankage", "rovers",
     "satellite", "scanalyzer", "snake", "sokoban", "storage", "termes",

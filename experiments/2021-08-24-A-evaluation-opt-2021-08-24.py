@@ -11,12 +11,12 @@ DOMAINS = [
     "agricola", "airport", "barman", "blocksworld", "childsnack",
     "data-network", "depots", "driverlog", "elevators", "floortile",
     "freecell", "ged", "grid", "gripper", "hiking", "logistics",
-    "miconic", "mprime", "mystery", "nomystery", "openstacks",
-    "organic-synthesis-split", "parcprinter", "parking", "pegsol",
-    "pipesworld-notankage", "pipesworld-tankage", "rovers",
+    "miconic", "mprime", "nomystery", "openstacks",
+    "organic-synthesis-split", "parcprinter", "parking", "pathways",
+    "pegsol", "pipesworld-notankage", "pipesworld-tankage", "rovers",
     "satellite", "scanalyzer", "snake", "sokoban", "storage", "termes",
-    "tetris", "tidybot", "tpp", "transport", "visitall", "woodworking",
-    "zenotravel",
+    "tetris", "thoughtful", "tidybot", "tpp", "transport", "visitall",
+    "woodworking", "zenotravel",
 ]
 PLANNERS = [
     "fd1906-blind",
