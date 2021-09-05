@@ -4,6 +4,7 @@ import sys
 
 import sequences
 
+MIN_INSTANCES_PER_SEQUENCE = 5
 try:
     import cplex
     from cplex.exceptions import CplexError
@@ -131,7 +132,7 @@ class CPLEXSequence:
         return str(self)
 
     def has_enum_value(self, name, value):
-        return self.config[name] == value
+        return self.config[name] == value or (isinstance(value, tuple) and  self.config[name] in value)
 
     def get_instances(self, i, endi):
         return self.parameters_of_instances[i:endi]
@@ -180,21 +181,27 @@ class CPLEXSequence:
 
         objective_values = [penalty_termination(self.sorted_runtimes[t]) for t in range(self.earliest_end, self.latest_end)]
         # Add penalty for terminating sequence at the wrong point
-
         self.end_var_index = {self.end_var_names[i]: index for i, index in enumerate(
             cplex_problem.variables.add(obj=objective_values, types=var_types, names=self.end_var_names))}
 
         # print ("XXX", [i for i, ind in self.start_var_index.items()] + [i for i, ind in self.end_var_index.items()], [1 for i in self.start_var_index] + [-1 for i in self.end_var_index], "E", 0)
 
-        return [
+        constraints_seq = [
             CPLEXConstraint(cplex_problem, [ind for i, ind in self.start_var_index.items()],
                             [1 for _ in self.start_var_index], "L", 1),
             CPLEXConstraint(cplex_problem, [ind for i, ind in self.end_var_index.items()],
                             [1 for _ in self.end_var_index], "L", 1),
-            CPLEXConstraint(cplex_problem, [i for i, ind in self.start_var_index.items()] + [i for i, ind in
-                                                                                             self.end_var_index.items()],
-                            [1 for _ in self.start_var_index] + [-1 for _ in self.end_var_index], "E", 0),
+            CPLEXConstraint(cplex_problem, [i for i, ind in self.start_var_index.items()] + [i for i, ind in self.end_var_index.items()],
+                                           [1 for _ in self.start_var_index] + [-1 for _ in self.end_var_index], "E", 0), # Ensure that we choose the same number of start and ending points
         ]
+
+        for vstart in range(self.latest_start):
+            conflicting_ends = [j for j, vend in enumerate(range(self.earliest_end, self.latest_end))  if vend - vstart < MIN_INSTANCES_PER_SEQUENCE - 1]
+            if conflicting_ends:
+                var_indexes = [self.start_var_index[self.start_var_names[vstart]]] + [self.end_var_index[self.end_var_names[j]] for j in conflicting_ends]
+                constraints_seq.append(CPLEXConstraint(cplex_problem, var_indexes, [1 for _ in var_indexes], "L", 1))
+
+        return constraints_seq
 
     def get_cplex_start_index(self):
         return self.start_var_index
@@ -279,8 +286,7 @@ class CPLEXSequenceManager:
             constraint_list = []
 
             if getattr(domain, "attributes", None):
-                enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if
-                                    getattr(atr, "get_enum_constraint", None) and atr.get_enum_constraint() for
+                enum_constraints = {(atr.name, val, num): [] for atr in domain.attributes if getattr(atr, "get_enum_constraint", None) and atr.get_enum_constraint() for
                                     (val, num) in atr.get_enum_constraint() if num > 0}
             else:
                 enum_constraints = {}
@@ -353,8 +359,6 @@ class CPLEXSequenceManager:
                 ]
 
             constraint_list += [CPLEXConstraint(cplex_problem, all_options_cplex_vars, options, "G", num, penalties=[(-x, 2 * x ** 2) for x in range(1, tasks)]) for (_, _, num), options in enum_constraints.items()]
-
-
 
             for c in constraint_list:
                 c.apply()

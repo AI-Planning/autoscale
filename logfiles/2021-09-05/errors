@@ -1,0 +1,414 @@
+agricola
+
+real	0m34.015s
+user	0m33.510s
+sys	0m2.580s
+
+real	0m40.794s
+user	0m49.467s
+sys	0m2.849s
+airport
+
+real	0m4.075s
+user	0m2.753s
+sys	0m1.328s
+
+real	0m4.158s
+user	0m2.861s
+sys	0m1.302s
+freecell
+
+real	0m18.048s
+user	0m7.453s
+sys	0m12.223s
+
+real	0m16.841s
+user	0m5.679s
+sys	0m11.492s
+ged
+
+real	0m8.970s
+user	0m7.095s
+sys	0m2.724s
+
+real	0m14.385s
+user	0m23.633s
+sys	0m2.746s
+mprime
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 349, in perform_cplex_optimization
+    assert len(self.trivial_instances) >= 2, "Error: there are not enough instances that are considered trivial so the constraint cannot be satisfied. Consider increasing the time limit to consider an instance trivial"
+AssertionError: Error: there are not enough instances that are considered trivial so the constraint cannot be satisfied. Consider increasing the time limit to consider an instance trivial
+
+real	0m18.451s
+user	0m4.483s
+sys	0m14.338s
+
+real	0m21.877s
+user	0m10.129s
+sys	0m14.306s
+mystery
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 349, in perform_cplex_optimization
+    assert len(self.trivial_instances) >= 2, "Error: there are not enough instances that are considered trivial so the constraint cannot be satisfied. Consider increasing the time limit to consider an instance trivial"
+AssertionError: Error: there are not enough instances that are considered trivial so the constraint cannot be satisfied. Consider increasing the time limit to consider an instance trivial
+
+real	0m3.287s
+user	0m2.825s
+sys	0m0.446s
+Traceback (most recent call last):
+  File "../autoscale/select-sequences-without-generator.py", line 120, in <module>
+    final_selection = cplex_sequence_mgr.perform_cplex_optimization(DATA_DOMAIN, ARGS.tasks, candidate_sequences)
+  File "/home/alvaro/projects/benchmarks/code/autoscale/cplex_sequence_optimization.py", line 349, in perform_cplex_optimization
+    assert len(self.trivial_instances) >= 2, "Error: there are not enough instances that are considered trivial so the constraint cannot be satisfied. Consider increasing the time limit to consider an instance trivial"
+AssertionError: Error: there are not enough instances that are considered trivial so the constraint cannot be satisfied. Consider increasing the time limit to consider an instance trivial
+
+real	0m3.307s
+user	0m2.868s
+sys	0m0.420s
+organic-synthesis-split
+
+real	0m4.343s
+user	0m2.866s
+sys	0m1.495s
+
+real	0m4.413s
+user	0m2.992s
+sys	0m1.442s
+parcprinter
+
+real	0m5.656s
+user	0m3.864s
+sys	0m1.831s
+
+real	0m5.684s
+user	0m3.992s
+sys	0m1.735s
+pathways
+
+real	1m13.254s
+user	0m17.606s
+sys	1m3.826s
+
+real	1m14.594s
+user	0m9.987s
+sys	1m7.575s
+parcprinter
+
+real	0m5.878s
+user	0m4.039s
+sys	0m1.883s
+
+real	0m5.970s
+user	0m4.107s
+sys	0m1.905s
+pegsol
+
+real	0m5.728s
+user	0m4.194s
+sys	0m1.575s
+
+real	0m5.669s
+user	0m4.109s
+sys	0m1.596s
+pipesworld-notankage
+
+real	0m4.067s
+user	0m2.980s
+sys	0m1.086s
+
+real	0m3.904s
+user	0m2.961s
+sys	0m0.939s
+pipesworld-tankage
+
+real	0m3.956s
+user	0m2.972s
+sys	0m0.989s
+
+real	0m3.919s
+user	0m3.005s
+sys	0m0.920s
+sokoban
+
+real	0m6.874s
+user	0m5.139s
+sys	0m2.476s
+
+real	0m6.925s
+user	0m5.272s
+sys	0m2.384s
+tetris
+
+real	0m53.658s
+user	1m1.509s
+sys	0m8.150s
+
+real	0m42.710s
+user	0m35.712s
+sys	0m8.310s
+thoughtful
+
+real	0m4.018s
+user	0m2.892s
+sys	0m1.127s
+
+real	0m4.005s
+user	0m2.844s
+sys	0m1.164s
+tidybot
+
+real	0m26.733s
+user	0m12.246s
+sys	0m18.269s
+
+real	0m24.632s
+user	0m7.792s
+sys	0m18.026s
+barman
+
+real	0m9.540s
+user	0m10.010s
+sys	0m1.691s
+
+real	3m15.640s
+user	6m44.632s
+sys	0m4.924s
+blocksworld
+
+real	0m7.058s
+user	0m6.569s
+sys	0m1.644s
+
+real	0m20.470s
+user	0m28.269s
+sys	0m1.663s
+childsnack
+
+real	0m9.862s
+user	0m9.184s
+sys	0m1.629s
+
+real	1m2.922s
+user	1m4.772s
+sys	0m1.867s
+data-network
+
+real	1m32.274s
+user	1m41.733s
+sys	0m24.231s
+
+real	0m18.779s
+user	0m24.429s
+sys	0m23.612s
+depots
+
+real	0m21.447s
+user	0m20.872s
+sys	0m1.694s
+
+real	0m6.267s
+user	0m6.009s
+sys	0m1.417s
+driverlog
+
+real	0m10.176s
+user	0m9.776s
+sys	0m1.561s
+
+real	0m57.559s
+user	1m13.001s
+sys	0m2.147s
+elevators
+
+real	0m6.871s
+user	0m6.299s
+sys	0m1.551s
+
+real	0m52.946s
+user	0m52.720s
+sys	0m1.617s
+floortile
+
+real	0m14.284s
+user	0m13.887s
+sys	0m1.854s
+
+real	2m35.386s
+user	4m17.508s
+sys	0m14.032s
+grid
+
+real	0m29.828s
+user	0m33.591s
+sys	0m1.939s
+
+real	6m42.475s
+user	6m53.987s
+sys	0m2.051s
+gripper
+
+real	0m22.095s
+user	0m21.505s
+sys	0m1.466s
+
+real	1m23.093s
+user	1m43.986s
+sys	0m1.723s
+hiking
+
+real	0m9.526s
+user	0m9.065s
+sys	0m1.896s
+
+real	0m29.123s
+user	0m41.431s
+sys	0m2.443s
+logistics
+
+real	0m6.005s
+user	0m5.424s
+sys	0m1.460s
+
+real	0m5.631s
+user	0m5.107s
+sys	0m1.403s
+miconic
+
+real	2m33.410s
+user	3m38.581s
+sys	0m4.045s
+
+real	4m3.036s
+user	6m2.829s
+sys	0m2.598s
+nomystery
+
+real	3m53.078s
+user	8m54.218s
+sys	0m10.548s
+
+real	14m38.119s
+user	16m8.314s
+sys	0m24.925s
+openstacks
+
+real	0m57.153s
+user	1m59.304s
+sys	0m2.525s
+
+real	0m15.295s
+user	0m15.199s
+sys	0m1.578s
+parking
+
+real	0m7.497s
+user	0m6.929s
+sys	0m1.585s
+
+real	0m30.641s
+user	0m30.799s
+sys	0m1.656s
+rovers
+
+real	0m6.734s
+user	0m6.402s
+sys	0m1.461s
+
+real	0m4.986s
+user	0m4.455s
+sys	0m1.428s
+satellite
+
+real	0m12.959s
+user	0m13.246s
+sys	0m1.743s
+
+real	0m10.681s
+user	0m11.704s
+sys	0m1.542s
+scanalyzer
+
+real	0m7.307s
+user	0m6.636s
+sys	0m1.608s
+
+real	0m13.062s
+user	0m12.797s
+sys	0m1.559s
+snake
+
+real	0m29.048s
+user	0m28.834s
+sys	0m1.701s
+
+real	1m5.254s
+user	1m12.568s
+sys	0m2.254s
+storage
+
+real	1m14.334s
+user	1m14.368s
+sys	0m1.851s
+
+real	0m26.869s
+user	0m34.636s
+sys	0m2.258s
+termes
+
+real	0m56.612s
+user	1m0.532s
+sys	0m23.909s
+
+real	2m17.858s
+user	2m22.050s
+sys	0m23.632s
+tpp
+
+real	1m38.377s
+user	2m10.108s
+sys	0m2.499s
+
+real	1m12.746s
+user	1m24.934s
+sys	0m1.891s
+transport
+
+real	0m7.149s
+user	0m6.420s
+sys	0m1.654s
+
+real	0m47.989s
+user	1m15.071s
+sys	0m2.349s
+visitall
+
+real	0m47.165s
+user	0m47.441s
+sys	0m1.746s
+
+real	4m22.357s
+user	4m24.620s
+sys	0m1.560s
+woodworking
+
+real	0m10.955s
+user	0m10.466s
+sys	0m1.683s
+
+real	16m29.482s
+user	57m1.956s
+sys	0m21.656s
+zenotravel
+
+real	0m7.273s
+user	0m6.935s
+sys	0m1.645s
+
+real	0m8.002s
+user	0m8.484s
+sys	0m1.351s

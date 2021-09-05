@@ -17,7 +17,7 @@ PRECISION = None  # Set via command line.
 
 class LinearAttr:
     def __init__(self, name, base_attr=None, lower_b=1, upper_b=20, lower_m=0.1, upper_m=5.0, default_m=1.0,
-                 optional_m=False):
+                 optional_m=False, reach_at_least=[], reach_at_most=[]):
         self.name = name
         self.lower_b = lower_b
         self.upper_b = upper_b
@@ -26,6 +26,8 @@ class LinearAttr:
         self.default_m = default_m
         self.base_attr = base_attr
         self.optional_m = optional_m
+        self.reach_at_least = reach_at_least
+        self.reach_at_most = reach_at_most
 
     def has_lowest_value(self, cfg):
         return self.lower_b == cfg[f"{self.name}_b"]
@@ -33,10 +35,21 @@ class LinearAttr:
     def check_range(self, cfg):
         b = cfg[f'{self.name}_b']
         m = cfg[f'{self.name}_m']
+        opt =  f'{self.name}_optional_m' in cfg and cfg[f'{self.name}_optional_m'] == "true"
+
+        for instance, value in self.reach_at_least:
+            incremented = 0 if opt else instance*m
+            if b + incremented < value:
+                return False
+
+        for instance, value in self.reach_at_most:
+                incremented = 0 if opt else instance * m
+                if b + incremented > value:
+                    return False
 
         return self.lower_b <= b <= self.upper_b and \
                self.lower_m <= m <= self.upper_m and \
-               (self.optional_m or f'{self.name}_optional_m' not in cfg or cfg[f'{self.name}_optional_m'] == False)
+               (self.optional_m or f'{self.name}_optional_m' not in cfg or cfg[f'{self.name}_optional_m'] == "false")
 
     def get_hyperparameters(self, modifier=None):
         attr = f"{modifier}_{self.name}" if modifier else self.name
@@ -189,7 +202,6 @@ class EnumAttr:
         self.values = values
         self.name = name
         self.atleast_instances = atleast_instances
-        assert not self.atleast_instances or len(self.atleast_instances) == len(self.values)
 
     def get_hyperparameters(self):
         return [CategoricalHyperparameter(self.name, self.values)]
@@ -212,8 +224,7 @@ class EnumAttr:
         return str(self)
 
     def get_enum_constraint(self):
-        if self.atleast_instances:
-            return zip(self.values, self.atleast_instances)
+        return self.atleast_instances
 
 
 def eliminate_duplicates(list_elements):
@@ -343,8 +354,9 @@ class Domain:
         return TMP_DOMAIN in self.generator_command
 
     def discard_sequence(self, sequence):
-        if self.discard_sequence_function is not None:
-            return self.discard_sequence_function(sequence)
+        if self.discard_sequence_function is not None and self.discard_sequence_function(sequence):
+            print(f"Sequence discarded: {sequence['config']} due to discard sequence function")
+            return True
 
         for attr in self.attributes:
             if not attr.check_range(sequence['config']):
@@ -431,18 +443,34 @@ def discard_sequence_termes(sequence):
         return True
     return False
 
-
-def discard_sequence_transport(sequence):
+def discard_sequence_elevators(sequence):
     """
-    Ensure that there are instances with more than 5 nodes
+    Ensure that the 6th instance has at least 10 floors
     """
+    instance = 6
+    min_floor_values = 10
+    m_area_size = float(sequence['config']["area_size_m"]) if sequence['config']["area_size_optional_m"] == 'false' else 0
+    b_area_size = float(sequence['config']["area_size_b"])
+    num_areas = float(sequence['config']["num_areas"])
+    return num_areas*(b_area_size + instance*m_area_size) < min_floor_values
 
-    m_nodes = float(sequence['config']["nodes_m"]) if sequence['config']["nodes_optional_m"] == 'false' else 0
-    b_nodes = float(sequence['config']["nodes_b"])
+def discard_sequence_logistics(sequence):
+    """
+    Ensure that the number of airplanes is not larger than half the number of locations
+    """
+    m_airplanes = float(sequence['config']["num_airplanes_m"]) if sequence['config']["num_airplanes_optional_m"] == 'false' else 0
+    b_airplanes = float(sequence['config']["num_airplanes_b"])
 
-    return b_nodes + 5*m_nodes <=5
+    m_cities = float(sequence['config']["num_cities_m"]) if sequence['config']["num_cities_optional_m"] == 'false' else 0
+    b_cities = float(sequence['config']["num_cities_b"])
 
+    m_city_size = float(sequence['config']["city_size_m"]) if sequence['config']["city_size_optional_m"] == 'false' else 0
+    b_city_size = float(sequence['config']["city_size_b"])
 
+    for i in range(0, 30):
+        if b_airplanes + m_airplanes*i > (b_cities + i*m_cities)*(b_city_size+i*m_city_size)/2.0:
+            return True
+    return False
 
 DOMAIN_LIST = [
     Domain("blocksworld", "blocksworld 4 {n} {seed}", [LinearAttr("n", lower_b=5, upper_b=10, lower_m=1, upper_m=5)]),
@@ -456,11 +484,11 @@ DOMAIN_LIST = [
     Domain("rovers",
            "rovgen {seed} {rovers} {waypoints} {objectives} {cameras} {goals}",
            [
-               LinearAttr("rovers", upper_b=10, upper_m=2, optional_m=True),
+               LinearAttr("rovers", upper_b=5, upper_m=1, optional_m=True, reach_at_most=[(20, 10)]),
                LinearAttr("objectives", upper_b=10, optional_m=True),
-               LinearAttr("cameras", upper_b=10, optional_m=True),
+               LinearAttr("cameras", upper_b=10, upper_m=2, optional_m=True),
                LinearAttr("goals", upper_b=20, lower_m=1),
-               LinearAttr("waypoints", lower_b=4, upper_b=20, lower_m=0.5, upper_m=1),
+               LinearAttr("waypoints", lower_b=4, upper_b=20, lower_m=0.5),
            ],
            ),
     Domain("satellite",
@@ -496,13 +524,13 @@ DOMAIN_LIST = [
            "create_woodworking_instance.py {wood_factor} {size} {num_machines} {seed}",
            [LinearAttr("size", lower_b=2, upper_b=30, lower_m=1, upper_m=10),
             EnumAttr("num_machines", [1, 2, 3]),
-            EnumAttr("wood_factor", [1.0, 1.25, 1.5, 2.0])]
+            EnumAttr("wood_factor", [1.0, 1.25, 1.5, 2.0], atleast_instances=[((1.0, 1.25), 10), ((1.5, 2.0), 10)])]
            ),
     Domain("zenotravel",
            "ztravel {seed} {cities} {planes} {people}",
-           [LinearAttr("planes", lower_b=1, upper_b=20, optional_m=True),
+           [LinearAttr("planes", lower_b=1, upper_b=20, upper_m=1, optional_m=True),
             LinearAttr("people", lower_b=5, upper_b=20, lower_m=1, upper_m=10),
-            LinearAttr("cities", lower_b=3, upper_b=30, optional_m=True)],
+            LinearAttr("cities", lower_b=3, upper_b=30, optional_m=True, reach_at_least=[(20, 10)])],
            ),
     Domain("parking",
            "./parking-generator.pl prob {curbs} {cars} seq",
@@ -514,14 +542,14 @@ DOMAIN_LIST = [
            "dlgen {seed} {roadjunctions} {drivers} {packages} {trucks}",
            [LinearAttr("drivers", lower_b=1, upper_b=10, default_m=0.2, optional_m=True),
             LinearAttr("packages", lower_m=1, upper_m=5, lower_b=2, upper_b=15),
-            LinearAttr("roadjunctions", lower_b=2, upper_b=10, optional_m=True),
+            LinearAttr("roadjunctions", lower_b=2, upper_b=10, optional_m=True, reach_at_least=[(5, 5)]),
             LinearAttr("trucks", base_attr="drivers", lower_b=0, upper_b=1, lower_m=0, upper_m=1, optional_m=True)]
            ),
     Domain("barman",
            "barman-generator.py {num_cocktails} {num_ingredients} {num_shots} {seed}",
            [LinearAttr("num_cocktails", lower_b=1, upper_b=10, lower_m=0.33),
             LinearAttr("num_shots", base_attr="num_cocktails", lower_b=1, upper_b=5, optional_m=True),
-            EnumAttr("num_ingredients", [2, 3, 4, 5, 6])
+            EnumAttr("num_ingredients", [2, 3, 4, 5, 6], atleast_instances=[((5, 6), 1)])
             ],
            ),
 
@@ -531,7 +559,7 @@ DOMAIN_LIST = [
             LinearAttr("distributors", lower_b=2, upper_b=10, optional_m=True),
             LinearAttr("trucks", lower_b=2, upper_b=10, optional_m=True),
             LinearAttr("pallets", lower_b=2, upper_b=20, optional_m=True),
-            LinearAttr("hoists", lower_b=2, upper_b=20, optional_m=True),
+            LinearAttr("hoists", lower_b=2, upper_b=10, upper_m=1, optional_m=True),
             LinearAttr("crates", lower_b=3, upper_b=20, lower_m=1)]
            ),
 
@@ -545,7 +573,7 @@ DOMAIN_LIST = [
 
     Domain("hiking",
            "generator.py {n_couples} {n_cars} {n_places} {seed}",
-           [LinearAttr("n_couples", lower_b=1, upper_b=10, lower_m=0.1, default_m=0.5, optional_m=True),
+           [LinearAttr("n_couples", lower_b=1, upper_b=10, lower_m=0.1, default_m=0.5, optional_m=True, reach_at_least=[(8, 2)]),
             LinearAttr("n_places", lower_b=2, upper_b=20, default_m=1),
             LinearAttr("n_cars", base_attr="n_couples", lower_b=1, upper_b=5, default_m=0.1, optional_m=True)]
            ),
@@ -568,12 +596,12 @@ DOMAIN_LIST = [
     Domain("transport",
            "{generator} {nodes} {size} {degree} {mindistance} {trucks} {packages} {seed}",
            [ConstantAttr("size", 1000), ConstantAttr("mindistance", 100),
-            LinearAttr("nodes", lower_b=2, upper_b=60, lower_m=0.1, upper_m=10, optional_m=True),
+            LinearAttr("nodes", lower_b=2, upper_b=60, lower_m=0.1, upper_m=10, optional_m=True, reach_at_least=[(5,5)]),
             LinearAttr("packages", lower_b=2, upper_b=10, lower_m=1, upper_m=10),
             LinearAttr("trucks", lower_b=2, upper_b=10, optional_m=True),
             EnumAttr("degree", [3, 4, 5]),
-            EnumAttr("generator", ["city-generator.py", "two-cities-generator.py", "three-cities-generator.py"], atleast_instances=[5,5,5]),
-            ],discard_sequence_function=discard_sequence_transport
+            EnumAttr("generator", ["city-generator.py", "two-cities-generator.py", "three-cities-generator.py"], atleast_instances=[("city-generator.py", 5), ("two-cities-generator.py", 5), ("three-cities-generator.py", 5)])
+            ],
            ),
 
     Domain("nomystery",
@@ -624,7 +652,7 @@ DOMAIN_LIST = [
             ConstantAttr("slow_cost", 1),
             ConstantAttr("stop_slow_cost", 5),
             ConstantAttr("slow_capacity", 2)
-            ]
+            ], discard_sequence_function=discard_sequence_elevators
            ),
 
     Domain("openstacks",
@@ -639,14 +667,15 @@ DOMAIN_LIST = [
     Domain("logistics",
            "logistics -r {seed} -a {num_airplanes} -c {num_cities} -s {city_size} -p {num_packages} -t {num_trucks}",
            [
-               LinearAttr("num_airplanes", lower_b=1, upper_b=5, lower_m=1, default_m=1, upper_m=2, optional_m=True),
+               LinearAttr("num_airplanes", lower_b=1, upper_b=5, lower_m=1, default_m=0.2, upper_m=1, optional_m=True),
                LinearAttr("num_cities", lower_b=2, upper_b=10, lower_m=0, default_m=0.2, upper_m=2, optional_m=True),
-               LinearAttr("city_size", lower_b=2, upper_b=15, lower_m=0, default_m=0.2, upper_m=2, optional_m=True),
+               LinearAttr("city_size", lower_b=2, upper_b=15, lower_m=0, default_m=0.2, upper_m=2, optional_m=True, reach_at_least=[(8,5)]),
                LinearAttr("num_packages", lower_b=1, upper_b=30, lower_m=1, default_m=2, upper_m=10),
                # scale between 1 and 2 packages per problem. More than that is too big for optimal planners
                LinearAttr("extra_trucks", lower_b=1, upper_b=10, lower_m=0, default_m=0.5, upper_m=2, optional_m=True),
            ],
-           adapt_parameters=adapt_parameters_logistics  # num_trucks should be as large as num_cities
+           adapt_parameters=adapt_parameters_logistics,  # num_trucks should be as large as num_cities
+           discard_sequence_function=discard_sequence_logistics
            ),
 
     # The main parameter to scale here is the grid. We should find what percentage of cells should be locked,

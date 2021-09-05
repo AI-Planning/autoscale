@@ -8,7 +8,12 @@ from typing import Any, Union
 from subprocess import check_output
 
 
+EXCLUDED_DOMAINS = ["freecell", "mprime", "mystery", "mystery-exhaustive", "mystery-hard", "pathways-new"]
+
 def get_domain_renaming(dom):
+    if dom in EXCLUDED_DOMAINS:
+        return None
+
     for ending in ["-hard", "-exhaustive", "-new"]:
         if dom.endswith(ending):
             return dom.replace(ending, "")
@@ -42,10 +47,10 @@ MANUAL_SEQUENCES = {"airport": [
      'p48-airport5MUC-p9.pddl', 'p49-airport5MUC-p10.pddl', 'p50-airport5MUC-p15.pddl']],
 
     "pathways": [[f"p{i:02d}.pddl" for i in range(1, 31)], ],
-    "freecell": [
-                    [f"p{i:02d}.pddl" for i in range(1, 21)],
-                ] +
-                [[f"probfreecell-{i}-{j}.pddl" for j in range(1, 6)] for i in range(2, 14)],
+ #   "freecell": [
+ #                   [f"p{i:02d}.pddl" for i in range(1, 21)],
+ #               ] +
+ #               [[f"probfreecell-{i}-{j}.pddl" for j in range(1, 6)] for i in range(2, 14)],
     "pipesworld-tankage":
         [['p01-net1-b6-g2-t50.pddl', 'p02-net1-b6-g4-t50.pddl', 'p03-net1-b8-g3-t80.pddl',
           'p04-net1-b8-g5-t80.pddl', 'p05-net1-b10-g4-t50.pddl', 'p06-net1-b10-g6-t50.pddl',
@@ -115,7 +120,7 @@ LINEAR_ATTRIBUTES = {
 RUNTIME_TRIVIAL_INSTANCES = {
     "agricola" : 300,
     "organic-synthesis-split" : 60,
-    "thoughtful" : 60
+    "thoughtful" : 60,
 }
 
 def compute_md5(f):
@@ -469,7 +474,8 @@ class DataDomain:
         return all([isinstance(item, list) for item in intersection])
 
     def get_domain_filename(self):
-        return f"{self.extra_tasks_dir}/{self.domain}/domain.pddl"
+        domain_folder = self.domain.replace('freceell', 'freceell-exhaustive').replace('mprime', 'mprime-exhaustive')
+        return f"{self.extra_tasks_dir}/{domain_folder}/domain.pddl"
 
     def generate_problem(self, selected_task, output_dir, output_file):
         original_filename = f"{self.extra_tasks_dir}/{self.tasks[selected_task].domain}/{selected_task}"

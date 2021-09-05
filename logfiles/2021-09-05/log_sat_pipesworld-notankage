@@ -1,0 +1,90 @@
+2021-09-05 16:06:51,118 INFO     Stored sequences: 5
+2021-09-05 16:06:51,119 DEBUG    Configurations in sequence ['p01-net1-b6-g2.pddl', 'p02-net1-b6-g4.pddl', 'p03-net1-b8-g3.pddl', 'p04-net1-b8-g5.pddl', 'p05-net1-b10-g4.pddl', 'p06-net1-b10-g6.pddl', 'p07-net1-b12-g5.pddl', 'p08-net1-b12-g7.pddl', 'p09-net1-b14-g6.pddl', 'p10-net1-b14-g8.pddl']
+2021-09-05 16:06:51,119 DEBUG    Sart runtimes [[0.147653], [0.153503], [0.162138], [0.162613], [0.164464], [0.165836], [0.166651], [0.170403], [0.205847], [0.220835]]
+2021-09-05 16:06:51,120 DEBUG    Baseline runtimes [[0.488749], [0.509414], [0.521942], [0.534082], [0.545208], [0.563541], [0.582645], [0.608622], [0.638278], [0.670318]]
+2021-09-05 16:06:51,120 DEBUG    Discarding sequence [0.488749, 0.509414, 0.521942, 0.534082, 0.545208, 0.563541, 0.582645, 0.608622, 0.638278, 0.670318] [0.147653, 0.153503, 0.162138, 0.162613, 0.164464, 0.165836, 0.166651, 0.170403, 0.205847, 0.220835]
+2021-09-05 16:06:51,120 DEBUG    Configurations in sequence ['p11-net2-b10-g2.pddl', 'p12-net2-b10-g4.pddl', 'p13-net2-b12-g3.pddl', 'p14-net2-b12-g5.pddl', 'p15-net2-b14-g4.pddl', 'p16-net2-b14-g6.pddl', 'p17-net2-b16-g5.pddl', 'p18-net2-b16-g7.pddl', 'p19-net2-b18-g6.pddl', 'p20-net2-b18-g8.pddl']
+2021-09-05 16:06:51,121 DEBUG    Sart runtimes [[0.230956], [0.253046], [0.291186], [0.326831], [0.360664], [0.390938], [0.439263], [0.496553], [0.523367], [0.57595]]
+2021-09-05 16:06:51,121 DEBUG    Baseline runtimes [[0.73019], [0.736901], [0.781859], [0.8285], [0.914993], [0.936542], [1.10481], [1.22537], [1.59854], [20.4395]]
+2021-09-05 16:06:51,122 DEBUG    Configurations in sequence ['p21-net3-b12-g2.pddl', 'p22-net3-b12-g4.pddl', 'p23-net3-b14-g3.pddl', 'p24-net3-b14-g5.pddl', 'p25-net3-b16-g5.pddl', 'p26-net3-b16-g7.pddl', 'p27-net3-b18-g6.pddl', 'p28-net3-b18-g7.pddl', 'p29-net3-b20-g6.pddl', 'p30-net3-b20-g8.pddl']
+2021-09-05 16:06:51,122 DEBUG    Sart runtimes [[0.24019], [0.430455], [0.435471], [0.600702], [0.826826], [0.902765], [0.934438], [0.942328], [1.20084], [1.23155]]
+2021-09-05 16:06:51,122 DEBUG    Baseline runtimes [[1.08074], [1.76602], [8.10312], [46.9031], [199.303], [507.473], [1213.13], [3427.84]]
+2021-09-05 16:06:51,123 DEBUG    Configurations in sequence ['p31-net4-b14-g3.pddl', 'p32-net4-b14-g5.pddl', 'p33-net4-b16-g5.pddl', 'p34-net4-b16-g6.pddl', 'p35-net4-b18-g4.pddl', 'p36-net4-b18-g6.pddl', 'p37-net4-b20-g5.pddl', 'p38-net4-b20-g7.pddl', 'p39-net4-b22-g7.pddl', 'p40-net4-b22-g8.pddl']
+2021-09-05 16:06:51,123 DEBUG    Sart runtimes [[0.434281], [0.749071], [0.860648], [0.896593], [1.02918], [1.10689], [1.11674], [1.16035], [1.37563], [1.62625]]
+2021-09-05 16:06:51,124 DEBUG    Baseline runtimes [[2.10495], [77.3846], [508.202]]
+2021-09-05 16:06:51,124 DEBUG    Configurations in sequence ['p41-net5-b22-g2.pddl', 'p42-net5-b22-g4.pddl', 'p43-net5-b24-g3.pddl', 'p44-net5-b24-g5.pddl', 'p45-net5-b26-g4.pddl', 'p46-net5-b26-g6.pddl', 'p47-net5-b28-g5.pddl', 'p48-net5-b28-g7.pddl', 'p49-net5-b30-g6.pddl', 'p50-net5-b30-g8.pddl']
+2021-09-05 16:06:51,124 DEBUG    Sart runtimes [[1.25598], [3.66837], [4.48853], [6.1368], [7.9768], [9.56502], [15.8364], [18.7594], [43.9976]]
+2021-09-05 16:06:51,125 DEBUG    Baseline runtimes [[7.11909]]
+2021-09-05 16:06:51,125 INFO     Different evaluated sequences: 4
+2021-09-05 16:06:51,125 INFO     Candidate sequences: 4
+2021-09-05 16:06:51,125 DEBUG    Candidate sequences: 
+ Sequence(1, length=10, penalty=18, penalty_baseline=8, penalty_sart=10, config=['p11-net2-b10-g2.pddl', 'p12-net2-b10-g4.pddl', 'p13-net2-b12-g3.pddl', 'p14-net2-b12-g5.pddl', 'p15-net2-b14-g4.pddl', 'p16-net2-b14-g6.pddl', 'p17-net2-b16-g5.pddl', 'p18-net2-b16-g7.pddl', 'p19-net2-b18-g6.pddl', 'p20-net2-b18-g8.pddl'], runtimes_baseline=[0.73019, 0.736901, 0.781859, 0.8285, 0.914993, 0.936542, 1.10481, 1.22537, 1.59854, 20.4395], runtimes_sart=[0.230956, 0.253046, 0.291186, 0.326831, 0.360664, 0.390938, 0.439263, 0.496553, 0.523367, 0.57595]
+ Sequence(2, length=10, penalty=16.654474011312686, penalty_baseline=6.6544740113126855, penalty_sart=10, config=['p21-net3-b12-g2.pddl', 'p22-net3-b12-g4.pddl', 'p23-net3-b14-g3.pddl', 'p24-net3-b14-g5.pddl', 'p25-net3-b16-g5.pddl', 'p26-net3-b16-g7.pddl', 'p27-net3-b18-g6.pddl', 'p28-net3-b18-g7.pddl', 'p29-net3-b20-g6.pddl', 'p30-net3-b20-g8.pddl'], runtimes_baseline=[1.08074, 1.76602, 8.10312, 46.9031, 199.303, 507.473, 1213.13, 3427.84], runtimes_sart=[0.24019, 0.430455, 0.435471, 0.600702, 0.826826, 0.902765, 0.934438, 0.942328, 1.20084, 1.23155]
+ Sequence(3, length=10, penalty=18, penalty_baseline=8, penalty_sart=10, config=['p31-net4-b14-g3.pddl', 'p32-net4-b14-g5.pddl', 'p33-net4-b16-g5.pddl', 'p34-net4-b16-g6.pddl', 'p35-net4-b18-g4.pddl', 'p36-net4-b18-g6.pddl', 'p37-net4-b20-g5.pddl', 'p38-net4-b20-g7.pddl', 'p39-net4-b22-g7.pddl', 'p40-net4-b22-g8.pddl'], runtimes_baseline=[2.10495, 77.3846, 508.202], runtimes_sart=[0.434281, 0.749071, 0.860648, 0.896593, 1.02918, 1.10689, 1.11674, 1.16035, 1.37563, 1.62625]
+ Sequence(4, length=10, penalty=9.632979576224546, penalty_baseline=8, penalty_sart=1.6329795762245456, config=['p41-net5-b22-g2.pddl', 'p42-net5-b22-g4.pddl', 'p43-net5-b24-g3.pddl', 'p44-net5-b24-g5.pddl', 'p45-net5-b26-g4.pddl', 'p46-net5-b26-g6.pddl', 'p47-net5-b28-g5.pddl', 'p48-net5-b28-g7.pddl', 'p49-net5-b30-g6.pddl', 'p50-net5-b30-g8.pddl'], runtimes_baseline=[7.11909], runtimes_sart=[1.25598, 3.66837, 4.48853, 6.1368, 7.9768, 9.56502, 15.8364, 18.7594, 43.9976]
+2021-09-05 16:06:51,125 INFO     Using sart runtimes on CPLEX optimization
+2021-09-05 16:06:51,143 INFO     CPLEX solve
+
+2021-09-05 16:06:51,148 INFO     Solution status = 101: MIP_optimal
+2021-09-05 16:06:51,148 INFO     Solution value  = 2569029.993821063
+2021-09-05 16:06:51,148 INFO     CPLEX Solved Instances: 29.0
+2021-09-05 16:06:51,148 INFO     CPLEX Trivial Instances: 5.0
+2021-09-05 16:06:51,148 DEBUG    START: seq-2-0 11
+Selected: sequence 2, 10 instances from 0 to 9
+Configuration: ['p21-net3-b12-g2.pddl', 'p22-net3-b12-g4.pddl', 'p23-net3-b14-g3.pddl', 'p24-net3-b14-g5.pddl', 'p25-net3-b16-g5.pddl', 'p26-net3-b16-g7.pddl', 'p27-net3-b18-g6.pddl', 'p28-net3-b18-g7.pddl', 'p29-net3-b20-g6.pddl', 'p30-net3-b20-g8.pddl']
+Penalty: 16.65
+Penalty sart: 10.00
+Penalty baseline: 6.65
+Seq Estimated runtimes: 0.24,0.43,0.44,0.6,0.83,0.9,0.93,0.94,1.2,1.2
+Seq instances: ['p21-net3-b12-g2.pddl', 'p22-net3-b12-g4.pddl', 'p23-net3-b14-g3.pddl', 'p24-net3-b14-g5.pddl', 'p25-net3-b16-g5.pddl', 'p26-net3-b16-g7.pddl', 'p27-net3-b18-g6.pddl', 'p28-net3-b18-g7.pddl', 'p29-net3-b20-g6.pddl', 'p30-net3-b20-g8.pddl']
+2021-09-05 16:06:51,148 DEBUG    END: end-2-9 21
+2021-09-05 16:06:51,148 DEBUG    START: seq-3-0 22
+Selected: sequence 3, 10 instances from 0 to 9
+Configuration: ['p31-net4-b14-g3.pddl', 'p32-net4-b14-g5.pddl', 'p33-net4-b16-g5.pddl', 'p34-net4-b16-g6.pddl', 'p35-net4-b18-g4.pddl', 'p36-net4-b18-g6.pddl', 'p37-net4-b20-g5.pddl', 'p38-net4-b20-g7.pddl', 'p39-net4-b22-g7.pddl', 'p40-net4-b22-g8.pddl']
+Penalty: 18.00
+Penalty sart: 10.00
+Penalty baseline: 8.00
+Seq Estimated runtimes: 0.43,0.75,0.86,0.9,1,1.1,1.1,1.2,1.4,1.6
+Seq instances: ['p31-net4-b14-g3.pddl', 'p32-net4-b14-g5.pddl', 'p33-net4-b16-g5.pddl', 'p34-net4-b16-g6.pddl', 'p35-net4-b18-g4.pddl', 'p36-net4-b18-g6.pddl', 'p37-net4-b20-g5.pddl', 'p38-net4-b20-g7.pddl', 'p39-net4-b22-g7.pddl', 'p40-net4-b22-g8.pddl']
+2021-09-05 16:06:51,148 DEBUG    END: end-3-9 32
+2021-09-05 16:06:51,148 DEBUG    START: seq-4-0 33
+Selected: sequence 4, 10 instances from 0 to 9
+Configuration: ['p41-net5-b22-g2.pddl', 'p42-net5-b22-g4.pddl', 'p43-net5-b24-g3.pddl', 'p44-net5-b24-g5.pddl', 'p45-net5-b26-g4.pddl', 'p46-net5-b26-g6.pddl', 'p47-net5-b28-g5.pddl', 'p48-net5-b28-g7.pddl', 'p49-net5-b30-g6.pddl', 'p50-net5-b30-g8.pddl']
+Penalty: 9.63
+Penalty sart: 1.63
+Penalty baseline: 8.00
+Seq Estimated runtimes: 1.3,3.7,4.5,6.1,8,9.6,16,19,44,1e+04
+Seq instances: ['p41-net5-b22-g2.pddl', 'p42-net5-b22-g4.pddl', 'p43-net5-b24-g3.pddl', 'p44-net5-b24-g5.pddl', 'p45-net5-b26-g4.pddl', 'p46-net5-b26-g6.pddl', 'p47-net5-b28-g5.pddl', 'p48-net5-b28-g7.pddl', 'p49-net5-b30-g6.pddl', 'p50-net5-b30-g8.pddl']
+2021-09-05 16:06:51,149 DEBUG    END: end-4-9 43
+  p01: p21-net3-b12-g2.pddl   0.24019 199.303 0.24019
+  p02: p22-net3-b12-g4.pddl   0.430455 3427.84 0.435471
+  p03: p23-net3-b14-g3.pddl   0.435471 1.08074 0.430455
+  p04: p24-net3-b14-g5.pddl   0.600702 1.76602 0.600702
+  p05: p25-net3-b16-g5.pddl   0.826826 unsolved 0.902765
+  p06: p26-net3-b16-g7.pddl   0.902765 1213.13 0.826826
+  p07: p27-net3-b18-g6.pddl   0.934438 46.9031 0.942328
+  p08: p28-net3-b18-g7.pddl   0.942328 8.10312 0.934438
+  p09: p29-net3-b20-g6.pddl   1.20084 unsolved 1.23155
+  p10: p30-net3-b20-g8.pddl   1.23155 507.473 1.20084
+  p11: p31-net4-b14-g3.pddl   0.434281 508.202 0.434281
+  p12: p32-net4-b14-g5.pddl   0.749071 2.10495 0.749071
+  p13: p33-net4-b16-g5.pddl   0.860648 unsolved 0.896593
+  p14: p34-net4-b16-g6.pddl   0.896593 77.3846 0.860648
+  p15: p35-net4-b18-g4.pddl   1.02918 unsolved 1.10689
+  p16: p36-net4-b18-g6.pddl   1.10689 unsolved 1.16035
+  p17: p37-net4-b20-g5.pddl   1.11674 unsolved 1.11674
+  p18: p38-net4-b20-g7.pddl   1.16035 unsolved 1.02918
+  p19: p39-net4-b22-g7.pddl   1.37563 unsolved 1.37563
+  p20: p40-net4-b22-g8.pddl   1.62625 unsolved 1.62625
+  p21: p41-net5-b22-g2.pddl   1.25598 7.11909 1.25598
+  p22: p42-net5-b22-g4.pddl   3.66837 unsolved 43.9976
+  p23: p43-net5-b24-g3.pddl   4.48853 unsolved unsolved
+  p24: p44-net5-b24-g5.pddl   6.1368 unsolved 15.8364
+  p25: p45-net5-b26-g4.pddl   7.9768 unsolved 7.9768
+  p26: p46-net5-b26-g6.pddl   9.56502 unsolved 3.66837
+  p27: p47-net5-b28-g5.pddl   15.8364 unsolved 18.7594
+  p28: p48-net5-b28-g7.pddl   18.7594 unsolved 9.56502
+  p29: p49-net5-b30-g6.pddl   43.9976 unsolved 4.48853
+  p30: p50-net5-b30-g8.pddl   10000.0 unsolved 6.1368
+Total Estimated Runtimes: [0.24019, 0.430455, 0.434281, 0.435471, 0.600702, 0.749071, 0.826826, 0.860648, 0.896593, 0.902765, 0.934438, 0.942328, 1.02918, 1.10689, 1.11674, 1.16035, 1.20084, 1.23155, 1.25598, 1.37563, 1.62625, 3.66837, 4.48853, 6.1368, 7.9768, 9.56502, 15.8364, 18.7594, 43.9976, 10000.0]
+Total Estimated Solved: 29

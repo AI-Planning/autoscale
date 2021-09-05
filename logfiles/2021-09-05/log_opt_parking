@@ -1,0 +1,83 @@
+2021-09-05 16:58:18,191 INFO     No run directory, so we will not run anything
+2021-09-05 16:58:18,648 INFO     Loading cache data for baseline planners: 233
+2021-09-05 16:58:18,657 INFO     baseline cache contains data for 22 parameter values, with min 12 max 39 avg 31.772727272727273 runtimes
+2021-09-05 16:58:18,657 INFO     Loading cache data for sart planners: 341
+2021-09-05 16:58:18,671 INFO     sart cache contains data for 34 parameter values, with min 3 max 39 avg 30.08823529411765 runtimes
+2021-09-05 16:58:20,041 INFO     Loading cache data for baseline planners: 0
+2021-09-05 16:58:20,041 INFO     baseline cache contains data for 22 parameter values, with min 12 max 39 avg 31.772727272727273 runtimes
+2021-09-05 16:58:20,041 INFO     Loading cache data for sart planners: 0
+2021-09-05 16:58:20,041 INFO     sart cache contains data for 34 parameter values, with min 3 max 39 avg 30.08823529411765 runtimes
+2021-09-05 16:58:21,487 INFO     Loading cache data for baseline planners: 0
+2021-09-05 16:58:21,487 INFO     baseline cache contains data for 22 parameter values, with min 12 max 39 avg 31.772727272727273 runtimes
+2021-09-05 16:58:21,487 INFO     Loading cache data for sart planners: 0
+2021-09-05 16:58:21,487 INFO     sart cache contains data for 34 parameter values, with min 3 max 39 avg 30.08823529411765 runtimes
+2021-09-05 16:58:22,882 INFO     Loading cache data for baseline planners: 0
+2021-09-05 16:58:22,882 INFO     baseline cache contains data for 22 parameter values, with min 12 max 39 avg 31.772727272727273 runtimes
+2021-09-05 16:58:22,887 INFO     Loading cache data for sart planners: 0
+2021-09-05 16:58:22,887 INFO     sart cache contains data for 34 parameter values, with min 3 max 39 avg 30.08823529411765 runtimes
+2021-09-05 16:58:22,887 INFO     Stored sequences: 639
+2021-09-05 16:58:24,462 INFO     Different evaluated sequences: 38
+cars_diff 0 12 10
+cars_diff -1 11 11
+cars_diff -2 15 12
+2021-09-05 16:58:24,464 INFO     Candidate sequences: 33
+2021-09-05 16:58:24,464 INFO     Using sart runtimes on CPLEX optimization
+2021-09-05 16:58:24,504 INFO     CPLEX solve
+
+2021-09-05 16:58:24,565 INFO     Solution status = 101: MIP_optimal
+2021-09-05 16:58:24,566 INFO     Solution value  = 74.890705167302
+2021-09-05 16:58:24,566 INFO     CPLEX Solved Instances: 19.0
+2021-09-05 16:58:24,566 INFO     CPLEX Trivial Instances: 6.0
+Selected: sequence 1, 8 instances from 0 to 7
+Configuration: {'cars_diff': 0, 'curbs_b': 3, 'curbs_m': 1.0}
+Penalty: 15.36
+Penalty sart: 7.36
+Penalty baseline: 8.00
+Seq Estimated runtimes: 0.73,0.78,1.4,3.8,64,2.2e+02,2.2e+03,2.2e+04
+Seq instances: [{'curbs': 3, 'cars': 4}, {'curbs': 4, 'cars': 6}, {'curbs': 5, 'cars': 8}, {'curbs': 6, 'cars': 10}, {'curbs': 7, 'cars': 12}, {'curbs': 8, 'cars': 14}, {'curbs': 9, 'cars': 16}, {'curbs': 10, 'cars': 18}]
+Selected: sequence 3, 11 instances from 1 to 11
+Configuration: {'cars_diff': -1, 'curbs_b': 3, 'curbs_m': 1.1}
+Penalty: 14.37
+Penalty sart: 6.37
+Penalty baseline: 8.00
+Seq Estimated runtimes: 0.57,0.94,2,4.6,24,1.2e+02,2.7e+02,1.1e+03,4.5e+03,1.9e+04,7.7e+04
+Seq instances: [{'curbs': 4, 'cars': 5}, {'curbs': 5, 'cars': 7}, {'curbs': 6, 'cars': 9}, {'curbs': 7, 'cars': 11}, {'curbs': 8, 'cars': 13}, {'curbs': 9, 'cars': 15}, {'curbs': 10, 'cars': 17}, {'curbs': 11, 'cars': 19}, {'curbs': 12, 'cars': 21}, {'curbs': 13, 'cars': 23}, {'curbs': 15, 'cars': 27}]
+Selected: sequence 18, 11 instances from 2 to 12
+Configuration: {'cars_diff': -2, 'curbs_b': 4, 'curbs_m': 1.1}
+Penalty: 13.16
+Penalty sart: 5.26
+Penalty baseline: 7.90
+Seq Estimated runtimes: 1.3,3.2,18,65,1.5e+02,3.1e+02,1.1e+03,3.6e+03,1.2e+04,4.3e+04,1.5e+05
+Seq instances: [{'curbs': 6, 'cars': 8}, {'curbs': 7, 'cars': 10}, {'curbs': 8, 'cars': 12}, {'curbs': 9, 'cars': 14}, {'curbs': 10, 'cars': 16}, {'curbs': 11, 'cars': 18}, {'curbs': 12, 'cars': 20}, {'curbs': 13, 'cars': 22}, {'curbs': 14, 'cars': 24}, {'curbs': 16, 'cars': 28}, {'curbs': 17, 'cars': 30}]
+  p01: {'curbs': 4, 'cars': 5}   0.5651515151515152
+  p02: {'curbs': 5, 'cars': 7}   0.9386111111111112
+  p03: {'curbs': 6, 'cars': 9}   1.99
+  p04: {'curbs': 7, 'cars': 11}   4.607222222222222
+  p05: {'curbs': 8, 'cars': 13}   24.414545454545454
+  p06: {'curbs': 9, 'cars': 15}   116.51833333333333
+  p07: {'curbs': 10, 'cars': 17}   266.49694444444447
+  p08: {'curbs': 11, 'cars': 19}   1097.8656018047293
+  p09: {'curbs': 12, 'cars': 21}   4522.786863987201
+  p10: {'curbs': 13, 'cars': 23}   18632.154048208806
+  p11: {'curbs': 15, 'cars': 27}   76757.35667325626
+  p12: {'curbs': 3, 'cars': 4}   0.7261538461538461
+  p13: {'curbs': 4, 'cars': 6}   0.7766666666666666
+  p14: {'curbs': 5, 'cars': 8}   1.4348717948717948
+  p15: {'curbs': 6, 'cars': 10}   3.778205128205128
+  p16: {'curbs': 7, 'cars': 12}   63.51307692307692
+  p17: {'curbs': 8, 'cars': 14}   218.41333333333333
+  p18: {'curbs': 9, 'cars': 16}   2211.3536745012457
+  p19: {'curbs': 10, 'cars': 18}   22389.13256393151
+  p20: {'curbs': 6, 'cars': 8}   1.3094871794871794
+  p21: {'curbs': 7, 'cars': 10}   3.1538461538461537
+  p22: {'curbs': 8, 'cars': 12}   18.47025641025641
+  p23: {'curbs': 9, 'cars': 14}   64.956
+  p24: {'curbs': 10, 'cars': 16}   145.87142857142857
+  p25: {'curbs': 11, 'cars': 18}   307.226
+  p26: {'curbs': 12, 'cars': 20}   1054.1730867152262
+  p27: {'curbs': 13, 'cars': 22}   3617.14469724147
+  p28: {'curbs': 14, 'cars': 24}   12411.373355727228
+  p29: {'curbs': 16, 'cars': 28}   42586.681338109694
+  p30: {'curbs': 17, 'cars': 30}   146126.08737265994
+Total Estimated Runtimes: [0.5651515151515152, 0.7261538461538461, 0.7766666666666666, 0.9386111111111112, 1.3094871794871794, 1.4348717948717948, 1.99, 3.1538461538461537, 3.778205128205128, 4.607222222222222, 18.47025641025641, 24.414545454545454, 63.51307692307692, 64.956, 116.51833333333333, 145.87142857142857, 218.41333333333333, 266.49694444444447, 307.226, 1054.1730867152262, 1097.8656018047293, 2211.3536745012457, 3617.14469724147, 4522.786863987201, 12411.373355727228, 18632.154048208806, 22389.13256393151, 42586.681338109694, 76757.35667325626, 146126.08737265994]
+Total Estimated Solved: 21
