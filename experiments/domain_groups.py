@@ -21,7 +21,7 @@ DOMAIN_GROUPS = {
     "miconic-fulladl": ["miconic-fulladl"],
     "miconic-simpleadl": ["miconic-simpleadl"],
     "movie": ["movie"],
-    "mprime": ["mprime", "mprime-exhaustive"],
+    "mprime": ["mprime", "mprime-exhaustive", "mprime-simple"],
     "mystery": ["mystery", "mystery-hard", "mystery-exhaustive"],
     "nomystery": ["nomystery-opt11-strips", "nomystery-sat11-strips"],
     "openstacks": ["openstacks", "openstacks-strips", "openstacks-opt08-strips", "openstacks-opt11-strips", "openstacks-opt14-strips", "openstacks-sat08-adl", "openstacks-sat08-strips", "openstacks-sat11-strips", "openstacks-sat14-strips", "openstacks-opt08-adl", "openstacks-sat08-adl"],
