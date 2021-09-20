@@ -448,6 +448,8 @@ def get_evaluation_experiment(
             run.set_property("problem", task.problem)
             run.set_property("algorithm", planner_nick)
             run.set_property("id", [planner_nick, task.domain, task.problem])
+            run.set_property("time_limit", time_limit)
+            run.set_property("memory_limit", memory_limit)
 
     add_scp_steps(exp)
 

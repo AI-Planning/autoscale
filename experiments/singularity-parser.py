@@ -4,6 +4,7 @@ import logging
 import re
 
 from lab.parser import Parser
+from lab import tools
 
 
 class CommonParser(Parser):
@@ -82,6 +83,10 @@ def check_out_of_time_and_memory(content, props):
             out_of_time = True
         if line == "MEMOUT=true":
             out_of_memory = True
+    # runsolver decides "out of time" based on CPU rather than
+    # (cumulated) WCTIME.
+    if not out_of_time and props['runtime'] > props['time_limit']:
+        out_of_time = True
     props['out_of_time'] = out_of_time
     props['out_of_memory'] = out_of_memory
     return props
@@ -90,6 +95,9 @@ def check_out_of_time_and_memory(content, props):
 def main():
     print("Running singularity parser")
     parser = CommonParser()
+    parser.props = tools.Properties(filename="static-properties")
+    parser.props.filename = "properties"
+    parser.props.write()
     parser.add_pattern(
         "planner_exit_code",
         r"run-planner exit code: (.+)\n",
@@ -112,7 +120,7 @@ def main():
     parser.add_pattern("total_time", r"Total time: (.+)s\n", type=float)
     parser.add_pattern(
         "runtime",
-        r"CPUTIME=(.+)",
+        r"WCTIME=(.+)",
         type=float,
         file='values.log',
         required=True)
