@@ -85,7 +85,7 @@ def check_out_of_time_and_memory(content, props):
             out_of_memory = True
     # runsolver decides "out of time" based on CPU rather than
     # (cumulated) WCTIME.
-    if not out_of_time and props['runtime'] > props['time_limit']:
+    if not out_of_time and (props.get('runtime') is None or props['runtime'] > props['time_limit']):
         out_of_time = True
     props['out_of_time'] = out_of_time
     props['out_of_memory'] = out_of_memory
