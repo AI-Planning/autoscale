@@ -5,6 +5,7 @@ import project
 import pathlib
 
 from lab.environments import LocalEnvironment, BaselSlurmEnvironment
+from downward.reports.absolute import AbsoluteReport
 
 BENCHMARKS_DIR = pathlib.Path("2021-09-05-sat")
 DOMAINS = [
@@ -65,5 +66,18 @@ exp = project.get_evaluation_experiment(
     time_limit=60, # 30 min
     memory_limit=3584, # 3.5 GiB
     )
+
+def duplicate_outcome(run):
+    if run['coverage'] and (run['out_of_time'] or run['out_of_memory']):
+        print(run)
+    if run['out_of_time'] and run['out_of_memory']:
+        print(run)
+    return True
+
+exp.add_report(
+    AbsoluteReport(
+        filter=[duplicate_outcome],
+    )
+)
 
 exp.run_steps()

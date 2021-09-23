@@ -87,6 +87,17 @@ def check_out_of_time_and_memory(content, props):
     # (cumulated) WCTIME.
     if not props['coverage'] and not out_of_time and not out_of_memory and (props.get('runtime') is None or props['runtime'] > props['time_limit']):
         out_of_time = True
+    # In cases where CPU time is very slightly above the threshold so
+    # that runsolver didn't kill the planner yet and the planner
+    # solved a task just within the limit, runsolver will still
+    # record an "out of time". We remove this record.
+    # This case also applies to iterative planners. If such planners
+    # solve the task, we don't treat them as running out of time.
+    if props['coverage'] and (out_of_time or out_of_memory):
+        print("task solved however runsolver recorded an out_of_*")
+        print(props)
+        out_of_time = False
+        out_of_memory = False
     props['out_of_time'] = out_of_time
     props['out_of_memory'] = out_of_memory
     return props
