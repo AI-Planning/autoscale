@@ -2,32 +2,55 @@ This repository is an inofficial collection of PDDL generators, some of
 which have been used to generate benchmarks for the International
 Planning Competitions (IPC).
 
-Instructions
-------------
+# Instructions
 * Build all generators: ``./build_all``
 * Build in parallel: ``./build_all -j4``
 * Delete intermediate files: ``./build_all clean``
 * Build single generator: ``cd assembly; make``
 * Test generators: ``sudo apt install python-tox && tox``
 
-Feedback
---------
-* Bug reports and pull requests are appreciated
+# Feedback
+* Bug reports and pull requests are appreciated.
 
-Generator descriptions
-----------------------
-The following notes were taken from the webpage
-http://fai.cs.uni-saarland.de/hoffmann/ff-domains.html, where also most
-of the generators are from:
+# Citation
+We revised and extended the set of generators significantly when working on creating
+the Autoscale benchmarks. If you use the generators for a publication, please use the
+following citation:
+
+    @InProceedings{torralba-et-al-icaps2021,
+      author =       "{\'A}lvaro Torralba and Jendrik Seipp and Silvan Sievers",
+      title =        "Automatic Instance Generation for Classical Planning",
+      crossref =     "icaps2021",
+      pages =        "376--384"
+    }
+    @Proceedings{icaps2021,
+      editor =       "Robert P. Goldman and Susanne Biundo and Michael Katz",
+      title =        "Proceedings of the Thirty-First International Conference on
+                      Automated Planning and Scheduling (ICAPS 2021)",
+      booktitle =    "Proceedings of the Thirty-First International Conference on
+                      Automated Planning and Scheduling (ICAPS 2021)",
+      year =         "2021",
+      publisher =    "AAAI Press"
+    }
+
+
+# Generator descriptions
+The following notes were taken from
+http://fai.cs.uni-saarland.de/hoffmann/ff-domains.html, where also most of
+the generators are from:
 
 
 This page was created by Joerg Hoffmann, to form a starting point for people who want to perform large-scale empirical studies in planning. The FF domain collection provides (randomized, where possible) generators for 20 STRIPS and ADL planning benchmark domains, including the examples used in both competitions. Below, we give, for each domain, information about the origin, made adaptions (if any), the parameters of the generator, and the randomization strategy. [...] The generators should be self-explanatory in terms of how to build them (makefiles are included), and how to run them. In the less obvious cases, we have also included a README file.
-** Note: ** We do not make any claims whatsoever about the validity of the problem ranges generated, nor about the adequacy of the kind of problems that are generated within a domain. We have made an effort to imitate closely the examples known from published problem suites, and we have generally chosen the most obvious first-guess randomization strategy. Some of the generators, like the one for Assembly, are quite a hack. Nevertheless, we believe that the generators form an invaluable tool for experimentation - they have definetely done so in our own experiments. Please contact us with any comments or suggestions.
 
-** Acknowledgments: ** We thank all persons involved in the development of any of the domains below. We have mentioned all names of persons we knew were involved, and apologize if someone was left out. Please contact us with any additional information on this. Thanks also go to Malte Helmert for discussions on the validity of problem ranges, and to Ulrich Scholz for pointing out bugs.
+**Note:** We do not make any claims whatsoever about the validity of the problem ranges generated, nor about the adequacy of the kind of problems that are generated within a domain. We have made an effort to imitate closely the examples known from published problem suites, and we have generally chosen the most obvious first-guess randomization strategy. Some of the generators, like the one for Assembly, are quite a hack. Nevertheless, we believe that the generators form an invaluable tool for experimentation - they have definetely done so in our own experiments. Please contact us with any comments or suggestions.
+
+## Acknowledgments
+We thank all persons involved in the development of any of the domains below.
+We try to mention the persons involved in creating the generators, but some authors are missing.
+Please contact us with any additional information on this.
 
 
-** Assembly **
+## Assembly
 
 *   Origin: Drew McDermott. Used in the AIPS-1998 competition.
 *   Adaptions: None.
@@ -44,7 +67,7 @@ This page was created by Joerg Hoffmann, to form a starting point for people who
 *   Generation: Create a tree of depth -d. Nodes have sons with probability -h. If they do have sons, then a random number between 1 and -m, biased to be lower the deeper the node is in the tree. With probability -r, the node needs a random resource. An item is assigned a transient part relation to any item in a higher tree level with probability -t, parts or transient parts of the same item have an assemble ordering constraint with probability -a, and for a transient part relation (A, B) the parts of B are given a remove ordering constraint to A with probability -o. Cycles in the assemble and remove order constraints are avoided by arbitrarily ordering the respective items, and allowing constraints only between pairs A and B with A
 
 
-** Blocksworld-3ops **
+## Blocksworld-3ops
 
 *   Origin: Goes back to the annals of AI, seems to be first mentioned in Terry Winograd's PhD thesis 1972. In a 1974 planning paper by Gerald Sussman. Taken from the [IPP][6] domain collection.
 *   Adaptions: None.
@@ -53,7 +76,7 @@ This page was created by Joerg Hoffmann, to form a starting point for people who
 *   Generation: Uses random blocksworld state generator provided by John Slaney and Sylvie Thiebaux. Simply translates two such states into PDDL, and prints them out as the initial state and the goal state, where the latter state has all facts removed except the on relations between blocks.
 
 
-** Blocksworld-4ops **
+## Blocksworld-4ops
 
 *   Origin: See above. Used in the AIPS-2000 competition. Taken from the [IPP][6] domain collection.
 *   Adaptions: None.
@@ -62,7 +85,7 @@ This page was created by Joerg Hoffmann, to form a starting point for people who
 *   Generation: Like above.
 
 
-** Briefcaseworld **
+## Briefcaseworld
 
 *   Origin: First mentioned by Edwin Pednault. Taken from the [IPP][6] domain collection.
 *   Adaptions: None.
@@ -71,7 +94,7 @@ This page was created by Joerg Hoffmann, to form a starting point for people who
 *   Generation: randomly distribute the start locations of all objects and the briefcase over -o %2B 1 locations. Do the same for the goal locations.
 
 
-** Ferry **
+## Ferry
 
 *   Origin: ?. Taken from the [IPP][6] domain collection.
 *   Adaptions: Sail operator modified so that moves can only happen between different locations.
@@ -82,7 +105,7 @@ This page was created by Joerg Hoffmann, to form a starting point for people who
 *   Generation: randomly distribute the start and goal locations of all cars over the locations.
 
 
-** Freecell **
+## Freecell
 
 *   Origin: Fahiem Bacchus. Used in the AIPS-2000 competition.
 *   Adaptions: Domain encoding modified such that cards, freecells, and columns all have their own natural numbers. This helps avoiding superfluous action instances.
@@ -96,7 +119,7 @@ This page was created by Joerg Hoffmann, to form a starting point for people who
 *   Generation: As long as there is a card that has not yet been placed somewhere, choose one such card at random, and place it randomly on one initial stack.
 
 
-** Fridge **
+## Fridge
 
 *   Origin: Tony Barrett. Taken from the [IPP][6] domain collection.
 *   Adaptions: Several adaptions made to allow for a flexible number of screws on each backplane, and to force a fridge being turned off when the screws of the backplane are removed.
@@ -107,7 +130,7 @@ This page was created by Joerg Hoffmann, to form a starting point for people who
 *   Generation: No randomization. Simply specify all static relations as well as the initial and goal situations.
 
 
-** Grid **
+## Grid
 
 *   Origin: Drew McDermott. Used in the AIPS-1998 competition.
 *   Adaptions: None.
@@ -122,7 +145,7 @@ This page was created by Joerg Hoffmann, to form a starting point for people who
 *   Generation: Randomly distribute the robot, lock and key positions over the grid. No two locks can be at the same location, and the robot must not start on a locked position. If a key is required to be mentioned in the goal, then generate a random goal location for it.
 
 
-** Gripper **
+## Gripper
 
 *   Origin: Jana Koehler. Used in the AIPS-1998 competition.
 *   Adaptions: None.
@@ -131,7 +154,7 @@ This page was created by Joerg Hoffmann, to form a starting point for people who
 *   Generation: No randomization. Place all balls in room A and require them to be in B instead.
 
 
-** Hanoi **
+## Hanoi
 
 *   Origin: ?. Taken from the [IPP][6] domain collection.
 *   Adaptions: None.
@@ -140,7 +163,7 @@ This page was created by Joerg Hoffmann, to form a starting point for people who
 *   Generation: No randomization.
 
 
-** Logistics **
+## Logistics
 
 *   Origin: First version by Manuela Veloso, AIPS-1998 version created by Bart Selman and Henry Kautz. Used in both the AIPS-1998 and AIPS-2000 competitions.
 *   Adaptions: None.
@@ -153,7 +176,7 @@ This page was created by Joerg Hoffmann, to form a starting point for people who
 *   Generation: Place trucks randomly within their cities, place airplanes randomly at airports. Distribute start and goal locations of packages randomly over all locations.
 
 
-** Miconic-ADL **
+## Miconic-ADL
 
 *   Origin: Jana Koehler. Used in the AIPS-2000 competition.
 *   Adaptions: None.
@@ -173,7 +196,7 @@ This page was created by Joerg Hoffmann, to form a starting point for people who
 *   Generation: Original generator used in the AIPS-2000 competition. Make sure that the specified percentage values are all met by randomly assigning types to the passengers (a passenger can have several types). Randomly assign origin and destination floors to all passengers, considering several heuristics to help problem becoming solvable (like not placing conflicting people at the same origin floor etc.).
 
 
-** Miconic-SIMPLE **
+## Miconic-SIMPLE
 
 *   Origin: Jana Koehler. Used in the AIPS-2000 competition.
 *   Adaptions: None.
@@ -184,7 +207,7 @@ This page was created by Joerg Hoffmann, to form a starting point for people who
 *   Generation: Original generator used in the AIPS-2000 competition. Simply distribute origin and destination floors at random.
 
 
-** Miconic-STRIPS **
+## Miconic-STRIPS
 
 *   Origin: Jana Koehler. Used in the AIPS-2000 competition.
 *   Adaptions: None.
@@ -195,7 +218,7 @@ This page was created by Joerg Hoffmann, to form a starting point for people who
 *   Generation: Original generator used in the AIPS-2000 competition. Simply distribute origin and destination floors at random.
 
 
-** Movie **
+## Movie
 
 *   Origin: Corin Anderson. Used in the AIPS-1998 competition.
 *   Adaptions: None.
@@ -204,11 +227,11 @@ This page was created by Joerg Hoffmann, to form a starting point for people who
 *   Generation: No randomization.
 
 
-** Mprime **
+## Mprime
 
 *   Origin: Drew McDermott. Used in the AIPS-1998 competition.
 *   Adaptions: Translated all predicate names to get a more intuitive notation. Also use typing. Operator for passing on fuel from one location to another could, in the original version, be instantiated with the same location as origin and destination city, which caused the amount of fuel in that city to increase one unit. Changed that such that origin and destination cities must be different.
-    NOTE: in the ai-basel benchmarks repo, the reformulated domain no-mprime does a similar translation of predicate names but doesn't use typing. It also doesn't use the described fix (which the mprime domain of that repo does, however).
+    NOTE: in the aibasel benchmarks repo, the reformulated domain no-mprime does a similar translation of predicate names but doesn't use typing. It also doesn't use the described fix (which the mprime domain of that repo does, however).
 *   Description: Typed STRIPS domain; the name results from Mystery' (see below). Logistics variant where trucks move on a map of locations. Additionally, trucks have only limited transportation capacity, and there are constraints on the amount of fuel. Each location has initially a certain amount of fuel available. Moving a truck away from a location decreases the amount of fuel at that location by one. If a location has more than one fuel item, then it can pass a fuel item over to a different location.
 *   Parameters:
     *   -l number of locations
@@ -219,11 +242,11 @@ This page was created by Joerg Hoffmann, to form a starting point for people who
 *   Generation: Create a simple map of -l locations such that location i is linked to location i%2B1, and location -l is linked to location 1. Randomly assign transportation capacity between 1 and -s to all vehicles, and fuel between 0 and -f to all locations. Distribute cargo origin and destination locations randomly over all locations, likewise for the starting locations of the vehicles.
 
 
-** Mystery **
+## Mystery
 
 *   Origin: Drew McDermott. Used in the AIPS-1998 competition.
 *   Adaptions: Translated all predicate names to get a more intuitive notation. Also use typing.
-    NOTE: in the ai-basel benchmarks repo, the reformulated domain no-mystery does a similar translation of predicate names but doesn't use typing. This is not to be confused with the IPC'11 domain nomystery for which there is also a generator here.
+    NOTE: in the aibasel benchmarks repo, the reformulated domain no-mystery does a similar translation of predicate names but doesn't use typing. This is not to be confused with the IPC'11 domain nomystery for which there is also a generator here.
 *   Description: Typed STRIPS domain; the name is because the original specified the semantics in a disguised manner by using unintuitive names for the predicates and constants. The domain is the same like the Mprime domain above, except that there is no way of passing on fuel between locations.
 *   Parameters:
     *   -l number of locations
@@ -268,7 +291,7 @@ aibasel/mprime, aibasel/mystery, and aibasel/nomystery-{opt,sat}11-strips are th
 *   Generation: All parts are given a random initial shape and surface condition. With the respective probability, they are given random colours or holes. In the goal state, they need, with the respective probabilities, to be cylindrical (which is the only shape that can be produced by the machines), to be randomly coloured, to have a random hole, and to have a random goal surface condition.
 
 
-** Tsp **
+## Tsp
 
 *   Origin: Obtained from Maria Fox and Derek Long.
 *   Adaptions: None.
@@ -277,7 +300,7 @@ aibasel/mprime, aibasel/mystery, and aibasel/nomystery-{opt,sat}11-strips are th
 *   Generation: No randomization.
 
 
-** Tyreworld **
+## Tyreworld
 
 *   Origin: Stuart Russel. Adaption for multiple tyres by Jana Koehler. Taken from the [IPP][6] domain collection.
 *   Adaptions: None.

@@ -172,8 +172,6 @@ private:
 	int type;
 
 public:
-
-
 	mode() : myID(id++), type(rnd(4))
 	{
 		supportedModes.push_back(false);
@@ -398,7 +396,7 @@ private:
 	vector<double> calibrationTimes;
 	vector<target> targets;
 public:
-    	vector<mode> supportedModes;
+    vector<mode> supportedModes;
 
 	instrument() : myID(id++)
 	{
@@ -506,7 +504,7 @@ public:
 			o << "\t(= (fuel satellite" << myID << ") " << fuel << ")\n";
 
 	};
-    instrument * rnd_instrument() {
+    instrument *rnd_instrument() {
         return &(instruments[rnd(instruments.size())]);
     }
 	void goal(ostream & o) const
@@ -603,7 +601,6 @@ int main(int argc,char * argv[])
 	vector<satellite> sats;
 	for(int i = 0;i < numsats;++i)
 		sats.push_back(satellite(numinsts));
-
 
         vector<mode> all_modes;
 

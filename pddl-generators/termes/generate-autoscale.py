@@ -3,12 +3,12 @@
 # This generator is very similar to the one used in IPC'18 for the TERMES domain. The main differences are:
 #
 # 1) We restrict ourselves to problems that go from an empty to a random board (in the IPC
-# all selected instances started in an empty board, but some instances were based on
-# manually-designed boards for the goal)
+#    all selected instances started in an empty board, but some instances were based on
+#    manually-designed boards for the goal).
 #
-# 2) We add an extra parameter to control the instances generated: number of blocks
+# 2) We add an extra parameter to control the instances generated: number of blocks.
 #
-# 3) We modify the output of a plan, so that it is included in the problem file
+# 3) We modify the output of a plan, so that it is included in the problem file.
 
 
 import argparse

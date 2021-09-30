@@ -9,4 +9,3 @@ are N table locations and 2*(N-1) blocks and towers are only allowed to contain 
 OPT 11: from 7 to 12 curbs, several instances of the same size
 OPT 14: from 7 to 11 curbs, several instances of the same size
 
-
