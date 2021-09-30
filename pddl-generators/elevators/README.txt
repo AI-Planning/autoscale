@@ -1,37 +1,37 @@
-IPC OPT Instances: All instances have 1 slow elevator 
+IPC OPT Instances: All instances have 1 slow elevator
 
 IPC'08 (IPC'11 is a subset)
     09/2 floors 3 passengers 1 fast elevator
     09/2 floors 3 passengers 2 fast elevators
-    09/2 floors 4 passengers 1 fast elevator 
+    09/2 floors 4 passengers 1 fast elevator
     09/2 floors 4 passengers 2 fast elevators
-    09/2 floors 5 passengers 1 fast elevator 
+    09/2 floors 5 passengers 1 fast elevator
     09/2 floors 5 passengers 2 fast elevators
-    09/2 floors 6 passengers 1 fast elevator 
+    09/2 floors 6 passengers 1 fast elevator
     09/2 floors 6 passengers 2 fast elevators
-    09/2 floors 7 passengers 1 fast elevator 
+    09/2 floors 7 passengers 1 fast elevator
     09/2 floors 7 passengers 2 fast elevators
-    13/2 floors 3 passengers 1 fast elevator 
+    13/2 floors 3 passengers 1 fast elevator
     13/2 floors 3 passengers 2 fast elevators
-    13/2 floors 4 passengers 1 fast elevator 
+    13/2 floors 4 passengers 1 fast elevator
     13/2 floors 4 passengers 2 fast elevators
-    13/2 floors 5 passengers 1 fast elevator 
+    13/2 floors 5 passengers 1 fast elevator
     13/2 floors 5 passengers 2 fast elevators
-    13/2 floors 6 passengers 1 fast elevator 
+    13/2 floors 6 passengers 1 fast elevator
     13/2 floors 6 passengers 2 fast elevators
-    13/2 floors 7 passengers 1 fast elevator 
+    13/2 floors 7 passengers 1 fast elevator
     13/2 floors 7 passengers 2 fast elevators
-    13/3 floors 3 passengers 1 fast elevator 
+    13/3 floors 3 passengers 1 fast elevator
     13/3 floors 3 passengers 2 fast elevators
-    13/3 floors 4 passengers 1 fast elevator 
+    13/3 floors 4 passengers 1 fast elevator
     13/3 floors 4 passengers 2 fast elevators
-    13/3 floors 5 passengers 1 fast elevator 
+    13/3 floors 5 passengers 1 fast elevator
     13/3 floors 5 passengers 2 fast elevators
-    13/3 floors 6 passengers 1 fast elevator 
+    13/3 floors 6 passengers 1 fast elevator
     13/3 floors 6 passengers 2 fast elevators
-    13/3 floors 7 passengers 1 fast elevator 
+    13/3 floors 7 passengers 1 fast elevator
     13/3 floors 7 passengers 2 fast elevators
-            
+
 
 IPC SAT Instances
 
@@ -44,28 +44,12 @@ floors 08/2, 16/2, 24/3
 capacity 3/2, 4/3, 6/4
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 There was not Readme.txt in the generator version I have, so this is the way I am using
 it. I cannot credit the author as I don't know who was she/he.
 
 - Change the following variables at generate_data.c
-  	- FLOORS: floors
-        - AREA_SIZE: a divisor of FLOORS (a slow elevator covers this
+  	- FLOORS: number of floors
+    - AREA_SIZE: a divisor of FLOORS (a slow elevator covers this
   	  + 1 floors) (a fast elevator skips this/2-1 floors)
 	- FAST_ELEVATORS: number of fast elevators
 	- SLOW_ELEVATORS: number of slow elevators covering the same area
@@ -79,8 +63,9 @@ it. I cannot credit the author as I don't know who was she/he.
 	    -  Step : the step to go from MinPassengers to MaxPassengers
 	    -  MinID : the start number of number problems of the same size
 	    -  MaxID : the end number of number problems of the same size
- 
-- If you want to change the floors, area size, etc. do again the two previous steps.
+
+- If you want to change the floors, area size, etc. do again the two
+  previous steps.
 
 - Decide which version you want to create by putting to 1 the value
   of the following variables of file generate_pddl.c:
@@ -96,16 +81,16 @@ it. I cannot credit the author as I don't know who was she/he.
   - MinPassengers : the number of passengers of the first problem
    (second number of problem name)
   - MaxPassengers : the number of passengers of the last problem
-   (second number of problem name) 
+   (second number of problem name)
   - Step : the step to go from MinPassengers to MaxPassengers
   - MinID : the start number of the first problem of the same size
    (third number of the problem name)
   - MaxID : the end number of the last problem of the same size
-   (third number of the problem name) 
+   (third number of the problem name)
 
 EXAMPLE
 
-If in generate_data.c we have: 
+If in generate_data.c we have:
 #define FLOORS 25
 #define AREA_SIZE 6
 #define FAST_ELEVATORS 3
@@ -113,7 +98,7 @@ If in generate_data.c we have:
 #define FAST_CAPACITY 6
 #define SLOW_CAPACITY 4
 
-and we execute: 
+and we execute:
 
 generate_data 40 50 3 1 1
 

@@ -1,5 +1,3 @@
-
-
 ./child-snack-generator.py pool {seed} {num_children} {num_trays} {gluten_factor} {const_ratio}
 
 const_ratio = 1.3 in all opt and sat instances 
@@ -32,6 +30,7 @@ child-snack_pfile10.pddl:; child-snack task with 15 children and 0.4 gluten fact
 
 
 trays: 3 or 4
+
 SAT:
 child-snack_pfile05-2.pddl:; child-snack task with 10 children and 0.4 gluten factor 
 child-snack_pfile05.pddl:; child-snack task with 10 children and 0.4 gluten factor 
