@@ -1,4 +1,4 @@
-#!/usr/bin/env python 
+#!/usr/bin/env python
 
 import argparse
 
@@ -13,7 +13,7 @@ def objectlist (tagtype, n):
 def objectSeq (tagtype, n):
     oblist = objectlist(tagtype, n)
     return " ".join(oblist)
-   
+
 def unarypred(symbol, arg):
     return "("+symbol+" "+arg+")"
 
@@ -49,7 +49,7 @@ def factChain (pred, tagtype, n, rev=False, indent="\n    ", start0=False):
 
     if (rev):
         objlist.reverse()
-    
+
     facts = list()
     for i in range(len(objlist)-1):
         facts.append(narypred(pred, objlist[i:i+2]))
@@ -66,7 +66,7 @@ def get_objects(lstage):
     strobj += objectSeq("round", num_rounds) + " - round \n"
     strobj += objectSeq("worker", num_workers) + " - worker \n"
     strobj += objectSeq("room", num_workers) + " - room \n"
-    
+
     return strobj
 
 def get_init():
@@ -95,27 +95,27 @@ def get_init():
         else:
             tround = " tharvest"
         strinit += indent+ "(category_round round"+str(j)+ tround + ")"
-         
+
     opencards = ["act_labor","act_wood","act_clay","act_reed", "act_build", "act_plow", "act_grain","act_stone"]
     facts = [unarypred("open_action",ob) for ob in opencards]
     strinit += indent + indent.join(facts)
 
     roundcards = ["act_fences","act_sheep","act_sow","act_family","act_improve", "act_carrot", "act_boar", "act_cattle", ]
     availcards = opencards + roundcards
- 
+
     s1cards = roundcards[:4]
     s2cards = roundcards[4:]
- 
+
     dfacts = []
     random.shuffle(s1cards)
     strinit += indent + "(open_action "+ s1cards[0]+")"
-    for k in range(4):
+    for k in range(min(4, num_rounds)):
         dfacts.append("(DRAWCARD_ROUND " + s1cards[k] + " round"+str(k+1) + ")")
     strinit += indent + indent.join(dfacts)
 
     dfacts = []
     random.shuffle(s2cards)
-    for k in range(4):
+    for k in range(min(4, num_rounds - 4)):
         dfacts.append("(DRAWCARD_ROUND " + s2cards[k] + " round"+str(k+5) + ")")
     strinit += indent + indent.join(dfacts)
 
@@ -136,7 +136,7 @@ def get_init():
     strinit += indent + "(harvest_phase stage1 harvest_init)"
 
     strinit += indent + "(num_food num" + str(random.randint(0,3)) + ")"
-    
+
     for el in ['wood','clay','reed','stone']:
         strinit += indent + "(SUPPLY_RESOURCE act_"+el+" "+el+")"
     # for el in ['sheep','boar','cattle']:
@@ -151,12 +151,12 @@ def get_init():
     cost_list = [4, 6, 15, 30, 60]
     while len(cost_list) < num_workers - 1:
         cost_list.append(cost_list[-1] + 30)
-        
+
 
     [250, 210, 180, 150, 120, 90, 60,30,15,6,4]
     for w,c in zip(range(2,num_workers + 1),cost_list[::-1]):
         strinit += indent + "(= (group_worker_cost worker"+str(w) + ") "+str(c) + ")"
-        
+
     return strinit
 
 def get_goals(last_stage, must_create_workers):
@@ -166,7 +166,7 @@ def get_goals(last_stage, must_create_workers):
 
     if must_create_workers:
         strgoals += indent + "(max_worker worker%d)" % num_workers
-    
+
     return strgoals
 
 
@@ -192,7 +192,7 @@ num_workers = args.num_workers
 num_ints = max(args.num_ints, 2 + args.num_workers*2)
 last_stage = args.last_stage
 random.seed(args.seed)
-   
+
 hrounds = [r for r in range(1,21) if r not in normalrounds]
 num_rounds = hrounds[last_stage-1] + 1
 
