@@ -14,7 +14,7 @@ def get_domain_renaming(dom):
     if dom in EXCLUDED_DOMAINS:
         return None
 
-    for ending in ["-hard", "-exhaustive", "-new"]:
+    for ending in ["-hard", "-exhaustive", "-new", "-simple"]:
         if dom.endswith(ending):
             return dom.replace(ending, "")
     return dom
@@ -474,7 +474,7 @@ class DataDomain:
         return all([isinstance(item, list) for item in intersection])
 
     def get_domain_filename(self):
-        domain_folder = self.domain.replace('freceell', 'freceell-exhaustive').replace('mprime', 'mprime-exhaustive')
+        domain_folder = self.domain.replace('freecell', 'freecell-exhaustive').replace('mprime', 'mprime-exhaustive')
         return f"{self.extra_tasks_dir}/{domain_folder}/domain.pddl"
 
     def generate_problem(self, selected_task, output_dir, output_file):

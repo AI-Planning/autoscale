@@ -1,0 +1,70 @@
+2021-10-30 01:21:55,501 INFO     No run directory, so we will not run anything
+2021-10-30 01:21:55,947 INFO     Loading cache data for baseline planners: 1027
+2021-10-30 01:21:55,986 INFO     baseline cache contains data for 210 parameter values, with min 3 max 39 avg 14.67142857142857 runtimes
+2021-10-30 01:21:55,986 INFO     Loading cache data for sart planners: 5005
+2021-10-30 01:21:56,207 INFO     sart cache contains data for 1262 parameter values, with min 3 max 39 avg 11.897781299524564 runtimes
+2021-10-30 01:21:57,544 INFO     Loading cache data for baseline planners: 13
+2021-10-30 01:21:57,544 INFO     baseline cache contains data for 215 parameter values, with min 3 max 39 avg 14.511627906976743 runtimes
+2021-10-30 01:21:57,544 INFO     Loading cache data for sart planners: 467
+2021-10-30 01:21:57,559 INFO     sart cache contains data for 1576 parameter values, with min 3 max 39 avg 10.416243654822335 runtimes
+2021-10-30 01:21:58,955 INFO     Loading cache data for baseline planners: 2
+2021-10-30 01:21:58,955 INFO     baseline cache contains data for 217 parameter values, with min 3 max 39 avg 14.40552995391705 runtimes
+2021-10-30 01:21:58,955 INFO     Loading cache data for sart planners: 109
+2021-10-30 01:21:58,959 INFO     sart cache contains data for 1667 parameter values, with min 3 max 39 avg 10.04379124175165 runtimes
+2021-10-30 01:22:00,325 INFO     Loading cache data for baseline planners: 0
+2021-10-30 01:22:00,325 INFO     baseline cache contains data for 217 parameter values, with min 3 max 39 avg 14.40552995391705 runtimes
+2021-10-30 01:22:00,325 INFO     Loading cache data for sart planners: 74
+2021-10-30 01:22:00,329 INFO     sart cache contains data for 1721 parameter values, with min 3 max 39 avg 9.857640906449738 runtimes
+2021-10-30 01:22:00,329 INFO     Stored sequences: 3358
+2021-10-30 01:22:19,690 INFO     Different evaluated sequences: 2441
+constrainedness 1.1 750 665
+constrainedness 1.5 943 831
+constrainedness 2.0 716 601
+2021-10-30 01:22:44,778 INFO     Candidate sequences: 2097
+2021-10-30 01:22:44,805 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 30 use baseline 2067 use sart
+2021-10-30 01:22:44,820 INFO     Using sart runtimes on CPLEX optimization
+2021-10-30 01:24:08,726 INFO     CPLEX solve
+
+2021-10-30 01:25:37,184 INFO     Solution status = 101: MIP_optimal
+2021-10-30 01:25:37,184 INFO     Solution value  = 10.633058326086488
+2021-10-30 01:25:37,304 INFO     CPLEX Solved Instances: 16.000000000000004
+2021-10-30 01:25:37,309 INFO     CPLEX Trivial Instances: 3.000000000000001
+Selected: sequence 4, 30 instances from 0 to 29
+Configuration: {'constrainedness': 1.5, 'locations_b': 7, 'locations_m': 0.2, 'packages_b': 3, 'packages_m': 1.3}
+Penalty: 8.63
+Penalty sart: 1.86
+Penalty baseline: 6.78
+Seq Estimated runtimes: 0.94,1,1.1,1.1,1.3,2.3,3.4,5.8,8.8,11,16,36,71,1.1e+02,1.2e+02,1.4e+02,2.1e+02,3.1e+02,4.8e+02,7.3e+02,1.1e+03,1.7e+03,2.6e+03,3.9e+03,6e+03,9.1e+03,1.4e+04,2.1e+04,3.2e+04,4.9e+04
+Seq instances: [{'locations': 7, 'packages': 3, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 7, 'packages': 4, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 7, 'packages': 5, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 7, 'packages': 6, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 7, 'packages': 8, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 8, 'packages': 9, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 8, 'packages': 10, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 8, 'packages': 12, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 8, 'packages': 13, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 8, 'packages': 14, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 8, 'packages': 16, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 9, 'packages': 17, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 9, 'packages': 18, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 9, 'packages': 19, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 9, 'packages': 21, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 9, 'packages': 22, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 10, 'packages': 23, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 10, 'packages': 25, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 10, 'packages': 26, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 10, 'packages': 27, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 10, 'packages': 29, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 11, 'packages': 30, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 11, 'packages': 31, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 11, 'packages': 32, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 11, 'packages': 34, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 11, 'packages': 35, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 12, 'packages': 36, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 12, 'packages': 38, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 12, 'packages': 39, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}, {'locations': 12, 'packages': 40, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}]
+  p01: {'locations': 7, 'packages': 3, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   0.9420512820512821
+  p02: {'locations': 7, 'packages': 4, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   1.02
+  p03: {'locations': 7, 'packages': 5, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   1.07
+  p04: {'locations': 7, 'packages': 6, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   1.1417948717948718
+  p05: {'locations': 7, 'packages': 8, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   1.3461538461538463
+  p06: {'locations': 8, 'packages': 9, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   2.3295238095238093
+  p07: {'locations': 8, 'packages': 10, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   3.404
+  p08: {'locations': 8, 'packages': 12, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   5.82037037037037
+  p09: {'locations': 8, 'packages': 13, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   8.795151515151515
+  p10: {'locations': 8, 'packages': 14, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   11.011333333333333
+  p11: {'locations': 8, 'packages': 16, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   16.3
+  p12: {'locations': 9, 'packages': 17, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   35.58466666666667
+  p13: {'locations': 9, 'packages': 18, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   71.39380952380952
+  p14: {'locations': 9, 'packages': 19, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   106.7169696969697
+  p15: {'locations': 9, 'packages': 21, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   122.88142857142857
+  p16: {'locations': 9, 'packages': 22, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   135.21433333333334
+  p17: {'locations': 10, 'packages': 23, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   206.07218748968432
+  p18: {'locations': 10, 'packages': 25, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   314.0624622398287
+  p19: {'locations': 10, 'packages': 26, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   478.64406832232686
+  p20: {'locations': 10, 'packages': 27, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   729.4731834752022
+  p21: {'locations': 10, 'packages': 29, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   1111.7470384091337
+  p22: {'locations': 11, 'packages': 30, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   1694.348065714051
+  p23: {'locations': 11, 'packages': 31, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   2582.2559166849414
+  p24: {'locations': 11, 'packages': 32, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   3935.4638838297165
+  p25: {'locations': 11, 'packages': 34, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   5997.808304302836
+  p26: {'locations': 11, 'packages': 35, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   9140.905752680163
+  p27: {'locations': 12, 'packages': 36, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   13931.115124075903
+  p28: {'locations': 12, 'packages': 38, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   21231.59059411068
+  p29: {'locations': 12, 'packages': 39, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   32357.814513849324
+  p30: {'locations': 12, 'packages': 40, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}   49314.635918192005
+Total Estimated Runtimes: [0.9420512820512821, 1.02, 1.07, 1.1417948717948718, 1.3461538461538463, 2.3295238095238093, 3.404, 5.82037037037037, 8.795151515151515, 11.011333333333333, 16.3, 35.58466666666667, 71.39380952380952, 106.7169696969697, 122.88142857142857, 135.21433333333334, 206.07218748968432, 314.0624622398287, 478.64406832232686, 729.4731834752022, 1111.7470384091337, 1694.348065714051, 2582.2559166849414, 3935.4638838297165, 5997.808304302836, 9140.905752680163, 13931.115124075903, 21231.59059411068, 32357.814513849324, 49314.635918192005]
+Total Estimated Solved: 22

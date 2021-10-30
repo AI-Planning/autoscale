@@ -1,0 +1,67 @@
+2021-10-30 01:50:22,926 INFO     No run directory, so we will not run anything
+2021-10-30 01:50:23,652 INFO     Loading cache data for baseline planners: 1586
+2021-10-30 01:50:23,712 INFO     baseline cache contains data for 850 parameter values, with min 3 max 39 avg 5.597647058823529 runtimes
+2021-10-30 01:50:23,713 INFO     Loading cache data for sart planners: 4949
+2021-10-30 01:50:23,904 INFO     sart cache contains data for 2497 parameter values, with min 3 max 39 avg 5.945935122146576 runtimes
+2021-10-30 01:50:24,765 INFO     Loading cache data for baseline planners: 726
+2021-10-30 01:50:24,787 INFO     baseline cache contains data for 1474 parameter values, with min 3 max 39 avg 4.7055630936227955 runtimes
+2021-10-30 01:50:24,787 INFO     Loading cache data for sart planners: 1866
+2021-10-30 01:50:24,846 INFO     sart cache contains data for 4150 parameter values, with min 3 max 39 avg 4.926506024096385 runtimes
+2021-10-30 01:50:25,794 INFO     Loading cache data for baseline planners: 453
+2021-10-30 01:50:25,807 INFO     baseline cache contains data for 1917 parameter values, with min 3 max 39 avg 4.327073552425665 runtimes
+2021-10-30 01:50:25,807 INFO     Loading cache data for sart planners: 1153
+2021-10-30 01:50:25,844 INFO     sart cache contains data for 5247 parameter values, with min 3 max 39 avg 4.555746140651801 runtimes
+2021-10-30 01:50:26,778 INFO     Loading cache data for baseline planners: 86
+2021-10-30 01:50:26,782 INFO     baseline cache contains data for 1941 parameter values, with min 3 max 39 avg 4.406491499227203 runtimes
+2021-10-30 01:50:26,782 INFO     Loading cache data for sart planners: 86
+2021-10-30 01:50:26,788 INFO     sart cache contains data for 5271 parameter values, with min 3 max 39 avg 4.583949914627206 runtimes
+2021-10-30 01:50:26,788 INFO     Stored sequences: 9598
+2021-10-30 01:51:17,270 INFO     Different evaluated sequences: 715
+2021-10-30 01:51:27,192 INFO     Candidate sequences: 684
+2021-10-30 01:51:27,203 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 19 use baseline 665 use sart
+2021-10-30 01:51:27,207 INFO     Using sart runtimes on CPLEX optimization
+2021-10-30 01:51:32,863 INFO     CPLEX solve
+
+2021-10-30 01:51:36,094 INFO     Solution status = 101: MIP_optimal
+2021-10-30 01:51:36,094 INFO     Solution value  = 2.96651409085295
+2021-10-30 01:51:36,103 INFO     CPLEX Solved Instances: 13.0
+2021-10-30 01:51:36,104 INFO     CPLEX Trivial Instances: 6.0
+Selected: sequence 319, 30 instances from 0 to 29
+Configuration: {'depots_b': 1, 'depots_m': 2.2, 'depots_optional_m': 'false', 'goods_b': 7, 'goods_m': 0.2, 'markets_b': 3, 'markets_m': 1.3000000000000003, 'markets_optional_m': 'true', 'products_b': 2, 'products_m': 1.0, 'trucks_b': 2, 'trucks_m': 0.4, 'trucks_optional_m': 'false'}
+Penalty: 2.97
+Penalty sart: 0.57
+Penalty baseline: 2.39
+Seq Estimated runtimes: 0.67,0.82,1.2,2.2,3.1,6.6,10,14,23,34,52,89,1.3e+02,2e+02,3e+02,4.6e+02,7e+02,1.1e+03,1.6e+03,2.5e+03,3.9e+03,5.9e+03,9e+03,1.4e+04,2.1e+04,3.2e+04,5e+04,7.6e+04,1.2e+05,1.8e+05
+Seq instances: [{'products': 2, 'markets': 3, 'trucks': 2, 'depots': 1, 'goods': 7}, {'products': 3, 'markets': 3, 'trucks': 2, 'depots': 3, 'goods': 7}, {'products': 4, 'markets': 3, 'trucks': 2, 'depots': 5, 'goods': 7}, {'products': 5, 'markets': 3, 'trucks': 3, 'depots': 7, 'goods': 7}, {'products': 6, 'markets': 3, 'trucks': 3, 'depots': 9, 'goods': 7}, {'products': 7, 'markets': 3, 'trucks': 3, 'depots': 12, 'goods': 8}, {'products': 8, 'markets': 3, 'trucks': 4, 'depots': 14, 'goods': 8}, {'products': 9, 'markets': 3, 'trucks': 4, 'depots': 16, 'goods': 8}, {'products': 10, 'markets': 3, 'trucks': 5, 'depots': 18, 'goods': 8}, {'products': 11, 'markets': 3, 'trucks': 5, 'depots': 20, 'goods': 8}, {'products': 12, 'markets': 3, 'trucks': 6, 'depots': 22, 'goods': 8}, {'products': 13, 'markets': 3, 'trucks': 6, 'depots': 25, 'goods': 9}, {'products': 14, 'markets': 3, 'trucks': 6, 'depots': 27, 'goods': 9}, {'products': 15, 'markets': 3, 'trucks': 7, 'depots': 29, 'goods': 9}, {'products': 16, 'markets': 3, 'trucks': 7, 'depots': 31, 'goods': 9}, {'products': 17, 'markets': 3, 'trucks': 8, 'depots': 33, 'goods': 9}, {'products': 18, 'markets': 3, 'trucks': 8, 'depots': 36, 'goods': 10}, {'products': 19, 'markets': 3, 'trucks': 8, 'depots': 38, 'goods': 10}, {'products': 20, 'markets': 3, 'trucks': 9, 'depots': 40, 'goods': 10}, {'products': 21, 'markets': 3, 'trucks': 9, 'depots': 42, 'goods': 10}, {'products': 22, 'markets': 3, 'trucks': 10, 'depots': 45, 'goods': 10}, {'products': 23, 'markets': 3, 'trucks': 10, 'depots': 47, 'goods': 11}, {'products': 24, 'markets': 3, 'trucks': 10, 'depots': 49, 'goods': 11}, {'products': 25, 'markets': 3, 'trucks': 11, 'depots': 51, 'goods': 11}, {'products': 26, 'markets': 3, 'trucks': 11, 'depots': 53, 'goods': 11}, {'products': 27, 'markets': 3, 'trucks': 12, 'depots': 56, 'goods': 11}, {'products': 28, 'markets': 3, 'trucks': 12, 'depots': 58, 'goods': 12}, {'products': 29, 'markets': 3, 'trucks': 12, 'depots': 60, 'goods': 12}, {'products': 30, 'markets': 3, 'trucks': 13, 'depots': 62, 'goods': 12}, {'products': 31, 'markets': 3, 'trucks': 13, 'depots': 64, 'goods': 12}]
+  p01: {'products': 2, 'markets': 3, 'trucks': 2, 'depots': 1, 'goods': 7}   0.6733333333333333
+  p02: {'products': 3, 'markets': 3, 'trucks': 2, 'depots': 3, 'goods': 7}   0.8233333333333334
+  p03: {'products': 4, 'markets': 3, 'trucks': 2, 'depots': 5, 'goods': 7}   1.1966666666666665
+  p04: {'products': 5, 'markets': 3, 'trucks': 3, 'depots': 7, 'goods': 7}   2.243333333333333
+  p05: {'products': 6, 'markets': 3, 'trucks': 3, 'depots': 9, 'goods': 7}   3.0566666666666666
+  p06: {'products': 7, 'markets': 3, 'trucks': 3, 'depots': 12, 'goods': 8}   6.613333333333333
+  p07: {'products': 8, 'markets': 3, 'trucks': 4, 'depots': 14, 'goods': 8}   10.14
+  p08: {'products': 9, 'markets': 3, 'trucks': 4, 'depots': 16, 'goods': 8}   14.226666666666667
+  p09: {'products': 10, 'markets': 3, 'trucks': 5, 'depots': 18, 'goods': 8}   22.576666666666668
+  p10: {'products': 11, 'markets': 3, 'trucks': 5, 'depots': 20, 'goods': 8}   33.77666666666667
+  p11: {'products': 12, 'markets': 3, 'trucks': 6, 'depots': 22, 'goods': 8}   51.72
+  p12: {'products': 13, 'markets': 3, 'trucks': 6, 'depots': 25, 'goods': 9}   89.46333333333334
+  p13: {'products': 14, 'markets': 3, 'trucks': 6, 'depots': 27, 'goods': 9}   128.16
+  p14: {'products': 15, 'markets': 3, 'trucks': 7, 'depots': 29, 'goods': 9}   196.13685901786488
+  p15: {'products': 16, 'markets': 3, 'trucks': 7, 'depots': 31, 'goods': 9}   300.1690657412126
+  p16: {'products': 17, 'markets': 3, 'trucks': 8, 'depots': 33, 'goods': 9}   459.3806002559959
+  p17: {'products': 18, 'markets': 3, 'trucks': 8, 'depots': 36, 'goods': 10}   703.0389203179807
+  p18: {'products': 19, 'markets': 3, 'trucks': 8, 'depots': 38, 'goods': 10}   1075.9351248320827
+  p19: {'products': 20, 'markets': 3, 'trucks': 9, 'depots': 40, 'goods': 10}   1646.617789416035
+  p20: {'products': 21, 'markets': 3, 'trucks': 9, 'depots': 42, 'goods': 10}   2519.9940794241666
+  p21: {'products': 22, 'markets': 3, 'trucks': 10, 'depots': 45, 'goods': 10}   3856.614571487765
+  p22: {'products': 23, 'markets': 3, 'trucks': 10, 'depots': 47, 'goods': 11}   5902.186864030424
+  p23: {'products': 24, 'markets': 3, 'trucks': 10, 'depots': 49, 'goods': 11}   9032.743389883188
+  p24: {'products': 25, 'markets': 3, 'trucks': 11, 'depots': 51, 'goods': 11}   13823.766516901293
+  p25: {'products': 26, 'markets': 3, 'trucks': 11, 'depots': 53, 'goods': 11}   21155.978030753355
+  p26: {'products': 27, 'markets': 3, 'trucks': 12, 'depots': 56, 'goods': 11}   32377.240015628257
+  p27: {'products': 28, 'markets': 3, 'trucks': 12, 'depots': 58, 'goods': 12}   49550.32896639242
+  p28: {'products': 29, 'markets': 3, 'trucks': 12, 'depots': 60, 'goods': 12}   75832.13082685812
+  p29: {'products': 30, 'markets': 3, 'trucks': 13, 'depots': 62, 'goods': 12}   116053.96342861858
+  p30: {'products': 31, 'markets': 3, 'trucks': 13, 'depots': 64, 'goods': 12}   177609.70555136868
+Total Estimated Runtimes: [0.6733333333333333, 0.8233333333333334, 1.1966666666666665, 2.243333333333333, 3.0566666666666666, 6.613333333333333, 10.14, 14.226666666666667, 22.576666666666668, 33.77666666666667, 51.72, 89.46333333333334, 128.16, 196.13685901786488, 300.1690657412126, 459.3806002559959, 703.0389203179807, 1075.9351248320827, 1646.617789416035, 2519.9940794241666, 3856.614571487765, 5902.186864030424, 9032.743389883188, 13823.766516901293, 21155.978030753355, 32377.240015628257, 49550.32896639242, 75832.13082685812, 116053.96342861858, 177609.70555136868]
+Total Estimated Solved: 19

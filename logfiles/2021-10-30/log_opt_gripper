@@ -1,0 +1,66 @@
+2021-10-30 01:13:00,606 INFO     No run directory, so we will not run anything
+2021-10-30 01:13:01,044 INFO     Loading cache data for baseline planners: 156
+2021-10-30 01:13:01,052 INFO     baseline cache contains data for 12 parameter values, with min 39 max 39 avg 39 runtimes
+2021-10-30 01:13:01,052 INFO     Loading cache data for sart planners: 1647
+2021-10-30 01:13:01,130 INFO     sart cache contains data for 144 parameter values, with min 3 max 39 avg 34.3125 runtimes
+2021-10-30 01:13:02,447 INFO     Loading cache data for baseline planners: 0
+2021-10-30 01:13:02,447 INFO     baseline cache contains data for 12 parameter values, with min 39 max 39 avg 39 runtimes
+2021-10-30 01:13:02,447 INFO     Loading cache data for sart planners: 0
+2021-10-30 01:13:02,447 INFO     sart cache contains data for 144 parameter values, with min 3 max 39 avg 34.3125 runtimes
+2021-10-30 01:13:03,836 INFO     Loading cache data for baseline planners: 0
+2021-10-30 01:13:03,836 INFO     baseline cache contains data for 12 parameter values, with min 39 max 39 avg 39 runtimes
+2021-10-30 01:13:03,836 INFO     Loading cache data for sart planners: 0
+2021-10-30 01:13:03,836 INFO     sart cache contains data for 144 parameter values, with min 3 max 39 avg 34.3125 runtimes
+2021-10-30 01:13:05,193 INFO     Loading cache data for baseline planners: 0
+2021-10-30 01:13:05,193 INFO     baseline cache contains data for 12 parameter values, with min 39 max 39 avg 39 runtimes
+2021-10-30 01:13:05,198 INFO     Loading cache data for sart planners: 0
+2021-10-30 01:13:05,198 INFO     sart cache contains data for 144 parameter values, with min 3 max 39 avg 34.3125 runtimes
+2021-10-30 01:13:05,198 INFO     Stored sequences: 1178
+2021-10-30 01:13:21,925 INFO     Different evaluated sequences: 53
+2021-10-30 01:13:21,932 INFO     Candidate sequences: 32
+2021-10-30 01:13:21,933 INFO     Using baseline runtimes on CPLEX optimization
+2021-10-30 01:13:21,982 INFO     CPLEX solve
+
+2021-10-30 01:13:22,024 INFO     Solution status = 101: MIP_optimal
+2021-10-30 01:13:22,024 INFO     Solution value  = 272752.0414164552
+2021-10-30 01:13:22,024 INFO     CPLEX Solved Instances: 11.0
+2021-10-30 01:13:22,024 INFO     CPLEX Trivial Instances: 8.0
+Selected: sequence 1, 30 instances from 0 to 29
+Configuration: {'n_b': 8, 'n_m': 1.0}
+Penalty: 13.18
+Penalty sart: 12.81
+Penalty baseline: 0.37
+Seq Estimated runtimes: 1.4,1.6,1.6,1.9,3.2,3.2,6.7,14,31,70,1.6e+02,3.4e+02,7.5e+02,1.6e+03,3.6e+03,8e+03,1.8e+04,3.9e+04,8.5e+04,1.9e+05,4.1e+05,9e+05,2e+06,4.3e+06,9.6e+06,2.1e+07,4.6e+07,1e+08,2.2e+08,4.9e+08
+Seq instances: [{'n': 8}, {'n': 9}, {'n': 10}, {'n': 11}, {'n': 12}, {'n': 13}, {'n': 14}, {'n': 15}, {'n': 16}, {'n': 17}, {'n': 18}, {'n': 19}, {'n': 20}, {'n': 21}, {'n': 22}, {'n': 23}, {'n': 24}, {'n': 25}, {'n': 26}, {'n': 27}, {'n': 28}, {'n': 29}, {'n': 30}, {'n': 31}, {'n': 32}, {'n': 33}, {'n': 34}, {'n': 35}, {'n': 36}, {'n': 37}]
+  p01: {'n': 8}   1.4407692307692308
+  p02: {'n': 9}   1.557948717948718
+  p03: {'n': 10}   1.594871794871795
+  p04: {'n': 11}   1.892051282051282
+  p05: {'n': 12}   3.1784615384615384
+  p06: {'n': 13}   3.202051282051282
+  p07: {'n': 14}   6.653846153846154
+  p08: {'n': 15}   14.186666666666667
+  p09: {'n': 16}   31.171794871794873
+  p10: {'n': 17}   69.96051282051282
+  p11: {'n': 18}   155.29179487179488
+  p12: {'n': 19}   341.3864770863778
+  p13: {'n': 20}   750.4886322787655
+  p14: {'n': 21}   1649.840356849116
+  p15: {'n': 22}   3626.9346210122926
+  p16: {'n': 23}   7973.289470394877
+  p17: {'n': 24}   17528.119919891535
+  p18: {'n': 25}   38533.02818954128
+  p19: {'n': 26}   84709.27105941267
+  p20: {'n': 27}   186221.04050894923
+  p21: {'n': 28}   409379.93556706863
+  p22: {'n': 29}   899962.3844161868
+  p23: {'n': 30}   1978436.7112231795
+  p24: {'n': 31}   4349306.024445425
+  p25: {'n': 32}   9561318.179635908
+  p26: {'n': 33}   21019170.60294529
+  p27: {'n': 34}   46207596.54005608
+  p28: {'n': 35}   101580695.94379799
+  p29: {'n': 36}   223310419.95403066
+  p30: {'n': 37}   490915554.34544355
+Total Estimated Runtimes: [1.4407692307692308, 1.557948717948718, 1.594871794871795, 1.892051282051282, 3.1784615384615384, 3.202051282051282, 6.653846153846154, 14.186666666666667, 31.171794871794873, 69.96051282051282, 155.29179487179488, 341.3864770863778, 750.4886322787655, 1649.840356849116, 3626.9346210122926, 7973.289470394877, 17528.119919891535, 38533.02818954128, 84709.27105941267, 186221.04050894923, 409379.93556706863, 899962.3844161868, 1978436.7112231795, 4349306.024445425, 9561318.179635908, 21019170.60294529, 46207596.54005608, 101580695.94379799, 223310419.95403066, 490915554.34544355]
+Total Estimated Solved: 14
