@@ -213,13 +213,11 @@ def write_appendix(properties_dataset, dataset, evaluationfile, outfilename):
 
                 adapt_parameters_function = "" if config_domain.adapt_parameters is None else f"""
                     \\\\\\midrule
-                    Adapt parameters: & {latex_str(inspect.getdoc(config_domain.adapt_parameters)) if inspect.getdoc(config_domain.adapt_parameters) else "Yes"}
-                """
+                    Adapt parameters: & {latex_str(inspect.getdoc(config_domain.adapt_parameters)) if inspect.getdoc(config_domain.adapt_parameters) else "Yes"}"""
 
                 discard_sequence_function = "" if config_domain.discard_sequence_function is None else """
                                 \\\\\\midrule
-                                Discard Sequences: & Yes
-                            """
+                                Discard Sequences: & Yes"""
 
 
                 attributes_data = '\\\\\n'.join(
@@ -231,9 +229,7 @@ def write_appendix(properties_dataset, dataset, evaluationfile, outfilename):
                     \\begin{{tabular}}{{@{{}}p{{0.2\\textwidth}}p{{0.8\\textwidth}}@{{}}}}
                     %\\begin{{tabular}}{{ll}}
                     \\multicolumn{{2}}{{c}}{{\\bf \\large Attributes}}\\\\\\midrule
-                    {attributes_data}
-                    {adapt_parameters_function}
-                    {discard_sequence_function} \\\\\\midrule
+                    {attributes_data}{adapt_parameters_function}{discard_sequence_function} \\\\\\midrule
                     \\multicolumn{{2}}{{l}}{{Duplicated Parameters Penalty: {config_domain.penalty_for_instances_with_duplicated_parameters}}}
                     \\end{{tabular}}
                     \\end{{center}}

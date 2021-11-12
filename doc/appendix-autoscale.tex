@@ -17,9 +17,7 @@
                     \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
                     num\_cocktails & Linear(b=[1, 10], m=[0.33, 5.0])\\
 num\_shots & Linear(b=[1, 5], m=[0, 5.0 + num\_cocktails])\\
-num\_ingredients & Enum([2, 3, 4, 5, 6])
-                    
-                     \\\midrule
+num\_ingredients & Enum([2, 3, 4, 5, 6]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
@@ -131,9 +129,7 @@ num\_ingredients & Enum([2, 3, 4, 5, 6])
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
                     %\begin{tabular}{ll}
                     \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
-                    n & Linear(b=[5, 10], m=[1, 5])
-                    
-                     \\\midrule
+                    n & Linear(b=[5, 10], m=[1, 5]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
@@ -246,9 +242,7 @@ num\_ingredients & Enum([2, 3, 4, 5, 6])
                     num\_children & Linear(b=[2, 12], m=[1, 3])\\
 const\_ratio & Enum([1, 1.3, 2])\\
 num\_trays & Enum([2, 3, 4])\\
-gluten\_factor & Enum([0.4, 0.6, 0.8])
-                    
-                     \\\midrule
+gluten\_factor & Enum([0.4, 0.6, 0.8]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
@@ -364,11 +358,8 @@ gluten\_factor & Enum([0.4, 0.6, 0.8])
 layers & Enum([2, 3, 4, 5, 6])\\
 extra\_items & Linear(b=[2, 20], m=[1, 5])\\
 extra\_scripts & Linear(b=[2, 25], m=[0, 5])
-                    
                     \\\midrule
-                    Adapt parameters: & Yes
-                
-                     \\\midrule
+                    Adapt parameters: & Yes \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
@@ -484,9 +475,7 @@ distributors & Linear(b=[2, 10], m=[0, 5.0])\\
 trucks & Linear(b=[2, 10], m=[0, 5.0])\\
 pallets & Linear(b=[2, 20], m=[0, 5.0])\\
 hoists & Linear(b=[2, 10], m=[0, 1])\\
-crates & Linear(b=[3, 20], m=[1, 5.0])
-                    
-                     \\\midrule
+crates & Linear(b=[3, 20], m=[1, 5.0]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
@@ -600,9 +589,7 @@ crates & Linear(b=[3, 20], m=[1, 5.0])
                     drivers & Linear(b=[1, 10], m=[0, 5.0])\\
 packages & Linear(b=[2, 15], m=[1, 5])\\
 roadjunctions & Linear(b=[2, 10], m=[0, 5.0])\\
-trucks & Linear(b=[0, 1], m=[0, 1 + drivers])
-                    
-                     \\\midrule
+trucks & Linear(b=[0, 1], m=[0, 1 + drivers]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
@@ -724,11 +711,8 @@ fast\_capacity & Constant(3)\\
 slow\_cost & Constant(1)\\
 stop\_slow\_cost & Constant(5)\\
 slow\_capacity & Constant(2)
-                    
-                    
                                 \\\midrule
-                                Discard Sequences: & Yes
-                             \\\midrule
+                                Discard Sequences: & Yes \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
@@ -842,11 +826,8 @@ slow\_capacity & Constant(2)
                     \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
                     grid & Grid(x=[2, 10], m=[0.1, 10])\\
 num\_robots & Enum([2, 3, 4, 5])
-                    
                     \\\midrule
-                    Adapt parameters: & Ensures that there are no more robots than columns. May cause num\_robots to have multiple values accross a sequence
-                
-                     \\\midrule
+                    Adapt parameters: & Ensures that there are no more robots than columns. May cause num\_robots to have multiple values accross a sequence \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
@@ -961,11 +942,8 @@ prob\_key\_in\_goal & Enum([0.5, 0.75, 1])\\
 shapes & Linear(b=[1, 5], m=[0, 1])\\
 extra\_keys & Linear(b=[1, 5], m=[0, 3])\\
 percentage\_cells\_locked & Enum([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
-                    
                     \\\midrule
-                    Adapt parameters: & Ensure that there are no more shapes/keys/locks than cells, and no more shapes than locks
-                
-                     \\\midrule
+                    Adapt parameters: & Ensure that there are no more shapes/keys/locks than cells, and no more shapes than locks \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
@@ -1074,9 +1052,7 @@ percentage\_cells\_locked & Enum([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
                     %\begin{tabular}{ll}
                     \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
-                    n & Linear(b=[8, 20], m=[0.1, 5.0])
-                    
-                     \\\midrule
+                    n & Linear(b=[8, 20], m=[0.1, 5.0]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: inf}
                     \end{tabular}
                     \end{center}
@@ -1187,9 +1163,7 @@ percentage\_cells\_locked & Enum([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
                     \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
                     n\_couples & Linear(b=[1, 10], m=[0, 5.0])\\
 n\_places & Linear(b=[2, 20], m=[0.1, 5.0])\\
-n\_cars & Linear(b=[1, 5], m=[0, 5.0 + n\_couples])
-                    
-                     \\\midrule
+n\_cars & Linear(b=[1, 5], m=[0, 5.0 + n\_couples]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
@@ -1305,14 +1279,10 @@ num\_cities & Linear(b=[2, 10], m=[0, 2])\\
 city\_size & Linear(b=[2, 15], m=[0, 2])\\
 num\_packages & Linear(b=[1, 30], m=[1, 10])\\
 extra\_trucks & Linear(b=[1, 10], m=[0, 2])
-                    
                     \\\midrule
                     Adapt parameters: & Yes
-                
-                    
                                 \\\midrule
-                                Discard Sequences: & Yes
-                             \\\midrule
+                                Discard Sequences: & Yes \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
@@ -1425,9 +1395,7 @@ extra\_trucks & Linear(b=[1, 10], m=[0, 2])
                     %\begin{tabular}{ll}
                     \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
                     passengers & Linear(b=[5, 20], m=[0.1, 5])\\
-floors & Linear(b=[5, 15], m=[0, 5])
-                    
-                     \\\midrule
+floors & Linear(b=[5, 15], m=[0, 5]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
@@ -1540,9 +1508,7 @@ floors & Linear(b=[5, 15], m=[0, 5])
 packages & Linear(b=[2, 20], m=[1, 5.0])\\
 edgefactor & Constant(1.5)\\
 edgeweight & Constant(25)\\
-constrainedness & Enum([1.1, 1.5, 2.0])
-                    
-                     \\\midrule
+constrainedness & Enum([1.1, 1.5, 2.0]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
@@ -1654,9 +1620,7 @@ constrainedness & Enum([1.1, 1.5, 2.0])
                     \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
                     density & Enum([10, 20, 33, 50, 66, 80])\\
 products & Linear(b=[5, 100], m=[0.5, 40])\\
-orders & Linear(b=[5, 100], m=[1, 40])
-                    
-                     \\\midrule
+orders & Linear(b=[5, 100], m=[1, 40]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
@@ -1769,11 +1733,8 @@ orders & Linear(b=[5, 100], m=[1, 40])
                     \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
                     curbs & Linear(b=[3, 20], m=[1, 5.0])\\
 cars\_diff & Enum([0, -1, -2])
-                    
                     \\\midrule
-                    Adapt parameters: & Yes
-                
-                     \\\midrule
+                    Adapt parameters: & Yes \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
@@ -1888,9 +1849,7 @@ cars\_diff & Enum([0, -1, -2])
 objectives & Linear(b=[1, 10], m=[0, 5.0])\\
 cameras & Linear(b=[1, 10], m=[0, 2])\\
 goals & Linear(b=[1, 20], m=[1, 5.0])\\
-waypoints & Linear(b=[4, 20], m=[0.5, 5.0])
-                    
-                     \\\midrule
+waypoints & Linear(b=[4, 20], m=[0.5, 5.0]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
@@ -2006,9 +1965,7 @@ waypoints & Linear(b=[4, 20], m=[0.5, 5.0])
                     satellites & Linear(b=[1, 10], m=[0, 2.0])\\
 targets & Linear(b=[5, 20], m=[0.5, 10])\\
 modes & Linear(b=[2, 10], m=[0, 1.0])\\
-observations & Linear(b=[5, 40], m=[1, 10])
-                    
-                     \\\midrule
+observations & Linear(b=[5, 40], m=[1, 10]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
@@ -2120,9 +2077,7 @@ observations & Linear(b=[5, 40], m=[1, 10])
                     \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
                     segment\_type & Enum(['empty', 'ab'])\\
 inout & Enum(['none', 'both', 'in'])\\
-size & Linear(b=[1, 4], m=[1, 3])
-                    
-                     \\\midrule
+size & Linear(b=[1, 4], m=[1, 3]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
@@ -2237,11 +2192,8 @@ size & Linear(b=[1, 4], m=[1, 3])
 num\_initial\_apples & Constant(5)\\
 grid & Grid(x=[3, 8], m=[0.1, 3.0])\\
 num\_spawn\_apples & Enum(['40\%', '55\%', '70\%', '85\%', '100\%'])
-                    
                     \\\midrule
-                    Adapt parameters: & Yes
-                
-                     \\\midrule
+                    Adapt parameters: & Yes \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
@@ -2355,11 +2307,8 @@ num\_spawn\_apples & Enum(['40\%', '55\%', '70\%', '85\%', '100\%'])
 hoists & Linear(b=[2, 5], m=[0, 5.0])\\
 store\_areas & Linear(b=[0, 10], m=[0, 5.0])\\
 depots & Linear(b=[1, 5], m=[0, 1])
-                    
                     \\\midrule
-                    Adapt parameters: & Yes
-                
-                     \\\midrule
+                    Adapt parameters: & Yes \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
@@ -2474,11 +2423,8 @@ depots & Linear(b=[1, 5], m=[0, 1])
 min\_height & Linear(b=[1, 5], m=[0, 1])\\
 max\_height & Linear(b=[0, 5], m=[0, 1 + min\_height])\\
 num\_towers & Linear(b=[1, 4], m=[0, 2])
-                    
-                    
                                 \\\midrule
-                                Discard Sequences: & Yes
-                             \\\midrule
+                                Discard Sequences: & Yes \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
@@ -2594,9 +2540,7 @@ num\_towers & Linear(b=[1, 4], m=[0, 2])
 markets & Linear(b=[1, 10], m=[0, 5.0])\\
 trucks & Linear(b=[2, 10], m=[0, 5.0])\\
 depots & Linear(b=[1, 10], m=[0, 5.0])\\
-goods & Linear(b=[3, 10], m=[0.1, 5.0])
-                    
-                     \\\midrule
+goods & Linear(b=[3, 10], m=[0.1, 5.0]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
@@ -2711,9 +2655,7 @@ nodes & Linear(b=[2, 60], m=[0, 10])\\
 packages & Linear(b=[2, 10], m=[1, 10])\\
 trucks & Linear(b=[2, 10], m=[0, 5.0])\\
 degree & Enum([3, 4, 5])\\
-generator & Enum(['city-generator.py', 'two-cities-generator.py', 'three-cities-generator.py'])
-                    
-                     \\\midrule
+generator & Enum(['city-generator.py', 'two-cities-generator.py', 'three-cities-generator.py']) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
@@ -2828,9 +2770,7 @@ generator & Enum(['city-generator.py', 'two-cities-generator.py', 'three-cities-
                     %\begin{tabular}{ll}
                     \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
                     grid & Grid(x=[3, 8], m=[0.1, 3.0])\\
-r & Enum([0.5, 0.75, 1])
-                    
-                     \\\midrule
+r & Enum([0.5, 0.75, 1]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
@@ -2942,9 +2882,7 @@ r & Enum([0.5, 0.75, 1])
                     \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
                     size & Linear(b=[2, 30], m=[1, 10])\\
 num\_machines & Enum([1, 2, 3])\\
-wood\_factor & Enum([1.0, 1.25, 1.5, 2.0])
-                    
-                     \\\midrule
+wood\_factor & Enum([1.0, 1.25, 1.5, 2.0]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
@@ -3057,9 +2995,7 @@ wood\_factor & Enum([1.0, 1.25, 1.5, 2.0])
                     \multicolumn{2}{c}{\bf \large Attributes}\\\midrule
                     planes & Linear(b=[1, 20], m=[0, 1])\\
 people & Linear(b=[5, 20], m=[1, 10])\\
-cities & Linear(b=[3, 30], m=[0, 5.0])
-                    
-                     \\\midrule
+cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
