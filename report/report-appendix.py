@@ -158,8 +158,17 @@ def write_table_instances(properties, instances_colums = ["config", "real_baseli
     if 'instances' not in properties:
         return "Warning: no instances selected"
 
+    def format_value(name, value):
+        if value == "unsolved":
+            return "--"
+        elif name.endswith("_time"):
+            return f"{float(value):.2f}"
+        else:
+            return f"{value}"
+
+
     instances_data = [
-        "&".join(map(latex_str, [instance[x] for x in instances_colums]))
+        "&".join(map(latex_str, [format_value(x, instance[x]) for x in instances_colums]))
         for instance in properties['instances']
     ]
 
@@ -167,7 +176,7 @@ def write_table_instances(properties, instances_colums = ["config", "real_baseli
     return f"""
                             \\begin{{center}}
                             \\scriptsize
-                            \\begin{{tabular}}{{{"|".join(["r" for _ in instances_colums])}}}
+                            \\begin{{tabular}}{{@{{}}{"|".join(["r" for _ in instances_colums])}@{{}}}}
                             {" & ".join(map(latex_str, instances_colums))}\\\\\\midrule
                             {instances_data_text}
                             \\end{{tabular}}
@@ -219,13 +228,13 @@ def write_appendix(properties_dataset, dataset, evaluationfile, outfilename):
                     \\subsection*{{Domain Info}}
 
                     \\begin{{center}}
-                    \\begin{{tabular}}{{p{{0.2\\textwidth}}p{{0.8\\textwidth}}}}
+                    \\begin{{tabular}}{{@{{}}p{{0.2\\textwidth}}p{{0.8\\textwidth}}@{{}}}}
                     %\\begin{{tabular}}{{ll}}
                     \\multicolumn{{2}}{{c}}{{\\bf \\large Attributes}}\\\\\\midrule
                     {attributes_data}
                     {adapt_parameters_function}
                     {discard_sequence_function} \\\\\\midrule
-                    \multicolumn{{2}}{{l}}{{Duplicated Parameters Penalty: {config_domain.penalty_for_instances_with_duplicated_parameters}}}
+                    \\multicolumn{{2}}{{l}}{{Duplicated Parameters Penalty: {config_domain.penalty_for_instances_with_duplicated_parameters}}}
                     \\end{{tabular}}
                     \\end{{center}}
                 """)
@@ -269,7 +278,7 @@ def write_appendix(properties_dataset, dataset, evaluationfile, outfilename):
                          \\subsection*{{Agile/Satisficing Set}}
 
                         \\begin{{center}}
-                        \\begin{{tabular}}{{{"|".join(["l" for _ in sequences_columns])}}}
+                        \\begin{{tabular}}{{@{{}}{"|".join(["l" for _ in sequences_columns])}@{{}}}}
                         \\multicolumn{{{len(sequences_columns)}}}{{c}}{{\\bf \\large Sequences for agile/satisficing planning}}\\\\
                         {" & ".join(sequences_columns)}\\\\\\midrule
                         {sequences_sat}
@@ -294,7 +303,7 @@ def write_appendix(properties_dataset, dataset, evaluationfile, outfilename):
                             \\subsection*{{Optimal Set}}
 
                             \\begin{{center}}
-                            \\begin{{tabular}}{{{"|".join(["l" for _ in sequences_columns])}}}
+                            \\begin{{tabular}}{{@{{}}{"|".join(["l" for _ in sequences_columns])}@{{}}}}
                             \\multicolumn{{{len(sequences_columns)}}}{{c}}{{\\bf \\large Sequences for optimal planning}}\\\\
                             {" & ".join(sequences_columns)}\\\\\\midrule
                             {sequences_opt}
@@ -308,7 +317,7 @@ def write_appendix(properties_dataset, dataset, evaluationfile, outfilename):
                                 \\subsection*{{Optimal Set}}
                                 {write_table_instances(properties_dataset[dataset + "-opt"][domain], ['name', 'config', 'estimated_time'])}
 
-                                \\subsection*{{Satisficing/Agile Set}}
+                                \\subsection*{{Agile/Satisficing Set}}
                                 {write_table_instances(properties_dataset[dataset + "-sat"][domain], ['name', 'config', 'estimated_time'])}
                             """)
             else: # This is a domain without an instance generator
@@ -316,7 +325,7 @@ def write_appendix(properties_dataset, dataset, evaluationfile, outfilename):
                     \\subsection*{{Optimal Set}}
                     {write_table_instances(properties_dataset[dataset + "-opt"][domain])}
 
-                    \\subsection*{{Satisficing/Agile Set}}
+                    \\subsection*{{Agile/Satisficing Set}}
                     {write_table_instances(properties_dataset[dataset + "-sat"][domain])}
                 """)
 
