@@ -166,6 +166,12 @@ def write_table_instances(properties, instances_colums = ["name", "config", "rea
         else:
             return f"{value}"
 
+    def format_name(name):
+        return latex_str({
+            "real_baseline_time": "baseline_time",
+            "real_sart_time": "sota_time",
+            }.get(name, name))
+
     instances_data = [
         "&".join(map(latex_str, [format_value(x, instance[x]) for x in instances_colums]))
         for instance in properties['instances']
@@ -176,7 +182,7 @@ def write_table_instances(properties, instances_colums = ["name", "config", "rea
                             \\begin{{center}}
                             \\scriptsize
                             \\begin{{tabular}}{{@{{}}{"|".join("l" + "r" * (len(instances_colums) - 1))}@{{}}}}
-                            {" & ".join(map(latex_str, instances_colums))}\\\\\\midrule
+                            {" & ".join(map(format_name, instances_colums))}\\\\\\midrule
                             {instances_data_text}
                             \\end{{tabular}}
                             \\end{{center}}
