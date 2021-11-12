@@ -154,7 +154,7 @@ def read_logdir(dset, logdir):
 def latex_str(x):
     return str(x).replace("_", "\\_").replace("%", "\\%")
 
-def write_table_instances(properties, instances_colums = ["config", "real_baseline_time", "real_sart_time"]):
+def write_table_instances(properties, instances_colums = ["name", "config", "real_baseline_time", "real_sart_time"]):
     if 'instances' not in properties:
         return "Warning: no instances selected"
 
@@ -165,7 +165,6 @@ def write_table_instances(properties, instances_colums = ["config", "real_baseli
             return f"{float(value):.2f}"
         else:
             return f"{value}"
-
 
     instances_data = [
         "&".join(map(latex_str, [format_value(x, instance[x]) for x in instances_colums]))
