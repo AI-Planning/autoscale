@@ -1,19 +1,31 @@
-#!/bin/python3
-# This script can be used to gather the experimental results from different benchmarks in order to compute several attributes.
-# The result is a json file that can be read with other scripts which visualize or print the data.
+#! /bin/env python3
+
+"""
+This script can be used to gather the experimental results from different experiments in order to compute several attributes.
+The result is a json file that can be read with other scripts which visualize or print the data.
+"""
 
 import os
+from pathlib import Path
 import json
 from collections import defaultdict
 import ast
 import inspect
 import argparse
 
-import print_results_table
 import re
+import sys
 
-# Requires autoscale folder to be included in the PYTHONPATH environment variable.
+DIR = Path(__file__).resolve().parent
+REPO = DIR.parent
+
+# Make Autoscale modules available.
+sys.path.insert(0, str(REPO / "autoscale"))
+
 import domains
+
+import print_results_table
+
 
 def read_runs(filename):
     with open(filename) as f:
@@ -331,7 +343,7 @@ def write_appendix(properties_dataset, dataset, evaluationfile, outfilename):
 def parse_args():
     DIR = os.path.abspath(os.path.dirname(__file__))
     REPO = os.path.dirname(DIR)
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description=__doc__)
 
     parser.add_argument(
         "--benchmark",
