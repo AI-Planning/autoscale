@@ -231,8 +231,6 @@ def write_appendix(properties_dataset, dataset, evaluationfile, outfilename):
                 attributes_data = '\\\\\n'.join(
                     map(lambda x: f"{latex_str(x.name)} & {latex_str(x)}", config_domain.attributes))
                 outfile.write(f"""
-                    \\subsection*{{Domain Info}}
-
                     \\begin{{center}}
                     \\begin{{tabular}}{{@{{}}p{{0.2\\textwidth}}p{{0.8\\textwidth}}@{{}}}}
                     %\\begin{{tabular}}{{ll}}
