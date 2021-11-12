@@ -163,8 +163,9 @@ def write_table_instances(properties, instances_colums = ["name", "config", "rea
             return "--"
         elif name.endswith("_time"):
             return f"{float(value):.2f}"
-        else:
-            return f"{value}"
+        elif name == "config":
+            value = str(value).replace(", 'slow_elevators': 1, 'fast_cost': 3, 'stop_fast_cost': 1, 'fast_capacity': 3, 'slow_cost': 1, 'stop_slow_cost': 5, 'slow_capacity': 2", " (for constants see above)")
+        return f"{value}"
 
     def format_name(name):
         return latex_str({
@@ -176,6 +177,8 @@ def write_table_instances(properties, instances_colums = ["name", "config", "rea
         "&".join(map(latex_str, [format_value(x, instance[x]) for x in instances_colums]))
         for instance in properties['instances']
     ]
+
+    print(properties['instances'][0]["config"])
 
     instances_data_text = '\\\\\n'.join(instances_data)
     return f"""
