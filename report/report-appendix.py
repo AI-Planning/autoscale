@@ -9,7 +9,7 @@ import ast
 import inspect
 import argparse
 
-import domain_groups
+import print_results_table
 import re
 
 # Requires autoscale folder to be included in the PYTHONPATH environment variable.
@@ -162,16 +162,19 @@ def write_table_instances(properties):
                             \\end{{center}}
                     """
 
-def write_appendix(properties_dataset, dataset, outfilename):
+def write_appendix(properties_dataset, dataset, evaluationfile, outfilename):
+    print(f"Writing appendix to {outfilename}")
     with open(outfilename, "w") as outfile:
         outfile.write("""\\documentclass{article}
         \\usepackage{{booktabs}}
-    
+
         \\usepackage[margin=1in]{{geometry}}
-    
-        
+        \\usepackage{{xcolor}}
+
+
+
         \\begin{document}
-        
+
         """)
 
         DOMAINS_WITH_GENERATOR = sorted(domains.get_domains())
@@ -189,12 +192,12 @@ def write_appendix(properties_dataset, dataset, outfilename):
 
                 adapt_parameters_function = "" if config_domain.adapt_parameters is None else f"""
                     \\\\\\midrule
-                    Adapt parameters: & {latex_str(inspect.getdoc(config_domain.adapt_parameters)) if inspect.getdoc(config_domain.adapt_parameters) else "Yes"}  
+                    Adapt parameters: & {latex_str(inspect.getdoc(config_domain.adapt_parameters)) if inspect.getdoc(config_domain.adapt_parameters) else "Yes"}
                 """
 
                 discard_sequence_function = "" if config_domain.discard_sequence_function is None else """
                                 \\\\\\midrule
-                                Discard Sequences: & Yes 
+                                Discard Sequences: & Yes
                             """
 
 
@@ -293,12 +296,28 @@ def write_appendix(properties_dataset, dataset, outfilename):
                 outfile.write(f"""
                     \\subsection*{{Optimal Set}}
                     {write_table_instances(properties_dataset[dataset + "-opt"][domain])}
-                    
+
                     \\subsection*{{Satisficing/Agile Set}}
                     {write_table_instances(properties_dataset[dataset + "-sat"][domain])}
                 """)
 
 
+
+        if os.path.isfile(evaluationfile):
+            outfile.write(
+                f"""
+                        \\begin{{table}} \\centering \\scriptsize \\setlength{{\\tabcolsep}}{{2pt}}
+                        {print_results_table.get_latex_table_for_paper(evaluationfile)}
+                        \\end{{table}}
+                        """
+            )
+            outfile.write(f"""
+            \\begin{{table}} \\centering
+            {print_results_table.get_latex_table_for_appendix(evaluationfile)}
+            \\end{{table}}
+            """)
+        else:
+            print("Skipping generation of results tables because {evaluationfile} does not exist")
         outfile.write("\\end{document}")
 
 
@@ -309,7 +328,7 @@ def parse_args():
 
     parser.add_argument(
         "--benchmark",
-        default="2021-08-24",
+        default="2021-10-30",
         help="name of benchmark set")
 
     parser.add_argument(
@@ -318,7 +337,12 @@ def parse_args():
         help="path to directory containing the logdirs")
 
     parser.add_argument(
-        "--output", default=os.path.join(REPO, "appendix-08-24.tex"),
+        "--evaluation", default=os.path.join(REPO, "report/dataset.json"),
+        help="Evaluation file generated with the script gather_dataset.py",
+    )
+
+    parser.add_argument(
+        "--output", default=os.path.join(REPO, "doc/appendix-autoscale.tex"),
         help="Output file",
     )
     return parser.parse_args()
@@ -328,5 +352,4 @@ ARGS = parse_args()
 
 
 prop = read_logdir(ARGS.benchmark, f"{ARGS.logdir}/{ARGS.benchmark}")
-write_appendix(prop, ARGS.benchmark, ARGS.output)
-
+write_appendix(prop, ARGS.benchmark, ARGS.evaluation, ARGS.output)

@@ -7,7 +7,9 @@ import json
 import itertools
 from domain_groups import group_domains
 from collections import defaultdict, Counter
-DIR = "../optimization/"
+
+import domain_groups
+DIR = "../experiments/"
 
 DOMAINS = [
     "barman", "blocksworld", "childsnack", "data-network", "depots", "driverlog",
@@ -55,25 +57,26 @@ EVALUATION_PLANNERS_SAT = [
     "ipc2018-agl-cerberus",
 ]
 
-BENCHMARKS = [f"{track}-{version}" for track in ["opt", "sat"]  for version in ["ipc", "1210"]]
+BENCHMARKS = [f"{track}-{version}" for track in ["opt", "sat"]  for version in ["ipc", "1210", "autoscale"]]
 
 TRAINING_PLANNERS = {
     benchmark : TRAINING_PLANNERS_OPT if benchmark.startswith("opt") else TRAINING_PLANNERS_SAT for benchmark in BENCHMARKS
 }
 
-
 EVALUATION_PLANNERS = {
     benchmark : EVALUATION_PLANNERS_OPT if benchmark.startswith("opt") else EVALUATION_PLANNERS_SAT for benchmark in BENCHMARKS
 }
 
-
 FILENAMES = {
         "opt-ipc": ["2020-11-23-A-optimization-planners-ipc-properties.json", "2020-12-05-A-evaluation-opt-ipc-properties.json"],
         "sat-ipc": ["2020-11-23-D-optimization-planners-sat-ipc-properties.json","2020-12-05-B-evaluation-sat-ipc-properties.json"],
-        "opt-1210": ["2020-12-13-A-evaluation-opt-new2014-properties.json"],
-        "sat-1210": ["2020-12-13-B-evaluation-sat-new2014-properties.json"],
-        "opt-1210": ["2020-12-13-A-evaluation-opt-new2014-properties.json"],
-        "sat-1210": ["2020-12-13-B-evaluation-sat-new2014-properties.json"],
+        # "opt-1210": ["2020-12-13-A-evaluation-opt-new2014-properties.json"],
+        # "sat-1210": ["2020-12-13-B-evaluation-sat-new2014-properties.json"],
+        # "opt-1210": ["2020-12-13-A-evaluation-opt-new2014-properties.json"],
+        # "sat-1210": ["2020-12-13-B-evaluation-sat-new2014-properties.json"],
+        "opt-autoscale" : ["2021-10-30-A-evaluation-opt-2021-10-30-properties.json"],
+        "sat-autoscale" : ["2021-10-30-B-evaluation-sat-2021-10-30-properties.json"],
+
     }
 
 def read_runs(filename):
@@ -94,7 +97,7 @@ for name, filenames in FILENAMES.items():
         if "-ipc" in name:
             new_runs = [run for run in new_runs if run["domain"] != "openstacks"]
         new_runs = [group_domains(run) for run in new_runs]
-        new_runs = [run for run in new_runs if run and  run["domain"] in DOMAINS]
+        new_runs = [run for run in new_runs if run if run["domain"] ]
 
         for run in new_runs:
             run["dataset"] = name
@@ -121,7 +124,7 @@ def compute_coverage (properties, atr_name, runs, time_limit=100000):
 def compute_coverage_range (properties, atr_name, cov_atr_name, plannerset):
     coverage = properties[cov_atr_name]
     min_coverage = min([coverage[p] if p in coverage else 0 for p in plannerset])
-    max_coverage = max([c for p, c in coverage.items() if p in plannerset])
+    max_coverage = max([coverage[p] if p in coverage else 0 for p in plannerset])
     properties[atr_name] = f"{min_coverage}-{max_coverage}"
 
 
@@ -153,7 +156,6 @@ for dataset, domain in all_runs:
     if "-ipc" in dataset:
         continue
 
-
     ipcdataset = dataset.split("-")[0] + "-ipc"
 
     properties_dataset[(dataset, domain)] ["track"] = dataset
@@ -165,51 +167,57 @@ for dataset, domain in all_runs:
     for planner in TRAINING_PLANNERS[dataset] + EVALUATION_PLANNERS[dataset]:
         compute_runtimes(properties_dataset[(dataset, domain)], f"runtimes-{planner}", all_runs[(dataset, domain)], [planner])
 
-
-    compute_instances(properties_dataset[(dataset, domain)], "num-ipc-instances", all_runs[(ipcdataset, domain)])
-
     compute_coverage(properties_dataset[(dataset, domain)], "coverage", all_runs[(dataset, domain)])
-    compute_coverage(properties_dataset[(dataset, domain)], "coverage-ipc", all_runs[(ipcdataset, domain)])
-
     compute_coverage_range(properties_dataset[(dataset, domain)], "covrange-training", "coverage", TRAINING_PLANNERS[dataset])
-    compute_coverage_range(properties_dataset[(dataset, domain)], "covrange-ipc-training", "coverage-ipc", TRAINING_PLANNERS[dataset])
-
     compute_coverage_range(properties_dataset[(dataset, domain)], "covrange-eval", "coverage", EVALUATION_PLANNERS[dataset])
-    compute_coverage_range(properties_dataset[(dataset, domain)], "covrange-ipc-eval", "coverage-ipc", EVALUATION_PLANNERS[dataset]
-)
+    compute_coverage_range(properties_dataset[(dataset, domain)], "covrange-all", "coverage", TRAINING_PLANNERS[dataset] + EVALUATION_PLANNERS[dataset])
+
+
     compute_comparisons(properties_dataset[(dataset, domain)], "comparisons-training", "coverage", TRAINING_PLANNERS[dataset])
     compute_comparisons(properties_dataset[(dataset, domain)], "comparisons-eval", "coverage", EVALUATION_PLANNERS[dataset])
     compute_comparisons_pair(properties_dataset[(dataset, domain)], "comparisons-treval", "coverage", TRAINING_PLANNERS[dataset], EVALUATION_PLANNERS[dataset])
     compute_comparisons(properties_dataset[(dataset, domain)], "comparisons-all", "coverage", TRAINING_PLANNERS[dataset] + EVALUATION_PLANNERS[dataset])
 
-    compute_comparisons(properties_dataset[(dataset, domain)], "comparisons-training-ipc", "coverage-ipc", TRAINING_PLANNERS[dataset])
-    compute_comparisons(properties_dataset[(dataset, domain)], "comparisons-eval-ipc", "coverage-ipc", EVALUATION_PLANNERS[dataset])
-    compute_comparisons_pair(properties_dataset[(dataset, domain)], "comparisons-treval-ipc", "coverage-ipc", TRAINING_PLANNERS[dataset], EVALUATION_PLANNERS[dataset])
-    compute_comparisons(properties_dataset[(dataset, domain)], "comparisons-all-ipc", "coverage-ipc", TRAINING_PLANNERS[dataset] + EVALUATION_PLANNERS[dataset])
+    if (ipcdataset, domain) in all_runs:
+        compute_instances(properties_dataset[(dataset, domain)], "num-ipc-instances", all_runs[(ipcdataset, domain)])
+        compute_coverage(properties_dataset[(dataset, domain)], "coverage-ipc", all_runs[(ipcdataset, domain)])
+        compute_coverage_range(properties_dataset[(dataset, domain)], "covrange-ipc-training", "coverage-ipc", TRAINING_PLANNERS[dataset])
+        compute_coverage_range(properties_dataset[(dataset, domain)], "covrange-ipc-eval", "coverage-ipc", EVALUATION_PLANNERS[dataset])
+        compute_coverage_range(properties_dataset[(dataset, domain)], "covrange-ipc-all", "coverage-ipc", TRAINING_PLANNERS[dataset]+EVALUATION_PLANNERS[dataset])
 
-    for y in ["comparisons-training","comparisons-treval", "comparisons-eval", "comparisons-all"]:
-        properties_dataset[(dataset, domain)][f"{y}-ipcdiff"] = properties_dataset[(dataset, domain)][y] - properties_dataset[(dataset, domain)][f"{y}-ipc"]
+
+        compute_comparisons(properties_dataset[(dataset, domain)], "comparisons-training-ipc", "coverage-ipc", TRAINING_PLANNERS[dataset])
+        compute_comparisons(properties_dataset[(dataset, domain)], "comparisons-eval-ipc", "coverage-ipc", EVALUATION_PLANNERS[dataset])
+        compute_comparisons_pair(properties_dataset[(dataset, domain)], "comparisons-treval-ipc", "coverage-ipc", TRAINING_PLANNERS[dataset], EVALUATION_PLANNERS[dataset])
+        compute_comparisons(properties_dataset[(dataset, domain)], "comparisons-all-ipc", "coverage-ipc", TRAINING_PLANNERS[dataset] + EVALUATION_PLANNERS[dataset])
+
+
+        for y in ["comparisons-training","comparisons-treval", "comparisons-eval", "comparisons-all"]:
+            properties_dataset[(dataset, domain)][f"{y}-ipcdiff"] = properties_dataset[(dataset, domain)][y] - properties_dataset[(dataset, domain)][f"{y}-ipc"]
 
     for x in [30, 300]:
         compute_coverage(properties_dataset[(dataset, domain)], f"coverage{x}s", all_runs[(dataset, domain)], x)
-        compute_coverage(properties_dataset[(dataset, domain)], f"coverage{x}s-ipc", all_runs[(ipcdataset, domain)], x)
 
         compute_comparisons(properties_dataset[(dataset, domain)], f"comparisons{x}s-training", f"coverage{x}s", TRAINING_PLANNERS[dataset])
         compute_comparisons(properties_dataset[(dataset, domain)], f"comparisons{x}s-eval", f"coverage{x}s", EVALUATION_PLANNERS[dataset])
         compute_comparisons_pair(properties_dataset[(dataset, domain)], f"comparisons{x}s-treval", f"coverage{x}s", TRAINING_PLANNERS[dataset], EVALUATION_PLANNERS[dataset])
 
-        compute_comparisons(properties_dataset[(dataset, domain)], f"comparisons{x}s-training-ipc", f"coverage{x}s-ipc", TRAINING_PLANNERS[dataset])
-        compute_comparisons(properties_dataset[(dataset, domain)], f"comparisons{x}s-eval-ipc", f"coverage{x}s-ipc", EVALUATION_PLANNERS[dataset])
-        compute_comparisons_pair(properties_dataset[(dataset, domain)], f"comparisons{x}s-treval-ipc", f"coverage{x}s-ipc", TRAINING_PLANNERS[dataset], EVALUATION_PLANNERS[dataset])
+        if (ipcdataset, domain) in all_runs:
+            compute_coverage(properties_dataset[(dataset, domain)], f"coverage{x}s-ipc", all_runs[(ipcdataset, domain)], x)
+
+            compute_comparisons(properties_dataset[(dataset, domain)], f"comparisons{x}s-training-ipc", f"coverage{x}s-ipc", TRAINING_PLANNERS[dataset])
+            compute_comparisons(properties_dataset[(dataset, domain)], f"comparisons{x}s-eval-ipc", f"coverage{x}s-ipc", EVALUATION_PLANNERS[dataset])
+            compute_comparisons_pair(properties_dataset[(dataset, domain)], f"comparisons{x}s-treval-ipc", f"coverage{x}s-ipc", TRAINING_PLANNERS[dataset], EVALUATION_PLANNERS[dataset])
 
 
 
-        for y in [f"comparisons{x}s-training",f"comparisons{x}s-treval", f"comparisons{x}s-eval"]:
-            properties_dataset[(dataset, domain)][f"{y}-ipcdiff"] = properties_dataset[(dataset, domain)][y] - properties_dataset[(dataset, domain)][f"{y}-ipc"]
+            for y in [f"comparisons{x}s-training",f"comparisons{x}s-treval", f"comparisons{x}s-eval"]:
+                properties_dataset[(dataset, domain)][f"{y}-ipcdiff"] = properties_dataset[(dataset, domain)][y] - properties_dataset[(dataset, domain)][f"{y}-ipc"]
 
 
 
-        LOGDIRS = {"1210" : "../logfiles/2020-12-10/",
+        LOGDIRS = {#"1210" : "../logfiles/2020-12-10/",
+                   "autoscale": "../logfiles/2021-10-30/",
         }
 import os
 import re
@@ -236,6 +244,7 @@ def parse_CPLEX_log(content):
             "max_penalty_sart" : max(penalties_sart) if penalties_sart else "-",
             "runtimes-estimated" : []
            }
+
     for l in content:
         if "Using sart runtimes on CPLEX optimization" in l:
             data["sart_runtimes"] = True
@@ -245,7 +254,7 @@ def parse_CPLEX_log(content):
             from_instance, to_instance = list(map(int, l.split("from")[1].split("to")))
             data["num_sequences"] += 1
 
-        if l.startswith("Estimated runtimes:"):
+        if l.startswith("Estimated runtimes:") or l.startswith("Seq Estimated runtimes:"):
             runtimes_sequence = list(map(float, l.split(":")[1].split(",")))
             if len(runtimes_sequence) == 30:
                 data["runtimes-estimated"] += runtimes_sequence[from_instance:to_instance+1]
@@ -264,14 +273,17 @@ def parse_CPLEX_log(content):
                 for atr, value in reg.match(l).groupdict().items():
                     data [atr] = float(value)
 
-    assert len(data["runtimes-estimated"]) == 30, (data["runtimes-estimated"], len(data["runtimes-estimated"]))
+    assert len(data["runtimes-estimated"]) == 30, (data["runtimes-estimated"], len(data["runtimes-estimated"]), content)
     return data
 
 for dset, logdir in LOGDIRS.items():
     for logfile in sorted(os.listdir(logdir)):
+        if logfile == "errors":
+            continue
         _, track, domain = logfile.split("_")
 
-        dataset = track.replace("14", f"-{dset}")
+        domain = domain_groups.DOMAIN_RENAMINGS[domain]
+        dataset =  f"{track.replace('14', '')}-{dset}"
 
         f = open(f"{logdir}/{logfile}")
         content = f.readlines()
@@ -305,6 +317,8 @@ def compute_smoothness(properties, atr_name, runtimes):
     return properties
 
 for dataset, domain in properties_dataset:
+    if "runtimes-estimated" not in properties_dataset[(dataset, domain)]:
+        continue
     properties_dataset[(dataset, domain)] = compute_smoothness(properties_dataset[(dataset, domain)], "estimated", properties_dataset[(dataset, domain)]["runtimes-estimated"])
     if "runtimes-training" in properties_dataset[(dataset, domain)]:
         properties_dataset[(dataset, domain)] = compute_smoothness(properties_dataset[(dataset, domain)], "training", properties_dataset[(dataset, domain)]["runtimes-training"])
@@ -315,7 +329,7 @@ for dataset, domain in properties_dataset:
 import statistics
 
 def estimated_error(properties):
-    if "runtimes-training" not in properties:
+    if "runtimes-training" not in properties or  "runtimes-estimated" not in properties:
         return
     properties["coverage-estimated"] = len([r   for r in properties["runtimes-estimated"] if r < 1800])
     properties["coverage-training"] = len([r  for r in properties["runtimes-training"] if r != "unsolved"])
@@ -376,12 +390,11 @@ def compute_runtime_penalty(properties, atr_name, runtimes):
     properties [f"{atr_name}"] = penalty
 
 for dataset, domain in properties_dataset:
-    if "runtimes-training" in properties_dataset[(dataset, domain)]:
+    if "runtimes-training" in properties_dataset[(dataset, domain)] and "runtimes-estimated"  in properties_dataset[(dataset, domain)] :
         compute_runtime_penalty(properties_dataset[(dataset, domain)], "penalty-estimated", properties_dataset[(dataset, domain)]["runtimes-estimated"])
         compute_runtime_penalty(properties_dataset[(dataset, domain)], "penalty-training", properties_dataset[(dataset, domain)]["runtimes-training"])
         compute_runtime_penalty(properties_dataset[(dataset, domain)], "penalty-eval", properties_dataset[(dataset, domain)]["runtimes-eval"])
 
 
 with open("dataset.json", "w") as outfile:
-
     json.dump (list(properties_dataset.values()), outfile)
