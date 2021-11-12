@@ -263,30 +263,6 @@ def write_appendix(properties_dataset, dataset, evaluationfile, outfilename):
                     else:
                         return f"{beginning} $\\rightarrow$ {ending}"
 
-
-
-                if 'selected_sequences' in properties_sat:
-                    relevant_attributes = [atr for atr in domains.get_domains()[domain].attributes if not isinstance(atr, domains.ConstantAttr)]
-                    sequences_columns = ["\#"] + [latex_str(atr.name) for atr in relevant_attributes] + ["Estimated Time"]
-                    sequences_data = [
-                        "&".join(map(str, [seq['length']] + [find_scaling(properties_sat, seq, atr) for atr in relevant_attributes]+ [f"{seq['runtimes-estimated'][0]} $\\rightarrow$ {seq['runtimes-estimated'][-1]}"]))
-                        for seq in sorted(properties_sat['selected_sequences'], key=lambda x : x["runtimes-estimated"][0])
-                    ]
-
-                    sequences_sat = '\\\\\n'.join(sequences_data)
-                    outfile.write(f"""
-                         \\subsection*{{Sequences for agile/satisficing planning}}
-
-                        \\begin{{center}}
-                        \\begin{{tabular}}{{@{{}}{"|".join(["l" for _ in sequences_columns])}@{{}}}}
-                        {" & ".join(sequences_columns)}\\\\\\midrule
-                        {sequences_sat}
-                        \\end{{tabular}}
-                        \\end{{center}}
-                    """)
-                else:
-                    outfile.write("WARNING: NO SAT SEQUENCES")
-
                 if 'selected_sequences' in properties_opt:
                     relevant_attributes = [atr for atr in domains.get_domains()[domain].attributes if
                                            not isinstance(atr, domains.ConstantAttr)]
@@ -311,19 +287,41 @@ def write_appendix(properties_dataset, dataset, evaluationfile, outfilename):
                 else:
                         outfile.write("WARNING: NO OPT SEQUENCES")
 
+                if 'selected_sequences' in properties_sat:
+                    relevant_attributes = [atr for atr in domains.get_domains()[domain].attributes if not isinstance(atr, domains.ConstantAttr)]
+                    sequences_columns = ["\#"] + [latex_str(atr.name) for atr in relevant_attributes] + ["Estimated Time"]
+                    sequences_data = [
+                        "&".join(map(str, [seq['length']] + [find_scaling(properties_sat, seq, atr) for atr in relevant_attributes]+ [f"{seq['runtimes-estimated'][0]} $\\rightarrow$ {seq['runtimes-estimated'][-1]}"]))
+                        for seq in sorted(properties_sat['selected_sequences'], key=lambda x : x["runtimes-estimated"][0])
+                    ]
+
+                    sequences_sat = '\\\\\n'.join(sequences_data)
+                    outfile.write(f"""
+                         \\subsection*{{Sequences for agile/satisficing planning}}
+
+                        \\begin{{center}}
+                        \\begin{{tabular}}{{@{{}}{"|".join(["l" for _ in sequences_columns])}@{{}}}}
+                        {" & ".join(sequences_columns)}\\\\\\midrule
+                        {sequences_sat}
+                        \\end{{tabular}}
+                        \\end{{center}}
+                    """)
+                else:
+                    outfile.write("WARNING: NO SAT SEQUENCES")
+
                 outfile.write(f"""
-                                \\subsection*{{Optimal planning}}
+                                \\subsection*{{Tasks for optimal planning}}
                                 {write_table_instances(properties_dataset[dataset + "-opt"][domain], ['name', 'config', 'estimated_time'])}
 
-                                \\subsection*{{Agile/Satisficing planning}}
+                                \\subsection*{{Tasks for agile/satisficing planning}}
                                 {write_table_instances(properties_dataset[dataset + "-sat"][domain], ['name', 'config', 'estimated_time'])}
                             """)
             else: # This is a domain without an instance generator
                 outfile.write(f"""
-                    \\subsection*{{Optimal planning}}
+                    \\subsection*{{Tasks for optimal planning}}
                     {write_table_instances(properties_dataset[dataset + "-opt"][domain])}
 
-                    \\subsection*{{Agile/Satisficing planning}}
+                    \\subsection*{{Tasks for agile/satisficing planning}}
                     {write_table_instances(properties_dataset[dataset + "-sat"][domain])}
                 """)
 
