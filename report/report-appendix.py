@@ -142,10 +142,10 @@ def read_logdir(dset, logdir):
 def latex_str(x):
     return str(x).replace("_", "\\_").replace("%", "\\%")
 
-def write_table_instances(properties):
+def write_table_instances(properties, instances_colums = ["config", "real_baseline_time", "real_sart_time"]):
     if 'instances' not in properties:
         return "Warning: no instances selected"
-    instances_colums = ["config", "real_baseline_time", "real_sart_time"]
+
     instances_data = [
         "&".join(map(latex_str, [instance[x] for x in instances_colums]))
         for instance in properties['instances']
@@ -292,6 +292,13 @@ def write_appendix(properties_dataset, dataset, evaluationfile, outfilename):
                 else:
                         outfile.write("WARNING: NO OPT SEQUENCES")
 
+                outfile.write(f"""
+                                \\subsection*{{Optimal Set}}
+                                {write_table_instances(properties_dataset[dataset + "-opt"][domain], ['name', 'config', 'estimated_time'])}
+
+                                \\subsection*{{Satisficing/Agile Set}}
+                                {write_table_instances(properties_dataset[dataset + "-sat"][domain], ['name', 'config', 'estimated_time'])}
+                            """)
             else: # This is a domain without an instance generator
                 outfile.write(f"""
                     \\subsection*{{Optimal Set}}
