@@ -275,11 +275,10 @@ def write_appendix(properties_dataset, dataset, evaluationfile, outfilename):
 
                     sequences_sat = '\\\\\n'.join(sequences_data)
                     outfile.write(f"""
-                         \\subsection*{{Agile/Satisficing Set}}
+                         \\subsection*{{Sequences for agile/satisficing planning}}
 
                         \\begin{{center}}
                         \\begin{{tabular}}{{@{{}}{"|".join(["l" for _ in sequences_columns])}@{{}}}}
-                        \\multicolumn{{{len(sequences_columns)}}}{{c}}{{\\bf \\large Sequences for agile/satisficing planning}}\\\\
                         {" & ".join(sequences_columns)}\\\\\\midrule
                         {sequences_sat}
                         \\end{{tabular}}
@@ -300,11 +299,10 @@ def write_appendix(properties_dataset, dataset, evaluationfile, outfilename):
 
                     sequences_opt = '\\\\\n'.join(sequences_data)
                     outfile.write(f"""
-                            \\subsection*{{Optimal Set}}
+                            \\subsection*{{Sequences for optimal planning}}
 
                             \\begin{{center}}
                             \\begin{{tabular}}{{@{{}}{"|".join(["l" for _ in sequences_columns])}@{{}}}}
-                            \\multicolumn{{{len(sequences_columns)}}}{{c}}{{\\bf \\large Sequences for optimal planning}}\\\\
                             {" & ".join(sequences_columns)}\\\\\\midrule
                             {sequences_opt}
                             \\end{{tabular}}
@@ -314,18 +312,18 @@ def write_appendix(properties_dataset, dataset, evaluationfile, outfilename):
                         outfile.write("WARNING: NO OPT SEQUENCES")
 
                 outfile.write(f"""
-                                \\subsection*{{Optimal Set}}
+                                \\subsection*{{Optimal planning}}
                                 {write_table_instances(properties_dataset[dataset + "-opt"][domain], ['name', 'config', 'estimated_time'])}
 
-                                \\subsection*{{Agile/Satisficing Set}}
+                                \\subsection*{{Agile/Satisficing planning}}
                                 {write_table_instances(properties_dataset[dataset + "-sat"][domain], ['name', 'config', 'estimated_time'])}
                             """)
             else: # This is a domain without an instance generator
                 outfile.write(f"""
-                    \\subsection*{{Optimal Set}}
+                    \\subsection*{{Optimal planning}}
                     {write_table_instances(properties_dataset[dataset + "-opt"][domain])}
 
-                    \\subsection*{{Agile/Satisficing Set}}
+                    \\subsection*{{Agile/Satisficing planning}}
                     {write_table_instances(properties_dataset[dataset + "-sat"][domain])}
                 """)
 
