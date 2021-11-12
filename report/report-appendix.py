@@ -1,4 +1,4 @@
-#! /bin/env python3
+#! /usr/bin/env python3
 
 """
 This script can be used to gather the experimental results from different experiments in order to compute several attributes.
@@ -176,7 +176,7 @@ def write_table_instances(properties, instances_colums = ["config", "real_baseli
     return f"""
                             \\begin{{center}}
                             \\scriptsize
-                            \\begin{{tabular}}{{@{{}}{"|".join(["r" for _ in instances_colums])}@{{}}}}
+                            \\begin{{tabular}}{{@{{}}{"|".join("l" + "r" * (len(instances_colums) - 1))}@{{}}}}
                             {" & ".join(map(latex_str, instances_colums))}\\\\\\midrule
                             {instances_data_text}
                             \\end{{tabular}}

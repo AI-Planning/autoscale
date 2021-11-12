@@ -1,4 +1,4 @@
-#! /usr/bin/python3
+#! /usr/bin/env python3
 # This script can be used to generate the table of results from a properties file with the experimental results.
 
 import pandas as pd
@@ -39,13 +39,13 @@ def get_latex_table_for_paper(datasetfile):
     ], {
     "num_sequences": "\#s",
     "covrange-ipc-training": "IPC",
-    "covrange-training": "New",
-    "comparisons-training": "New",
-    "comparisons-training-ipcdiff": "dif",
+    "covrange-training": "AS",
+    "comparisons-training": "AS",
+    "comparisons-training-ipcdiff": "diff",
     "covrange-ipc-eval": "IPC",
-    "covrange-eval": "New",
-    "comparisons-eval": "New",
-    "comparisons-eval-ipcdiff": "dif",
+    "covrange-eval": "AS",
+    "comparisons-eval": "AS",
+    "comparisons-eval-ipcdiff": "diff",
     })
 
     latex_table = paper_table.to_latex(
@@ -83,9 +83,9 @@ def get_latex_table_for_appendix(datasetfile):
     ], {
     "num_sequences": "\#s",
     "covrange-ipc-all": "IPC",
-    "covrange-all": "New",
-    "comparisons-all": "New",
-    "comparisons-all-ipcdiff": "dif",
+    "covrange-all": "AS",
+    "comparisons-all": "AS",
+    "comparisons-all-ipcdiff": "diff",
 })
 
     latex_table = paper_table.to_latex(

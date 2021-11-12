@@ -51,7 +51,7 @@ num\_ingredients & Enum([2, 3, 4, 5, 6])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'num\_cocktails': 1, 'num\_shots': 3, 'num\_ingredients': 2}&0.63\\
   p02&{'num\_cocktails': 1, 'num\_shots': 4, 'num\_ingredients': 2}&0.75\\
@@ -91,7 +91,7 @@ num\_ingredients & Enum([2, 3, 4, 5, 6])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'num\_cocktails': 6, 'num\_shots': 11, 'num\_ingredients': 2}&0.90\\
   p02&{'num\_cocktails': 9, 'num\_shots': 14, 'num\_ingredients': 2}&1.22\\
@@ -165,7 +165,7 @@ num\_ingredients & Enum([2, 3, 4, 5, 6])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'n': 5}&0.54\\
   p02&{'n': 6}&0.56\\
@@ -205,7 +205,7 @@ num\_ingredients & Enum([2, 3, 4, 5, 6])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'n': 9}&0.52\\
   p02&{'n': 13}&0.57\\
@@ -284,7 +284,7 @@ gluten\_factor & Enum([0.4, 0.6, 0.8])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'num\_children': 2, 'const\_ratio': 1, 'num\_trays': 2, 'gluten\_factor': 0.8}&0.50\\
   p02&{'num\_children': 3, 'const\_ratio': 1, 'num\_trays': 2, 'gluten\_factor': 0.8}&0.52\\
@@ -324,7 +324,7 @@ gluten\_factor & Enum([0.4, 0.6, 0.8])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'num\_children': 5, 'const\_ratio': 1, 'num\_trays': 4, 'gluten\_factor': 0.8}&0.31\\
   p02&{'num\_children': 6, 'const\_ratio': 1, 'num\_trays': 4, 'gluten\_factor': 0.8}&0.35\\
@@ -405,7 +405,7 @@ extra\_scripts & Linear(b=[2, 25], m=[0, 5])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'network': 'tiny-network', 'layers': 3, 'extra\_items': 2, 'extra\_scripts': 22, 'items': 5, 'scripts': 25}&1.43\\
   p02&{'network': 'tiny-network', 'layers': 3, 'extra\_items': 3, 'extra\_scripts': 25, 'items': 6, 'scripts': 29}&2.36\\
@@ -445,7 +445,7 @@ extra\_scripts & Linear(b=[2, 25], m=[0, 5])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'network': 'ring-network', 'layers': 3, 'extra\_items': 9, 'extra\_scripts': 42, 'items': 12, 'scripts': 52}&2.01\\
   p02&{'network': 'ring-network', 'layers': 3, 'extra\_items': 11, 'extra\_scripts': 47, 'items': 14, 'scripts': 59}&3.09\\
@@ -525,7 +525,7 @@ crates & Linear(b=[3, 20], m=[1, 5.0])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 2, 'hoists': 3, 'crates': 3}&0.59\\
   p02&{'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 2, 'hoists': 4, 'crates': 4}&0.72\\
@@ -565,7 +565,7 @@ crates & Linear(b=[3, 20], m=[1, 5.0])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'depots': 9, 'distributors': 2, 'trucks': 2, 'pallets': 16, 'hoists': 2, 'crates': 3}&0.70\\
   p02&{'depots': 13, 'distributors': 2, 'trucks': 2, 'pallets': 17, 'hoists': 2, 'crates': 4}&1.00\\
@@ -643,7 +643,7 @@ trucks & Linear(b=[0, 1], m=[0, 1 + drivers])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'drivers': 1, 'packages': 4, 'roadjunctions': 8, 'trucks': 1}&0.53\\
   p02&{'drivers': 1, 'packages': 5, 'roadjunctions': 9, 'trucks': 1}&0.54\\
@@ -683,7 +683,7 @@ trucks & Linear(b=[0, 1], m=[0, 1 + drivers])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'drivers': 4, 'packages': 12, 'roadjunctions': 10, 'trucks': 4}&0.48\\
   p02&{'drivers': 4, 'packages': 16, 'roadjunctions': 14, 'trucks': 4}&0.91\\
@@ -772,7 +772,7 @@ slow\_capacity & Constant(2)
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'num\_areas': 2, 'area\_size': 5, 'passengers': 3, 'fast\_elevators': 1, 'slow\_elevators': 1, 'fast\_cost': 3, 'stop\_fast\_cost': 1, 'fast\_capacity': 3, 'slow\_cost': 1, 'stop\_slow\_cost': 5, 'slow\_capacity': 2}&1.26\\
   p02&{'num\_areas': 2, 'area\_size': 5, 'passengers': 4, 'fast\_elevators': 1, 'slow\_elevators': 1, 'fast\_cost': 3, 'stop\_fast\_cost': 1, 'fast\_capacity': 3, 'slow\_cost': 1, 'stop\_slow\_cost': 5, 'slow\_capacity': 2}&1.36\\
@@ -812,7 +812,7 @@ slow\_capacity & Constant(2)
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'num\_areas': 3, 'area\_size': 6, 'passengers': 3, 'fast\_elevators': 1, 'slow\_elevators': 1, 'fast\_cost': 3, 'stop\_fast\_cost': 1, 'fast\_capacity': 3, 'slow\_cost': 1, 'stop\_slow\_cost': 5, 'slow\_capacity': 2}&0.69\\
   p02&{'num\_areas': 3, 'area\_size': 7, 'passengers': 6, 'fast\_elevators': 1, 'slow\_elevators': 1, 'fast\_cost': 3, 'stop\_fast\_cost': 1, 'fast\_capacity': 3, 'slow\_cost': 1, 'stop\_slow\_cost': 5, 'slow\_capacity': 2}&0.84\\
@@ -890,7 +890,7 @@ num\_robots & Enum([2, 3, 4, 5])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'num\_columns': 2, 'num\_rows': 3, 'num\_robots': 2}&0.93\\
   p02&{'num\_columns': 2, 'num\_rows': 4, 'num\_robots': 2}&1.05\\
@@ -930,7 +930,7 @@ num\_robots & Enum([2, 3, 4, 5])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'num\_columns': 2, 'num\_rows': 2, 'num\_robots': 2}&0.21\\
   p02&{'num\_columns': 2, 'num\_rows': 7, 'num\_robots': 2}&0.21\\
@@ -1010,7 +1010,7 @@ percentage\_cells\_locked & Enum([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'x': 3, 'y': 3, 'prob\_key\_in\_goal': 0.5, 'shapes': 1, 'extra\_keys': 5, 'percentage\_cells\_locked': 0.5, 'keys': 6, 'locks': 4}&1.02\\
   p02&{'x': 3, 'y': 4, 'prob\_key\_in\_goal': 0.5, 'shapes': 1, 'extra\_keys': 5, 'percentage\_cells\_locked': 0.5, 'keys': 6, 'locks': 6}&1.78\\
@@ -1050,7 +1050,7 @@ percentage\_cells\_locked & Enum([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'x': 7, 'y': 7, 'prob\_key\_in\_goal': 0.5, 'shapes': 2, 'extra\_keys': 1, 'percentage\_cells\_locked': 0.5, 'keys': 3, 'locks': 24}&0.67\\
   p02&{'x': 11, 'y': 11, 'prob\_key\_in\_goal': 0.5, 'shapes': 2, 'extra\_keys': 1, 'percentage\_cells\_locked': 0.5, 'keys': 3, 'locks': 60}&1.07\\
@@ -1123,7 +1123,7 @@ percentage\_cells\_locked & Enum([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'n': 8}&1.44\\
   p02&{'n': 9}&1.56\\
@@ -1163,7 +1163,7 @@ percentage\_cells\_locked & Enum([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'n': 20}&0.59\\
   p02&{'n': 25}&0.65\\
@@ -1240,7 +1240,7 @@ n\_cars & Linear(b=[1, 5], m=[0, 5.0 + n\_couples])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'n\_couples': 1, 'n\_places': 8, 'n\_cars': 3}&3.85\\
   p02&{'n\_couples': 1, 'n\_places': 9, 'n\_cars': 3}&6.80\\
@@ -1280,7 +1280,7 @@ n\_cars & Linear(b=[1, 5], m=[0, 5.0 + n\_couples])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'n\_couples': 2, 'n\_places': 4, 'n\_cars': 6}&1.73\\
   p02&{'n\_couples': 2, 'n\_places': 5, 'n\_cars': 6}&2.70\\
@@ -1366,7 +1366,7 @@ extra\_trucks & Linear(b=[1, 10], m=[0, 2])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'num\_airplanes': 2, 'num\_cities': 2, 'city\_size': 2, 'num\_packages': 2, 'extra\_trucks': 4, 'num\_trucks': 6}&0.47\\
   p02&{'num\_airplanes': 2, 'num\_cities': 2, 'city\_size': 3, 'num\_packages': 3, 'extra\_trucks': 4, 'num\_trucks': 6}&0.50\\
@@ -1406,7 +1406,7 @@ extra\_trucks & Linear(b=[1, 10], m=[0, 2])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'num\_airplanes': 5, 'num\_cities': 8, 'city\_size': 15, 'num\_packages': 3, 'extra\_trucks': 3, 'num\_trucks': 11}&1.30\\
   p02&{'num\_airplanes': 6, 'num\_cities': 10, 'city\_size': 15, 'num\_packages': 6, 'extra\_trucks': 3, 'num\_trucks': 13}&1.97\\
@@ -1480,7 +1480,7 @@ floors & Linear(b=[5, 15], m=[0, 5])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'passengers': 8, 'floors': 6}&0.50\\
   p02&{'passengers': 9, 'floors': 7}&0.52\\
@@ -1520,7 +1520,7 @@ floors & Linear(b=[5, 15], m=[0, 5])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'passengers': 19, 'floors': 11}&0.53\\
   p02&{'passengers': 23, 'floors': 14}&0.54\\
@@ -1598,7 +1598,7 @@ constrainedness & Enum([1.1, 1.5, 2.0])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'locations': 7, 'packages': 3, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}&0.94\\
   p02&{'locations': 7, 'packages': 4, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}&1.02\\
@@ -1638,7 +1638,7 @@ constrainedness & Enum([1.1, 1.5, 2.0])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'locations': 14, 'packages': 9, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}&4.40\\
   p02&{'locations': 15, 'packages': 10, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 2.0}&4.60\\
@@ -1715,7 +1715,7 @@ orders & Linear(b=[5, 100], m=[1, 40])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'density': 80, 'products': 8, 'orders': 20}&1.75\\
   p02&{'density': 80, 'products': 12, 'orders': 21}&1.96\\
@@ -1755,7 +1755,7 @@ orders & Linear(b=[5, 100], m=[1, 40])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'density': 66, 'products': 5, 'orders': 5}&0.20\\
   p02&{'density': 66, 'products': 39, 'orders': 43}&1.70\\
@@ -1834,7 +1834,7 @@ cars\_diff & Enum([0, -1, -2])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'curbs': 4, 'cars': 5}&0.57\\
   p02&{'curbs': 5, 'cars': 7}&0.94\\
@@ -1874,7 +1874,7 @@ cars\_diff & Enum([0, -1, -2])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'curbs': 9, 'cars': 16}&2.86\\
   p02&{'curbs': 10, 'cars': 18}&4.03\\
@@ -1955,7 +1955,7 @@ waypoints & Linear(b=[4, 20], m=[0.5, 5.0])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'rovers': 1, 'objectives': 4, 'cameras': 2, 'goals': 5, 'waypoints': 6}&0.76\\
   p02&{'rovers': 1, 'objectives': 5, 'cameras': 2, 'goals': 7, 'waypoints': 7}&1.06\\
@@ -1995,7 +1995,7 @@ waypoints & Linear(b=[4, 20], m=[0.5, 5.0])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'rovers': 1, 'objectives': 1, 'cameras': 16, 'goals': 31, 'waypoints': 10}&0.84\\
   p02&{'rovers': 1, 'objectives': 1, 'cameras': 18, 'goals': 35, 'waypoints': 11}&0.86\\
@@ -2072,7 +2072,7 @@ observations & Linear(b=[5, 40], m=[1, 10])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'satellites': 1, 'targets': 18, 'modes': 7, 'observations': 8}&1.00\\
   p02&{'satellites': 1, 'targets': 19, 'modes': 7, 'observations': 9}&1.09\\
@@ -2112,7 +2112,7 @@ observations & Linear(b=[5, 40], m=[1, 10])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'satellites': 2, 'targets': 12, 'modes': 3, 'observations': 5}&0.69\\
   p02&{'satellites': 3, 'targets': 21, 'modes': 3, 'observations': 6}&0.75\\
@@ -2189,7 +2189,7 @@ size & Linear(b=[1, 4], m=[1, 3])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'segment\_type': 'empty', 'inout': 'both', 'size': 1}&0.51\\
   p02&{'segment\_type': 'empty', 'inout': 'both', 'size': 2}&0.52\\
@@ -2229,7 +2229,7 @@ size & Linear(b=[1, 4], m=[1, 3])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'segment\_type': 'empty', 'inout': 'in', 'size': 4}&0.71\\
   p02&{'segment\_type': 'empty', 'inout': 'in', 'size': 5}&1.09\\
@@ -2309,7 +2309,7 @@ num\_spawn\_apples & Enum(['40\%', '55\%', '70\%', '85\%', '100\%'])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'snake\_size': '1', 'num\_initial\_apples': 5, 'x\_grid': 5, 'y\_grid': 5, 'num\_spawn\_apples': '40\%', 'board': 'empty-5x5'}&3.15\\
   p02&{'snake\_size': '1', 'num\_initial\_apples': 5, 'x\_grid': 4, 'y\_grid': 7, 'num\_spawn\_apples': '40\%', 'board': 'empty-4x7'}&4.15\\
@@ -2349,7 +2349,7 @@ num\_spawn\_apples & Enum(['40\%', '55\%', '70\%', '85\%', '100\%'])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'snake\_size': '1', 'num\_initial\_apples': 5, 'x\_grid': 5, 'y\_grid': 5, 'num\_spawn\_apples': '40\%', 'board': 'empty-5x5'}&0.79\\
   p02&{'snake\_size': '1', 'num\_initial\_apples': 5, 'x\_grid': 5, 'y\_grid': 6, 'num\_spawn\_apples': '40\%', 'board': 'empty-5x6'}&1.43\\
@@ -2430,7 +2430,7 @@ depots & Linear(b=[1, 5], m=[0, 1])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'crates': 2, 'hoists': 2, 'store\_areas': 2, 'depots': 1, 'containers': 1}&0.54\\
   p02&{'crates': 3, 'hoists': 2, 'store\_areas': 3, 'depots': 2, 'containers': 1}&0.62\\
@@ -2470,7 +2470,7 @@ depots & Linear(b=[1, 5], m=[0, 1])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'crates': 4, 'hoists': 6, 'store\_areas': 15, 'depots': 2, 'containers': 1}&0.42\\
   p02&{'crates': 5, 'hoists': 8, 'store\_areas': 21, 'depots': 3, 'containers': 2}&0.89\\
@@ -2552,7 +2552,7 @@ num\_towers & Linear(b=[1, 4], m=[0, 2])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'x': 3, 'y': 3, 'min\_height': 2, 'max\_height': 4, 'num\_towers': 1}&1.44\\
   p02&{'x': 3, 'y': 3, 'min\_height': 2, 'max\_height': 5, 'num\_towers': 1}&2.93\\
@@ -2592,7 +2592,7 @@ num\_towers & Linear(b=[1, 4], m=[0, 2])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'x': 7, 'y': 7, 'min\_height': 1, 'max\_height': 2, 'num\_towers': 10}&1.45\\
   p02&{'x': 7, 'y': 7, 'min\_height': 1, 'max\_height': 2, 'num\_towers': 11}&1.47\\
@@ -2669,7 +2669,7 @@ goods & Linear(b=[3, 10], m=[0.1, 5.0])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'products': 2, 'markets': 1, 'trucks': 2, 'depots': 5, 'goods': 3}&0.58\\
   p02&{'products': 3, 'markets': 1, 'trucks': 2, 'depots': 5, 'goods': 4}&0.69\\
@@ -2709,7 +2709,7 @@ goods & Linear(b=[3, 10], m=[0.1, 5.0])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'products': 2, 'markets': 3, 'trucks': 2, 'depots': 1, 'goods': 7}&0.67\\
   p02&{'products': 3, 'markets': 3, 'trucks': 2, 'depots': 3, 'goods': 7}&0.82\\
@@ -2793,7 +2793,7 @@ generator & Enum(['city-generator.py', 'two-cities-generator.py', 'three-cities-
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'size': 1000, 'mindistance': 100, 'nodes': 2, 'packages': 2, 'trucks': 2, 'degree': 3, 'generator': 'three-cities-generator.py'}&0.57\\
   p02&{'size': 1000, 'mindistance': 100, 'nodes': 7, 'packages': 3, 'trucks': 2, 'degree': 3, 'generator': 'three-cities-generator.py'}&2.40\\
@@ -2833,7 +2833,7 @@ generator & Enum(['city-generator.py', 'two-cities-generator.py', 'three-cities-
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 4, 'trucks': 2, 'degree': 5, 'generator': 'three-cities-generator.py'}&2.69\\
   p02&{'size': 1000, 'mindistance': 100, 'nodes': 32, 'packages': 5, 'trucks': 2, 'degree': 5, 'generator': 'three-cities-generator.py'}&3.18\\
@@ -2908,7 +2908,7 @@ r & Enum([0.5, 0.75, 1])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'x': 4, 'y': 9, 'r': 0.5}&0.97\\
   p02&{'x': 6, 'y': 6, 'r': 0.5}&1.01\\
@@ -2948,7 +2948,7 @@ r & Enum([0.5, 0.75, 1])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'x': 7, 'y': 7, 'r': 0.75}&0.42\\
   p02&{'x': 10, 'y': 10, 'r': 0.75}&0.47\\
@@ -3025,7 +3025,7 @@ wood\_factor & Enum([1.0, 1.25, 1.5, 2.0])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'size': 2, 'num\_machines': 1, 'wood\_factor': 1.25}&0.56\\
   p02&{'size': 3, 'num\_machines': 1, 'wood\_factor': 1.25}&0.63\\
@@ -3065,7 +3065,7 @@ wood\_factor & Enum([1.0, 1.25, 1.5, 2.0])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'size': 2, 'num\_machines': 2, 'wood\_factor': 2.0}&0.25\\
   p02&{'size': 10, 'num\_machines': 2, 'wood\_factor': 2.0}&0.62\\
@@ -3145,7 +3145,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'planes': 1, 'people': 6, 'cities': 4}&0.55\\
   p02&{'planes': 2, 'people': 7, 'cities': 5}&11.57\\
@@ -3185,7 +3185,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                                 
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
                               p01&{'planes': 6, 'people': 5, 'cities': 17}&4.45\\
   p02&{'planes': 6, 'people': 6, 'cities': 20}&6.70\\
@@ -3225,7 +3225,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              p-empty-3-3-1656261043.pddl&254.95&11.89\\
  p-empty-3-4-311607620.pddl&--&22.28\\
@@ -3265,7 +3265,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              p-empty-3-3-1325499003.pddl&4.39&2.76\\
  p-empty-3-4-1922988331.pddl&8.44&5.09\\
@@ -3305,7 +3305,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              p21-airport4halfMUC-p2.pddl&3.36&3.36\\
  p22-airport4halfMUC-p3.pddl&80.96&4.85\\
@@ -3345,7 +3345,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              p21-airport4halfMUC-p2.pddl&3.25&2.54\\
  p22-airport4halfMUC-p3.pddl&4.21&4.21\\
@@ -3385,7 +3385,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              p-4-4-3-8-0.pddl&19.70&1.44\\
  p-2-8-5-4-0.pddl&28.06&0.79\\
@@ -3425,7 +3425,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              p-3-5-2-3-0.pddl&0.60&0.18\\
  p-2-6-4-4-0.pddl&0.65&0.24\\
@@ -3465,7 +3465,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              d-1-2.pddl&0.65&0.62\\
  d-2-1.pddl&0.62&0.62\\
@@ -3505,7 +3505,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              ds1-d-3-2.pddl&0.63&0.15\\
  ds1-d-4-5.pddl&0.69&0.17\\
@@ -3545,7 +3545,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              p-2-8-4-2-6-0.pddl&26.20&1.30\\
  p-5-6-5-1-1-0.pddl&28.45&1.44\\
@@ -3585,7 +3585,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              p-6-10-8-3-3-0.pddl&16.52&1.23\\
  p-10-5-15-2-8-0.pddl&25.10&0.73\\
@@ -3625,7 +3625,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              MIT-p4.pddl&28.37&27.98\\
  MIT-p6.pddl&77.36&32.54\\
@@ -3665,7 +3665,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              original-p6.pddl&39.23&8.16\\
  original-p4.pddl&92.05&41.67\\
@@ -3705,7 +3705,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              ipc08-p21.pddl&0.43&0.42\\
  ipc08-p01.pddl&0.44&0.43\\
@@ -3745,7 +3745,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              ipc08-p21.pddl&0.45&0.19\\
  ipc08-p22.pddl&0.45&0.19\\
@@ -3785,7 +3785,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              p-19-1-4-0.pddl&0.38&0.38\\
  p-1-11-1-0.pddl&0.39&0.39\\
@@ -3825,7 +3825,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              p-13-6-4-0.pddl&0.40&0.13\\
  p-1-6-13-0.pddl&0.41&0.13\\
@@ -3865,7 +3865,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              generator-repo-p033.pddl&0.44&0.43\\
  generator-repo-p004.pddl&0.45&0.44\\
@@ -3905,7 +3905,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              ipc08-p01.pddl&0.43&0.43\\
  generator-repo-p033.pddl&0.44&0.44\\
@@ -3945,7 +3945,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              p01-net1-b6-g2.pddl&0.45&0.45\\
  p02-net1-b6-g4.pddl&0.49&0.48\\
@@ -3985,7 +3985,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              p21-net3-b12-g2.pddl&199.30&0.24\\
  p22-net3-b12-g4.pddl&3427.84&0.44\\
@@ -4025,7 +4025,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              p01-net1-b6-g2-t50.pddl&0.50&0.50\\
  p02-net1-b6-g4-t50.pddl&0.51&0.49\\
@@ -4065,7 +4065,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              p11-net2-b10-g2-t30.pddl&64.42&0.67\\
  p12-net2-b10-g4-t60.pddl&8.09&1.01\\
@@ -4105,7 +4105,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              generator-repo-p070-microban-sequential.pddl&22.78&1.03\\
  generator-repo-p036-microban-sequential.pddl&15.48&2.85\\
@@ -4145,7 +4145,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              generator-repo-p003-hexoban-sequential.pddl&0.49&0.17\\
  generator-repo-p028-microban-sequential.pddl&0.47&0.21\\
@@ -4185,7 +4185,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              p-1-4-1780016020.pddl&0.49&0.49\\
  p-1-6-1.pddl&0.63&0.62\\
@@ -4225,7 +4225,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              p-1-6-3.pddl&0.61&0.50\\
  p-1-10-4.pddl&3.96&1.76\\
@@ -4265,7 +4265,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              bootstrap-typed-02.pddl&12.91&0.97\\
  bootstrap-typed-03.pddl&33.60&0.93\\
@@ -4305,7 +4305,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              thoughtful\_11\_6\_74-typed.pddl&3.96&3.96\\
  thoughtful\_11\_6\_65-typed.pddl&4.20&4.20\\
@@ -4345,7 +4345,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              ipc11opt-p10.pddl&57.04&8.67\\
  ipc14opt-p13.pddl&118.69&13.75\\
@@ -4385,7 +4385,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
                     
                             \begin{center}
                             \scriptsize
-                            \begin{tabular}{@{}r|r|r@{}}
+                            \begin{tabular}{@{}l|r|r@{}}
                             config & real\_baseline\_time & real\_sart\_time\\\midrule
                              ipc11opt-p03.pddl&3.00&0.52\\
  ipc14opt-p11.pddl&8.28&2.81\\
@@ -4439,50 +4439,50 @@ cities & Linear(b=[3, 30], m=[0, 5.0])
 \cmidrule[\lightrulewidth](){13-14}
 \cmidrule[\lightrulewidth](l){15-16}
 \cmidrule[\lightrulewidth](l){17-18}
-      Optimal & \#IPC & \#s &     IPC &    New & New &              dif &     IPC &    New & New &               dif & \#s &      IPC &    New & New &               dif &      IPC &    New & New &               dif \\
+      Optimal & \#IPC & \#s &     IPC &     AS & AS &             diff &     IPC &     AS & AS &              diff & \#s &      IPC &     AS & AS &              diff &      IPC &     AS & AS &              diff \\
 \midrule
-     agricola &    20 &   5 &   0--13 &  0--16 &  12 & {\color{blue}+7} &    0--7 &  0--10 &  22 &   {\color{red}-2} &   3 &    0--13 &  0--30 &  14 &               0.0 &    6--11 & 22--25 &  17 &   {\color{red}-7} \\
-      airport &    50 &   2 &  22--30 &  4--10 &  14 &              0.0 &  25--38 &  2--19 &  24 &               0.0 &   2 &   34--47 & 14--27 &  13 &               0.0 &   36--48 & 16--27 &  25 &   {\color{red}-1} \\
-       barman & 34/40 &   3 &   4--16 &  8--16 &  13 & {\color{blue}+8} &   4--11 & 11--15 &  24 & {\color{blue}+12} &   2 &   17--40 &  0--27 &  15 &  {\color{blue}+2} &   39--40 &  4--27 &  27 & {\color{blue}+20} \\
-  blocksworld &    35 &   2 &  18--34 & 10--20 &  14 & {\color{blue}+2} &  18--30 & 10--20 &  25 &  {\color{blue}+7} &   1 &   35--35 &  4--27 &  15 & {\color{blue}+15} &   35--35 &  6--23 &  27 & {\color{blue}+27} \\
-   childsnack &    20 &   3 &    0--4 &  5--14 &   5 &              0.0 &    0--6 &  5--13 &  13 &               0.0 &   2 &     0--7 &   0--9 &  14 &  {\color{blue}+1} &    1--20 &  2--23 &  27 &               0.0 \\
- data-network &    20 &   2 &   7--13 &  7--14 &  14 &  {\color{red}-1} &   6--14 &  7--14 &  24 &   {\color{red}-3} &   2 &    2--15 &  3--21 &  14 &               0.0 &    9--19 & 10--27 &  26 &  {\color{blue}+2} \\
-       depots &    22 &   3 &    4--9 &  9--13 &  12 & {\color{blue}+3} &   5--14 & 10--18 &  22 &   {\color{red}-3} &   1 &   17--22 &  4--17 &  15 &  {\color{blue}+3} &   22--22 & 12--17 &  21 & {\color{blue}+21} \\
-    driverlog &    20 &   3 &   7--14 &  2--20 &  14 & {\color{blue}+3} &   7--15 &  2--16 &  27 &  {\color{blue}+5} &   1 &   18--20 &  7--30 &  15 & {\color{blue}+10} &   20--20 & 12--24 &  26 & {\color{blue}+26} \\
-    elevators &    50 &   4 &   7--44 &  0--14 &  14 &  {\color{red}-1} &  28--44 &  8--12 &  23 &   {\color{red}-3} &   1 &   11--50 &  2--30 &  12 &  {\color{blue}+3} &   49--50 & 21--30 &  18 & {\color{blue}+11} \\
-    floortile &    40 &   2 &   2--34 &  3--20 &  14 & {\color{blue}+1} &  16--34 &  7--15 &  22 &  {\color{blue}+1} &   1 &    7--40 &  2--15 &   5 &   {\color{red}-9} &    4--40 &  1--15 &  24 &  {\color{blue}+7} \\
-     freecell &    80 &   2 &  15--63 &  5--19 &  11 &  {\color{red}-1} &  15--70 &  4--18 &  21 &   {\color{red}-4} &   1 &   46--80 & 10--27 &  13 &  {\color{blue}+2} &   80--80 & 22--29 &  26 & {\color{blue}+26} \\
-          ged &    20 &   3 &  15--19 & 17--23 &   9 &              0.0 &  15--19 & 17--23 &  15 &   {\color{red}-1} &   1 &    0--20 &  3--30 &  11 &  {\color{blue}+2} &   20--20 & 25--30 &  18 & {\color{blue}+18} \\
-         grid &     5 &   1 &    1--3 &  8--25 &  13 & {\color{blue}+2} &    1--3 &  8--22 &  25 &  {\color{blue}+6} &   1 &     4--5 &  4--17 &  13 &  {\color{blue}+8} &     5--5 &  6--10 &  21 & {\color{blue}+21} \\
-      gripper &    20 &   1 &   7--20 & 10--30 &  11 &              0.0 &   8--20 & 11--30 &   7 &               0.0 &   1 &   20--20 & 30--30 &   0 &               0.0 &   20--20 & 26--30 &  13 & {\color{blue}+13} \\
-       hiking &    20 &   3 &   9--19 &   2--9 &   9 &  {\color{red}-5} &  13--18 &   5--9 &  13 &   {\color{red}-8} &   1 &    1--20 &  1--20 &  15 &  {\color{blue}+6} &   10--20 &  2--14 &  27 &  {\color{blue}+5} \\
-    logistics &    63 &   4 &  12--27 &  9--21 &  13 &  {\color{red}-1} &  13--36 & 12--27 &  26 &   {\color{red}-2} &   1 &   57--63 &  0--17 &  14 &  {\color{blue}+2} &   51--63 &  3--18 &  22 &  {\color{blue}+5} \\
-      miconic &   150 &   1 & 55--144 &  3--17 &  14 &              0.0 & 56--143 &  3--18 &  28 &  {\color{blue}+1} &   1 & 150--150 & 30--30 &   0 &               0.0 & 150--150 & 30--30 &   0 &               0.0 \\
-       mprime &    35 &   2 &  20--24 &   4--9 &  14 & {\color{blue}+1} &  18--31 &  5--13 &  26 &  {\color{blue}+8} &   3 &   31--35 &  6--10 &  13 &  {\color{blue}+8} &   31--35 &  9--22 &  26 & {\color{blue}+19} \\
-    nomystery &    20 &   1 &   8--20 &  4--13 &  14 &              0.0 &   8--20 &  4--21 &  25 &  {\color{blue}+7} &   2 &    6--20 &  1--24 &  15 &  {\color{blue}+1} &   12--20 &  7--24 &  27 &  {\color{blue}+4} \\
-   openstacks &    70 &   2 &  23--70 &  3--15 &   9 &  {\color{red}-3} &  42--64 &   6--7 &   7 &  {\color{red}-17} &   2 &    6--70 &  2--30 &  15 &  {\color{blue}+1} &   70--70 & 19--27 &  22 & {\color{blue}+22} \\
-organic-split &    20 &   2 &   7--15 &  3--16 &  14 & {\color{blue}+1} &  13--14 & 12--17 &  21 &  {\color{blue}+6} &   2 &    6--14 &  3--21 &  15 &  {\color{blue}+2} &    3--12 &  2--18 &  28 &  {\color{blue}+3} \\
-  parcprinter &    50 &   1 &  16--39 &  7--18 &  14 &  {\color{red}-1} &  42--50 & 19--30 &  26 &  {\color{blue}+4} &   1 &   30--50 & 16--30 &   9 &               0.0 &   13--50 &  8--30 &  17 &  {\color{blue}+4} \\
-      parking &    40 &   3 &   0--11 &  7--17 &  15 &              0.0 &   0--15 &  9--18 &  26 &   {\color{red}-2} &   1 &   23--40 &  0--23 &  14 &               0.0 &   35--40 & 14--18 &  18 &  {\color{blue}+5} \\
-     pathways &    30 &   3 &    4--5 &  9--16 &  11 & {\color{blue}+3} &    4--5 & 13--16 &  20 &  {\color{blue}+4} &   1 &    9--30 & 12--25 &  12 &               0.0 &   25--30 & 23--26 &  23 &   {\color{red}-2} \\
-       pegsol &    50 &   1 &  44--48 & 25--28 &  11 & {\color{blue}+2} &  46--50 & 26--30 &  20 &               0.0 &   1 &   49--50 & 30--30 &   0 &   {\color{red}-5} &   48--50 & 28--30 &  12 &  {\color{blue}+5} \\
-     pipes-nt &    50 &   4 &  15--22 & 14--20 &  12 &              0.0 &  19--25 & 15--22 &  25 &  {\color{blue}+2} &   3 &   31--45 &  6--25 &  13 &               0.0 &   43--50 & 23--30 &  26 &  {\color{blue}+2} \\
-      pipes-t &    50 &   4 &  12--16 & 11--15 &  13 & {\color{blue}+1} &  15--22 & 15--20 &  21 &   {\color{red}-2} &   3 &   15--44 &  3--30 &  14 &               0.0 &   40--44 & 28--30 &  20 &   {\color{red}-5} \\
-       rovers &    40 &   2 &   6--14 &  2--16 &   9 &  {\color{red}-4} &   6--13 &  2--14 &  22 &   {\color{red}-4} &   4 &   26--40 & 20--30 &   5 &               0.0 &   38--40 & 30--30 &   0 &   {\color{red}-7} \\
-    satellite &    36 &   2 &   6--10 &  5--21 &  13 & {\color{blue}+1} &   7--14 & 12--22 &  28 &  {\color{blue}+7} &   1 &   28--36 & 10--19 &  12 &   {\color{red}-2} &   26--36 &  7--15 &  25 &  {\color{blue}+2} \\
-   scanalyzer &    50 &   3 &  15--29 &  9--17 &   5 &  {\color{red}-4} &  21--33 &  9--17 &  22 &   {\color{red}-4} &   1 &   42--50 &  8--19 &  14 &  {\color{blue}+2} &   48--50 &  9--16 &  25 & {\color{blue}+13} \\
-        snake &    20 &   2 &   4--12 &  4--15 &  12 &              0.0 &   7--14 &  3--15 &  24 &  {\color{blue}+2} &   1 &    5--12 &  9--19 &   9 &   {\color{red}-3} &    3--17 &  6--17 &  27 &               0.0 \\
-      sokoban &    50 &   2 &  11--50 &  0--24 &  15 & {\color{blue}+1} &  48--50 & 15--25 &  28 &  {\color{blue}+8} &   1 &    8--48 &  7--22 &  14 &  {\color{blue}+1} &   29--50 & 16--27 &  27 &  {\color{blue}+2} \\
-      storage &    30 &   2 &  14--16 &  4--14 &  12 & {\color{blue}+3} &  15--18 &  6--24 &  27 &  {\color{blue}+6} &   2 &   19--30 &  3--22 &  14 &               0.0 &   21--30 &  7--21 &  25 &   {\color{red}-1} \\
-       termes &    20 &   3 &   6--18 &  7--12 &   5 &  {\color{red}-8} &   5--15 &  7--12 &   7 &  {\color{red}-18} &   2 &    0--15 &  0--21 &  15 &               0.0 &    6--15 &  2--20 &  25 &   {\color{red}-2} \\
-       tetris & 17/20 &   3 &   6--10 &  8--21 &  14 & {\color{blue}+1} &   9--13 & 19--22 &  21 &   {\color{red}-1} &   2 &    6--16 &  0--11 &  11 &   {\color{red}-3} &   15--20 &  9--18 &  24 &  {\color{blue}+6} \\
-   thoughtful & --/20 &   3 &      -- &   5--5 &   0 &               -- &      -- &   5--8 &   7 &                -- &   1 &    5--17 &  0--19 &  14 &               0.0 &   17--20 & 22--30 &  24 &  {\color{blue}+5} \\
-      tidybot & 40/20 &   2 &  19--30 &  4--11 &  13 & {\color{blue}+1} &  11--32 &  4--12 &  24 &   {\color{red}-1} &   1 &   13--20 &  6--21 &  13 &  {\color{blue}+1} &   18--20 & 13--24 &  24 &  {\color{blue}+4} \\
-          tpp &    30 &   1 &    6--8 &   2--6 &   9 &  {\color{red}-2} &   7--20 &  4--20 &  22 &   {\color{red}-2} &   1 &   23--30 &  7--20 &  14 &  {\color{blue}+5} &   29--30 &  8--16 &  22 &  {\color{blue}+7} \\
-    transport &    70 &   4 &  23--33 & 10--17 &  14 &              0.0 &  24--35 & 12--21 &  21 &               0.0 &   3 &   13--70 &  3--21 &  14 &               0.0 &   62--70 & 12--19 &  25 & {\color{blue}+18} \\
-     visitall &    40 &   2 &  12--28 &  3--20 &  15 &              0.0 &  12--30 &  2--18 &  27 &  {\color{blue}+1} &   1 &    3--40 &  5--29 &  15 &  {\color{blue}+3} &   36--40 & 19--28 &  25 & {\color{blue}+18} \\
-  woodworking &    50 &   2 &  11--48 &  5--10 &   9 &  {\color{red}-3} &  38--50 &  8--17 &  25 &  {\color{blue}+4} &   2 &   43--50 &  3--17 &  15 & {\color{blue}+10} &   28--50 &  5--23 &  25 & {\color{blue}+12} \\
-   zenotravel &    20 &   6 &   8--13 &  5--16 &  14 &              0.0 &   7--13 &  5--22 &  26 &  {\color{blue}+3} &   1 &   20--20 &  8--15 &  14 & {\color{blue}+14} &   20--20 &  5--12 &  24 & {\color{blue}+24} \\
+     agricola &    20 &   5 &   0--13 &  0--16 & 12 & {\color{blue}+7} &    0--7 &  0--10 & 22 &   {\color{red}-2} &   3 &    0--13 &  0--30 & 14 &               0.0 &    6--11 & 22--25 & 17 &   {\color{red}-7} \\
+      airport &    50 &   2 &  22--30 &  4--10 & 14 &              0.0 &  25--38 &  2--19 & 24 &               0.0 &   2 &   34--47 & 14--27 & 13 &               0.0 &   36--48 & 16--27 & 25 &   {\color{red}-1} \\
+       barman & 34/40 &   3 &   4--16 &  8--16 & 13 & {\color{blue}+8} &   4--11 & 11--15 & 24 & {\color{blue}+12} &   2 &   17--40 &  0--27 & 15 &  {\color{blue}+2} &   39--40 &  4--27 & 27 & {\color{blue}+20} \\
+  blocksworld &    35 &   2 &  18--34 & 10--20 & 14 & {\color{blue}+2} &  18--30 & 10--20 & 25 &  {\color{blue}+7} &   1 &   35--35 &  4--27 & 15 & {\color{blue}+15} &   35--35 &  6--23 & 27 & {\color{blue}+27} \\
+   childsnack &    20 &   3 &    0--4 &  5--14 &  5 &              0.0 &    0--6 &  5--13 & 13 &               0.0 &   2 &     0--7 &   0--9 & 14 &  {\color{blue}+1} &    1--20 &  2--23 & 27 &               0.0 \\
+ data-network &    20 &   2 &   7--13 &  7--14 & 14 &  {\color{red}-1} &   6--14 &  7--14 & 24 &   {\color{red}-3} &   2 &    2--15 &  3--21 & 14 &               0.0 &    9--19 & 10--27 & 26 &  {\color{blue}+2} \\
+       depots &    22 &   3 &    4--9 &  9--13 & 12 & {\color{blue}+3} &   5--14 & 10--18 & 22 &   {\color{red}-3} &   1 &   17--22 &  4--17 & 15 &  {\color{blue}+3} &   22--22 & 12--17 & 21 & {\color{blue}+21} \\
+    driverlog &    20 &   3 &   7--14 &  2--20 & 14 & {\color{blue}+3} &   7--15 &  2--16 & 27 &  {\color{blue}+5} &   1 &   18--20 &  7--30 & 15 & {\color{blue}+10} &   20--20 & 12--24 & 26 & {\color{blue}+26} \\
+    elevators &    50 &   4 &   7--44 &  0--14 & 14 &  {\color{red}-1} &  28--44 &  8--12 & 23 &   {\color{red}-3} &   1 &   11--50 &  2--30 & 12 &  {\color{blue}+3} &   49--50 & 21--30 & 18 & {\color{blue}+11} \\
+    floortile &    40 &   2 &   2--34 &  3--20 & 14 & {\color{blue}+1} &  16--34 &  7--15 & 22 &  {\color{blue}+1} &   1 &    7--40 &  2--15 &  5 &   {\color{red}-9} &    4--40 &  1--15 & 24 &  {\color{blue}+7} \\
+     freecell &    80 &   2 &  15--63 &  5--19 & 11 &  {\color{red}-1} &  15--70 &  4--18 & 21 &   {\color{red}-4} &   1 &   46--80 & 10--27 & 13 &  {\color{blue}+2} &   80--80 & 22--29 & 26 & {\color{blue}+26} \\
+          ged &    20 &   3 &  15--19 & 17--23 &  9 &              0.0 &  15--19 & 17--23 & 15 &   {\color{red}-1} &   1 &    0--20 &  3--30 & 11 &  {\color{blue}+2} &   20--20 & 25--30 & 18 & {\color{blue}+18} \\
+         grid &     5 &   1 &    1--3 &  8--25 & 13 & {\color{blue}+2} &    1--3 &  8--22 & 25 &  {\color{blue}+6} &   1 &     4--5 &  4--17 & 13 &  {\color{blue}+8} &     5--5 &  6--10 & 21 & {\color{blue}+21} \\
+      gripper &    20 &   1 &   7--20 & 10--30 & 11 &              0.0 &   8--20 & 11--30 &  7 &               0.0 &   1 &   20--20 & 30--30 &  0 &               0.0 &   20--20 & 26--30 & 13 & {\color{blue}+13} \\
+       hiking &    20 &   3 &   9--19 &   2--9 &  9 &  {\color{red}-5} &  13--18 &   5--9 & 13 &   {\color{red}-8} &   1 &    1--20 &  1--20 & 15 &  {\color{blue}+6} &   10--20 &  2--14 & 27 &  {\color{blue}+5} \\
+    logistics &    63 &   4 &  12--27 &  9--21 & 13 &  {\color{red}-1} &  13--36 & 12--27 & 26 &   {\color{red}-2} &   1 &   57--63 &  0--17 & 14 &  {\color{blue}+2} &   51--63 &  3--18 & 22 &  {\color{blue}+5} \\
+      miconic &   150 &   1 & 55--144 &  3--17 & 14 &              0.0 & 56--143 &  3--18 & 28 &  {\color{blue}+1} &   1 & 150--150 & 30--30 &  0 &               0.0 & 150--150 & 30--30 &  0 &               0.0 \\
+       mprime &    35 &   2 &  20--24 &   4--9 & 14 & {\color{blue}+1} &  18--31 &  5--13 & 26 &  {\color{blue}+8} &   3 &   31--35 &  6--10 & 13 &  {\color{blue}+8} &   31--35 &  9--22 & 26 & {\color{blue}+19} \\
+    nomystery &    20 &   1 &   8--20 &  4--13 & 14 &              0.0 &   8--20 &  4--21 & 25 &  {\color{blue}+7} &   2 &    6--20 &  1--24 & 15 &  {\color{blue}+1} &   12--20 &  7--24 & 27 &  {\color{blue}+4} \\
+   openstacks &    70 &   2 &  23--70 &  3--15 &  9 &  {\color{red}-3} &  42--64 &   6--7 &  7 &  {\color{red}-17} &   2 &    6--70 &  2--30 & 15 &  {\color{blue}+1} &   70--70 & 19--27 & 22 & {\color{blue}+22} \\
+organic-split &    20 &   2 &   7--15 &  3--16 & 14 & {\color{blue}+1} &  13--14 & 12--17 & 21 &  {\color{blue}+6} &   2 &    6--14 &  3--21 & 15 &  {\color{blue}+2} &    3--12 &  2--18 & 28 &  {\color{blue}+3} \\
+  parcprinter &    50 &   1 &  16--39 &  7--18 & 14 &  {\color{red}-1} &  42--50 & 19--30 & 26 &  {\color{blue}+4} &   1 &   30--50 & 16--30 &  9 &               0.0 &   13--50 &  8--30 & 17 &  {\color{blue}+4} \\
+      parking &    40 &   3 &   0--11 &  7--17 & 15 &              0.0 &   0--15 &  9--18 & 26 &   {\color{red}-2} &   1 &   23--40 &  0--23 & 14 &               0.0 &   35--40 & 14--18 & 18 &  {\color{blue}+5} \\
+     pathways &    30 &   3 &    4--5 &  9--16 & 11 & {\color{blue}+3} &    4--5 & 13--16 & 20 &  {\color{blue}+4} &   1 &    9--30 & 12--25 & 12 &               0.0 &   25--30 & 23--26 & 23 &   {\color{red}-2} \\
+       pegsol &    50 &   1 &  44--48 & 25--28 & 11 & {\color{blue}+2} &  46--50 & 26--30 & 20 &               0.0 &   1 &   49--50 & 30--30 &  0 &   {\color{red}-5} &   48--50 & 28--30 & 12 &  {\color{blue}+5} \\
+     pipes-nt &    50 &   4 &  15--22 & 14--20 & 12 &              0.0 &  19--25 & 15--22 & 25 &  {\color{blue}+2} &   3 &   31--45 &  6--25 & 13 &               0.0 &   43--50 & 23--30 & 26 &  {\color{blue}+2} \\
+      pipes-t &    50 &   4 &  12--16 & 11--15 & 13 & {\color{blue}+1} &  15--22 & 15--20 & 21 &   {\color{red}-2} &   3 &   15--44 &  3--30 & 14 &               0.0 &   40--44 & 28--30 & 20 &   {\color{red}-5} \\
+       rovers &    40 &   2 &   6--14 &  2--16 &  9 &  {\color{red}-4} &   6--13 &  2--14 & 22 &   {\color{red}-4} &   4 &   26--40 & 20--30 &  5 &               0.0 &   38--40 & 30--30 &  0 &   {\color{red}-7} \\
+    satellite &    36 &   2 &   6--10 &  5--21 & 13 & {\color{blue}+1} &   7--14 & 12--22 & 28 &  {\color{blue}+7} &   1 &   28--36 & 10--19 & 12 &   {\color{red}-2} &   26--36 &  7--15 & 25 &  {\color{blue}+2} \\
+   scanalyzer &    50 &   3 &  15--29 &  9--17 &  5 &  {\color{red}-4} &  21--33 &  9--17 & 22 &   {\color{red}-4} &   1 &   42--50 &  8--19 & 14 &  {\color{blue}+2} &   48--50 &  9--16 & 25 & {\color{blue}+13} \\
+        snake &    20 &   2 &   4--12 &  4--15 & 12 &              0.0 &   7--14 &  3--15 & 24 &  {\color{blue}+2} &   1 &    5--12 &  9--19 &  9 &   {\color{red}-3} &    3--17 &  6--17 & 27 &               0.0 \\
+      sokoban &    50 &   2 &  11--50 &  0--24 & 15 & {\color{blue}+1} &  48--50 & 15--25 & 28 &  {\color{blue}+8} &   1 &    8--48 &  7--22 & 14 &  {\color{blue}+1} &   29--50 & 16--27 & 27 &  {\color{blue}+2} \\
+      storage &    30 &   2 &  14--16 &  4--14 & 12 & {\color{blue}+3} &  15--18 &  6--24 & 27 &  {\color{blue}+6} &   2 &   19--30 &  3--22 & 14 &               0.0 &   21--30 &  7--21 & 25 &   {\color{red}-1} \\
+       termes &    20 &   3 &   6--18 &  7--12 &  5 &  {\color{red}-8} &   5--15 &  7--12 &  7 &  {\color{red}-18} &   2 &    0--15 &  0--21 & 15 &               0.0 &    6--15 &  2--20 & 25 &   {\color{red}-2} \\
+       tetris & 17/20 &   3 &   6--10 &  8--21 & 14 & {\color{blue}+1} &   9--13 & 19--22 & 21 &   {\color{red}-1} &   2 &    6--16 &  0--11 & 11 &   {\color{red}-3} &   15--20 &  9--18 & 24 &  {\color{blue}+6} \\
+   thoughtful & --/20 &   3 &      -- &   5--5 &  0 &               -- &      -- &   5--8 &  7 &                -- &   1 &    5--17 &  0--19 & 14 &               0.0 &   17--20 & 22--30 & 24 &  {\color{blue}+5} \\
+      tidybot & 40/20 &   2 &  19--30 &  4--11 & 13 & {\color{blue}+1} &  11--32 &  4--12 & 24 &   {\color{red}-1} &   1 &   13--20 &  6--21 & 13 &  {\color{blue}+1} &   18--20 & 13--24 & 24 &  {\color{blue}+4} \\
+          tpp &    30 &   1 &    6--8 &   2--6 &  9 &  {\color{red}-2} &   7--20 &  4--20 & 22 &   {\color{red}-2} &   1 &   23--30 &  7--20 & 14 &  {\color{blue}+5} &   29--30 &  8--16 & 22 &  {\color{blue}+7} \\
+    transport &    70 &   4 &  23--33 & 10--17 & 14 &              0.0 &  24--35 & 12--21 & 21 &               0.0 &   3 &   13--70 &  3--21 & 14 &               0.0 &   62--70 & 12--19 & 25 & {\color{blue}+18} \\
+     visitall &    40 &   2 &  12--28 &  3--20 & 15 &              0.0 &  12--30 &  2--18 & 27 &  {\color{blue}+1} &   1 &    3--40 &  5--29 & 15 &  {\color{blue}+3} &   36--40 & 19--28 & 25 & {\color{blue}+18} \\
+  woodworking &    50 &   2 &  11--48 &  5--10 &  9 &  {\color{red}-3} &  38--50 &  8--17 & 25 &  {\color{blue}+4} &   2 &   43--50 &  3--17 & 15 & {\color{blue}+10} &   28--50 &  5--23 & 25 & {\color{blue}+12} \\
+   zenotravel &    20 &   6 &   8--13 &  5--16 & 14 &              0.0 &   7--13 &  5--22 & 26 &  {\color{blue}+3} &   1 &   20--20 &  8--15 & 14 & {\color{blue}+14} &   20--20 &  5--12 & 24 & {\color{blue}+24} \\
 \bottomrule
 \end{tabular}
 
@@ -4494,50 +4494,50 @@ organic-split &    20 &   2 &   7--15 &  3--16 &  14 & {\color{blue}+1} &  13--1
 
 & & & \multicolumn{2}{c}{cov range} & \multicolumn{2}{c}{comp (91)} & & \multicolumn{2}{c}{cov range} & \multicolumn{2}{c}{comp (91)} \\
 
-      Optimal & \#IPC & \#s &     IPC &    New & New &               dif & \#s &      IPC &    New & New &               dif \\
+      Optimal & \#IPC & \#s &     IPC &     AS & AS &              diff & \#s &      IPC &     AS & AS &              diff \\
 \midrule
-     agricola &    20 &   5 &   0--13 &  0--16 &  80 & {\color{blue}+13} &   3 &    0--13 &  0--30 &  69 &  {\color{red}-11} \\
-      airport &    50 &   2 &  22--38 &  2--19 &  81 &   {\color{red}-2} &   2 &   34--48 & 14--27 &  83 &   {\color{red}-2} \\
-       barman & 34/40 &   3 &   4--16 &  8--16 &  83 & {\color{blue}+28} &   2 &   17--40 &  0--27 &  88 & {\color{blue}+36} \\
-  blocksworld &    35 &   2 &  18--34 & 10--20 &  78 & {\color{blue}+16} &   1 &   35--35 &  4--27 &  89 & {\color{blue}+89} \\
-   childsnack &    20 &   3 &    0--6 &  5--14 &  61 &               0.0 &   2 &    0--20 &  0--23 &  85 &   {\color{red}-1} \\
- data-network &    20 &   2 &   6--14 &  7--14 &  77 &   {\color{red}-8} &   2 &    2--19 &  3--27 &  87 &  {\color{blue}+4} \\
-       depots &    22 &   3 &   4--14 &  9--18 &  69 &   {\color{red}-6} &   1 &   17--22 &  4--17 &  77 & {\color{blue}+41} \\
-    driverlog &    20 &   3 &   7--15 &  2--20 &  86 & {\color{blue}+21} &   1 &   18--20 &  7--30 &  89 & {\color{blue}+76} \\
-    elevators &    50 &   4 &   7--44 &  0--14 &  77 &   {\color{red}-8} &   1 &   11--50 &  2--30 &  63 & {\color{blue}+27} \\
-    floortile &    40 &   2 &   2--34 &  3--20 &  82 &  {\color{blue}+2} &   1 &    4--40 &  1--15 &  76 &  {\color{blue}+2} \\
-     freecell &    80 &   2 &  15--70 &  4--19 &  68 &   {\color{red}-7} &   1 &   46--80 & 10--29 &  81 & {\color{blue}+38} \\
-          ged &    20 &   3 &  15--19 & 17--23 &  48 &   {\color{red}-1} &   1 &    0--20 &  3--30 &  62 & {\color{blue}+37} \\
-         grid &     5 &   1 &    1--3 &  8--25 &  83 & {\color{blue}+24} &   1 &     4--5 &  4--17 &  74 & {\color{blue}+61} \\
-      gripper &    20 &   1 &   7--20 & 10--30 &  49 &               0.0 &   1 &   20--20 & 26--30 &  25 & {\color{blue}+25} \\
-       hiking &    20 &   3 &   9--19 &   2--9 &  46 &  {\color{red}-34} &   1 &    1--20 &  1--20 &  88 & {\color{blue}+26} \\
-    logistics &    63 &   4 &  12--36 &  9--27 &  86 &               0.0 &   1 &   51--63 &  0--18 &  84 & {\color{blue}+22} \\
-      miconic &   150 &   1 & 55--144 &  3--18 &  85 &   {\color{red}-3} &   1 & 150--150 & 30--30 &   0 &               0.0 \\
-       mprime &    35 &   2 &  18--31 &  4--13 &  82 & {\color{blue}+15} &   3 &   31--35 &  6--22 &  82 & {\color{blue}+58} \\
-    nomystery &    20 &   1 &   8--20 &  4--21 &  85 & {\color{blue}+16} &   2 &    6--20 &  1--24 &  87 &  {\color{blue}+4} \\
-   openstacks &    70 &   2 &  23--70 &  3--15 &  36 &  {\color{red}-45} &   2 &    6--70 &  2--30 &  83 & {\color{blue}+37} \\
-organic-split &    20 &   2 &   7--15 &  3--17 &  82 &  {\color{blue}+9} &   2 &    3--14 &  2--21 &  89 &  {\color{blue}+3} \\
-  parcprinter &    50 &   1 &  16--50 &  7--30 &  88 &  {\color{blue}+3} &   1 &   13--50 &  8--30 &  54 &  {\color{blue}+8} \\
-      parking &    40 &   3 &   0--15 &  7--18 &  84 &   {\color{red}-3} &   1 &   23--40 &  0--23 &  80 & {\color{blue}+17} \\
-     pathways &    30 &   3 &    4--5 &  9--16 &  75 & {\color{blue}+27} &   1 &    9--30 & 12--26 &  75 &   {\color{red}-4} \\
-       pegsol &    50 &   1 &  44--50 & 25--30 &  65 &  {\color{blue}+6} &   1 &   48--50 & 28--30 &  24 &   {\color{red}-1} \\
-     pipes-nt &    50 &   4 &  15--25 & 14--22 &  83 &               0.0 &   3 &   31--50 &  6--30 &  81 &  {\color{blue}+4} \\
-      pipes-t &    50 &   4 &  12--22 & 11--20 &  80 &  {\color{blue}+1} &   3 &   15--44 &  3--30 &  72 &   {\color{red}-8} \\
-       rovers &    40 &   2 &   6--14 &  2--16 &  67 &  {\color{red}-16} &   4 &   26--40 & 20--30 &  13 &  {\color{red}-12} \\
-    satellite &    36 &   2 &   6--14 &  5--22 &  87 &  {\color{blue}+8} &   1 &   26--36 &  7--19 &  77 &  {\color{blue}+2} \\
-   scanalyzer &    50 &   3 &  15--33 &  9--17 &  69 &  {\color{red}-10} &   1 &   42--50 &  8--19 &  84 & {\color{blue}+30} \\
-        snake &    20 &   2 &   4--14 &  3--15 &  81 & {\color{blue}+13} &   1 &    3--17 &  6--19 &  79 &   {\color{red}-5} \\
-      sokoban &    50 &   2 &  11--50 &  0--25 &  90 & {\color{blue}+16} &   1 &    8--50 &  7--27 &  87 &  {\color{blue}+6} \\
-      storage &    30 &   2 &  14--18 &  4--24 &  83 & {\color{blue}+13} &   2 &   19--30 &  3--22 &  87 &  {\color{blue}+3} \\
-       termes &    20 &   3 &   5--18 &  7--12 &  24 &  {\color{red}-56} &   2 &    0--15 &  0--21 &  87 &  {\color{blue}+2} \\
-       tetris & 17/20 &   3 &   6--13 &  8--22 &  80 &   {\color{red}-1} &   2 &    6--20 &  0--18 &  81 &  {\color{blue}+4} \\
-   thoughtful & --/20 &   3 &      -- &   5--8 &  13 &                -- &   1 &    5--20 &  0--30 &  86 &  {\color{blue}+7} \\
-      tidybot & 40/20 &   2 &  11--32 &  4--12 &  78 &   {\color{red}-5} &   1 &   13--20 &  6--24 &  85 &  {\color{blue}+9} \\
-          tpp &    30 &   1 &   6--20 &  2--20 &  78 &  {\color{blue}+2} &   1 &   23--30 &  7--20 &  78 & {\color{blue}+29} \\
-    transport &    70 &   4 &  23--35 & 10--21 &  77 &  {\color{blue}+4} &   3 &   13--70 &  3--21 &  85 & {\color{blue}+24} \\
-     visitall &    40 &   2 &  12--30 &  2--20 &  86 &  {\color{blue}+1} &   1 &    3--40 &  5--29 &  88 & {\color{blue}+42} \\
-  woodworking &    50 &   2 &  11--50 &  5--17 &  82 &  {\color{blue}+1} &   2 &   28--50 &  3--23 &  86 & {\color{blue}+50} \\
-   zenotravel &    20 &   6 &   7--13 &  5--22 &  86 & {\color{blue}+10} &   1 &   20--20 &  5--15 &  82 & {\color{blue}+82} \\
+     agricola &    20 &   5 &   0--13 &  0--16 & 80 & {\color{blue}+13} &   3 &    0--13 &  0--30 & 69 &  {\color{red}-11} \\
+      airport &    50 &   2 &  22--38 &  2--19 & 81 &   {\color{red}-2} &   2 &   34--48 & 14--27 & 83 &   {\color{red}-2} \\
+       barman & 34/40 &   3 &   4--16 &  8--16 & 83 & {\color{blue}+28} &   2 &   17--40 &  0--27 & 88 & {\color{blue}+36} \\
+  blocksworld &    35 &   2 &  18--34 & 10--20 & 78 & {\color{blue}+16} &   1 &   35--35 &  4--27 & 89 & {\color{blue}+89} \\
+   childsnack &    20 &   3 &    0--6 &  5--14 & 61 &               0.0 &   2 &    0--20 &  0--23 & 85 &   {\color{red}-1} \\
+ data-network &    20 &   2 &   6--14 &  7--14 & 77 &   {\color{red}-8} &   2 &    2--19 &  3--27 & 87 &  {\color{blue}+4} \\
+       depots &    22 &   3 &   4--14 &  9--18 & 69 &   {\color{red}-6} &   1 &   17--22 &  4--17 & 77 & {\color{blue}+41} \\
+    driverlog &    20 &   3 &   7--15 &  2--20 & 86 & {\color{blue}+21} &   1 &   18--20 &  7--30 & 89 & {\color{blue}+76} \\
+    elevators &    50 &   4 &   7--44 &  0--14 & 77 &   {\color{red}-8} &   1 &   11--50 &  2--30 & 63 & {\color{blue}+27} \\
+    floortile &    40 &   2 &   2--34 &  3--20 & 82 &  {\color{blue}+2} &   1 &    4--40 &  1--15 & 76 &  {\color{blue}+2} \\
+     freecell &    80 &   2 &  15--70 &  4--19 & 68 &   {\color{red}-7} &   1 &   46--80 & 10--29 & 81 & {\color{blue}+38} \\
+          ged &    20 &   3 &  15--19 & 17--23 & 48 &   {\color{red}-1} &   1 &    0--20 &  3--30 & 62 & {\color{blue}+37} \\
+         grid &     5 &   1 &    1--3 &  8--25 & 83 & {\color{blue}+24} &   1 &     4--5 &  4--17 & 74 & {\color{blue}+61} \\
+      gripper &    20 &   1 &   7--20 & 10--30 & 49 &               0.0 &   1 &   20--20 & 26--30 & 25 & {\color{blue}+25} \\
+       hiking &    20 &   3 &   9--19 &   2--9 & 46 &  {\color{red}-34} &   1 &    1--20 &  1--20 & 88 & {\color{blue}+26} \\
+    logistics &    63 &   4 &  12--36 &  9--27 & 86 &               0.0 &   1 &   51--63 &  0--18 & 84 & {\color{blue}+22} \\
+      miconic &   150 &   1 & 55--144 &  3--18 & 85 &   {\color{red}-3} &   1 & 150--150 & 30--30 &  0 &               0.0 \\
+       mprime &    35 &   2 &  18--31 &  4--13 & 82 & {\color{blue}+15} &   3 &   31--35 &  6--22 & 82 & {\color{blue}+58} \\
+    nomystery &    20 &   1 &   8--20 &  4--21 & 85 & {\color{blue}+16} &   2 &    6--20 &  1--24 & 87 &  {\color{blue}+4} \\
+   openstacks &    70 &   2 &  23--70 &  3--15 & 36 &  {\color{red}-45} &   2 &    6--70 &  2--30 & 83 & {\color{blue}+37} \\
+organic-split &    20 &   2 &   7--15 &  3--17 & 82 &  {\color{blue}+9} &   2 &    3--14 &  2--21 & 89 &  {\color{blue}+3} \\
+  parcprinter &    50 &   1 &  16--50 &  7--30 & 88 &  {\color{blue}+3} &   1 &   13--50 &  8--30 & 54 &  {\color{blue}+8} \\
+      parking &    40 &   3 &   0--15 &  7--18 & 84 &   {\color{red}-3} &   1 &   23--40 &  0--23 & 80 & {\color{blue}+17} \\
+     pathways &    30 &   3 &    4--5 &  9--16 & 75 & {\color{blue}+27} &   1 &    9--30 & 12--26 & 75 &   {\color{red}-4} \\
+       pegsol &    50 &   1 &  44--50 & 25--30 & 65 &  {\color{blue}+6} &   1 &   48--50 & 28--30 & 24 &   {\color{red}-1} \\
+     pipes-nt &    50 &   4 &  15--25 & 14--22 & 83 &               0.0 &   3 &   31--50 &  6--30 & 81 &  {\color{blue}+4} \\
+      pipes-t &    50 &   4 &  12--22 & 11--20 & 80 &  {\color{blue}+1} &   3 &   15--44 &  3--30 & 72 &   {\color{red}-8} \\
+       rovers &    40 &   2 &   6--14 &  2--16 & 67 &  {\color{red}-16} &   4 &   26--40 & 20--30 & 13 &  {\color{red}-12} \\
+    satellite &    36 &   2 &   6--14 &  5--22 & 87 &  {\color{blue}+8} &   1 &   26--36 &  7--19 & 77 &  {\color{blue}+2} \\
+   scanalyzer &    50 &   3 &  15--33 &  9--17 & 69 &  {\color{red}-10} &   1 &   42--50 &  8--19 & 84 & {\color{blue}+30} \\
+        snake &    20 &   2 &   4--14 &  3--15 & 81 & {\color{blue}+13} &   1 &    3--17 &  6--19 & 79 &   {\color{red}-5} \\
+      sokoban &    50 &   2 &  11--50 &  0--25 & 90 & {\color{blue}+16} &   1 &    8--50 &  7--27 & 87 &  {\color{blue}+6} \\
+      storage &    30 &   2 &  14--18 &  4--24 & 83 & {\color{blue}+13} &   2 &   19--30 &  3--22 & 87 &  {\color{blue}+3} \\
+       termes &    20 &   3 &   5--18 &  7--12 & 24 &  {\color{red}-56} &   2 &    0--15 &  0--21 & 87 &  {\color{blue}+2} \\
+       tetris & 17/20 &   3 &   6--13 &  8--22 & 80 &   {\color{red}-1} &   2 &    6--20 &  0--18 & 81 &  {\color{blue}+4} \\
+   thoughtful & --/20 &   3 &      -- &   5--8 & 13 &                -- &   1 &    5--20 &  0--30 & 86 &  {\color{blue}+7} \\
+      tidybot & 40/20 &   2 &  11--32 &  4--12 & 78 &   {\color{red}-5} &   1 &   13--20 &  6--24 & 85 &  {\color{blue}+9} \\
+          tpp &    30 &   1 &   6--20 &  2--20 & 78 &  {\color{blue}+2} &   1 &   23--30 &  7--20 & 78 & {\color{blue}+29} \\
+    transport &    70 &   4 &  23--35 & 10--21 & 77 &  {\color{blue}+4} &   3 &   13--70 &  3--21 & 85 & {\color{blue}+24} \\
+     visitall &    40 &   2 &  12--30 &  2--20 & 86 &  {\color{blue}+1} &   1 &    3--40 &  5--29 & 88 & {\color{blue}+42} \\
+  woodworking &    50 &   2 &  11--50 &  5--17 & 82 &  {\color{blue}+1} &   2 &   28--50 &  3--23 & 86 & {\color{blue}+50} \\
+   zenotravel &    20 &   6 &   7--13 &  5--22 & 86 & {\color{blue}+10} &   1 &   20--20 &  5--15 & 82 & {\color{blue}+82} \\
 \bottomrule
 \end{tabular}
 
