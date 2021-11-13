@@ -178,8 +178,6 @@ def write_table_instances(properties, instances_colums = ["name", "config", "rea
         for instance in properties['instances']
     ]
 
-    print(properties['instances'][0]["config"])
-
     instances_data_text = '\\\\\n'.join(instances_data)
     return f"""
                             \\begin{{center}}
@@ -204,7 +202,29 @@ def write_appendix(properties_dataset, dataset, evaluationfile, outfilename):
 
         \\begin{document}
 
+        \\tableofcontents
         """)
+
+        if os.path.isfile(evaluationfile):
+            outfile.write("""\\newpage \section{{Evaluation}}""")
+            outfile.write(
+                f"""
+                        \\begin{{table}}[h] \\centering \\scriptsize \\setlength{{\\tabcolsep}}{{2pt}}
+                        {print_results_table.get_latex_table_for_paper(evaluationfile)}
+                        \\end{{table}}
+                        """
+            )
+            outfile.write(f"""
+            \\begin{{table}} \\centering
+            {print_results_table.get_latex_table_for_appendix(evaluationfile)}
+            \\end{{table}}
+            """)
+        else:
+            print("Skipping generation of results tables because {evaluationfile} does not exist")
+
+        outfile.write("""\\newpage \section{{Domains}}""")
+
+        first_domain = True
 
         DOMAINS_WITH_GENERATOR = sorted(domains.get_domains())
 
@@ -214,8 +234,12 @@ def write_appendix(properties_dataset, dataset, evaluationfile, outfilename):
         for domain in DOMAINS_WITH_GENERATOR + DOMAINS_WITHOUT_GENERATOR:
             properties_sat = properties_dataset[dataset + "-sat"][domain]
             properties_opt = properties_dataset[dataset + "-opt"][domain]
+            if first_domain:
+                outfile.write(f"""\subsection{{{domain.capitalize()}}}""")
+                first_domain = False
+            else:
+                outfile.write(f"""\\newpage \subsection{{{domain.capitalize()}}}""")
 
-            outfile.write(f"""\\newpage \section{{{domain.capitalize()}}}""")
             if domain in domains.get_domains(): # This is a domain with an automatic instance generator
                 config_domain = domains.get_domains()[domain]
 
@@ -329,21 +353,6 @@ def write_appendix(properties_dataset, dataset, evaluationfile, outfilename):
 
 
 
-        if os.path.isfile(evaluationfile):
-            outfile.write(
-                f"""
-                        \\begin{{table}} \\centering \\scriptsize \\setlength{{\\tabcolsep}}{{2pt}}
-                        {print_results_table.get_latex_table_for_paper(evaluationfile)}
-                        \\end{{table}}
-                        """
-            )
-            outfile.write(f"""
-            \\begin{{table}} \\centering
-            {print_results_table.get_latex_table_for_appendix(evaluationfile)}
-            \\end{{table}}
-            """)
-        else:
-            print("Skipping generation of results tables because {evaluationfile} does not exist")
         outfile.write("\\end{document}")
 
 
