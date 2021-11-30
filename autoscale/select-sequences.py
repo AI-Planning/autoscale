@@ -17,7 +17,8 @@ import warnings
 import math
 import shutil
 import sequences
-
+import domains_without_generator
+import json
 try:
     import cplex
     from cplex.exceptions import CplexError
@@ -136,6 +137,18 @@ def parse_args():
     parser.add_argument(
         "--skip-check-penalty", action="store_true",
         help="Disables the warning for penalties (recommended in case known differences exist)"
+    )
+
+    parser.add_argument(
+        "--use-ipc-instances", action="store_true",
+        help="Uses IPC instances from the domains as subsequences. Requires having configured "
+    )
+
+    parser.add_argument(
+        "--database-ipc",  nargs="+",
+        default = ["../experiments/results/2020-11-23-A-optimization-planners-ipc-properties.json",
+                   "../experiments/results/2020-12-05-A-evaluation-opt-ipc-properties.json"],
+        help="Runtime information regarding the IPC instances"
     )
 
     return parser.parse_args()
@@ -282,6 +295,20 @@ while len(candidate_sequences) < ARGS.max_sequences_per_enum and evaluated_seque
 if len(candidate_sequences) == 0:
     sys.exit("Error: no valid sequences")
 
+if ARGS.use_ipc_instances or True:
+    data_ipc_instances = domains_without_generator.DataDomain("/home/alvaro/benchmarks/downward-benchmarks", logging, ARGS.track)
+    for filename in ARGS.database_ipc:
+        with open(filename) as f:
+            data = json.load(f)
+
+            for _, data in data.items():
+                if data['domain'] in domain.get_ipc_names()[ARGS.track]:
+                    data_ipc_instances.add(data, ARGS.track == "opt")
+
+    for ipcseq in data_ipc_instances.get_sequences():
+        new_seq = cplex_sequence_mgr.new_sequence_without_generator(ipcseq, data_ipc_instances, PLANNER_TIME_LIMIT, reward=10000)
+        candidate_sequences.append(new_seq)
+
 logging.info(f"Candidate sequences: {len(candidate_sequences)}")
 logging.debug("Candidate sequences: \n {}".format('\n '.join(map(str, candidate_sequences))))
 
@@ -321,8 +348,10 @@ if any(using_baseline) and not all(using_baseline):
 
     # exit(0)
 
+
 if ARGS.no_cplex:
     sys.exit()
+
 
 final_selection = cplex_sequence_mgr.perform_cplex_optimization(domain, ARGS.tasks, candidate_sequences)
 

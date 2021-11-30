@@ -39,10 +39,11 @@ class CPLEXConstraint:
 
 
 class CPLEXSequence:
-    def __init__(self, seq_id, sequence_config, domain, sart_eval, baseline_eval, sequence_length, planner_time_limit, logging, is_domain_without_generator = False):
+    def __init__(self, seq_id, sequence_config, domain, sart_eval, baseline_eval, sequence_length, planner_time_limit, logging, is_domain_without_generator = False, reward=0):
         self.logging = logging
         self.seq_id = seq_id
         self.config = sequence_config
+        self.reward = reward
 
         runtimes_sart = sart_eval.get_runtimes(sequence_length, 0, planner_time_limit)
         self.logging.debug(f"Sart runtimes {runtimes_sart}")
@@ -132,6 +133,9 @@ class CPLEXSequence:
         return str(self)
 
     def has_enum_value(self, name, value):
+        if name not in self.config: #In linear attrs we are comparing against the initial value in the sequence
+            name = name + "_b"
+
         return self.config[name] == value or (isinstance(value, tuple) and  self.config[name] in value)
 
     def get_instances(self, i, endi):
@@ -162,6 +166,7 @@ class CPLEXSequence:
         self.start_var_names = [f"seq-{self.seq_id}-{i}" for i in range(self.latest_start)]
         var_types = [t.binary for _ in self.start_var_names]
         objective_values = [self.penalty for _ in self.start_var_names]  # Add penalty for including this sequence
+        objective_values[0] -= self.reward
         self.start_var_index = {
             self.start_var_names[i]: index
             for i, index in enumerate(cplex_problem.variables.add(
@@ -180,6 +185,7 @@ class CPLEXSequence:
                 return 0
 
         objective_values = [penalty_termination(self.sorted_runtimes[t]) for t in range(self.earliest_end, self.latest_end)]
+        objective_values[-1] -= self.reward
         # Add penalty for terminating sequence at the wrong point
         self.end_var_index = {self.end_var_names[i]: index for i, index in enumerate(
             cplex_problem.variables.add(obj=objective_values, types=var_types, names=self.end_var_names))}
@@ -242,12 +248,12 @@ class CPLEXSequenceManager:
 
         self.trivial_instances = set()
 
-    def new_sequence_without_generator(self, sequence, domain_without_generator, planner_time_limit):
+    def new_sequence_without_generator(self, sequence, domain_without_generator, planner_time_limit, reward=0):
         baseline_eval = sequences.EvaluatedSequence(sequence,
                                                     domain_without_generator.baseline_runtimes_sequence(sequence))
         sart_eval = sequences.EvaluatedSequence(sequence, domain_without_generator.sart_runtimes_sequence(sequence))
         new_seq = CPLEXSequence(self.SEQ_ID, sequence, domain_without_generator, sart_eval, baseline_eval,
-                                len(sequence), planner_time_limit, self.logging, is_domain_without_generator=True)
+                                len(sequence), planner_time_limit, self.logging, is_domain_without_generator=True, reward=reward)
         if new_seq.seq_id == -1 or len(new_seq.evaluated_instances) == 0:
             self.logging.debug(f"Discarding sequence {new_seq.runtimes_baseline} {new_seq.runtimes_sart}")
             return None

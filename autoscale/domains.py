@@ -16,8 +16,9 @@ PRECISION = None  # Set via command line.
 
 
 class LinearAttr:
+    # at_least_instances is a set of pairs (b, n) that allows specifying that at least n instances will correspond to a sequence with b=b
     def __init__(self, name, base_attr=None, lower_b=1, upper_b=20, lower_m=0.1, upper_m=5.0, default_m=1.0,
-                 optional_m=False, reach_at_least=[], reach_at_most=[]):
+                 optional_m=False, reach_at_least=[], reach_at_most=[], at_least_instances_b = []):
         self.name = name
         self.lower_b = lower_b
         self.upper_b = upper_b
@@ -28,6 +29,7 @@ class LinearAttr:
         self.optional_m = optional_m
         self.reach_at_least = reach_at_least
         self.reach_at_most = reach_at_most
+        self.at_least_instances_b = at_least_instances_b
 
     def has_lowest_value(self, cfg):
         return self.lower_b == cfg[f"{self.name}_b"]
@@ -90,6 +92,9 @@ class LinearAttr:
             if use_m:
                 val += m
 
+    def get_enum_constraint(self):
+        return self.at_least_instances_b
+
     def __str__(self):
         return f"Linear(b=[{self.lower_b}, {self.upper_b}], m=[{0 if self.optional_m else self.lower_m}, {self.upper_m}{'' if self.base_attr is None else ' + ' +self.base_attr}])"
 
@@ -120,7 +125,7 @@ class GridAttr:
 
         return self.lower_x <= x <= self.upper_x and \
                self.lower_m <= m <= self.upper_m and \
-               (self.optional_m or f'{self.name}_optional_m' not in cfg or cfg[f'{self.name}_optional_m'] == False)
+               (self.optional_m or f'{self.name}_optional_m' not in cfg or cfg[f'{self.name}_optional_m'] == 'false')
 
 
 
@@ -198,10 +203,10 @@ class ConstantAttr:
         return str(self)
 
 class EnumAttr:
-    def __init__(self, name, values, atleast_instances=None):
+    def __init__(self, name, values, at_least_instances=None):
         self.values = values
         self.name = name
-        self.atleast_instances = atleast_instances
+        self.at_least_instances = at_least_instances
 
     def get_hyperparameters(self):
         return [CategoricalHyperparameter(self.name, self.values)]
@@ -224,7 +229,7 @@ class EnumAttr:
         return str(self)
 
     def get_enum_constraint(self):
-        return self.atleast_instances
+        return self.at_least_instances
 
 
 def eliminate_duplicates(list_elements):
@@ -264,7 +269,8 @@ class Domain:
             self, name, generator_command, attributes, adapt_parameters=None, discard_sequence_function=None,
             num_sequences_linear_hierarchy=3,
             penalty_for_instances_with_duplicated_parameters=100.0,
-            time_limit_to_consider_trivial=30 # An instance is trivial if the baseline solves it under this time limit
+            time_limit_to_consider_trivial=30, # An instance is trivial if the baseline solves it under this time limit
+            ipc_names = {}
         ):
         self.name = name
         self.attributes = attributes
@@ -278,6 +284,7 @@ class Domain:
         self.penalty_for_instances_with_duplicated_parameters = penalty_for_instances_with_duplicated_parameters
         self.discard_sequence_function = discard_sequence_function
         self.time_limit_to_consider_trivial = time_limit_to_consider_trivial
+        self.ipc_names = ipc_names
 
     def get_penalty_for_instances_with_duplicated_parameters(self):
         return self.penalty_for_instances_with_duplicated_parameters
@@ -364,6 +371,9 @@ class Domain:
                 return True
         return False
 
+    def get_ipc_names(self):
+        return self.ipc_names
+
 
 def adapt_parameters_floortile(parameters):
     """
@@ -437,10 +447,12 @@ def discard_sequence_termes(sequence):
                 sequence['config'][f"{atr}_optional_m"] == 'false']
     m_blocks = [float(sequence['config'][f"{atr}_m"]) for atr in ['min_height', 'max_height', 'num_towers'] if
                 sequence['config'][f"{atr}_optional_m"] == 'false']
-    if not m_height or (sum(m_height) < 0.3):
-        return True
+    if m_height and (sum(m_height) > 0.01):
+        return True # Discard sequences were height grows too fast
     if not m_blocks or (max(m_blocks) < 0.3 and sum(m_blocks) < 0.5):
         return True
+
+
     return False
 
 def discard_sequence_elevators(sequence):
@@ -524,7 +536,7 @@ DOMAIN_LIST = [
            "create_woodworking_instance.py {wood_factor} {size} {num_machines} {seed}",
            [LinearAttr("size", lower_b=2, upper_b=30, lower_m=1, upper_m=10),
             EnumAttr("num_machines", [1, 2, 3]),
-            EnumAttr("wood_factor", [1.0, 1.25, 1.5, 2.0], atleast_instances=[((1.0, 1.25), 10), ((1.5, 2.0), 10)])]
+            EnumAttr("wood_factor", [1.0, 1.25, 1.5, 2.0], at_least_instances=[((1.0, 1.25), 10), ((1.5, 2.0), 10)])]
            ),
     Domain("zenotravel",
            "ztravel {seed} {cities} {planes} {people}",
@@ -549,7 +561,7 @@ DOMAIN_LIST = [
            "barman-generator.py {num_cocktails} {num_ingredients} {num_shots} {seed}",
            [LinearAttr("num_cocktails", lower_b=1, upper_b=10, lower_m=0.33),
             LinearAttr("num_shots", base_attr="num_cocktails", lower_b=1, upper_b=5, optional_m=True),
-            EnumAttr("num_ingredients", [2, 3, 4, 5, 6], atleast_instances=[((5, 6), 1)])
+            EnumAttr("num_ingredients", [2, 3, 4, 5, 6], at_least_instances=[((5, 6), 1)])
             ],
            ),
 
@@ -573,7 +585,7 @@ DOMAIN_LIST = [
 
     Domain("hiking",
            "generator.py {n_couples} {n_cars} {n_places} {seed}",
-           [LinearAttr("n_couples", lower_b=1, upper_b=10, lower_m=0.1, default_m=0.5, optional_m=True, reach_at_least=[(8, 2)]),
+           [LinearAttr("n_couples", lower_b=1, upper_b=10, lower_m=0.1, default_m=0.5, optional_m=True, at_least_instances_b=[(2, 10)]),#, reach_at_least=[(8, 2)]),
             LinearAttr("n_places", lower_b=2, upper_b=20, default_m=1),
             LinearAttr("n_cars", base_attr="n_couples", lower_b=1, upper_b=5, default_m=0.1, optional_m=True)]
            ),
@@ -600,7 +612,7 @@ DOMAIN_LIST = [
             LinearAttr("packages", lower_b=2, upper_b=10, lower_m=1, upper_m=10),
             LinearAttr("trucks", lower_b=2, upper_b=10, optional_m=True),
             EnumAttr("degree", [3, 4, 5]),
-            EnumAttr("generator", ["city-generator.py", "two-cities-generator.py", "three-cities-generator.py"], atleast_instances=[("city-generator.py", 5), ("two-cities-generator.py", 5), ("three-cities-generator.py", 5)])
+            EnumAttr("generator", ["city-generator.py", "two-cities-generator.py", "three-cities-generator.py"], at_least_instances=[("city-generator.py", 5), ("two-cities-generator.py", 5), ("three-cities-generator.py", 5)])
             ],
            ),
 
@@ -715,11 +727,13 @@ DOMAIN_LIST = [
     Domain("termes",
            "./generate-autoscale.py {seed} pddl --size_x {x} --size_y {y} --min_height {min_height} --max_height {max_height} --num_towers {num_towers} --ensure_plan --dont_remove_slack",
            [GridAttr("grid", "x", "y", lower_x=3, upper_x=10, lower_m=0, upper_m=5, optional_m=True),
-            LinearAttr("min_height", lower_b=1, upper_b=5, lower_m=0, upper_m=1, default_m=0, optional_m=True),
-            LinearAttr("max_height", lower_b=0, upper_b=5, lower_m=0.1, upper_m=1, optional_m=True,
-                       base_attr="min_height"),
+            LinearAttr("min_height", lower_b=1, upper_b=5, lower_m=0, upper_m=0.5, default_m=0, optional_m=True),
+            LinearAttr("max_height", lower_b=0, upper_b=5, lower_m=0.1, upper_m=0.5, optional_m=True,
+                       base_attr="min_height",reach_at_least=[(15, 2)]),
             LinearAttr("num_towers", lower_b=1, upper_b=4, lower_m=0.1, upper_m=2, optional_m=True),
-            ], discard_sequence_function=discard_sequence_termes)
+            ], discard_sequence_function=discard_sequence_termes,
+           ipc_names={'opt' : ["termes-opt18-strips"]}
+    )
 ]
 
 

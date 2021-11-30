@@ -14,7 +14,7 @@ def get_domain_renaming(dom):
     if dom in EXCLUDED_DOMAINS:
         return None
 
-    for ending in ["-hard", "-exhaustive", "-new", "-simple"]:
+    for ending in ["-hard", "-exhaustive", "-new", "-simple", "-opt18-strips"]:
         if dom.endswith(ending):
             return dom.replace(ending, "")
     return dom
@@ -109,6 +109,7 @@ SEQUENCES_BY_RUNTIME = {
     "pathways": lambda x: None if not "-" in x else "",
     "ged": lambda x: x.split("-")[0],
     "freecell" : lambda x: "",
+    "termes" : lambda x: "",
 }
 
 LINEAR_ATTRIBUTES = {
@@ -462,8 +463,7 @@ class DataDomain:
         for tasks in seq:
             if not isinstance(tasks, list):
                 tasks = [tasks]
-            res.append([self.tasks[t].get_baseline_opt_runtime() if self.track == "opt" else self.tasks[
-                t].get_baseline_sat_runtime() for t in tasks])
+            res.append([self.tasks[t].get_baseline_opt_runtime() if self.track == "opt" else self.tasks[t].get_baseline_sat_runtime() for t in tasks])
 
         return res
 
