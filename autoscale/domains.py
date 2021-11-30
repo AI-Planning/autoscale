@@ -648,7 +648,7 @@ DOMAIN_LIST = [
            [EnumAttr("segment_type", ["empty", "ab"]),
             EnumAttr("inout", ["none", "both", "in"]),
             LinearAttr("size", lower_b=1, upper_b=4, lower_m=1, default_m=1, upper_m=3)
-            ]
+            ], penalty_for_instances_with_duplicated_parameters = math.inf
            ),
 
     Domain("elevators",
@@ -677,7 +677,8 @@ DOMAIN_LIST = [
            ),
 
     Domain("logistics",
-           "logistics -r {seed} -a {num_airplanes} -c {num_cities} -s {city_size} -p {num_packages} -t {num_trucks}",
+           # TODO: Hack, we are passing num_cities instead of num_trucks because there was a bug in the generator. If we re-run SMAC, this should be changed.
+           "logistics -r {seed} -a {num_airplanes} -c {num_cities} -s {city_size} -p {num_packages} -t {num_cities}",
            [
                LinearAttr("num_airplanes", lower_b=1, upper_b=5, lower_m=1, default_m=0.2, upper_m=1, optional_m=True),
                LinearAttr("num_cities", lower_b=2, upper_b=10, lower_m=0, default_m=0.2, upper_m=2, optional_m=True),

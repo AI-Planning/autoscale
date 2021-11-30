@@ -295,7 +295,7 @@ while len(candidate_sequences) < ARGS.max_sequences_per_enum and evaluated_seque
 if len(candidate_sequences) == 0:
     sys.exit("Error: no valid sequences")
 
-if ARGS.use_ipc_instances or True:
+if ARGS.use_ipc_instances:
     data_ipc_instances = domains_without_generator.DataDomain("/home/alvaro/benchmarks/downward-benchmarks", logging, ARGS.track)
     for filename in ARGS.database_ipc:
         with open(filename) as f:
