@@ -1,0 +1,74 @@
+2021-12-01 00:13:01,068 INFO     Stored sequences: 3
+2021-12-01 00:13:01,068 DEBUG    Configurations in sequence ['p01-airport1-p1.pddl', 'p02-airport1-p1.pddl', 'p03-airport1-p2.pddl', 'p04-airport2-p1.pddl', 'p05-airport2-p1.pddl', 'p06-airport2-p2.pddl', 'p07-airport2-p2.pddl', 'p08-airport2-p3.pddl', 'p09-airport2-p4.pddl', 'p10-airport3-p1.pddl', 'p11-airport3-p1.pddl', 'p12-airport3-p2.pddl', 'p13-airport3-p2.pddl', 'p14-airport3-p3.pddl', 'p15-airport3-p3.pddl', 'p16-airport3-p4.pddl', 'p17-airport3-p5.pddl', 'p18-airport3-p6.pddl', 'p19-airport3-p6.pddl', 'p20-airport3-p7.pddl']
+2021-12-01 00:13:01,069 DEBUG    Sart runtimes [[0.463607], [0.473757], [0.482632], [0.613658], [0.633762], [0.657815], [0.669198], [0.669257], [0.713703], [0.742842], [0.745106], [0.830107], [0.83592], [0.871984], [0.959891], [1.10284], [1.48525], [1.52475], [3.28795], [5.74386]]
+2021-12-01 00:13:01,070 DEBUG    Baseline runtimes [[0.463607], [0.473757], [0.513879], [0.628809], [0.633762], [0.660542], [0.669198], [0.672334], [0.714833], [0.745106], [0.751072], [0.94929], [1.13166], [1.21233], [2.29011], [14.9075], [130.047], [133.205]]
+2021-12-01 00:13:01,071 DEBUG    Configurations in sequence ['p21-airport4halfMUC-p2.pddl', 'p22-airport4halfMUC-p3.pddl', 'p23-airport4halfMUC-p4.pddl', 'p24-airport4halfMUC-p4.pddl', 'p25-airport4halfMUC-p5.pddl', 'p26-airport4halfMUC-p6.pddl', 'p27-airport4halfMUC-p6.pddl', 'p28-airport4halfMUC-p7.pddl', 'p29-airport4halfMUC-p8.pddl', 'p30-airport4halfMUC-p8.pddl', 'p31-airport4halfMUC-p9.pddl', 'p32-airport4halfMUC-p10.pddl', 'p33-airport4halfMUC-p10.pddl', 'p34-airport4halfMUC-p11.pddl', 'p35-airport4halfMUC-p12.pddl']
+2021-12-01 00:13:01,071 DEBUG    Sart runtimes [[3.35887], [4.85446], [5.75696], [5.79054], [18.7642], [37.6244], [84.1325], [1821.92], [1930.58], [2365.58], [2871.16]]
+2021-12-01 00:13:01,072 DEBUG    Baseline runtimes [[3.35887], [80.9628]]
+2021-12-01 00:13:01,072 DEBUG    Configurations in sequence ['p36-airport5MUC-p2.pddl', 'p37-airport5MUC-p3.pddl', 'p38-airport5MUC-p3.pddl', 'p39-airport5MUC-p4.pddl', 'p40-airport5MUC-p4.pddl', 'p41-airport5MUC-p4.pddl', 'p42-airport5MUC-p5.pddl', 'p43-airport5MUC-p5.pddl', 'p44-airport5MUC-p5.pddl', 'p45-airport5MUC-p6.pddl', 'p46-airport5MUC-p6.pddl', 'p47-airport5MUC-p8.pddl', 'p48-airport5MUC-p9.pddl', 'p49-airport5MUC-p10.pddl', 'p50-airport5MUC-p15.pddl']
+2021-12-01 00:13:01,072 DEBUG    Sart runtimes [[4.90904], [70.2583], [103.833], [320.646], [494.931], [635.268], [940.269], [1164.92], [1619.95], [2830.65]]
+2021-12-01 00:13:01,073 DEBUG    Baseline runtimes [[6.23384], [814.929], [1565.18]]
+2021-12-01 00:13:01,073 INFO     Different evaluated sequences: 3
+2021-12-01 00:13:01,073 INFO     Candidate sequences: 3
+2021-12-01 00:13:01,073 DEBUG    Candidate sequences: 
+ Sequence(1, length=20, penalty=13.722169677116735, penalty_baseline=5.722169677116734, penalty_sart=8, config=['p01-airport1-p1.pddl', 'p02-airport1-p1.pddl', 'p03-airport1-p2.pddl', 'p04-airport2-p1.pddl', 'p05-airport2-p1.pddl', 'p06-airport2-p2.pddl', 'p07-airport2-p2.pddl', 'p08-airport2-p3.pddl', 'p09-airport2-p4.pddl', 'p10-airport3-p1.pddl', 'p11-airport3-p1.pddl', 'p12-airport3-p2.pddl', 'p13-airport3-p2.pddl', 'p14-airport3-p3.pddl', 'p15-airport3-p3.pddl', 'p16-airport3-p4.pddl', 'p17-airport3-p5.pddl', 'p18-airport3-p6.pddl', 'p19-airport3-p6.pddl', 'p20-airport3-p7.pddl'], runtimes_baseline=[0.463607, 0.473757, 0.513879, 0.628809, 0.633762, 0.660542, 0.669198, 0.672334, 0.714833, 0.745106, 0.751072, 0.94929, 1.13166, 1.21233, 2.29011, 14.9075, 130.047, 133.205], runtimes_sart=[0.463607, 0.473757, 0.482632, 0.613658, 0.633762, 0.657815, 0.669198, 0.669257, 0.713703, 0.742842, 0.745106, 0.830107, 0.83592, 0.871984, 0.959891, 1.10284, 1.48525, 1.52475, 3.28795, 5.74386]
+ Sequence(2, length=15, penalty=9.479287250067742, penalty_baseline=8, penalty_sart=1.4792872500677414, config=['p21-airport4halfMUC-p2.pddl', 'p22-airport4halfMUC-p3.pddl', 'p23-airport4halfMUC-p4.pddl', 'p24-airport4halfMUC-p4.pddl', 'p25-airport4halfMUC-p5.pddl', 'p26-airport4halfMUC-p6.pddl', 'p27-airport4halfMUC-p6.pddl', 'p28-airport4halfMUC-p7.pddl', 'p29-airport4halfMUC-p8.pddl', 'p30-airport4halfMUC-p8.pddl', 'p31-airport4halfMUC-p9.pddl', 'p32-airport4halfMUC-p10.pddl', 'p33-airport4halfMUC-p10.pddl', 'p34-airport4halfMUC-p11.pddl', 'p35-airport4halfMUC-p12.pddl'], runtimes_baseline=[3.35887, 80.9628], runtimes_sart=[3.35887, 4.85446, 5.75696, 5.79054, 18.7642, 37.6244, 84.1325, 1821.92, 1930.58, 2365.58, 2871.16]
+ Sequence(3, length=15, penalty=14.044249576206655, penalty_baseline=8, penalty_sart=6.044249576206655, config=['p36-airport5MUC-p2.pddl', 'p37-airport5MUC-p3.pddl', 'p38-airport5MUC-p3.pddl', 'p39-airport5MUC-p4.pddl', 'p40-airport5MUC-p4.pddl', 'p41-airport5MUC-p4.pddl', 'p42-airport5MUC-p5.pddl', 'p43-airport5MUC-p5.pddl', 'p44-airport5MUC-p5.pddl', 'p45-airport5MUC-p6.pddl', 'p46-airport5MUC-p6.pddl', 'p47-airport5MUC-p8.pddl', 'p48-airport5MUC-p9.pddl', 'p49-airport5MUC-p10.pddl', 'p50-airport5MUC-p15.pddl'], runtimes_baseline=[6.23384, 814.929, 1565.18], runtimes_sart=[4.90904, 70.2583, 103.833, 320.646, 494.931, 635.268, 940.269, 1164.92, 1619.95, 2830.65]
+2021-12-01 00:13:01,073 INFO     Using sart runtimes on CPLEX optimization
+2021-12-01 00:13:01,095 INFO     CPLEX solve
+
+2021-12-01 00:13:01,101 INFO     Solution status = 101: MIP_optimal
+2021-12-01 00:13:01,101 INFO     Solution value  = 1644.503302969936
+2021-12-01 00:13:01,101 INFO     CPLEX Solved Instances: 16.0
+2021-12-01 00:13:01,101 INFO     CPLEX Trivial Instances: 2.0
+2021-12-01 00:13:01,101 DEBUG    START: seq-2-0 21
+Selected: sequence 2, 15 instances from 0 to 14
+Configuration: ['p21-airport4halfMUC-p2.pddl', 'p22-airport4halfMUC-p3.pddl', 'p23-airport4halfMUC-p4.pddl', 'p24-airport4halfMUC-p4.pddl', 'p25-airport4halfMUC-p5.pddl', 'p26-airport4halfMUC-p6.pddl', 'p27-airport4halfMUC-p6.pddl', 'p28-airport4halfMUC-p7.pddl', 'p29-airport4halfMUC-p8.pddl', 'p30-airport4halfMUC-p8.pddl', 'p31-airport4halfMUC-p9.pddl', 'p32-airport4halfMUC-p10.pddl', 'p33-airport4halfMUC-p10.pddl', 'p34-airport4halfMUC-p11.pddl', 'p35-airport4halfMUC-p12.pddl']
+Penalty: 9.48
+Penalty sart: 1.48
+Penalty baseline: 8.00
+Seq Estimated runtimes: 3.4,4.9,5.8,5.8,19,38,84,1.8e+03,1.9e+03,2.4e+03,2.9e+03,1.3e+04,6.2e+04,2.9e+05,1.4e+06
+Seq instances: ['p21-airport4halfMUC-p2.pddl', 'p22-airport4halfMUC-p3.pddl', 'p23-airport4halfMUC-p4.pddl', 'p24-airport4halfMUC-p4.pddl', 'p25-airport4halfMUC-p5.pddl', 'p26-airport4halfMUC-p6.pddl', 'p27-airport4halfMUC-p6.pddl', 'p28-airport4halfMUC-p7.pddl', 'p29-airport4halfMUC-p8.pddl', 'p30-airport4halfMUC-p8.pddl', 'p31-airport4halfMUC-p9.pddl', 'p32-airport4halfMUC-p10.pddl', 'p33-airport4halfMUC-p10.pddl', 'p34-airport4halfMUC-p11.pddl', 'p35-airport4halfMUC-p12.pddl']
+2021-12-01 00:13:01,101 DEBUG    END: end-2-14 34
+2021-12-01 00:13:01,101 DEBUG    START: seq-3-0 35
+Selected: sequence 3, 15 instances from 0 to 14
+Configuration: ['p36-airport5MUC-p2.pddl', 'p37-airport5MUC-p3.pddl', 'p38-airport5MUC-p3.pddl', 'p39-airport5MUC-p4.pddl', 'p40-airport5MUC-p4.pddl', 'p41-airport5MUC-p4.pddl', 'p42-airport5MUC-p5.pddl', 'p43-airport5MUC-p5.pddl', 'p44-airport5MUC-p5.pddl', 'p45-airport5MUC-p6.pddl', 'p46-airport5MUC-p6.pddl', 'p47-airport5MUC-p8.pddl', 'p48-airport5MUC-p9.pddl', 'p49-airport5MUC-p10.pddl', 'p50-airport5MUC-p15.pddl']
+Penalty: 14.04
+Penalty sart: 6.04
+Penalty baseline: 8.00
+Seq Estimated runtimes: 4.9,70,1e+02,3.2e+02,4.9e+02,6.4e+02,9.4e+02,1.2e+03,1.6e+03,2.8e+03,1e+04,3.5e+04,1.2e+05,4.4e+05,1.6e+06
+Seq instances: ['p36-airport5MUC-p2.pddl', 'p37-airport5MUC-p3.pddl', 'p38-airport5MUC-p3.pddl', 'p39-airport5MUC-p4.pddl', 'p40-airport5MUC-p4.pddl', 'p41-airport5MUC-p4.pddl', 'p42-airport5MUC-p5.pddl', 'p43-airport5MUC-p5.pddl', 'p44-airport5MUC-p5.pddl', 'p45-airport5MUC-p6.pddl', 'p46-airport5MUC-p6.pddl', 'p47-airport5MUC-p8.pddl', 'p48-airport5MUC-p9.pddl', 'p49-airport5MUC-p10.pddl', 'p50-airport5MUC-p15.pddl']
+2021-12-01 00:13:01,101 DEBUG    END: end-3-14 44
+  p01: p21-airport4halfMUC-p2.pddl   3.35887 3.35887 3.35887
+  p02: p22-airport4halfMUC-p3.pddl   4.85446 80.9628 4.85446
+  p03: p23-airport4halfMUC-p4.pddl   5.75696 unsolved 5.75696
+  p04: p24-airport4halfMUC-p4.pddl   5.79054 unsolved 5.79054
+  p05: p25-airport4halfMUC-p5.pddl   18.7642 unsolved 18.7642
+  p06: p26-airport4halfMUC-p6.pddl   37.6244 unsolved 84.1325
+  p07: p27-airport4halfMUC-p6.pddl   84.1325 unsolved 37.6244
+  p08: p28-airport4halfMUC-p7.pddl   1821.92 unsolved 1930.58
+  p09: p29-airport4halfMUC-p8.pddl   1930.58 unsolved unsolved
+  p10: p30-airport4halfMUC-p8.pddl   2365.58 unsolved 1821.92
+  p11: p31-airport4halfMUC-p9.pddl   2871.16 unsolved 2365.58
+  p12: p32-airport4halfMUC-p10.pddl   13386.075377864367 unsolved unsolved
+  p13: p33-airport4halfMUC-p10.pddl   62409.275004481344 unsolved 2871.16
+  p14: p34-airport4halfMUC-p11.pddl   290967.8525362062 unsolved unsolved
+  p15: p35-airport4halfMUC-p12.pddl   1356565.8502434485 unsolved unsolved
+  p16: p36-airport5MUC-p2.pddl   4.90904 6.23384 4.90904
+  p17: p37-airport5MUC-p3.pddl   70.2583 1565.18 70.2583
+  p18: p38-airport5MUC-p3.pddl   103.833 814.929 103.833
+  p19: p39-airport5MUC-p4.pddl   320.646 unsolved 635.268
+  p20: p40-airport5MUC-p4.pddl   494.931 unsolved 494.931
+  p21: p41-airport5MUC-p4.pddl   635.268 unsolved 320.646
+  p22: p42-airport5MUC-p5.pddl   940.269 unsolved 1164.92
+  p23: p43-airport5MUC-p5.pddl   1164.92 unsolved 940.269
+  p24: p44-airport5MUC-p5.pddl   1619.95 unsolved 2830.65
+  p25: p45-airport5MUC-p6.pddl   2830.65 unsolved unsolved
+  p26: p46-airport5MUC-p6.pddl   10000.0 unsolved 1619.95
+  p27: p47-airport5MUC-p8.pddl   35327.57493861834 unsolved unsolved
+  p28: p48-airport5MUC-p9.pddl   124803.75510436944 unsolved unsolved
+  p29: p49-airport5MUC-p10.pddl   440901.4011070582 unsolved unsolved
+  p30: p50-airport5MUC-p15.pddl   1557597.728815142 unsolved unsolved
+Total Estimated Runtimes: [3.35887, 4.85446, 4.90904, 5.75696, 5.79054, 18.7642, 37.6244, 70.2583, 84.1325, 103.833, 320.646, 494.931, 635.268, 940.269, 1164.92, 1619.95, 1821.92, 1930.58, 2365.58, 2830.65, 2871.16, 10000.0, 13386.075377864367, 35327.57493861834, 62409.275004481344, 124803.75510436944, 290967.8525362062, 440901.4011070582, 1356565.8502434485, 1557597.728815142]
+Total Estimated Solved: 16
+../tasks-of-domains-without-usable-generator//airport/domain.pddl

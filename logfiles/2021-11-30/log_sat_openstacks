@@ -1,0 +1,128 @@
+2021-12-01 01:16:29,330 INFO     No run directory, so we will not run anything
+2021-12-01 01:16:30,113 INFO     Loading cache data for baseline planners: 714
+2021-12-01 01:16:30,136 INFO     baseline cache contains data for 330 parameter values, with min 3 max 39 avg 6.490909090909091 runtimes
+2021-12-01 01:16:30,136 INFO     Loading cache data for sart planners: 5656
+2021-12-01 01:16:30,328 INFO     sart cache contains data for 4313 parameter values, with min 3 max 39 avg 3.9341525620217945 runtimes
+2021-12-01 01:16:31,288 INFO     Loading cache data for baseline planners: 176
+2021-12-01 01:16:31,293 INFO     baseline cache contains data for 425 parameter values, with min 3 max 39 avg 6.2823529411764705 runtimes
+2021-12-01 01:16:31,293 INFO     Loading cache data for sart planners: 2162
+2021-12-01 01:16:31,369 INFO     sart cache contains data for 5918 parameter values, with min 3 max 39 avg 3.9631632308212232 runtimes
+2021-12-01 01:16:32,421 INFO     Loading cache data for baseline planners: 67
+2021-12-01 01:16:32,423 INFO     baseline cache contains data for 473 parameter values, with min 3 max 39 avg 6.069767441860465 runtimes
+2021-12-01 01:16:32,423 INFO     Loading cache data for sart planners: 1580
+2021-12-01 01:16:32,477 INFO     sart cache contains data for 7235 parameter values, with min 3 max 39 avg 3.8968901174844506 runtimes
+2021-12-01 01:16:33,682 INFO     Loading cache data for baseline planners: 45
+2021-12-01 01:16:33,684 INFO     baseline cache contains data for 510 parameter values, with min 3 max 39 avg 5.894117647058824 runtimes
+2021-12-01 01:16:33,684 INFO     Loading cache data for sart planners: 1114
+2021-12-01 01:16:33,724 INFO     sart cache contains data for 8292 parameter values, with min 3 max 39 avg 3.8031837916063678 runtimes
+2021-12-01 01:16:33,724 INFO     Stored sequences: 567
+2021-12-01 01:16:36,712 INFO     Different evaluated sequences: 380
+density 10 32 32
+density 20 36 36
+density 33 7 7
+density 50 21 21
+density 66 5 5
+density 80 30 30
+density 10 3 3
+density 20 5 5
+density 33 3 3
+density 50 2 2
+density 66 1 1
+density 80 10 10
+density 10 8 8
+density 20 3 3
+density 33 7 7
+density 50 8 8
+density 66 3 3
+density 80 16 16
+density 10 0 0
+density 20 1 1
+density 33 5 5
+density 50 1 1
+density 66 3 3
+density 80 22 16
+density 10 5 5
+density 20 4 4
+density 33 3 3
+density 50 1 1
+density 66 2 2
+density 80 32 31
+density 10 6 5
+density 20 6 6
+density 33 10 10
+density 50 3 3
+density 66 3 3
+density 80 14 11
+density 10 7 6
+density 20 4 4
+density 33 3 3
+density 50 1 1
+density 66 4 4
+density 80 10 10
+density 10 10 10
+density 20 1 1
+density 33 3 3
+density 50 1 1
+density 66 2 2
+density 80 4 4
+density 10 0 0
+density 20 0 0
+density 33 2 2
+density 50 1 1
+density 66 2 2
+density 80 4 4
+2021-12-01 01:16:37,560 INFO     Candidate sequences: 368
+2021-12-01 01:16:37,567 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 228 use baseline 140 use sart
+2021-12-01 01:16:37,573 INFO     Using sart runtimes on CPLEX optimization
+2021-12-01 01:16:38,057 INFO     CPLEX solve
+
+2021-12-01 01:16:38,437 INFO     Solution status = 101: MIP_optimal
+2021-12-01 01:16:38,437 INFO     Solution value  = 20.320143357221426
+2021-12-01 01:16:38,439 INFO     CPLEX Solved Instances: 15.0
+2021-12-01 01:16:38,440 INFO     CPLEX Trivial Instances: 2.0
+Selected: sequence 374, 16 instances from 0 to 15
+Configuration: {'density': 10, 'orders_b': 5, 'orders_m': 38.7, 'products_b': 5, 'products_m': 35.0}
+Penalty: 10.09
+Penalty sart: 0.09
+Penalty baseline: 10.00
+Seq Estimated runtimes: 0.22,1.5,5,13,26,48,79,1.2e+02,2.3e+02,4.4e+02,8.4e+02,1.6e+03,3.1e+03,5.9e+03,1.1e+04,2.2e+04
+Seq instances: [{'density': 10, 'products': 5, 'orders': 5}, {'density': 10, 'products': 40, 'orders': 43}, {'density': 10, 'products': 75, 'orders': 82}, {'density': 10, 'products': 110, 'orders': 121}, {'density': 10, 'products': 145, 'orders': 159}, {'density': 10, 'products': 180, 'orders': 198}, {'density': 10, 'products': 215, 'orders': 237}, {'density': 10, 'products': 250, 'orders': 275}, {'density': 10, 'products': 285, 'orders': 314}, {'density': 10, 'products': 320, 'orders': 353}, {'density': 10, 'products': 355, 'orders': 391}, {'density': 10, 'products': 390, 'orders': 430}, {'density': 10, 'products': 425, 'orders': 469}, {'density': 10, 'products': 460, 'orders': 508}, {'density': 10, 'products': 495, 'orders': 546}, {'density': 10, 'products': 530, 'orders': 585}]
+Selected: sequence 317, 14 instances from 0 to 13
+Configuration: {'density': 66, 'orders_b': 5, 'orders_m': 38.7, 'products_b': 5, 'products_m': 34.300000000000004}
+Penalty: 10.23
+Penalty sart: 0.23
+Penalty baseline: 10.00
+Seq Estimated runtimes: 0.2,1.7,9.3,24,45,83,1.6e+02,3.2e+02,6.5e+02,1.3e+03,2.7e+03,5.5e+03,1.1e+04,2.3e+04
+Seq instances: [{'density': 66, 'products': 5, 'orders': 5}, {'density': 66, 'products': 39, 'orders': 43}, {'density': 66, 'products': 73, 'orders': 82}, {'density': 66, 'products': 107, 'orders': 121}, {'density': 66, 'products': 142, 'orders': 159}, {'density': 66, 'products': 176, 'orders': 198}, {'density': 66, 'products': 210, 'orders': 237}, {'density': 66, 'products': 245, 'orders': 275}, {'density': 66, 'products': 279, 'orders': 314}, {'density': 66, 'products': 313, 'orders': 353}, {'density': 66, 'products': 348, 'orders': 391}, {'density': 66, 'products': 382, 'orders': 430}, {'density': 66, 'products': 416, 'orders': 469}, {'density': 66, 'products': 450, 'orders': 508}]
+  p01: {'density': 66, 'products': 5, 'orders': 5}   0.20066666666666666
+  p02: {'density': 66, 'products': 39, 'orders': 43}   1.7
+  p03: {'density': 66, 'products': 73, 'orders': 82}   9.293333333333333
+  p04: {'density': 66, 'products': 107, 'orders': 121}   23.78
+  p05: {'density': 66, 'products': 142, 'orders': 159}   44.87
+  p06: {'density': 66, 'products': 176, 'orders': 198}   82.57000000000001
+  p07: {'density': 66, 'products': 210, 'orders': 237}   155.75333333333333
+  p08: {'density': 66, 'products': 245, 'orders': 275}   318.2128980730458
+  p09: {'density': 66, 'products': 279, 'orders': 314}   650.127007447973
+  p10: {'density': 66, 'products': 313, 'orders': 353}   1328.246367047743
+  p11: {'density': 66, 'products': 348, 'orders': 391}   2713.682697940698
+  p12: {'density': 66, 'products': 382, 'orders': 430}   5544.207737206638
+  p13: {'density': 66, 'products': 416, 'orders': 469}   11327.131007846987
+  p14: {'density': 66, 'products': 450, 'orders': 508}   23141.971396182318
+  p15: {'density': 10, 'products': 5, 'orders': 5}   0.2158974358974359
+  p16: {'density': 10, 'products': 40, 'orders': 43}   1.5233333333333334
+  p17: {'density': 10, 'products': 75, 'orders': 82}   4.963333333333333
+  p18: {'density': 10, 'products': 110, 'orders': 121}   12.613333333333333
+  p19: {'density': 10, 'products': 145, 'orders': 159}   26.096666666666668
+  p20: {'density': 10, 'products': 180, 'orders': 198}   47.93333333333334
+  p21: {'density': 10, 'products': 215, 'orders': 237}   79.41333333333333
+  p22: {'density': 10, 'products': 250, 'orders': 275}   118.39999999999999
+  p23: {'density': 10, 'products': 285, 'orders': 314}   227.20290498663536
+  p24: {'density': 10, 'products': 320, 'orders': 353}   435.9895273172809
+  p25: {'density': 10, 'products': 355, 'orders': 391}   836.6392495796979
+  p26: {'density': 10, 'products': 390, 'orders': 430}   1605.4634115738684
+  p27: {'density': 10, 'products': 425, 'orders': 469}   3080.793504724131
+  p28: {'density': 10, 'products': 460, 'orders': 508}   5911.868529875676
+  p29: {'density': 10, 'products': 495, 'orders': 546}   11344.541417963032
+  p30: {'density': 10, 'products': 530, 'orders': 585}   21769.533495797335
+Total Estimated Runtimes: [0.20066666666666666, 0.2158974358974359, 1.5233333333333334, 1.7, 4.963333333333333, 9.293333333333333, 12.613333333333333, 23.78, 26.096666666666668, 44.87, 47.93333333333334, 79.41333333333333, 82.57000000000001, 118.39999999999999, 155.75333333333333, 227.20290498663536, 318.2128980730458, 435.9895273172809, 650.127007447973, 836.6392495796979, 1328.246367047743, 1605.4634115738684, 2713.682697940698, 3080.793504724131, 5544.207737206638, 5911.868529875676, 11327.131007846987, 11344.541417963032, 21769.533495797335, 23141.971396182318]
+Total Estimated Solved: 22

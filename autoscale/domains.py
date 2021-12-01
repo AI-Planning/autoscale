@@ -360,8 +360,8 @@ class Domain:
     def generated_domain_file(self):
         return TMP_DOMAIN in self.generator_command
 
-    def discard_sequence(self, sequence):
-        if self.discard_sequence_function is not None and self.discard_sequence_function(sequence):
+    def discard_sequence(self, sequence, track):
+        if self.discard_sequence_function is not None and self.discard_sequence_function(sequence, track):
             print(f"Sequence discarded: {sequence['config']} due to discard sequence function")
             return True
 
@@ -442,20 +442,31 @@ def adapt_parameters_snake(parameters):
     return parameters
 
 
-def discard_sequence_termes(sequence):
+def discard_sequence_termes(sequence, track):
+    """TODO: termes should be reconfigured by considering the height of the towers an enumerated parameter, then this hacks for selecting appropiate heights can be removed"""
     m_height = [float(sequence['config'][f"{atr}_m"]) for atr in ['min_height', 'max_height'] if
                 sequence['config'][f"{atr}_optional_m"] == 'false']
     m_blocks = [float(sequence['config'][f"{atr}_m"]) for atr in ['min_height', 'max_height', 'num_towers'] if
                 sequence['config'][f"{atr}_optional_m"] == 'false']
-    if m_height and (sum(m_height) > 0.01):
-        return True # Discard sequences were height grows too fast
-    if not m_blocks or (max(m_blocks) < 0.3 and sum(m_blocks) < 0.5):
-        return True
+
+    if track == "sat":
+        if not m_height or (sum(m_height) < 0.3):
+            return True
+
+
+    else:
+        if m_height and (sum(m_height) > 0.01):
+            return True # Discard sequences were height grows too fast
+        if float(sequence['config'][f"max_height_b"]) <= 1:
+            return True
+
+        if not m_blocks or (max(m_blocks) < 0.3 and sum(m_blocks) < 0.5):
+            return True
 
 
     return False
 
-def discard_sequence_elevators(sequence):
+def discard_sequence_elevators(sequence, track):
     """
     Ensure that the 6th instance has at least 10 floors
     """
@@ -466,7 +477,7 @@ def discard_sequence_elevators(sequence):
     num_areas = float(sequence['config']["num_areas"])
     return num_areas*(b_area_size + instance*m_area_size) < min_floor_values
 
-def discard_sequence_logistics(sequence):
+def discard_sequence_logistics(sequence, track):
     """
     Ensure that the number of airplanes is not larger than half the number of locations
     """
@@ -728,9 +739,9 @@ DOMAIN_LIST = [
     Domain("termes",
            "./generate-autoscale.py {seed} pddl --size_x {x} --size_y {y} --min_height {min_height} --max_height {max_height} --num_towers {num_towers} --ensure_plan --dont_remove_slack",
            [GridAttr("grid", "x", "y", lower_x=3, upper_x=10, lower_m=0, upper_m=5, optional_m=True),
-            LinearAttr("min_height", lower_b=1, upper_b=5, lower_m=0, upper_m=0.5, default_m=0, optional_m=True),
-            LinearAttr("max_height", lower_b=0, upper_b=5, lower_m=0.1, upper_m=0.5, optional_m=True,
-                       base_attr="min_height",reach_at_least=[(15, 2)]),
+            LinearAttr("min_height", lower_b=1, upper_b=5, lower_m=0, upper_m=1, default_m=0, optional_m=True),
+            LinearAttr("max_height", lower_b=0, upper_b=5, lower_m=0.1, upper_m=1, optional_m=True,
+                       base_attr="min_height"),
             LinearAttr("num_towers", lower_b=1, upper_b=4, lower_m=0.1, upper_m=2, optional_m=True),
             ], discard_sequence_function=discard_sequence_termes,
            ipc_names={'opt' : ["termes-opt18-strips"]}

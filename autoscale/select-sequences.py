@@ -249,7 +249,7 @@ cplex_sequence_mgr = cplex_sequence_optimization.CPLEXSequenceManager(logging)
 for sequence in STORED_VALID_SEQUENCES:
     logging.debug(f"Evaluate sequence {sequence['config']} with penalty {sequence['penalty']}")
 
-    if domain.discard_sequence(sequence):
+    if domain.discard_sequence(sequence, ARGS.track):
         continue
 
     Y = domain.get_configs(sequence['config'], ARGS.sequence_length)

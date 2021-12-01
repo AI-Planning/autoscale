@@ -1,0 +1,7 @@
+2021-12-01 00:16:45,144 INFO     Stored sequences: 0
+2021-12-01 00:16:45,145 INFO     Different evaluated sequences: 0
+2021-12-01 00:16:45,145 INFO     Candidate sequences: 0
+2021-12-01 00:16:45,145 DEBUG    Candidate sequences: 
+ 
+2021-12-01 00:16:45,145 INFO     Using baseline runtimes on CPLEX optimization
+2021-12-01 00:16:45,145 INFO     Using sart runtimes on CPLEX optimization

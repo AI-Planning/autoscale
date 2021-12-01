@@ -1,0 +1,329 @@
+2021-12-01 00:35:47,559 INFO     No run directory, so we will not run anything
+2021-12-01 00:35:48,350 INFO     Loading cache data for baseline planners: 2521
+2021-12-01 00:35:48,450 INFO     baseline cache contains data for 1642 parameter values, with min 3 max 39 avg 4.605968331303289 runtimes
+2021-12-01 00:35:48,450 INFO     Loading cache data for sart planners: 6290
+2021-12-01 00:35:48,704 INFO     sart cache contains data for 3966 parameter values, with min 3 max 39 avg 4.757942511346445 runtimes
+2021-12-01 00:35:49,652 INFO     Loading cache data for baseline planners: 505
+2021-12-01 00:35:49,669 INFO     baseline cache contains data for 2096 parameter values, with min 3 max 39 avg 4.331106870229007 runtimes
+2021-12-01 00:35:49,669 INFO     Loading cache data for sart planners: 1511
+2021-12-01 00:35:49,722 INFO     sart cache contains data for 5327 parameter values, with min 3 max 39 avg 4.393279519429322 runtimes
+2021-12-01 00:35:50,765 INFO     Loading cache data for baseline planners: 949
+2021-12-01 00:35:50,799 INFO     baseline cache contains data for 2859 parameter values, with min 3 max 39 avg 4.171038824763904 runtimes
+2021-12-01 00:35:50,799 INFO     Loading cache data for sart planners: 2523
+2021-12-01 00:35:50,889 INFO     sart cache contains data for 7375 parameter values, with min 3 max 39 avg 4.199593220338983 runtimes
+2021-12-01 00:35:52,085 INFO     Loading cache data for baseline planners: 996
+2021-12-01 00:35:52,119 INFO     baseline cache contains data for 3781 parameter values, with min 3 max 39 avg 3.9441946574980165 runtimes
+2021-12-01 00:35:52,120 INFO     Loading cache data for sart planners: 2642
+2021-12-01 00:35:52,211 INFO     sart cache contains data for 9838 parameter values, with min 3 max 39 avg 3.953852409026225 runtimes
+2021-12-01 00:35:52,211 INFO     Stored sequences: 805
+Warning: No output dir has been provided for Runner but I have no data for {'x': 68, 'y': 68, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 2, 'locks': 2312}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 64, 'y': 64, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 2, 'locks': 2048}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 64, 'y': 64, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 2, 'locks': 2048}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 111, 'y': 111, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 2, 'percentage_cells_locked': 0.5, 'keys': 3, 'locks': 6160}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 64, 'y': 64, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 2, 'locks': 2048}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 99, 'y': 99, 'prob_key_in_goal': 0.5, 'shapes': 2, 'extra_keys': 1, 'percentage_cells_locked': 0.4, 'keys': 3, 'locks': 3920}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 64, 'y': 64, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 2, 'locks': 2048}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 75, 'y': 75, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 2, 'locks': 2812}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 64, 'y': 64, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 2, 'locks': 2048}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 64, 'y': 64, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 2, 'locks': 2048}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 64, 'y': 64, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 2, 'locks': 2048}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 64, 'y': 64, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 2, 'locks': 2048}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 77, 'y': 77, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.4, 'keys': 2, 'locks': 2371}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 64, 'y': 64, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 2, 'locks': 2048}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 36, 'y': 36, 'prob_key_in_goal': 0.5, 'shapes': 2, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 3, 'locks': 648}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 64, 'y': 64, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 2, 'locks': 2048}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 55, 'y': 55, 'prob_key_in_goal': 0.5, 'shapes': 2, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 3, 'locks': 1512}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 68, 'y': 68, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 2, 'locks': 2312}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 77, 'y': 77, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.4, 'keys': 2, 'locks': 2371}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 75, 'y': 75, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 2, 'locks': 2812}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 35, 'y': 35, 'prob_key_in_goal': 0.75, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 2, 'locks': 612}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 64, 'y': 64, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 2, 'locks': 2048}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 68, 'y': 68, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 2, 'locks': 2312}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 47, 'y': 47, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.4, 'keys': 2, 'locks': 883}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 96, 'y': 96, 'prob_key_in_goal': 0.5, 'shapes': 3, 'extra_keys': 1, 'percentage_cells_locked': 0.4, 'keys': 4, 'locks': 3686}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 68, 'y': 68, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 2, 'locks': 2312}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 64, 'y': 64, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 2, 'locks': 2048}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 32, 'y': 32, 'prob_key_in_goal': 0.5, 'shapes': 2, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 3, 'locks': 512}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 70, 'y': 70, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 2, 'locks': 2450}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 34, 'y': 34, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.2, 'keys': 2, 'locks': 231}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 70, 'y': 70, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 2, 'locks': 2450}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 64, 'y': 64, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 2, 'locks': 2048}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 75, 'y': 75, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.4, 'keys': 2, 'locks': 2250}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 68, 'y': 68, 'prob_key_in_goal': 0.5, 'shapes': 1, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 2, 'locks': 2312}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 13, 'y': 14, 'prob_key_in_goal': 1, 'shapes': 3, 'extra_keys': 1, 'percentage_cells_locked': 0.7, 'keys': 4, 'locks': 127}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 13, 'y': 13, 'prob_key_in_goal': 1, 'shapes': 5, 'extra_keys': 1, 'percentage_cells_locked': 0.8, 'keys': 6, 'locks': 135}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 11, 'y': 14, 'prob_key_in_goal': 0.75, 'shapes': 4, 'extra_keys': 4, 'percentage_cells_locked': 0.8, 'keys': 8, 'locks': 123}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 10, 'y': 12, 'prob_key_in_goal': 0.75, 'shapes': 4, 'extra_keys': 2, 'percentage_cells_locked': 0.8, 'keys': 6, 'locks': 96}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 16, 'y': 16, 'prob_key_in_goal': 1, 'shapes': 9, 'extra_keys': 5, 'percentage_cells_locked': 0.8, 'keys': 14, 'locks': 204}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 16, 'y': 17, 'prob_key_in_goal': 1, 'shapes': 9, 'extra_keys': 4, 'percentage_cells_locked': 0.8, 'keys': 13, 'locks': 217}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 9, 'y': 13, 'prob_key_in_goal': 1, 'shapes': 3, 'extra_keys': 4, 'percentage_cells_locked': 0.8, 'keys': 7, 'locks': 93}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 16, 'y': 20, 'prob_key_in_goal': 1, 'shapes': 11, 'extra_keys': 1, 'percentage_cells_locked': 0.8, 'keys': 12, 'locks': 256}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 15, 'y': 20, 'prob_key_in_goal': 1, 'shapes': 10, 'extra_keys': 4, 'percentage_cells_locked': 0.8, 'keys': 14, 'locks': 240}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 15, 'y': 15, 'prob_key_in_goal': 0.75, 'shapes': 3, 'extra_keys': 5, 'percentage_cells_locked': 0.8, 'keys': 8, 'locks': 180}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 12, 'y': 13, 'prob_key_in_goal': 1, 'shapes': 4, 'extra_keys': 3, 'percentage_cells_locked': 0.8, 'keys': 7, 'locks': 124}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'x': 6, 'y': 11, 'prob_key_in_goal': 1, 'shapes': 7, 'extra_keys': 4, 'percentage_cells_locked': 0.8, 'keys': 11, 'locks': 52}, so I consider it unsolved within the time and memory limits
+2021-12-01 00:35:57,425 INFO     Different evaluated sequences: 666
+prob_key_in_goal 0.5 202 202
+prob_key_in_goal 0.75 129 129
+prob_key_in_goal 1 288 288
+percentage_cells_locked 0.1 31 31
+percentage_cells_locked 0.2 21 21
+percentage_cells_locked 0.3 33 33
+percentage_cells_locked 0.4 87 87
+percentage_cells_locked 0.5 105 105
+percentage_cells_locked 0.6 28 28
+percentage_cells_locked 0.7 60 60
+percentage_cells_locked 0.8 214 214
+percentage_cells_locked 0.9 40 40
+prob_key_in_goal 0.5 6 6
+prob_key_in_goal 0.75 2 2
+prob_key_in_goal 1 5 5
+percentage_cells_locked 0.1 2 2
+percentage_cells_locked 0.2 0 0
+percentage_cells_locked 0.3 1 1
+percentage_cells_locked 0.4 2 2
+percentage_cells_locked 0.5 4 4
+percentage_cells_locked 0.6 1 1
+percentage_cells_locked 0.7 1 1
+percentage_cells_locked 0.8 1 1
+percentage_cells_locked 0.9 1 1
+prob_key_in_goal 0.5 4 4
+prob_key_in_goal 0.75 3 3
+prob_key_in_goal 1 1 1
+percentage_cells_locked 0.1 1 1
+percentage_cells_locked 0.2 1 1
+percentage_cells_locked 0.3 0 0
+percentage_cells_locked 0.4 2 2
+percentage_cells_locked 0.5 2 2
+percentage_cells_locked 0.6 0 0
+percentage_cells_locked 0.7 2 2
+percentage_cells_locked 0.8 0 0
+percentage_cells_locked 0.9 0 0
+prob_key_in_goal 0.5 2 2
+prob_key_in_goal 0.75 1 1
+prob_key_in_goal 1 2 2
+percentage_cells_locked 0.1 1 1
+percentage_cells_locked 0.2 1 1
+percentage_cells_locked 0.3 1 1
+percentage_cells_locked 0.4 0 0
+percentage_cells_locked 0.5 0 0
+percentage_cells_locked 0.6 1 1
+percentage_cells_locked 0.7 0 0
+percentage_cells_locked 0.8 1 1
+percentage_cells_locked 0.9 0 0
+prob_key_in_goal 0.5 0 0
+prob_key_in_goal 0.75 0 0
+prob_key_in_goal 1 0 0
+percentage_cells_locked 0.1 0 0
+percentage_cells_locked 0.2 0 0
+percentage_cells_locked 0.3 0 0
+percentage_cells_locked 0.4 0 0
+percentage_cells_locked 0.5 0 0
+percentage_cells_locked 0.6 0 0
+percentage_cells_locked 0.7 0 0
+percentage_cells_locked 0.8 0 0
+percentage_cells_locked 0.9 0 0
+prob_key_in_goal 0.5 0 0
+prob_key_in_goal 0.75 0 0
+prob_key_in_goal 1 0 0
+percentage_cells_locked 0.1 0 0
+percentage_cells_locked 0.2 0 0
+percentage_cells_locked 0.3 0 0
+percentage_cells_locked 0.4 0 0
+percentage_cells_locked 0.5 0 0
+percentage_cells_locked 0.6 0 0
+percentage_cells_locked 0.7 0 0
+percentage_cells_locked 0.8 0 0
+percentage_cells_locked 0.9 0 0
+prob_key_in_goal 0.5 0 0
+prob_key_in_goal 0.75 1 1
+prob_key_in_goal 1 1 1
+percentage_cells_locked 0.1 0 0
+percentage_cells_locked 0.2 0 0
+percentage_cells_locked 0.3 0 0
+percentage_cells_locked 0.4 1 1
+percentage_cells_locked 0.5 0 0
+percentage_cells_locked 0.6 0 0
+percentage_cells_locked 0.7 0 0
+percentage_cells_locked 0.8 1 1
+percentage_cells_locked 0.9 0 0
+prob_key_in_goal 0.5 3 3
+prob_key_in_goal 0.75 0 0
+prob_key_in_goal 1 0 0
+percentage_cells_locked 0.1 0 0
+percentage_cells_locked 0.2 1 1
+percentage_cells_locked 0.3 0 0
+percentage_cells_locked 0.4 0 0
+percentage_cells_locked 0.5 1 1
+percentage_cells_locked 0.6 0 0
+percentage_cells_locked 0.7 0 0
+percentage_cells_locked 0.8 0 0
+percentage_cells_locked 0.9 1 1
+prob_key_in_goal 0.5 0 0
+prob_key_in_goal 0.75 2 2
+prob_key_in_goal 1 3 3
+percentage_cells_locked 0.1 0 0
+percentage_cells_locked 0.2 1 1
+percentage_cells_locked 0.3 0 0
+percentage_cells_locked 0.4 1 1
+percentage_cells_locked 0.5 1 1
+percentage_cells_locked 0.6 0 0
+percentage_cells_locked 0.7 1 1
+percentage_cells_locked 0.8 1 1
+percentage_cells_locked 0.9 0 0
+prob_key_in_goal 0.5 1 1
+prob_key_in_goal 0.75 0 0
+prob_key_in_goal 1 2 2
+percentage_cells_locked 0.1 0 0
+percentage_cells_locked 0.2 0 0
+percentage_cells_locked 0.3 0 0
+percentage_cells_locked 0.4 2 2
+percentage_cells_locked 0.5 0 0
+percentage_cells_locked 0.6 0 0
+percentage_cells_locked 0.7 1 1
+percentage_cells_locked 0.8 0 0
+percentage_cells_locked 0.9 0 0
+prob_key_in_goal 0.5 0 0
+prob_key_in_goal 0.75 0 0
+prob_key_in_goal 1 0 0
+percentage_cells_locked 0.1 0 0
+percentage_cells_locked 0.2 0 0
+percentage_cells_locked 0.3 0 0
+percentage_cells_locked 0.4 0 0
+percentage_cells_locked 0.5 0 0
+percentage_cells_locked 0.6 0 0
+percentage_cells_locked 0.7 0 0
+percentage_cells_locked 0.8 0 0
+percentage_cells_locked 0.9 0 0
+prob_key_in_goal 0.5 0 0
+prob_key_in_goal 0.75 0 0
+prob_key_in_goal 1 0 0
+percentage_cells_locked 0.1 0 0
+percentage_cells_locked 0.2 0 0
+percentage_cells_locked 0.3 0 0
+percentage_cells_locked 0.4 0 0
+percentage_cells_locked 0.5 0 0
+percentage_cells_locked 0.6 0 0
+percentage_cells_locked 0.7 0 0
+percentage_cells_locked 0.8 0 0
+percentage_cells_locked 0.9 0 0
+prob_key_in_goal 0.5 1 1
+prob_key_in_goal 0.75 0 0
+prob_key_in_goal 1 0 0
+percentage_cells_locked 0.1 0 0
+percentage_cells_locked 0.2 0 0
+percentage_cells_locked 0.3 0 0
+percentage_cells_locked 0.4 0 0
+percentage_cells_locked 0.5 0 0
+percentage_cells_locked 0.6 0 0
+percentage_cells_locked 0.7 1 1
+percentage_cells_locked 0.8 0 0
+percentage_cells_locked 0.9 0 0
+prob_key_in_goal 0.5 2 2
+prob_key_in_goal 0.75 0 0
+prob_key_in_goal 1 0 0
+percentage_cells_locked 0.1 0 0
+percentage_cells_locked 0.2 0 0
+percentage_cells_locked 0.3 1 1
+percentage_cells_locked 0.4 0 0
+percentage_cells_locked 0.5 0 0
+percentage_cells_locked 0.6 1 1
+percentage_cells_locked 0.7 0 0
+percentage_cells_locked 0.8 0 0
+percentage_cells_locked 0.9 0 0
+prob_key_in_goal 0.5 2 2
+prob_key_in_goal 0.75 0 0
+prob_key_in_goal 1 1 1
+percentage_cells_locked 0.1 0 0
+percentage_cells_locked 0.2 0 0
+percentage_cells_locked 0.3 1 1
+percentage_cells_locked 0.4 0 0
+percentage_cells_locked 0.5 0 0
+percentage_cells_locked 0.6 0 0
+percentage_cells_locked 0.7 1 1
+percentage_cells_locked 0.8 1 1
+percentage_cells_locked 0.9 0 0
+prob_key_in_goal 0.5 0 0
+prob_key_in_goal 0.75 0 0
+prob_key_in_goal 1 0 0
+percentage_cells_locked 0.1 0 0
+percentage_cells_locked 0.2 0 0
+percentage_cells_locked 0.3 0 0
+percentage_cells_locked 0.4 0 0
+percentage_cells_locked 0.5 0 0
+percentage_cells_locked 0.6 0 0
+percentage_cells_locked 0.7 0 0
+percentage_cells_locked 0.8 0 0
+percentage_cells_locked 0.9 0 0
+prob_key_in_goal 0.5 0 0
+prob_key_in_goal 0.75 0 0
+prob_key_in_goal 1 1 1
+percentage_cells_locked 0.1 0 0
+percentage_cells_locked 0.2 0 0
+percentage_cells_locked 0.3 0 0
+percentage_cells_locked 0.4 0 0
+percentage_cells_locked 0.5 0 0
+percentage_cells_locked 0.6 0 0
+percentage_cells_locked 0.7 1 1
+percentage_cells_locked 0.8 0 0
+percentage_cells_locked 0.9 0 0
+prob_key_in_goal 0.5 0 0
+prob_key_in_goal 0.75 0 0
+prob_key_in_goal 1 1 1
+percentage_cells_locked 0.1 0 0
+percentage_cells_locked 0.2 0 0
+percentage_cells_locked 0.3 0 0
+percentage_cells_locked 0.4 0 0
+percentage_cells_locked 0.5 0 0
+percentage_cells_locked 0.6 0 0
+percentage_cells_locked 0.7 0 0
+percentage_cells_locked 0.8 1 1
+percentage_cells_locked 0.9 0 0
+2021-12-01 00:36:01,621 INFO     Candidate sequences: 666
+2021-12-01 00:36:01,634 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 113 use baseline 553 use sart
+2021-12-01 00:36:01,640 INFO     Using sart runtimes on CPLEX optimization
+2021-12-01 00:36:06,486 INFO     CPLEX solve
+
+2021-12-01 00:36:09,354 INFO     Solution status = 101: MIP_optimal
+2021-12-01 00:36:09,354 INFO     Solution value  = 5.81432701647647
+2021-12-01 00:36:09,360 INFO     CPLEX Solved Instances: 15.0
+2021-12-01 00:36:09,361 INFO     CPLEX Trivial Instances: 2.0
+Selected: sequence 141, 30 instances from 0 to 29
+Configuration: {'extra_keys_b': 1, 'extra_keys_m': 2.3000000000000003, 'extra_keys_optional_m': 'true', 'grid_m': 4.6, 'grid_maxdiff': 0, 'grid_x': 7, 'percentage_cells_locked': 0.5, 'prob_key_in_goal': 0.5, 'shapes_b': 2, 'shapes_m': 0.2, 'shapes_optional_m': 'false'}
+Penalty: 5.81
+Penalty sart: 1.78
+Penalty baseline: 4.03
+Seq Estimated runtimes: 0.67,1.1,1.6,2.3,3.5,6.8,8.2,14,16,48,51,63,99,1.4e+02,1.5e+02,2.3e+02,3.6e+02,5.5e+02,8.4e+02,1.3e+03,1.9e+03,3e+03,4.5e+03,6.9e+03,1.1e+04,1.6e+04,2.5e+04,3.8e+04,5.8e+04,8.8e+04
+Seq instances: [{'x': 7, 'y': 7, 'prob_key_in_goal': 0.5, 'shapes': 2, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 3, 'locks': 24}, {'x': 11, 'y': 11, 'prob_key_in_goal': 0.5, 'shapes': 2, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 3, 'locks': 60}, {'x': 16, 'y': 16, 'prob_key_in_goal': 0.5, 'shapes': 2, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 3, 'locks': 128}, {'x': 20, 'y': 20, 'prob_key_in_goal': 0.5, 'shapes': 2, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 3, 'locks': 200}, {'x': 25, 'y': 25, 'prob_key_in_goal': 0.5, 'shapes': 2, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 3, 'locks': 312}, {'x': 30, 'y': 30, 'prob_key_in_goal': 0.5, 'shapes': 3, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 4, 'locks': 450}, {'x': 34, 'y': 34, 'prob_key_in_goal': 0.5, 'shapes': 3, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 4, 'locks': 578}, {'x': 39, 'y': 39, 'prob_key_in_goal': 0.5, 'shapes': 3, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 4, 'locks': 760}, {'x': 43, 'y': 43, 'prob_key_in_goal': 0.5, 'shapes': 3, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 4, 'locks': 924}, {'x': 48, 'y': 48, 'prob_key_in_goal': 0.5, 'shapes': 3, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 4, 'locks': 1152}, {'x': 53, 'y': 53, 'prob_key_in_goal': 0.5, 'shapes': 4, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 5, 'locks': 1404}, {'x': 57, 'y': 57, 'prob_key_in_goal': 0.5, 'shapes': 4, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 5, 'locks': 1624}, {'x': 62, 'y': 62, 'prob_key_in_goal': 0.5, 'shapes': 4, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 5, 'locks': 1922}, {'x': 66, 'y': 66, 'prob_key_in_goal': 0.5, 'shapes': 4, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 5, 'locks': 2178}, {'x': 71, 'y': 71, 'prob_key_in_goal': 0.5, 'shapes': 4, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 5, 'locks': 2520}, {'x': 76, 'y': 76, 'prob_key_in_goal': 0.5, 'shapes': 5, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 6, 'locks': 2888}, {'x': 80, 'y': 80, 'prob_key_in_goal': 0.5, 'shapes': 5, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 6, 'locks': 3200}, {'x': 85, 'y': 85, 'prob_key_in_goal': 0.5, 'shapes': 5, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 6, 'locks': 3612}, {'x': 89, 'y': 89, 'prob_key_in_goal': 0.5, 'shapes': 5, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 6, 'locks': 3960}, {'x': 94, 'y': 94, 'prob_key_in_goal': 0.5, 'shapes': 5, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 6, 'locks': 4418}, {'x': 98, 'y': 98, 'prob_key_in_goal': 0.5, 'shapes': 6, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 7, 'locks': 4802}, {'x': 103, 'y': 103, 'prob_key_in_goal': 0.5, 'shapes': 6, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 7, 'locks': 5304}, {'x': 108, 'y': 108, 'prob_key_in_goal': 0.5, 'shapes': 6, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 7, 'locks': 5832}, {'x': 112, 'y': 112, 'prob_key_in_goal': 0.5, 'shapes': 6, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 7, 'locks': 6272}, {'x': 117, 'y': 117, 'prob_key_in_goal': 0.5, 'shapes': 6, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 7, 'locks': 6844}, {'x': 121, 'y': 121, 'prob_key_in_goal': 0.5, 'shapes': 7, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 8, 'locks': 7320}, {'x': 126, 'y': 126, 'prob_key_in_goal': 0.5, 'shapes': 7, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 8, 'locks': 7938}, {'x': 131, 'y': 131, 'prob_key_in_goal': 0.5, 'shapes': 7, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 8, 'locks': 8580}, {'x': 135, 'y': 135, 'prob_key_in_goal': 0.5, 'shapes': 7, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 8, 'locks': 9112}, {'x': 140, 'y': 140, 'prob_key_in_goal': 0.5, 'shapes': 7, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 8, 'locks': 9800}]
+  p01: {'x': 7, 'y': 7, 'prob_key_in_goal': 0.5, 'shapes': 2, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 3, 'locks': 24}   0.67
+  p02: {'x': 11, 'y': 11, 'prob_key_in_goal': 0.5, 'shapes': 2, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 3, 'locks': 60}   1.0655555555555556
+  p03: {'x': 16, 'y': 16, 'prob_key_in_goal': 0.5, 'shapes': 2, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 3, 'locks': 128}   1.6033333333333333
+  p04: {'x': 20, 'y': 20, 'prob_key_in_goal': 0.5, 'shapes': 2, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 3, 'locks': 200}   2.292222222222222
+  p05: {'x': 25, 'y': 25, 'prob_key_in_goal': 0.5, 'shapes': 2, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 3, 'locks': 312}   3.5191666666666666
+  p06: {'x': 30, 'y': 30, 'prob_key_in_goal': 0.5, 'shapes': 3, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 4, 'locks': 450}   6.84
+  p07: {'x': 34, 'y': 34, 'prob_key_in_goal': 0.5, 'shapes': 3, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 4, 'locks': 578}   8.206666666666667
+  p08: {'x': 39, 'y': 39, 'prob_key_in_goal': 0.5, 'shapes': 3, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 4, 'locks': 760}   13.665
+  p09: {'x': 43, 'y': 43, 'prob_key_in_goal': 0.5, 'shapes': 3, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 4, 'locks': 924}   15.978333333333333
+  p10: {'x': 48, 'y': 48, 'prob_key_in_goal': 0.5, 'shapes': 3, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 4, 'locks': 1152}   47.98
+  p11: {'x': 53, 'y': 53, 'prob_key_in_goal': 0.5, 'shapes': 4, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 5, 'locks': 1404}   51.376666666666665
+  p12: {'x': 57, 'y': 57, 'prob_key_in_goal': 0.5, 'shapes': 4, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 5, 'locks': 1624}   63.24777777777778
+  p13: {'x': 62, 'y': 62, 'prob_key_in_goal': 0.5, 'shapes': 4, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 5, 'locks': 1922}   99.22666666666666
+  p14: {'x': 66, 'y': 66, 'prob_key_in_goal': 0.5, 'shapes': 4, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 5, 'locks': 2178}   139.81666666666666
+  p15: {'x': 71, 'y': 71, 'prob_key_in_goal': 0.5, 'shapes': 4, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 5, 'locks': 2520}   153.72333333333333
+  p16: {'x': 76, 'y': 76, 'prob_key_in_goal': 0.5, 'shapes': 5, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 6, 'locks': 2888}   234.74421240936243
+  p17: {'x': 80, 'y': 80, 'prob_key_in_goal': 0.5, 'shapes': 5, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 6, 'locks': 3200}   358.4676708785819
+  p18: {'x': 85, 'y': 85, 'prob_key_in_goal': 0.5, 'shapes': 5, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 6, 'locks': 3612}   547.4003799549705
+  p19: {'x': 89, 'y': 89, 'prob_key_in_goal': 0.5, 'shapes': 5, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 6, 'locks': 3960}   835.9112977759739
+  p20: {'x': 94, 'y': 94, 'prob_key_in_goal': 0.5, 'shapes': 5, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 6, 'locks': 4418}   1276.4837646020494
+  p21: {'x': 98, 'y': 98, 'prob_key_in_goal': 0.5, 'shapes': 6, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 7, 'locks': 4802}   1949.262805309405
+  p22: {'x': 103, 'y': 103, 'prob_key_in_goal': 0.5, 'shapes': 6, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 7, 'locks': 5304}   2976.63439953523
+  p23: {'x': 108, 'y': 108, 'prob_key_in_goal': 0.5, 'shapes': 6, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 7, 'locks': 5832}   4545.488850637594
+  p24: {'x': 112, 'y': 112, 'prob_key_in_goal': 0.5, 'shapes': 6, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 7, 'locks': 6272}   6941.218207549016
+  p25: {'x': 117, 'y': 117, 'prob_key_in_goal': 0.5, 'shapes': 6, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 7, 'locks': 6844}   10599.632248146801
+  p26: {'x': 121, 'y': 121, 'prob_key_in_goal': 0.5, 'shapes': 7, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 8, 'locks': 7320}   16186.23711811328
+  p27: {'x': 126, 'y': 126, 'prob_key_in_goal': 0.5, 'shapes': 7, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 8, 'locks': 7938}   24717.29829019249
+  p28: {'x': 131, 'y': 131, 'prob_key_in_goal': 0.5, 'shapes': 7, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 8, 'locks': 8580}   37744.71054070202
+  p29: {'x': 135, 'y': 135, 'prob_key_in_goal': 0.5, 'shapes': 7, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 8, 'locks': 9112}   57638.304845261766
+  p30: {'x': 140, 'y': 140, 'prob_key_in_goal': 0.5, 'shapes': 7, 'extra_keys': 1, 'percentage_cells_locked': 0.5, 'keys': 8, 'locks': 9800}   88016.94695347732
+Total Estimated Runtimes: [0.67, 1.0655555555555556, 1.6033333333333333, 2.292222222222222, 3.5191666666666666, 6.84, 8.206666666666667, 13.665, 15.978333333333333, 47.98, 51.376666666666665, 63.24777777777778, 99.22666666666666, 139.81666666666666, 153.72333333333333, 234.74421240936243, 358.4676708785819, 547.4003799549705, 835.9112977759739, 1276.4837646020494, 1949.262805309405, 2976.63439953523, 4545.488850637594, 6941.218207549016, 10599.632248146801, 16186.23711811328, 24717.29829019249, 37744.71054070202, 57638.304845261766, 88016.94695347732]
+Total Estimated Solved: 20
