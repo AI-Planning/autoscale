@@ -151,6 +151,12 @@ def parse_args():
         help="Runtime information regarding the IPC instances"
     )
 
+    parser.add_argument(
+        "--ipc_benchmarks_folder",  default = "/home/alvaro/benchmarks/downward-benchmarks",
+        help="Directory where IPC instances are stored"
+    )
+
+
     return parser.parse_args()
 
 
@@ -296,7 +302,7 @@ if len(candidate_sequences) == 0:
     sys.exit("Error: no valid sequences")
 
 if ARGS.use_ipc_instances:
-    data_ipc_instances = domains_without_generator.DataDomain("/home/alvaro/benchmarks/downward-benchmarks", logging, ARGS.track)
+    data_ipc_instances = domains_without_generator.DataDomain(ARGS.ipc_benchmarks_folder, logging, ARGS.track)
     for filename in ARGS.database_ipc:
         with open(filename) as f:
             data = json.load(f)
@@ -368,13 +374,19 @@ if ARGS.output:
 
     for numseed in range(0, max(1, ARGS.multiple_seeds)):
         i = 1
-        for task in final_selection:
-            task["seed"] = seed
-            seed += 1
-            command = domain.get_generator_command(GENERATORS_DIR, task)
 
-            problem_file = f"{ARGS.output}/{ARGS.domain}/p{i:02d}-{numseed}.pddl" if ARGS.multiple_seeds else f"{ARGS.output}/{ARGS.domain}/p{i:02d}.pddl"
-            domain_file = f"{ARGS.output}/{ARGS.domain}/domain-p{i:02d}.pddl"
+        for task in final_selection:
+            if ARGS.use_ipc_instances and isinstance(task, str):
+                data_ipc_instances.generate_problem(task, f"{ARGS.output}/{ARGS.domain}", f"p{i:02d}.pddl")
+            else:
+                task["seed"] = seed
+                seed += 1
+                command = domain.get_generator_command(GENERATORS_DIR, task)
+
+                problem_file = f"{ARGS.output}/{ARGS.domain}/p{i:02d}-{numseed}.pddl" if ARGS.multiple_seeds else f"{ARGS.output}/{ARGS.domain}/p{i:02d}.pddl"
+                domain_file = f"{ARGS.output}/{ARGS.domain}/domain-p{i:02d}.pddl"
+
+                domain.generate_problem(command, problem_file, domain_file)
+
             i += 1
 
-            domain.generate_problem(command, problem_file, domain_file)
