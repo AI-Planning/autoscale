@@ -269,6 +269,9 @@ def write_appendix(properties_dataset, dataset, evaluationfile, outfilename):
                 def find_scaling(properties, seq, atr):
                     config_b = seq['config_instances'][0]
                     config_e = seq['config_instances'][-1]
+
+                    if seq['configuration'] == seq['config_instances']:
+                        return "IPC Instances"
                     if isinstance(atr, domains.GridAttr):
                         xatr = atr.name_x
                         yatr = atr.name_y
@@ -363,7 +366,7 @@ def parse_args():
 
     parser.add_argument(
         "--benchmark",
-        default="2021-10-30",
+        default="2021-11-30",
         help="name of benchmark set")
 
     parser.add_argument(

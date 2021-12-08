@@ -30,48 +30,48 @@
 \cmidrule[\lightrulewidth](l){17-18}
        Optimal &  \#IPC & \#s &      IPC &      AS &  AS &              diff &      IPC &      AS &  AS &               diff & \#s &       IPC &      AS &  AS &               diff &       IPC &      AS &  AS &               diff \\
 \midrule
-      agricola &     20 &   5 &    0--13 &   0--16 &  12 &  {\color{blue}+7} &     0--7 &   0--10 &  22 &    {\color{red}-2} &   3 &     0--13 &   0--30 &  14 &                  0 &     6--11 &  22--25 &  17 &    {\color{red}-7} \\
-       airport &     50 &   2 &   22--30 &   4--10 &  14 &                 0 &   25--38 &   2--19 &  24 &                  0 &   2 &    34--47 &  14--27 &  13 &                  0 &    36--48 &  16--27 &  25 &    {\color{red}-1} \\
-        barman &  34/40 &   3 &    4--16 &   8--16 &  13 &  {\color{blue}+8} &    4--11 &  11--15 &  24 &  {\color{blue}+12} &   2 &    17--40 &   0--27 &  15 &   {\color{blue}+2} &    39--40 &   4--27 &  27 &  {\color{blue}+20} \\
-   blocksworld &     35 &   2 &   18--34 &  10--20 &  14 &  {\color{blue}+2} &   18--30 &  10--20 &  25 &   {\color{blue}+7} &   1 &    35--35 &   4--27 &  15 &  {\color{blue}+15} &    35--35 &   6--23 &  27 &  {\color{blue}+27} \\
-    childsnack &     20 &   3 &     0--4 &   5--14 &   5 &                 0 &     0--6 &   5--13 &  13 &                  0 &   2 &      0--7 &    0--9 &  14 &   {\color{blue}+1} &     1--20 &   2--23 &  27 &                  0 \\
-  data-network &     20 &   2 &    7--13 &   7--14 &  14 &   {\color{red}-1} &    6--14 &   7--14 &  24 &    {\color{red}-3} &   2 &     2--15 &   3--21 &  14 &                  0 &     9--19 &  10--27 &  26 &   {\color{blue}+2} \\
-        depots &     22 &   3 &     4--9 &   9--13 &  12 &  {\color{blue}+3} &    5--14 &  10--18 &  22 &    {\color{red}-3} &   1 &    17--22 &   4--17 &  15 &   {\color{blue}+3} &    22--22 &  12--17 &  21 &  {\color{blue}+21} \\
-     driverlog &     20 &   3 &    7--14 &   2--20 &  14 &  {\color{blue}+3} &    7--15 &   2--16 &  27 &   {\color{blue}+5} &   1 &    18--20 &   7--30 &  15 &  {\color{blue}+10} &    20--20 &  12--24 &  26 &  {\color{blue}+26} \\
-     elevators &     50 &   4 &    7--44 &   0--14 &  14 &   {\color{red}-1} &   28--44 &   8--12 &  23 &    {\color{red}-3} &   1 &    11--50 &   2--30 &  12 &   {\color{blue}+3} &    49--50 &  21--30 &  18 &  {\color{blue}+11} \\
-     floortile &     40 &   2 &    2--34 &   3--20 &  14 &  {\color{blue}+1} &   16--34 &   7--15 &  22 &   {\color{blue}+1} &   1 &     7--40 &   2--15 &   5 &    {\color{red}-9} &     4--40 &   1--15 &  24 &   {\color{blue}+7} \\
-      freecell &     80 &   2 &   15--63 &   5--19 &  11 &   {\color{red}-1} &   15--70 &   4--18 &  21 &    {\color{red}-4} &   1 &    46--80 &  10--27 &  13 &   {\color{blue}+2} &    80--80 &  22--29 &  26 &  {\color{blue}+26} \\
-           ged &     20 &   3 &   15--19 &  17--23 &   9 &                 0 &   15--19 &  17--23 &  15 &    {\color{red}-1} &   1 &     0--20 &   3--30 &  11 &   {\color{blue}+2} &    20--20 &  25--30 &  18 &  {\color{blue}+18} \\
-          grid &      5 &   1 &     1--3 &   8--25 &  13 &  {\color{blue}+2} &     1--3 &   8--22 &  25 &   {\color{blue}+6} &   1 &      4--5 &   4--17 &  13 &   {\color{blue}+8} &      5--5 &   6--10 &  21 &  {\color{blue}+21} \\
-       gripper &     20 &   1 &    7--20 &  10--30 &  11 &                 0 &    8--20 &  11--30 &   7 &                  0 &   1 &    20--20 &  30--30 &   0 &                  0 &    20--20 &  26--30 &  13 &  {\color{blue}+13} \\
-        hiking &     20 &   3 &    9--19 &    2--9 &   9 &   {\color{red}-5} &   13--18 &    5--9 &  13 &    {\color{red}-8} &   1 &     1--20 &   1--20 &  15 &   {\color{blue}+6} &    10--20 &   2--14 &  27 &   {\color{blue}+5} \\
-     logistics &     63 &   4 &   12--27 &   9--21 &  13 &   {\color{red}-1} &   13--36 &  12--27 &  26 &    {\color{red}-2} &   1 &    57--63 &   0--17 &  14 &   {\color{blue}+2} &    51--63 &   3--18 &  22 &   {\color{blue}+5} \\
-       miconic &    150 &   1 &  55--144 &   3--17 &  14 &                 0 &  56--143 &   3--18 &  28 &   {\color{blue}+1} &   1 &  150--150 &  30--30 &   0 &                  0 &  150--150 &  30--30 &   0 &                  0 \\
-        mprime &     35 &   2 &   20--24 &    4--9 &  14 &  {\color{blue}+1} &   18--31 &   5--13 &  26 &   {\color{blue}+8} &   3 &    31--35 &   6--10 &  13 &   {\color{blue}+8} &    31--35 &   9--22 &  26 &  {\color{blue}+19} \\
-     nomystery &     20 &   1 &    8--20 &   4--13 &  14 &                 0 &    8--20 &   4--21 &  25 &   {\color{blue}+7} &   2 &     6--20 &   1--24 &  15 &   {\color{blue}+1} &    12--20 &   7--24 &  27 &   {\color{blue}+4} \\
-    openstacks &     70 &   2 &   23--70 &   3--15 &   9 &   {\color{red}-3} &   42--64 &    6--7 &   7 &   {\color{red}-17} &   2 &     6--70 &   2--30 &  15 &   {\color{blue}+1} &    70--70 &  19--27 &  22 &  {\color{blue}+22} \\
- organic-split &     20 &   2 &    7--15 &   3--16 &  14 &  {\color{blue}+1} &   13--14 &  12--17 &  21 &   {\color{blue}+6} &   2 &     6--14 &   3--21 &  15 &   {\color{blue}+2} &     3--12 &   2--18 &  28 &   {\color{blue}+3} \\
-   parcprinter &     50 &   1 &   16--39 &   7--18 &  14 &   {\color{red}-1} &   42--50 &  19--30 &  26 &   {\color{blue}+4} &   1 &    30--50 &  16--30 &   9 &                  0 &    13--50 &   8--30 &  17 &   {\color{blue}+4} \\
-       parking &     40 &   3 &    0--11 &   7--17 &  15 &                 0 &    0--15 &   9--18 &  26 &    {\color{red}-2} &   1 &    23--40 &   0--23 &  14 &                  0 &    35--40 &  14--18 &  18 &   {\color{blue}+5} \\
-      pathways &     30 &   3 &     4--5 &   9--16 &  11 &  {\color{blue}+3} &     4--5 &  13--16 &  20 &   {\color{blue}+4} &   1 &     9--30 &  12--25 &  12 &                  0 &    25--30 &  23--26 &  23 &    {\color{red}-2} \\
-        pegsol &     50 &   1 &   44--48 &  25--28 &  11 &  {\color{blue}+2} &   46--50 &  26--30 &  20 &                  0 &   1 &    49--50 &  30--30 &   0 &    {\color{red}-5} &    48--50 &  28--30 &  12 &   {\color{blue}+5} \\
-      pipes-nt &     50 &   4 &   15--22 &  14--20 &  12 &                 0 &   19--25 &  15--22 &  25 &   {\color{blue}+2} &   3 &    31--45 &   6--25 &  13 &                  0 &    43--50 &  23--30 &  26 &   {\color{blue}+2} \\
-       pipes-t &     50 &   4 &   12--16 &  11--15 &  13 &  {\color{blue}+1} &   15--22 &  15--20 &  21 &    {\color{red}-2} &   3 &    15--44 &   3--30 &  14 &                  0 &    40--44 &  28--30 &  20 &    {\color{red}-5} \\
-        rovers &     40 &   2 &    6--14 &   2--16 &   9 &   {\color{red}-4} &    6--13 &   2--14 &  22 &    {\color{red}-4} &   4 &    26--40 &  20--30 &   5 &                  0 &    38--40 &  30--30 &   0 &    {\color{red}-7} \\
-     satellite &     36 &   2 &    6--10 &   5--21 &  13 &  {\color{blue}+1} &    7--14 &  12--22 &  28 &   {\color{blue}+7} &   1 &    28--36 &  10--19 &  12 &    {\color{red}-2} &    26--36 &   7--15 &  25 &   {\color{blue}+2} \\
-    scanalyzer &     50 &   3 &   15--29 &   9--17 &   5 &   {\color{red}-4} &   21--33 &   9--17 &  22 &    {\color{red}-4} &   1 &    42--50 &   8--19 &  14 &   {\color{blue}+2} &    48--50 &   9--16 &  25 &  {\color{blue}+13} \\
-         snake &     20 &   2 &    4--12 &   4--15 &  12 &                 0 &    7--14 &   3--15 &  24 &   {\color{blue}+2} &   1 &     5--12 &   9--19 &   9 &    {\color{red}-3} &     3--17 &   6--17 &  27 &                  0 \\
-       sokoban &     50 &   2 &   11--50 &   0--24 &  15 &  {\color{blue}+1} &   48--50 &  15--25 &  28 &   {\color{blue}+8} &   1 &     8--48 &   7--22 &  14 &   {\color{blue}+1} &    29--50 &  16--27 &  27 &   {\color{blue}+2} \\
-       storage &     30 &   2 &   14--16 &   4--14 &  12 &  {\color{blue}+3} &   15--18 &   6--24 &  27 &   {\color{blue}+6} &   2 &    19--30 &   3--22 &  14 &                  0 &    21--30 &   7--21 &  25 &    {\color{red}-1} \\
-        termes &     20 &   3 &    6--18 &   7--12 &   5 &   {\color{red}-8} &    5--15 &   7--12 &   7 &   {\color{red}-18} &   2 &     0--15 &   0--21 &  15 &                  0 &     6--15 &   2--20 &  25 &    {\color{red}-2} \\
-        tetris &  17/20 &   3 &    6--10 &   8--21 &  14 &  {\color{blue}+1} &    9--13 &  19--22 &  21 &    {\color{red}-1} &   2 &     6--16 &   0--11 &  11 &    {\color{red}-3} &    15--20 &   9--18 &  24 &   {\color{blue}+6} \\
-    thoughtful &  --/20 &   3 &       -- &    5--5 &   0 &                -- &       -- &    5--8 &   7 &                 -- &   1 &     5--17 &   0--19 &  14 &                  0 &    17--20 &  22--30 &  24 &   {\color{blue}+5} \\
-       tidybot &  40/20 &   2 &   19--30 &   4--11 &  13 &  {\color{blue}+1} &   11--32 &   4--12 &  24 &    {\color{red}-1} &   1 &    13--20 &   6--21 &  13 &   {\color{blue}+1} &    18--20 &  13--24 &  24 &   {\color{blue}+4} \\
-           tpp &     30 &   1 &     6--8 &    2--6 &   9 &   {\color{red}-2} &    7--20 &   4--20 &  22 &    {\color{red}-2} &   1 &    23--30 &   7--20 &  14 &   {\color{blue}+5} &    29--30 &   8--16 &  22 &   {\color{blue}+7} \\
-     transport &     70 &   4 &   23--33 &  10--17 &  14 &                 0 &   24--35 &  12--21 &  21 &                  0 &   3 &    13--70 &   3--21 &  14 &                  0 &    62--70 &  12--19 &  25 &  {\color{blue}+18} \\
-      visitall &     40 &   2 &   12--28 &   3--20 &  15 &                 0 &   12--30 &   2--18 &  27 &   {\color{blue}+1} &   1 &     3--40 &   5--29 &  15 &   {\color{blue}+3} &    36--40 &  19--28 &  25 &  {\color{blue}+18} \\
-   woodworking &     50 &   2 &   11--48 &   5--10 &   9 &   {\color{red}-3} &   38--50 &   8--17 &  25 &   {\color{blue}+4} &   2 &    43--50 &   3--17 &  15 &  {\color{blue}+10} &    28--50 &   5--23 &  25 &  {\color{blue}+12} \\
-    zenotravel &     20 &   6 &    8--13 &   5--16 &  14 &                 0 &    7--13 &   5--22 &  26 &   {\color{blue}+3} &   1 &    20--20 &   8--15 &  14 &  {\color{blue}+14} &    20--20 &   5--12 &  24 &  {\color{blue}+24} \\
+      agricola &     20 &   5 &    0--13 &   0--14 &   5 &                 0 &     0--7 &   0--10 &  25 &   {\color{blue}+1} &   3 &     0--13 &   0--25 &  13 &    {\color{red}-1} &     6--11 &  18--20 &  12 &   {\color{red}-12} \\
+       airport &     50 &   2 &   22--30 &   3--10 &  14 &                 0 &   25--38 &   1--16 &  26 &   {\color{blue}+2} &   2 &    34--47 &  14--24 &  12 &    {\color{red}-1} &    36--48 &  16--27 &  25 &    {\color{red}-1} \\
+        barman &  34/40 &   3 &    4--16 &   8--16 &  13 &  {\color{blue}+8} &    4--11 &  10--15 &  22 &  {\color{blue}+10} &   2 &    17--40 &   0--28 &  15 &   {\color{blue}+2} &    39--40 &   5--28 &  25 &  {\color{blue}+18} \\
+   blocksworld &     35 &   2 &   18--34 &  10--21 &  14 &  {\color{blue}+2} &   18--30 &   9--20 &  27 &   {\color{blue}+9} &   1 &    35--35 &   3--27 &  15 &  {\color{blue}+15} &    35--35 &   6--23 &  27 &  {\color{blue}+27} \\
+    childsnack &     20 &   3 &     0--4 &   4--14 &  11 &  {\color{blue}+6} &     0--6 &   4--14 &  18 &   {\color{blue}+5} &   2 &      0--7 &    0--9 &  14 &   {\color{blue}+1} &     1--20 &   2--19 &  27 &                  0 \\
+  data-network &     20 &   2 &    7--13 &   6--14 &  15 &                 0 &    6--14 &   5--14 &  24 &    {\color{red}-3} &   2 &     2--15 &   1--22 &  15 &   {\color{blue}+1} &     9--19 &  10--28 &  27 &   {\color{blue}+3} \\
+        depots &     22 &   3 &     4--9 &   7--13 &  13 &  {\color{blue}+4} &    5--14 &   3--18 &  25 &                  0 &   1 &    17--22 &   4--15 &  14 &   {\color{blue}+2} &    22--22 &  12--15 &  21 &  {\color{blue}+21} \\
+     driverlog &     20 &   3 &    7--14 &   2--18 &  15 &  {\color{blue}+4} &    7--15 &   2--15 &  27 &   {\color{blue}+5} &   1 &    18--20 &   7--30 &  14 &   {\color{blue}+9} &    20--20 &  12--21 &  24 &  {\color{blue}+24} \\
+     elevators &     50 &   4 &    7--44 &   0--14 &  14 &   {\color{red}-1} &   28--44 &   4--12 &  25 &    {\color{red}-1} &   1 &    11--50 &   2--30 &  12 &   {\color{blue}+3} &    49--50 &  18--30 &  18 &  {\color{blue}+11} \\
+     floortile &     40 &   2 &    2--34 &   3--20 &  14 &  {\color{blue}+1} &   16--34 &   7--15 &  21 &                  0 &   1 &     7--40 &   2--12 &   5 &    {\color{red}-9} &     4--40 &   1--15 &  24 &   {\color{blue}+7} \\
+      freecell &     80 &   2 &   15--63 &   4--18 &  12 &                 0 &   15--70 &   2--18 &  21 &    {\color{red}-4} &   1 &    46--80 &  10--28 &  14 &   {\color{blue}+3} &    80--80 &  23--29 &  26 &  {\color{blue}+26} \\
+           ged &     20 &   3 &   15--19 &   8--22 &  12 &  {\color{blue}+3} &   15--19 &   8--22 &  21 &   {\color{blue}+5} &   1 &     0--20 &   3--30 &  11 &   {\color{blue}+2} &    20--20 &  27--30 &  19 &  {\color{blue}+19} \\
+          grid &      5 &   1 &     1--3 &   8--21 &  13 &  {\color{blue}+2} &     1--3 &   6--20 &  24 &   {\color{blue}+5} &   1 &      4--5 &   4--15 &  13 &   {\color{blue}+8} &      5--5 &    6--9 &  21 &  {\color{blue}+21} \\
+       gripper &     20 &   1 &    7--20 &  10--30 &   8 &   {\color{red}-3} &    8--20 &  10--30 &   7 &                  0 &   1 &    20--20 &  30--30 &   0 &                  0 &    20--20 &  21--30 &  13 &  {\color{blue}+13} \\
+        hiking &     20 &   3 &    9--19 &   5--20 &   9 &   {\color{red}-5} &   13--18 &   7--14 &  24 &   {\color{blue}+3} &   1 &     1--20 &   0--14 &  13 &   {\color{blue}+4} &    10--20 &   0--23 &  24 &   {\color{blue}+2} \\
+     logistics &     63 &   4 &   12--27 &   9--21 &  15 &  {\color{blue}+1} &   13--36 &  12--24 &  27 &    {\color{red}-1} &   1 &    57--63 &   5--15 &  15 &   {\color{blue}+3} &    51--63 &   3--15 &  21 &   {\color{blue}+4} \\
+       miconic &    150 &   1 &  55--144 &   3--20 &  14 &                 0 &  56--143 &   2--20 &  27 &                  0 &   1 &  150--150 &  30--30 &   0 &                  0 &  150--150 &  30--30 &   0 &                  0 \\
+        mprime &     35 &   2 &   20--24 &    4--9 &  14 &  {\color{blue}+1} &   18--31 &   3--13 &  26 &   {\color{blue}+8} &   3 &    31--35 &   5--10 &  14 &   {\color{blue}+9} &    31--35 &   8--22 &  25 &  {\color{blue}+18} \\
+     nomystery &     20 &   1 &    8--20 &   4--13 &  13 &   {\color{red}-1} &    8--20 &   4--21 &  27 &   {\color{blue}+9} &   2 &     6--20 &   1--24 &  15 &   {\color{blue}+1} &    12--20 &   7--23 &  27 &   {\color{blue}+4} \\
+    openstacks &     70 &   2 &   23--70 &   3--15 &   9 &   {\color{red}-3} &   42--64 &    5--6 &   7 &   {\color{red}-17} &   2 &     6--70 &   2--27 &  15 &   {\color{blue}+1} &    70--70 &  16--21 &  25 &  {\color{blue}+25} \\
+ organic-split &     20 &   2 &    7--15 &   2--16 &  14 &  {\color{blue}+1} &   13--14 &  10--13 &  13 &    {\color{red}-2} &   2 &     6--14 &   0--19 &  15 &   {\color{blue}+2} &     3--12 &   2--13 &  27 &   {\color{blue}+2} \\
+   parcprinter &     50 &   1 &   16--39 &   7--18 &  14 &   {\color{red}-1} &   42--50 &  16--30 &  26 &   {\color{blue}+4} &   1 &    30--50 &  15--30 &   9 &                  0 &    13--50 &   8--30 &  18 &   {\color{blue}+5} \\
+       parking &     40 &   3 &    0--11 &   7--16 &  14 &   {\color{red}-1} &    0--15 &   5--17 &  27 &    {\color{red}-1} &   1 &    23--40 &   0--21 &  15 &   {\color{blue}+1} &    35--40 &  13--16 &  18 &   {\color{blue}+5} \\
+      pathways &     30 &   3 &     4--5 &   9--14 &   8 &                 0 &     4--5 &   9--14 &  22 &   {\color{blue}+6} &   1 &     9--30 &  12--25 &   8 &    {\color{red}-4} &    25--30 &  25--26 &  12 &   {\color{red}-13} \\
+        pegsol &     50 &   1 &   44--48 &  27--29 &  11 &  {\color{blue}+2} &   46--50 &  20--30 &  21 &   {\color{blue}+1} &   1 &    49--50 &  28--30 &   5 &                  0 &    48--50 &  29--30 &  15 &   {\color{blue}+8} \\
+      pipes-nt &     50 &   4 &   15--22 &  13--19 &  13 &  {\color{blue}+1} &   19--25 &  10--22 &  27 &   {\color{blue}+4} &   3 &    31--45 &   6--25 &  15 &   {\color{blue}+2} &    43--50 &  23--30 &  24 &                  0 \\
+       pipes-t &     50 &   4 &   12--16 &   9--15 &  14 &  {\color{blue}+2} &   15--22 &   6--18 &  22 &    {\color{red}-1} &   3 &    15--44 &   3--30 &  14 &                  0 &    40--44 &  28--30 &  21 &    {\color{red}-4} \\
+        rovers &     40 &   2 &    6--14 &   2--16 &   9 &   {\color{red}-4} &    6--13 &   2--14 &  22 &    {\color{red}-4} &   4 &    26--40 &  19--30 &   5 &                  0 &    38--40 &  30--30 &   0 &    {\color{red}-7} \\
+     satellite &     36 &   2 &    6--10 &   5--21 &  14 &  {\color{blue}+2} &    7--14 &  12--22 &  27 &   {\color{blue}+6} &   1 &    28--36 &   9--16 &  13 &    {\color{red}-1} &    26--36 &   6--12 &  25 &   {\color{blue}+2} \\
+    scanalyzer &     50 &   3 &   15--29 &   6--17 &   9 &                 0 &   21--33 &   9--16 &  24 &    {\color{red}-2} &   1 &    42--50 &   6--17 &  14 &   {\color{blue}+2} &    48--50 &   9--14 &  18 &   {\color{blue}+6} \\
+         snake &     20 &   2 &    4--12 &   4--14 &  12 &                 0 &    7--14 &   0--14 &  25 &   {\color{blue}+3} &   1 &     5--12 &   5--17 &  12 &                  0 &     3--17 &   6--14 &  24 &    {\color{red}-3} \\
+       sokoban &     50 &   2 &   11--50 &   0--25 &  15 &  {\color{blue}+1} &   48--50 &   4--25 &  22 &   {\color{blue}+2} &   1 &     8--48 &   5--22 &  13 &                  0 &    29--50 &  16--27 &  26 &   {\color{blue}+1} \\
+       storage &     30 &   2 &   14--16 &   4--11 &  15 &  {\color{blue}+6} &   15--18 &   5--24 &  28 &   {\color{blue}+7} &   2 &    19--30 &   3--20 &  15 &   {\color{blue}+1} &    21--30 &   7--18 &  25 &    {\color{red}-1} \\
+        termes &     20 &   3 &    6--18 &   6--20 &  15 &  {\color{blue}+2} &    5--15 &   5--13 &  25 &                  0 &   2 &     0--15 &   0--21 &  15 &                  0 &     6--15 &   2--20 &  25 &    {\color{red}-2} \\
+        tetris &  17/20 &   3 &    6--10 &   6--20 &  13 &                 0 &    9--13 &  13--21 &  24 &   {\color{blue}+2} &   2 &     6--16 &   1--19 &  15 &   {\color{blue}+1} &    15--20 &  14--20 &  24 &   {\color{blue}+6} \\
+    thoughtful &  --/20 &   3 &       -- &    5--5 &   0 &                -- &       -- &    1--5 &   7 &                 -- &   1 &     5--17 &   0--19 &  15 &   {\color{blue}+1} &    17--20 &  22--30 &  22 &   {\color{blue}+3} \\
+       tidybot &  40/20 &   2 &   19--30 &   2--10 &  13 &  {\color{blue}+1} &   11--32 &   4--11 &  22 &    {\color{red}-3} &   1 &    13--20 &   4--21 &  14 &   {\color{blue}+2} &    18--20 &  12--21 &  26 &   {\color{blue}+6} \\
+           tpp &     30 &   1 &     6--8 &    2--6 &   5 &   {\color{red}-6} &    7--20 &   3--20 &  24 &                  0 &   1 &    23--30 &   7--17 &  14 &   {\color{blue}+5} &    29--30 &   8--15 &  25 &  {\color{blue}+10} \\
+     transport &     70 &   4 &   23--33 &  10--17 &  13 &   {\color{red}-1} &   24--35 &   5--18 &  27 &   {\color{blue}+6} &   3 &    13--70 &   2--20 &  14 &                  0 &    62--70 &  12--17 &  21 &  {\color{blue}+14} \\
+      visitall &     40 &   2 &   12--28 &   2--19 &  14 &   {\color{red}-1} &   12--30 &   2--17 &  26 &                  0 &   1 &     3--40 &   5--29 &  14 &   {\color{blue}+2} &    36--40 &  16--25 &  26 &  {\color{blue}+19} \\
+   woodworking &     50 &   2 &   11--48 &   5--11 &   9 &   {\color{red}-3} &   38--50 &   8--17 &  25 &   {\color{blue}+4} &   2 &    43--50 &   3--13 &  14 &   {\color{blue}+9} &    28--50 &   4--20 &  25 &  {\color{blue}+12} \\
+    zenotravel &     20 &   6 &    8--13 &   5--16 &  14 &                 0 &    7--13 &   5--20 &  27 &   {\color{blue}+4} &   1 &    20--20 &   6--12 &  14 &  {\color{blue}+14} &    20--20 &    5--9 &  21 &  {\color{blue}+21} \\
 \bottomrule
 \end{tabular}
 
@@ -85,48 +85,48 @@
 
        Optimal &  \#IPC & \#s &      IPC &      AS &  AS &               diff & \#s &       IPC &      AS &  AS &               diff \\
 \midrule
-      agricola &     20 &   5 &    0--13 &   0--16 &  80 &  {\color{blue}+13} &   3 &     0--13 &   0--30 &  69 &   {\color{red}-11} \\
-       airport &     50 &   2 &   22--38 &   2--19 &  81 &    {\color{red}-2} &   2 &    34--48 &  14--27 &  83 &    {\color{red}-2} \\
-        barman &  34/40 &   3 &    4--16 &   8--16 &  83 &  {\color{blue}+28} &   2 &    17--40 &   0--27 &  88 &  {\color{blue}+36} \\
-   blocksworld &     35 &   2 &   18--34 &  10--20 &  78 &  {\color{blue}+16} &   1 &    35--35 &   4--27 &  89 &  {\color{blue}+89} \\
-    childsnack &     20 &   3 &     0--6 &   5--14 &  61 &                  0 &   2 &     0--20 &   0--23 &  85 &    {\color{red}-1} \\
-  data-network &     20 &   2 &    6--14 &   7--14 &  77 &    {\color{red}-8} &   2 &     2--19 &   3--27 &  87 &   {\color{blue}+4} \\
-        depots &     22 &   3 &    4--14 &   9--18 &  69 &    {\color{red}-6} &   1 &    17--22 &   4--17 &  77 &  {\color{blue}+41} \\
-     driverlog &     20 &   3 &    7--15 &   2--20 &  86 &  {\color{blue}+21} &   1 &    18--20 &   7--30 &  89 &  {\color{blue}+76} \\
-     elevators &     50 &   4 &    7--44 &   0--14 &  77 &    {\color{red}-8} &   1 &    11--50 &   2--30 &  63 &  {\color{blue}+27} \\
-     floortile &     40 &   2 &    2--34 &   3--20 &  82 &   {\color{blue}+2} &   1 &     4--40 &   1--15 &  76 &   {\color{blue}+2} \\
-      freecell &     80 &   2 &   15--70 &   4--19 &  68 &    {\color{red}-7} &   1 &    46--80 &  10--29 &  81 &  {\color{blue}+38} \\
-           ged &     20 &   3 &   15--19 &  17--23 &  48 &    {\color{red}-1} &   1 &     0--20 &   3--30 &  62 &  {\color{blue}+37} \\
-          grid &      5 &   1 &     1--3 &   8--25 &  83 &  {\color{blue}+24} &   1 &      4--5 &   4--17 &  74 &  {\color{blue}+61} \\
-       gripper &     20 &   1 &    7--20 &  10--30 &  49 &                  0 &   1 &    20--20 &  26--30 &  25 &  {\color{blue}+25} \\
-        hiking &     20 &   3 &    9--19 &    2--9 &  46 &   {\color{red}-34} &   1 &     1--20 &   1--20 &  88 &  {\color{blue}+26} \\
-     logistics &     63 &   4 &   12--36 &   9--27 &  86 &                  0 &   1 &    51--63 &   0--18 &  84 &  {\color{blue}+22} \\
-       miconic &    150 &   1 &  55--144 &   3--18 &  85 &    {\color{red}-3} &   1 &  150--150 &  30--30 &   0 &                  0 \\
-        mprime &     35 &   2 &   18--31 &   4--13 &  82 &  {\color{blue}+15} &   3 &    31--35 &   6--22 &  82 &  {\color{blue}+58} \\
-     nomystery &     20 &   1 &    8--20 &   4--21 &  85 &  {\color{blue}+16} &   2 &     6--20 &   1--24 &  87 &   {\color{blue}+4} \\
-    openstacks &     70 &   2 &   23--70 &   3--15 &  36 &   {\color{red}-45} &   2 &     6--70 &   2--30 &  83 &  {\color{blue}+37} \\
- organic-split &     20 &   2 &    7--15 &   3--17 &  82 &   {\color{blue}+9} &   2 &     3--14 &   2--21 &  89 &   {\color{blue}+3} \\
-   parcprinter &     50 &   1 &   16--50 &   7--30 &  88 &   {\color{blue}+3} &   1 &    13--50 &   8--30 &  54 &   {\color{blue}+8} \\
-       parking &     40 &   3 &    0--15 &   7--18 &  84 &    {\color{red}-3} &   1 &    23--40 &   0--23 &  80 &  {\color{blue}+17} \\
-      pathways &     30 &   3 &     4--5 &   9--16 &  75 &  {\color{blue}+27} &   1 &     9--30 &  12--26 &  75 &    {\color{red}-4} \\
-        pegsol &     50 &   1 &   44--50 &  25--30 &  65 &   {\color{blue}+6} &   1 &    48--50 &  28--30 &  24 &    {\color{red}-1} \\
-      pipes-nt &     50 &   4 &   15--25 &  14--22 &  83 &                  0 &   3 &    31--50 &   6--30 &  81 &   {\color{blue}+4} \\
-       pipes-t &     50 &   4 &   12--22 &  11--20 &  80 &   {\color{blue}+1} &   3 &    15--44 &   3--30 &  72 &    {\color{red}-8} \\
-        rovers &     40 &   2 &    6--14 &   2--16 &  67 &   {\color{red}-16} &   4 &    26--40 &  20--30 &  13 &   {\color{red}-12} \\
-     satellite &     36 &   2 &    6--14 &   5--22 &  87 &   {\color{blue}+8} &   1 &    26--36 &   7--19 &  77 &   {\color{blue}+2} \\
-    scanalyzer &     50 &   3 &   15--33 &   9--17 &  69 &   {\color{red}-10} &   1 &    42--50 &   8--19 &  84 &  {\color{blue}+30} \\
-         snake &     20 &   2 &    4--14 &   3--15 &  81 &  {\color{blue}+13} &   1 &     3--17 &   6--19 &  79 &    {\color{red}-5} \\
-       sokoban &     50 &   2 &   11--50 &   0--25 &  90 &  {\color{blue}+16} &   1 &     8--50 &   7--27 &  87 &   {\color{blue}+6} \\
-       storage &     30 &   2 &   14--18 &   4--24 &  83 &  {\color{blue}+13} &   2 &    19--30 &   3--22 &  87 &   {\color{blue}+3} \\
-        termes &     20 &   3 &    5--18 &   7--12 &  24 &   {\color{red}-56} &   2 &     0--15 &   0--21 &  87 &   {\color{blue}+2} \\
-        tetris &  17/20 &   3 &    6--13 &   8--22 &  80 &    {\color{red}-1} &   2 &     6--20 &   0--18 &  81 &   {\color{blue}+4} \\
-    thoughtful &  --/20 &   3 &       -- &    5--8 &  13 &                 -- &   1 &     5--20 &   0--30 &  86 &   {\color{blue}+7} \\
-       tidybot &  40/20 &   2 &   11--32 &   4--12 &  78 &    {\color{red}-5} &   1 &    13--20 &   6--24 &  85 &   {\color{blue}+9} \\
-           tpp &     30 &   1 &    6--20 &   2--20 &  78 &   {\color{blue}+2} &   1 &    23--30 &   7--20 &  78 &  {\color{blue}+29} \\
-     transport &     70 &   4 &   23--35 &  10--21 &  77 &   {\color{blue}+4} &   3 &    13--70 &   3--21 &  85 &  {\color{blue}+24} \\
-      visitall &     40 &   2 &   12--30 &   2--20 &  86 &   {\color{blue}+1} &   1 &     3--40 &   5--29 &  88 &  {\color{blue}+42} \\
-   woodworking &     50 &   2 &   11--50 &   5--17 &  82 &   {\color{blue}+1} &   2 &    28--50 &   3--23 &  86 &  {\color{blue}+50} \\
-    zenotravel &     20 &   6 &    7--13 &   5--22 &  86 &  {\color{blue}+10} &   1 &    20--20 &   5--15 &  82 &  {\color{blue}+82} \\
+      agricola &     20 &   5 &    0--13 &   0--14 &  73 &   {\color{blue}+6} &   3 &     0--13 &   0--25 &  61 &   {\color{red}-19} \\
+       airport &     50 &   2 &   22--38 &   1--16 &  85 &   {\color{blue}+2} &   2 &    34--48 &  14--27 &  82 &    {\color{red}-3} \\
+        barman &  34/40 &   3 &    4--16 &   8--16 &  83 &  {\color{blue}+28} &   2 &    17--40 &   0--28 &  87 &  {\color{blue}+35} \\
+   blocksworld &     35 &   2 &   18--34 &   9--21 &  84 &  {\color{blue}+22} &   1 &    35--35 &   3--27 &  90 &  {\color{blue}+90} \\
+    childsnack &     20 &   3 &     0--6 &   4--14 &  73 &  {\color{blue}+12} &   2 &     0--20 &   0--19 &  85 &    {\color{red}-1} \\
+  data-network &     20 &   2 &    6--14 &   5--14 &  80 &    {\color{red}-5} &   2 &     2--19 &   1--28 &  90 &   {\color{blue}+7} \\
+        depots &     22 &   3 &    4--14 &   3--18 &  79 &   {\color{blue}+4} &   1 &    17--22 &   4--15 &  79 &  {\color{blue}+43} \\
+     driverlog &     20 &   3 &    7--15 &   2--18 &  87 &  {\color{blue}+22} &   1 &    18--20 &   7--30 &  86 &  {\color{blue}+73} \\
+     elevators &     50 &   4 &    7--44 &   0--14 &  81 &    {\color{red}-4} &   1 &    11--50 &   2--30 &  62 &  {\color{blue}+26} \\
+     floortile &     40 &   2 &    2--34 &   3--20 &  81 &   {\color{blue}+1} &   1 &     4--40 &   1--15 &  77 &   {\color{blue}+3} \\
+      freecell &     80 &   2 &   15--70 &   2--18 &  66 &    {\color{red}-9} &   1 &    46--80 &  10--29 &  81 &  {\color{blue}+38} \\
+           ged &     20 &   3 &   15--19 &   8--22 &  66 &  {\color{blue}+17} &   1 &     0--20 &   3--30 &  66 &  {\color{blue}+41} \\
+          grid &      5 &   1 &     1--3 &   6--21 &  85 &  {\color{blue}+26} &   1 &      4--5 &   4--15 &  70 &  {\color{blue}+57} \\
+       gripper &     20 &   1 &    7--20 &  10--30 &  45 &    {\color{red}-4} &   1 &    20--20 &  21--30 &  25 &  {\color{blue}+25} \\
+        hiking &     20 &   3 &    9--19 &   5--20 &  80 &                  0 &   1 &     1--20 &   0--23 &  83 &  {\color{blue}+21} \\
+     logistics &     63 &   4 &   12--36 &   9--24 &  88 &   {\color{blue}+2} &   1 &    51--63 &   3--15 &  79 &  {\color{blue}+17} \\
+       miconic &    150 &   1 &  55--144 &   2--20 &  86 &    {\color{red}-2} &   1 &  150--150 &  30--30 &   0 &                  0 \\
+        mprime &     35 &   2 &   18--31 &   3--13 &  83 &  {\color{blue}+16} &   3 &    31--35 &   5--22 &  83 &  {\color{blue}+59} \\
+     nomystery &     20 &   1 &    8--20 &   4--21 &  83 &  {\color{blue}+14} &   2 &     6--20 &   1--24 &  88 &   {\color{blue}+5} \\
+    openstacks &     70 &   2 &   23--70 &   3--15 &  36 &   {\color{red}-45} &   2 &     6--70 &   2--27 &  85 &  {\color{blue}+39} \\
+ organic-split &     20 &   2 &    7--15 &   2--16 &  73 &                  0 &   2 &     3--14 &   0--19 &  89 &   {\color{blue}+3} \\
+   parcprinter &     50 &   1 &   16--50 &   7--30 &  88 &   {\color{blue}+3} &   1 &    13--50 &   8--30 &  55 &   {\color{blue}+9} \\
+       parking &     40 &   3 &    0--15 &   5--17 &  85 &    {\color{red}-2} &   1 &    23--40 &   0--21 &  80 &  {\color{blue}+17} \\
+      pathways &     30 &   3 &     4--5 &   9--14 &  72 &  {\color{blue}+24} &   1 &     9--30 &  12--26 &  44 &   {\color{red}-35} \\
+        pegsol &     50 &   1 &   44--50 &  20--30 &  73 &  {\color{blue}+14} &   1 &    48--50 &  28--30 &  43 &  {\color{blue}+18} \\
+      pipes-nt &     50 &   4 &   15--25 &  10--22 &  87 &   {\color{blue}+4} &   3 &    31--50 &   6--30 &  82 &   {\color{blue}+5} \\
+       pipes-t &     50 &   4 &   12--22 &   6--18 &  82 &   {\color{blue}+3} &   3 &    15--44 &   3--30 &  75 &    {\color{red}-5} \\
+        rovers &     40 &   2 &    6--14 &   2--16 &  64 &   {\color{red}-19} &   4 &    26--40 &  19--30 &  13 &   {\color{red}-12} \\
+     satellite &     36 &   2 &    6--14 &   5--22 &  87 &   {\color{blue}+8} &   1 &    26--36 &   6--16 &  80 &   {\color{blue}+5} \\
+    scanalyzer &     50 &   3 &   15--33 &   6--17 &  77 &    {\color{red}-2} &   1 &    42--50 &   6--17 &  79 &  {\color{blue}+25} \\
+         snake &     20 &   2 &    4--14 &   0--14 &  84 &  {\color{blue}+16} &   1 &     3--17 &   5--17 &  84 &                  0 \\
+       sokoban &     50 &   2 &   11--50 &   0--25 &  84 &  {\color{blue}+10} &   1 &     8--50 &   5--27 &  86 &   {\color{blue}+5} \\
+       storage &     30 &   2 &   14--18 &   4--24 &  88 &  {\color{blue}+18} &   2 &    19--30 &   3--20 &  87 &   {\color{blue}+3} \\
+        termes &     20 &   3 &    5--18 &   5--20 &  85 &   {\color{blue}+5} &   2 &     0--15 &   0--21 &  87 &   {\color{blue}+2} \\
+        tetris &  17/20 &   3 &    6--13 &   6--21 &  80 &    {\color{red}-1} &   2 &     6--20 &   1--20 &  84 &   {\color{blue}+7} \\
+    thoughtful &  --/20 &   3 &       -- &    1--5 &  13 &                 -- &   1 &     5--20 &   0--30 &  85 &   {\color{blue}+6} \\
+       tidybot &  40/20 &   2 &   11--32 &   2--11 &  82 &    {\color{red}-1} &   1 &    13--20 &   4--21 &  83 &   {\color{blue}+7} \\
+           tpp &     30 &   1 &    6--20 &   2--20 &  76 &                  0 &   1 &    23--30 &   7--17 &  85 &  {\color{blue}+36} \\
+     transport &     70 &   4 &   23--35 &   5--18 &  85 &  {\color{blue}+12} &   3 &    13--70 &   2--20 &  81 &  {\color{blue}+20} \\
+      visitall &     40 &   2 &   12--30 &   2--19 &  82 &    {\color{red}-3} &   1 &     3--40 &   5--29 &  88 &  {\color{blue}+42} \\
+   woodworking &     50 &   2 &   11--50 &   5--17 &  81 &                  0 &   2 &    28--50 &   3--20 &  87 &  {\color{blue}+51} \\
+    zenotravel &     20 &   6 &    7--13 &   5--20 &  86 &  {\color{blue}+10} &   1 &    20--20 &   5--12 &  77 &  {\color{blue}+77} \\
 \bottomrule
 \end{tabular}
 
@@ -1274,9 +1274,9 @@ n\_cars & Linear(b=[1, 5], m=[0, 5.0 + n\_couples]) \\\midrule
                             \begin{center}
                             \begin{tabular}{@{}l|l|l|l|l@{}}
                             \# & n\_couples & n\_places & n\_cars & Estimated time\\\midrule
-                            12&1 $\rightarrow$ 3&8 $\rightarrow$ 19&3 $\rightarrow$ 5&3.9 $\rightarrow$ 77000.0\\
-8&1 $\rightarrow$ 3&18 $\rightarrow$ 32&2 $\rightarrow$ 4&38.0 $\rightarrow$ 41000.0\\
-10&1 $\rightarrow$ 3&21 $\rightarrow$ 39&2 $\rightarrow$ 4&82.0 $\rightarrow$ 93000.0
+                            8&2&2 $\rightarrow$ 6&3 $\rightarrow$ 12&0.66 $\rightarrow$ 57000.0\\
+7&2&3 $\rightarrow$ 9&3&1.6 $\rightarrow$ 46000.0\\
+15&1&14 $\rightarrow$ 28&3&88.0 $\rightarrow$ 110000.0
                             \end{tabular}
                             \end{center}
                     
@@ -1285,7 +1285,8 @@ n\_cars & Linear(b=[1, 5], m=[0, 5.0 + n\_couples]) \\\midrule
                         \begin{center}
                         \begin{tabular}{@{}l|l|l|l|l@{}}
                         \# & n\_couples & n\_places & n\_cars & Estimated Time\\\midrule
-                        30&2&4 $\rightarrow$ 27&6 $\rightarrow$ 13&1.7 $\rightarrow$ 130000.0
+                        16&1&10 $\rightarrow$ 25&4 $\rightarrow$ 6&2.3 $\rightarrow$ 19000.0\\
+14&2&9 $\rightarrow$ 23&8 $\rightarrow$ 13&18.0 $\rightarrow$ 48000.0
                         \end{tabular}
                         \end{center}
                     
@@ -1295,36 +1296,36 @@ n\_cars & Linear(b=[1, 5], m=[0, 5.0 + n\_couples]) \\\midrule
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
-                              p01&{'n\_couples': 1, 'n\_places': 8, 'n\_cars': 3}&3.85\\
-  p02&{'n\_couples': 1, 'n\_places': 9, 'n\_cars': 3}&6.80\\
-  p03&{'n\_couples': 1, 'n\_places': 10, 'n\_cars': 3}&11.79\\
-  p04&{'n\_couples': 1, 'n\_places': 11, 'n\_cars': 3}&20.13\\
-  p05&{'n\_couples': 1, 'n\_places': 12, 'n\_cars': 3}&33.96\\
-  p06&{'n\_couples': 1, 'n\_places': 13, 'n\_cars': 3}&53.54\\
-  p07&{'n\_couples': 2, 'n\_places': 14, 'n\_cars': 4}&180.00\\
-  p08&{'n\_couples': 2, 'n\_places': 15, 'n\_cars': 4}&605.16\\
-  p09&{'n\_couples': 2, 'n\_places': 16, 'n\_cars': 4}&2034.51\\
-  p10&{'n\_couples': 2, 'n\_places': 17, 'n\_cars': 4}&6839.98\\
-  p11&{'n\_couples': 3, 'n\_places': 18, 'n\_cars': 5}&22995.83\\
-  p12&{'n\_couples': 3, 'n\_places': 19, 'n\_cars': 5}&77311.34\\
-  p13&{'n\_couples': 1, 'n\_places': 18, 'n\_cars': 2}&37.57\\
-  p14&{'n\_couples': 1, 'n\_places': 20, 'n\_cars': 2}&60.77\\
-  p15&{'n\_couples': 2, 'n\_places': 22, 'n\_cars': 3}&180.00\\
-  p16&{'n\_couples': 2, 'n\_places': 24, 'n\_cars': 3}&533.15\\
-  p17&{'n\_couples': 2, 'n\_places': 26, 'n\_cars': 3}&1579.18\\
-  p18&{'n\_couples': 2, 'n\_places': 28, 'n\_cars': 3}&4677.47\\
-  p19&{'n\_couples': 3, 'n\_places': 30, 'n\_cars': 4}&13854.50\\
-  p20&{'n\_couples': 3, 'n\_places': 32, 'n\_cars': 4}&41036.52\\
-  p21&{'n\_couples': 1, 'n\_places': 21, 'n\_cars': 2}&82.43\\
-  p22&{'n\_couples': 2, 'n\_places': 23, 'n\_cars': 3}&180.00\\
-  p23&{'n\_couples': 2, 'n\_places': 25, 'n\_cars': 3}&393.07\\
-  p24&{'n\_couples': 2, 'n\_places': 27, 'n\_cars': 3}&858.36\\
-  p25&{'n\_couples': 2, 'n\_places': 29, 'n\_cars': 3}&1874.44\\
-  p26&{'n\_couples': 3, 'n\_places': 31, 'n\_cars': 4}&4093.27\\
-  p27&{'n\_couples': 3, 'n\_places': 33, 'n\_cars': 4}&8938.60\\
-  p28&{'n\_couples': 3, 'n\_places': 35, 'n\_cars': 4}&19519.50\\
-  p29&{'n\_couples': 3, 'n\_places': 37, 'n\_cars': 4}&42625.36\\
-  p30&{'n\_couples': 3, 'n\_places': 39, 'n\_cars': 4}&93082.37
+                              p01&{'n\_couples': 2, 'n\_places': 2, 'n\_cars': 3}&0.66\\
+  p02&{'n\_couples': 2, 'n\_places': 2, 'n\_cars': 4}&0.71\\
+  p03&{'n\_couples': 2, 'n\_places': 3, 'n\_cars': 5}&2.04\\
+  p04&{'n\_couples': 2, 'n\_places': 4, 'n\_cars': 7}&9.53\\
+  p05&{'n\_couples': 2, 'n\_places': 4, 'n\_cars': 8}&10.12\\
+  p06&{'n\_couples': 2, 'n\_places': 5, 'n\_cars': 10}&180.00\\
+  p07&{'n\_couples': 2, 'n\_places': 6, 'n\_cars': 11}&3201.58\\
+  p08&{'n\_couples': 2, 'n\_places': 6, 'n\_cars': 12}&56945.12\\
+  p09&{'n\_couples': 2, 'n\_places': 3, 'n\_cars': 3}&1.58\\
+  p10&{'n\_couples': 2, 'n\_places': 4, 'n\_cars': 3}&5.50\\
+  p11&{'n\_couples': 2, 'n\_places': 5, 'n\_cars': 3}&28.31\\
+  p12&{'n\_couples': 2, 'n\_places': 6, 'n\_cars': 3}&180.00\\
+  p13&{'n\_couples': 2, 'n\_places': 7, 'n\_cars': 3}&1144.63\\
+  p14&{'n\_couples': 2, 'n\_places': 8, 'n\_cars': 3}&7278.73\\
+  p15&{'n\_couples': 2, 'n\_places': 9, 'n\_cars': 3}&46285.76\\
+  p16&{'n\_couples': 1, 'n\_places': 14, 'n\_cars': 3}&87.99\\
+  p17&{'n\_couples': 1, 'n\_places': 15, 'n\_cars': 3}&145.78\\
+  p18&{'n\_couples': 1, 'n\_places': 16, 'n\_cars': 3}&243.06\\
+  p19&{'n\_couples': 1, 'n\_places': 17, 'n\_cars': 3}&405.26\\
+  p20&{'n\_couples': 1, 'n\_places': 18, 'n\_cars': 3}&675.70\\
+  p21&{'n\_couples': 1, 'n\_places': 19, 'n\_cars': 3}&1126.61\\
+  p22&{'n\_couples': 1, 'n\_places': 20, 'n\_cars': 3}&1878.44\\
+  p23&{'n\_couples': 1, 'n\_places': 21, 'n\_cars': 3}&3131.99\\
+  p24&{'n\_couples': 1, 'n\_places': 22, 'n\_cars': 3}&5222.07\\
+  p25&{'n\_couples': 1, 'n\_places': 23, 'n\_cars': 3}&8706.92\\
+  p26&{'n\_couples': 1, 'n\_places': 24, 'n\_cars': 3}&14517.34\\
+  p27&{'n\_couples': 1, 'n\_places': 25, 'n\_cars': 3}&24205.24\\
+  p28&{'n\_couples': 1, 'n\_places': 26, 'n\_cars': 3}&40358.20\\
+  p29&{'n\_couples': 1, 'n\_places': 27, 'n\_cars': 3}&67290.56\\
+  p30&{'n\_couples': 1, 'n\_places': 28, 'n\_cars': 3}&112195.78
                             \end{tabular}
                             \end{center}
                     
@@ -1335,36 +1336,36 @@ n\_cars & Linear(b=[1, 5], m=[0, 5.0 + n\_couples]) \\\midrule
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
-                              p01&{'n\_couples': 2, 'n\_places': 4, 'n\_cars': 6}&1.73\\
-  p02&{'n\_couples': 2, 'n\_places': 5, 'n\_cars': 6}&2.70\\
-  p03&{'n\_couples': 2, 'n\_places': 6, 'n\_cars': 6}&4.12\\
-  p04&{'n\_couples': 2, 'n\_places': 7, 'n\_cars': 7}&7.24\\
-  p05&{'n\_couples': 2, 'n\_places': 8, 'n\_cars': 7}&12.11\\
-  p06&{'n\_couples': 2, 'n\_places': 9, 'n\_cars': 7}&13.80\\
-  p07&{'n\_couples': 2, 'n\_places': 10, 'n\_cars': 7}&19.87\\
-  p08&{'n\_couples': 2, 'n\_places': 10, 'n\_cars': 8}&25.02\\
-  p09&{'n\_couples': 2, 'n\_places': 11, 'n\_cars': 8}&35.70\\
-  p10&{'n\_couples': 2, 'n\_places': 12, 'n\_cars': 8}&52.58\\
-  p11&{'n\_couples': 2, 'n\_places': 13, 'n\_cars': 8}&89.62\\
-  p12&{'n\_couples': 2, 'n\_places': 13, 'n\_cars': 9}&141.59\\
-  p13&{'n\_couples': 2, 'n\_places': 14, 'n\_cars': 9}&207.00\\
-  p14&{'n\_couples': 2, 'n\_places': 15, 'n\_cars': 9}&302.62\\
-  p15&{'n\_couples': 2, 'n\_places': 16, 'n\_cars': 9}&442.42\\
-  p16&{'n\_couples': 2, 'n\_places': 16, 'n\_cars': 10}&646.79\\
-  p17&{'n\_couples': 2, 'n\_places': 17, 'n\_cars': 10}&945.57\\
-  p18&{'n\_couples': 2, 'n\_places': 18, 'n\_cars': 10}&1382.37\\
-  p19&{'n\_couples': 2, 'n\_places': 19, 'n\_cars': 10}&2020.95\\
-  p20&{'n\_couples': 2, 'n\_places': 19, 'n\_cars': 11}&2954.52\\
-  p21&{'n\_couples': 2, 'n\_places': 20, 'n\_cars': 11}&4319.33\\
-  p22&{'n\_couples': 2, 'n\_places': 21, 'n\_cars': 11}&6314.62\\
-  p23&{'n\_couples': 2, 'n\_places': 22, 'n\_cars': 11}&9231.61\\
-  p24&{'n\_couples': 2, 'n\_places': 22, 'n\_cars': 12}&13496.09\\
-  p25&{'n\_couples': 2, 'n\_places': 23, 'n\_cars': 12}&19730.52\\
-  p26&{'n\_couples': 2, 'n\_places': 24, 'n\_cars': 12}&28844.89\\
-  p27&{'n\_couples': 2, 'n\_places': 25, 'n\_cars': 12}&42169.59\\
-  p28&{'n\_couples': 2, 'n\_places': 25, 'n\_cars': 13}&61649.53\\
-  p29&{'n\_couples': 2, 'n\_places': 26, 'n\_cars': 13}&90128.10\\
-  p30&{'n\_couples': 2, 'n\_places': 27, 'n\_cars': 13}&131762.14
+                              p01&{'n\_couples': 1, 'n\_places': 10, 'n\_cars': 4}&2.33\\
+  p02&{'n\_couples': 1, 'n\_places': 11, 'n\_cars': 4}&3.13\\
+  p03&{'n\_couples': 1, 'n\_places': 12, 'n\_cars': 4}&4.52\\
+  p04&{'n\_couples': 1, 'n\_places': 13, 'n\_cars': 4}&7.11\\
+  p05&{'n\_couples': 1, 'n\_places': 14, 'n\_cars': 4}&10.69\\
+  p06&{'n\_couples': 1, 'n\_places': 15, 'n\_cars': 4}&17.45\\
+  p07&{'n\_couples': 1, 'n\_places': 16, 'n\_cars': 5}&29.50\\
+  p08&{'n\_couples': 1, 'n\_places': 17, 'n\_cars': 5}&43.88\\
+  p09&{'n\_couples': 1, 'n\_places': 18, 'n\_cars': 5}&63.59\\
+  p10&{'n\_couples': 1, 'n\_places': 19, 'n\_cars': 5}&278.99\\
+  p11&{'n\_couples': 1, 'n\_places': 20, 'n\_cars': 5}&564.98\\
+  p12&{'n\_couples': 1, 'n\_places': 21, 'n\_cars': 5}&1144.14\\
+  p13&{'n\_couples': 1, 'n\_places': 22, 'n\_cars': 5}&2317.01\\
+  p14&{'n\_couples': 1, 'n\_places': 23, 'n\_cars': 5}&4692.17\\
+  p15&{'n\_couples': 1, 'n\_places': 24, 'n\_cars': 5}&9502.12\\
+  p16&{'n\_couples': 1, 'n\_places': 25, 'n\_cars': 6}&19242.75\\
+  p17&{'n\_couples': 2, 'n\_places': 9, 'n\_cars': 8}&18.38\\
+  p18&{'n\_couples': 2, 'n\_places': 10, 'n\_cars': 8}&25.02\\
+  p19&{'n\_couples': 2, 'n\_places': 11, 'n\_cars': 9}&43.24\\
+  p20&{'n\_couples': 2, 'n\_places': 12, 'n\_cars': 9}&64.80\\
+  p21&{'n\_couples': 2, 'n\_places': 13, 'n\_cars': 9}&89.62\\
+  p22&{'n\_couples': 2, 'n\_places': 14, 'n\_cars': 10}&180.00\\
+  p23&{'n\_couples': 2, 'n\_places': 15, 'n\_cars': 10}&361.51\\
+  p24&{'n\_couples': 2, 'n\_places': 16, 'n\_cars': 11}&726.06\\
+  p25&{'n\_couples': 2, 'n\_places': 18, 'n\_cars': 11}&1458.23\\
+  p26&{'n\_couples': 2, 'n\_places': 19, 'n\_cars': 11}&2928.72\\
+  p27&{'n\_couples': 2, 'n\_places': 20, 'n\_cars': 12}&5882.06\\
+  p28&{'n\_couples': 2, 'n\_places': 21, 'n\_cars': 12}&11813.57\\
+  p29&{'n\_couples': 2, 'n\_places': 22, 'n\_cars': 13}&23726.43\\
+  p30&{'n\_couples': 2, 'n\_places': 23, 'n\_cars': 13}&47652.29
                             \end{tabular}
                             \end{center}
                     
@@ -1392,9 +1393,9 @@ extra\_trucks & Linear(b=[1, 10], m=[0, 2])
                             \begin{tabular}{@{}l|l|l|l|l|l|l@{}}
                             \# & num\_airplanes & num\_cities & city\_size & num\_packages & extra\_trucks & Estimated time\\\midrule
                             9&2&2&2 $\rightarrow$ 16&2 $\rightarrow$ 12&4&0.47 $\rightarrow$ 360000.0\\
-7&2 $\rightarrow$ 8&2&3 $\rightarrow$ 13&3 $\rightarrow$ 12&6 $\rightarrow$ 18&0.48 $\rightarrow$ 61000.0\\
+7&2 $\rightarrow$ 8&2 $\rightarrow$ 3&2 $\rightarrow$ 6&1 $\rightarrow$ 14&1 $\rightarrow$ 8&0.47 $\rightarrow$ 1100000.0\\
 7&3&2 $\rightarrow$ 6&7&1 $\rightarrow$ 10&9 $\rightarrow$ 13&0.49 $\rightarrow$ 130000.0\\
-7&1&2&2 $\rightarrow$ 12&1 $\rightarrow$ 13&1 $\rightarrow$ 12&0.49 $\rightarrow$ 160000.0
+7&2 $\rightarrow$ 8&2&3 $\rightarrow$ 13&3 $\rightarrow$ 12&6 $\rightarrow$ 18&0.5 $\rightarrow$ 130000.0
                             \end{tabular}
                             \end{center}
                     
@@ -1416,19 +1417,19 @@ extra\_trucks & Linear(b=[1, 10], m=[0, 2])
                               p01&{'num\_airplanes': 2, 'num\_cities': 2, 'city\_size': 2, 'num\_packages': 2, 'extra\_trucks': 4, 'num\_trucks': 6}&0.47\\
   p02&{'num\_airplanes': 2, 'num\_cities': 2, 'city\_size': 3, 'num\_packages': 3, 'extra\_trucks': 4, 'num\_trucks': 6}&0.50\\
   p03&{'num\_airplanes': 2, 'num\_cities': 2, 'city\_size': 5, 'num\_packages': 4, 'extra\_trucks': 4, 'num\_trucks': 6}&0.52\\
-  p04&{'num\_airplanes': 2, 'num\_cities': 2, 'city\_size': 7, 'num\_packages': 5, 'extra\_trucks': 4, 'num\_trucks': 6}&0.59\\
+  p04&{'num\_airplanes': 2, 'num\_cities': 2, 'city\_size': 7, 'num\_packages': 5, 'extra\_trucks': 4, 'num\_trucks': 6}&0.57\\
   p05&{'num\_airplanes': 2, 'num\_cities': 2, 'city\_size': 9, 'num\_packages': 7, 'extra\_trucks': 4, 'num\_trucks': 6}&1.15\\
   p06&{'num\_airplanes': 2, 'num\_cities': 2, 'city\_size': 11, 'num\_packages': 8, 'extra\_trucks': 4, 'num\_trucks': 6}&121.83\\
   p07&{'num\_airplanes': 2, 'num\_cities': 2, 'city\_size': 12, 'num\_packages': 9, 'extra\_trucks': 4, 'num\_trucks': 6}&125.97\\
   p08&{'num\_airplanes': 2, 'num\_cities': 2, 'city\_size': 14, 'num\_packages': 11, 'extra\_trucks': 4, 'num\_trucks': 6}&6737.52\\
   p09&{'num\_airplanes': 2, 'num\_cities': 2, 'city\_size': 16, 'num\_packages': 12, 'extra\_trucks': 4, 'num\_trucks': 6}&360357.11\\
-  p10&{'num\_airplanes': 2, 'num\_cities': 2, 'city\_size': 3, 'num\_packages': 3, 'extra\_trucks': 6, 'num\_trucks': 8}&0.48\\
-  p11&{'num\_airplanes': 3, 'num\_cities': 2, 'city\_size': 5, 'num\_packages': 5, 'extra\_trucks': 8, 'num\_trucks': 10}&0.54\\
-  p12&{'num\_airplanes': 4, 'num\_cities': 2, 'city\_size': 7, 'num\_packages': 6, 'extra\_trucks': 10, 'num\_trucks': 12}&0.73\\
-  p13&{'num\_airplanes': 5, 'num\_cities': 2, 'city\_size': 8, 'num\_packages': 8, 'extra\_trucks': 12, 'num\_trucks': 14}&3.08\\
-  p14&{'num\_airplanes': 6, 'num\_cities': 2, 'city\_size': 10, 'num\_packages': 9, 'extra\_trucks': 14, 'num\_trucks': 16}&123.83\\
-  p15&{'num\_airplanes': 7, 'num\_cities': 2, 'city\_size': 12, 'num\_packages': 11, 'extra\_trucks': 16, 'num\_trucks': 18}&2748.09\\
-  p16&{'num\_airplanes': 8, 'num\_cities': 2, 'city\_size': 13, 'num\_packages': 12, 'extra\_trucks': 18, 'num\_trucks': 20}&60986.67\\
+  p10&{'num\_airplanes': 2, 'num\_cities': 2, 'city\_size': 2, 'num\_packages': 1, 'extra\_trucks': 1, 'num\_trucks': 3}&0.47\\
+  p11&{'num\_airplanes': 3, 'num\_cities': 2, 'city\_size': 2, 'num\_packages': 3, 'extra\_trucks': 2, 'num\_trucks': 4}&0.48\\
+  p12&{'num\_airplanes': 4, 'num\_cities': 2, 'city\_size': 3, 'num\_packages': 5, 'extra\_trucks': 3, 'num\_trucks': 5}&0.54\\
+  p13&{'num\_airplanes': 5, 'num\_cities': 2, 'city\_size': 4, 'num\_packages': 7, 'extra\_trucks': 4, 'num\_trucks': 6}&0.62\\
+  p14&{'num\_airplanes': 6, 'num\_cities': 2, 'city\_size': 5, 'num\_packages': 9, 'extra\_trucks': 5, 'num\_trucks': 7}&120.81\\
+  p15&{'num\_airplanes': 7, 'num\_cities': 3, 'city\_size': 5, 'num\_packages': 12, 'extra\_trucks': 7, 'num\_trucks': 10}&11746.03\\
+  p16&{'num\_airplanes': 8, 'num\_cities': 3, 'city\_size': 6, 'num\_packages': 14, 'extra\_trucks': 8, 'num\_trucks': 11}&1142034.79\\
   p17&{'num\_airplanes': 3, 'num\_cities': 2, 'city\_size': 7, 'num\_packages': 1, 'extra\_trucks': 9, 'num\_trucks': 11}&0.49\\
   p18&{'num\_airplanes': 3, 'num\_cities': 2, 'city\_size': 7, 'num\_packages': 2, 'extra\_trucks': 9, 'num\_trucks': 11}&0.52\\
   p19&{'num\_airplanes': 3, 'num\_cities': 3, 'city\_size': 7, 'num\_packages': 4, 'extra\_trucks': 10, 'num\_trucks': 13}&0.85\\
@@ -1436,13 +1437,13 @@ extra\_trucks & Linear(b=[1, 10], m=[0, 2])
   p21&{'num\_airplanes': 3, 'num\_cities': 5, 'city\_size': 7, 'num\_packages': 7, 'extra\_trucks': 12, 'num\_trucks': 17}&180.00\\
   p22&{'num\_airplanes': 3, 'num\_cities': 5, 'city\_size': 7, 'num\_packages': 8, 'extra\_trucks': 13, 'num\_trucks': 18}&4785.82\\
   p23&{'num\_airplanes': 3, 'num\_cities': 6, 'city\_size': 7, 'num\_packages': 10, 'extra\_trucks': 13, 'num\_trucks': 19}&127244.84\\
-  p24&{'num\_airplanes': 1, 'num\_cities': 2, 'city\_size': 2, 'num\_packages': 1, 'extra\_trucks': 1, 'num\_trucks': 3}&0.49\\
-  p25&{'num\_airplanes': 1, 'num\_cities': 2, 'city\_size': 3, 'num\_packages': 3, 'extra\_trucks': 2, 'num\_trucks': 4}&3.08\\
-  p26&{'num\_airplanes': 1, 'num\_cities': 2, 'city\_size': 5, 'num\_packages': 5, 'extra\_trucks': 4, 'num\_trucks': 6}&32.56\\
-  p27&{'num\_airplanes': 1, 'num\_cities': 2, 'city\_size': 7, 'num\_packages': 7, 'extra\_trucks': 6, 'num\_trucks': 8}&273.78\\
-  p28&{'num\_airplanes': 1, 'num\_cities': 2, 'city\_size': 8, 'num\_packages': 9, 'extra\_trucks': 8, 'num\_trucks': 10}&2301.88\\
-  p29&{'num\_airplanes': 1, 'num\_cities': 2, 'city\_size': 10, 'num\_packages': 11, 'extra\_trucks': 10, 'num\_trucks': 12}&19353.52\\
-  p30&{'num\_airplanes': 1, 'num\_cities': 2, 'city\_size': 12, 'num\_packages': 13, 'extra\_trucks': 12, 'num\_trucks': 14}&162718.54
+  p24&{'num\_airplanes': 2, 'num\_cities': 2, 'city\_size': 3, 'num\_packages': 3, 'extra\_trucks': 6, 'num\_trucks': 8}&0.50\\
+  p25&{'num\_airplanes': 3, 'num\_cities': 2, 'city\_size': 5, 'num\_packages': 5, 'extra\_trucks': 8, 'num\_trucks': 10}&0.54\\
+  p26&{'num\_airplanes': 4, 'num\_cities': 2, 'city\_size': 7, 'num\_packages': 6, 'extra\_trucks': 10, 'num\_trucks': 12}&0.73\\
+  p27&{'num\_airplanes': 5, 'num\_cities': 2, 'city\_size': 8, 'num\_packages': 8, 'extra\_trucks': 12, 'num\_trucks': 14}&1.97\\
+  p28&{'num\_airplanes': 6, 'num\_cities': 2, 'city\_size': 10, 'num\_packages': 9, 'extra\_trucks': 14, 'num\_trucks': 16}&123.83\\
+  p29&{'num\_airplanes': 7, 'num\_cities': 2, 'city\_size': 12, 'num\_packages': 11, 'extra\_trucks': 16, 'num\_trucks': 18}&4062.08\\
+  p30&{'num\_airplanes': 8, 'num\_cities': 2, 'city\_size': 13, 'num\_packages': 12, 'extra\_trucks': 18, 'num\_trucks': 20}&133251.48
                             \end{tabular}
                             \end{center}
                     
@@ -1453,7 +1454,7 @@ extra\_trucks & Linear(b=[1, 10], m=[0, 2])
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
-                              p01&{'num\_airplanes': 5, 'num\_cities': 8, 'city\_size': 15, 'num\_packages': 3, 'extra\_trucks': 3, 'num\_trucks': 11}&1.30\\
+                              p01&{'num\_airplanes': 5, 'num\_cities': 8, 'city\_size': 15, 'num\_packages': 3, 'extra\_trucks': 3, 'num\_trucks': 11}&1.29\\
   p02&{'num\_airplanes': 6, 'num\_cities': 10, 'city\_size': 15, 'num\_packages': 6, 'extra\_trucks': 3, 'num\_trucks': 13}&1.97\\
   p03&{'num\_airplanes': 7, 'num\_cities': 12, 'city\_size': 16, 'num\_packages': 9, 'extra\_trucks': 3, 'num\_trucks': 15}&3.27\\
   p04&{'num\_airplanes': 8, 'num\_cities': 14, 'city\_size': 16, 'num\_packages': 12, 'extra\_trucks': 4, 'num\_trucks': 18}&5.27\\
@@ -2163,7 +2164,7 @@ observations & Linear(b=[5, 40], m=[1, 10]) \\\midrule
                     segment\_type & Enum(['empty', 'ab'])\\
 inout & Enum(['none', 'both', 'in'])\\
 size & Linear(b=[1, 4], m=[1, 3]) \\\midrule
-                    \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
+                    \multicolumn{2}{l}{Duplicated Parameters Penalty: inf}
                     \end{tabular}
                     \end{center}
                 
@@ -2172,9 +2173,9 @@ size & Linear(b=[1, 4], m=[1, 3]) \\\midrule
                             \begin{center}
                             \begin{tabular}{@{}l|l|l|l|l@{}}
                             \# & segment\_type & inout & size & Estimated time\\\midrule
-                            19&empty&both&1 $\rightarrow$ 20&0.51 $\rightarrow$ 180000.0\\
-6&empty&none&1 $\rightarrow$ 9&0.51 $\rightarrow$ 53000.0\\
-5&empty&in&3 $\rightarrow$ 7&0.75 $\rightarrow$ 150000.0
+                            7&empty&none&1 $\rightarrow$ 7&0.51 $\rightarrow$ 53000.0\\
+6&empty&in&2 $\rightarrow$ 7&0.52 $\rightarrow$ 150000.0\\
+17&empty&both&3 $\rightarrow$ 20&0.66 $\rightarrow$ 180000.0
                             \end{tabular}
                             \end{center}
                     
@@ -2193,36 +2194,36 @@ size & Linear(b=[1, 4], m=[1, 3]) \\\midrule
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
-                              p01&{'segment\_type': 'empty', 'inout': 'both', 'size': 1}&0.51\\
-  p02&{'segment\_type': 'empty', 'inout': 'both', 'size': 2}&0.52\\
-  p03&{'segment\_type': 'empty', 'inout': 'both', 'size': 3}&0.66\\
-  p04&{'segment\_type': 'empty', 'inout': 'both', 'size': 4}&1.00\\
-  p05&{'segment\_type': 'empty', 'inout': 'both', 'size': 5}&1.89\\
-  p06&{'segment\_type': 'empty', 'inout': 'both', 'size': 6}&4.20\\
-  p07&{'segment\_type': 'empty', 'inout': 'both', 'size': 7}&9.37\\
-  p08&{'segment\_type': 'empty', 'inout': 'both', 'size': 8}&20.82\\
-  p09&{'segment\_type': 'empty', 'inout': 'both', 'size': 9}&46.58\\
-  p10&{'segment\_type': 'empty', 'inout': 'both', 'size': 10}&110.14\\
-  p11&{'segment\_type': 'empty', 'inout': 'both', 'size': 11}&250.55\\
-  p12&{'segment\_type': 'empty', 'inout': 'both', 'size': 13}&569.95\\
-  p13&{'segment\_type': 'empty', 'inout': 'both', 'size': 14}&1296.53\\
-  p14&{'segment\_type': 'empty', 'inout': 'both', 'size': 15}&2949.38\\
-  p15&{'segment\_type': 'empty', 'inout': 'both', 'size': 16}&6709.30\\
-  p16&{'segment\_type': 'empty', 'inout': 'both', 'size': 17}&15262.43\\
-  p17&{'segment\_type': 'empty', 'inout': 'both', 'size': 18}&34719.26\\
-  p18&{'segment\_type': 'empty', 'inout': 'both', 'size': 19}&78979.99\\
-  p19&{'segment\_type': 'empty', 'inout': 'both', 'size': 20}&179665.08\\
-  p20&{'segment\_type': 'empty', 'inout': 'none', 'size': 1}&0.51\\
-  p21&{'segment\_type': 'empty', 'inout': 'none', 'size': 2}&0.53\\
-  p22&{'segment\_type': 'empty', 'inout': 'none', 'size': 4}&10.47\\
-  p23&{'segment\_type': 'empty', 'inout': 'none', 'size': 5}&180.00\\
-  p24&{'segment\_type': 'empty', 'inout': 'none', 'size': 7}&3094.40\\
-  p25&{'segment\_type': 'empty', 'inout': 'none', 'size': 9}&53196.32\\
-  p26&{'segment\_type': 'empty', 'inout': 'in', 'size': 3}&0.75\\
-  p27&{'segment\_type': 'empty', 'inout': 'in', 'size': 4}&6.28\\
-  p28&{'segment\_type': 'empty', 'inout': 'in', 'size': 5}&180.00\\
-  p29&{'segment\_type': 'empty', 'inout': 'in', 'size': 6}&5162.82\\
-  p30&{'segment\_type': 'empty', 'inout': 'in', 'size': 7}&148081.68
+                              p01&{'segment\_type': 'empty', 'inout': 'none', 'size': 1}&0.51\\
+  p02&{'segment\_type': 'empty', 'inout': 'none', 'size': 2}&0.53\\
+  p03&{'segment\_type': 'empty', 'inout': 'none', 'size': 3}&1.17\\
+  p04&{'segment\_type': 'empty', 'inout': 'none', 'size': 4}&10.47\\
+  p05&{'segment\_type': 'empty', 'inout': 'none', 'size': 5}&180.00\\
+  p06&{'segment\_type': 'empty', 'inout': 'none', 'size': 6}&3094.40\\
+  p07&{'segment\_type': 'empty', 'inout': 'none', 'size': 7}&53196.32\\
+  p08&{'segment\_type': 'empty', 'inout': 'in', 'size': 2}&0.52\\
+  p09&{'segment\_type': 'empty', 'inout': 'in', 'size': 3}&0.75\\
+  p10&{'segment\_type': 'empty', 'inout': 'in', 'size': 4}&6.28\\
+  p11&{'segment\_type': 'empty', 'inout': 'in', 'size': 5}&180.00\\
+  p12&{'segment\_type': 'empty', 'inout': 'in', 'size': 6}&5162.82\\
+  p13&{'segment\_type': 'empty', 'inout': 'in', 'size': 7}&148081.68\\
+  p14&{'segment\_type': 'empty', 'inout': 'both', 'size': 3}&0.66\\
+  p15&{'segment\_type': 'empty', 'inout': 'both', 'size': 4}&1.00\\
+  p16&{'segment\_type': 'empty', 'inout': 'both', 'size': 5}&1.89\\
+  p17&{'segment\_type': 'empty', 'inout': 'both', 'size': 6}&4.20\\
+  p18&{'segment\_type': 'empty', 'inout': 'both', 'size': 7}&9.37\\
+  p19&{'segment\_type': 'empty', 'inout': 'both', 'size': 8}&20.82\\
+  p20&{'segment\_type': 'empty', 'inout': 'both', 'size': 9}&46.58\\
+  p21&{'segment\_type': 'empty', 'inout': 'both', 'size': 10}&110.14\\
+  p22&{'segment\_type': 'empty', 'inout': 'both', 'size': 11}&250.55\\
+  p23&{'segment\_type': 'empty', 'inout': 'both', 'size': 13}&569.95\\
+  p24&{'segment\_type': 'empty', 'inout': 'both', 'size': 14}&1296.53\\
+  p25&{'segment\_type': 'empty', 'inout': 'both', 'size': 15}&2949.38\\
+  p26&{'segment\_type': 'empty', 'inout': 'both', 'size': 16}&6709.30\\
+  p27&{'segment\_type': 'empty', 'inout': 'both', 'size': 17}&15262.43\\
+  p28&{'segment\_type': 'empty', 'inout': 'both', 'size': 18}&34719.26\\
+  p29&{'segment\_type': 'empty', 'inout': 'both', 'size': 19}&78979.99\\
+  p30&{'segment\_type': 'empty', 'inout': 'both', 'size': 20}&179665.08
                             \end{tabular}
                             \end{center}
                     
@@ -2513,9 +2514,9 @@ num\_towers & Linear(b=[1, 4], m=[0, 2])
                             \begin{center}
                             \begin{tabular}{@{}l|l|l|l|l|l@{}}
                             \# & grid & min\_height & max\_height & num\_towers & Estimated time\\\midrule
-                            13&3-3&2&4 $\rightarrow$ 11&1 $\rightarrow$ 6&1.4 $\rightarrow$ 140000.0\\
-9&3-3&2 $\rightarrow$ 8&4 $\rightarrow$ 14&2 $\rightarrow$ 4&1.9 $\rightarrow$ 33000.0\\
-8&10-13 $\rightarrow$ 15-20&1 $\rightarrow$ 3&1 $\rightarrow$ 3&2 $\rightarrow$ 3&21.0 $\rightarrow$ 67000.0
+                            20&IPC Instances&IPC Instances&IPC Instances&IPC Instances&1.2 $\rightarrow$ 1300.0\\
+5&3-3&1&3&11 $\rightarrow$ 15&85.0 $\rightarrow$ 60000.0\\
+5&3-3&2&4&7 $\rightarrow$ 11&96.0 $\rightarrow$ 120000.0
                             \end{tabular}
                             \end{center}
                     
@@ -2535,36 +2536,36 @@ num\_towers & Linear(b=[1, 4], m=[0, 2])
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
                             name & config & estimated\_time\\\midrule
-                              p01&{'x': 3, 'y': 3, 'min\_height': 2, 'max\_height': 4, 'num\_towers': 1}&1.44\\
-  p02&{'x': 3, 'y': 3, 'min\_height': 2, 'max\_height': 5, 'num\_towers': 1}&2.93\\
-  p03&{'x': 3, 'y': 3, 'min\_height': 2, 'max\_height': 5, 'num\_towers': 2}&3.55\\
-  p04&{'x': 3, 'y': 3, 'min\_height': 2, 'max\_height': 6, 'num\_towers': 2}&9.70\\
-  p05&{'x': 3, 'y': 3, 'min\_height': 2, 'max\_height': 6, 'num\_towers': 3}&39.91\\
-  p06&{'x': 3, 'y': 3, 'min\_height': 2, 'max\_height': 7, 'num\_towers': 3}&71.44\\
-  p07&{'x': 3, 'y': 3, 'min\_height': 2, 'max\_height': 8, 'num\_towers': 3}&210.97\\
-  p08&{'x': 3, 'y': 3, 'min\_height': 2, 'max\_height': 8, 'num\_towers': 4}&623.01\\
-  p09&{'x': 3, 'y': 3, 'min\_height': 2, 'max\_height': 9, 'num\_towers': 4}&1839.79\\
-  p10&{'x': 3, 'y': 3, 'min\_height': 2, 'max\_height': 9, 'num\_towers': 5}&5433.06\\
-  p11&{'x': 3, 'y': 3, 'min\_height': 2, 'max\_height': 10, 'num\_towers': 5}&16044.27\\
-  p12&{'x': 3, 'y': 3, 'min\_height': 2, 'max\_height': 11, 'num\_towers': 5}&47380.05\\
-  p13&{'x': 3, 'y': 3, 'min\_height': 2, 'max\_height': 11, 'num\_towers': 6}&139917.23\\
-  p14&{'x': 3, 'y': 3, 'min\_height': 2, 'max\_height': 4, 'num\_towers': 2}&1.91\\
-  p15&{'x': 3, 'y': 3, 'min\_height': 3, 'max\_height': 5, 'num\_towers': 2}&3.84\\
-  p16&{'x': 3, 'y': 3, 'min\_height': 3, 'max\_height': 6, 'num\_towers': 2}&11.45\\
-  p17&{'x': 3, 'y': 3, 'min\_height': 4, 'max\_height': 7, 'num\_towers': 2}&23.88\\
-  p18&{'x': 3, 'y': 3, 'min\_height': 4, 'max\_height': 7, 'num\_towers': 3}&31.69\\
-  p19&{'x': 3, 'y': 3, 'min\_height': 5, 'max\_height': 9, 'num\_towers': 3}&180.00\\
-  p20&{'x': 3, 'y': 3, 'min\_height': 6, 'max\_height': 11, 'num\_towers': 3}&1022.35\\
-  p21&{'x': 3, 'y': 3, 'min\_height': 7, 'max\_height': 13, 'num\_towers': 4}&5806.67\\
-  p22&{'x': 3, 'y': 3, 'min\_height': 8, 'max\_height': 14, 'num\_towers': 4}&32980.31\\
-  p23&{'x': 10, 'y': 13, 'min\_height': 1, 'max\_height': 1, 'num\_towers': 2}&20.78\\
-  p24&{'x': 10, 'y': 15, 'min\_height': 1, 'max\_height': 1, 'num\_towers': 2}&55.09\\
-  p25&{'x': 13, 'y': 13, 'min\_height': 2, 'max\_height': 2, 'num\_towers': 2}&180.00\\
-  p26&{'x': 13, 'y': 15, 'min\_height': 2, 'max\_height': 2, 'num\_towers': 3}&588.09\\
-  p27&{'x': 13, 'y': 17, 'min\_height': 2, 'max\_height': 2, 'num\_towers': 3}&1921.37\\
-  p28&{'x': 15, 'y': 16, 'min\_height': 3, 'max\_height': 3, 'num\_towers': 3}&6277.43\\
-  p29&{'x': 15, 'y': 18, 'min\_height': 3, 'max\_height': 3, 'num\_towers': 3}&20509.32\\
-  p30&{'x': 15, 'y': 20, 'min\_height': 3, 'max\_height': 3, 'num\_towers': 3}&67007.13
+                              p01& p01.pddl&1.25\\
+  p02& p02.pddl&1.37\\
+  p03& p12.pddl&1.56\\
+  p04& p11.pddl&1.90\\
+  p05& p03.pddl&2.57\\
+  p06& p18.pddl&4.48\\
+  p07& p04.pddl&4.92\\
+  p08& p17.pddl&13.49\\
+  p09& p13.pddl&13.49\\
+  p10& p14.pddl&14.43\\
+  p11& p19.pddl&15.60\\
+  p12& p20.pddl&35.83\\
+  p13& p05.pddl&38.00\\
+  p14& p15.pddl&132.18\\
+  p15& p16.pddl&163.11\\
+  p16& p06.pddl&169.81\\
+  p17& p07.pddl&283.08\\
+  p18& p08.pddl&471.91\\
+  p19& p09.pddl&786.71\\
+  p20& p10.pddl&1311.48\\
+  p21&{'x': 3, 'y': 3, 'min\_height': 1, 'max\_height': 3, 'num\_towers': 11}&85.44\\
+  p22&{'x': 3, 'y': 3, 'min\_height': 1, 'max\_height': 3, 'num\_towers': 12}&439.82\\
+  p23&{'x': 3, 'y': 3, 'min\_height': 1, 'max\_height': 3, 'num\_towers': 13}&2263.94\\
+  p24&{'x': 3, 'y': 3, 'min\_height': 1, 'max\_height': 3, 'num\_towers': 14}&11653.57\\
+  p25&{'x': 3, 'y': 3, 'min\_height': 1, 'max\_height': 3, 'num\_towers': 15}&59986.34\\
+  p26&{'x': 3, 'y': 3, 'min\_height': 2, 'max\_height': 4, 'num\_towers': 7}&96.05\\
+  p27&{'x': 3, 'y': 3, 'min\_height': 2, 'max\_height': 4, 'num\_towers': 8}&317.44\\
+  p28&{'x': 3, 'y': 3, 'min\_height': 2, 'max\_height': 4, 'num\_towers': 9}&2323.65\\
+  p29&{'x': 3, 'y': 3, 'min\_height': 2, 'max\_height': 4, 'num\_towers': 10}&17009.34\\
+  p30&{'x': 3, 'y': 3, 'min\_height': 2, 'max\_height': 4, 'num\_towers': 11}&124509.88
                             \end{tabular}
                             \end{center}
                     
@@ -3419,35 +3420,35 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
                             \begin{tabular}{@{}l|r|r|r@{}}
                             name & config & baseline\_time & sota\_time\\\midrule
                               p01& d-1-2.pddl&0.65&0.62\\
-  p02& d-2-1.pddl&0.62&0.62\\
+  p02& d-2-4.pddl&0.67&0.67\\
   p03& d-4-2.pddl&0.69&0.67\\
   p04& d-3-2.pddl&0.74&0.74\\
   p05& d-2-3.pddl&0.80&0.77\\
   p06& d-1-3.pddl&1.75&1.75\\
-  p07& d-3-1.pddl&1.80&1.80\\
-  p08& d-7-6.pddl&2.21&2.15\\
-  p09& d-7-5.pddl&5.29&2.85\\
-  p10& d-1-8.pddl&5.40&2.97\\
-  p11& d-8-1.pddl&5.24&3.70\\
-  p12& d-3-4.pddl&23.99&5.80\\
-  p13& d-4-3.pddl&22.90&6.81\\
-  p14& d-4-8.pddl&--&44.41\\
-  p15& d-2-8.pddl&--&47.28\\
-  p16& d-8-2.pddl&--&48.56\\
-  p17& d-8-4.pddl&--&48.62\\
-  p18& d-8-9.pddl&--&353.06\\
-  p19& d-10-3.pddl&--&--\\
-  p20& d-3-6.pddl&--&--\\
-  p21& ds2nd-d-4-1.pddl&0.64&0.63\\
-  p22& ds2nd-d-6-7.pddl&2.15&2.12\\
-  p23& ds2nd-d-5-7.pddl&5.28&2.96\\
-  p24& ds2nd-d-9-8.pddl&--&357.53\\
-  p25& ds2nd-d-3-8.pddl&--&--\\
-  p26& ds1-d-5-4.pddl&0.76&0.76\\
-  p27& ds1-d-7-6.pddl&--&37.47\\
-  p28& ds1-d-6-7.pddl&--&50.90\\
-  p29& ds1-d-5-8.pddl&--&--\\
-  p30& ds1-d-8-9.pddl&--&--
+  p07& d-7-6.pddl&2.21&2.15\\
+  p08& d-7-5.pddl&5.29&2.85\\
+  p09& d-1-8.pddl&5.40&2.97\\
+  p10& d-8-1.pddl&5.24&3.70\\
+  p11& d-3-4.pddl&23.99&5.80\\
+  p12& d-4-3.pddl&22.90&6.81\\
+  p13& d-4-8.pddl&--&44.41\\
+  p14& d-2-8.pddl&--&47.28\\
+  p15& d-8-2.pddl&--&48.56\\
+  p16& d-8-4.pddl&--&48.62\\
+  p17& d-8-9.pddl&--&353.06\\
+  p18& d-10-1.pddl&--&--\\
+  p19& d-10-2.pddl&--&--\\
+  p20& ds1-d-4-5.pddl&0.74&0.74\\
+  p21& ds1-d-5-4.pddl&0.76&0.76\\
+  p22& ds1-d-7-6.pddl&--&37.47\\
+  p23& ds1-d-6-7.pddl&--&50.90\\
+  p24& ds1-d-8-5.pddl&--&--\\
+  p25& ds1-d-8-4.pddl&--&--\\
+  p26& ds2nd-d-6-7.pddl&2.15&2.12\\
+  p27& ds2nd-d-5-7.pddl&5.28&2.96\\
+  p28& ds2nd-d-9-8.pddl&--&357.53\\
+  p29& ds2nd-d-8-3.pddl&--&--\\
+  p30& ds2nd-d-1-7.pddl&--&--
                             \end{tabular}
                             \end{center}
                     
@@ -3458,34 +3459,34 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
                             name & config & baseline\_time & sota\_time\\\midrule
-                              p01& ds1-d-3-2.pddl&0.63&0.15\\
-  p02& ds1-d-4-5.pddl&0.69&0.17\\
+                              p01& ds1-d-5-4.pddl&0.74&0.17\\
+  p02& ds1-d-6-7.pddl&4.14&0.29\\
   p03& ds1-d-7-6.pddl&2.01&0.30\\
-  p04& ds1-d-4-8.pddl&--&1.92\\
-  p05& ds1-d-4-1.pddl&--&1.92\\
-  p06& ds1-d-8-5.pddl&--&1.93\\
-  p07& ds1-d-8-4.pddl&--&2.02\\
+  p04& ds1-d-1-4.pddl&--&1.89\\
+  p05& ds1-d-8-5.pddl&--&1.93\\
+  p06& ds1-d-8-4.pddl&--&2.02\\
+  p07& ds1-d-5-1.pddl&--&2.36\\
   p08& ds1-d-1-3.pddl&--&3.01\\
-  p09& ds1-d-2-1.pddl&--&3.03\\
+  p09& ds1-d-11-10.pddl&--&3.16\\
   p10& ds1-d-10-11.pddl&--&3.24\\
-  p11& ds1-d-8-1.pddl&--&3.94\\
-  p12& ds1-d-1-9.pddl&--&4.75\\
-  p13& ds1-d-9-1.pddl&--&4.91\\
-  p14& ds1-d-7-5.pddl&--&6.15\\
-  p15& ds1-d-9-6.pddl&--&6.23\\
-  p16& ds1-d-8-3.pddl&--&6.91\\
-  p17& ds1-d-10-7.pddl&--&7.39\\
-  p18& ds1-d-3-7.pddl&--&7.92\\
-  p19& ds1-d-9-11.pddl&--&7.99\\
-  p20& ds1-d-4-10.pddl&--&8.11\\
-  p21& ds1-d-5-11.pddl&--&8.16\\
-  p22& ds1-d-5-6.pddl&--&8.17\\
+  p11& ds1-d-5-9.pddl&--&4.41\\
+  p12& ds1-d-4-2.pddl&--&5.74\\
+  p13& ds1-d-9-3.pddl&--&5.93\\
+  p14& ds1-d-8-11.pddl&--&6.30\\
+  p15& ds1-d-10-8.pddl&--&6.70\\
+  p16& ds1-d-4-7.pddl&--&7.49\\
+  p17& ds1-d-7-8.pddl&--&7.59\\
+  p18& ds1-d-9-2.pddl&--&7.59\\
+  p19& ds1-d-10-1.pddl&--&7.74\\
+  p20& ds1-d-5-11.pddl&--&8.16\\
+  p21& ds1-d-6-2.pddl&--&8.70\\
+  p22& ds1-d-11-2.pddl&--&8.81\\
   p23& ds1-d-1-11.pddl&--&8.97\\
-  p24& ds1-d-10-3.pddl&--&9.39\\
-  p25& ds1-d-11-7.pddl&--&9.40\\
-  p26& ds1-d-3-11.pddl&--&9.48\\
-  p27& ds1-d-3-10.pddl&--&9.91\\
-  p28& ds1-d-2-11.pddl&--&10.40\\
+  p24& ds1-d-10-2.pddl&--&9.21\\
+  p25& ds1-d-3-11.pddl&--&9.48\\
+  p26& ds1-d-10-5.pddl&--&9.78\\
+  p27& ds1-d-11-5.pddl&--&9.82\\
+  p28& ds1-d-2-10.pddl&--&10.54\\
   p29& ds1-d-6-10.pddl&--&23.49\\
   p30& ds1-d-3-9.pddl&--&1148.80
                             \end{tabular}
@@ -3568,6 +3569,28 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p28& p-35-20-15-4-12-0.pddl&--&4510.78\\
   p29& p-40-15-15-2-14-0.pddl&--&7207.22\\
   p30& p-25-15-15-4-2-0.pddl&--&10744.90
+                            \end{tabular}
+                            \end{center}
+                    
+                \newpage \subsection{Mystery}
+                    \subsection*{Tasks for optimal planning}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{@{}l|r|r|r@{}}
+                            name & config & baseline\_time & sota\_time\\\midrule
+                            
+                            \end{tabular}
+                            \end{center}
+                    
+
+                    \subsection*{Tasks for agile/satisficing planning}
+                    
+                            \begin{center}
+                            \scriptsize
+                            \begin{tabular}{@{}l|r|r|r@{}}
+                            name & config & baseline\_time & sota\_time\\\midrule
+                            
                             \end{tabular}
                             \end{center}
                     
@@ -3662,25 +3685,25 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p02& ipc08-p01.pddl&0.44&0.43\\
   p03& ipc08-p03.pddl&0.46&0.45\\
   p04& ipc08-p11.pddl&0.46&0.45\\
-  p05& ipc08-p12.pddl&0.55&0.49\\
-  p06& ipc08-p13.pddl&8.87&0.58\\
-  p07& ipc08-p04.pddl&64.87&0.50\\
+  p05& ipc08-p12.pddl&0.59&0.49\\
+  p06& ipc08-p13.pddl&9.02&0.56\\
+  p07& ipc08-p04.pddl&64.87&0.49\\
   p08& ipc08-p24.pddl&--&0.48\\
-  p09& ipc08-p26.pddl&--&0.52\\
-  p10& ipc08-p05.pddl&--&0.52\\
-  p11& ipc08-p06.pddl&--&0.55\\
-  p12& ipc08-p27.pddl&--&0.56\\
-  p13& ipc08-p28.pddl&--&0.59\\
-  p14& ipc08-p14.pddl&--&0.61\\
-  p15& ipc08-p08.pddl&--&0.63\\
-  p16& ipc11sat-p17.pddl&--&0.64\\
-  p17& ipc08-p07.pddl&--&0.64\\
-  p18& ipc08-p09.pddl&--&0.68\\
-  p19& ipc11sat-p18.pddl&--&0.68\\
-  p20& ipc08-p10.pddl&--&0.71\\
+  p09& ipc08-p26.pddl&--&0.53\\
+  p10& ipc08-p05.pddl&--&0.53\\
+  p11& ipc08-p06.pddl&--&0.54\\
+  p12& ipc08-p27.pddl&--&0.57\\
+  p13& ipc08-p14.pddl&--&0.60\\
+  p14& ipc08-p28.pddl&--&0.61\\
+  p15& ipc08-p07.pddl&--&0.63\\
+  p16& ipc08-p08.pddl&--&0.64\\
+  p17& ipc11sat-p17.pddl&--&0.64\\
+  p18& ipc11sat-p18.pddl&--&0.68\\
+  p19& ipc08-p09.pddl&--&0.69\\
+  p20& ipc08-p10.pddl&--&0.72\\
   p21& ipc08-p29.pddl&--&0.72\\
   p22& ipc11sat-p19.pddl&--&0.74\\
-  p23& ipc08-p16.pddl&--&0.78\\
+  p23& ipc08-p16.pddl&--&0.76\\
   p24& ipc08-p30.pddl&--&0.79\\
   p25& ipc11sat-p12.pddl&--&0.84\\
   p26& ipc11sat-p20.pddl&--&0.93\\
@@ -3698,31 +3721,31 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
                             name & config & baseline\_time & sota\_time\\\midrule
-                              p01& ipc08-p21.pddl&0.45&0.19\\
-  p02& ipc08-p22.pddl&0.45&0.19\\
-  p03& ipc08-p12.pddl&0.50&0.20\\
-  p04& ipc08-p13.pddl&0.50&0.20\\
-  p05& ipc08-p03.pddl&0.45&0.20\\
-  p06& ipc08-p05.pddl&1.99&0.21\\
-  p07& ipc08-p14.pddl&0.60&0.24\\
-  p08& ipc08-p27.pddl&1.06&0.34\\
+                              p01& ipc08-p22.pddl&0.47&0.17\\
+  p02& ipc08-p21.pddl&0.45&0.19\\
+  p03& ipc08-p12.pddl&0.50&0.19\\
+  p04& ipc08-p03.pddl&0.45&0.20\\
+  p05& ipc08-p13.pddl&0.51&0.21\\
+  p06& ipc08-p05.pddl&2.00&0.22\\
+  p07& ipc08-p14.pddl&0.61&0.24\\
+  p08& ipc08-p27.pddl&1.06&0.35\\
   p09& ipc08-p16.pddl&8.37&0.50\\
-  p10& ipc08-p15.pddl&7.75&1.06\\
+  p10& ipc08-p15.pddl&7.86&1.06\\
   p11& ipc08-p06.pddl&16.10&0.24\\
-  p12& ipc08-p30.pddl&36.46&0.90\\
-  p13& ipc08-p17.pddl&79.37&0.75\\
+  p12& ipc08-p30.pddl&36.56&0.90\\
+  p13& ipc08-p17.pddl&80.93&0.73\\
   p14& ipc08-p18.pddl&408.94&1.57\\
   p15& ipc11sat-p11.pddl&576.41&0.51\\
-  p16& ipc08-p07.pddl&957.28&0.29\\
-  p17& ipc08-p08.pddl&--&0.32\\
+  p16& ipc08-p07.pddl&967.62&0.29\\
+  p17& ipc08-p08.pddl&--&0.33\\
   p18& ipc08-p09.pddl&--&0.42\\
-  p19& ipc08-p28.pddl&--&0.43\\
+  p19& ipc08-p28.pddl&--&0.44\\
   p20& ipc11sat-p18.pddl&--&0.71\\
   p21& ipc11sat-p12.pddl&--&0.85\\
   p22& ipc11sat-p19.pddl&--&3.36\\
   p23& ipc11sat-p13.pddl&--&4.13\\
-  p24& ipc08-p20.pddl&--&5.51\\
-  p25& ipc08-p29.pddl&--&11.60\\
+  p24& ipc08-p20.pddl&--&5.59\\
+  p25& ipc08-p29.pddl&--&11.86\\
   p26& ipc08-p19.pddl&--&12.44\\
   p27& ipc11sat-p20.pddl&39.93&39.93\\
   p28& ipc11sat-p15.pddl&--&36.14\\
@@ -3738,36 +3761,36 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
                             name & config & baseline\_time & sota\_time\\\midrule
-                              p01& p-19-1-4-0.pddl&0.38&0.38\\
-  p02& p-1-11-1-0.pddl&0.39&0.39\\
-  p03& p-1-11-22-0.pddl&0.45&0.45\\
-  p04& p-28-11-7-0.pddl&14.24&0.41\\
-  p05& p-10-11-19-0.pddl&14.83&0.49\\
-  p06& p-10-10-20-0.pddl&13.16&0.49\\
-  p07& p-30-10-70-0.pddl&16.68&0.59\\
-  p08& p-1-101-7-0.pddl&175.28&0.53\\
+                              p01& p-25-1-22-0.pddl&0.43&0.36\\
+  p02& p-7-6-13-0.pddl&0.41&0.41\\
+  p03& p-60-10-20-0.pddl&14.85&0.44\\
+  p04& p-7-11-19-0.pddl&14.95&0.46\\
+  p05& p-70-10-50-0.pddl&14.03&0.56\\
+  p06& p-40-10-50-0.pddl&15.30&0.53\\
+  p07& p-4-16-22-0.pddl&161.56&0.63\\
+  p08& p-4-16-16-0.pddl&183.41&0.59\\
   p09& p-4-16-13-0.pddl&188.87&0.53\\
-  p10& p-1-21-7-0.pddl&293.09&0.71\\
-  p11& p-25-16-19-0.pddl&--&1.85\\
-  p12& p-10-16-22-0.pddl&--&2.00\\
-  p13& p-19-16-22-0.pddl&--&2.03\\
-  p14& p-4-101-7-0.pddl&--&19.74\\
-  p15& p-4-101-19-0.pddl&--&36.48\\
-  p16& p-4-101-22-0.pddl&--&60.25\\
-  p17& p-7-21-10-0.pddl&--&2593.92\\
-  p18& p-7-101-13-0.pddl&--&6193.28\\
-  p19& p-10-101-16-0.pddl&--&9713.23\\
-  p20& p-7-21-19-0.pddl&--&10670.00\\
-  p21& p-7-101-10-0.pddl&--&2663.95\\
-  p22& p-10-101-10-0.pddl&--&3767.26\\
-  p23& p-7-101-19-0.pddl&--&7225.30\\
-  p24& p-7-21-13-0.pddl&--&7779.78\\
-  p25& p-7-21-22-0.pddl&--&11401.20\\
-  p26& p-7-101-16-0.pddl&--&7283.04\\
-  p27& p-10-101-13-0.pddl&--&8363.39\\
-  p28& p-7-101-22-0.pddl&--&8749.92\\
-  p29& p-7-21-16-0.pddl&--&9258.85\\
-  p30& p-10-101-22-0.pddl&--&11767.10
+  p10& p-19-16-22-0.pddl&--&2.03\\
+  p11& p-4-101-7-0.pddl&--&19.74\\
+  p12& p-4-101-19-0.pddl&--&36.48\\
+  p13& p-4-101-10-0.pddl&--&44.49\\
+  p14& p-4-101-22-0.pddl&--&60.25\\
+  p15& p-7-101-13-0.pddl&--&6193.28\\
+  p16& p-10-101-13-0.pddl&--&8363.39\\
+  p17& p-7-21-16-0.pddl&--&9433.05\\
+  p18& p-10-101-19-0.pddl&--&11034.40\\
+  p19& p-7-21-10-0.pddl&--&2644.03\\
+  p20& p-7-101-10-0.pddl&--&2663.95\\
+  p21& p-7-101-16-0.pddl&--&7283.04\\
+  p22& p-7-21-19-0.pddl&--&10474.90\\
+  p23& p-7-21-22-0.pddl&--&11247.90\\
+  p24& p-10-101-10-0.pddl&--&3767.26\\
+  p25& p-7-101-19-0.pddl&--&7225.30\\
+  p26& p-7-21-13-0.pddl&--&7839.48\\
+  p27& p-7-101-22-0.pddl&--&8749.92\\
+  p28& p-10-101-16-0.pddl&--&9713.23\\
+  p29& p-10-60-50-0.pddl&--&--\\
+  p30& p-50-110-50-0.pddl&--&--
                             \end{tabular}
                             \end{center}
                     
@@ -3779,35 +3802,35 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
                             \begin{tabular}{@{}l|r|r|r@{}}
                             name & config & baseline\_time & sota\_time\\\midrule
                               p01& p-13-6-4-0.pddl&0.40&0.13\\
-  p02& p-1-6-13-0.pddl&0.41&0.13\\
-  p03& p-7-101-13-0.pddl&0.71&0.16\\
-  p04& p-16-101-16-0.pddl&1.54&0.17\\
+  p02& p-7-101-13-0.pddl&0.71&0.16\\
+  p03& p-25-16-10-0.pddl&0.43&0.16\\
+  p04& p-40-60-30-0.pddl&2.45&0.21\\
   p05& p-80-110-30-0.pddl&13.23&0.26\\
   p06& p-90-110-70-0.pddl&17.46&0.49\\
-  p07& p-80-110-80-0.pddl&18.61&0.60\\
-  p08& p-40-160-30-0.pddl&54.90&0.25\\
-  p09& p-10-210-40-0.pddl&106.46&0.52\\
-  p10& p-60-160-30-0.pddl&203.12&0.27\\
+  p07& p-40-160-30-0.pddl&54.90&0.25\\
+  p08& p-50-160-40-0.pddl&57.52&0.30\\
+  p09& p-40-160-40-0.pddl&60.86&0.32\\
+  p10& p-10-210-40-0.pddl&109.01&0.51\\
   p11& p-70-160-30-0.pddl&207.87&0.27\\
   p12& p-60-160-60-0.pddl&265.38&0.45\\
   p13& p-30-160-20-0.pddl&--&0.20\\
   p14& p-20-610-30-0.pddl&--&0.80\\
   p15& p-20-410-60-0.pddl&--&0.88\\
-  p16& p-20-610-50-0.pddl&--&1.08\\
-  p17& p-80-410-60-0.pddl&--&1.21\\
+  p16& p-80-410-50-0.pddl&--&1.05\\
+  p17& p-20-610-50-0.pddl&--&1.08\\
   p18& p-30-660-50-0.pddl&--&1.29\\
   p19& p-30-510-80-0.pddl&--&1.38\\
-  p20& p-90-660-40-0.pddl&--&1.40\\
-  p21& p-20-710-80-0.pddl&--&1.72\\
+  p20& p-20-710-80-0.pddl&--&1.72\\
+  p21& p-90-610-70-0.pddl&--&1.83\\
   p22& p-50-610-80-0.pddl&--&1.84\\
-  p23& p-30-1010-80-0.pddl&--&2.07\\
-  p24& p-40-1010-80-0.pddl&--&2.16\\
-  p25& p-80-510-30-0.pddl&--&2.19\\
+  p23& p-80-610-80-0.pddl&--&2.09\\
+  p24& p-30-1010-80-0.pddl&--&2.11\\
+  p25& p-40-1010-80-0.pddl&--&2.13\\
   p26& p-60-1010-20-0.pddl&--&3.48\\
-  p27& p-90-210-20-0.pddl&--&98.29\\
+  p27& p-90-210-20-0.pddl&--&82.01\\
   p28& p-20-660-20-0.pddl&--&121.79\\
   p29& p-50-560-20-0.pddl&--&275.96\\
-  p30& p-80-210-20-0.pddl&--&2249.50
+  p30& p-80-210-20-0.pddl&--&2213.97
                             \end{tabular}
                             \end{center}
                     
@@ -3818,36 +3841,36 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
                             name & config & baseline\_time & sota\_time\\\midrule
-                              p01& generator-repo-p033.pddl&0.44&0.43\\
-  p02& generator-repo-p004.pddl&0.45&0.44\\
-  p03& generator-repo-p082.pddl&0.44&0.44\\
-  p04& generator-repo-p021.pddl&0.44&0.44\\
-  p05& generator-repo-p032.pddl&0.45&0.45\\
-  p06& generator-repo-p075.pddl&0.45&0.45\\
-  p07& generator-repo-p014.pddl&0.45&0.45\\
-  p08& generator-repo-p068.pddl&0.45&0.45\\
-  p09& ipc08-p04.pddl&0.46&0.45\\
-  p10& generator-repo-p006.pddl&0.45&0.45\\
-  p11& generator-repo-p018.pddl&0.46&0.46\\
-  p12& generator-repo-p070.pddl&0.48&0.48\\
-  p13& ipc11opt-p11.pddl&0.64&0.63\\
-  p14& generator-repo-p073.pddl&0.68&0.68\\
-  p15& ipc11sat-p05.pddl&1.12&0.69\\
-  p16& generator-repo-p087.pddl&1.14&1.14\\
-  p17& generator-repo-p044.pddl&1.69&1.69\\
-  p18& ipc11sat-p10.pddl&1.70&1.70\\
-  p19& generator-repo-p080.pddl&2.00&2.00\\
-  p20& ipc11sat-p12.pddl&3.79&2.36\\
-  p21& generator-repo-p031.pddl&5.11&2.48\\
-  p22& ipc11sat-p09.pddl&5.02&2.49\\
-  p23& generator-repo-p084.pddl&16.90&2.18\\
-  p24& ipc11sat-p16.pddl&22.10&3.20\\
-  p25& generator-repo-p104.pddl&22.21&3.53\\
-  p26& ipc11sat-p19.pddl&--&12.79\\
-  p27& generator-repo-p099.pddl&--&13.19\\
-  p28& generator-repo-p074.pddl&--&23.32\\
-  p29& generator-repo-p105.pddl&--&502.73\\
-  p30& ipc11sat-p20.pddl&--&506.94
+                              p01& generator-repo-p002.pddl&0.43&0.42\\
+  p02& generator-repo-p024.pddl&0.45&0.43\\
+  p03& generator-repo-p033.pddl&0.44&0.43\\
+  p04& generator-repo-p007.pddl&0.44&0.44\\
+  p05& generator-repo-p003.pddl&0.44&0.44\\
+  p06& generator-repo-p004.pddl&0.45&0.44\\
+  p07& generator-repo-p011.pddl&0.45&0.44\\
+  p08& generator-repo-p046.pddl&0.44&0.44\\
+  p09& generator-repo-p014.pddl&0.45&0.45\\
+  p10& generator-repo-p010.pddl&0.45&0.45\\
+  p11& generator-repo-p068.pddl&0.45&0.45\\
+  p12& generator-repo-p042.pddl&0.45&0.45\\
+  p13& generator-repo-p061.pddl&0.46&0.45\\
+  p14& generator-repo-p018.pddl&0.46&0.46\\
+  p15& generator-repo-p001.pddl&0.46&0.46\\
+  p16& generator-repo-p013.pddl&0.46&0.46\\
+  p17& generator-repo-p005.pddl&0.46&0.46\\
+  p18& generator-repo-p066.pddl&0.47&0.47\\
+  p19& generator-repo-p039.pddl&0.48&0.48\\
+  p20& generator-repo-p070.pddl&0.48&0.48\\
+  p21& generator-repo-p067.pddl&0.49&0.49\\
+  p22& generator-repo-p062.pddl&0.55&0.55\\
+  p23& generator-repo-p080.pddl&2.00&2.00\\
+  p24& generator-repo-p071.pddl&3.93&2.15\\
+  p25& generator-repo-p031.pddl&5.11&2.48\\
+  p26& generator-repo-p084.pddl&16.90&2.18\\
+  p27& generator-repo-p104.pddl&22.21&3.53\\
+  p28& generator-repo-p099.pddl&--&13.19\\
+  p29& generator-repo-p074.pddl&--&23.32\\
+  p30& generator-repo-p105.pddl&--&502.73
                             \end{tabular}
                             \end{center}
                     
@@ -3858,35 +3881,35 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
                             name & config & baseline\_time & sota\_time\\\midrule
-                              p01& ipc08-p01.pddl&0.43&0.43\\
-  p02& generator-repo-p033.pddl&0.44&0.44\\
-  p03& generator-repo-p061.pddl&0.44&0.44\\
-  p04& ipc08-p05.pddl&0.44&0.44\\
-  p05& generator-repo-p002.pddl&0.45&0.45\\
-  p06& generator-repo-p063.pddl&0.46&0.46\\
-  p07& generator-repo-p092.pddl&0.46&0.46\\
-  p08& generator-repo-p055.pddl&0.46&0.46\\
-  p09& generator-repo-p088.pddl&0.46&0.46\\
-  p10& ipc08-p03.pddl&0.47&0.47\\
-  p11& ipc08-p07.pddl&0.47&0.47\\
-  p12& ipc11sat-p10.pddl&0.47&0.47\\
-  p13& generator-repo-p101.pddl&0.47&0.47\\
-  p14& generator-repo-p034.pddl&0.48&0.48\\
-  p15& generator-repo-p041.pddl&0.48&0.48\\
-  p16& ipc08-p15.pddl&0.48&0.48\\
-  p17& generator-repo-p068.pddl&0.48&0.48\\
-  p18& generator-repo-p051.pddl&0.48&0.48\\
-  p19& generator-repo-p084.pddl&0.49&0.49\\
-  p20& ipc11sat-p03.pddl&0.49&0.49\\
-  p21& generator-repo-p053.pddl&0.49&0.49\\
-  p22& generator-repo-p042.pddl&0.49&0.49\\
-  p23& generator-repo-p071.pddl&0.49&0.49\\
-  p24& generator-repo-p052.pddl&0.50&0.50\\
-  p25& ipc11sat-p01.pddl&1.86&1.86\\
-  p26& generator-repo-p030.pddl&1.87&1.87\\
-  p27& generator-repo-p099.pddl&10.98&10.98\\
-  p28& ipc11sat-p19.pddl&11.04&11.04\\
-  p29& ipc11sat-p20.pddl&43.39&43.39\\
+                              p01& generator-repo-p033.pddl&0.44&0.44\\
+  p02& generator-repo-p061.pddl&0.44&0.44\\
+  p03& generator-repo-p036.pddl&0.45&0.45\\
+  p04& generator-repo-p054.pddl&0.45&0.45\\
+  p05& generator-repo-p102.pddl&0.45&0.45\\
+  p06& generator-repo-p067.pddl&0.46&0.46\\
+  p07& generator-repo-p021.pddl&0.46&0.46\\
+  p08& generator-repo-p007.pddl&0.46&0.46\\
+  p09& generator-repo-p032.pddl&0.46&0.46\\
+  p10& generator-repo-p104.pddl&0.47&0.47\\
+  p11& generator-repo-p024.pddl&0.47&0.47\\
+  p12& generator-repo-p014.pddl&0.47&0.47\\
+  p13& generator-repo-p026.pddl&0.47&0.47\\
+  p14& generator-repo-p101.pddl&0.47&0.47\\
+  p15& generator-repo-p013.pddl&0.48&0.48\\
+  p16& generator-repo-p001.pddl&0.48&0.48\\
+  p17& generator-repo-p073.pddl&0.48&0.48\\
+  p18& generator-repo-p082.pddl&0.48&0.48\\
+  p19& generator-repo-p037.pddl&0.49&0.49\\
+  p20& generator-repo-p084.pddl&0.49&0.49\\
+  p21& generator-repo-p065.pddl&0.49&0.49\\
+  p22& generator-repo-p078.pddl&0.49&0.49\\
+  p23& generator-repo-p066.pddl&0.49&0.49\\
+  p24& generator-repo-p093.pddl&0.49&0.49\\
+  p25& generator-repo-p064.pddl&0.49&0.49\\
+  p26& generator-repo-p052.pddl&0.50&0.50\\
+  p27& generator-repo-p080.pddl&0.50&0.50\\
+  p28& generator-repo-p070.pddl&0.50&0.50\\
+  p29& generator-repo-p099.pddl&10.98&10.98\\
   p30& generator-repo-p105.pddl&43.45&43.45
                             \end{tabular}
                             \end{center}
@@ -4138,36 +4161,36 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
                             name & config & baseline\_time & sota\_time\\\midrule
-                              p01& p-1-4-1780016020.pddl&0.49&0.49\\
-  p02& p-1-6-1.pddl&0.63&0.62\\
-  p03& p-1-8-4.pddl&--&33.43\\
-  p04& p-1-10-827394048.pddl&--&1883.50\\
-  p05& p-2-12-1.pddl&4.48&2.17\\
-  p06& p-3-14-1527380328.pddl&390.10&70.20\\
-  p07& p-3-16-3.pddl&68.52&68.52\\
-  p08& p-3-18-852697554.pddl&20.56&20.56\\
-  p09& p-4-20-1.pddl&--&--\\
-  p10& p-4-22-0.pddl&--&--\\
-  p11& p-1-6-4.pddl&0.68&0.68\\
-  p12& p-1-8-1113997827.pddl&--&901.57\\
-  p13& p-1-12-931153876.pddl&--&--\\
-  p14& p-2-14-4.pddl&335.78&37.09\\
-  p15& p-3-16-1.pddl&22.45&22.45\\
-  p16& p-3-20-4.pddl&199.90&130.86\\
-  p17& p-3-22-3.pddl&325.47&187.71\\
-  p18& p-3-26-4.pddl&647.39&265.20\\
-  p19& p-3-30-1687847778.pddl&--&--\\
-  p20& p-3-36-2.pddl&37.60&37.60\\
-  p21& p-2-10-1.pddl&1.75&1.22\\
-  p22& p-2-14-1.pddl&4.91&2.29\\
-  p23& p-2-18-2.pddl&1.61&1.61\\
-  p24& p-2-22-142671464.pddl&--&--\\
-  p25& p-3-24-2.pddl&12.07&11.79\\
-  p26& p-3-26-1.pddl&45.60&45.60\\
-  p27& p-3-28-1.pddl&52.31&52.31\\
-  p28& p-3-32-1.pddl&--&7333.31\\
-  p29& p-3-38-2.pddl&39.46&39.46\\
-  p30& p-3-40-2.pddl&42.23&42.23
+                              p01& p-3-4-0.pddl&2.89&2.71\\
+  p02& p-2-6-4.pddl&0.71&0.68\\
+  p03& p-3-8-2.pddl&3.56&3.34\\
+  p04& p-3-10-4.pddl&8.81&8.81\\
+  p05& p-3-12-1.pddl&10.74&10.74\\
+  p06& p-3-14-1408893053.pddl&--&155.31\\
+  p07& p-3-16-0.pddl&--&1245.74\\
+  p08& p-4-16-2.pddl&--&--\\
+  p09& p-4-20-0.pddl&--&--\\
+  p10& p-1-4-852697554.pddl&3.89&0.71\\
+  p11& p-2-6-1887800994.pddl&123.79&9.82\\
+  p12& p-2-10-4.pddl&116.56&8.75\\
+  p13& p-2-12-3.pddl&305.33&35.12\\
+  p14& p-2-16-2.pddl&1.41&1.41\\
+  p15& p-2-20-1.pddl&--&--\\
+  p16& p-3-22-1.pddl&33.81&33.81\\
+  p17& p-3-24-2.pddl&12.07&11.79\\
+  p18& p-3-26-0.pddl&--&--\\
+  p19& p-3-28-4.pddl&--&362.00\\
+  p20& p-2-16-1.pddl&--&264.56\\
+  p21& p-3-18-852697554.pddl&20.56&20.56\\
+  p22& p-3-20-497458984.pddl&--&345.21\\
+  p23& p-3-24-1.pddl&39.18&39.18\\
+  p24& p-3-26-3.pddl&--&253.24\\
+  p25& p-3-30-1687847778.pddl&--&--\\
+  p26& p-3-34-2.pddl&35.05&35.05\\
+  p27& p-3-38-1.pddl&--&2848.05\\
+  p28& p-3-40-2.pddl&42.23&42.23\\
+  p29& p-3-46-4.pddl&--&--\\
+  p30& p-3-48-1.pddl&--&--
                             \end{tabular}
                             \end{center}
                     
@@ -4178,36 +4201,36 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
                             name & config & baseline\_time & sota\_time\\\midrule
-                              p01& p-1-6-3.pddl&0.61&0.50\\
-  p02& p-1-10-4.pddl&3.96&1.76\\
-  p03& p-1-14-2.pddl&--&12.54\\
-  p04& p-1-16-3.pddl&--&73.51\\
-  p05& p-1-20-4.pddl&--&728.07\\
-  p06& p-2-22-2.pddl&1.40&1.24\\
-  p07& p-2-26-4.pddl&--&28.80\\
-  p08& p-2-28-4.pddl&--&31.71\\
-  p09& p-3-30-1.pddl&86.22&46.53\\
-  p10& p-3-36-1.pddl&--&136.56\\
-  p11& p-3-40-3.pddl&--&2599.10\\
-  p12& p-3-44-3.pddl&--&1053.00\\
-  p13& p-3-46-4.pddl&--&1165.10\\
-  p14& p-3-48-2.pddl&55.76&50.91\\
-  p15& p-3-50-3.pddl&--&11167.80\\
-  p16& p-1-8-3.pddl&1.03&0.68\\
-  p17& p-1-10-311184249.pddl&12.87&2.22\\
-  p18& p-1-14-4.pddl&23.48&2.77\\
-  p19& p-1-18-0.pddl&--&462.03\\
-  p20& p-1-22-1.pddl&495.57&15.77\\
-  p21& p-1-24-3.pddl&--&162.19\\
-  p22& p-1-28-4.pddl&--&412.53\\
-  p23& p-1-32-1.pddl&--&7383.56\\
-  p24& p-1-34-2.pddl&--&27.61\\
-  p25& p-2-36-3.pddl&--&2482.30\\
-  p26& p-2-40-1.pddl&--&193.06\\
-  p27& p-2-42-4.pddl&--&2535.13\\
-  p28& p-2-46-3.pddl&--&16326.80\\
-  p29& p-2-50-1.pddl&--&694.97\\
-  p30& p-3-50-4.pddl&--&10547.30
+                              p01& p-1-4-4.pddl&0.57&0.43\\
+  p02& p-2-6-536572609.pddl&0.62&0.18\\
+  p03& p-2-10-2.pddl&0.75&0.57\\
+  p04& p-2-12-4.pddl&876.84&0.86\\
+  p05& p-2-14-4.pddl&2337.45&1.03\\
+  p06& p-2-18-3.pddl&--&6.63\\
+  p07& p-2-22-1011574091.pddl&--&362.79\\
+  p08& p-2-24-0.pddl&--&171.24\\
+  p09& p-2-26-4.pddl&--&28.80\\
+  p10& p-2-28-3.pddl&--&42.00\\
+  p11& p-3-30-4.pddl&814.90&72.59\\
+  p12& p-3-32-1.pddl&7817.13&104.55\\
+  p13& p-3-34-4.pddl&--&480.67\\
+  p14& p-3-40-3.pddl&--&2599.10\\
+  p15& p-3-44-4.pddl&--&1348.19\\
+  p16& p-3-48-1.pddl&--&297.74\\
+  p17& p-3-50-4.pddl&--&10547.30\\
+  p18& p-2-12-0.pddl&--&2.28\\
+  p19& p-2-16-3.pddl&--&3.37\\
+  p20& p-2-20-1426684740.pddl&--&173.16\\
+  p21& p-2-22-1026270344.pddl&--&279.63\\
+  p22& p-2-26-1.pddl&--&4.73\\
+  p23& p-3-28-1806855369.pddl&--&546.57\\
+  p24& p-3-30-1687847778.pddl&17959.70&346.68\\
+  p25& p-3-32-2.pddl&26.80&26.80\\
+  p26& p-3-34-2.pddl&32.53&28.41\\
+  p27& p-3-38-1.pddl&9774.10&200.40\\
+  p28& p-3-44-3.pddl&--&1053.00\\
+  p29& p-3-48-2.pddl&55.76&50.91\\
+  p30& p-3-50-3.pddl&--&11167.80
                             \end{tabular}
                             \end{center}
                     
@@ -4237,17 +4260,17 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p17& thoughtful\_11\_6\_89-typed.pddl&--&4143.86\\
   p18& thoughtful\_11\_6\_74-typed.pddl&--&--\\
   p19& thoughtful\_11\_6\_65-typed.pddl&--&--\\
-  p20& thoughtful\_11\_6\_59-typed.pddl&--&--\\
-  p21& thoughtful\_11\_6\_88-typed.pddl&--&--\\
-  p22& thoughtful\_13\_7\_56-typed.pddl&--&--\\
-  p23& thoughtful\_13\_7\_55-typed.pddl&--&--\\
-  p24& thoughtful\_13\_7\_58-typed.pddl&--&--\\
-  p25& thoughtful\_13\_7\_77-typed.pddl&--&--\\
-  p26& thoughtful\_13\_7\_74-typed.pddl&--&--\\
-  p27& thoughtful\_13\_7\_72-typed.pddl&--&--\\
-  p28& thoughtful\_13\_7\_69-typed.pddl&--&--\\
-  p29& thoughtful\_11\_6\_78-typed.pddl&--&--\\
-  p30& thoughtful\_11\_6\_99-typed.pddl&--&--
+  p20& thoughtful\_11\_6\_88-typed.pddl&--&--\\
+  p21& thoughtful\_13\_7\_56-typed.pddl&--&--\\
+  p22& thoughtful\_13\_7\_55-typed.pddl&--&--\\
+  p23& thoughtful\_13\_7\_58-typed.pddl&--&--\\
+  p24& thoughtful\_13\_7\_77-typed.pddl&--&--\\
+  p25& thoughtful\_13\_7\_74-typed.pddl&--&--\\
+  p26& thoughtful\_13\_7\_72-typed.pddl&--&--\\
+  p27& thoughtful\_13\_7\_69-typed.pddl&--&--\\
+  p28& thoughtful\_11\_6\_78-typed.pddl&--&--\\
+  p29& thoughtful\_11\_6\_99-typed.pddl&--&--\\
+  p30& thoughtful\_13\_7\_52-typed.pddl&--&--
                             \end{tabular}
                             \end{center}
                     
@@ -4260,34 +4283,34 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
                             name & config & baseline\_time & sota\_time\\\midrule
                               p01& thoughtful\_11\_6\_74-typed.pddl&3.96&3.96\\
   p02& thoughtful\_11\_6\_65-typed.pddl&4.20&4.20\\
-  p03& thoughtful\_11\_6\_59-typed.pddl&4.42&4.42\\
-  p04& thoughtful\_11\_6\_75-typed.pddl&4.42&4.42\\
-  p05& thoughtful\_11\_6\_88-typed.pddl&4.49&4.49\\
-  p06& thoughtful\_13\_7\_56-typed.pddl&4.65&4.65\\
-  p07& thoughtful\_13\_7\_55-typed.pddl&4.89&4.89\\
-  p08& thoughtful\_13\_7\_58-typed.pddl&6.22&5.34\\
-  p09& thoughtful\_13\_7\_77-typed.pddl&6.20&6.20\\
-  p10& thoughtful\_13\_7\_74-typed.pddl&6.29&6.29\\
-  p11& thoughtful\_13\_7\_72-typed.pddl&7.84&7.84\\
-  p12& thoughtful\_13\_7\_69-typed.pddl&888.86&8.03\\
-  p13& thoughtful\_11\_6\_78-typed.pddl&--&5.01\\
-  p14& thoughtful\_11\_6\_99-typed.pddl&--&5.32\\
-  p15& thoughtful\_13\_7\_75-typed.pddl&--&5.56\\
-  p16& thoughtful\_13\_7\_52-typed.pddl&--&5.56\\
-  p17& thoughtful\_13\_7\_61-typed.pddl&--&6.20\\
-  p18& thoughtful\_13\_7\_79-typed.pddl&--&6.30\\
-  p19& thoughtful\_13\_7\_86-typed.pddl&--&6.51\\
-  p20& thoughtful\_11\_6\_89-typed.pddl&--&7.29\\
-  p21& thoughtful\_13\_7\_64-typed.pddl&--&7.66\\
-  p22& thoughtful\_11\_6\_82-typed.pddl&--&12.59\\
-  p23& thoughtful\_11\_6\_98-typed.pddl&--&14.57\\
-  p24& thoughtful\_11\_6\_80-typed.pddl&--&16.84\\
-  p25& thoughtful\_11\_6\_62-typed.pddl&--&17.94\\
-  p26& thoughtful\_13\_7\_68-typed.pddl&--&22.64\\
-  p27& thoughtful\_13\_7\_62-typed.pddl&--&23.07\\
-  p28& thoughtful\_11\_6\_53-typed.pddl&--&25.37\\
-  p29& thoughtful\_13\_7\_78-typed.pddl&--&46.11\\
-  p30& thoughtful\_13\_7\_51-typed.pddl&--&--
+  p03& thoughtful\_11\_6\_75-typed.pddl&4.42&4.42\\
+  p04& thoughtful\_11\_6\_88-typed.pddl&4.49&4.49\\
+  p05& thoughtful\_13\_7\_56-typed.pddl&4.65&4.65\\
+  p06& thoughtful\_13\_7\_55-typed.pddl&4.89&4.89\\
+  p07& thoughtful\_13\_7\_58-typed.pddl&6.22&5.34\\
+  p08& thoughtful\_13\_7\_77-typed.pddl&6.20&6.20\\
+  p09& thoughtful\_13\_7\_74-typed.pddl&6.29&6.29\\
+  p10& thoughtful\_13\_7\_72-typed.pddl&7.84&7.84\\
+  p11& thoughtful\_13\_7\_69-typed.pddl&888.86&8.03\\
+  p12& thoughtful\_11\_6\_78-typed.pddl&--&5.01\\
+  p13& thoughtful\_11\_6\_99-typed.pddl&--&5.32\\
+  p14& thoughtful\_13\_7\_75-typed.pddl&--&5.56\\
+  p15& thoughtful\_13\_7\_52-typed.pddl&--&5.56\\
+  p16& thoughtful\_13\_7\_61-typed.pddl&--&6.20\\
+  p17& thoughtful\_11\_6\_89-typed.pddl&--&7.29\\
+  p18& thoughtful\_13\_7\_64-typed.pddl&--&7.66\\
+  p19& thoughtful\_11\_6\_82-typed.pddl&--&12.59\\
+  p20& thoughtful\_11\_6\_98-typed.pddl&--&14.57\\
+  p21& thoughtful\_11\_6\_80-typed.pddl&--&16.84\\
+  p22& thoughtful\_13\_7\_68-typed.pddl&--&22.64\\
+  p23& thoughtful\_13\_7\_62-typed.pddl&--&23.07\\
+  p24& thoughtful\_13\_7\_51-typed.pddl&--&--\\
+  p25& p11\_6\_59-typed.pddl&4.40&4.40\\
+  p26& p13\_7\_79-typed.pddl&--&6.38\\
+  p27& p13\_7\_86-typed.pddl&--&7.43\\
+  p28& p11\_6\_62-typed.pddl&--&18.13\\
+  p29& p11\_6\_53-typed.pddl&--&25.41\\
+  p30& p13\_7\_78-typed.pddl&--&43.21
                             \end{tabular}
                             \end{center}
                     
@@ -4300,7 +4323,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
                             name & config & baseline\_time & sota\_time\\\midrule
                               p01& ipc11opt-p10.pddl&57.04&8.67\\
   p02& ipc14opt-p13.pddl&118.69&13.75\\
-  p03& p-2-4-1-1-0-10-1.pddl&17.85&18.39\\
+  p03& p-2-4-1-1-0-10-1.pddl&18.33&18.33\\
   p04& p-3-4-5-1-8-9-1.pddl&29.01&17.97\\
   p05& p-2-4-1-1-8-11-0.pddl&40.45&31.66\\
   p06& p-2-4-1-1-2-10-1.pddl&100.95&28.64\\
@@ -4318,16 +4341,16 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p18& ipc14opt-p10.pddl&--&4065.08\\
   p19& p-3-4-3-1-4-12-0.pddl&--&--\\
   p20& p-1-4-3-3-4-12-0.pddl&--&--\\
-  p21& p-1-4-3-1-6-9-0.pddl&--&1680.79\\
-  p22& p-1-4-3-1-4-13-0.pddl&--&1837.95\\
-  p23& p-1-4-5-1-8-9-1.pddl&--&2873.76\\
-  p24& p-3-4-3-1-4-10-0.pddl&--&3262.51\\
-  p25& p-3-5-3-1-2-11-0.pddl&--&9909.02\\
-  p26& p-1-4-5-1-2-12-0.pddl&--&--\\
-  p27& p-2-5-3-1-8-11-1.pddl&--&--\\
-  p28& p-2-4-5-3-6-13-1.pddl&--&--\\
-  p29& p-1-4-3-3-10-15-1.pddl&--&--\\
-  p30& p-3-4-3-1-2-15-0.pddl&--&--
+  p21& p-1-4-3-3-10-15-0.pddl&--&--\\
+  p22& p-1-4-3-1-6-9-0.pddl&--&1680.79\\
+  p23& p-1-4-3-1-4-13-0.pddl&--&1837.95\\
+  p24& p-1-4-5-1-8-9-1.pddl&--&2873.76\\
+  p25& p-3-4-3-1-4-10-0.pddl&--&3262.51\\
+  p26& p-3-5-3-1-2-11-0.pddl&--&9909.02\\
+  p27& p-1-4-5-1-2-12-0.pddl&--&--\\
+  p28& p-2-5-3-1-8-11-1.pddl&--&--\\
+  p29& p-2-4-5-3-6-13-1.pddl&--&--\\
+  p30& p-1-4-3-3-10-15-1.pddl&--&--
                             \end{tabular}
                             \end{center}
                     
@@ -4338,19 +4361,19 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
                             name & config & baseline\_time & sota\_time\\\midrule
-                              p01& ipc11opt-p03.pddl&3.00&0.52\\
-  p02& ipc14opt-p11.pddl&8.28&2.81\\
+                              p01& p-2-4-1-1-0-6-1.pddl&3.73&0.59\\
+  p02& ipc11opt-p07.pddl&5.60&1.34\\
   p03& p-3-4-5-1-10-9-1.pddl&16.62&10.09\\
-  p04& p-3-4-3-1-6-9-1.pddl&--&8.59\\
-  p05& p-2-4-5-1-6-10-0.pddl&--&13.38\\
-  p06& p-2-4-3-1-8-11-1.pddl&42.70&21.10\\
+  p04& p-3-4-5-1-10-9-0.pddl&22.30&12.86\\
+  p05& p-3-4-3-1-6-9-1.pddl&--&8.59\\
+  p06& p-2-4-5-1-6-10-0.pddl&--&13.38\\
   p07& p-2-4-3-1-6-10-1.pddl&48.74&16.22\\
   p08& p-3-4-3-1-6-9-0.pddl&174.30&15.84\\
   p09& p-1-4-5-1-4-11-0.pddl&--&22.42\\
-  p10& p-2-4-1-1-8-12-0.pddl&60.70&47.99\\
-  p11& p-3-4-5-1-2-12-0.pddl&55.98&51.07\\
-  p12& p-1-5-3-1-4-10-0.pddl&124.70&51.98\\
-  p13& p-2-4-3-1-10-12-0.pddl&--&49.62\\
+  p10& p-2-4-3-1-6-10-0.pddl&54.16&25.38\\
+  p11& p-1-5-1-1-10-10-1.pddl&92.59&35.96\\
+  p12& p-2-4-1-1-8-12-0.pddl&60.70&47.99\\
+  p13& p-3-5-3-1-10-10-1.pddl&--&47.92\\
   p14& p-2-5-1-1-4-13-0.pddl&116.95&58.42\\
   p15& p-1-4-5-3-4-14-0.pddl&222.21&76.73\\
   p16& p-2-5-3-1-10-12-0.pddl&1186.11&93.54\\
