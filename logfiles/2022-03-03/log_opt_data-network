@@ -1,0 +1,92 @@
+2021-12-01 00:27:32,060 INFO     No run directory, so we will not run anything
+2021-12-01 00:27:32,524 INFO     Loading cache data for baseline planners: 942
+2021-12-01 00:27:32,564 INFO     baseline cache contains data for 320 parameter values, with min 3 max 39 avg 8.83125 runtimes
+2021-12-01 00:27:32,564 INFO     Loading cache data for sart planners: 1611
+2021-12-01 00:27:32,632 INFO     sart cache contains data for 617 parameter values, with min 3 max 39 avg 7.833063209076175 runtimes
+2021-12-01 00:27:34,052 INFO     Loading cache data for baseline planners: 203
+2021-12-01 00:27:34,058 INFO     baseline cache contains data for 436 parameter values, with min 3 max 39 avg 7.878440366972477 runtimes
+2021-12-01 00:27:34,058 INFO     Loading cache data for sart planners: 457
+2021-12-01 00:27:34,073 INFO     sart cache contains data for 867 parameter values, with min 3 max 39 avg 7.155709342560554 runtimes
+2021-12-01 00:27:35,580 INFO     Loading cache data for baseline planners: 155
+2021-12-01 00:27:35,584 INFO     baseline cache contains data for 540 parameter values, with min 3 max 39 avg 7.222222222222222 runtimes
+2021-12-01 00:27:35,584 INFO     Loading cache data for sart planners: 285
+2021-12-01 00:27:35,591 INFO     sart cache contains data for 1055 parameter values, with min 3 max 39 avg 6.690995260663507 runtimes
+2021-12-01 00:27:37,054 INFO     Loading cache data for baseline planners: 230
+2021-12-01 00:27:37,061 INFO     baseline cache contains data for 674 parameter values, with min 3 max 39 avg 6.810089020771513 runtimes
+2021-12-01 00:27:37,061 INFO     Loading cache data for sart planners: 341
+2021-12-01 00:27:37,072 INFO     sart cache contains data for 1257 parameter values, with min 3 max 39 avg 6.429594272076372 runtimes
+2021-12-01 00:27:37,073 INFO     Stored sequences: 2555
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'tiny-network', 'layers': 6, 'extra_items': 8, 'extra_scripts': 20, 'items': 14, 'scripts': 32}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'tiny-network', 'layers': 5, 'extra_items': 4, 'extra_scripts': 4, 'items': 9, 'scripts': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'tiny-network', 'layers': 6, 'extra_items': 7, 'extra_scripts': 16, 'items': 13, 'scripts': 27}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'tiny-network', 'layers': 2, 'extra_items': 7, 'extra_scripts': 4, 'items': 9, 'scripts': 11}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'tiny-network', 'layers': 4, 'extra_items': 10, 'extra_scripts': 48, 'items': 14, 'scripts': 60}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'tiny-network', 'layers': 3, 'extra_items': 8, 'extra_scripts': 7, 'items': 11, 'scripts': 16}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'tiny-network', 'layers': 2, 'extra_items': 12, 'extra_scripts': 8, 'items': 14, 'scripts': 20}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'tiny-network', 'layers': 4, 'extra_items': 10, 'extra_scripts': 48, 'items': 14, 'scripts': 60}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'small-network', 'layers': 3, 'extra_items': 3, 'extra_scripts': 27, 'items': 6, 'scripts': 31}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'tiny-network', 'layers': 4, 'extra_items': 7, 'extra_scripts': 34, 'items': 11, 'scripts': 43}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'network': 'tiny-network', 'layers': 4, 'extra_items': 13, 'extra_scripts': 43, 'items': 17, 'scripts': 58}, so I consider it unsolved within the time and memory limits
+2021-12-01 00:27:44,399 INFO     Different evaluated sequences: 1540
+network tiny-network 1488 1000
+network small-network 48 46
+network ring-network 4 4
+layers 2 520 440
+layers 3 675 542
+layers 4 270 225
+layers 5 38 32
+layers 6 37 33
+2021-12-01 00:28:17,764 INFO     Candidate sequences: 1272
+2021-12-01 00:28:17,778 INFO     Using sart runtimes on CPLEX optimization
+2021-12-01 00:28:55,669 INFO     CPLEX solve
+
+2021-12-01 00:29:02,400 INFO     Solution status = 101: MIP_optimal
+2021-12-01 00:29:02,400 INFO     Solution value  = 17.278918847344293
+2021-12-01 00:29:02,432 INFO     CPLEX Solved Instances: 14.0
+2021-12-01 00:29:02,436 INFO     CPLEX Trivial Instances: 2.0
+Selected: sequence 1286, 14 instances from 3 to 16
+Configuration: {'extra_items_b': 2, 'extra_items_m': 1.0, 'extra_scripts_b': 25, 'extra_scripts_m': 2.5, 'layers': 4, 'network': 'tiny-network'}
+Penalty: 8.36
+Penalty sart: 3.65
+Penalty baseline: 4.71
+Seq Estimated runtimes: 21,32,64,98,1.4e+02,2.2e+02,4.8e+02,1e+03,2.2e+03,4.6e+03,9.9e+03,2.1e+04,4.5e+04,9.6e+04
+Seq instances: [{'network': 'tiny-network', 'layers': 4, 'extra_items': 5, 'extra_scripts': 32, 'items': 9, 'scripts': 39}, {'network': 'tiny-network', 'layers': 4, 'extra_items': 6, 'extra_scripts': 35, 'items': 10, 'scripts': 43}, {'network': 'tiny-network', 'layers': 4, 'extra_items': 7, 'extra_scripts': 37, 'items': 11, 'scripts': 46}, {'network': 'tiny-network', 'layers': 4, 'extra_items': 8, 'extra_scripts': 40, 'items': 12, 'scripts': 50}, {'network': 'tiny-network', 'layers': 4, 'extra_items': 9, 'extra_scripts': 42, 'items': 13, 'scripts': 53}, {'network': 'tiny-network', 'layers': 4, 'extra_items': 10, 'extra_scripts': 45, 'items': 14, 'scripts': 57}, {'network': 'tiny-network', 'layers': 4, 'extra_items': 11, 'extra_scripts': 47, 'items': 15, 'scripts': 60}, {'network': 'tiny-network', 'layers': 4, 'extra_items': 12, 'extra_scripts': 50, 'items': 16, 'scripts': 64}, {'network': 'tiny-network', 'layers': 4, 'extra_items': 13, 'extra_scripts': 52, 'items': 17, 'scripts': 67}, {'network': 'tiny-network', 'layers': 4, 'extra_items': 14, 'extra_scripts': 55, 'items': 18, 'scripts': 71}, {'network': 'tiny-network', 'layers': 4, 'extra_items': 15, 'extra_scripts': 57, 'items': 19, 'scripts': 74}, {'network': 'tiny-network', 'layers': 4, 'extra_items': 16, 'extra_scripts': 60, 'items': 20, 'scripts': 78}, {'network': 'tiny-network', 'layers': 4, 'extra_items': 17, 'extra_scripts': 62, 'items': 21, 'scripts': 81}, {'network': 'tiny-network', 'layers': 4, 'extra_items': 18, 'extra_scripts': 65, 'items': 22, 'scripts': 85}]
+Selected: sequence 716, 16 instances from 0 to 15
+Configuration: {'extra_items_b': 2, 'extra_items_m': 1.0, 'extra_scripts_b': 22, 'extra_scripts_m': 3.2, 'layers': 3, 'network': 'tiny-network'}
+Penalty: 8.92
+Penalty sart: 3.49
+Penalty baseline: 5.44
+Seq Estimated runtimes: 1.4,2.4,5.4,11,50,85,1.5e+02,2e+02,4.4e+02,1e+03,2.3e+03,5.2e+03,1.2e+04,2.6e+04,6e+04,1.4e+05
+Seq instances: [{'network': 'tiny-network', 'layers': 3, 'extra_items': 2, 'extra_scripts': 22, 'items': 5, 'scripts': 25}, {'network': 'tiny-network', 'layers': 3, 'extra_items': 3, 'extra_scripts': 25, 'items': 6, 'scripts': 29}, {'network': 'tiny-network', 'layers': 3, 'extra_items': 4, 'extra_scripts': 28, 'items': 7, 'scripts': 33}, {'network': 'tiny-network', 'layers': 3, 'extra_items': 5, 'extra_scripts': 31, 'items': 8, 'scripts': 37}, {'network': 'tiny-network', 'layers': 3, 'extra_items': 6, 'extra_scripts': 34, 'items': 9, 'scripts': 41}, {'network': 'tiny-network', 'layers': 3, 'extra_items': 7, 'extra_scripts': 38, 'items': 10, 'scripts': 46}, {'network': 'tiny-network', 'layers': 3, 'extra_items': 8, 'extra_scripts': 41, 'items': 11, 'scripts': 50}, {'network': 'tiny-network', 'layers': 3, 'extra_items': 9, 'extra_scripts': 44, 'items': 12, 'scripts': 54}, {'network': 'tiny-network', 'layers': 3, 'extra_items': 10, 'extra_scripts': 47, 'items': 13, 'scripts': 58}, {'network': 'tiny-network', 'layers': 3, 'extra_items': 11, 'extra_scripts': 50, 'items': 14, 'scripts': 62}, {'network': 'tiny-network', 'layers': 3, 'extra_items': 12, 'extra_scripts': 54, 'items': 15, 'scripts': 67}, {'network': 'tiny-network', 'layers': 3, 'extra_items': 13, 'extra_scripts': 57, 'items': 16, 'scripts': 71}, {'network': 'tiny-network', 'layers': 3, 'extra_items': 14, 'extra_scripts': 60, 'items': 17, 'scripts': 75}, {'network': 'tiny-network', 'layers': 3, 'extra_items': 15, 'extra_scripts': 63, 'items': 18, 'scripts': 79}, {'network': 'tiny-network', 'layers': 3, 'extra_items': 16, 'extra_scripts': 66, 'items': 19, 'scripts': 83}, {'network': 'tiny-network', 'layers': 3, 'extra_items': 17, 'extra_scripts': 70, 'items': 20, 'scripts': 88}]
+  p01: {'network': 'tiny-network', 'layers': 3, 'extra_items': 2, 'extra_scripts': 22, 'items': 5, 'scripts': 25}   1.4255555555555555
+  p02: {'network': 'tiny-network', 'layers': 3, 'extra_items': 3, 'extra_scripts': 25, 'items': 6, 'scripts': 29}   2.3579166666666667
+  p03: {'network': 'tiny-network', 'layers': 3, 'extra_items': 4, 'extra_scripts': 28, 'items': 7, 'scripts': 33}   5.426666666666667
+  p04: {'network': 'tiny-network', 'layers': 3, 'extra_items': 5, 'extra_scripts': 31, 'items': 8, 'scripts': 37}   11.06875
+  p05: {'network': 'tiny-network', 'layers': 3, 'extra_items': 6, 'extra_scripts': 34, 'items': 9, 'scripts': 41}   50.09818181818182
+  p06: {'network': 'tiny-network', 'layers': 3, 'extra_items': 7, 'extra_scripts': 38, 'items': 10, 'scripts': 46}   85.008
+  p07: {'network': 'tiny-network', 'layers': 3, 'extra_items': 8, 'extra_scripts': 41, 'items': 11, 'scripts': 50}   150.01366666666667
+  p08: {'network': 'tiny-network', 'layers': 3, 'extra_items': 9, 'extra_scripts': 44, 'items': 12, 'scripts': 54}   195.485
+  p09: {'network': 'tiny-network', 'layers': 3, 'extra_items': 10, 'extra_scripts': 47, 'items': 13, 'scripts': 58}   442.98587115727815
+  p10: {'network': 'tiny-network', 'layers': 3, 'extra_items': 11, 'extra_scripts': 50, 'items': 14, 'scripts': 62}   1003.844192879109
+  p11: {'network': 'tiny-network', 'layers': 3, 'extra_items': 12, 'extra_scripts': 54, 'items': 15, 'scripts': 67}   2274.797525583686
+  p12: {'network': 'tiny-network', 'layers': 3, 'extra_items': 13, 'extra_scripts': 57, 'items': 16, 'scripts': 71}   5154.887400962272
+  p13: {'network': 'tiny-network', 'layers': 3, 'extra_items': 14, 'extra_scripts': 60, 'items': 17, 'scripts': 75}   11681.41947480855
+  p14: {'network': 'tiny-network', 'layers': 3, 'extra_items': 15, 'extra_scripts': 63, 'items': 18, 'scripts': 79}   26471.104086767064
+  p15: {'network': 'tiny-network', 'layers': 3, 'extra_items': 16, 'extra_scripts': 66, 'items': 19, 'scripts': 83}   59985.805071343035
+  p16: {'network': 'tiny-network', 'layers': 3, 'extra_items': 17, 'extra_scripts': 70, 'items': 20, 'scripts': 88}   135933.00824410858
+  p17: {'network': 'tiny-network', 'layers': 4, 'extra_items': 5, 'extra_scripts': 32, 'items': 9, 'scripts': 39}   20.799166666666668
+  p18: {'network': 'tiny-network', 'layers': 4, 'extra_items': 6, 'extra_scripts': 35, 'items': 10, 'scripts': 43}   31.70916666666667
+  p19: {'network': 'tiny-network', 'layers': 4, 'extra_items': 7, 'extra_scripts': 37, 'items': 11, 'scripts': 46}   64.41833333333334
+  p20: {'network': 'tiny-network', 'layers': 4, 'extra_items': 8, 'extra_scripts': 40, 'items': 12, 'scripts': 50}   98.37666666666667
+  p21: {'network': 'tiny-network', 'layers': 4, 'extra_items': 9, 'extra_scripts': 42, 'items': 13, 'scripts': 53}   140.36
+  p22: {'network': 'tiny-network', 'layers': 4, 'extra_items': 10, 'extra_scripts': 45, 'items': 14, 'scripts': 57}   223.835
+  p23: {'network': 'tiny-network', 'layers': 4, 'extra_items': 11, 'extra_scripts': 47, 'items': 15, 'scripts': 60}   477.43286613518455
+  p24: {'network': 'tiny-network', 'layers': 4, 'extra_items': 12, 'extra_scripts': 50, 'items': 16, 'scripts': 64}   1018.3489698485806
+  p25: {'network': 'tiny-network', 'layers': 4, 'extra_items': 13, 'extra_scripts': 52, 'items': 17, 'scripts': 67}   2172.10564657279
+  p26: {'network': 'tiny-network', 'layers': 4, 'extra_items': 14, 'extra_scripts': 55, 'items': 18, 'scripts': 71}   4633.03158304852
+  p27: {'network': 'tiny-network', 'layers': 4, 'extra_items': 15, 'extra_scripts': 57, 'items': 19, 'scripts': 74}   9882.107568475378
+  p28: {'network': 'tiny-network', 'layers': 4, 'extra_items': 16, 'extra_scripts': 60, 'items': 20, 'scripts': 78}   21078.218061846444
+  p29: {'network': 'tiny-network', 'layers': 4, 'extra_items': 17, 'extra_scripts': 62, 'items': 21, 'scripts': 81}   44959.16216092105
+  p30: {'network': 'tiny-network', 'layers': 4, 'extra_items': 18, 'extra_scripts': 65, 'items': 22, 'scripts': 85}   95896.44894464705
+Total Estimated Runtimes: [1.4255555555555555, 2.3579166666666667, 5.426666666666667, 11.06875, 20.799166666666668, 31.70916666666667, 50.09818181818182, 64.41833333333334, 85.008, 98.37666666666667, 140.36, 150.01366666666667, 195.485, 223.835, 442.98587115727815, 477.43286613518455, 1003.844192879109, 1018.3489698485806, 2172.10564657279, 2274.797525583686, 4633.03158304852, 5154.887400962272, 9882.107568475378, 11681.41947480855, 21078.218061846444, 26471.104086767064, 44959.16216092105, 59985.805071343035, 95896.44894464705, 135933.00824410858]
+Total Estimated Solved: 18

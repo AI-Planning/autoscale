@@ -366,7 +366,7 @@ def parse_args():
 
     parser.add_argument(
         "--benchmark",
-        default="2021-11-30",
+        default="2022-03-03",
         help="name of benchmark set")
 
     parser.add_argument(

@@ -1,0 +1,77 @@
+2021-12-01 00:46:58,683 INFO     No run directory, so we will not run anything
+2021-12-01 00:46:59,430 INFO     Loading cache data for baseline planners: 2109
+2021-12-01 00:46:59,509 INFO     baseline cache contains data for 562 parameter values, with min 3 max 39 avg 11.258007117437723 runtimes
+2021-12-01 00:46:59,509 INFO     Loading cache data for sart planners: 3446
+2021-12-01 00:46:59,633 INFO     sart cache contains data for 1126 parameter values, with min 3 max 39 avg 9.181172291296626 runtimes
+2021-12-01 00:47:00,508 INFO     Loading cache data for baseline planners: 143
+2021-12-01 00:47:00,512 INFO     baseline cache contains data for 683 parameter values, with min 3 max 39 avg 9.891654465592973 runtimes
+2021-12-01 00:47:00,512 INFO     Loading cache data for sart planners: 617
+2021-12-01 00:47:00,531 INFO     sart cache contains data for 1440 parameter values, with min 3 max 39 avg 8.464583333333334 runtimes
+2021-12-01 00:47:01,460 INFO     Loading cache data for baseline planners: 73
+2021-12-01 00:47:01,463 INFO     baseline cache contains data for 739 parameter values, with min 3 max 39 avg 9.438430311231393 runtimes
+2021-12-01 00:47:01,463 INFO     Loading cache data for sart planners: 118
+2021-12-01 00:47:01,466 INFO     sart cache contains data for 1519 parameter values, with min 3 max 39 avg 8.257406188281765 runtimes
+2021-12-01 00:47:02,414 INFO     Loading cache data for baseline planners: 38
+2021-12-01 00:47:02,415 INFO     baseline cache contains data for 775 parameter values, with min 3 max 39 avg 9.147096774193548 runtimes
+2021-12-01 00:47:02,415 INFO     Loading cache data for sart planners: 46
+2021-12-01 00:47:02,417 INFO     sart cache contains data for 1563 parameter values, with min 3 max 39 avg 8.113243761996161 runtimes
+2021-12-01 00:47:02,417 INFO     Stored sequences: 7862
+Warning: No output dir has been provided for Runner but I have no data for {'n_couples': 3, 'n_places': 7, 'n_cars': 10}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'n_couples': 3, 'n_places': 7, 'n_cars': 10}, so I consider it unsolved within the time and memory limits
+Warning: No output dir has been provided for Runner but I have no data for {'n_couples': 3, 'n_places': 7, 'n_cars': 10}, so I consider it unsolved within the time and memory limits
+2021-12-01 00:48:04,646 INFO     Different evaluated sequences: 1431
+2021-12-01 00:48:32,092 INFO     Candidate sequences: 1000
+2021-12-01 00:48:32,106 INFO     Warning: some sequences use the state of the art and some the baseline runtimes: 29 use baseline 971 use sart
+2021-12-01 00:48:32,112 INFO     Using sart runtimes on CPLEX optimization
+2021-12-01 00:48:49,641 INFO     CPLEX solve
+
+2021-12-01 00:49:04,824 INFO     Solution status = 101: MIP_optimal
+2021-12-01 00:49:04,824 INFO     Solution value  = 0.9756832388791165
+2021-12-01 00:49:04,861 INFO     CPLEX Solved Instances: 15.0
+2021-12-01 00:49:04,864 INFO     CPLEX Trivial Instances: 2.0
+Selected: sequence 355, 16 instances from 3 to 18
+Configuration: {'n_cars_b': 3, 'n_cars_m': 0.1, 'n_cars_optional_m': 'false', 'n_couples_b': 1, 'n_couples_m': 4.1, 'n_couples_optional_m': 'true', 'n_places_b': 7, 'n_places_m': 0.9}
+Penalty: 0.06
+Penalty sart: 0.05
+Penalty baseline: 0.00
+Seq Estimated runtimes: 2.3,3.1,4.5,7.1,11,17,29,44,64,2.8e+02,5.6e+02,1.1e+03,2.3e+03,4.7e+03,9.5e+03,1.9e+04
+Seq instances: [{'n_couples': 1, 'n_places': 10, 'n_cars': 4}, {'n_couples': 1, 'n_places': 11, 'n_cars': 4}, {'n_couples': 1, 'n_places': 12, 'n_cars': 4}, {'n_couples': 1, 'n_places': 13, 'n_cars': 4}, {'n_couples': 1, 'n_places': 14, 'n_cars': 4}, {'n_couples': 1, 'n_places': 15, 'n_cars': 4}, {'n_couples': 1, 'n_places': 16, 'n_cars': 5}, {'n_couples': 1, 'n_places': 17, 'n_cars': 5}, {'n_couples': 1, 'n_places': 18, 'n_cars': 5}, {'n_couples': 1, 'n_places': 19, 'n_cars': 5}, {'n_couples': 1, 'n_places': 20, 'n_cars': 5}, {'n_couples': 1, 'n_places': 21, 'n_cars': 5}, {'n_couples': 1, 'n_places': 22, 'n_cars': 5}, {'n_couples': 1, 'n_places': 23, 'n_cars': 5}, {'n_couples': 1, 'n_places': 24, 'n_cars': 5}, {'n_couples': 1, 'n_places': 25, 'n_cars': 6}]
+Selected: sequence 834, 14 instances from 3 to 16
+Configuration: {'n_cars_b': 5, 'n_cars_m': 0.4, 'n_cars_optional_m': 'false', 'n_couples_b': 2, 'n_couples_m': 0.1, 'n_couples_optional_m': 'true', 'n_places_b': 6, 'n_places_m': 1.1}
+Penalty: 0.92
+Penalty sart: 0.36
+Penalty baseline: 0.55
+Seq Estimated runtimes: 18,25,43,65,90,1.8e+02,3.6e+02,7.3e+02,1.5e+03,2.9e+03,5.9e+03,1.2e+04,2.4e+04,4.8e+04
+Seq instances: [{'n_couples': 2, 'n_places': 9, 'n_cars': 8}, {'n_couples': 2, 'n_places': 10, 'n_cars': 8}, {'n_couples': 2, 'n_places': 11, 'n_cars': 9}, {'n_couples': 2, 'n_places': 12, 'n_cars': 9}, {'n_couples': 2, 'n_places': 13, 'n_cars': 9}, {'n_couples': 2, 'n_places': 14, 'n_cars': 10}, {'n_couples': 2, 'n_places': 15, 'n_cars': 10}, {'n_couples': 2, 'n_places': 16, 'n_cars': 11}, {'n_couples': 2, 'n_places': 18, 'n_cars': 11}, {'n_couples': 2, 'n_places': 19, 'n_cars': 11}, {'n_couples': 2, 'n_places': 20, 'n_cars': 12}, {'n_couples': 2, 'n_places': 21, 'n_cars': 12}, {'n_couples': 2, 'n_places': 22, 'n_cars': 13}, {'n_couples': 2, 'n_places': 23, 'n_cars': 13}]
+  p01: {'n_couples': 1, 'n_places': 10, 'n_cars': 4}   2.3273333333333333
+  p02: {'n_couples': 1, 'n_places': 11, 'n_cars': 4}   3.1308333333333334
+  p03: {'n_couples': 1, 'n_places': 12, 'n_cars': 4}   4.520833333333333
+  p04: {'n_couples': 1, 'n_places': 13, 'n_cars': 4}   7.109166666666667
+  p05: {'n_couples': 1, 'n_places': 14, 'n_cars': 4}   10.693999999999999
+  p06: {'n_couples': 1, 'n_places': 15, 'n_cars': 4}   17.448333333333334
+  p07: {'n_couples': 1, 'n_places': 16, 'n_cars': 5}   29.49818181818182
+  p08: {'n_couples': 1, 'n_places': 17, 'n_cars': 5}   43.88393939393939
+  p09: {'n_couples': 1, 'n_places': 18, 'n_cars': 5}   63.587878787878786
+  p10: {'n_couples': 1, 'n_places': 19, 'n_cars': 5}   278.98939393939395
+  p11: {'n_couples': 1, 'n_places': 20, 'n_cars': 5}   564.9815574158323
+  p12: {'n_couples': 1, 'n_places': 21, 'n_cars': 5}   1144.1444268285034
+  p13: {'n_couples': 1, 'n_places': 22, 'n_cars': 5}   2317.0074354820717
+  p14: {'n_couples': 1, 'n_places': 23, 'n_cars': 5}   4692.172884991816
+  p15: {'n_couples': 1, 'n_places': 24, 'n_cars': 5}   9502.121592489288
+  p16: {'n_couples': 1, 'n_places': 25, 'n_cars': 6}   19242.751060441507
+  p17: {'n_couples': 2, 'n_places': 9, 'n_cars': 8}   18.383333333333333
+  p18: {'n_couples': 2, 'n_places': 10, 'n_cars': 8}   25.016666666666666
+  p19: {'n_couples': 2, 'n_places': 11, 'n_cars': 9}   43.245
+  p20: {'n_couples': 2, 'n_places': 12, 'n_cars': 9}   64.80333333333333
+  p21: {'n_couples': 2, 'n_places': 13, 'n_cars': 9}   89.62333333333333
+  p22: {'n_couples': 2, 'n_places': 14, 'n_cars': 10}   180.0
+  p23: {'n_couples': 2, 'n_places': 15, 'n_cars': 10}   361.51299884702644
+  p24: {'n_couples': 2, 'n_places': 16, 'n_cars': 11}   726.0647129742786
+  p25: {'n_couples': 2, 'n_places': 18, 'n_cars': 11}   1458.2323985796497
+  p26: {'n_couples': 2, 'n_places': 19, 'n_cars': 11}   2928.722041257897
+  p27: {'n_couples': 2, 'n_places': 20, 'n_cars': 12}   5882.061599580707
+  p28: {'n_couples': 2, 'n_places': 21, 'n_cars': 12}   11813.56515704088
+  p29: {'n_couples': 2, 'n_places': 22, 'n_cars': 13}   23726.42981664773
+  p30: {'n_couples': 2, 'n_places': 23, 'n_cars': 13}   47652.293305276806
+Total Estimated Runtimes: [2.3273333333333333, 3.1308333333333334, 4.520833333333333, 7.109166666666667, 10.693999999999999, 17.448333333333334, 18.383333333333333, 25.016666666666666, 29.49818181818182, 43.245, 43.88393939393939, 63.587878787878786, 64.80333333333333, 89.62333333333333, 180.0, 278.98939393939395, 361.51299884702644, 564.9815574158323, 726.0647129742786, 1144.1444268285034, 1458.2323985796497, 2317.0074354820717, 2928.722041257897, 4692.172884991816, 5882.061599580707, 9502.121592489288, 11813.56515704088, 19242.751060441507, 23726.42981664773, 47652.293305276806]
+Total Estimated Solved: 21

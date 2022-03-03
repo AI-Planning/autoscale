@@ -1,0 +1,77 @@
+2021-12-01 00:21:20,152 INFO     Stored sequences: 4
+2021-12-01 00:21:20,152 DEBUG    Configurations in sequence ['bootstrap-typed-05.pddl', 'bootstrap-typed-02.pddl', 'bootstrap-typed-03.pddl', 'bootstrap-typed-01.pddl', 'bootstrap-typed-04.pddl']
+2021-12-01 00:21:20,152 DEBUG    Sart runtimes [[0.326556], [0.331232], [0.338281], [0.342747], [0.370928]]
+2021-12-01 00:21:20,152 DEBUG    Baseline runtimes [[0.851628], [0.889046], [0.90708], [0.924201], [0.948049]]
+2021-12-01 00:21:20,153 DEBUG    Discarding sequence [0.851628, 0.889046, 0.90708, 0.924201, 0.948049] [0.326556, 0.331232, 0.338281, 0.342747, 0.370928]
+2021-12-01 00:21:20,153 DEBUG    Configurations in sequence ['p11_6_59-typed.pddl', 'p13_7_79-typed.pddl', 'p13_7_86-typed.pddl', 'p11_6_62-typed.pddl', 'p11_6_53-typed.pddl', 'p13_7_78-typed.pddl']
+2021-12-01 00:21:20,153 DEBUG    Sart runtimes [[4.39873], [6.37932], [7.4329], [18.1337], [25.4087], [43.2087]]
+2021-12-01 00:21:20,153 DEBUG    Baseline runtimes [[4.39873]]
+2021-12-01 00:21:20,153 DEBUG    Configurations in sequence ['target-typed-04.pddl', 'target-typed-05.pddl', 'target-typed-03.pddl', 'target-typed-06.pddl', 'target-typed-10.pddl', 'target-typed-29.pddl', 'target-typed-07.pddl', 'target-typed-08.pddl', 'target-typed-02.pddl', 'target-typed-14.pddl', 'target-typed-12.pddl', 'target-typed-27.pddl', 'target-typed-25.pddl', 'target-typed-30.pddl', 'target-typed-09.pddl', 'target-typed-19.pddl', 'target-typed-26.pddl', 'target-typed-22.pddl', 'target-typed-16.pddl', 'target-typed-28.pddl', 'target-typed-20.pddl', 'target-typed-15.pddl', 'target-typed-23.pddl', 'target-typed-18.pddl', 'target-typed-11.pddl', 'target-typed-21.pddl', 'target-typed-13.pddl', 'target-typed-01.pddl', 'target-typed-24.pddl', 'target-typed-17.pddl']
+2021-12-01 00:21:20,154 DEBUG    Sart runtimes [[3.86963], [4.0617], [4.14225], [4.19674], [4.26738], [4.44085], [4.56474], [4.87379], [5.14148], [5.18841], [5.38316], [5.4099], [5.45332], [5.51723], [5.54279], [5.71767], [5.73761], [5.76398], [5.89553], [5.95258], [6.0232], [6.129], [6.17873], [6.29399], [6.97713], [7.42977], [7.46439], [7.61702], [15.3133], [19.9848]]
+2021-12-01 00:21:20,156 DEBUG    Baseline runtimes [[3.86963], [4.0617], [4.14225], [4.19674], [4.44085], [4.56474], [5.18841], [5.4099], [5.45332], [5.54279], [5.89553], [6.29399]]
+2021-12-01 00:21:20,156 DEBUG    Configurations in sequence ['thoughtful_11_6_74-typed.pddl', 'thoughtful_11_6_65-typed.pddl', 'thoughtful_11_6_75-typed.pddl', 'thoughtful_11_6_88-typed.pddl', 'thoughtful_13_7_56-typed.pddl', 'thoughtful_13_7_55-typed.pddl', 'thoughtful_13_7_58-typed.pddl', 'thoughtful_13_7_77-typed.pddl', 'thoughtful_13_7_74-typed.pddl', 'thoughtful_13_7_72-typed.pddl', 'thoughtful_13_7_69-typed.pddl', 'thoughtful_11_6_78-typed.pddl', 'thoughtful_11_6_99-typed.pddl', 'thoughtful_13_7_75-typed.pddl', 'thoughtful_13_7_52-typed.pddl', 'thoughtful_13_7_61-typed.pddl', 'thoughtful_11_6_89-typed.pddl', 'thoughtful_13_7_64-typed.pddl', 'thoughtful_11_6_82-typed.pddl', 'thoughtful_11_6_98-typed.pddl', 'thoughtful_11_6_80-typed.pddl', 'thoughtful_13_7_68-typed.pddl', 'thoughtful_13_7_62-typed.pddl', 'thoughtful_13_7_51-typed.pddl']
+2021-12-01 00:21:20,157 DEBUG    Sart runtimes [[3.95988], [4.20194], [4.42328], [4.48502], [4.65313], [4.89451], [5.01122], [5.32393], [5.33551], [5.55591], [5.56198], [6.19906], [6.20357], [6.29263], [7.29345], [7.65745], [7.84385], [8.02587], [12.5904], [14.5674], [16.8443], [22.6398], [23.0651]]
+2021-12-01 00:21:20,158 DEBUG    Baseline runtimes [[3.95988], [4.20194], [4.42328], [4.48502], [4.65313], [4.89451], [6.20357], [6.22302], [6.29263], [7.84385], [888.856]]
+2021-12-01 00:21:20,159 INFO     Different evaluated sequences: 3
+2021-12-01 00:21:20,159 INFO     Candidate sequences: 3
+2021-12-01 00:21:20,159 DEBUG    Candidate sequences: 
+ Sequence(1, length=6, penalty=11.047526880492423, penalty_baseline=10, penalty_sart=1.0475268804924225, config=['p11_6_59-typed.pddl', 'p13_7_79-typed.pddl', 'p13_7_86-typed.pddl', 'p11_6_62-typed.pddl', 'p11_6_53-typed.pddl', 'p13_7_78-typed.pddl'], runtimes_baseline=[4.39873], runtimes_sart=[4.39873, 6.37932, 7.4329, 18.1337, 25.4087, 43.2087]
+ Sequence(2, length=30, penalty=27.619163939479556, penalty_baseline=13.73847728959742, penalty_sart=13.880686649882138, config=['target-typed-04.pddl', 'target-typed-05.pddl', 'target-typed-03.pddl', 'target-typed-06.pddl', 'target-typed-10.pddl', 'target-typed-29.pddl', 'target-typed-07.pddl', 'target-typed-08.pddl', 'target-typed-02.pddl', 'target-typed-14.pddl', 'target-typed-12.pddl', 'target-typed-27.pddl', 'target-typed-25.pddl', 'target-typed-30.pddl', 'target-typed-09.pddl', 'target-typed-19.pddl', 'target-typed-26.pddl', 'target-typed-22.pddl', 'target-typed-16.pddl', 'target-typed-28.pddl', 'target-typed-20.pddl', 'target-typed-15.pddl', 'target-typed-23.pddl', 'target-typed-18.pddl', 'target-typed-11.pddl', 'target-typed-21.pddl', 'target-typed-13.pddl', 'target-typed-01.pddl', 'target-typed-24.pddl', 'target-typed-17.pddl'], runtimes_baseline=[3.86963, 4.0617, 4.14225, 4.19674, 4.44085, 4.56474, 5.18841, 5.4099, 5.45332, 5.54279, 5.89553, 6.29399], runtimes_sart=[3.86963, 4.0617, 4.14225, 4.19674, 4.26738, 4.44085, 4.56474, 4.87379, 5.14148, 5.18841, 5.38316, 5.4099, 5.45332, 5.51723, 5.54279, 5.71767, 5.73761, 5.76398, 5.89553, 5.95258, 6.0232, 6.129, 6.17873, 6.29399, 6.97713, 7.42977, 7.46439, 7.61702, 15.3133, 19.9848]
+ Sequence(3, length=24, penalty=16.26437463230779, penalty_baseline=8.478330084982764, penalty_sart=7.786044547325025, config=['thoughtful_11_6_74-typed.pddl', 'thoughtful_11_6_65-typed.pddl', 'thoughtful_11_6_75-typed.pddl', 'thoughtful_11_6_88-typed.pddl', 'thoughtful_13_7_56-typed.pddl', 'thoughtful_13_7_55-typed.pddl', 'thoughtful_13_7_58-typed.pddl', 'thoughtful_13_7_77-typed.pddl', 'thoughtful_13_7_74-typed.pddl', 'thoughtful_13_7_72-typed.pddl', 'thoughtful_13_7_69-typed.pddl', 'thoughtful_11_6_78-typed.pddl', 'thoughtful_11_6_99-typed.pddl', 'thoughtful_13_7_75-typed.pddl', 'thoughtful_13_7_52-typed.pddl', 'thoughtful_13_7_61-typed.pddl', 'thoughtful_11_6_89-typed.pddl', 'thoughtful_13_7_64-typed.pddl', 'thoughtful_11_6_82-typed.pddl', 'thoughtful_11_6_98-typed.pddl', 'thoughtful_11_6_80-typed.pddl', 'thoughtful_13_7_68-typed.pddl', 'thoughtful_13_7_62-typed.pddl', 'thoughtful_13_7_51-typed.pddl'], runtimes_baseline=[3.95988, 4.20194, 4.42328, 4.48502, 4.65313, 4.89451, 6.20357, 6.22302, 6.29263, 7.84385, 888.856], runtimes_sart=[3.95988, 4.20194, 4.42328, 4.48502, 4.65313, 4.89451, 5.01122, 5.32393, 5.33551, 5.55591, 5.56198, 6.19906, 6.20357, 6.29263, 7.29345, 7.65745, 7.84385, 8.02587, 12.5904, 14.5674, 16.8443, 22.6398, 23.0651]
+2021-12-01 00:21:20,159 INFO     Using sart runtimes on CPLEX optimization
+2021-12-01 00:21:20,183 INFO     CPLEX solve
+
+2021-12-01 00:21:20,190 INFO     Solution status = 101: MIP_optimal
+2021-12-01 00:21:20,191 INFO     Solution value  = 42307.5890540307
+2021-12-01 00:21:20,191 INFO     CPLEX Solved Instances: 29.0
+2021-12-01 00:21:20,191 INFO     CPLEX Trivial Instances: 11.0
+2021-12-01 00:21:20,191 DEBUG    START: seq-1-0 0
+Selected: sequence 1, 6 instances from 0 to 5
+Configuration: ['p11_6_59-typed.pddl', 'p13_7_79-typed.pddl', 'p13_7_86-typed.pddl', 'p11_6_62-typed.pddl', 'p11_6_53-typed.pddl', 'p13_7_78-typed.pddl']
+Penalty: 11.05
+Penalty sart: 1.05
+Penalty baseline: 10.00
+Seq Estimated runtimes: 4.4,6.4,7.4,18,25,43
+Seq instances: ['p11_6_59-typed.pddl', 'p13_7_79-typed.pddl', 'p13_7_86-typed.pddl', 'p11_6_62-typed.pddl', 'p11_6_53-typed.pddl', 'p13_7_78-typed.pddl']
+2021-12-01 00:21:20,191 DEBUG    END: end-1-5 6
+2021-12-01 00:21:20,191 DEBUG    START: seq-3-0 38
+Selected: sequence 3, 24 instances from 0 to 23
+Configuration: ['thoughtful_11_6_74-typed.pddl', 'thoughtful_11_6_65-typed.pddl', 'thoughtful_11_6_75-typed.pddl', 'thoughtful_11_6_88-typed.pddl', 'thoughtful_13_7_56-typed.pddl', 'thoughtful_13_7_55-typed.pddl', 'thoughtful_13_7_58-typed.pddl', 'thoughtful_13_7_77-typed.pddl', 'thoughtful_13_7_74-typed.pddl', 'thoughtful_13_7_72-typed.pddl', 'thoughtful_13_7_69-typed.pddl', 'thoughtful_11_6_78-typed.pddl', 'thoughtful_11_6_99-typed.pddl', 'thoughtful_13_7_75-typed.pddl', 'thoughtful_13_7_52-typed.pddl', 'thoughtful_13_7_61-typed.pddl', 'thoughtful_11_6_89-typed.pddl', 'thoughtful_13_7_64-typed.pddl', 'thoughtful_11_6_82-typed.pddl', 'thoughtful_11_6_98-typed.pddl', 'thoughtful_11_6_80-typed.pddl', 'thoughtful_13_7_68-typed.pddl', 'thoughtful_13_7_62-typed.pddl', 'thoughtful_13_7_51-typed.pddl']
+Penalty: 16.26
+Penalty sart: 7.79
+Penalty baseline: 8.48
+Seq Estimated runtimes: 4,4.2,4.4,4.5,4.7,4.9,5,5.3,5.3,5.6,5.6,6.2,6.2,6.3,7.3,7.7,7.8,8,13,15,17,23,23,1e+04
+Seq instances: ['thoughtful_11_6_74-typed.pddl', 'thoughtful_11_6_65-typed.pddl', 'thoughtful_11_6_75-typed.pddl', 'thoughtful_11_6_88-typed.pddl', 'thoughtful_13_7_56-typed.pddl', 'thoughtful_13_7_55-typed.pddl', 'thoughtful_13_7_58-typed.pddl', 'thoughtful_13_7_77-typed.pddl', 'thoughtful_13_7_74-typed.pddl', 'thoughtful_13_7_72-typed.pddl', 'thoughtful_13_7_69-typed.pddl', 'thoughtful_11_6_78-typed.pddl', 'thoughtful_11_6_99-typed.pddl', 'thoughtful_13_7_75-typed.pddl', 'thoughtful_13_7_52-typed.pddl', 'thoughtful_13_7_61-typed.pddl', 'thoughtful_11_6_89-typed.pddl', 'thoughtful_13_7_64-typed.pddl', 'thoughtful_11_6_82-typed.pddl', 'thoughtful_11_6_98-typed.pddl', 'thoughtful_11_6_80-typed.pddl', 'thoughtful_13_7_68-typed.pddl', 'thoughtful_13_7_62-typed.pddl', 'thoughtful_13_7_51-typed.pddl']
+2021-12-01 00:21:20,191 DEBUG    END: end-3-23 62
+  p01: thoughtful_11_6_74-typed.pddl   3.95988 3.95988 3.95988
+  p02: thoughtful_11_6_65-typed.pddl   4.20194 4.20194 4.20194
+  p03: thoughtful_11_6_75-typed.pddl   4.42328 4.42328 4.42328
+  p04: thoughtful_11_6_88-typed.pddl   4.48502 4.48502 4.48502
+  p05: thoughtful_13_7_56-typed.pddl   4.65313 4.65313 4.65313
+  p06: thoughtful_13_7_55-typed.pddl   4.89451 4.89451 4.89451
+  p07: thoughtful_13_7_58-typed.pddl   5.01122 6.22302 5.33551
+  p08: thoughtful_13_7_77-typed.pddl   5.32393 6.20357 6.20357
+  p09: thoughtful_13_7_74-typed.pddl   5.33551 6.29263 6.29263
+  p10: thoughtful_13_7_72-typed.pddl   5.55591 7.84385 7.84385
+  p11: thoughtful_13_7_69-typed.pddl   5.56198 888.856 8.02587
+  p12: thoughtful_11_6_78-typed.pddl   6.19906 unsolved 5.01122
+  p13: thoughtful_11_6_99-typed.pddl   6.20357 unsolved 5.32393
+  p14: thoughtful_13_7_75-typed.pddl   6.29263 unsolved 5.55591
+  p15: thoughtful_13_7_52-typed.pddl   7.29345 unsolved 5.56198
+  p16: thoughtful_13_7_61-typed.pddl   7.65745 unsolved 6.19906
+  p17: thoughtful_11_6_89-typed.pddl   7.84385 unsolved 7.29345
+  p18: thoughtful_13_7_64-typed.pddl   8.02587 unsolved 7.65745
+  p19: thoughtful_11_6_82-typed.pddl   12.5904 unsolved 12.5904
+  p20: thoughtful_11_6_98-typed.pddl   14.5674 unsolved 14.5674
+  p21: thoughtful_11_6_80-typed.pddl   16.8443 unsolved 16.8443
+  p22: thoughtful_13_7_68-typed.pddl   22.6398 unsolved 22.6398
+  p23: thoughtful_13_7_62-typed.pddl   23.0651 unsolved 23.0651
+  p24: thoughtful_13_7_51-typed.pddl   10000.0 unsolved unsolved
+  p25: p11_6_59-typed.pddl   4.39873 4.39873 4.39873
+  p26: p13_7_79-typed.pddl   6.37932 unsolved 6.37932
+  p27: p13_7_86-typed.pddl   7.4329 unsolved 7.4329
+  p28: p11_6_62-typed.pddl   18.1337 unsolved 18.1337
+  p29: p11_6_53-typed.pddl   25.4087 unsolved 25.4087
+  p30: p13_7_78-typed.pddl   43.2087 unsolved 43.2087
+Total Estimated Runtimes: [3.95988, 4.20194, 4.39873, 4.42328, 4.48502, 4.65313, 4.89451, 5.01122, 5.32393, 5.33551, 5.55591, 5.56198, 6.19906, 6.20357, 6.29263, 6.37932, 7.29345, 7.4329, 7.65745, 7.84385, 8.02587, 12.5904, 14.5674, 16.8443, 18.1337, 22.6398, 23.0651, 25.4087, 43.2087, 10000.0]
+Total Estimated Solved: 29
