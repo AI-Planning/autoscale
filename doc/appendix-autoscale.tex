@@ -6,67 +6,70 @@
 
         \title{Autoscale Benchmarks 2021-11}
 
-        \author{\'Alvaro Torralba, Jendrik Seipp, Silvan Sievers }
+        \author{\'Alvaro Torralba, Jendrik Seipp, Silvan Sievers}
         \date{}
         \begin{document}
         \maketitle
 
 
-        This document describes a benchmark set generated with the Autoscale tool~\cite{autoscale}.
+        This document describes a set of benchmarks generated with the Autoscale tool~\cite{autoscale}.
         \tableofcontents
 
 
         \newpage \section{{Evaluation}}
             \begin{table}[h] \centering \small
-            \begin{tabular}{l@{}rr|rrrr|r|rrrr}
-& & \multicolumn{5}{c}{optimal} & \multicolumn{5}{c}{satisficing/agile} \\
+            \begin{tabular}{@{}lr|rrrrr|rrrrr@{}}
+\multicolumn{2}{c}{} & \multicolumn{5}{c}{optimal} & \multicolumn{5}{c}{agile/satisficing} \\
 
-& & & \multicolumn{2}{c}{cov range} & \multicolumn{2}{c}{comp (91)} & & \multicolumn{2}{c}{cov range} & \multicolumn{2}{c}{comp (91)} \\
+\cmidrule{3-7} \cmidrule(l){8-12}
 
-       Optimal &  \#IPC & \#s &      IPC &      AS &  AS &               diff & \#s &       IPC &      AS &  AS &               diff \\
+\multicolumn{2}{c}{} & \multicolumn{1}{c}{} & \multicolumn{2}{c}{cov range} & \multicolumn{2}{c}{comp (91)} & & \multicolumn{2}{c}{cov range} & \multicolumn{2}{c}{comp (91)} \\
+\cmidrule{4-5} \cmidrule(l){6-7} \cmidrule{9-10} \cmidrule(l){11-12}
+
+       Domain & \#IPC & \#s &     IPC &     AS & AS &              diff & \#s &      IPC &     AS & AS &              diff \\
 \midrule
-      agricola &     20 &   5 &    0--13 &   0--14 &  72 &   {\color{blue}+5} &   3 &     0--13 &   0--25 &  61 &   {\color{red}-19} \\
-       airport &     50 &   2 &   22--38 &   1--17 &  84 &   {\color{blue}+1} &   2 &    34--48 &  14--27 &  85 &                  0 \\
-        barman &  34/40 &   3 &    4--16 &   8--16 &  83 &  {\color{blue}+28} &   2 &    17--40 &   0--27 &  89 &  {\color{blue}+37} \\
-   blocksworld &     35 &   2 &   18--34 &  10--20 &  82 &  {\color{blue}+20} &   1 &    35--35 &   3--27 &  86 &  {\color{blue}+86} \\
-    childsnack &     20 &   3 &     0--6 &   4--14 &  69 &   {\color{blue}+8} &   2 &     0--20 &   0--21 &  84 &    {\color{red}-2} \\
-  data-network &     20 &   2 &    6--14 &   5--14 &  77 &    {\color{red}-8} &   2 &     2--19 &   1--26 &  88 &   {\color{blue}+5} \\
-        depots &     22 &   3 &    4--14 &   2--18 &  79 &   {\color{blue}+4} &   1 &    17--22 &   4--15 &  79 &  {\color{blue}+43} \\
-     driverlog &     20 &   3 &    7--15 &   2--18 &  88 &  {\color{blue}+23} &   1 &    18--20 &   7--29 &  87 &  {\color{blue}+74} \\
-     elevators &     50 &   4 &    7--44 &   0--14 &  81 &    {\color{red}-4} &   1 &    11--50 &   2--30 &  62 &  {\color{blue}+26} \\
-     floortile &     40 &   2 &    2--34 &   3--20 &  81 &   {\color{blue}+1} &   1 &     4--40 &   1--15 &  75 &   {\color{blue}+1} \\
-      freecell &     80 &   2 &   15--70 &   3--18 &  66 &    {\color{red}-9} &   1 &    46--80 &  10--29 &  80 &  {\color{blue}+37} \\
-           ged &     20 &   3 &   15--19 &   8--22 &  67 &  {\color{blue}+18} &   1 &     0--20 &   3--30 &  66 &  {\color{blue}+41} \\
-          grid &      5 &   1 &     1--3 &   5--22 &  86 &  {\color{blue}+27} &   1 &      4--5 &   4--15 &  74 &  {\color{blue}+61} \\
-       gripper &     20 &   1 &    7--20 &  10--30 &  45 &    {\color{red}-4} &   1 &    20--20 &  21--30 &  25 &  {\color{blue}+25} \\
-        hiking &     20 &   3 &    9--19 &   5--19 &  80 &                  0 &   1 &     1--20 &   0--23 &  81 &  {\color{blue}+19} \\
-     logistics &     63 &   4 &   12--36 &   9--24 &  88 &   {\color{blue}+2} &   1 &    51--63 &   3--15 &  83 &  {\color{blue}+21} \\
-       miconic &    150 &   1 &  55--144 &   2--20 &  86 &    {\color{red}-2} &   1 &  150--150 &  30--30 &   0 &                  0 \\
-        mprime &     35 &   2 &   18--31 &   1--13 &  83 &  {\color{blue}+16} &   3 &    31--35 &   5--22 &  85 &  {\color{blue}+61} \\
-     nomystery &     20 &   1 &    8--20 &   4--21 &  83 &  {\color{blue}+14} &   2 &     6--20 &   1--24 &  89 &   {\color{blue}+6} \\
-    openstacks &     70 &   2 &   23--70 &   3--14 &  36 &   {\color{red}-45} &   2 &     6--70 &   2--27 &  87 &  {\color{blue}+41} \\
- organic-split &     20 &   2 &    7--15 &   2--16 &  78 &   {\color{blue}+5} &   2 &     3--14 &   0--18 &  88 &   {\color{blue}+2} \\
-   parcprinter &     50 &   1 &   16--50 &   7--30 &  87 &   {\color{blue}+2} &   1 &    13--50 &   8--30 &  55 &   {\color{blue}+9} \\
-       parking &     40 &   3 &    0--15 &   5--17 &  85 &    {\color{red}-2} &   1 &    23--40 &   0--21 &  83 &  {\color{blue}+20} \\
-      pathways &     30 &   3 &     4--5 &   9--14 &  72 &  {\color{blue}+24} &   1 &     9--30 &   9--30 &  84 &   {\color{blue}+5} \\
-        pegsol &     50 &   1 &   44--50 &  20--30 &  73 &  {\color{blue}+14} &   1 &    48--50 &  28--30 &  43 &  {\color{blue}+18} \\
-      pipes-nt &     50 &   4 &   15--25 &   8--22 &  88 &   {\color{blue}+5} &   3 &    31--50 &   6--30 &  83 &   {\color{blue}+6} \\
-       pipes-t &     50 &   4 &   12--22 &   8--18 &  82 &   {\color{blue}+3} &   3 &    15--44 &   3--30 &  75 &    {\color{red}-5} \\
-        rovers &     40 &   2 &    6--14 &   2--16 &  64 &   {\color{red}-19} &   4 &    26--40 &  19--30 &  13 &   {\color{red}-12} \\
-     satellite &     36 &   2 &    6--14 &   5--22 &  87 &   {\color{blue}+8} &   1 &    26--36 &   5--16 &  80 &   {\color{blue}+5} \\
-    scanalyzer &     50 &   3 &   15--33 &   6--17 &  76 &    {\color{red}-3} &   1 &    42--50 &   6--17 &  79 &  {\color{blue}+25} \\
-         snake &     20 &   2 &    4--14 &   1--14 &  83 &  {\color{blue}+15} &   1 &     3--17 &   5--17 &  81 &    {\color{red}-3} \\
-       sokoban &     50 &   2 &   11--50 &   0--24 &  84 &  {\color{blue}+10} &   1 &     8--50 &   5--27 &  85 &   {\color{blue}+4} \\
-       storage &     30 &   2 &   14--18 &   4--24 &  89 &  {\color{blue}+19} &   2 &    19--30 &   3--19 &  84 &                  0 \\
-        termes &     20 &   3 &    5--18 &   6--21 &  83 &   {\color{blue}+3} &   2 &     0--15 &   0--21 &  87 &   {\color{blue}+2} \\
-        tetris &  17/20 &   3 &    6--13 &   6--21 &  79 &    {\color{red}-2} &   2 &     6--20 &   1--20 &  82 &   {\color{blue}+5} \\
-    thoughtful &  --/20 &   3 &       -- &    2--5 &  13 &                 -- &   1 &     5--20 &   0--30 &  87 &   {\color{blue}+8} \\
-       tidybot &  40/20 &   2 &   11--32 &   2--11 &  85 &   {\color{blue}+2} &   1 &    13--20 &   4--21 &  85 &   {\color{blue}+9} \\
-           tpp &     30 &   1 &    6--20 &   2--20 &  76 &                  0 &   1 &    23--30 &   7--18 &  84 &  {\color{blue}+35} \\
-     transport &     70 &   4 &   23--35 &   5--18 &  85 &  {\color{blue}+12} &   3 &    13--70 &   2--20 &  81 &  {\color{blue}+20} \\
-      visitall &     40 &   2 &   12--30 &   2--19 &  82 &    {\color{red}-3} &   1 &     3--40 &   5--29 &  88 &  {\color{blue}+42} \\
-   woodworking &     50 &   2 &   11--50 &   5--17 &  81 &                  0 &   2 &    28--50 &   3--19 &  87 &  {\color{blue}+51} \\
-    zenotravel &     20 &   6 &    7--13 &   5--21 &  85 &   {\color{blue}+9} &   1 &    20--20 &   5--13 &  80 &  {\color{blue}+80} \\
+     agricola &    20 &   5 &   0--13 &  0--14 & 72 &  {\color{blue}+5} &   3 &    0--13 &  0--25 & 61 &  {\color{red}-19} \\
+      airport &    50 &   2 &  22--38 &  1--17 & 84 &  {\color{blue}+1} &   2 &   34--48 & 14--27 & 85 &           $\pm 0$ \\
+       barman & 34/40 &   3 &   4--16 &  8--16 & 83 & {\color{blue}+28} &   2 &   17--40 &  0--27 & 89 & {\color{blue}+37} \\
+  blocksworld &    35 &   2 &  18--34 & 10--20 & 82 & {\color{blue}+20} &   1 &   35--35 &  3--27 & 86 & {\color{blue}+86} \\
+   childsnack &    20 &   3 &    0--6 &  4--14 & 69 &  {\color{blue}+8} &   2 &    0--20 &  0--21 & 84 &   {\color{red}-2} \\
+ data-network &    20 &   2 &   6--14 &  5--14 & 77 &   {\color{red}-8} &   2 &    2--19 &  1--26 & 88 &  {\color{blue}+5} \\
+       depots &    22 &   3 &   4--14 &  2--18 & 79 &  {\color{blue}+4} &   1 &   17--22 &  4--15 & 79 & {\color{blue}+43} \\
+    driverlog &    20 &   3 &   7--15 &  2--18 & 88 & {\color{blue}+23} &   1 &   18--20 &  7--29 & 87 & {\color{blue}+74} \\
+    elevators &    50 &   4 &   7--44 &  0--14 & 81 &   {\color{red}-4} &   1 &   11--50 &  2--30 & 62 & {\color{blue}+26} \\
+    floortile &    40 &   2 &   2--34 &  3--20 & 81 &  {\color{blue}+1} &   1 &    4--40 &  1--15 & 75 &  {\color{blue}+1} \\
+     freecell &    80 &   2 &  15--70 &  3--18 & 66 &   {\color{red}-9} &   1 &   46--80 & 10--29 & 80 & {\color{blue}+37} \\
+          ged &    20 &   3 &  15--19 &  8--22 & 67 & {\color{blue}+18} &   1 &    0--20 &  3--30 & 66 & {\color{blue}+41} \\
+         grid &     5 &   1 &    1--3 &  5--22 & 86 & {\color{blue}+27} &   1 &     4--5 &  4--15 & 74 & {\color{blue}+61} \\
+      gripper &    20 &   1 &   7--20 & 10--30 & 45 &   {\color{red}-4} &   1 &   20--20 & 21--30 & 25 & {\color{blue}+25} \\
+       hiking &    20 &   3 &   9--19 &  5--19 & 80 &           $\pm 0$ &   1 &    1--20 &  0--23 & 81 & {\color{blue}+19} \\
+    logistics &    63 &   4 &  12--36 &  9--24 & 88 &  {\color{blue}+2} &   1 &   51--63 &  3--15 & 83 & {\color{blue}+21} \\
+      miconic &   150 &   1 & 55--144 &  2--20 & 86 &   {\color{red}-2} &   1 & 150--150 & 30--30 &  0 &           $\pm 0$ \\
+       mprime &    35 &   2 &  18--31 &  1--13 & 83 & {\color{blue}+16} &   3 &   31--35 &  5--22 & 85 & {\color{blue}+61} \\
+    nomystery &    20 &   1 &   8--20 &  4--21 & 83 & {\color{blue}+14} &   2 &    6--20 &  1--24 & 89 &  {\color{blue}+6} \\
+   openstacks &    70 &   2 &  23--70 &  3--14 & 36 &  {\color{red}-45} &   2 &    6--70 &  2--27 & 87 & {\color{blue}+41} \\
+organic-split &    20 &   2 &   7--15 &  2--16 & 78 &  {\color{blue}+5} &   2 &    3--14 &  0--18 & 88 &  {\color{blue}+2} \\
+  parcprinter &    50 &   1 &  16--50 &  7--30 & 87 &  {\color{blue}+2} &   1 &   13--50 &  8--30 & 55 &  {\color{blue}+9} \\
+      parking &    40 &   3 &   0--15 &  5--17 & 85 &   {\color{red}-2} &   1 &   23--40 &  0--21 & 83 & {\color{blue}+20} \\
+     pathways &    30 &   3 &    4--5 &  9--14 & 72 & {\color{blue}+24} &   1 &    9--30 &  9--30 & 84 &  {\color{blue}+5} \\
+       pegsol &    50 &   1 &  44--50 & 20--30 & 73 & {\color{blue}+14} &   1 &   48--50 & 28--30 & 43 & {\color{blue}+18} \\
+     pipes-nt &    50 &   4 &  15--25 &  8--22 & 88 &  {\color{blue}+5} &   3 &   31--50 &  6--30 & 83 &  {\color{blue}+6} \\
+      pipes-t &    50 &   4 &  12--22 &  8--18 & 82 &  {\color{blue}+3} &   3 &   15--44 &  3--30 & 75 &   {\color{red}-5} \\
+       rovers &    40 &   2 &   6--14 &  2--16 & 64 &  {\color{red}-19} &   4 &   26--40 & 19--30 & 13 &  {\color{red}-12} \\
+    satellite &    36 &   2 &   6--14 &  5--22 & 87 &  {\color{blue}+8} &   1 &   26--36 &  5--16 & 80 &  {\color{blue}+5} \\
+   scanalyzer &    50 &   3 &  15--33 &  6--17 & 76 &   {\color{red}-3} &   1 &   42--50 &  6--17 & 79 & {\color{blue}+25} \\
+        snake &    20 &   2 &   4--14 &  1--14 & 83 & {\color{blue}+15} &   1 &    3--17 &  5--17 & 81 &   {\color{red}-3} \\
+      sokoban &    50 &   2 &  11--50 &  0--24 & 84 & {\color{blue}+10} &   1 &    8--50 &  5--27 & 85 &  {\color{blue}+4} \\
+      storage &    30 &   2 &  14--18 &  4--24 & 89 & {\color{blue}+19} &   2 &   19--30 &  3--19 & 84 &           $\pm 0$ \\
+       termes &    20 &   3 &   5--18 &  6--21 & 83 &  {\color{blue}+3} &   2 &    0--15 &  0--21 & 87 &  {\color{blue}+2} \\
+       tetris & 17/20 &   3 &   6--13 &  6--21 & 79 &   {\color{red}-2} &   2 &    6--20 &  1--20 & 82 &  {\color{blue}+5} \\
+   thoughtful & --/20 &   3 &      -- &   2--5 & 13 &                -- &   1 &    5--20 &  0--30 & 87 &  {\color{blue}+8} \\
+      tidybot & 40/20 &   2 &  11--32 &  2--11 & 85 &  {\color{blue}+2} &   1 &   13--20 &  4--21 & 85 &  {\color{blue}+9} \\
+          tpp &    30 &   1 &   6--20 &  2--20 & 76 &           $\pm 0$ &   1 &   23--30 &  7--18 & 84 & {\color{blue}+35} \\
+    transport &    70 &   4 &  23--35 &  5--18 & 85 & {\color{blue}+12} &   3 &   13--70 &  2--20 & 81 & {\color{blue}+20} \\
+     visitall &    40 &   2 &  12--30 &  2--19 & 82 &   {\color{red}-3} &   1 &    3--40 &  5--29 & 88 & {\color{blue}+42} \\
+  woodworking &    50 &   2 &  11--50 &  5--17 & 81 &           $\pm 0$ &   2 &   28--50 &  3--19 & 87 & {\color{blue}+51} \\
+   zenotravel &    20 &   6 &   7--13 &  5--21 & 85 &  {\color{blue}+9} &   1 &   20--20 &  5--13 & 80 & {\color{blue}+80} \\
 \bottomrule
 \end{tabular}
 

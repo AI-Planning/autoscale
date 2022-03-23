@@ -81,25 +81,30 @@ def get_latex_table_for_appendix(datasetfile):
         "num_sequences",
         "covrange-ipc-all", "covrange-all", "comparisons-all", "comparisons-all-ipcdiff",
     ], {
-    "num_sequences": "\#s",
+    "num_sequences": "\\#s",
     "covrange-ipc-all": "IPC",
     "covrange-all": "AS",
     "comparisons-all": "AS",
     "comparisons-all-ipcdiff": "diff",
 })
 
+    for diff_index in [6, 11]:
+        paper_table[diff_index] = paper_table[diff_index].replace(0.0, "$\\pm 0$")
+
     latex_table = paper_table.to_latex(
         header=table_header,
         index=False,
-        column_format='l@{}rr|rrrr|r|rrrr', escape=False
+        column_format='@{}lr|rrrrr|rrrrr@{}', escape=False
     )
 
     # Some hacky printing of the table
     lines = latex_table.split('\n')
 
     return "\n".join(lines[0:1] + [
-        "& & \multicolumn{5}{c}{optimal} & \multicolumn{5}{c}{satisficing/agile} \\\\\n",
-        "& & & \multicolumn{2}{c}{cov range} & \multicolumn{2}{c}{comp (91)} & & \multicolumn{2}{c}{cov range} & \multicolumn{2}{c}{comp (91)} \\\\\n"
+        "\\multicolumn{2}{c}{} & \\multicolumn{5}{c}{optimal} & \\multicolumn{5}{c}{agile/satisficing} \\\\\n",
+        "\\cmidrule{3-7} \\cmidrule(l){8-12}\n",
+        "\\multicolumn{2}{c}{} & \\multicolumn{1}{c}{} & \\multicolumn{2}{c}{cov range} & \\multicolumn{2}{c}{comp (91)} & & \\multicolumn{2}{c}{cov range} & \\multicolumn{2}{c}{comp (91)} \\\\\n"
+        "\\cmidrule{4-5} \\cmidrule(l){6-7} \\cmidrule{9-10} \\cmidrule(l){11-12}\n",
     ] + lines[2:])
 
 
@@ -112,7 +117,7 @@ def get_table_data(dataset_file , columns, columns_to_display):
     SAT = "sat-autoscale"
     assert OPT in tracks and SAT in tracks
 
-    table_header = ["Optimal", "\#IPC"] + [columns_to_display[col] for col in columns] + [columns_to_display[col] for col in columns]
+    table_header = ["Domain", "\\#IPC"] + [columns_to_display[col] for col in columns] + [columns_to_display[col] for col in columns]
     table_rows = []
     for domain in sorted(domains):
         row = [domain]
