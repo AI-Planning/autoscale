@@ -189,7 +189,7 @@ def write_table_instances(properties, instances_colums = ["name", "config", "rea
                             \\end{{center}}
                     """
 
-def write_appendix(properties_dataset, dataset, evaluationfile, outfilename):
+def write_appendix(properties_dataset, dataset, version, evaluationfile, outfilename):
     print(f"Writing appendix to {outfilename}")
     with open(outfilename, "w") as outfile:
         outfile.write(f"""\\documentclass{{article}}
@@ -198,7 +198,7 @@ def write_appendix(properties_dataset, dataset, evaluationfile, outfilename):
         \\usepackage[margin=1in]{{geometry}}
         \\usepackage{{xcolor}}
 
-        \\title{{Autoscale Benchmarks {dataset}}}
+        \\title{{Autoscale Benchmarks {version}}}
 
         \\author{{\\'Alvaro Torralba, Jendrik Seipp, Silvan Sievers}}
         \\date{{}}
@@ -402,6 +402,10 @@ def parse_args():
     parser = argparse.ArgumentParser(description=__doc__)
 
     parser.add_argument(
+        "version",
+        help="final name for benchmark set (e.g., 21.11)")
+
+    parser.add_argument(
         "--benchmark",
         default="2022-03-03",
         help="name of benchmark set")
@@ -427,4 +431,4 @@ ARGS = parse_args()
 
 
 prop = read_logdir(ARGS.benchmark, f"{ARGS.logdir}/{ARGS.benchmark}")
-write_appendix(prop, ARGS.benchmark, ARGS.evaluation, ARGS.output)
+write_appendix(prop, ARGS.benchmark, ARGS.version, ARGS.evaluation, ARGS.output)
