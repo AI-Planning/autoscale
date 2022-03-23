@@ -193,9 +193,10 @@ def write_appendix(properties_dataset, dataset, version, evaluationfile, outfile
     print(f"Writing appendix to {outfilename}")
     with open(outfilename, "w") as outfile:
         outfile.write(f"""\\documentclass{{article}}
-        \\usepackage{{booktabs}}
 
+        \\usepackage{{booktabs}}
         \\usepackage[margin=1in]{{geometry}}
+        \\usepackage[hidelinks]{{hyperref}}
         \\usepackage{{xcolor}}
 
         \\title{{Autoscale Benchmarks {version}}}
@@ -285,14 +286,14 @@ def write_appendix(properties_dataset, dataset, version, evaluationfile, outfile
                 attributes_data = '\\\\\n'.join(
                     map(lambda x: f"{latex_str(x.name)} & {latex_str(x)}", config_domain.attributes))
                 outfile.write(f"""
-                    \\begin{{center}}
+                    \\subsubsection*{{Attributes}}
                     \\begin{{tabular}}{{@{{}}p{{0.2\\textwidth}}p{{0.8\\textwidth}}@{{}}}}
                     %\\begin{{tabular}}{{ll}}
-                    \\multicolumn{{2}}{{c}}{{\\bf \\large Attributes}}\\\\\\midrule
-                    {attributes_data}{adapt_parameters_function}{discard_sequence_function} \\\\\\midrule
+                    \\toprule
+                    {attributes_data}{adapt_parameters_function}{discard_sequence_function} \\\\
+                    \\bottomrule
                     \\multicolumn{{2}}{{l}}{{Duplicated Parameters Penalty: {config_domain.penalty_for_instances_with_duplicated_parameters}}}
                     \\end{{tabular}}
-                    \\end{{center}}
                 """)
 
 
@@ -334,7 +335,7 @@ def write_appendix(properties_dataset, dataset, version, evaluationfile, outfile
 
                     sequences_opt = '\\\\\n'.join(sequences_data)
                     outfile.write(f"""
-                            \\subsection*{{Sequences for optimal planning}}
+                            \\subsubsection*{{Sequences for optimal planning}}
 
                             \\begin{{center}}
                             \\begin{{tabular}}{{@{{}}{"|".join(["l" for _ in sequences_columns])}@{{}}}}
@@ -356,7 +357,7 @@ def write_appendix(properties_dataset, dataset, version, evaluationfile, outfile
 
                     sequences_sat = '\\\\\n'.join(sequences_data)
                     outfile.write(f"""
-                         \\subsection*{{Sequences for agile/satisficing planning}}
+                         \\subsubsection*{{Sequences for agile/satisficing planning}}
 
                         \\begin{{center}}
                         \\begin{{tabular}}{{@{{}}{"|".join(["l" for _ in sequences_columns])}@{{}}}}
@@ -369,18 +370,18 @@ def write_appendix(properties_dataset, dataset, version, evaluationfile, outfile
                     outfile.write("WARNING: NO SAT SEQUENCES")
 
                 outfile.write(f"""
-                                \\subsection*{{Tasks for optimal planning}}
+                                \\subsubsection*{{Tasks for optimal planning}}
                                 {write_table_instances(properties_dataset[dataset + "-opt"][domain], ['name', 'config', 'estimated_time'])}
 
-                                \\subsection*{{Tasks for agile/satisficing planning}}
+                                \\subsubsection*{{Tasks for agile/satisficing planning}}
                                 {write_table_instances(properties_dataset[dataset + "-sat"][domain], ['name', 'config', 'estimated_time'])}
                             """)
             else: # This is a domain without an instance generator
                 outfile.write(f"""
-                    \\subsection*{{Tasks for optimal planning}}
+                    \\subsubsection*{{Tasks for optimal planning}}
                     {write_table_instances(properties_dataset[dataset + "-opt"][domain])}
 
-                    \\subsection*{{Tasks for agile/satisficing planning}}
+                    \\subsubsection*{{Tasks for agile/satisficing planning}}
                     {write_table_instances(properties_dataset[dataset + "-sat"][domain])}
                 """)
 
