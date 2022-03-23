@@ -4,8 +4,8 @@
         \usepackage[margin=1in]{geometry}
         \usepackage{xcolor}
 
-        \title{Autoscale Benchmarks 2022-03-03}
-        
+        \title{Autoscale Benchmarks 2021-11}
+
         \author{\'Alvaro Torralba, Jendrik Seipp, Silvan Sievers }
         \date{}
         \begin{document}
@@ -14,8 +14,8 @@
 
         This document describes a benchmark set generated with the Autoscale tool~\cite{autoscale}.
         \tableofcontents
-        
-        
+
+
         \newpage \section{{Evaluation}}
             \begin{table}[h] \centering \small
             \begin{tabular}{l@{}rr|rrrr|r|rrrr}
@@ -70,7 +70,7 @@
 \bottomrule
 \end{tabular}
 
-        
+
             \caption{ Comparison of the IPC and Autoscale (AS) benchmark sets generated for optimal and agile planning.
              The \#IPC column shows the number of tasks per domain in the IPC set, which
             is always 30 for the AS set. The \#s columns show the number of sequences in the
@@ -81,7 +81,7 @@
             set is superior. The maximum possible number of pairwise comparisons is 91.}
             \vspace{-10cm}
             \end{table}
-            
+
             \newpage \section{{Domains}}\subsection{Barman}
                     \begin{center}
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
@@ -93,7 +93,7 @@ num\_ingredients & Enum([2, 3, 4, 5, 6]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
-                
+
                             \subsection*{Sequences for optimal planning}
 
                             \begin{center}
@@ -104,7 +104,7 @@ num\_ingredients & Enum([2, 3, 4, 5, 6]) \\\midrule
 11&1 $\rightarrow$ 13&2 $\rightarrow$ 14&2&0.72 $\rightarrow$ 160000.0
                             \end{tabular}
                             \end{center}
-                    
+
                          \subsection*{Sequences for agile/satisficing planning}
 
                         \begin{center}
@@ -114,9 +114,9 @@ num\_ingredients & Enum([2, 3, 4, 5, 6]) \\\midrule
 11&25 $\rightarrow$ 37&26 $\rightarrow$ 38&6&390.0 $\rightarrow$ 33000.0
                         \end{tabular}
                         \end{center}
-                    
+
                                 \subsection*{Tasks for optimal planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -153,10 +153,10 @@ num\_ingredients & Enum([2, 3, 4, 5, 6]) \\\midrule
   p30&{'num\_cocktails': 13, 'num\_shots': 14, 'num\_ingredients': 2}&156300.19
                             \end{tabular}
                             \end{center}
-                    
+
 
                                 \subsection*{Tasks for agile/satisficing planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -193,7 +193,7 @@ num\_ingredients & Enum([2, 3, 4, 5, 6]) \\\midrule
   p30&{'num\_cocktails': 37, 'num\_shots': 38, 'num\_ingredients': 6}&33211.82
                             \end{tabular}
                             \end{center}
-                    
+
                             \newpage \subsection{Blocksworld}
                     \begin{center}
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
@@ -203,7 +203,7 @@ num\_ingredients & Enum([2, 3, 4, 5, 6]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
-                
+
                             \subsection*{Sequences for optimal planning}
 
                             \begin{center}
@@ -213,7 +213,7 @@ num\_ingredients & Enum([2, 3, 4, 5, 6]) \\\midrule
 13&5 $\rightarrow$ 20&0.54 $\rightarrow$ 230000.0
                             \end{tabular}
                             \end{center}
-                    
+
                          \subsection*{Sequences for agile/satisficing planning}
 
                         \begin{center}
@@ -222,9 +222,9 @@ num\_ingredients & Enum([2, 3, 4, 5, 6]) \\\midrule
                         30&9 $\rightarrow$ 151&0.52 $\rightarrow$ 100000.0
                         \end{tabular}
                         \end{center}
-                    
+
                                 \subsection*{Tasks for optimal planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -261,10 +261,10 @@ num\_ingredients & Enum([2, 3, 4, 5, 6]) \\\midrule
   p30&{'n': 20}&234830.89
                             \end{tabular}
                             \end{center}
-                    
+
 
                                 \subsection*{Tasks for agile/satisficing planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -301,7 +301,7 @@ num\_ingredients & Enum([2, 3, 4, 5, 6]) \\\midrule
   p30&{'n': 151}&104495.58
                             \end{tabular}
                             \end{center}
-                    
+
                             \newpage \subsection{Childsnack}
                     \begin{center}
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
@@ -314,7 +314,7 @@ gluten\_factor & Enum([0.4, 0.6, 0.8]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
-                
+
                             \subsection*{Sequences for optimal planning}
 
                             \begin{center}
@@ -325,7 +325,7 @@ gluten\_factor & Enum([0.4, 0.6, 0.8]) \\\midrule
 5&8 $\rightarrow$ 12&2&3&0.4&180.0 $\rightarrow$ 140000.0
                             \end{tabular}
                             \end{center}
-                    
+
                          \subsection*{Sequences for agile/satisficing planning}
 
                         \begin{center}
@@ -335,9 +335,9 @@ gluten\_factor & Enum([0.4, 0.6, 0.8]) \\\midrule
 8&20 $\rightarrow$ 27&2&2&0.6&320.0 $\rightarrow$ 44000.0
                         \end{tabular}
                         \end{center}
-                    
+
                                 \subsection*{Tasks for optimal planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -374,10 +374,10 @@ gluten\_factor & Enum([0.4, 0.6, 0.8]) \\\midrule
   p30&{'num\_children': 12, 'const\_ratio': 2, 'num\_trays': 3, 'gluten\_factor': 0.4}&138536.67
                             \end{tabular}
                             \end{center}
-                    
+
 
                                 \subsection*{Tasks for agile/satisficing planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -414,7 +414,7 @@ gluten\_factor & Enum([0.4, 0.6, 0.8]) \\\midrule
   p30&{'num\_children': 27, 'const\_ratio': 2, 'num\_trays': 2, 'gluten\_factor': 0.6}&44315.55
                             \end{tabular}
                             \end{center}
-                    
+
                             \newpage \subsection{Data-network}
                     \begin{center}
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
@@ -429,7 +429,7 @@ extra\_scripts & Linear(b=[2, 25], m=[0, 5])
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
-                
+
                             \subsection*{Sequences for optimal planning}
 
                             \begin{center}
@@ -439,7 +439,7 @@ extra\_scripts & Linear(b=[2, 25], m=[0, 5])
 14&tiny-network&4&5 $\rightarrow$ 18&32 $\rightarrow$ 65&21.0 $\rightarrow$ 96000.0
                             \end{tabular}
                             \end{center}
-                    
+
                          \subsection*{Sequences for agile/satisficing planning}
 
                         \begin{center}
@@ -449,9 +449,9 @@ extra\_scripts & Linear(b=[2, 25], m=[0, 5])
 9&ring-network&4&42 $\rightarrow$ 61&61 $\rightarrow$ 89&320.0 $\rightarrow$ 20000.0
                         \end{tabular}
                         \end{center}
-                    
+
                                 \subsection*{Tasks for optimal planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -488,10 +488,10 @@ extra\_scripts & Linear(b=[2, 25], m=[0, 5])
   p30&{'network': 'tiny-network', 'layers': 4, 'extra\_items': 18, 'extra\_scripts': 65, 'items': 22, 'scripts': 85}&95896.45
                             \end{tabular}
                             \end{center}
-                    
+
 
                                 \subsection*{Tasks for agile/satisficing planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -528,7 +528,7 @@ extra\_scripts & Linear(b=[2, 25], m=[0, 5])
   p30&{'network': 'ring-network', 'layers': 4, 'extra\_items': 61, 'extra\_scripts': 89, 'items': 65, 'scripts': 152}&20089.60
                             \end{tabular}
                             \end{center}
-                    
+
                             \newpage \subsection{Depots}
                     \begin{center}
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
@@ -543,7 +543,7 @@ crates & Linear(b=[3, 20], m=[1, 5.0]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
-                
+
                             \subsection*{Sequences for optimal planning}
 
                             \begin{center}
@@ -554,7 +554,7 @@ crates & Linear(b=[3, 20], m=[1, 5.0]) \\\midrule
 9&3&2&2&2&4 $\rightarrow$ 9&5 $\rightarrow$ 14&1.5 $\rightarrow$ 50000.0
                             \end{tabular}
                             \end{center}
-                    
+
                          \subsection*{Sequences for agile/satisficing planning}
 
                         \begin{center}
@@ -563,9 +563,9 @@ crates & Linear(b=[3, 20], m=[1, 5.0]) \\\midrule
                         30&9 $\rightarrow$ 142&2&2&16 $\rightarrow$ 56&2 $\rightarrow$ 7&3 $\rightarrow$ 43&0.7 $\rightarrow$ 120000.0
                         \end{tabular}
                         \end{center}
-                    
+
                                 \subsection*{Tasks for optimal planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -602,10 +602,10 @@ crates & Linear(b=[3, 20], m=[1, 5.0]) \\\midrule
   p30&{'depots': 3, 'distributors': 2, 'trucks': 2, 'pallets': 2, 'hoists': 9, 'crates': 14}&49510.37
                             \end{tabular}
                             \end{center}
-                    
+
 
                                 \subsection*{Tasks for agile/satisficing planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -642,7 +642,7 @@ crates & Linear(b=[3, 20], m=[1, 5.0]) \\\midrule
   p30&{'depots': 142, 'distributors': 2, 'trucks': 2, 'pallets': 56, 'hoists': 7, 'crates': 43}&116664.08
                             \end{tabular}
                             \end{center}
-                    
+
                             \newpage \subsection{Driverlog}
                     \begin{center}
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
@@ -655,7 +655,7 @@ trucks & Linear(b=[0, 1], m=[0, 1 + drivers]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
-                
+
                             \subsection*{Sequences for optimal planning}
 
                             \begin{center}
@@ -666,7 +666,7 @@ trucks & Linear(b=[0, 1], m=[0, 1 + drivers]) \\\midrule
 5&1&12 $\rightarrow$ 16&13 $\rightarrow$ 18&2&960.0 $\rightarrow$ 170000.0
                             \end{tabular}
                             \end{center}
-                    
+
                          \subsection*{Sequences for agile/satisficing planning}
 
                         \begin{center}
@@ -675,9 +675,9 @@ trucks & Linear(b=[0, 1], m=[0, 1 + drivers]) \\\midrule
                         30&4 $\rightarrow$ 6&12 $\rightarrow$ 136&10 $\rightarrow$ 126&4 $\rightarrow$ 6&0.48 $\rightarrow$ 82000.0
                         \end{tabular}
                         \end{center}
-                    
+
                                 \subsection*{Tasks for optimal planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -714,10 +714,10 @@ trucks & Linear(b=[0, 1], m=[0, 1 + drivers]) \\\midrule
   p30&{'drivers': 1, 'packages': 16, 'roadjunctions': 18, 'trucks': 2}&170589.82
                             \end{tabular}
                             \end{center}
-                    
+
 
                                 \subsection*{Tasks for agile/satisficing planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -754,7 +754,7 @@ trucks & Linear(b=[0, 1], m=[0, 1 + drivers]) \\\midrule
   p30&{'drivers': 6, 'packages': 136, 'roadjunctions': 126, 'trucks': 6}&82306.58
                             \end{tabular}
                             \end{center}
-                    
+
                             \newpage \subsection{Elevators}
                     \begin{center}
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
@@ -776,7 +776,7 @@ slow\_capacity & Constant(2)
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
-                
+
                             \subsection*{Sequences for optimal planning}
 
                             \begin{center}
@@ -788,7 +788,7 @@ slow\_capacity & Constant(2)
 6&3&2 $\rightarrow$ 4&4 $\rightarrow$ 10&3&7.0 $\rightarrow$ 91000.0
                             \end{tabular}
                             \end{center}
-                    
+
                          \subsection*{Sequences for agile/satisficing planning}
 
                         \begin{center}
@@ -797,9 +797,9 @@ slow\_capacity & Constant(2)
                         30&3&6 $\rightarrow$ 35&3 $\rightarrow$ 104&1&0.69 $\rightarrow$ 320000.0
                         \end{tabular}
                         \end{center}
-                    
+
                                 \subsection*{Tasks for optimal planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -836,10 +836,10 @@ slow\_capacity & Constant(2)
   p30&{'num\_areas': 3, 'area\_size': 4, 'passengers': 10, 'fast\_elevators': 3 (for constants see above)}&90982.29
                             \end{tabular}
                             \end{center}
-                    
+
 
                                 \subsection*{Tasks for agile/satisficing planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -876,7 +876,7 @@ slow\_capacity & Constant(2)
   p30&{'num\_areas': 3, 'area\_size': 35, 'passengers': 104, 'fast\_elevators': 1 (for constants see above)}&324107.57
                             \end{tabular}
                             \end{center}
-                    
+
                             \newpage \subsection{Floortile}
                     \begin{center}
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
@@ -889,7 +889,7 @@ num\_robots & Enum([2, 3, 4, 5])
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
-                
+
                             \subsection*{Sequences for optimal planning}
 
                             \begin{center}
@@ -899,7 +899,7 @@ num\_robots & Enum([2, 3, 4, 5])
 11&5-7 $\rightarrow$ 6-10&2&190.0 $\rightarrow$ 170000.0
                             \end{tabular}
                             \end{center}
-                    
+
                          \subsection*{Sequences for agile/satisficing planning}
 
                         \begin{center}
@@ -908,9 +908,9 @@ num\_robots & Enum([2, 3, 4, 5])
                         30&2-2 $\rightarrow$ 40-42&2 $\rightarrow$ 4&0.21 $\rightarrow$ 57000.0
                         \end{tabular}
                         \end{center}
-                    
+
                                 \subsection*{Tasks for optimal planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -947,10 +947,10 @@ num\_robots & Enum([2, 3, 4, 5])
   p30&{'num\_columns': 6, 'num\_rows': 10, 'num\_robots': 2}&169664.95
                             \end{tabular}
                             \end{center}
-                    
+
 
                                 \subsection*{Tasks for agile/satisficing planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -987,7 +987,7 @@ num\_robots & Enum([2, 3, 4, 5])
   p30&{'num\_columns': 40, 'num\_rows': 42, 'num\_robots': 4}&56709.28
                             \end{tabular}
                             \end{center}
-                    
+
                             \newpage \subsection{Grid}
                     \begin{center}
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
@@ -1003,7 +1003,7 @@ percentage\_cells\_locked & Enum([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
-                
+
                             \subsection*{Sequences for optimal planning}
 
                             \begin{center}
@@ -1012,7 +1012,7 @@ percentage\_cells\_locked & Enum([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
                             30&3-3 $\rightarrow$ 11-11&0.5&1&5&0.5&1.0 $\rightarrow$ 79000.0
                             \end{tabular}
                             \end{center}
-                    
+
                          \subsection*{Sequences for agile/satisficing planning}
 
                         \begin{center}
@@ -1021,9 +1021,9 @@ percentage\_cells\_locked & Enum([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
                         30&7-7 $\rightarrow$ 140-140&0.5&2 $\rightarrow$ 7&1&0.5&0.67 $\rightarrow$ 88000.0
                         \end{tabular}
                         \end{center}
-                    
+
                                 \subsection*{Tasks for optimal planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -1060,10 +1060,10 @@ percentage\_cells\_locked & Enum([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
   p30&{'x': 11, 'y': 11, 'prob\_key\_in\_goal': 0.5, 'shapes': 1, 'extra\_keys': 5, 'percentage\_cells\_locked': 0.5, 'keys': 6, 'locks': 60}&79007.97
                             \end{tabular}
                             \end{center}
-                    
+
 
                                 \subsection*{Tasks for agile/satisficing planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -1100,7 +1100,7 @@ percentage\_cells\_locked & Enum([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
   p30&{'x': 140, 'y': 140, 'prob\_key\_in\_goal': 0.5, 'shapes': 7, 'extra\_keys': 1, 'percentage\_cells\_locked': 0.5, 'keys': 8, 'locks': 9800}&88016.95
                             \end{tabular}
                             \end{center}
-                    
+
                             \newpage \subsection{Gripper}
                     \begin{center}
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
@@ -1110,7 +1110,7 @@ percentage\_cells\_locked & Enum([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: inf}
                     \end{tabular}
                     \end{center}
-                
+
                             \subsection*{Sequences for optimal planning}
 
                             \begin{center}
@@ -1119,7 +1119,7 @@ percentage\_cells\_locked & Enum([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
                             30&8 $\rightarrow$ 37&1.4 $\rightarrow$ 490000000.0
                             \end{tabular}
                             \end{center}
-                    
+
                          \subsection*{Sequences for agile/satisficing planning}
 
                         \begin{center}
@@ -1128,9 +1128,9 @@ percentage\_cells\_locked & Enum([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
                         30&20 $\rightarrow$ 165&0.59 $\rightarrow$ 82.0
                         \end{tabular}
                         \end{center}
-                    
+
                                 \subsection*{Tasks for optimal planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -1167,10 +1167,10 @@ percentage\_cells\_locked & Enum([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
   p30&{'n': 37}&490915554.35
                             \end{tabular}
                             \end{center}
-                    
+
 
                                 \subsection*{Tasks for agile/satisficing planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -1207,7 +1207,7 @@ percentage\_cells\_locked & Enum([0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])
   p30&{'n': 165}&82.45
                             \end{tabular}
                             \end{center}
-                    
+
                             \newpage \subsection{Hiking}
                     \begin{center}
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
@@ -1219,7 +1219,7 @@ n\_cars & Linear(b=[1, 5], m=[0, 5.0 + n\_couples]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
-                
+
                             \subsection*{Sequences for optimal planning}
 
                             \begin{center}
@@ -1230,7 +1230,7 @@ n\_cars & Linear(b=[1, 5], m=[0, 5.0 + n\_couples]) \\\midrule
 15&1&14 $\rightarrow$ 28&3&88.0 $\rightarrow$ 110000.0
                             \end{tabular}
                             \end{center}
-                    
+
                          \subsection*{Sequences for agile/satisficing planning}
 
                         \begin{center}
@@ -1240,9 +1240,9 @@ n\_cars & Linear(b=[1, 5], m=[0, 5.0 + n\_couples]) \\\midrule
 14&2&9 $\rightarrow$ 23&8 $\rightarrow$ 13&18.0 $\rightarrow$ 48000.0
                         \end{tabular}
                         \end{center}
-                    
+
                                 \subsection*{Tasks for optimal planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -1279,10 +1279,10 @@ n\_cars & Linear(b=[1, 5], m=[0, 5.0 + n\_couples]) \\\midrule
   p30&{'n\_couples': 1, 'n\_places': 28, 'n\_cars': 3}&112195.78
                             \end{tabular}
                             \end{center}
-                    
+
 
                                 \subsection*{Tasks for agile/satisficing planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -1319,7 +1319,7 @@ n\_cars & Linear(b=[1, 5], m=[0, 5.0 + n\_couples]) \\\midrule
   p30&{'n\_couples': 2, 'n\_places': 23, 'n\_cars': 13}&47652.29
                             \end{tabular}
                             \end{center}
-                    
+
                             \newpage \subsection{Logistics}
                     \begin{center}
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
@@ -1337,7 +1337,7 @@ extra\_trucks & Linear(b=[1, 10], m=[0, 2])
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
-                
+
                             \subsection*{Sequences for optimal planning}
 
                             \begin{center}
@@ -1349,7 +1349,7 @@ extra\_trucks & Linear(b=[1, 10], m=[0, 2])
 7&2 $\rightarrow$ 8&2&3 $\rightarrow$ 13&3 $\rightarrow$ 12&6 $\rightarrow$ 18&0.5 $\rightarrow$ 130000.0
                             \end{tabular}
                             \end{center}
-                    
+
                          \subsection*{Sequences for agile/satisficing planning}
 
                         \begin{center}
@@ -1358,9 +1358,9 @@ extra\_trucks & Linear(b=[1, 10], m=[0, 2])
                         30&5 $\rightarrow$ 34&8 $\rightarrow$ 66&15 $\rightarrow$ 32&3 $\rightarrow$ 98&3 $\rightarrow$ 14&1.3 $\rightarrow$ 15000.0
                         \end{tabular}
                         \end{center}
-                    
+
                                 \subsection*{Tasks for optimal planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -1397,10 +1397,10 @@ extra\_trucks & Linear(b=[1, 10], m=[0, 2])
   p30&{'num\_airplanes': 8, 'num\_cities': 2, 'city\_size': 13, 'num\_packages': 12, 'extra\_trucks': 18, 'num\_trucks': 20}&133251.48
                             \end{tabular}
                             \end{center}
-                    
+
 
                                 \subsection*{Tasks for agile/satisficing planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -1437,7 +1437,7 @@ extra\_trucks & Linear(b=[1, 10], m=[0, 2])
   p30&{'num\_airplanes': 34, 'num\_cities': 66, 'city\_size': 32, 'num\_packages': 98, 'extra\_trucks': 14, 'num\_trucks': 80}&14791.64
                             \end{tabular}
                             \end{center}
-                    
+
                             \newpage \subsection{Miconic}
                     \begin{center}
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
@@ -1448,7 +1448,7 @@ floors & Linear(b=[5, 15], m=[0, 5]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
-                
+
                             \subsection*{Sequences for optimal planning}
 
                             \begin{center}
@@ -1457,7 +1457,7 @@ floors & Linear(b=[5, 15], m=[0, 5]) \\\midrule
                             30&8 $\rightarrow$ 60&6 $\rightarrow$ 61&0.5 $\rightarrow$ 130000.0
                             \end{tabular}
                             \end{center}
-                    
+
                          \subsection*{Sequences for agile/satisficing planning}
 
                         \begin{center}
@@ -1466,9 +1466,9 @@ floors & Linear(b=[5, 15], m=[0, 5]) \\\midrule
                         30&19 $\rightarrow$ 155&11 $\rightarrow$ 124&0.53 $\rightarrow$ 19.0
                         \end{tabular}
                         \end{center}
-                    
+
                                 \subsection*{Tasks for optimal planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -1505,10 +1505,10 @@ floors & Linear(b=[5, 15], m=[0, 5]) \\\midrule
   p30&{'passengers': 60, 'floors': 61}&128888.96
                             \end{tabular}
                             \end{center}
-                    
+
 
                                 \subsection*{Tasks for agile/satisficing planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -1545,7 +1545,7 @@ floors & Linear(b=[5, 15], m=[0, 5]) \\\midrule
   p30&{'passengers': 155, 'floors': 124}&19.44
                             \end{tabular}
                             \end{center}
-                    
+
                             \newpage \subsection{Nomystery}
                     \begin{center}
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
@@ -1559,7 +1559,7 @@ constrainedness & Enum([1.1, 1.5, 2.0]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
-                
+
                             \subsection*{Sequences for optimal planning}
 
                             \begin{center}
@@ -1568,7 +1568,7 @@ constrainedness & Enum([1.1, 1.5, 2.0]) \\\midrule
                             30&7 $\rightarrow$ 12&3 $\rightarrow$ 40&1.5&0.94 $\rightarrow$ 49000.0
                             \end{tabular}
                             \end{center}
-                    
+
                          \subsection*{Sequences for agile/satisficing planning}
 
                         \begin{center}
@@ -1578,9 +1578,9 @@ constrainedness & Enum([1.1, 1.5, 2.0]) \\\midrule
 15&16 $\rightarrow$ 21&46 $\rightarrow$ 86&1.5&50.0 $\rightarrow$ 100000.0
                         \end{tabular}
                         \end{center}
-                    
+
                                 \subsection*{Tasks for optimal planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -1617,10 +1617,10 @@ constrainedness & Enum([1.1, 1.5, 2.0]) \\\midrule
   p30&{'locations': 12, 'packages': 40, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}&49314.64
                             \end{tabular}
                             \end{center}
-                    
+
 
                                 \subsection*{Tasks for agile/satisficing planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -1657,7 +1657,7 @@ constrainedness & Enum([1.1, 1.5, 2.0]) \\\midrule
   p30&{'locations': 21, 'packages': 86, 'edgefactor': '1.5', 'edgeweight': '25', 'constrainedness': 1.5}&101984.07
                             \end{tabular}
                             \end{center}
-                    
+
                             \newpage \subsection{Openstacks}
                     \begin{center}
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
@@ -1669,7 +1669,7 @@ orders & Linear(b=[5, 100], m=[1, 40]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
-                
+
                             \subsection*{Sequences for optimal planning}
 
                             \begin{center}
@@ -1679,7 +1679,7 @@ orders & Linear(b=[5, 100], m=[1, 40]) \\\midrule
 9&80&50 $\rightarrow$ 72&38 $\rightarrow$ 47&500.0 $\rightarrow$ 95000.0
                             \end{tabular}
                             \end{center}
-                    
+
                          \subsection*{Sequences for agile/satisficing planning}
 
                         \begin{center}
@@ -1689,9 +1689,9 @@ orders & Linear(b=[5, 100], m=[1, 40]) \\\midrule
 16&10&5 $\rightarrow$ 530&5 $\rightarrow$ 585&0.22 $\rightarrow$ 22000.0
                         \end{tabular}
                         \end{center}
-                    
+
                                 \subsection*{Tasks for optimal planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -1728,10 +1728,10 @@ orders & Linear(b=[5, 100], m=[1, 40]) \\\midrule
   p30&{'density': 80, 'products': 72, 'orders': 47}&95352.27
                             \end{tabular}
                             \end{center}
-                    
+
 
                                 \subsection*{Tasks for agile/satisficing planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -1768,7 +1768,7 @@ orders & Linear(b=[5, 100], m=[1, 40]) \\\midrule
   p30&{'density': 10, 'products': 530, 'orders': 585}&21769.53
                             \end{tabular}
                             \end{center}
-                    
+
                             \newpage \subsection{Parking}
                     \begin{center}
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
@@ -1781,7 +1781,7 @@ cars\_diff & Enum([0, -1, -2])
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
-                
+
                             \subsection*{Sequences for optimal planning}
 
                             \begin{center}
@@ -1792,7 +1792,7 @@ cars\_diff & Enum([0, -1, -2])
 11&6 $\rightarrow$ 17&-2&1.3 $\rightarrow$ 150000.0
                             \end{tabular}
                             \end{center}
-                    
+
                          \subsection*{Sequences for agile/satisficing planning}
 
                         \begin{center}
@@ -1801,9 +1801,9 @@ cars\_diff & Enum([0, -1, -2])
                         30&9 $\rightarrow$ 43&0&2.9 $\rightarrow$ 70000.0
                         \end{tabular}
                         \end{center}
-                    
+
                                 \subsection*{Tasks for optimal planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -1840,10 +1840,10 @@ cars\_diff & Enum([0, -1, -2])
   p30&{'curbs': 17, 'cars': 30}&146126.09
                             \end{tabular}
                             \end{center}
-                    
+
 
                                 \subsection*{Tasks for agile/satisficing planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -1880,7 +1880,7 @@ cars\_diff & Enum([0, -1, -2])
   p30&{'curbs': 43, 'cars': 84}&69578.87
                             \end{tabular}
                             \end{center}
-                    
+
                             \newpage \subsection{Rovers}
                     \begin{center}
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
@@ -1894,7 +1894,7 @@ waypoints & Linear(b=[4, 20], m=[0.5, 5.0]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
-                
+
                             \subsection*{Sequences for optimal planning}
 
                             \begin{center}
@@ -1904,7 +1904,7 @@ waypoints & Linear(b=[4, 20], m=[0.5, 5.0]) \\\midrule
 10&1&5&5&25 $\rightarrow$ 37&25 $\rightarrow$ 34&350.0 $\rightarrow$ 88000.0
                             \end{tabular}
                             \end{center}
-                    
+
                          \subsection*{Sequences for agile/satisficing planning}
 
                         \begin{center}
@@ -1916,9 +1916,9 @@ waypoints & Linear(b=[4, 20], m=[0.5, 5.0]) \\\midrule
 6&4&15 $\rightarrow$ 24&7&13 $\rightarrow$ 22&11 $\rightarrow$ 15&120.0 $\rightarrow$ 69000.0
                         \end{tabular}
                         \end{center}
-                    
+
                                 \subsection*{Tasks for optimal planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -1955,10 +1955,10 @@ waypoints & Linear(b=[4, 20], m=[0.5, 5.0]) \\\midrule
   p30&{'rovers': 1, 'objectives': 5, 'cameras': 5, 'goals': 37, 'waypoints': 34}&87994.96
                             \end{tabular}
                             \end{center}
-                    
+
 
                                 \subsection*{Tasks for agile/satisficing planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -1995,7 +1995,7 @@ waypoints & Linear(b=[4, 20], m=[0.5, 5.0]) \\\midrule
   p30&{'rovers': 4, 'objectives': 24, 'cameras': 7, 'goals': 22, 'waypoints': 15}&69309.97
                             \end{tabular}
                             \end{center}
-                    
+
                             \newpage \subsection{Satellite}
                     \begin{center}
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
@@ -2008,7 +2008,7 @@ observations & Linear(b=[5, 40], m=[1, 10]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
-                
+
                             \subsection*{Sequences for optimal planning}
 
                             \begin{center}
@@ -2018,7 +2018,7 @@ observations & Linear(b=[5, 40], m=[1, 10]) \\\midrule
 6&1&30 $\rightarrow$ 34&6&25 $\rightarrow$ 30&180.0 $\rightarrow$ 75000.0
                             \end{tabular}
                             \end{center}
-                    
+
                          \subsection*{Sequences for agile/satisficing planning}
 
                         \begin{center}
@@ -2027,9 +2027,9 @@ observations & Linear(b=[5, 40], m=[1, 10]) \\\midrule
                         30&2 $\rightarrow$ 57&12 $\rightarrow$ 278&3&5 $\rightarrow$ 60&0.69 $\rightarrow$ 90000.0
                         \end{tabular}
                         \end{center}
-                    
+
                                 \subsection*{Tasks for optimal planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -2066,10 +2066,10 @@ observations & Linear(b=[5, 40], m=[1, 10]) \\\midrule
   p30&{'satellites': 1, 'targets': 34, 'modes': 6, 'observations': 30}&75227.85
                             \end{tabular}
                             \end{center}
-                    
+
 
                                 \subsection*{Tasks for agile/satisficing planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -2106,7 +2106,7 @@ observations & Linear(b=[5, 40], m=[1, 10]) \\\midrule
   p30&{'satellites': 57, 'targets': 278, 'modes': 3, 'observations': 60}&89809.08
                             \end{tabular}
                             \end{center}
-                    
+
                             \newpage \subsection{Scanalyzer}
                     \begin{center}
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
@@ -2118,7 +2118,7 @@ size & Linear(b=[1, 4], m=[1, 3]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: inf}
                     \end{tabular}
                     \end{center}
-                
+
                             \subsection*{Sequences for optimal planning}
 
                             \begin{center}
@@ -2129,7 +2129,7 @@ size & Linear(b=[1, 4], m=[1, 3]) \\\midrule
 17&empty&both&3 $\rightarrow$ 20&0.66 $\rightarrow$ 180000.0
                             \end{tabular}
                             \end{center}
-                    
+
                          \subsection*{Sequences for agile/satisficing planning}
 
                         \begin{center}
@@ -2138,9 +2138,9 @@ size & Linear(b=[1, 4], m=[1, 3]) \\\midrule
                         30&empty&in&4 $\rightarrow$ 33&0.71 $\rightarrow$ 73000.0
                         \end{tabular}
                         \end{center}
-                    
+
                                 \subsection*{Tasks for optimal planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -2177,10 +2177,10 @@ size & Linear(b=[1, 4], m=[1, 3]) \\\midrule
   p30&{'segment\_type': 'empty', 'inout': 'both', 'size': 20}&179665.08
                             \end{tabular}
                             \end{center}
-                    
+
 
                                 \subsection*{Tasks for agile/satisficing planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -2217,7 +2217,7 @@ size & Linear(b=[1, 4], m=[1, 3]) \\\midrule
   p30&{'segment\_type': 'empty', 'inout': 'in', 'size': 33}&72926.66
                             \end{tabular}
                             \end{center}
-                    
+
                             \newpage \subsection{Snake}
                     \begin{center}
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
@@ -2232,7 +2232,7 @@ num\_spawn\_apples & Enum(['40\%', '55\%', '70\%', '85\%', '100\%'])
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
-                
+
                             \subsection*{Sequences for optimal planning}
 
                             \begin{center}
@@ -2242,7 +2242,7 @@ num\_spawn\_apples & Enum(['40\%', '55\%', '70\%', '85\%', '100\%'])
 12&5-7 $\rightarrow$ 6-10&55\%&52.0 $\rightarrow$ 130000.0
                             \end{tabular}
                             \end{center}
-                    
+
                          \subsection*{Sequences for agile/satisficing planning}
 
                         \begin{center}
@@ -2251,9 +2251,9 @@ num\_spawn\_apples & Enum(['40\%', '55\%', '70\%', '85\%', '100\%'])
                         30&5-5 $\rightarrow$ 13-14&40\%&0.79 $\rightarrow$ 130000.0
                         \end{tabular}
                         \end{center}
-                    
+
                                 \subsection*{Tasks for optimal planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -2290,10 +2290,10 @@ num\_spawn\_apples & Enum(['40\%', '55\%', '70\%', '85\%', '100\%'])
   p30&{'snake\_size': '1', 'num\_initial\_apples': 5, 'x\_grid': 6, 'y\_grid': 10, 'num\_spawn\_apples': '55\%', 'board': 'empty-6x10'}&134508.46
                             \end{tabular}
                             \end{center}
-                    
+
 
                                 \subsection*{Tasks for agile/satisficing planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -2330,7 +2330,7 @@ num\_spawn\_apples & Enum(['40\%', '55\%', '70\%', '85\%', '100\%'])
   p30&{'snake\_size': '1', 'num\_initial\_apples': 5, 'x\_grid': 13, 'y\_grid': 14, 'num\_spawn\_apples': '40\%', 'board': 'empty-13x14'}&125962.20
                             \end{tabular}
                             \end{center}
-                    
+
                             \newpage \subsection{Storage}
                     \begin{center}
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
@@ -2345,7 +2345,7 @@ depots & Linear(b=[1, 5], m=[0, 1])
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
-                
+
                             \subsection*{Sequences for optimal planning}
 
                             \begin{center}
@@ -2355,7 +2355,7 @@ depots & Linear(b=[1, 5], m=[0, 1])
 9&10 $\rightarrow$ 18&2&13 $\rightarrow$ 21&9 $\rightarrow$ 17&88.0 $\rightarrow$ 160000.0
                             \end{tabular}
                             \end{center}
-                    
+
                          \subsection*{Sequences for agile/satisficing planning}
 
                         \begin{center}
@@ -2365,9 +2365,9 @@ depots & Linear(b=[1, 5], m=[0, 1])
 6&13 $\rightarrow$ 18&19 $\rightarrow$ 27&27 $\rightarrow$ 39&4&16.0 $\rightarrow$ 71000.0
                         \end{tabular}
                         \end{center}
-                    
+
                                 \subsection*{Tasks for optimal planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -2404,10 +2404,10 @@ depots & Linear(b=[1, 5], m=[0, 1])
   p30&{'crates': 18, 'hoists': 2, 'store\_areas': 21, 'depots': 17, 'containers': 5}&163836.68
                             \end{tabular}
                             \end{center}
-                    
+
 
                                 \subsection*{Tasks for agile/satisficing planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -2444,7 +2444,7 @@ depots & Linear(b=[1, 5], m=[0, 1])
   p30&{'crates': 18, 'hoists': 27, 'store\_areas': 39, 'depots': 4, 'containers': 5}&71062.97
                             \end{tabular}
                             \end{center}
-                    
+
                             \newpage \subsection{Termes}
                     \begin{center}
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
@@ -2459,7 +2459,7 @@ num\_towers & Linear(b=[1, 4], m=[0, 2])
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
-                
+
                             \subsection*{Sequences for optimal planning}
 
                             \begin{center}
@@ -2470,7 +2470,7 @@ num\_towers & Linear(b=[1, 4], m=[0, 2])
 5&3-3&2&4&7 $\rightarrow$ 11&96.0 $\rightarrow$ 120000.0
                             \end{tabular}
                             \end{center}
-                    
+
                          \subsection*{Sequences for agile/satisficing planning}
 
                         \begin{center}
@@ -2480,9 +2480,9 @@ num\_towers & Linear(b=[1, 4], m=[0, 2])
 14&6-6&3&3 $\rightarrow$ 6&1 $\rightarrow$ 23&2.0 $\rightarrow$ 110000.0
                         \end{tabular}
                         \end{center}
-                    
+
                                 \subsection*{Tasks for optimal planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -2519,10 +2519,10 @@ num\_towers & Linear(b=[1, 4], m=[0, 2])
   p30&{'x': 3, 'y': 3, 'min\_height': 2, 'max\_height': 4, 'num\_towers': 11}&124509.88
                             \end{tabular}
                             \end{center}
-                    
+
 
                                 \subsection*{Tasks for agile/satisficing planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -2559,7 +2559,7 @@ num\_towers & Linear(b=[1, 4], m=[0, 2])
   p30&{'x': 6, 'y': 6, 'min\_height': 3, 'max\_height': 6, 'num\_towers': 23}&112614.63
                             \end{tabular}
                             \end{center}
-                    
+
                             \newpage \subsection{Tpp}
                     \begin{center}
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
@@ -2573,7 +2573,7 @@ goods & Linear(b=[3, 10], m=[0.1, 5.0]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
-                
+
                             \subsection*{Sequences for optimal planning}
 
                             \begin{center}
@@ -2582,7 +2582,7 @@ goods & Linear(b=[3, 10], m=[0.1, 5.0]) \\\midrule
                             30&2 $\rightarrow$ 42&1&2&5 $\rightarrow$ 7&3 $\rightarrow$ 34&0.58 $\rightarrow$ 160000.0
                             \end{tabular}
                             \end{center}
-                    
+
                          \subsection*{Sequences for agile/satisficing planning}
 
                         \begin{center}
@@ -2591,9 +2591,9 @@ goods & Linear(b=[3, 10], m=[0.1, 5.0]) \\\midrule
                         30&2 $\rightarrow$ 31&3&2 $\rightarrow$ 13&1 $\rightarrow$ 64&7 $\rightarrow$ 12&0.67 $\rightarrow$ 180000.0
                         \end{tabular}
                         \end{center}
-                    
+
                                 \subsection*{Tasks for optimal planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -2630,10 +2630,10 @@ goods & Linear(b=[3, 10], m=[0.1, 5.0]) \\\midrule
   p30&{'products': 42, 'markets': 1, 'trucks': 2, 'depots': 7, 'goods': 34}&158248.02
                             \end{tabular}
                             \end{center}
-                    
+
 
                                 \subsection*{Tasks for agile/satisficing planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -2670,7 +2670,7 @@ goods & Linear(b=[3, 10], m=[0.1, 5.0]) \\\midrule
   p30&{'products': 31, 'markets': 3, 'trucks': 13, 'depots': 64, 'goods': 12}&177609.71
                             \end{tabular}
                             \end{center}
-                    
+
                             \newpage \subsection{Transport}
                     \begin{center}
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
@@ -2686,7 +2686,7 @@ generator & Enum(['city-generator.py', 'two-cities-generator.py', 'three-cities-
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
-                
+
                             \subsection*{Sequences for optimal planning}
 
                             \begin{center}
@@ -2698,7 +2698,7 @@ generator & Enum(['city-generator.py', 'two-cities-generator.py', 'three-cities-
 8&5&7 $\rightarrow$ 14&2&3&city-generator.py&4.8 $\rightarrow$ 170000.0
                             \end{tabular}
                             \end{center}
-                    
+
                          \subsection*{Sequences for agile/satisficing planning}
 
                         \begin{center}
@@ -2709,9 +2709,9 @@ generator & Enum(['city-generator.py', 'two-cities-generator.py', 'three-cities-
 10&32 $\rightarrow$ 54&58 $\rightarrow$ 100&56 $\rightarrow$ 96&3&city-generator.py&370.0 $\rightarrow$ 25000.0
                         \end{tabular}
                         \end{center}
-                    
+
                                 \subsection*{Tasks for optimal planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -2748,10 +2748,10 @@ generator & Enum(['city-generator.py', 'two-cities-generator.py', 'three-cities-
   p30&{'size': 1000, 'mindistance': 100, 'nodes': 5, 'packages': 14, 'trucks': 2, 'degree': 3, 'generator': 'city-generator.py'}&173181.48
                             \end{tabular}
                             \end{center}
-                    
+
 
                                 \subsection*{Tasks for agile/satisficing planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -2788,7 +2788,7 @@ generator & Enum(['city-generator.py', 'two-cities-generator.py', 'three-cities-
   p30&{'size': 1000, 'mindistance': 100, 'nodes': 54, 'packages': 100, 'trucks': 96, 'degree': 3, 'generator': 'city-generator.py'}&24751.51
                             \end{tabular}
                             \end{center}
-                    
+
                             \newpage \subsection{Visitall}
                     \begin{center}
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
@@ -2799,7 +2799,7 @@ r & Enum([0.5, 0.75, 1]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
-                
+
                             \subsection*{Sequences for optimal planning}
 
                             \begin{center}
@@ -2809,7 +2809,7 @@ r & Enum([0.5, 0.75, 1]) \\\midrule
 10&7-7 $\rightarrow$ 8-9&0.75&150.0 $\rightarrow$ 140000.0
                             \end{tabular}
                             \end{center}
-                    
+
                          \subsection*{Sequences for agile/satisficing planning}
 
                         \begin{center}
@@ -2818,9 +2818,9 @@ r & Enum([0.5, 0.75, 1]) \\\midrule
                         30&7-7 $\rightarrow$ 94-94&0.75&0.42 $\rightarrow$ 60000.0
                         \end{tabular}
                         \end{center}
-                    
+
                                 \subsection*{Tasks for optimal planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -2857,10 +2857,10 @@ r & Enum([0.5, 0.75, 1]) \\\midrule
   p30&{'x': 8, 'y': 9, 'r': 0.75}&143633.75
                             \end{tabular}
                             \end{center}
-                    
+
 
                                 \subsection*{Tasks for agile/satisficing planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -2897,7 +2897,7 @@ r & Enum([0.5, 0.75, 1]) \\\midrule
   p30&{'x': 94, 'y': 94, 'r': 0.75}&59747.91
                             \end{tabular}
                             \end{center}
-                    
+
                             \newpage \subsection{Woodworking}
                     \begin{center}
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
@@ -2909,7 +2909,7 @@ wood\_factor & Enum([1.0, 1.25, 1.5, 2.0]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
-                
+
                             \subsection*{Sequences for optimal planning}
 
                             \begin{center}
@@ -2919,7 +2919,7 @@ wood\_factor & Enum([1.0, 1.25, 1.5, 2.0]) \\\midrule
 12&10 $\rightarrow$ 22&1&1.5&44.0 $\rightarrow$ 130000.0
                             \end{tabular}
                             \end{center}
-                    
+
                          \subsection*{Sequences for agile/satisficing planning}
 
                         \begin{center}
@@ -2929,9 +2929,9 @@ wood\_factor & Enum([1.0, 1.25, 1.5, 2.0]) \\\midrule
 12&79 $\rightarrow$ 150&3&1.25&360.0 $\rightarrow$ 46000.0
                         \end{tabular}
                         \end{center}
-                    
+
                                 \subsection*{Tasks for optimal planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -2968,10 +2968,10 @@ wood\_factor & Enum([1.0, 1.25, 1.5, 2.0]) \\\midrule
   p30&{'size': 22, 'num\_machines': 1, 'wood\_factor': 1.5}&129083.47
                             \end{tabular}
                             \end{center}
-                    
+
 
                                 \subsection*{Tasks for agile/satisficing planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -3008,7 +3008,7 @@ wood\_factor & Enum([1.0, 1.25, 1.5, 2.0]) \\\midrule
   p30&{'size': 150, 'num\_machines': 3, 'wood\_factor': 1.25}&46053.57
                             \end{tabular}
                             \end{center}
-                    
+
                             \newpage \subsection{Zenotravel}
                     \begin{center}
                     \begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
@@ -3020,7 +3020,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
                     \multicolumn{2}{l}{Duplicated Parameters Penalty: 100.0}
                     \end{tabular}
                     \end{center}
-                
+
                             \subsection*{Sequences for optimal planning}
 
                             \begin{center}
@@ -3034,7 +3034,7 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
 5&2 $\rightarrow$ 3&8 $\rightarrow$ 13&6 $\rightarrow$ 11&44.0 $\rightarrow$ 67000.0
                             \end{tabular}
                             \end{center}
-                    
+
                          \subsection*{Sequences for agile/satisficing planning}
 
                         \begin{center}
@@ -3043,9 +3043,9 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
                         30&6 $\rightarrow$ 32&5 $\rightarrow$ 48&17 $\rightarrow$ 130&4.5 $\rightarrow$ 140000.0
                         \end{tabular}
                         \end{center}
-                    
+
                                 \subsection*{Tasks for optimal planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -3082,10 +3082,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30&{'planes': 3, 'people': 13, 'cities': 11}&67373.37
                             \end{tabular}
                             \end{center}
-                    
+
 
                                 \subsection*{Tasks for agile/satisficing planning}
-                                
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r@{}}
@@ -3122,10 +3122,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30&{'planes': 32, 'people': 48, 'cities': 130}&144302.73
                             \end{tabular}
                             \end{center}
-                    
+
                             \newpage \subsection{Agricola}
                     \subsection*{Tasks for optimal planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -3162,10 +3162,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& p-must\_create\_workers-11-5-1562238070.pddl&--&--
                             \end{tabular}
                             \end{center}
-                    
+
 
                     \subsection*{Tasks for agile/satisficing planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -3202,10 +3202,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& p-empty-10-11-1389126323.pddl&402.44&321.21
                             \end{tabular}
                             \end{center}
-                    
+
                 \newpage \subsection{Airport}
                     \subsection*{Tasks for optimal planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -3242,10 +3242,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& p50-airport5MUC-p15.pddl&--&--
                             \end{tabular}
                             \end{center}
-                    
+
 
                     \subsection*{Tasks for agile/satisficing planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -3282,10 +3282,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& p50-airport5MUC-p15.pddl&--&--
                             \end{tabular}
                             \end{center}
-                    
+
                 \newpage \subsection{Freecell}
                     \subsection*{Tasks for optimal planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -3322,10 +3322,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& p-4-8-8-17-0.pddl&--&--
                             \end{tabular}
                             \end{center}
-                    
+
 
                     \subsection*{Tasks for agile/satisficing planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -3362,10 +3362,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& p-2-8-6-15-0.pddl&4399.37&563.68
                             \end{tabular}
                             \end{center}
-                    
+
                 \newpage \subsection{Ged}
                     \subsection*{Tasks for optimal planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -3402,10 +3402,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& ds2nd-d-1-7.pddl&--&--
                             \end{tabular}
                             \end{center}
-                    
+
 
                     \subsection*{Tasks for agile/satisficing planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -3442,10 +3442,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& ds1-d-3-9.pddl&--&1148.80
                             \end{tabular}
                             \end{center}
-                    
+
                 \newpage \subsection{Mprime}
                     \subsection*{Tasks for optimal planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -3482,10 +3482,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& p-5-10-10-4-12-0.pddl&--&--
                             \end{tabular}
                             \end{center}
-                    
+
 
                     \subsection*{Tasks for agile/satisficing planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -3522,32 +3522,32 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& p-25-15-15-4-2-0.pddl&--&10744.90
                             \end{tabular}
                             \end{center}
-                    
+
                 \newpage \subsection{Mystery}
                     \subsection*{Tasks for optimal planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
                             name & config & baseline\_time & sota\_time\\\midrule
-                            
+
                             \end{tabular}
                             \end{center}
-                    
+
 
                     \subsection*{Tasks for agile/satisficing planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
                             name & config & baseline\_time & sota\_time\\\midrule
-                            
+
                             \end{tabular}
                             \end{center}
-                    
+
                 \newpage \subsection{Organic-synthesis-split}
                     \subsection*{Tasks for optimal planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -3584,10 +3584,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& original-p16.pddl&--&--
                             \end{tabular}
                             \end{center}
-                    
+
 
                     \subsection*{Tasks for agile/satisficing planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -3624,10 +3624,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& MIT-p12.pddl&511.75&217.16
                             \end{tabular}
                             \end{center}
-                    
+
                 \newpage \subsection{Parcprinter}
                     \subsection*{Tasks for optimal planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -3664,10 +3664,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& ipc11sat-p16.pddl&--&1.92
                             \end{tabular}
                             \end{center}
-                    
+
 
                     \subsection*{Tasks for agile/satisficing planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -3704,10 +3704,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& ipc11sat-p16.pddl&--&--
                             \end{tabular}
                             \end{center}
-                    
+
                 \newpage \subsection{Pathways}
                     \subsection*{Tasks for optimal planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -3744,13 +3744,13 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& p-50-110-50-0.pddl&--&--
                             \end{tabular}
                             \end{center}
-                    
+
 
                     \subsection*{Tasks for agile/satisficing planning}
                     Warning: no instances selected
                 \newpage \subsection{Pegsol}
                     \subsection*{Tasks for optimal planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -3787,10 +3787,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& generator-repo-p105.pddl&--&502.73
                             \end{tabular}
                             \end{center}
-                    
+
 
                     \subsection*{Tasks for agile/satisficing planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -3827,10 +3827,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& generator-repo-p105.pddl&43.45&43.45
                             \end{tabular}
                             \end{center}
-                    
+
                 \newpage \subsection{Pipesworld-notankage}
                     \subsection*{Tasks for optimal planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -3867,10 +3867,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& p35-net4-b18-g4.pddl&--&--
                             \end{tabular}
                             \end{center}
-                    
+
 
                     \subsection*{Tasks for agile/satisficing planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -3907,10 +3907,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& p50-net5-b30-g8.pddl&--&6.14
                             \end{tabular}
                             \end{center}
-                    
+
                 \newpage \subsection{Pipesworld-tankage}
                     \subsection*{Tasks for optimal planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -3947,10 +3947,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& p46-net5-b26-g6-t50.pddl&--&--
                             \end{tabular}
                             \end{center}
-                    
+
 
                     \subsection*{Tasks for agile/satisficing planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -3987,10 +3987,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& p40-net4-b22-g8-t50.pddl&--&12.67
                             \end{tabular}
                             \end{center}
-                    
+
                 \newpage \subsection{Sokoban}
                     \subsection*{Tasks for optimal planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -4027,10 +4027,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& ipc11sat-p11.pddl&--&158.04
                             \end{tabular}
                             \end{center}
-                    
+
 
                     \subsection*{Tasks for agile/satisficing planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -4067,10 +4067,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& generator-repo-p007-multiban-sequential.pddl&--&--
                             \end{tabular}
                             \end{center}
-                    
+
                 \newpage \subsection{Tetris}
                     \subsection*{Tasks for optimal planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -4107,10 +4107,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& p-3-48-1.pddl&--&--
                             \end{tabular}
                             \end{center}
-                    
+
 
                     \subsection*{Tasks for agile/satisficing planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -4147,10 +4147,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& p-3-50-3.pddl&--&11167.80
                             \end{tabular}
                             \end{center}
-                    
+
                 \newpage \subsection{Thoughtful}
                     \subsection*{Tasks for optimal planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -4187,10 +4187,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& thoughtful\_13\_7\_52-typed.pddl&--&--
                             \end{tabular}
                             \end{center}
-                    
+
 
                     \subsection*{Tasks for agile/satisficing planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -4227,10 +4227,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& p13\_7\_78-typed.pddl&--&43.21
                             \end{tabular}
                             \end{center}
-                    
+
                 \newpage \subsection{Tidybot}
                     \subsection*{Tasks for optimal planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -4267,10 +4267,10 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& p-1-4-3-3-10-15-1.pddl&--&--
                             \end{tabular}
                             \end{center}
-                    
+
 
                     \subsection*{Tasks for agile/satisficing planning}
-                    
+
                             \begin{center}
                             \scriptsize
                             \begin{tabular}{@{}l|r|r|r@{}}
@@ -4307,12 +4307,12 @@ cities & Linear(b=[3, 30], m=[0, 5.0]) \\\midrule
   p30& p-3-5-1-1-8-14-1.pddl&--&15947.50
                             \end{tabular}
                             \end{center}
-                    
-                
-        
+
+
+
         \newpage
             \begin{thebibliography}{1}
                 \bibitem{autoscale} {\'{A}}lvaro Torralba, Jendrik Seipp, Silvan Sievers, Automatic Instance Generation for Classical Planning, Proceedings of the Thirty-First International Conference on Automated
                Planning and Scheduling, ICAPS 2021, pages 376--384.
-            \end{thebibliography}      
+            \end{thebibliography}
         \end{document}
