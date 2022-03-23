@@ -74,8 +74,8 @@ FILENAMES = {
         # "sat-1210": ["2020-12-13-B-evaluation-sat-new2014-properties.json"],
         # "opt-1210": ["2020-12-13-A-evaluation-opt-new2014-properties.json"],
         # "sat-1210": ["2020-12-13-B-evaluation-sat-new2014-properties.json"],
-        "opt-autoscale" : ["2021-11-30-A-evaluation-opt-2021-11-30-properties.json"],
-        "sat-autoscale" : ["2021-11-30-B-evaluation-sat-2021-11-30-properties.json"],
+        "opt-autoscale" : ["2022-03-03-A-evaluation-opt-2022-03-03-properties.json"],
+        "sat-autoscale" : ["2022-03-03-B-evaluation-sat-2022-03-03-properties.json"],
 
     }
 

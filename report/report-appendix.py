@@ -192,32 +192,62 @@ def write_table_instances(properties, instances_colums = ["name", "config", "rea
 def write_appendix(properties_dataset, dataset, evaluationfile, outfilename):
     print(f"Writing appendix to {outfilename}")
     with open(outfilename, "w") as outfile:
-        outfile.write("""\\documentclass{article}
+        outfile.write(f"""\\documentclass{{article}}
         \\usepackage{{booktabs}}
 
         \\usepackage[margin=1in]{{geometry}}
         \\usepackage{{xcolor}}
 
+        \\title{{Autoscale Benchmarks {dataset}}}
+        
+        \\author{{\\'Alvaro Torralba, Jendrik Seipp, Silvan Sievers }}
+        \\date{{}}
+        \\begin{{document}}
+        \\maketitle
 
 
-        \\begin{document}
-
+        This document describes a benchmark set generated with the Autoscale tool~\cite{{autoscale}}.
         \\tableofcontents
+        
+        
         """)
 
         if os.path.isfile(evaluationfile):
             outfile.write("""\\newpage \section{{Evaluation}}""")
-            outfile.write(
-                f"""
-                        \\begin{{table}}[h] \\centering \\scriptsize \\setlength{{\\tabcolsep}}{{2pt}}
-                        {print_results_table.get_latex_table_for_paper(evaluationfile)}
-                        \\end{{table}}
-                        """
-            )
+
+            #outfile.write(
+            #    f"""
+           #             \\begin{{table}}[h] \\centering \\scriptsize \\setlength{{\\tabcolsep}}{{2pt}}
+           #             {print_results_table.get_latex_table_for_paper(evaluationfile)}
+           # \\caption{{Comparison of the IPC and Autoscale (AS) benchmark sets generated for optimal and agile planning.
+            # The \\#IPC column shows the number of tasks per domain in the IPC set (equal in optimal and agile planning except for Barman), which
+            #is always 30 for the AS set. The \#s columns show the number of sequences in the
+            #AS instance sets.  The ``cov range'' columns show the minimum and maximum
+            #coverage of any planner. The ``comp'' columns report how many pairs of planners yield
+            #different coverage. We show the value for the AS set and the difference
+            #to the value for the IPC set, highlighting in bold the cases where the AS
+            #set is superior. The maximum possible number of pairwise comparisons is 15 for the 6
+            #training planners and 28 for the 8 evaluation planners.}}
+            #                                    \\end{{table}}
+            #            """
+            #)
+
+
             outfile.write(f"""
-            \\begin{{table}} \\centering
+            \\begin{{table}}[h] \\centering \\small
             {print_results_table.get_latex_table_for_appendix(evaluationfile)}
+        
+            \\caption{{ Comparison of the IPC and Autoscale (AS) benchmark sets generated for optimal and agile planning.
+             The \\#IPC column shows the number of tasks per domain in the IPC set, which
+            is always 30 for the AS set. The \#s columns show the number of sequences in the
+            AS instance sets.  The ``cov range'' columns show the minimum and maximum
+            coverage of any planner. The ``comp'' columns report how many pairs of planners yield
+            different coverage. We show the value for the AS set and the difference
+            to the value for the IPC set, highlighting in bold the cases where the AS
+            set is superior. The maximum possible number of pairwise comparisons is 91.}}
+            \\vspace{{-10cm}}
             \\end{{table}}
+            
             """)
         else:
             print("Skipping generation of results tables because {evaluationfile} does not exist")
@@ -356,7 +386,14 @@ def write_appendix(properties_dataset, dataset, evaluationfile, outfilename):
 
 
 
-        outfile.write("\\end{document}")
+        outfile.write("""
+        
+        \\newpage
+            \\begin{thebibliography}{1}
+                \\bibitem{autoscale} {\\'{A}}lvaro Torralba, Jendrik Seipp, Silvan Sievers, Automatic Instance Generation for Classical Planning, Proceedings of the Thirty-First International Conference on Automated
+               Planning and Scheduling, ICAPS 2021, pages 376--384.
+            \\end{thebibliography}      
+        \\end{document}""")
 
 
 def parse_args():
