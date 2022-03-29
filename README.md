@@ -1,7 +1,11 @@
-This bundle contains all scripts required to reproduce the IPC Autoscale
-benchmarks as described in the ICAPS 2021 paper "Automatic Instance
-Generation for Classical Planning" by Álvaro Torralba, Jendrik Seipp and
-Silvan Sievers.
+# Autoscale
+
+This repo contains the scripts for running the Autoscale benchmark generation
+tool as described in the ICAPS 2021 paper "Automatic Instance Generation for
+Classical Planning" by Álvaro Torralba, Jendrik Seipp and Silvan Sievers.
+
+See https://github.com/AI-Planning/autoscale-benchmarks for the generated
+benchmarks.
 
 * Directory "autoscale" contains the main scripts for optimizing and
   selecting sequences.
