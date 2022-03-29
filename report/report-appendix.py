@@ -206,15 +206,15 @@ def write_appendix(properties_dataset, dataset, version, evaluationfile, outfile
         \\begin{{document}}
         \\maketitle
 
+        This document describes the Autoscale {version} benchmarks that we generated with the Autoscale algorithm~\\cite{{autoscale}}.
+        Section~\\ref{{evaluation}} compares the Autoscale benchmarks to the benchmarks used in the International Planning Competition (IPC).
 
-        This document describes a set of benchmarks generated with the Autoscale tool~\cite{{autoscale}}.
         \\tableofcontents
-
 
         """)
 
         if os.path.isfile(evaluationfile):
-            outfile.write("""\\newpage \section{{Evaluation}}""")
+            outfile.write(f"""\\newpage \\section{{Evaluation}}\n\\label{{evaluation}}""")
 
             #outfile.write(
             #    f"""
@@ -240,7 +240,7 @@ def write_appendix(properties_dataset, dataset, version, evaluationfile, outfile
 
             \\caption{{ Comparison of the IPC and Autoscale (AS) benchmark sets generated for optimal and agile planning.
              The \\#IPC column shows the number of tasks per domain in the IPC set, which
-            is always 30 for the AS set. The \#s columns show the number of sequences in the
+            is always 30 for the AS set. The \\#s columns show the number of sequences in the
             AS instance sets.  The ``cov range'' columns show the minimum and maximum
             coverage of any planner. The ``comp'' columns report how many pairs of planners yield
             different coverage. We show the value for the AS set and the difference
@@ -391,8 +391,8 @@ def write_appendix(properties_dataset, dataset, version, evaluationfile, outfile
 
         \\newpage
             \\begin{thebibliography}{1}
-                \\bibitem{autoscale} {\\'{A}}lvaro Torralba, Jendrik Seipp, Silvan Sievers, Automatic Instance Generation for Classical Planning, Proceedings of the Thirty-First International Conference on Automated
-               Planning and Scheduling, ICAPS 2021, pages 376--384.
+                \\bibitem{autoscale} {\\'{A}}lvaro Torralba, Jendrik Seipp, Silvan Sievers. 2021. Automatic Instance Generation for Classical Planning. In \\emph{Proceedings of the Thirty-First International Conference on Automated
+               Planning and Scheduling (ICAPS 2021)}, pages 376--384.
             \\end{thebibliography}
         \\end{document}""")
 
