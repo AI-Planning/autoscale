@@ -10,7 +10,7 @@ cycler==0.10.0
     # via matplotlib
 cython==0.29.23
     # via configspace
-joblib==1.0.1
+joblib==1.2.0
     # via
     #   scikit-learn
     #   smac
@@ -22,7 +22,7 @@ lazy-import==0.2.2
     # via smac
 matplotlib==3.4.2
     # via lab
-numpy==1.20.3
+numpy==1.22.0
     # via
     #   configspace
     #   matplotlib
@@ -32,7 +32,7 @@ numpy==1.20.3
     #   smac
 pandas==1.2.4
     # via -r requirements.in
-pillow==8.3.2
+pillow==9.2.0
     # via matplotlib
 psutil==5.8.0
     # via
@@ -70,7 +70,7 @@ threadpoolctl==2.1.0
     # via scikit-learn
 txt2tags==3.7
     # via lab
-wheel==0.36.2
+wheel==0.38.1
     # via -r requirements.in
 z3-solver==4.8.10.0
     # via -r requirements.in
