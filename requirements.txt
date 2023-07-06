@@ -54,7 +54,7 @@ pytz==2021.1
     # via pandas
 scikit-learn==0.24.2
     # via smac
-scipy==1.6.3
+scipy==1.10.0
     # via
     #   scikit-learn
     #   smac
